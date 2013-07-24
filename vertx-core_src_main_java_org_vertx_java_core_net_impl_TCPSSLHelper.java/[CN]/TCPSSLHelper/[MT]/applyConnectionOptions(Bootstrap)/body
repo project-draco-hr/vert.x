@@ -8,7 +8,9 @@
     bootstrap.option(ChannelOption.RCVBUF_ALLOCATOR,new FixedRecvByteBufAllocator(tcpReceiveBufferSize));
   }
   bootstrap.option(ChannelOption.SO_LINGER,soLinger);
-  bootstrap.option(ChannelOption.IP_TOS,trafficClass);
+  if (trafficClass != -1) {
+    bootstrap.option(ChannelOption.IP_TOS,trafficClass);
+  }
   bootstrap.option(ChannelOption.CONNECT_TIMEOUT_MILLIS,connectTimeout);
   bootstrap.option(ChannelOption.ALLOCATOR,PartialPooledByteBufAllocator.INSTANCE);
   bootstrap.option(ChannelOption.SO_KEEPALIVE,tcpKeepAlive);

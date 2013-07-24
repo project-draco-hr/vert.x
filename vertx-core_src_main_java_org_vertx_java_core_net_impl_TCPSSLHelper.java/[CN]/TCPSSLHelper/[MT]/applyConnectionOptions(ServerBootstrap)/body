@@ -8,7 +8,9 @@
     bootstrap.childOption(ChannelOption.RCVBUF_ALLOCATOR,new FixedRecvByteBufAllocator(tcpReceiveBufferSize));
   }
   bootstrap.option(ChannelOption.SO_LINGER,soLinger);
-  bootstrap.childOption(ChannelOption.IP_TOS,trafficClass);
+  if (trafficClass != -1) {
+    bootstrap.childOption(ChannelOption.IP_TOS,trafficClass);
+  }
   bootstrap.childOption(ChannelOption.ALLOCATOR,PartialPooledByteBufAllocator.INSTANCE);
   bootstrap.childOption(ChannelOption.SO_KEEPALIVE,tcpKeepAlive);
   bootstrap.option(ChannelOption.SO_REUSEADDR,reuseAddress);
