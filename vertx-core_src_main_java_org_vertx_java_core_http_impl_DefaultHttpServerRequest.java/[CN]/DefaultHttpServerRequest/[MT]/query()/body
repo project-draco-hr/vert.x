@@ -1,6 +1,6 @@
 {
   if (query == null) {
-    query=juri().getQuery();
+    query=UriParser.query(uri());
   }
   return query;
 }

@@ -1,0 +1,9 @@
+{
+  int i=uri.indexOf('?');
+  if (i == -1) {
+    return null;
+  }
+ else {
+    return uri.substring(i + 1,uri.length());
+  }
+}

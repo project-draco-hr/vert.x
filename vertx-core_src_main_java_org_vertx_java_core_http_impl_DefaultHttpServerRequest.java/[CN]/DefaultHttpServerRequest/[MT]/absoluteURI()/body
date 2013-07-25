@@ -1,7 +1,7 @@
 {
   if (absoluteURI == null) {
     try {
-      URI uri=juri();
+      URI uri=new URI(uri());
       String scheme=uri.getScheme();
       if (scheme != null && (scheme.equals("http") || scheme.equals("https"))) {
         absoluteURI=uri;
