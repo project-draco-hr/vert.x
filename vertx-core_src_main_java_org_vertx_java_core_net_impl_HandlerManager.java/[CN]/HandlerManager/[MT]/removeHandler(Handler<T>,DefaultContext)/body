@@ -1,11 +1,13 @@
 {
   EventLoop worker=context.getEventLoop();
-  Handlers<T> handlers=handlerMap.get(worker);
-  if (!handlers.removeHandler(new HandlerHolder<>(context,handler))) {
-    throw new IllegalStateException("Can't find handler");
-  }
-  if (handlers.isEmpty()) {
-    handlerMap.remove(worker);
+synchronized (this) {
+    Handlers<T> handlers=handlerMap.get(worker);
+    if (!handlers.removeHandler(new HandlerHolder<>(context,handler))) {
+      throw new IllegalStateException("Can't find handler");
+    }
+    if (handlers.isEmpty()) {
+      handlerMap.remove(worker);
+    }
   }
   availableWorkers.removeWorker(worker);
 }
