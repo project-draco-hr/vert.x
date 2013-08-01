@@ -1,0 +1,6 @@
+{
+  if (netSocket == null) {
+    netSocket=conn.createNetSocket();
+  }
+  return netSocket;
+}

@@ -1,0 +1,14 @@
+{
+  if (paused) {
+    if (pausedChunks == null) {
+      pausedChunks=new LinkedList<>();
+    }
+    pausedChunks.add(data);
+  }
+ else {
+    request.dataReceived();
+    if (dataHandler != null) {
+      dataHandler.handle(data);
+    }
+  }
+}

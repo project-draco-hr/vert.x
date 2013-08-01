@@ -1,0 +1,4 @@
+{
+  this.wsConnect=wsConnect;
+  this.context=vertx.getContext();
+}

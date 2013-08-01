@@ -1,0 +1,4 @@
+{
+  this.statusMessage=statusMessage;
+  return this;
+}

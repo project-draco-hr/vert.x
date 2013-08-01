@@ -1,0 +1,10 @@
+{
+  authCache.remove(sessionID);
+  Set<String> sess=sockAuths.get(sock);
+  if (sess != null) {
+    sess.remove(sessionID);
+    if (sess.isEmpty()) {
+      sockAuths.remove(sock);
+    }
+  }
+}

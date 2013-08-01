@@ -1,0 +1,5 @@
+{
+  if (!connected && !rejected) {
+    connect();
+  }
+}

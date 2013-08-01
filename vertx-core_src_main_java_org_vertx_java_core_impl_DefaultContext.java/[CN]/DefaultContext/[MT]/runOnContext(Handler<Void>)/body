@@ -1,0 +1,8 @@
+{
+  execute(new Runnable(){
+    public void run(){
+      task.handle(null);
+    }
+  }
+);
+}

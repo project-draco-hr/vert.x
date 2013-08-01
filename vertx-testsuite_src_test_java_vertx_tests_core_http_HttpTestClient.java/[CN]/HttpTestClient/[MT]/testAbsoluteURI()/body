@@ -1,0 +1,3 @@
+{
+  testURIAndPath("http://localhost:8080/this/is/a/path/foo.html","/this/is/a/path/foo.html");
+}

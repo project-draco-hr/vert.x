@@ -1,0 +1,20 @@
+{
+  try {
+    String source=new String(Files.readAllBytes(file.toPath()),StandardCharsets.UTF_8);
+    source=source.replaceAll(REMOVE_COMMENTS_REGEXP," ");
+    for (    String line : source.split("\\r?\\n")) {
+      line=line.trim();
+      if (!line.isEmpty()) {
+        int idx=line.indexOf("package ");
+        if (idx != -1) {
+          return line.substring(line.indexOf(' ',idx),line.indexOf(';',idx)).trim();
+        }
+        return null;
+      }
+    }
+    return null;
+  }
+ catch (  IOException e) {
+    throw new RuntimeException(e);
+  }
+}

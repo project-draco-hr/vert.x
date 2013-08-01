@@ -1,0 +1,6 @@
+{
+  if (acceptBackLog < 0) {
+    throw new IllegalArgumentException("acceptBackLog must be >= 0");
+  }
+  this.acceptBackLog=acceptBackLog;
+}

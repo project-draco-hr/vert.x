@@ -1,0 +1,4 @@
+{
+  tu.azzert(vertx.sharedData().getMap("mymap").get("childstarted").equals("true"));
+  tu.testComplete();
+}

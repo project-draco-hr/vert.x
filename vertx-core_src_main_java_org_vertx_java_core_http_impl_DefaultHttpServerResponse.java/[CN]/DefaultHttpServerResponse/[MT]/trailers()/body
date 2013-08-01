@@ -1,0 +1,9 @@
+{
+  if (trailers == null) {
+    if (trailing == null) {
+      trailing=new DefaultLastHttpContent();
+    }
+    trailers=new HttpHeadersAdapter(trailing.trailingHeaders());
+  }
+  return trailers;
+}

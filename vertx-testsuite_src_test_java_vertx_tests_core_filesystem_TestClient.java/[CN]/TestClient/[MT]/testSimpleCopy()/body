@@ -1,0 +1,12 @@
+{
+  final String source="foo.txt";
+  final String target="bar.txt";
+  createFileWithJunk(source,100);
+  testCopy(source,target,false,true,new VoidHandler(){
+    public void handle(){
+      tu.azzert(fileExists(source));
+      tu.azzert(fileExists(target));
+    }
+  }
+);
+}

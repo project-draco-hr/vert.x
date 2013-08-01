@@ -1,0 +1,9 @@
+{
+synchronized (tasks) {
+    tasks.add(command);
+    if (!running) {
+      running=true;
+      parent.execute(runner);
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  try {
+    ByteArrayOutputStream baos=new ByteArrayOutputStream();
+    ObjectOutputStream oos=new ObjectOutputStream(baos);
+    oos.writeObject(this);
+    oos.flush();
+    return baos.toByteArray();
+  }
+ catch (  Exception e) {
+    throw new RuntimeException("Failed to serialise:" + e.getMessage());
+  }
+}

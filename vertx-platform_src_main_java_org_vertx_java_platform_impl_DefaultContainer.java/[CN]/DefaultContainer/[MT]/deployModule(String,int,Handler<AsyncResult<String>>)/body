@@ -1,0 +1,3 @@
+{
+  mgr.deployModule(moduleName,null,instances,doneHandler);
+}

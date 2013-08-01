@@ -1,0 +1,4 @@
+{
+  openInternal(path,perms,handler).run();
+  return this;
+}

@@ -1,0 +1,35 @@
+{
+  checkWorkerContext();
+  if (main == null) {
+    throw new NullPointerException("main cannot be null");
+  }
+  if (urls == null) {
+    throw new IllegalStateException("deployment classpath for deploy is null");
+  }
+  String depName=genDepName();
+  ModuleIdentifier enclosingModName=getEnclosingModID();
+  String moduleKey;
+  if (enclosingModName == null) {
+    moduleKey=ModuleIdentifier.createInternalModIDForVerticle(depName).toString();
+  }
+ else {
+    moduleKey=enclosingModName.toString() + "#" + main;
+  }
+  ModuleReference mr=moduleRefs.get(moduleKey);
+  if (mr == null) {
+    mr=new ModuleReference(this,moduleKey,new ModuleClassLoader(platformClassLoader,urls,false),false);
+    ModuleReference prev=moduleRefs.putIfAbsent(moduleKey,mr);
+    if (prev != null) {
+      mr=prev;
+    }
+  }
+  if (enclosingModName != null) {
+    ModuleReference parentRef=moduleRefs.get(enclosingModName.toString());
+    mr.mcl.addParent(parentRef);
+    parentRef.incRef();
+  }
+  if (includes != null) {
+    loadIncludedModules(modRoot,currentModDir,mr,includes);
+  }
+  doDeploy(depName,false,worker,multiThreaded,main,null,config,urls,instances,currentModDir,mr,modRoot,doneHandler);
+}

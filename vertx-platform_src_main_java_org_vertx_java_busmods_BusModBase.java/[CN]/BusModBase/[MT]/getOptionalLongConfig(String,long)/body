@@ -1,0 +1,4 @@
+{
+  Number l=config.getNumber(fieldName);
+  return l == null ? defaultValue : l.longValue();
+}

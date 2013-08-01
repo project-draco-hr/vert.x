@@ -1,0 +1,5 @@
+{
+  checkListening();
+  tcpHelper.setSSL(ssl);
+  return this;
+}

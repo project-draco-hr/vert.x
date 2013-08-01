@@ -1,0 +1,23 @@
+{
+  final String dir="some-dir";
+  final String file1=pathSep + "file1.dat";
+  final String file2=pathSep + "index.html";
+  final String dir2="next-dir";
+  final String file3=pathSep + "blah.java";
+  mkDir(dir);
+  createFileWithJunk(dir + file1,100);
+  createFileWithJunk(dir + file2,100);
+  mkDir(dir + pathSep + dir2);
+  createFileWithJunk(dir + pathSep + dir2+ file3,100);
+  final String target="some-other-dir";
+  testCopy(dir,target,true,true,new VoidHandler(){
+    public void handle(){
+      tu.azzert(fileExists(dir));
+      tu.azzert(fileExists(target));
+      tu.azzert(fileExists(target + file1));
+      tu.azzert(fileExists(target + file2));
+      tu.azzert(fileExists(target + pathSep + dir2+ file3));
+    }
+  }
+);
+}

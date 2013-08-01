@@ -1,0 +1,3 @@
+{
+  testSetShort(new Buffer());
+}

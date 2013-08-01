@@ -1,0 +1,4 @@
+Writer out
+String str
+boolean escapeSingleQuote
+boolean escapeForwardSlash

@@ -1,0 +1,12 @@
+{
+  final CountDownLatch latch=new CountDownLatch(1);
+  final Vertx vertx=VertxFactory.newVertx();
+  vertx.fileSystem().open(TMP_DIR + "/foo",new AsyncResultHandler<AsyncFile>(){
+    public void handle(    AsyncResult event){
+      assert(vertx.isEventLoop());
+      latch.countDown();
+    }
+  }
+);
+  assert(latch.await(5,TimeUnit.SECONDS));
+}

@@ -1,0 +1,3 @@
+{
+  return map.remove(o,o1);
+}

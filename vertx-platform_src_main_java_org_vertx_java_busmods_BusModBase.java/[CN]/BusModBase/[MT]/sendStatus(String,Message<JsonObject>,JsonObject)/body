@@ -1,0 +1,7 @@
+{
+  if (json == null) {
+    json=new JsonObject();
+  }
+  json.putString("status",status);
+  message.reply(json);
+}

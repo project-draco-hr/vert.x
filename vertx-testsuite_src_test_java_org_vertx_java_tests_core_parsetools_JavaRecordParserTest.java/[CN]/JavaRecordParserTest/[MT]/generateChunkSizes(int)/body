@@ -1,0 +1,7 @@
+{
+  List<Integer> chunkSizes=new ArrayList<Integer>();
+  for (int i=1; i < lines / 5; i++) {
+    chunkSizes.add(i);
+  }
+  return chunkSizes;
+}

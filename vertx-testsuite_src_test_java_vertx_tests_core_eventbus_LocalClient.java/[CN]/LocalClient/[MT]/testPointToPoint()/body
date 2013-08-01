@@ -1,0 +1,8 @@
+{
+  Buffer buff=TestUtils.generateRandomBuffer(1000);
+  data.put("buffer",buff);
+  Set<String> addresses=vertx.sharedData().getSet("addresses");
+  for (  String address : addresses) {
+    eb.send(address,buff);
+  }
+}

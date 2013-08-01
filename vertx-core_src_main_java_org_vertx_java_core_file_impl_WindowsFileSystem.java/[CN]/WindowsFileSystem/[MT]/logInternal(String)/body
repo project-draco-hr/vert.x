@@ -1,0 +1,5 @@
+{
+  if (perms != null && log.isDebugEnabled()) {
+    log.debug("You are running on Windows and POSIX style file permissions are not supported");
+  }
+}

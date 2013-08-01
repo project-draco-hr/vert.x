@@ -1,0 +1,6 @@
+{
+  PingInfo info=pingInfos.get(sock);
+  if (info != null) {
+    info.lastPing=System.currentTimeMillis();
+  }
+}

@@ -1,0 +1,3 @@
+ClassLoader platformClassLoader
+URL[] classpath
+boolean loadResourcesFromTCCL

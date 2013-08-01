@@ -1,0 +1,3 @@
+{
+  testSimpleRequest("CONNECT",false);
+}

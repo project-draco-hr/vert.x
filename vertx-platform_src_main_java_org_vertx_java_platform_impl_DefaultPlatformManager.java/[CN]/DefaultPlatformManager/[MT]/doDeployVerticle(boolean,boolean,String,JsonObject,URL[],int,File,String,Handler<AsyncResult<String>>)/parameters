@@ -1,0 +1,9 @@
+boolean worker
+boolean multiThreaded
+String main
+JsonObject config
+URL[] urls
+int instances
+File currentModDir
+String includes
+Handler<AsyncResult<String>> doneHandler

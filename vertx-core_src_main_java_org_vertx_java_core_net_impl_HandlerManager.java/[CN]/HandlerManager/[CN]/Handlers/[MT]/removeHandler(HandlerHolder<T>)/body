@@ -1,0 +1,9 @@
+{
+  if (list.remove(handler)) {
+    checkPos();
+    return true;
+  }
+ else {
+    return false;
+  }
+}

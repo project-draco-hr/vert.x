@@ -1,0 +1,4 @@
+String file
+long truncatedLen
+boolean shouldPass
+Handler<Void> afterOK

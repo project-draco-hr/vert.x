@@ -1,0 +1,5 @@
+{
+  if (closeHandler != null) {
+    closeHandler.handle(null);
+  }
+}

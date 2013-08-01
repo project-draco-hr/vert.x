@@ -1,0 +1,30 @@
+{
+  if (conn == null || conn.isClosed()) {
+    return;
+  }
+  boolean valid=false;
+  if (msg instanceof HttpResponse) {
+    HttpResponse response=(HttpResponse)msg;
+    conn.handleResponse(response);
+    valid=true;
+  }
+  if (msg instanceof HttpContent) {
+    HttpContent chunk=(HttpContent)msg;
+    if (chunk.content().isReadable()) {
+      Buffer buff=new Buffer(chunk.content().slice());
+      conn.handleResponseChunk(buff);
+    }
+    if (chunk instanceof LastHttpContent) {
+      conn.handleResponseEnd((LastHttpContent)chunk);
+    }
+    valid=true;
+  }
+ else   if (msg instanceof WebSocketFrame) {
+    WebSocketFrame frame=(WebSocketFrame)msg;
+    conn.handleWsFrame(frame);
+    valid=true;
+  }
+  if (!valid) {
+    throw new IllegalStateException("Invalid object " + msg);
+  }
+}

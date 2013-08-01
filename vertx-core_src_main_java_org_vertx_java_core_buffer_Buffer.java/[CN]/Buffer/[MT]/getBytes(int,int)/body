@@ -1,0 +1,5 @@
+{
+  byte[] arr=new byte[end - start];
+  buffer.getBytes(start,arr,0,end - start);
+  return arr;
+}

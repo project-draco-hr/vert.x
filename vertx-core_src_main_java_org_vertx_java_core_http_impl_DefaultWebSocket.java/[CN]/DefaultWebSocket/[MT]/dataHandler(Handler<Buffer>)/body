@@ -1,0 +1,5 @@
+{
+  checkClosed();
+  this.dataHandler=handler;
+  return this;
+}

@@ -1,0 +1,7 @@
+{
+  if (maxQueueSize < 1) {
+    throw new IllegalArgumentException("maxQueueSize must be >= 1");
+  }
+  this.maxQueueSize=maxQueueSize;
+  return this;
+}

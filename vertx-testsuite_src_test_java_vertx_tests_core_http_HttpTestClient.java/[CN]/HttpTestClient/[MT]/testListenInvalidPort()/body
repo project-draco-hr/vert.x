@@ -1,0 +1,16 @@
+{
+  server=vertx.createHttpServer();
+  server.requestHandler(new Handler<HttpServerRequest>(){
+    public void handle(    HttpServerRequest req){
+    }
+  }
+);
+  server.listen(1128371831,new AsyncResultHandler<HttpServer>(){
+    @Override public void handle(    AsyncResult<HttpServer> ar){
+      tu.azzert(ar.failed());
+      tu.azzert(ar.cause() != null);
+      tu.testComplete();
+    }
+  }
+);
+}

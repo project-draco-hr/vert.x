@@ -1,0 +1,4 @@
+{
+  Number n=getNumber(fieldName);
+  return n == null ? def : n;
+}

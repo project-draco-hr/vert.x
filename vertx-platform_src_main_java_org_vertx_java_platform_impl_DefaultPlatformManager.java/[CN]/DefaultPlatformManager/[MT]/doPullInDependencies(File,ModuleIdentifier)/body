@@ -1,0 +1,43 @@
+{
+  File modDir=new File(modRoot,modID.toString());
+  if (!modDir.exists()) {
+    log.error("Cannot find module to uninstall");
+  }
+  JsonObject conf=loadModuleConfig(modID,modDir);
+  if (conf == null) {
+    log.error("Module " + modID + " does not contain a mod.json");
+  }
+  ModuleFields fields=new ModuleFields(conf);
+  List<String> mods=new ArrayList<>();
+  String includes=fields.getIncludes();
+  if (includes != null) {
+    mods.addAll(Arrays.asList(parseIncludeString(includes)));
+  }
+  String deploys=fields.getDeploys();
+  if (deploys != null) {
+    mods.addAll(Arrays.asList(parseIncludeString(deploys)));
+  }
+  if (!mods.isEmpty()) {
+    File internalModsDir=new File(modDir,"mods");
+    if (!internalModsDir.exists()) {
+      if (!internalModsDir.mkdir()) {
+        throw new PlatformManagerException("Failed to create directory " + internalModsDir);
+      }
+    }
+    for (    String modName : mods) {
+      File internalModDir=new File(internalModsDir,modName);
+      if (!internalModDir.exists()) {
+        ModuleIdentifier theModID=new ModuleIdentifier(modName);
+        ModuleZipInfo zipInfo=getModule(theModID);
+        if (zipInfo.filename != null) {
+          if (!internalModDir.mkdir()) {
+            throw new PlatformManagerException("Failed to create directory " + internalModDir);
+          }
+          unzipModuleData(internalModDir,zipInfo,true);
+          log.info("Module " + modName + " successfully installed in mods dir of "+ modName);
+          doPullInDependencies(internalModsDir,theModID);
+        }
+      }
+    }
+  }
+}

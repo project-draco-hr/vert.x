@@ -1,0 +1,4 @@
+{
+  String str=getString(fieldName);
+  return str == null ? def : str;
+}

@@ -1,0 +1,5 @@
+{
+  checkListening();
+  tcpHelper.setClientAuthRequired(required);
+  return this;
+}

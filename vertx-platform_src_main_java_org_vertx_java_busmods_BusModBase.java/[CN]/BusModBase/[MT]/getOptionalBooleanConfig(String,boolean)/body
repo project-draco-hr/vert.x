@@ -1,0 +1,4 @@
+{
+  Boolean b=config.getBoolean(fieldName);
+  return b == null ? defaultValue : b.booleanValue();
+}

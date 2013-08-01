@@ -1,0 +1,31 @@
+{
+switch (request.method()) {
+case "GET":
+    route(request,getBindings);
+  break;
+case "PUT":
+route(request,putBindings);
+break;
+case "POST":
+route(request,postBindings);
+break;
+case "DELETE":
+route(request,deleteBindings);
+break;
+case "OPTIONS":
+route(request,optionsBindings);
+break;
+case "HEAD":
+route(request,headBindings);
+break;
+case "TRACE":
+route(request,traceBindings);
+break;
+case "PATCH":
+route(request,patchBindings);
+break;
+case "CONNECT":
+route(request,connectBindings);
+break;
+}
+}

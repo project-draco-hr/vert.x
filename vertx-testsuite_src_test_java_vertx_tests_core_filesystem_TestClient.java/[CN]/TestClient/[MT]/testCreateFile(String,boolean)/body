@@ -1,0 +1,37 @@
+{
+  final String fileName="some-file.dat";
+  AsyncResultHandler<Void> handler=new AsyncResultHandler<Void>(){
+    public void handle(    AsyncResult<Void> ar){
+      tu.checkThread();
+      if (ar.failed()) {
+        if (shouldPass) {
+          tu.exception(ar.cause(),"failed to create");
+        }
+ else {
+          tu.azzert(ar.cause() instanceof FileSystemException);
+          tu.testComplete();
+        }
+      }
+ else {
+        if (shouldPass) {
+          tu.azzert(fileExists(fileName));
+          tu.azzert(0 == fileLength(fileName));
+          if (perms != null) {
+            azzertPerms(perms,fileName);
+          }
+          tu.testComplete();
+        }
+ else {
+          tu.azzert(false,"test should fail");
+        }
+      }
+    }
+  }
+;
+  if (perms != null) {
+    vertx.fileSystem().createFile(TEST_DIR + pathSep + fileName,perms,handler);
+  }
+ else {
+    vertx.fileSystem().createFile(TEST_DIR + pathSep + fileName,handler);
+  }
+}

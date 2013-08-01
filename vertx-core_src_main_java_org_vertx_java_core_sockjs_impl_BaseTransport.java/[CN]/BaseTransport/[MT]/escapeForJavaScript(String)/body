@@ -1,0 +1,10 @@
+{
+  try {
+    str=StringEscapeUtils.escapeJavaScript(str);
+  }
+ catch (  Exception e) {
+    log.error("Failed to escape",e);
+    str=null;
+  }
+  return str;
+}

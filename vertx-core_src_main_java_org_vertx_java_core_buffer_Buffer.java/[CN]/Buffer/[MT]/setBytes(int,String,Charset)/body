@@ -1,0 +1,6 @@
+{
+  byte[] bytes=str.getBytes(charset);
+  ensureWritable(pos,bytes.length);
+  buffer.setBytes(pos,bytes);
+  return this;
+}

@@ -1,0 +1,4 @@
+{
+  startApp(MultiThreadedTestClient.class.getName());
+  startTest(getMethodName());
+}

@@ -1,0 +1,24 @@
+{
+  final Handler<Message> replyHandler;
+  if (replyAddress != null) {
+    replyHandler=new Handler<Message>(){
+      public void handle(      Message message){
+        checkAddAccceptedReplyAddress(message.replyAddress());
+        deliverMessage(sock,replyAddress,message);
+      }
+    }
+;
+  }
+ else {
+    replyHandler=null;
+  }
+  if (log.isDebugEnabled()) {
+    log.debug("Forwarding message to address " + address + " on event bus");
+  }
+  if (send) {
+    eb.send(address,body,replyHandler);
+  }
+ else {
+    eb.publish(address,body);
+  }
+}

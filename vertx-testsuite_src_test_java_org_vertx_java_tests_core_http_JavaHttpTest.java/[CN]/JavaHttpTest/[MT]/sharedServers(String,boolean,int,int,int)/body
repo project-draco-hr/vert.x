@@ -1,0 +1,34 @@
+{
+  int numRequests=100;
+  if (initialServers > 0) {
+    String[] appNames=new String[initialServers];
+    for (int i=0; i < initialServers; i++) {
+      appNames[i]=startApp(InstanceCheckServer.class.getName(),1);
+    }
+    vertx.sharedData().getSet("requests").clear();
+    vertx.sharedData().getSet("servers").clear();
+    vertx.sharedData().getSet("instances").clear();
+    vertx.sharedData().getMap("params").put("numRequests",numRequests);
+    startTest(testName);
+    assertEquals(numRequests,vertx.sharedData().getSet("requests").size());
+    assertEquals(initialServers,vertx.sharedData().getSet("instances").size());
+    for (int i=0; i < initialToStop; i++) {
+      stopApp(appNames[i]);
+    }
+  }
+  vertx.sharedData().getSet("requests").clear();
+  vertx.sharedData().getSet("servers").clear();
+  vertx.sharedData().getSet("instances").clear();
+  vertx.sharedData().getMap("params").put("numRequests",numRequests);
+  if (multipleInstances) {
+    startApp(InstanceCheckServer.class.getName(),numInstances);
+  }
+ else {
+    for (int i=0; i < numInstances; i++) {
+      startApp(InstanceCheckServer.class.getName(),1);
+    }
+  }
+  startTest(testName);
+  assertEquals(numRequests,vertx.sharedData().getSet("requests").size());
+  assertEquals(numInstances + initialServers - initialToStop,vertx.sharedData().getSet("instances").size());
+}

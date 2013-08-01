@@ -1,0 +1,3 @@
+{
+  super(DefaultNetServer.this.vertx,socketMap);
+}

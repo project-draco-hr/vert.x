@@ -1,0 +1,22 @@
+{
+  this.platformClassLoader=Thread.currentThread().getContextClassLoader();
+  this.vertx=new WrappedVertx(vertx);
+  String modDir=System.getProperty(MODS_DIR_PROP_NAME);
+  if (modDir != null && !modDir.trim().equals("")) {
+    modRoot=new File(modDir);
+  }
+ else {
+    modRoot=new File(LOCAL_MODS_DIR);
+  }
+  String vertxHome=System.getProperty(VERTX_HOME_SYS_PROP);
+  if (vertxHome == null || modDir != null) {
+    systemModRoot=modRoot;
+  }
+ else {
+    systemModRoot=new File(vertxHome,SYS_MODS_DIR);
+  }
+  this.redeployer=new Redeployer(vertx,this);
+  this.disableMavenLocal=System.getenv("VERTX_DISABLE_MAVENLOCAL") != null;
+  loadLanguageMappings();
+  loadRepos();
+}

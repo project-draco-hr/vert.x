@@ -1,0 +1,13 @@
+{
+  int pos=0;
+  int chunkPos=0;
+  while (pos < input.length()) {
+    int chunkSize=chunkSizes[chunkPos++];
+    if (chunkPos == chunkSizes.length)     chunkPos=0;
+    int end=pos + chunkSize;
+    end=end <= input.length() ? end : input.length();
+    Buffer sub=input.getBuffer(pos,end);
+    parser.handle(sub);
+    pos+=chunkSize;
+  }
+}

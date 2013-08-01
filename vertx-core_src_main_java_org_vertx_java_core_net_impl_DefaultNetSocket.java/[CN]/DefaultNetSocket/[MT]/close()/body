@@ -1,0 +1,9 @@
+{
+  if (writeFuture != null) {
+    writeFuture.addListener(ChannelFutureListener.CLOSE);
+    channel.flush();
+  }
+ else {
+    super.close();
+  }
+}

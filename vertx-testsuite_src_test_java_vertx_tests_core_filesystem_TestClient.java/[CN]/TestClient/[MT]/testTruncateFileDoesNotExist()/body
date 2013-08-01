@@ -1,0 +1,5 @@
+{
+  String file1="some-file.dat";
+  long truncatedLen=534;
+  testTruncate(file1,truncatedLen,false,null);
+}

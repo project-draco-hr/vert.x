@@ -1,0 +1,15 @@
+{
+  if (connected) {
+    message.write(socket);
+  }
+ else {
+synchronized (this) {
+      if (connected) {
+        message.write(socket);
+      }
+ else {
+        pending.add(message);
+      }
+    }
+  }
+}

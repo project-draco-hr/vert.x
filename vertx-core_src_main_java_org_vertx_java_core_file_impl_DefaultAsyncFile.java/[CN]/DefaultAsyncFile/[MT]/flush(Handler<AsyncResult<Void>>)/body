@@ -1,0 +1,4 @@
+{
+  doFlush(handler);
+  return this;
+}

@@ -1,0 +1,19 @@
+{
+  if (holder.timeoutID != -1) {
+    vertx.cancelTimer(holder.timeoutID);
+  }
+  if (holder.pingTimeoutID != -1) {
+    vertx.cancelTimer(holder.pingTimeoutID);
+  }
+  try {
+    holder.socket.close();
+  }
+ catch (  Exception ignore) {
+  }
+  if (connections.remove(theServerID,holder)) {
+    log.debug("Cluster connection closed: " + theServerID + " holder "+ holder);
+    if (failed) {
+      cleanSubsForServerID(theServerID);
+    }
+  }
+}

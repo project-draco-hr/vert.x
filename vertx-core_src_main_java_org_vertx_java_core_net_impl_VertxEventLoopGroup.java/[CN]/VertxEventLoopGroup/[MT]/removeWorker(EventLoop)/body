@@ -1,0 +1,13 @@
+{
+  EventLoopHolder holder=findHolder(worker);
+  if (holder != null) {
+    holder.count--;
+    if (holder.count == 0) {
+      workers.remove(holder);
+    }
+    checkPos();
+  }
+ else {
+    throw new IllegalStateException("Can't find worker to remove");
+  }
+}

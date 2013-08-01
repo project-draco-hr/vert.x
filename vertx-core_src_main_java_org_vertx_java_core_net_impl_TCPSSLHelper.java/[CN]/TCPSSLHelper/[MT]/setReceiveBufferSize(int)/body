@@ -1,0 +1,6 @@
+{
+  if (size < 1) {
+    throw new IllegalArgumentException("TCP receive buffer size must be >= 1");
+  }
+  this.tcpReceiveBufferSize=size;
+}

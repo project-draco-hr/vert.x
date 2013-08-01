@@ -1,0 +1,21 @@
+{
+  if (paused) {
+    complete=true;
+  }
+ else {
+    if (file == null) {
+      notifyEndHandler();
+    }
+ else {
+      file.close(new AsyncResultHandler<Void>(){
+        @Override public void handle(        AsyncResult<Void> event){
+          if (event.failed()) {
+            notifyExceptionHandler(event.cause());
+          }
+          notifyEndHandler();
+        }
+      }
+);
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  for (  E e : es) {
+    map.put(e,O);
+  }
+  return true;
+}

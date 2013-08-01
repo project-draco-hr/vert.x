@@ -1,0 +1,10 @@
+{
+  InternalTimerHandler handler=timeouts.remove(id);
+  if (handler != null) {
+    handler.context.removeCloseHook(handler);
+    return handler.cancel();
+  }
+ else {
+    return false;
+  }
+}

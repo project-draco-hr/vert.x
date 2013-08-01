@@ -1,0 +1,3 @@
+{
+  return append(str,Charset.forName(enc));
+}

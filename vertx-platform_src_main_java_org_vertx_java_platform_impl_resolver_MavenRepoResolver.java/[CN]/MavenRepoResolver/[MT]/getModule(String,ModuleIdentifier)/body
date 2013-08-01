@@ -1,0 +1,5 @@
+{
+  HttpResolution res=new MavenResolution(vertx,repoHost,repoPort,moduleIdentifier,filename,contentRoot);
+  res.getModule();
+  return res.waitResult();
+}

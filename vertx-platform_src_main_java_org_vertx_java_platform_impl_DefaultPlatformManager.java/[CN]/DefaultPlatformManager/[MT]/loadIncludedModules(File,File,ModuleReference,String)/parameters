@@ -1,0 +1,4 @@
+File modRoot
+File currentModuleDir
+ModuleReference mr
+String includesString

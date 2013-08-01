@@ -1,0 +1,3 @@
+{
+  testSetBytesString(new Buffer(150));
+}

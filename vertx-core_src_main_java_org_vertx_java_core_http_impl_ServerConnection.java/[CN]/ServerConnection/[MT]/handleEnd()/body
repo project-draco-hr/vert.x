@@ -1,0 +1,10 @@
+{
+  try {
+    setContext();
+    currentRequest.handleEnd();
+    currentRequest=null;
+  }
+ catch (  Throwable t) {
+    handleHandlerException(t);
+  }
+}

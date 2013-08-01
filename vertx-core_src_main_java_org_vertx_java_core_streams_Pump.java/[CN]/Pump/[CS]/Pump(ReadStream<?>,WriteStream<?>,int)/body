@@ -1,0 +1,4 @@
+{
+  this(rs,ws);
+  this.writeStream.setWriteQueueMaxSize(maxWriteQueueSize);
+}

@@ -1,0 +1,10 @@
+{
+  int len=buff.length();
+  while (len - start >= recordSize && !reset) {
+    int end=start + recordSize;
+    Buffer ret=buff.getBuffer(start,end);
+    start=end;
+    pos=start - 1;
+    output.handle(ret);
+  }
+}

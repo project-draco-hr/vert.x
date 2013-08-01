@@ -1,0 +1,15 @@
+{
+  try (Scanner scanner=new Scanner(new File(modDir,"mod.json")).useDelimiter("\\A")){
+    String conf=scanner.next();
+    return new JsonObject(conf);
+  }
+ catch (  FileNotFoundException e) {
+    throw new PlatformManagerException("Module " + modID + " does not contain a mod.json file");
+  }
+catch (  NoSuchElementException e) {
+    throw new PlatformManagerException("Module " + modID + " contains an empty mod.json file");
+  }
+catch (  DecodeException e) {
+    throw new PlatformManagerException("Module " + modID + " mod.json contains invalid json");
+  }
+}

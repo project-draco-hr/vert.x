@@ -1,0 +1,3 @@
+{
+  return createFileInternal(path,null,handler);
+}

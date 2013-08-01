@@ -1,0 +1,6 @@
+{
+  super.handleClosed();
+  if (ws != null) {
+    ws.handleClosed();
+  }
+}

@@ -1,0 +1,6 @@
+{
+  if (value.isArray()) {
+    return addArray(value.asArray());
+  }
+  return addObject(value.asObject());
+}

@@ -1,0 +1,3 @@
+{
+  return newDelimited(latin1StringToBytes(delim),output);
+}

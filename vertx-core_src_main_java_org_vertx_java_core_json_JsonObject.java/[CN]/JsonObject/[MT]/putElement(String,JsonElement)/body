@@ -1,0 +1,6 @@
+{
+  if (value.isArray()) {
+    return this.putArray(fieldName,value.asArray());
+  }
+  return this.putObject(fieldName,value.asObject());
+}

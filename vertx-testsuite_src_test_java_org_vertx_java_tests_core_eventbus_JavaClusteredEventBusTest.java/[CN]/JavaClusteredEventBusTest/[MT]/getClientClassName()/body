@@ -1,0 +1,3 @@
+{
+  return ClusteredClient.class.getName();
+}

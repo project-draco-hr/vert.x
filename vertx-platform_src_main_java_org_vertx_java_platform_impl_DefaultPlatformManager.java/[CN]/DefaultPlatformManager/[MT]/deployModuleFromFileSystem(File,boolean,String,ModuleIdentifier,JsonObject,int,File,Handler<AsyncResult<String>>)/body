@@ -1,0 +1,25 @@
+{
+  checkWorkerContext();
+  File modDir=locateModule(modRoot,currentModDir,modID);
+  if (modDir != null) {
+    JsonObject modJSON=loadModuleConfig(modID,modDir);
+    List<URL> urls=getModuleClasspath(modDir);
+    deployModuleFromModJson(redeploy,modJSON,depName,modID,config,instances,modDir,currentModDir,urls,modRoot,doneHandler);
+  }
+ else {
+    JsonObject modJSON;
+    if (modID.toString().equals(MODULE_NAME_SYS_PROP)) {
+      modJSON=loadModJSONFromClasspath(modID,platformClassLoader);
+    }
+ else {
+      modJSON=null;
+    }
+    if (modJSON != null) {
+      deployModuleFromModJson(redeploy,modJSON,depName,modID,config,instances,modDir,currentModDir,new ArrayList<URL>(),modRoot,doneHandler);
+    }
+ else {
+      doInstallMod(modID);
+      deployModuleFromFileSystem(modRoot,redeploy,depName,modID,config,instances,currentModDir,doneHandler);
+    }
+  }
+}

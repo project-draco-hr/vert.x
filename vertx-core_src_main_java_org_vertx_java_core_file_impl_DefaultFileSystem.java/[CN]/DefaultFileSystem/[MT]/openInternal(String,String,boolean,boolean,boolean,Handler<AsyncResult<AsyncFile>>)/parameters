@@ -1,0 +1,6 @@
+String path
+String perms
+boolean read
+boolean write
+boolean createNew
+Handler<AsyncResult<AsyncFile>> handler

@@ -1,0 +1,4 @@
+{
+  JsonArray arr=getArray(fieldName);
+  return arr == null ? def : arr;
+}

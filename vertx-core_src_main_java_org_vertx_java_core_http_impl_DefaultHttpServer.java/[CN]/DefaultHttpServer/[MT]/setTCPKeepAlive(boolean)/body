@@ -1,0 +1,5 @@
+{
+  checkListening();
+  tcpHelper.setTCPKeepAlive(keepAlive);
+  return this;
+}

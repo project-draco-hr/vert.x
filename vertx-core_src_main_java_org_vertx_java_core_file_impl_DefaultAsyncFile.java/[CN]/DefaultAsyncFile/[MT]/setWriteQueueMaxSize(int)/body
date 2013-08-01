@@ -1,0 +1,6 @@
+{
+  check();
+  this.maxWrites=maxSize;
+  this.lwm=maxWrites / 2;
+  return this;
+}

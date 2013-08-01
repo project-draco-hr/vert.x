@@ -1,0 +1,3 @@
+{
+  return Checker.copyIfRequired(map.remove(o));
+}

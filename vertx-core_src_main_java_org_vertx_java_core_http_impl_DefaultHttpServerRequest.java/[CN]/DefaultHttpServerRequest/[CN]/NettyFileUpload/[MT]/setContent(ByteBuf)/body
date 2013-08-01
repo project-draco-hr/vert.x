@@ -1,0 +1,5 @@
+{
+  completed=true;
+  upload.receiveData(new Buffer(channelBuffer));
+  upload.complete();
+}

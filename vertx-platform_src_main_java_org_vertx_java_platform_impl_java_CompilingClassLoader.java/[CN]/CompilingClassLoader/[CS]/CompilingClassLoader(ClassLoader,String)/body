@@ -1,0 +1,42 @@
+{
+  super(loader);
+  URL resource=getResource(sourceName);
+  if (resource == null) {
+    throw new RuntimeException("Resource not found: " + sourceName);
+  }
+  File sourceFile;
+  try {
+    sourceFile=new File(URLDecoder.decode(resource.getFile(),"UTF-8"));
+  }
+ catch (  UnsupportedEncodingException e) {
+    throw new IllegalStateException("Failed to decode " + e.getMessage());
+  }
+  if (!sourceFile.canRead()) {
+    throw new RuntimeException("File not found: " + sourceFile.getAbsolutePath() + " current dir is: "+ new File(".").getAbsolutePath());
+  }
+  this.javaSourceContext=new JavaSourceContext(sourceFile);
+  try {
+    DiagnosticCollector<JavaFileObject> diagnostics=new DiagnosticCollector<>();
+    JavaCompiler javaCompiler=ToolProvider.getSystemJavaCompiler();
+    StandardJavaFileManager standardFileManager=javaCompiler.getStandardFileManager(null,null,null);
+    standardFileManager.setLocation(StandardLocation.SOURCE_PATH,Collections.singleton(javaSourceContext.getSourceRoot()));
+    fileManager=new MemoryFileManager(loader,standardFileManager);
+    JavaFileObject javaFile=standardFileManager.getJavaFileForInput(StandardLocation.SOURCE_PATH,resolveMainClassName(),Kind.SOURCE);
+    JavaCompiler.CompilationTask task=javaCompiler.getTask(null,fileManager,diagnostics,null,null,Collections.singleton(javaFile));
+    boolean valid=task.call();
+    if (valid) {
+      for (      Diagnostic<?> d : diagnostics.getDiagnostics()) {
+        log.info(d);
+      }
+    }
+ else {
+      for (      Diagnostic<?> d : diagnostics.getDiagnostics()) {
+        log.warn(d);
+      }
+      throw new RuntimeException("Compilation failed!");
+    }
+  }
+ catch (  Exception e) {
+    throw new RuntimeException("Compilation failed",e);
+  }
+}

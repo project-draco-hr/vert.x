@@ -1,0 +1,32 @@
+{
+  final Buffer body=TestUtils.generateRandomBuffer(1000);
+  AsyncResultHandler<HttpServer> handler=new AsyncResultHandler<HttpServer>(){
+    @Override public void handle(    AsyncResult<HttpServer> ar){
+      tu.azzert(ar.succeeded());
+      HttpClientRequest req=getRequest(true,"POST","some-uri",new Handler<HttpClientResponse>(){
+        public void handle(        HttpClientResponse resp){
+          tu.checkThread();
+          resp.bodyHandler(new Handler<Buffer>(){
+            public void handle(            Buffer buff){
+              tu.azzert(TestUtils.buffersEqual(body,buff));
+              tu.testComplete();
+            }
+          }
+);
+        }
+      }
+);
+      req.end();
+    }
+  }
+;
+  startServer(new Handler<HttpServerRequest>(){
+    public void handle(    HttpServerRequest req){
+      tu.checkThread();
+      req.response().setChunked(true);
+      req.response().write(body);
+      req.response().end();
+    }
+  }
+,handler);
+}

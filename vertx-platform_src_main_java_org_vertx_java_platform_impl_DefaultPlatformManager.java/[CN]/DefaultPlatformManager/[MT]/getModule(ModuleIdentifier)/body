@@ -1,0 +1,9 @@
+{
+  String fileName=generateTmpFileName() + ".zip";
+  for (  RepoResolver resolver : repos) {
+    if (resolver.getModule(fileName,modID)) {
+      return new ModuleZipInfo(resolver.isOldStyle(),fileName);
+    }
+  }
+  throw new PlatformManagerException("Module " + modID + " not found in any repositories");
+}

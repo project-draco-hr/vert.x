@@ -1,0 +1,15 @@
+{
+  final Path target=PathAdjuster.adjust(vertx,Paths.get(path));
+  return new BlockingAction<FileSystemProps>(vertx,handler){
+    public FileSystemProps action(){
+      try {
+        FileStore fs=Files.getFileStore(target);
+        return new DefaultFileSystemProps(fs.getTotalSpace(),fs.getUnallocatedSpace(),fs.getUsableSpace());
+      }
+ catch (      IOException e) {
+        throw new FileSystemException(e);
+      }
+    }
+  }
+;
+}

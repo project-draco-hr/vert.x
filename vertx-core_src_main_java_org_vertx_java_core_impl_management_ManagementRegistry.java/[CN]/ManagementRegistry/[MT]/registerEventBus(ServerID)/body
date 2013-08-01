@@ -1,0 +1,13 @@
+{
+  if (!MANAGEMENT_ENABLED)   return;
+  try {
+    ObjectName eventBusName=ObjectName.getInstance(DOMAIN,"Name","EventBus");
+    if (!platformMBeanServer.isRegistered(eventBusName)) {
+      EventBusMXBean eventBusMXBean=new EventBusMXBeanImpl(serverID.host,serverID.port);
+      platformMBeanServer.registerMBean(eventBusMXBean,eventBusName);
+    }
+  }
+ catch (  MalformedObjectNameException|InstanceAlreadyExistsException|MBeanRegistrationException|NotCompliantMBeanException e) {
+    throw new VertxManagementException(e);
+  }
+}

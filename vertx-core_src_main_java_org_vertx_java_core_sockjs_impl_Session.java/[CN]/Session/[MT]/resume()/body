@@ -1,0 +1,9 @@
+{
+  paused=false;
+  if (dataHandler != null) {
+    for (    String msg : this.pendingReads) {
+      dataHandler.handle(new Buffer(msg));
+    }
+  }
+  return this;
+}

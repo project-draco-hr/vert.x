@@ -1,0 +1,7 @@
+{
+  JsonObject envelope=new JsonObject().putString("address",address).putValue("body",message.body());
+  if (message.replyAddress() != null) {
+    envelope.putString("replyAddress",message.replyAddress());
+  }
+  sock.write(new Buffer(envelope.encode()));
+}

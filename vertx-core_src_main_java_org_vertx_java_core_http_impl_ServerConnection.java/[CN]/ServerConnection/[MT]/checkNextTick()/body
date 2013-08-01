@@ -1,0 +1,21 @@
+{
+  if (!sentCheck && !pending.isEmpty() && !paused&& (pendingResponse == null || pending.peek() instanceof HttpContent)) {
+    sentCheck=true;
+    vertx.runOnContext(new VoidHandler(){
+      public void handle(){
+        sentCheck=false;
+        if (!paused) {
+          Object msg=pending.poll();
+          if (msg != null) {
+            processMessage(msg);
+          }
+          if (channelPaused && pending.isEmpty()) {
+            ServerConnection.super.doResume();
+            channelPaused=false;
+          }
+        }
+      }
+    }
+);
+  }
+}

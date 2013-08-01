@@ -1,0 +1,6 @@
+{
+  paused=false;
+  doResume();
+  conn.doResume();
+  return this;
+}

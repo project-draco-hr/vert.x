@@ -1,0 +1,4 @@
+{
+  addPattern(pattern,handler,headBindings);
+  return this;
+}

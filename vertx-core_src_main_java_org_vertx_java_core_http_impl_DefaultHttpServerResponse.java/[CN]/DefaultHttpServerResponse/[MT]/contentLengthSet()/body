@@ -1,0 +1,6 @@
+{
+  if (headers == null) {
+    return false;
+  }
+  return headers.contains(Names.CONTENT_LENGTH);
+}

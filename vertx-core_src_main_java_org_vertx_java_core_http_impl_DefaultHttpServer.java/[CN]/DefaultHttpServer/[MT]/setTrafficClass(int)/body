@@ -1,0 +1,5 @@
+{
+  checkListening();
+  tcpHelper.setTrafficClass(trafficClass);
+  return this;
+}

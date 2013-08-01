@@ -1,0 +1,6 @@
+{
+  this.result=result;
+  succeeded=true;
+  checkCallHandler();
+  return this;
+}

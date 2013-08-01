@@ -1,0 +1,5 @@
+{
+  super.start();
+  tu.appReady();
+  eb=vertx.eventBus();
+}

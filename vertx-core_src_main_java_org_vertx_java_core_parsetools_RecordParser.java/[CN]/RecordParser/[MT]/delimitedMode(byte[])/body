@@ -1,0 +1,6 @@
+{
+  delimited=true;
+  this.delim=delim;
+  delimPos=0;
+  reset=true;
+}

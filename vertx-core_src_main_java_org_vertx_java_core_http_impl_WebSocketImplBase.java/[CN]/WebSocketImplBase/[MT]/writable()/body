@@ -1,0 +1,7 @@
+{
+  if (drainHandler != null) {
+    Handler<Void> dh=drainHandler;
+    drainHandler=null;
+    dh.handle(null);
+  }
+}

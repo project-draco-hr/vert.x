@@ -1,0 +1,51 @@
+{
+  ModuleFields fields=new ModuleFields(modJSON);
+  String main=fields.getMain();
+  if (main == null) {
+    throw new PlatformManagerException("Runnable module " + modID + " mod.json must contain a \"main\" field");
+  }
+  boolean worker=fields.isWorker();
+  boolean multiThreaded=fields.isMultiThreaded();
+  if (multiThreaded && !worker) {
+    throw new PlatformManagerException("Multi-threaded modules must be workers");
+  }
+  boolean preserveCwd=fields.isPreserveCurrentWorkingDirectory();
+  File modDirToUse=preserveCwd ? currentModDir : modDir;
+  ModuleReference mr=moduleRefs.get(modID.toString());
+  if (mr == null) {
+    boolean res=fields.isResident();
+    mr=new ModuleReference(this,modID.toString(),new ModuleClassLoader(platformClassLoader,moduleClasspath.toArray(new URL[moduleClasspath.size()]),fields.isLoadResourcesWithTCCL()),res);
+    ModuleReference prev=moduleRefs.putIfAbsent(modID.toString(),mr);
+    if (prev != null) {
+      mr=prev;
+    }
+  }
+  ModuleIdentifier enclosingModID=getEnclosingModID();
+  if (enclosingModID != null) {
+    ModuleReference parentRef=moduleRefs.get(enclosingModID.toString());
+    mr.mcl.addParent(parentRef);
+    parentRef.incRef();
+  }
+  String includes=fields.getIncludes();
+  if (includes != null) {
+    loadIncludedModules(modRoot,modDir,mr,includes);
+  }
+  final boolean autoRedeploy=fields.isAutoRedeploy();
+  doDeploy(depName,autoRedeploy,worker,multiThreaded,main,modID,config,moduleClasspath.toArray(new URL[moduleClasspath.size()]),instances,modDirToUse,mr,modRoot,new Handler<AsyncResult<String>>(){
+    @Override public void handle(    AsyncResult<String> res){
+      if (res.succeeded()) {
+        String deploymentID=res.result();
+        if (deploymentID != null && !redeploy && autoRedeploy) {
+          redeployer.moduleDeployed(deployments.get(deploymentID));
+        }
+      }
+      if (doneHandler != null) {
+        doneHandler.handle(res);
+      }
+ else       if (res.failed()) {
+        log.error("Failed to deploy",res.cause());
+      }
+    }
+  }
+);
+}

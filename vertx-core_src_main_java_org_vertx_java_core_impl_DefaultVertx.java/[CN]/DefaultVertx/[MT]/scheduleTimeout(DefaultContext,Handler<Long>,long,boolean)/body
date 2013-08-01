@@ -1,0 +1,32 @@
+{
+  if (delay < 1) {
+    throw new IllegalArgumentException("Cannot schedule a timer with delay < 1 ms");
+  }
+  long timerId=timeoutCounter.getAndIncrement();
+  final InternalTimerHandler task=new InternalTimerHandler(timerId,handler,periodic,context);
+  final Runnable wrapped=context.wrapTask(task);
+  final Runnable toRun;
+  final EventLoop el=context.getEventLoop();
+  if (context instanceof EventLoopContext) {
+    toRun=wrapped;
+  }
+ else {
+    toRun=new Runnable(){
+      public void run(){
+        context.execute(wrapped);
+      }
+    }
+;
+  }
+  Future<?> future;
+  if (periodic) {
+    future=el.scheduleAtFixedRate(toRun,delay,delay,TimeUnit.MILLISECONDS);
+  }
+ else {
+    future=el.schedule(toRun,delay,TimeUnit.MILLISECONDS);
+  }
+  task.future=future;
+  timeouts.put(timerId,task);
+  context.addCloseHook(task);
+  return timerId;
+}

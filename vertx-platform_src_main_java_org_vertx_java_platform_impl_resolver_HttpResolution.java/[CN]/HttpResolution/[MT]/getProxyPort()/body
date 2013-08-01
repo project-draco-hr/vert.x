@@ -1,0 +1,3 @@
+{
+  return Integer.valueOf(System.getProperty(HTTP_PROXY_PORT_PROP_NAME,"80"));
+}

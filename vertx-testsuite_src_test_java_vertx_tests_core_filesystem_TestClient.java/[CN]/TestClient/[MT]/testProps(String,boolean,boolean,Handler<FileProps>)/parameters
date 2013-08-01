@@ -1,0 +1,4 @@
+String fileName
+boolean link
+boolean shouldPass
+Handler<FileProps> afterOK

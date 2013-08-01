@@ -1,0 +1,7 @@
+{
+  if (!chunked && !contentLengthSet()) {
+    headers().set(Names.CONTENT_LENGTH,String.valueOf(chunk.length()));
+  }
+  ByteBuf buf=chunk.getByteBuf();
+  end0(buf);
+}

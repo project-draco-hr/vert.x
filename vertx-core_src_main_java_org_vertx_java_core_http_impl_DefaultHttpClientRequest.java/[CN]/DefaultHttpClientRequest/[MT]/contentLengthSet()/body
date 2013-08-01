@@ -1,0 +1,8 @@
+{
+  if (headers != null) {
+    return headers.contains(HttpHeaders.Names.CONTENT_LENGTH);
+  }
+ else {
+    return false;
+  }
+}

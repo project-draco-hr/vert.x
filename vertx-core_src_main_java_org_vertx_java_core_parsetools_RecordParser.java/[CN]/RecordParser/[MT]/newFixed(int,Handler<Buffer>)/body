@@ -1,0 +1,6 @@
+{
+  if (size <= 0)   throw new IllegalArgumentException("Size must be > 0");
+  RecordParser ls=new RecordParser(output);
+  ls.fixedSizeMode(size);
+  return ls;
+}

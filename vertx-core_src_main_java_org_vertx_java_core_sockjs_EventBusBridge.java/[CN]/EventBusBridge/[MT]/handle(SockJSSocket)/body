@@ -1,0 +1,25 @@
+{
+  final Map<String,Handler<Message>> handlers=new HashMap<>();
+  sock.endHandler(new VoidHandler(){
+    public void handle(){
+      handleSocketClosed(sock,handlers);
+    }
+  }
+);
+  sock.dataHandler(new Handler<Buffer>(){
+    public void handle(    Buffer data){
+      handleSocketData(sock,data,handlers);
+    }
+  }
+);
+  final PingInfo pingInfo=new PingInfo();
+  pingInfo.timerID=vertx.setPeriodic(PING_INTERVAL,new Handler<Long>(){
+    @Override public void handle(    Long id){
+      if (System.currentTimeMillis() - pingInfo.lastPing >= PING_INTERVAL) {
+        sock.close();
+      }
+    }
+  }
+);
+  pingInfos.put(sock,pingInfo);
+}

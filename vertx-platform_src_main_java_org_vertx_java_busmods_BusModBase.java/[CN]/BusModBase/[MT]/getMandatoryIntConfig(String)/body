@@ -1,0 +1,7 @@
+{
+  Number i=config.getNumber(fieldName);
+  if (i == null) {
+    throw new IllegalArgumentException(fieldName + " must be specified in config for busmod");
+  }
+  return i.intValue();
+}

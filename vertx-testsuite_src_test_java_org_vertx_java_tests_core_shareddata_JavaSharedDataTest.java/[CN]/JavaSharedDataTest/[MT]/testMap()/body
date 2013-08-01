@@ -1,0 +1,10 @@
+{
+  Map<String,String> map=sharedData.getMap("foo");
+  Map<String,String> map2=sharedData.getMap("foo");
+  assertTrue(map == map2);
+  Map<String,String> map3=sharedData.getMap("bar");
+  assertFalse(map3 == map2);
+  assertTrue(sharedData.removeMap("foo"));
+  Map<String,String> map4=sharedData.getMap("foo");
+  assertFalse(map4 == map3);
+}

@@ -1,0 +1,6 @@
+{
+  if (size <= 0)   throw new IllegalArgumentException("Size must be > 0");
+  delimited=false;
+  recordSize=size;
+  reset=true;
+}

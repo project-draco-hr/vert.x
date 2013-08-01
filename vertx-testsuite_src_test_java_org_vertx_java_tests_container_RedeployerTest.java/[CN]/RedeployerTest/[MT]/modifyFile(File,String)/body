@@ -1,0 +1,6 @@
+{
+  File f=new File(dir,fileName);
+  FileWriter fw=new FileWriter(f,true);
+  fw.write(TestUtils.randomAlphaString(500));
+  fw.close();
+}

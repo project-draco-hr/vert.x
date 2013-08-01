@@ -1,0 +1,4 @@
+{
+  deleteInternal(path,null).action();
+  return this;
+}

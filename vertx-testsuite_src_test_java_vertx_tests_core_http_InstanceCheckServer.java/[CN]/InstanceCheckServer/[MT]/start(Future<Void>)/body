@@ -1,0 +1,24 @@
+{
+  tu=new TestUtils(vertx);
+  server=vertx.createHttpServer().requestHandler(new Handler<HttpServerRequest>(){
+    public void handle(    final HttpServerRequest req){
+      tu.checkThread();
+      vertx.sharedData().getSet("instances").add(id);
+      vertx.sharedData().getSet("requests").add(UUID.randomUUID().toString());
+      req.response().end();
+    }
+  }
+);
+  server.listen(8080,new AsyncResultHandler<HttpServer>(){
+    @Override public void handle(    AsyncResult<HttpServer> ar){
+      if (ar.succeeded()) {
+        tu.appReady();
+        result.setResult(null);
+      }
+ else {
+        ar.cause().printStackTrace();
+      }
+    }
+  }
+);
+}

@@ -1,0 +1,9 @@
+{
+  boolean changed=false;
+  for (  E e : c) {
+    if (map.put(e,OBJ) == null) {
+      changed=true;
+    }
+  }
+  return changed;
+}

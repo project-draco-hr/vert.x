@@ -1,0 +1,5 @@
+{
+  String encoded=Base64.encodeBytes(value);
+  list.add(encoded);
+  return this;
+}

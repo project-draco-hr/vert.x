@@ -1,0 +1,3 @@
+{
+  buffer=Unpooled.unreleasableBuffer(Unpooled.buffer(initialSizeHint,Integer.MAX_VALUE));
+}

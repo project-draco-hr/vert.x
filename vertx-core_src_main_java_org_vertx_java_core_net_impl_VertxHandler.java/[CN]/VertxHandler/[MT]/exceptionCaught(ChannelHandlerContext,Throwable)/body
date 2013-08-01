@@ -1,0 +1,22 @@
+{
+  final Channel ch=chctx.channel();
+  final C connection=connectionMap.get(ch);
+  if (connection != null) {
+    DefaultContext context=getContext(connection);
+    context.execute(ch.eventLoop(),new Runnable(){
+      public void run(){
+        try {
+          if (ch.isOpen()) {
+            ch.close();
+          }
+        }
+ catch (        Throwable ignore) {
+        }
+        connection.handleException(t);
+      }
+    }
+);
+  }
+ else {
+  }
+}

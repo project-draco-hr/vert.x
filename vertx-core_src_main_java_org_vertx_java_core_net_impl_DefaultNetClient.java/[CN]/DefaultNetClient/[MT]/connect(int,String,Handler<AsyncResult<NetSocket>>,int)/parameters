@@ -1,0 +1,4 @@
+int port
+String host
+Handler<AsyncResult<NetSocket>> connectHandler
+int remainingAttempts

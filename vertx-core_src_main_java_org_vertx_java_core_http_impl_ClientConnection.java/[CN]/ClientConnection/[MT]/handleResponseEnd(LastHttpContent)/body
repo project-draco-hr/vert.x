@@ -1,0 +1,12 @@
+{
+  setContext();
+  try {
+    currentResponse.handleEnd(trailer);
+  }
+ catch (  Throwable t) {
+    handleHandlerException(t);
+  }
+  if (!keepAlive) {
+    close();
+  }
+}

@@ -1,0 +1,5 @@
+{
+  DefaultNetSocket sock=new DefaultNetSocket(vertx,ch,actualCtx);
+  socketMap.put(ch,sock);
+  connectHandler.handle(new DefaultFutureResult<NetSocket>(sock));
+}

@@ -1,0 +1,9 @@
+{
+  super.handleClosed();
+  if (ws != null) {
+    ws.handleClosed();
+  }
+  if (pendingResponse != null) {
+    pendingResponse.handleClosed();
+  }
+}

@@ -1,0 +1,6 @@
+{
+  JsonObject objElement=new JsonObject().putString("foo","bar");
+  JsonArray arrayElement=new JsonArray().addString("foo");
+  log.debug(new JsonObject().putElement("elementField",objElement).encode());
+  log.debug(new JsonObject().putElement("elementField",arrayElement).encode());
+}

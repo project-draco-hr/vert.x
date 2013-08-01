@@ -1,0 +1,3 @@
+{
+  return write(new Buffer(chunk,enc).getByteBuf(),null);
+}

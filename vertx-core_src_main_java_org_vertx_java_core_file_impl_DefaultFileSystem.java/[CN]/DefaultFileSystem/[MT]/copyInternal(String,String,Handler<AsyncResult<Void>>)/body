@@ -1,0 +1,3 @@
+{
+  return copyInternal(from,to,false,handler);
+}

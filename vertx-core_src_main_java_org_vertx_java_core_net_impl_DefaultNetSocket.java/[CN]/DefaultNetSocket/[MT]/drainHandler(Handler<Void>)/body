@@ -1,0 +1,10 @@
+{
+  this.drainHandler=drainHandler;
+  vertx.runOnContext(new VoidHandler(){
+    public void handle(){
+      callDrainHandler();
+    }
+  }
+);
+  return this;
+}

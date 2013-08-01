@@ -1,0 +1,6 @@
+{
+  File file=new File(testDir,fileName);
+  Path path=Paths.get(file.getCanonicalPath());
+  Files.write(path,bytes);
+  setPerms(path,DEFAULT_FILE_PERMS);
+}

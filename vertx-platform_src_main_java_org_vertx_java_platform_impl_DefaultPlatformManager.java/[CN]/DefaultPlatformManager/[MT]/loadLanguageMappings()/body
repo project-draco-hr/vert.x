@@ -1,0 +1,26 @@
+{
+  languageImpls.put("java",new LanguageImplInfo(null,"org.vertx.java.platform.impl.java.JavaVerticleFactory"));
+  extensionMappings.put("java","java");
+  extensionMappings.put("class","java");
+  defaultLanguageImplName="java";
+  try (InputStream is=getClass().getClassLoader().getResourceAsStream(LANG_PROPS_FILE_NAME)){
+    if (is != null) {
+      Properties props=new Properties();
+      props.load(new BufferedInputStream(is));
+      loadLanguageMappings(props);
+    }
+  }
+ catch (  IOException e) {
+    throw new PlatformManagerException(e);
+  }
+  Properties sysProps=new Properties();
+  Set<String> propertyNames=System.getProperties().stringPropertyNames();
+  for (  String propertyName : propertyNames) {
+    if (propertyName.startsWith(LANG_IMPLS_SYS_PROP_ROOT)) {
+      String lang=propertyName.substring(LANG_IMPLS_SYS_PROP_ROOT.length());
+      String value=System.getProperty(propertyName);
+      sysProps.put(lang,value);
+    }
+  }
+  loadLanguageMappings(sysProps);
+}

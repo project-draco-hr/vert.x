@@ -1,0 +1,7 @@
+{
+  String val=message.body().getString(field);
+  if (val == null) {
+    sendError(message,field + " must be specified");
+  }
+  return val;
+}

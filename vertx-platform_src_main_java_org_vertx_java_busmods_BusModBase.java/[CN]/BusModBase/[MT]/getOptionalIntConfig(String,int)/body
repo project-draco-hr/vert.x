@@ -1,0 +1,4 @@
+{
+  Number i=config.getNumber(fieldName);
+  return i == null ? defaultValue : i.intValue();
+}

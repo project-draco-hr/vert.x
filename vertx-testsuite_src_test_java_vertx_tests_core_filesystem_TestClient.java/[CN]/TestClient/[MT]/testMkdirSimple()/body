@@ -1,0 +1,10 @@
+{
+  final String dirName="some-dir";
+  testMkdir(dirName,null,false,true,new VoidHandler(){
+    public void handle(){
+      tu.azzert(fileExists(dirName));
+      tu.azzert(Files.isDirectory(Paths.get(TEST_DIR + pathSep + dirName)));
+    }
+  }
+);
+}

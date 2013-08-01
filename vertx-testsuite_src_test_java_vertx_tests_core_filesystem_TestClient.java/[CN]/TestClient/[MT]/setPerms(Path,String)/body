@@ -1,0 +1,10 @@
+{
+  if (Windows.isWindows() == false) {
+    try {
+      Files.setPosixFilePermissions(path,PosixFilePermissions.fromString(perms));
+    }
+ catch (    IOException e) {
+      throw new RuntimeException(e.getMessage());
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  final AtomicInteger clientExceptions=new AtomicInteger();
+  final AtomicInteger req2Exceptions=new AtomicInteger();
+  final AtomicInteger req3Exceptions=new AtomicInteger();
+  final Handler<String> checkEndHandler=new Handler<String>(){
+    public void handle(    final String name){
+      if (clientExceptions.get() == 1 && req2Exceptions.get() == 1 && req3Exceptions.get() == 1) {
+        tu.checkThread();
+        tu.testComplete();
+      }
+    }
+  }
+;
+  client.setPort(9998);
+  client.exceptionHandler(new Handler<Throwable>(){
+    public void handle(    Throwable event){
+      tu.azzert(clientExceptions.incrementAndGet() == 1,"More than more call to client exception handler was not expected");
+      checkEndHandler.handle("Client");
+    }
+  }
+);
+  final HttpClientRequest req1=client.get("someurl1",new Handler<HttpClientResponse>(){
+    public void handle(    final HttpClientResponse response){
+      tu.azzert(false,"Should never get a response on a bad port, if you see this message than you are running an http server on port 9998");
+    }
+  }
+);
+  final HttpClientRequest req2=client.get("someurl2",new Handler<HttpClientResponse>(){
+    public void handle(    final HttpClientResponse response){
+      tu.azzert(false,"Should never get a response on a bad port, if you see this message than you are running an http server on port 9998");
+    }
+  }
+);
+  req2.exceptionHandler(new Handler<Throwable>(){
+    public void handle(    Throwable event){
+      tu.azzert(req2Exceptions.incrementAndGet() == 1,"More than more call to req2 exception handler was not expected");
+      checkEndHandler.handle("Request2");
+    }
+  }
+);
+  final HttpClientRequest req3=client.get("someurl2",new Handler<HttpClientResponse>(){
+    public void handle(    final HttpClientResponse response){
+      tu.azzert(false,"Should never get a response on a bad port, if you see this message than you are running an http server on port 9998");
+    }
+  }
+);
+  req3.exceptionHandler(new Handler<Throwable>(){
+    public void handle(    Throwable event){
+      tu.azzert(req3Exceptions.incrementAndGet() == 1,"More than more call to req2 exception handler was not expected");
+      checkEndHandler.handle("Request3");
+    }
+  }
+);
+  req1.end();
+  req2.end();
+  req3.end();
+}

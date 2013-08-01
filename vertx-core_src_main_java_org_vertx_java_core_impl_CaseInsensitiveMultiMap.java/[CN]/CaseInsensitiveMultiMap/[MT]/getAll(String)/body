@@ -1,0 +1,16 @@
+{
+  if (name == null) {
+    throw new NullPointerException("name");
+  }
+  LinkedList<String> values=new LinkedList<>();
+  int h=hash(name);
+  int i=index(h);
+  MapEntry e=entries[i];
+  while (e != null) {
+    if (e.hash == h && eq(name,e.key)) {
+      values.addFirst(e.value);
+    }
+    e=e.next;
+  }
+  return values;
+}

@@ -1,0 +1,17 @@
+{
+  msg.bus=this;
+  final Handlers handlers=handlerMap.get(msg.address);
+  if (handlers != null) {
+    if (msg.send) {
+      HandlerHolder holder=handlers.choose();
+      if (holder != null) {
+        doReceive(msg,holder);
+      }
+    }
+ else {
+      for (      final HandlerHolder holder : handlers.list) {
+        doReceive(msg,holder);
+      }
+    }
+  }
+}

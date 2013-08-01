@@ -1,0 +1,11 @@
+{
+  final Handler<AsyncResult<Void>> wrapped=wrapDoneHandler(doneHandler);
+  runInBackground(new Runnable(){
+    public void run(){
+      ModuleIdentifier modID=new ModuleIdentifier(moduleName);
+      doPullInDependencies(modRoot,modID);
+      doneHandler.handle(new DefaultFutureResult<>((Void)null));
+    }
+  }
+,wrapped);
+}

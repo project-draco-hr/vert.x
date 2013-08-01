@@ -1,0 +1,10 @@
+{
+  creationTime=new Date(attrs.creationTime().toMillis());
+  lastModifiedTime=new Date(attrs.lastModifiedTime().toMillis());
+  lastAccessTime=new Date(attrs.lastAccessTime().toMillis());
+  isDirectory=attrs.isDirectory();
+  isOther=attrs.isOther();
+  isRegularFile=attrs.isRegularFile();
+  isSymbolicLink=attrs.isSymbolicLink();
+  size=attrs.size();
+}

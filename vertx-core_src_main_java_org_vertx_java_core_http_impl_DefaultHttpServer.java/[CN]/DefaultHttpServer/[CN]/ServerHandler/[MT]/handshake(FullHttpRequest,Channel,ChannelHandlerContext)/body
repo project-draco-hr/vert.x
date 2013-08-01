@@ -1,0 +1,50 @@
+{
+  final WebSocketServerHandshaker shake;
+  WebSocketServerHandshakerFactory factory=new WebSocketServerHandshakerFactory(getWebSocketLocation(ch.pipeline(),request),null,false);
+  shake=factory.newHandshaker(request);
+  if (shake == null) {
+    log.error("Unrecognised websockets handshake");
+    WebSocketServerHandshakerFactory.sendUnsupportedWebSocketVersionResponse(ch);
+    return;
+  }
+  HandlerHolder<ServerWebSocket> firstHandler=null;
+  HandlerHolder<ServerWebSocket> wsHandler=wsHandlerManager.chooseHandler(ch.eventLoop());
+  while (true) {
+    if (wsHandler == null || firstHandler == wsHandler) {
+      break;
+    }
+    URI theURI;
+    try {
+      theURI=new URI(request.getUri());
+    }
+ catch (    URISyntaxException e2) {
+      throw new IllegalArgumentException("Invalid uri " + request.getUri());
+    }
+    final ServerConnection wsConn=new ServerConnection(DefaultHttpServer.this,ch,wsHandler.context,serverOrigin);
+    wsConn.wsHandler(wsHandler.handler);
+    Runnable connectRunnable=new Runnable(){
+      public void run(){
+        connectionMap.put(ch,wsConn);
+        try {
+          shake.handshake(ch,request);
+        }
+ catch (        Exception e) {
+          log.error("Failed to generate shake response",e);
+        }
+      }
+    }
+;
+    final DefaultServerWebSocket ws=new DefaultServerWebSocket(vertx,theURI.getPath(),theURI.getQuery(),new HttpHeadersAdapter(request.headers()),wsConn,connectRunnable);
+    wsConn.handleWebsocketConnect(ws);
+    if (ws.isRejected()) {
+      if (firstHandler == null) {
+        firstHandler=wsHandler;
+      }
+    }
+ else {
+      ws.connectNow();
+      return;
+    }
+  }
+  ch.writeAndFlush(new DefaultFullHttpResponse(HTTP_1_1,BAD_GATEWAY));
+}

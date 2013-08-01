@@ -1,0 +1,9 @@
+{
+  String msgStr=buffer.toString();
+  pendingWrites.add(msgStr);
+  this.messagesSize+=msgStr.length();
+  if (listener != null) {
+    writePendingMessages();
+  }
+  return this;
+}

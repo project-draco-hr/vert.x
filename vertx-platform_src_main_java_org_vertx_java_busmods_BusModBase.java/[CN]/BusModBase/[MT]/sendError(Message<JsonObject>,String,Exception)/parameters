@@ -1,0 +1,3 @@
+Message<JsonObject> message
+String error
+Exception e

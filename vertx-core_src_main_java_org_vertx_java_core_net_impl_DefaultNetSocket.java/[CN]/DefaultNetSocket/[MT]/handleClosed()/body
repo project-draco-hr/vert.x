@@ -1,0 +1,15 @@
+{
+  setContext();
+  if (endHandler != null) {
+    try {
+      endHandler.handle(null);
+    }
+ catch (    Throwable t) {
+      handleHandlerException(t);
+    }
+  }
+  super.handleClosed();
+  if (vertx.eventBus() != null) {
+    vertx.eventBus().unregisterHandler(writeHandlerID,writeHandler);
+  }
+}

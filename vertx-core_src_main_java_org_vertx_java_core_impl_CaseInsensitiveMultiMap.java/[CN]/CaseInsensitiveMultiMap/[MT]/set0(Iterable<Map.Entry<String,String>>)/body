@@ -1,0 +1,7 @@
+{
+  clear();
+  for (  Map.Entry<String,String> entry : map) {
+    add(entry.getKey(),entry.getValue());
+  }
+  return this;
+}

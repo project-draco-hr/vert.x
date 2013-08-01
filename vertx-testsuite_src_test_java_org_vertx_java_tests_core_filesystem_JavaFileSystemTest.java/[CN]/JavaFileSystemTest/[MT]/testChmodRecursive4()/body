@@ -1,0 +1,5 @@
+{
+  params.put("perms","rw-r--r--");
+  params.put("dirPerms","rwxr--r--");
+  startTest(getMethodName());
+}

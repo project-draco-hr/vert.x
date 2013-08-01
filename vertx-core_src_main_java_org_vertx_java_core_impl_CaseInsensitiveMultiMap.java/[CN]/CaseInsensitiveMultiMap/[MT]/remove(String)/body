@@ -1,0 +1,9 @@
+{
+  if (name == null) {
+    throw new NullPointerException("name");
+  }
+  int h=hash(name);
+  int i=index(h);
+  remove0(h,i,name);
+  return this;
+}

@@ -1,0 +1,46 @@
+{
+  final String path="/some/path";
+  final String message="here is some text data";
+  server=vertx.createHttpServer().requestHandler(new Handler<HttpServerRequest>(){
+    public void handle(    final HttpServerRequest req){
+      tu.checkThread();
+      tu.azzert(path.equals(req.path()));
+      tu.azzert("Upgrade".equals(req.headers().get("Connection")));
+      NetSocket sock=req.netSocket();
+      String secHeader=req.headers().get("Sec-WebSocket-Key");
+      String tmp=secHeader + "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
+      String encoded=sha1(tmp);
+      sock.write("HTTP/1.1 101 Web Socket Protocol Handshake\r\n" + "Upgrade: WebSocket\r\n" + "Connection: Upgrade\r\n"+ "Sec-WebSocket-Accept: " + encoded + "\r\n"+ "\r\n");
+      Buffer buff=new Buffer();
+      buff.appendByte((byte)129);
+      buff.appendByte((byte)message.length());
+      buff.appendString(message);
+      sock.write(buff);
+    }
+  }
+);
+  server.listen(8080,"localhost",new AsyncResultHandler<HttpServer>(){
+    @Override public void handle(    AsyncResult<HttpServer> ar){
+      tu.azzert(ar.succeeded());
+      client.connectWebsocket(path,new Handler<WebSocket>(){
+        public void handle(        final WebSocket ws){
+          ws.dataHandler(new Handler<Buffer>(){
+            @Override public void handle(            Buffer buff){
+              tu.azzert(message.equals(buff.toString("UTF-8")));
+              tu.testComplete();
+            }
+          }
+);
+        }
+      }
+);
+      client.exceptionHandler(new Handler<Throwable>(){
+        @Override public void handle(        Throwable t){
+          t.printStackTrace();
+        }
+      }
+);
+    }
+  }
+);
+}

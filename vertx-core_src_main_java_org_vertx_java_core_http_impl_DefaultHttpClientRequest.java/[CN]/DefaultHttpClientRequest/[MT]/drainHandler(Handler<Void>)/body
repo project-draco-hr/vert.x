@@ -1,0 +1,8 @@
+{
+  check();
+  this.drainHandler=handler;
+  if (conn != null) {
+    conn.handleInterestedOpsChanged();
+  }
+  return this;
+}

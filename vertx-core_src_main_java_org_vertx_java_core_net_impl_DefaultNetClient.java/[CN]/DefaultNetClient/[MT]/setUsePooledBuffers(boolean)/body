@@ -1,0 +1,5 @@
+{
+  checkConfigurable();
+  tcpHelper.setUsePooledBuffers(pooledBuffers);
+  return this;
+}

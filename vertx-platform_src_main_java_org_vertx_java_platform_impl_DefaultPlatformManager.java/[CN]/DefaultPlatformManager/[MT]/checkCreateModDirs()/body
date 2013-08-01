@@ -1,0 +1,4 @@
+{
+  checkCreateRoot(modRoot);
+  checkCreateRoot(systemModRoot);
+}

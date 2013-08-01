@@ -1,0 +1,42 @@
+{
+  final String body=TestUtils.randomUnicodeString(1000);
+  final Buffer bodyBuff;
+  if (encoding == null) {
+    bodyBuff=new Buffer(body);
+  }
+ else {
+    bodyBuff=new Buffer(body,encoding);
+  }
+  AsyncResultHandler<HttpServer> handler=new AsyncResultHandler<HttpServer>(){
+    @Override public void handle(    AsyncResult<HttpServer> ar){
+      tu.azzert(ar.succeeded());
+      HttpClientRequest req=getRequest(true,"GET","some-uri",new Handler<HttpClientResponse>(){
+        public void handle(        HttpClientResponse resp){
+          tu.checkThread();
+          resp.bodyHandler(new Handler<Buffer>(){
+            public void handle(            Buffer buff){
+              tu.azzert(TestUtils.buffersEqual(bodyBuff,buff));
+              tu.testComplete();
+            }
+          }
+);
+        }
+      }
+);
+      req.end();
+    }
+  }
+;
+  startServer(new Handler<HttpServerRequest>(){
+    public void handle(    HttpServerRequest req){
+      tu.checkThread();
+      if (encoding == null) {
+        req.response().end(body);
+      }
+ else {
+        req.response().end(body,encoding);
+      }
+    }
+  }
+,handler);
+}

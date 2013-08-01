@@ -1,0 +1,4 @@
+{
+  createFileWithJunk("some-file.dat",100);
+  testCreateFile(null,false);
+}

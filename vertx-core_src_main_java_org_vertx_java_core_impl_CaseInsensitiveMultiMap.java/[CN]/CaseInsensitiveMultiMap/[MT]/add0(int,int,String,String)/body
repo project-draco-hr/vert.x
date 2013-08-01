@@ -1,0 +1,7 @@
+{
+  MapEntry e=entries[i];
+  MapEntry newEntry;
+  entries[i]=newEntry=new MapEntry(h,name,value);
+  newEntry.next=e;
+  newEntry.addBefore(head);
+}

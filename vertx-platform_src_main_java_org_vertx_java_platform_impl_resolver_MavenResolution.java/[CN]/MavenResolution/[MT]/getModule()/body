@@ -1,0 +1,38 @@
+{
+  createClient(repoHost,repoPort);
+  if (moduleIdentifier.getVersion().endsWith("-SNAPSHOT")) {
+    addHandler(200,new Handler<HttpClientResponse>(){
+      @Override public void handle(      HttpClientResponse resp){
+        resp.bodyHandler(new Handler<Buffer>(){
+          @Override public void handle(          Buffer metaData){
+            final String data=metaData.toString();
+            String actualURI=getResourceName(data,contentRoot,moduleIdentifier,uriRoot,true);
+            addOKHandler();
+            addHandler(404,new Handler<HttpClientResponse>(){
+              @Override public void handle(              HttpClientResponse resp){
+                addOKHandler();
+                removeHandler(404);
+                String actualURI=getResourceName(data,contentRoot,moduleIdentifier,uriRoot,false);
+                makeRequest(repoHost,repoPort,actualURI);
+              }
+            }
+);
+            makeRequest(repoHost,repoPort,actualURI);
+          }
+        }
+);
+      }
+    }
+);
+    addHandler(404,new Handler<HttpClientResponse>(){
+      @Override public void handle(      HttpClientResponse resp){
+        attemptDirectDownload();
+      }
+    }
+);
+    makeRequest(repoHost,repoPort,contentRoot + '/' + uriRoot+ "maven-metadata.xml");
+  }
+ else {
+    attemptDirectDownload();
+  }
+}

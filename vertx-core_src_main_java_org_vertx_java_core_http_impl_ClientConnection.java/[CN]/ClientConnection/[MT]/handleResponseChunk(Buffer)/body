@@ -1,0 +1,9 @@
+{
+  setContext();
+  try {
+    currentResponse.handleChunk(buff);
+  }
+ catch (  Throwable t) {
+    handleHandlerException(t);
+  }
+}

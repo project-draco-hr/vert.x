@@ -1,0 +1,6 @@
+{
+  for (  EventLoopHolder holder : workers) {
+    holder.worker.shutdown();
+  }
+  latch.countDown();
+}

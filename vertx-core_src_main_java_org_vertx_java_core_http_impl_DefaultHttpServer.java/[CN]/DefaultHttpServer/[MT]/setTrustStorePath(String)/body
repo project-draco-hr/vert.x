@@ -1,0 +1,5 @@
+{
+  checkListening();
+  tcpHelper.setTrustStorePath(path);
+  return this;
+}

@@ -1,0 +1,4 @@
+{
+  this.doneHandler=doneHandler;
+  checkDone();
+}

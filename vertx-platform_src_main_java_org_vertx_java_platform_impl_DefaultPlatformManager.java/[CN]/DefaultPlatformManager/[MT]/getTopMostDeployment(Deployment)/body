@@ -1,0 +1,11 @@
+{
+  while (true) {
+    String parentDep=dep.parentDeploymentName;
+    if (parentDep != null) {
+      dep=deployments.get(parentDep);
+    }
+ else {
+      return dep;
+    }
+  }
+}

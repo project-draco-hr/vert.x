@@ -1,0 +1,20 @@
+{
+  final int numFires=10;
+  final AtomicLong id=new AtomicLong(-1);
+  id.set(vertx.setPeriodic(delay,new Handler<Long>(){
+    int count;
+    public void handle(    Long timerID){
+      tu.checkThread();
+      tu.azzert(id.get() == timerID);
+      count++;
+      if (count == numFires) {
+        vertx.cancelTimer(timerID);
+        setEndTimer();
+      }
+      if (count > numFires) {
+        tu.azzert(false,"Fired too many times");
+      }
+    }
+  }
+));
+}

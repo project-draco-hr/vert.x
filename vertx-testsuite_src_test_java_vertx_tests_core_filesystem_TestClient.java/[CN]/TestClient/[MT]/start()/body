@@ -1,0 +1,13 @@
+{
+  super.start();
+  params=vertx.sharedData().getMap("params");
+  java.nio.file.FileSystem fs=FileSystems.getDefault();
+  pathSep=fs.getSeparator();
+  params=vertx.sharedData().getMap("params");
+  testDir=new File(TEST_DIR);
+  if (testDir.exists()) {
+    deleteDir(testDir);
+  }
+  testDir.mkdir();
+  tu.appReady();
+}

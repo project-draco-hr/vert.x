@@ -1,0 +1,16 @@
+{
+  DefaultHttpClientRequest req;
+  if (resp.getStatus().code() == 100) {
+    req=requests.peek();
+  }
+ else {
+    req=requests.poll();
+  }
+  if (req == null) {
+    throw new IllegalStateException("No response handler");
+  }
+  setContext();
+  DefaultHttpClientResponse nResp=new DefaultHttpClientResponse(vertx,req,this,resp);
+  currentResponse=nResp;
+  req.handleResponse(nResp);
+}

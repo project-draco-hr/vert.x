@@ -1,0 +1,9 @@
+{
+  JsonObject obj=new JsonObject();
+  obj.putString("foo","bar");
+  obj.putNumber("num",12124);
+  obj.putBoolean("x",true);
+  obj.putBoolean("y",false);
+  Handler<Message<JsonObject>> handler=echoHandler(obj);
+  eb.send(echoAddress(),obj,handler);
+}

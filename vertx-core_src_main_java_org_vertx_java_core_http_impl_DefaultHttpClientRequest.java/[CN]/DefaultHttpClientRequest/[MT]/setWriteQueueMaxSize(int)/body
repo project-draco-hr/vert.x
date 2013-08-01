@@ -1,0 +1,10 @@
+{
+  check();
+  if (conn != null) {
+    conn.doSetWriteQueueMaxSize(maxSize);
+  }
+ else {
+    pendingMaxSize=maxSize;
+  }
+  return this;
+}

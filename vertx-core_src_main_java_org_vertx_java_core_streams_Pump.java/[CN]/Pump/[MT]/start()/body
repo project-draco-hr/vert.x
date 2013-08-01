@@ -1,0 +1,4 @@
+{
+  readStream.dataHandler(dataHandler);
+  return this;
+}

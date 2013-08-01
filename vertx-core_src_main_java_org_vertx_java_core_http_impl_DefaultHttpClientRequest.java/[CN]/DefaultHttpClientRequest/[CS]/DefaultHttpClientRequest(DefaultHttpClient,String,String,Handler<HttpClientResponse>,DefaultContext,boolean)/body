@@ -1,0 +1,8 @@
+{
+  this.client=client;
+  this.request=new DefaultHttpRequest(HttpVersion.HTTP_1_1,HttpMethod.valueOf(method),uri);
+  this.chunked=false;
+  this.respHandler=respHandler;
+  this.context=context;
+  this.raw=raw;
+}

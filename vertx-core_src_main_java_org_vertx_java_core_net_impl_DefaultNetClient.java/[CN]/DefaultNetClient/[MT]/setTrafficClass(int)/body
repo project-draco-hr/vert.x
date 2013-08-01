@@ -1,0 +1,5 @@
+{
+  checkConfigurable();
+  tcpHelper.setTrafficClass(trafficClass);
+  return this;
+}

@@ -1,0 +1,29 @@
+{
+  return new AsyncResultHandler<NetSocket>(){
+    public void handle(    AsyncResult<NetSocket> res){
+      tu.checkThread();
+      tu.azzert(res.succeeded());
+      final int numChunks=100;
+      final int chunkSize=100;
+      final Buffer received=new Buffer();
+      final Buffer sent=new Buffer();
+      res.result().dataHandler(new Handler<Buffer>(){
+        public void handle(        Buffer buffer){
+          tu.checkThread();
+          received.appendBuffer(buffer);
+          if (received.length() == sent.length()) {
+            tu.azzert(TestUtils.buffersEqual(sent,received));
+            tu.testComplete();
+          }
+        }
+      }
+);
+      for (int i=0; i < numChunks; i++) {
+        Buffer buff=TestUtils.generateRandomBuffer(chunkSize);
+        sent.appendBuffer(buff);
+        res.result().write(buff);
+      }
+    }
+  }
+;
+}

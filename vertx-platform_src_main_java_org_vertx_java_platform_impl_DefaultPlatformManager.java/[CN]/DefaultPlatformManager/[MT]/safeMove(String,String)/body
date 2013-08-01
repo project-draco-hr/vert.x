@@ -1,0 +1,14 @@
+{
+  try {
+    vertx.fileSystem().moveSync(source,dest);
+  }
+ catch (  Exception e) {
+    try {
+      vertx.fileSystem().copySync(source,dest,true);
+      vertx.fileSystem().deleteSync(source,true);
+    }
+ catch (    Exception e2) {
+      throw new PlatformManagerException("Failed to copy module",e2);
+    }
+  }
+}

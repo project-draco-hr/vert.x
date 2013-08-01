@@ -1,0 +1,3 @@
+{
+  deployVerticle(false,false,main,config,classpath,instances,includes,doneHandler);
+}

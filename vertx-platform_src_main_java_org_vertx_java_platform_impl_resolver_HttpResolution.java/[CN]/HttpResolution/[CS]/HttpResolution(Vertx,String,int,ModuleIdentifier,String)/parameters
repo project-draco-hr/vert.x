@@ -1,0 +1,5 @@
+Vertx vertx
+String repoHost
+int repoPort
+ModuleIdentifier modID
+String filename

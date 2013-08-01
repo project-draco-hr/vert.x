@@ -1,0 +1,6 @@
+{
+  if (dataHandler != null) {
+    checkContext();
+    dataHandler.handle(buffer);
+  }
+}

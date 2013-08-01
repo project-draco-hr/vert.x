@@ -1,0 +1,4 @@
+{
+  createFileInternal(path,null).action();
+  return this;
+}

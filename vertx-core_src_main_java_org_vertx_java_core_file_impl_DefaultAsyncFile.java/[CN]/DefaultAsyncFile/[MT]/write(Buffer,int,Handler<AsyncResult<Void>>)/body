@@ -1,0 +1,13 @@
+{
+  check();
+  final ByteBuf buf=buffer.getByteBuf();
+  if (buf.nioBufferCount() > 1) {
+    final Iterator<ByteBuffer> buffers=Arrays.asList(buf.nioBuffers()).iterator();
+    doWrite(buffers,position,handler);
+  }
+ else {
+    ByteBuffer bb=buf.nioBuffer();
+    doWrite(bb,position,bb.limit(),handler);
+  }
+  return this;
+}

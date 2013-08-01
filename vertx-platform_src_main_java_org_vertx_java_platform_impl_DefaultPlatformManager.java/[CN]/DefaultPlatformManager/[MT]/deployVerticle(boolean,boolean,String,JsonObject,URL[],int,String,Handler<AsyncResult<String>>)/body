@@ -1,0 +1,20 @@
+{
+  final File currentModDir=getDeploymentModDir();
+  final URL[] cp;
+  if (classpath == null) {
+    cp=getClasspath();
+    if (cp == null) {
+      throw new IllegalStateException("Cannot find parent classpath. Perhaps you are deploying the verticle from a non Vert.x thread?");
+    }
+  }
+ else {
+    cp=classpath;
+  }
+  final Handler<AsyncResult<String>> wrapped=wrapDoneHandler(doneHandler);
+  runInBackground(new Runnable(){
+    public void run(){
+      doDeployVerticle(worker,multiThreaded,main,config,cp,instances,currentModDir,includes,wrapped);
+    }
+  }
+,wrapped);
+}

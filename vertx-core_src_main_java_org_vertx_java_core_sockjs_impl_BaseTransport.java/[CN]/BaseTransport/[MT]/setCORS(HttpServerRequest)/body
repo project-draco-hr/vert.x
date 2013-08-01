@@ -1,0 +1,12 @@
+{
+  String origin=req.headers().get("origin");
+  if (origin == null || "null".equals(origin)) {
+    origin="*";
+  }
+  req.response().headers().set("Access-Control-Allow-Origin",origin);
+  req.response().headers().set("Access-Control-Allow-Credentials","true");
+  String hdr=req.headers().get("Access-Control-Request-Headers");
+  if (hdr != null) {
+    req.response().headers().set("Access-Control-Allow-Headers",hdr);
+  }
+}

@@ -1,0 +1,7 @@
+{
+  DefaultContext context=getContext();
+  if (context == null) {
+    throw new IllegalStateException("Not on a Vert.x context");
+  }
+  context.runOnContext(task);
+}

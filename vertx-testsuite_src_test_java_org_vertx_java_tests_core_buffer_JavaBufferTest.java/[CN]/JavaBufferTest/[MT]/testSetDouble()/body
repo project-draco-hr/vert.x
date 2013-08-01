@@ -1,0 +1,3 @@
+{
+  testSetDouble(new Buffer(numSets * 8));
+}

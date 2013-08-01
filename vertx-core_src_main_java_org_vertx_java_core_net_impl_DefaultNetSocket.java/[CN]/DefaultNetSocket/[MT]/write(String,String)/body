@@ -1,0 +1,9 @@
+{
+  if (enc == null) {
+    write(str);
+  }
+ else {
+    write(Unpooled.copiedBuffer(str,Charset.forName(enc)));
+  }
+  return this;
+}

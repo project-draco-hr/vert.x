@@ -1,0 +1,15 @@
+{
+  if (values == null) {
+    throw new NullPointerException("values");
+  }
+  int h=hash(name);
+  int i=index(h);
+  remove0(h,i,name);
+  for (  String v : values) {
+    if (v == null) {
+      break;
+    }
+    add0(h,i,name,v);
+  }
+  return this;
+}

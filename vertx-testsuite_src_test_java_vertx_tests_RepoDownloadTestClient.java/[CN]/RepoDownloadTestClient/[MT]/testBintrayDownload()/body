@@ -1,0 +1,10 @@
+{
+  container.deployModule("io.vertx~mod-bintray-server~1.0",new AsyncResultHandler<String>(){
+    public void handle(    AsyncResult<String> res){
+      if (res.succeeded()) {
+        container.deployModule("purplefox~mod-bintray-test~1.0.0");
+      }
+    }
+  }
+);
+}

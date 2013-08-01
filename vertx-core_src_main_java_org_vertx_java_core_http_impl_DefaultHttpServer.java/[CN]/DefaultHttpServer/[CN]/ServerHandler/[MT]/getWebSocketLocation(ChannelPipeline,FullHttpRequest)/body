@@ -1,0 +1,10 @@
+{
+  String prefix;
+  if (pipeline.get(SslHandler.class) == null) {
+    prefix="ws://";
+  }
+ else {
+    prefix="wss://";
+  }
+  return prefix + req.headers().get(HOST) + new URI(req.getUri()).getPath();
+}

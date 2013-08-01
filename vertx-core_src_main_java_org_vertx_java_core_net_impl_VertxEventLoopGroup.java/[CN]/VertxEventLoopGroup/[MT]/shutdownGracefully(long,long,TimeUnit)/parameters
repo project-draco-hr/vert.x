@@ -1,0 +1,3 @@
+long quietPeriod
+long timeout
+TimeUnit unit

@@ -1,0 +1,8 @@
+{
+  if (exceptionHandler != null) {
+    exceptionHandler.handle(e);
+  }
+ else {
+    vertx.reportException(e);
+  }
+}

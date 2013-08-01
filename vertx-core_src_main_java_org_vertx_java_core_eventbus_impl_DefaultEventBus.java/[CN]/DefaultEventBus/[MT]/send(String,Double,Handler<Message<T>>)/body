@@ -1,0 +1,4 @@
+{
+  sendOrPub(new DoubleMessage(true,address,message),replyHandler);
+  return this;
+}

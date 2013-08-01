@@ -1,0 +1,3 @@
+String status
+Message<JsonObject> message
+JsonObject json

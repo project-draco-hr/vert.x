@@ -1,0 +1,28 @@
+{
+  if (!readInProgress) {
+    readInProgress=true;
+    Buffer buff=new Buffer(BUFFER_SIZE);
+    read(buff,0,readPos,BUFFER_SIZE,new Handler<AsyncResult<Buffer>>(){
+      public void handle(      AsyncResult<Buffer> ar){
+        if (ar.succeeded()) {
+          readInProgress=false;
+          Buffer buffer=ar.result();
+          if (buffer.length() == 0) {
+            handleEnd();
+          }
+ else {
+            readPos+=buffer.length();
+            handleData(buffer);
+            if (!paused && dataHandler != null) {
+              doRead();
+            }
+          }
+        }
+ else {
+          handleException(ar.cause());
+        }
+      }
+    }
+);
+  }
+}

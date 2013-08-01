@@ -1,0 +1,6 @@
+{
+  check();
+  this.drainHandler=handler;
+  checkDrained();
+  return this;
+}

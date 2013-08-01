@@ -1,0 +1,11 @@
+{
+  if (!closed) {
+    if (headWritten) {
+      closeConnAfterWrite();
+    }
+ else {
+      conn.close();
+    }
+    closed=true;
+  }
+}

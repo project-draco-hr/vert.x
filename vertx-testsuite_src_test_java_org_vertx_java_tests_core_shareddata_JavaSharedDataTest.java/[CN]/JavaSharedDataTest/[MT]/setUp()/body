@@ -1,0 +1,4 @@
+{
+  vertx=VertxFactory.newVertx();
+  sharedData=vertx.sharedData();
+}

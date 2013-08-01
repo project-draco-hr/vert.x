@@ -1,0 +1,24 @@
+{
+  AsyncResultHandler<HttpServer> handler=new AsyncResultHandler<HttpServer>(){
+    @Override public void handle(    AsyncResult<HttpServer> ar){
+      tu.azzert(ar.succeeded());
+      HttpClientRequest req=client.put("someurl",new Handler<HttpClientResponse>(){
+        public void handle(        HttpClientResponse resp){
+        }
+      }
+);
+      tu.azzert(req.setChunked(true) == req);
+      tu.azzert(req.sendHead() == req);
+      tu.azzert(req.write("foo","UTF-8") == req);
+      tu.azzert(req.write("foo") == req);
+      tu.azzert(req.write(new Buffer("foo")) == req);
+      tu.testComplete();
+    }
+  }
+;
+  startServer(new Handler<HttpServerRequest>(){
+    public void handle(    HttpServerRequest req){
+    }
+  }
+,handler);
+}

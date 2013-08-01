@@ -1,0 +1,4 @@
+{
+  endReadAndFlush();
+  channel.close();
+}

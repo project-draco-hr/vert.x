@@ -1,0 +1,70 @@
+{
+  tu.azzert(client.setSSL(false) == client);
+  tu.azzert(!client.isSSL());
+  tu.azzert(client.setSSL(true) == client);
+  tu.azzert(client.isSSL());
+  tu.azzert(client.setVerifyHost(false) == client);
+  tu.azzert(!client.isVerifyHost());
+  tu.azzert(client.setVerifyHost(true) == client);
+  tu.azzert(client.isVerifyHost());
+  String pwd=TestUtils.randomUnicodeString(10);
+  tu.azzert(client.setKeyStorePassword(pwd) == client);
+  tu.azzert(client.getKeyStorePassword().equals(pwd));
+  String path=TestUtils.randomUnicodeString(10);
+  tu.azzert(client.setKeyStorePath(path) == client);
+  tu.azzert(client.getKeyStorePath().equals(path));
+  pwd=TestUtils.randomUnicodeString(10);
+  tu.azzert(client.setTrustStorePassword(pwd) == client);
+  tu.azzert(client.getTrustStorePassword().equals(pwd));
+  path=TestUtils.randomUnicodeString(10);
+  tu.azzert(client.setTrustStorePath(path) == client);
+  tu.azzert(client.getTrustStorePath().equals(path));
+  tu.azzert(client.setReuseAddress(true) == client);
+  tu.azzert(client.isReuseAddress());
+  tu.azzert(client.setReuseAddress(false) == client);
+  tu.azzert(!client.isReuseAddress());
+  tu.azzert(client.setSoLinger(10) == client);
+  tu.azzert(client.getSoLinger() == 10);
+  tu.azzert(client.setTCPKeepAlive(true) == client);
+  tu.azzert(client.isTCPKeepAlive());
+  tu.azzert(client.setTCPKeepAlive(false) == client);
+  tu.azzert(!client.isTCPKeepAlive());
+  tu.azzert(client.setTCPNoDelay(true) == client);
+  tu.azzert(client.isTCPNoDelay());
+  tu.azzert(client.setTCPNoDelay(false) == client);
+  tu.azzert(!client.isTCPNoDelay());
+  int rbs=new Random().nextInt(1024 * 1024) + 1;
+  tu.azzert(client.setReceiveBufferSize(rbs) == client);
+  tu.azzert(client.getReceiveBufferSize() == rbs);
+  try {
+    client.setReceiveBufferSize(0);
+    tu.azzert(false,"Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  try {
+    client.setReceiveBufferSize(-1);
+    tu.azzert(false,"Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  int sbs=new Random().nextInt(1024 * 1024);
+  tu.azzert(client.setSendBufferSize(sbs) == client);
+  tu.azzert(client.getSendBufferSize() == sbs);
+  try {
+    client.setSendBufferSize(0);
+    tu.azzert(false,"Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  try {
+    client.setSendBufferSize(-1);
+    tu.azzert(false,"Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  int trafficClass=new Random().nextInt(10000000);
+  tu.azzert(client.setTrafficClass(trafficClass) == client);
+  tu.azzert(client.getTrafficClass() == trafficClass);
+  tu.testComplete();
+}

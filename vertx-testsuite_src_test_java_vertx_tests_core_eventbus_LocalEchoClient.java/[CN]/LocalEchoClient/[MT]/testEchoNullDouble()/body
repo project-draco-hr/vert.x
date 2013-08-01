@@ -1,0 +1,5 @@
+{
+  Double db=null;
+  Handler<Message<Double>> handler=echoHandler(db);
+  eb.send(echoAddress(),db,handler);
+}

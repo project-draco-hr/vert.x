@@ -1,0 +1,12 @@
+{
+  try {
+    if (wsHandler != null) {
+      setContext();
+      wsHandler.handle(ws);
+      this.ws=ws;
+    }
+  }
+ catch (  Throwable t) {
+    handleHandlerException(t);
+  }
+}

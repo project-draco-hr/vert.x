@@ -1,0 +1,11 @@
+{
+  if (juri == null) {
+    try {
+      juri=new URI(uri());
+    }
+ catch (    URISyntaxException e) {
+      throw new IllegalArgumentException("Invalid uri " + uri());
+    }
+  }
+  return juri;
+}

@@ -1,0 +1,8 @@
+{
+  if (buf.isReadable()) {
+    return new DefaultLastHttpContent(buf);
+  }
+ else {
+    return LastHttpContent.EMPTY_LAST_CONTENT;
+  }
+}

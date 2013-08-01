@@ -1,0 +1,8 @@
+{
+  if (this == o)   return true;
+  if (getClass() != o.getClass())   return false;
+  HandlerEntry entry=(HandlerEntry)o;
+  if (!address.equals(entry.address))   return false;
+  if (!handler.equals(entry.handler))   return false;
+  return true;
+}

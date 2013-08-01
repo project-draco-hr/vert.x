@@ -1,0 +1,5 @@
+{
+  checkClosed();
+  conn.doResume();
+  return this;
+}

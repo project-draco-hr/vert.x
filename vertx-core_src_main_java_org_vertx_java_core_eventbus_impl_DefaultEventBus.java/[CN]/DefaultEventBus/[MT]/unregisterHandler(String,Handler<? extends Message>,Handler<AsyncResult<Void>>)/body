@@ -1,0 +1,31 @@
+{
+  checkStarted();
+  Handlers handlers=handlerMap.get(address);
+  if (handlers != null) {
+synchronized (handlers) {
+      int size=handlers.list.size();
+      for (int i=0; i < size; i++) {
+        HandlerHolder holder=handlers.list.get(i);
+        if (holder.handler == handler) {
+          handlers.list.remove(i);
+          holder.removed=true;
+          if (handlers.list.isEmpty()) {
+            handlerMap.remove(address);
+            if (subs != null && !holder.localOnly) {
+              removeSub(address,serverID,completionHandler);
+            }
+ else             if (completionHandler != null) {
+              callCompletionHandler(completionHandler);
+            }
+          }
+ else           if (completionHandler != null) {
+            callCompletionHandler(completionHandler);
+          }
+          holder.context.removeCloseHook(new HandlerEntry(address,handler));
+          return this;
+        }
+      }
+    }
+  }
+  return this;
+}

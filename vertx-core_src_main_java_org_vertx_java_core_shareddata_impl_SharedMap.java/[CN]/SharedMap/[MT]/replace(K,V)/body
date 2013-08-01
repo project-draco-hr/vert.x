@@ -1,0 +1,5 @@
+{
+  Checker.checkType(v);
+  V ret=map.replace(k,v);
+  return Checker.copyIfRequired(ret);
+}

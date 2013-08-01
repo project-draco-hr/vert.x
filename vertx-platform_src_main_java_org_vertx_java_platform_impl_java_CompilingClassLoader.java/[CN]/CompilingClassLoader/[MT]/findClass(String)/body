@@ -1,0 +1,7 @@
+{
+  byte[] bytecode=fileManager.getCompiledClass(name);
+  if (bytecode == null) {
+    throw new ClassNotFoundException(name);
+  }
+  return defineClass(name,bytecode,0,bytecode.length);
+}

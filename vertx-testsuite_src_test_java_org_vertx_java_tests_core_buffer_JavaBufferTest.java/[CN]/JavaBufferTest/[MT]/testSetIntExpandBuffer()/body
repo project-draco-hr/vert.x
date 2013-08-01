@@ -1,0 +1,3 @@
+{
+  testSetInt(new Buffer());
+}

@@ -1,0 +1,6 @@
+{
+  checkClosed();
+  checkConfigurable();
+  tcpHelper.setReceiveBufferSize(size);
+  return this;
+}

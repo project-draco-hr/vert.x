@@ -1,0 +1,39 @@
+{
+  final Path source=PathAdjuster.adjust(vertx,Paths.get(from));
+  final Path target=PathAdjuster.adjust(vertx,Paths.get(to));
+  return new BlockingAction<Void>(vertx,handler){
+    public Void action(){
+      try {
+        if (recursive) {
+          Files.walkFileTree(source,EnumSet.of(FileVisitOption.FOLLOW_LINKS),Integer.MAX_VALUE,new SimpleFileVisitor<Path>(){
+            public FileVisitResult preVisitDirectory(            Path dir,            BasicFileAttributes attrs) throws IOException {
+              Path targetDir=target.resolve(source.relativize(dir));
+              try {
+                Files.copy(dir,targetDir);
+              }
+ catch (              FileAlreadyExistsException e) {
+                if (!Files.isDirectory(targetDir)) {
+                  throw e;
+                }
+              }
+              return FileVisitResult.CONTINUE;
+            }
+            @Override public FileVisitResult visitFile(            Path file,            BasicFileAttributes attrs) throws IOException {
+              Files.copy(file,target.resolve(source.relativize(file)));
+              return FileVisitResult.CONTINUE;
+            }
+          }
+);
+        }
+ else {
+          Files.copy(source,target);
+        }
+      }
+ catch (      IOException e) {
+        throw new FileSystemException(e);
+      }
+      return null;
+    }
+  }
+;
+}

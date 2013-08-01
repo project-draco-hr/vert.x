@@ -1,0 +1,9 @@
+{
+  this.deployment=deployment;
+  this.context=context;
+  this.verticle=verticle;
+  this.loggerName=loggerName;
+  this.logger=logger;
+  this.config=config;
+  this.factory=factory;
+}

@@ -1,0 +1,4 @@
+{
+  this.closeHandler=handler;
+  return this;
+}

@@ -1,0 +1,6 @@
+{
+  if (attributes == null) {
+    attributes=new CaseInsensitiveMultiMap();
+  }
+  return attributes;
+}

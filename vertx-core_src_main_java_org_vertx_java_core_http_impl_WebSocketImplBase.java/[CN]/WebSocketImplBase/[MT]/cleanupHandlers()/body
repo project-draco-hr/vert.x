@@ -1,0 +1,7 @@
+{
+  if (!closed) {
+    vertx.eventBus().unregisterHandler(binaryHandlerID,binaryHandler);
+    vertx.eventBus().unregisterHandler(textHandlerID,textHandler);
+    closed=true;
+  }
+}

@@ -1,0 +1,4 @@
+{
+  log.debug(new JsonObject().putObject("null",null).encode());
+  log.debug(new JsonObject().putObject("null",new JsonObject().putString("foo","bar")).encode());
+}

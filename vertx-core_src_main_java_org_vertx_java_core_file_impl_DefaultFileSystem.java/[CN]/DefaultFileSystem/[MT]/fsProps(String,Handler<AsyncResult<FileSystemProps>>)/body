@@ -1,0 +1,4 @@
+{
+  fsPropsInternal(path,handler).run();
+  return this;
+}

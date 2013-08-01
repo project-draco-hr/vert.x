@@ -1,0 +1,11 @@
+{
+  try {
+    if (ws != null) {
+      setContext();
+      ws.handleFrame(frame);
+    }
+  }
+ catch (  Throwable t) {
+    handleHandlerException(t);
+  }
+}

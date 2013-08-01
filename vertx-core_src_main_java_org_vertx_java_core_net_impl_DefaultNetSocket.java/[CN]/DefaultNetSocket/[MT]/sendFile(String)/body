@@ -1,0 +1,5 @@
+{
+  File f=new File(PathAdjuster.adjust(vertx,filename));
+  super.sendFile(f);
+  return this;
+}

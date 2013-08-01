@@ -1,0 +1,5 @@
+{
+  JsonObject obj=null;
+  Handler<Message<JsonObject>> handler=echoHandler(obj);
+  eb.send(echoAddress(),obj,handler);
+}

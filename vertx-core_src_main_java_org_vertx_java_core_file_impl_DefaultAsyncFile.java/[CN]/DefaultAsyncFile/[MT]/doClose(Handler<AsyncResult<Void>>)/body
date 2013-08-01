@@ -1,0 +1,13 @@
+{
+  DefaultFutureResult<Void> res=new DefaultFutureResult<>();
+  try {
+    ch.close();
+    res.setResult(null);
+  }
+ catch (  IOException e) {
+    res.setFailure(e);
+  }
+  if (handler != null) {
+    handler.handle(res);
+  }
+}

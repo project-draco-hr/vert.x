@@ -1,0 +1,3 @@
+{
+  deployWorkerVerticle(main,config,instances,false,null);
+}

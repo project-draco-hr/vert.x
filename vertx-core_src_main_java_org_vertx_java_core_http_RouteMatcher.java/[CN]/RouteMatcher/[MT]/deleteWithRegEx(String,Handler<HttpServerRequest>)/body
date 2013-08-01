@@ -1,0 +1,4 @@
+{
+  addRegEx(regex,handler,deleteBindings);
+  return this;
+}

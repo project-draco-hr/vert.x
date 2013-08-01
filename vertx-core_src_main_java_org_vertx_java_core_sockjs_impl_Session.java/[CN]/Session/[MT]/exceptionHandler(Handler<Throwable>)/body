@@ -1,0 +1,4 @@
+{
+  this.exceptionHandler=handler;
+  return this;
+}

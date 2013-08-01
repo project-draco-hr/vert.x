@@ -1,0 +1,12 @@
+{
+  addPattern(pattern,handler,getBindings);
+  addPattern(pattern,handler,putBindings);
+  addPattern(pattern,handler,postBindings);
+  addPattern(pattern,handler,deleteBindings);
+  addPattern(pattern,handler,optionsBindings);
+  addPattern(pattern,handler,headBindings);
+  addPattern(pattern,handler,traceBindings);
+  addPattern(pattern,handler,connectBindings);
+  addPattern(pattern,handler,patchBindings);
+  return this;
+}

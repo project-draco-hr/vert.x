@@ -1,0 +1,4 @@
+{
+  existsInternal(path,handler).run();
+  return this;
+}

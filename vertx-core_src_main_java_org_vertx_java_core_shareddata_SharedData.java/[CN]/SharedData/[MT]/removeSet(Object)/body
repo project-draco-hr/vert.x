@@ -1,0 +1,3 @@
+{
+  return sets.remove(name) != null;
+}

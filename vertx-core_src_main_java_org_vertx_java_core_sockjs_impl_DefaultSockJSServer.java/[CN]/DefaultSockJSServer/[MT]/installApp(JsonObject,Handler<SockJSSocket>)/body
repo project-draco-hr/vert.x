@@ -1,0 +1,57 @@
+{
+  config=setDefaults(config);
+  String prefix=config.getString("prefix");
+  if (prefix == null || prefix.equals("") || prefix.endsWith("/")) {
+    throw new IllegalArgumentException("Invalid prefix: " + prefix);
+  }
+  rm.getWithRegEx(prefix + "\\/?",new Handler<HttpServerRequest>(){
+    public void handle(    HttpServerRequest req){
+      if (log.isTraceEnabled())       log.trace("Returning welcome response");
+      req.response().headers().set("Content-Type","text/plain; charset=UTF-8");
+      req.response().end("Welcome to SockJS!\n");
+    }
+  }
+);
+  String iframeHTML=IFRAME_TEMPLATE.replace("{{ sockjs_url }}",config.getString("library_url"));
+  Handler<HttpServerRequest> iframeHandler=createIFrameHandler(iframeHTML);
+  rm.getWithRegEx(prefix + "\\/iframe\\.html",iframeHandler);
+  rm.getWithRegEx(prefix + "\\/iframe-[^\\/]*\\.html",iframeHandler);
+  rm.postWithRegEx(prefix + "\\/chunking_test",createChunkingTestHandler());
+  rm.optionsWithRegEx(prefix + "\\/chunking_test",BaseTransport.createCORSOptionsHandler(config,"OPTIONS, POST"));
+  rm.getWithRegEx(prefix + "\\/info",BaseTransport.createInfoHandler(config));
+  rm.optionsWithRegEx(prefix + "\\/info",BaseTransport.createCORSOptionsHandler(config,"OPTIONS, GET"));
+  Set<String> enabledTransports=new HashSet<>();
+  enabledTransports.add(Transport.EVENT_SOURCE.toString());
+  enabledTransports.add(Transport.HTML_FILE.toString());
+  enabledTransports.add(Transport.JSON_P.toString());
+  enabledTransports.add(Transport.WEBSOCKET.toString());
+  enabledTransports.add(Transport.XHR.toString());
+  for (  Object tr : config.getArray("disabled_transports",new JsonArray())) {
+    enabledTransports.remove(tr);
+  }
+  if (enabledTransports.contains(Transport.XHR.toString())) {
+    new XhrTransport(vertx,rm,prefix,sessions,config,sockHandler);
+  }
+  if (enabledTransports.contains(Transport.EVENT_SOURCE.toString())) {
+    new EventSourceTransport(vertx,rm,prefix,sessions,config,sockHandler);
+  }
+  if (enabledTransports.contains(Transport.HTML_FILE.toString())) {
+    new HtmlFileTransport(vertx,rm,prefix,sessions,config,sockHandler);
+  }
+  if (enabledTransports.contains(Transport.JSON_P.toString())) {
+    new JsonPTransport(vertx,rm,prefix,sessions,config,sockHandler);
+  }
+  if (enabledTransports.contains(Transport.WEBSOCKET.toString())) {
+    new WebSocketTransport(vertx,wsMatcher,rm,prefix,sessions,config,sockHandler);
+    new RawWebSocketTransport(vertx,wsMatcher,rm,prefix,sockHandler);
+  }
+  rm.getWithRegEx(prefix + "\\/.+",new Handler<HttpServerRequest>(){
+    public void handle(    HttpServerRequest req){
+      if (log.isTraceEnabled())       log.trace("Request: " + req.uri() + " does not match, returning 404");
+      req.response().setStatusCode(404);
+      req.response().end();
+    }
+  }
+);
+  return this;
+}

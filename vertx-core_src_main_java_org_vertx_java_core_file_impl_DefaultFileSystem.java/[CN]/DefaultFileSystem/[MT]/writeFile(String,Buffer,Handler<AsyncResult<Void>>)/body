@@ -1,0 +1,4 @@
+{
+  writeFileInternal(path,data,handler).run();
+  return this;
+}

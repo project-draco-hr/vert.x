@@ -1,0 +1,9 @@
+{
+  if (body == null) {
+    return 1;
+  }
+ else {
+    encoded=body.getBytes(CharsetUtil.UTF_8);
+    return 1 + 4 + encoded.length;
+  }
+}

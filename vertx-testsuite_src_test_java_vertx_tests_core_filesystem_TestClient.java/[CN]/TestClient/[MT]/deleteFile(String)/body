@@ -1,0 +1,4 @@
+{
+  File file=new File(TEST_DIR + pathSep + fileName);
+  file.delete();
+}

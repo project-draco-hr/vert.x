@@ -1,0 +1,5 @@
+{
+  checkClosed();
+  connectWebsocket(uri,wsVersion,null,wsConnect);
+  return this;
+}

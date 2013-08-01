@@ -1,0 +1,47 @@
+{
+  final String path=PathAdjuster.adjust(vertx,p);
+  return new BlockingAction<String[]>(vertx,handler){
+    public String[] action(){
+      try {
+        File file=new File(path);
+        if (!file.exists()) {
+          throw new FileSystemException("Cannot read directory " + path + ". Does not exist");
+        }
+        if (!file.isDirectory()) {
+          throw new FileSystemException("Cannot read directory " + path + ". It's not a directory");
+        }
+ else {
+          FilenameFilter fnFilter;
+          if (filter != null) {
+            fnFilter=new FilenameFilter(){
+              public boolean accept(              File dir,              String name){
+                return Pattern.matches(filter,name);
+              }
+            }
+;
+          }
+ else {
+            fnFilter=null;
+          }
+          File[] files;
+          if (fnFilter == null) {
+            files=file.listFiles();
+          }
+ else {
+            files=file.listFiles(fnFilter);
+          }
+          String[] ret=new String[files.length];
+          int i=0;
+          for (          File f : files) {
+            ret[i++]=f.getCanonicalPath();
+          }
+          return ret;
+        }
+      }
+ catch (      IOException e) {
+        throw new FileSystemException(e);
+      }
+    }
+  }
+;
+}

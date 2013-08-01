@@ -1,0 +1,16 @@
+{
+  final long start=System.currentTimeMillis();
+  final long delay=500;
+  vertx.setTimer(delay,new Handler<Long>(){
+    public void handle(    Long timerID){
+      tu.checkThread();
+      long dur=System.currentTimeMillis() - start;
+      tu.azzert(dur >= delay);
+      long maxDelay=delay * 2;
+      tu.azzert(dur < maxDelay,"Timer accuracy: " + dur + " vs "+ maxDelay);
+      vertx.cancelTimer(timerID);
+      tu.testComplete();
+    }
+  }
+);
+}

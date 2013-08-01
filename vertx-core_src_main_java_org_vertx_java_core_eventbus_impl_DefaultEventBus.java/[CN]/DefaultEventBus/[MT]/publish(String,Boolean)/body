@@ -1,0 +1,4 @@
+{
+  sendOrPub(new BooleanMessage(false,address,message),null);
+  return this;
+}

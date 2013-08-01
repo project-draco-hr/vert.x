@@ -1,0 +1,26 @@
+{
+  final int numConnections=vertx.sharedData().<String,Integer>getMap("params").get("numConnections");
+  final AtomicInteger counter=new AtomicInteger(0);
+  for (int i=0; i < numConnections; i++) {
+    client.exceptionHandler(new Handler<Throwable>(){
+      @Override public void handle(      Throwable t){
+        t.printStackTrace();
+      }
+    }
+);
+    client.connectWebsocket("http://somehost",new Handler<WebSocket>(){
+      public void handle(      WebSocket ws){
+        ws.closeHandler(new VoidHandler(){
+          public void handle(){
+            int count=counter.incrementAndGet();
+            if (count == numConnections) {
+              tu.testComplete();
+            }
+          }
+        }
+);
+      }
+    }
+);
+  }
+}

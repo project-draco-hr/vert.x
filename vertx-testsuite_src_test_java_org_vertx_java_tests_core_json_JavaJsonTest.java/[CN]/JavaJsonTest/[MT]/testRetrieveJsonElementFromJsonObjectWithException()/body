@@ -1,0 +1,10 @@
+{
+  JsonObject tester=new JsonObject().putString("elementField","foo");
+  try {
+    tester.getElement("elementField");
+  }
+ catch (  ClassCastException e) {
+    return;
+  }
+  fail("Retrieving a field that is not a JsonElement did not throw ClassCastException");
+}

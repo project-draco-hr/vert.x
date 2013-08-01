@@ -1,0 +1,6 @@
+{
+  for (  NetSocket sock : socketMap.values()) {
+    sock.close();
+  }
+  actualCtx.removeCloseHook(closeHook);
+}

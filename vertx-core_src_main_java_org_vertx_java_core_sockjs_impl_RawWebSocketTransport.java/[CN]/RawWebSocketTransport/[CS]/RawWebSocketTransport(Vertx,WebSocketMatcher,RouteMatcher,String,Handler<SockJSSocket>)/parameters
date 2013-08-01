@@ -1,0 +1,5 @@
+Vertx vertx
+WebSocketMatcher wsMatcher
+RouteMatcher rm
+String basePath
+Handler<SockJSSocket> sockHandler

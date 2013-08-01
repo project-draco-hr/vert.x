@@ -1,0 +1,4 @@
+String fileName
+boolean recursive
+boolean shouldPass
+Handler<Void> afterOK

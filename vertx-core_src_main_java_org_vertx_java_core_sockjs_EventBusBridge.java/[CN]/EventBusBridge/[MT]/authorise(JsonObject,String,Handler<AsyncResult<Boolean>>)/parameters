@@ -1,0 +1,3 @@
+JsonObject message
+String sessionID
+Handler<AsyncResult<Boolean>> handler

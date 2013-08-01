@@ -1,0 +1,7 @@
+{
+  JsonObject value=json.getObject(field);
+  if (value == null) {
+    throw new IllegalStateException(field + " must be specified for message");
+  }
+  return value;
+}

@@ -1,0 +1,28 @@
+{
+  tu=new TestUtils(vertx);
+  server=vertx.createNetServer();
+  TLSTestParams params=TLSTestParams.deserialize(vertx.sharedData().<String,byte[]>getMap("TLSTest").get("params"));
+  server.setSSL(true);
+  if (params.serverTrust) {
+    server.setTrustStorePath("./src/test/keystores/server-truststore.jks").setTrustStorePassword("wibble");
+  }
+  if (params.serverCert) {
+    server.setKeyStorePath("./src/test/keystores/server-keystore.jks").setKeyStorePassword("wibble");
+  }
+  if (params.requireClientAuth) {
+    server.setClientAuthRequired(true);
+  }
+  server.connectHandler(getConnectHandler());
+  server.listen(4043,new AsyncResultHandler<NetServer>(){
+    @Override public void handle(    AsyncResult<NetServer> ar){
+      if (ar.succeeded()) {
+        tu.appReady();
+        startedResult.setResult(null);
+      }
+ else {
+        ar.cause().printStackTrace();
+      }
+    }
+  }
+);
+}

@@ -1,0 +1,3 @@
+{
+  return worker != null ? worker.hashCode() : 0;
+}

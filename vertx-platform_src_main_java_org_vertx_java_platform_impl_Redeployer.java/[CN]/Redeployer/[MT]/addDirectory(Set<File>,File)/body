@@ -1,0 +1,17 @@
+{
+  if (!directory.isDirectory()) {
+    throw new IllegalStateException("Not directory: " + directory);
+  }
+  dirs.add(directory);
+  File[] children=directory.listFiles();
+  Map<File,FileInfo> map=new HashMap<>();
+  for (  File child : children) {
+    map.put(child,new FileInfo(child.lastModified(),child.length()));
+  }
+  directoryFiles.put(directory,map);
+  for (  File child : children) {
+    if (child.isDirectory()) {
+      addDirectory(dirs,child);
+    }
+  }
+}

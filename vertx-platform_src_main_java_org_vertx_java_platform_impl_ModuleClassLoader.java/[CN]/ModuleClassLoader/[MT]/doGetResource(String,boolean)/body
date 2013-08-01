@@ -1,0 +1,33 @@
+{
+  incRecurseDepth();
+  try {
+    URL url=findResource(name);
+    if (url == null) {
+      Set<ModuleClassLoader> walked=getWalked();
+      walked.add(this);
+      for (      ModuleReference parent : parents) {
+        checkAlreadyWalked(walked,parent);
+        url=parent.mcl.doGetResource(name,considerTCCL);
+        if (url != null) {
+          return url;
+        }
+      }
+      walked.remove(this);
+      if (considerTCCL && loadResourcesFromTCCL) {
+        walked.clear();
+        ModuleClassLoader tccl=(ModuleClassLoader)Thread.currentThread().getContextClassLoader();
+        if (tccl != this) {
+          url=tccl.doGetResource(name,false);
+          if (url != null) {
+            return url;
+          }
+        }
+      }
+      url=platformClassLoader.getResource(name);
+    }
+    return url;
+  }
+  finally {
+    checkClearTLs();
+  }
+}

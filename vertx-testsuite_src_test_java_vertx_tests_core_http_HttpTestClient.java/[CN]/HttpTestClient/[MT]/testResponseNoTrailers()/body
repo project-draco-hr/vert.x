@@ -1,0 +1,30 @@
+{
+  AsyncResultHandler<HttpServer> handler=new AsyncResultHandler<HttpServer>(){
+    @Override public void handle(    AsyncResult<HttpServer> ar){
+      tu.azzert(ar.succeeded());
+      HttpClientRequest req=getRequest(true,"GET","some-uri",new Handler<HttpClientResponse>(){
+        public void handle(        final HttpClientResponse resp){
+          tu.checkThread();
+          resp.endHandler(new VoidHandler(){
+            public void handle(){
+              tu.azzert(resp.trailers().isEmpty());
+              tu.testComplete();
+            }
+          }
+);
+        }
+      }
+);
+      req.end();
+    }
+  }
+;
+  startServer(new Handler<HttpServerRequest>(){
+    public void handle(    HttpServerRequest req){
+      tu.checkThread();
+      req.response().setChunked(true);
+      req.response().end();
+    }
+  }
+,handler);
+}

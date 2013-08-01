@@ -1,0 +1,6 @@
+{
+  if (hook != null) {
+    return hook.handlePreRegister(sock,address);
+  }
+  return true;
+}

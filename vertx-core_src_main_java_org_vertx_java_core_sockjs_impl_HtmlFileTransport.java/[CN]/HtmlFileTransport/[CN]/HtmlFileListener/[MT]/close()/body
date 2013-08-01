@@ -1,0 +1,12 @@
+{
+  if (!closed) {
+    try {
+      session.resetListener();
+      req.response().end();
+      req.response().close();
+      closed=true;
+    }
+ catch (    IllegalStateException e) {
+    }
+  }
+}

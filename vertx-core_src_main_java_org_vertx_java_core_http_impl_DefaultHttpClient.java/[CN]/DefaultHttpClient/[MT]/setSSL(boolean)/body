@@ -1,0 +1,6 @@
+{
+  checkClosed();
+  checkConfigurable();
+  tcpHelper.setSSL(ssl);
+  return this;
+}

@@ -1,0 +1,5 @@
+{
+  super.start();
+  tu.appReady();
+  client=vertx.createHttpClient().setHost("localhost").setPort(8080);
+}

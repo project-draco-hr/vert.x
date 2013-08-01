@@ -1,0 +1,4 @@
+{
+  propsInternal(path,handler).run();
+  return this;
+}

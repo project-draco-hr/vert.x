@@ -1,0 +1,4 @@
+{
+  logInternal(perms);
+  return new DefaultAsyncFile(vertx,path,null,read,write,createNew,flush,context);
+}

@@ -1,0 +1,19 @@
+{
+  int lines=50;
+  Buffer[] expected=new Buffer[lines];
+  List<Buffer> lineList=generateLines(lines,false,(byte)0);
+  expected=lineList.toArray(expected);
+  int totLength=lines * (lines - 1) / 2;
+  Buffer inp=new Buffer(totLength);
+  for (int i=0; i < lines; i++) {
+    inp.appendBuffer(expected[i]);
+  }
+  for (int i=1; i < inp.length() * 2; i++) {
+    doTestFixed(inp,new Integer[]{i},expected);
+  }
+  List<Integer> chunkSizes=generateChunkSizes(lines);
+  for (int i=0; i < 10; i++) {
+    Collections.shuffle(chunkSizes);
+    doTestFixed(inp,chunkSizes.toArray(new Integer[]{}),expected);
+  }
+}

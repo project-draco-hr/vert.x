@@ -1,0 +1,8 @@
+{
+  mgr.registerExitHandler(new VoidHandler(){
+    public void handle(){
+      unblock();
+    }
+  }
+);
+}

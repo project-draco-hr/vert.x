@@ -1,0 +1,18 @@
+{
+  return new Handler<HttpServerRequest>(){
+    boolean websocket=!config.getArray("disabled_transports").contains(Transport.WEBSOCKET.toString());
+    public void handle(    HttpServerRequest req){
+      if (log.isTraceEnabled())       log.trace("In Info handler");
+      req.response().headers().set("Content-Type","application/json; charset=UTF-8");
+      setNoCacheHeaders(req);
+      JsonObject json=new JsonObject();
+      json.putBoolean("websocket",websocket);
+      json.putBoolean("cookie_needed",config.getBoolean("insert_JSESSIONID"));
+      json.putArray("origins",new JsonArray().add("*:*"));
+      json.putNumber("entropy",RAND_OFFSET + new Random().nextInt());
+      setCORS(req);
+      req.response().end(json.encode());
+    }
+  }
+;
+}

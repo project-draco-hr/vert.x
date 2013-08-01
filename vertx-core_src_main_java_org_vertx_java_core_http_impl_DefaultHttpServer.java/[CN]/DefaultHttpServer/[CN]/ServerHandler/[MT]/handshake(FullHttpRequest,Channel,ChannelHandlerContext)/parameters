@@ -1,0 +1,3 @@
+FullHttpRequest request
+Channel ch
+ChannelHandlerContext ctx

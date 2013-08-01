@@ -1,0 +1,22 @@
+{
+  String javaPackageName=packageName.replaceAll("\\.","/");
+  List<JavaFileObject> result=new ArrayList<JavaFileObject>();
+  Enumeration<URL> urlEnumeration=classLoader.getResources(javaPackageName);
+  while (urlEnumeration.hasMoreElements()) {
+    URL resource=urlEnumeration.nextElement();
+    File directory;
+    try {
+      directory=new File(URLDecoder.decode(resource.getFile(),"UTF-8"));
+    }
+ catch (    UnsupportedEncodingException e) {
+      throw new IllegalStateException("Failed to decode " + e.getMessage());
+    }
+    if (directory.isDirectory()) {
+      result.addAll(browseDir(packageName,directory));
+    }
+ else {
+      result.addAll(browseJar(resource));
+    }
+  }
+  return result;
+}

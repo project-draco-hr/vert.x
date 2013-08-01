@@ -1,0 +1,45 @@
+{
+  final Buffer toSend=TestUtils.generateRandomBuffer(1000);
+  AsyncResultHandler<HttpServer> handler=new AsyncResultHandler<HttpServer>(){
+    @Override public void handle(    AsyncResult<HttpServer> ar){
+      tu.azzert(ar.succeeded());
+      final HttpClientRequest req=client.put("someurl",new Handler<HttpClientResponse>(){
+        public void handle(        HttpClientResponse resp){
+          resp.endHandler(new VoidHandler(){
+            public void handle(){
+              tu.checkThread();
+              tu.testComplete();
+            }
+          }
+);
+        }
+      }
+);
+      req.headers().set("Expect","100-continue");
+      req.setChunked(true);
+      req.continueHandler(new VoidHandler(){
+        public void handle(){
+          tu.checkThread();
+          req.write(toSend);
+          req.end();
+        }
+      }
+);
+      req.sendHead();
+    }
+  }
+;
+  startServer(new Handler<HttpServerRequest>(){
+    public void handle(    final HttpServerRequest req){
+      req.bodyHandler(new Handler<Buffer>(){
+        public void handle(        Buffer data){
+          tu.checkThread();
+          tu.azzert(TestUtils.buffersEqual(toSend,data));
+          req.response().end();
+        }
+      }
+);
+    }
+  }
+,handler);
+}

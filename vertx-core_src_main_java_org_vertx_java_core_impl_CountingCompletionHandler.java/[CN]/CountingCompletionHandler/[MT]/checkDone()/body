@@ -1,0 +1,13 @@
+{
+  if (doneHandler != null) {
+    if (cause != null) {
+      callHandler(new DefaultFutureResult<T>(cause));
+    }
+ else {
+      if (count == required) {
+        final DefaultFutureResult<T> res=new DefaultFutureResult<T>((T)null);
+        callHandler(res);
+      }
+    }
+  }
+}

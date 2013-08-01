@@ -1,0 +1,20 @@
+{
+  Deployment dep=createDeployment("dep1",null);
+  red.moduleDeployed(dep);
+  Thread.sleep(1);
+  createFile(modDir,"blah.txt",TestUtils.randomAlphaString(1000));
+  waitReload(dep);
+  createDirectory(modDir,"some-dir");
+  waitReload(dep);
+  File subDir=new File(modDir,"some-dir");
+  createFile(subDir,"bar.txt",TestUtils.randomAlphaString(1000));
+  waitReload(dep);
+  createFile(subDir,"foo.txt",TestUtils.randomAlphaString(1000));
+  waitReload(dep);
+  deleteFile(subDir,"foo.txt");
+  waitReload(dep);
+  vertx.fileSystem().deleteSync(subDir.getAbsolutePath(),true);
+  waitReload(dep);
+  red.moduleUndeployed(dep);
+  assertTrue(red.isEmpty());
+}

@@ -1,0 +1,11 @@
+{
+  container.deployVerticle(SubChildVerticle.class.getName(),new AsyncResultHandler<String>(){
+    @Override public void handle(    AsyncResult<String> res){
+      if (res.succeeded()) {
+        startedResult.setResult(null);
+      }
+    }
+  }
+);
+  vertx.sharedData().getMap("mymap").put("childstarted","true");
+}

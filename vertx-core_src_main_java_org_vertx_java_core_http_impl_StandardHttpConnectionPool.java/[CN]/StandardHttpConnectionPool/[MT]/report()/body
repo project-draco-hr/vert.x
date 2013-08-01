@@ -1,0 +1,3 @@
+{
+  log.trace("available: " + available.size() + " connection count: "+ connectionCount+ " waiters: "+ waiters.size());
+}

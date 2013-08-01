@@ -1,0 +1,15 @@
+{
+  vertx.createNetServer().connectHandler(new Handler<NetSocket>(){
+    public void handle(    NetSocket sock){
+    }
+  }
+).listen(1234,"uhqiuwhdqiwuhd",new AsyncResultHandler<NetServer>(){
+    @Override public void handle(    AsyncResult<NetServer> ar){
+      tu.azzert(ar.failed());
+      tu.azzert(ar.cause() != null);
+      ar.cause().printStackTrace();
+      tu.testComplete();
+    }
+  }
+);
+}

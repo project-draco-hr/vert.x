@@ -1,0 +1,8 @@
+{
+  super.setUp();
+  vertx.sharedData().getSet("addresses").clear();
+  for (int i=0; i < numPeers; i++) {
+    startApp(getPeerClassName());
+  }
+  startApp(getClientClassName());
+}

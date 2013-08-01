@@ -1,0 +1,5 @@
+{
+  this.hash=hash;
+  this.key=key;
+  this.value=value;
+}

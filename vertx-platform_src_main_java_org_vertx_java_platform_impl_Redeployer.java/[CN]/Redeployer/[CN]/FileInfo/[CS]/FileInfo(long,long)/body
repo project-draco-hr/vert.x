@@ -1,0 +1,4 @@
+{
+  this.lastModified=lastModified;
+  this.length=length;
+}

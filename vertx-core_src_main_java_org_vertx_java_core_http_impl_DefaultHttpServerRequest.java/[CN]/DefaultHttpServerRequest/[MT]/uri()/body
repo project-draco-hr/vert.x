@@ -1,0 +1,6 @@
+{
+  if (uri == null) {
+    uri=request.getUri();
+  }
+  return uri;
+}

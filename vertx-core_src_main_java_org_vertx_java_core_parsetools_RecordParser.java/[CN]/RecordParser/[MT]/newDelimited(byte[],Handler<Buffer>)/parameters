@@ -1,0 +1,2 @@
+byte[] delim
+Handler<Buffer> output

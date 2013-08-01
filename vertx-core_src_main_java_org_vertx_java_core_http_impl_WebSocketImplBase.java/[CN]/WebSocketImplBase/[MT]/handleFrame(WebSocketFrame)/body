@@ -1,0 +1,6 @@
+{
+  if (dataHandler != null) {
+    Buffer buff=new Buffer(frame.getBinaryData());
+    dataHandler.handle(buff);
+  }
+}

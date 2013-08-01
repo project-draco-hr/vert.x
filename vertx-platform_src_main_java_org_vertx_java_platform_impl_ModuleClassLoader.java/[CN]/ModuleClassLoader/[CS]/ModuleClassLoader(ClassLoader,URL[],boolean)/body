@@ -1,0 +1,5 @@
+{
+  super(classpath);
+  this.platformClassLoader=platformClassLoader;
+  this.loadResourcesFromTCCL=loadResourcesFromTCCL;
+}

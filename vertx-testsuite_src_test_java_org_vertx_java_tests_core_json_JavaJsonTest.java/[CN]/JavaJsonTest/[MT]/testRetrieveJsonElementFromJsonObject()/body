@@ -1,0 +1,6 @@
+{
+  JsonObject objElement=new JsonObject().putString("foo","bar");
+  JsonObject tester=new JsonObject().putElement("elementField",objElement);
+  JsonElement testElement=tester.getElement("elementField");
+  assertEquals(objElement.getString("foo"),testElement.asObject().getString("foo"));
+}

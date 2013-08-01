@@ -1,0 +1,8 @@
+{
+  if (deploymentContext != null) {
+    deploymentContext.reportException(t);
+  }
+ else {
+    log.error("Unhandled exception",t);
+  }
+}

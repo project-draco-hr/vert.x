@@ -1,0 +1,23 @@
+{
+  String location=resp.headers().get("location");
+  if (location == null) {
+    log.error("HTTP redirect with no location header");
+  }
+ else {
+    URI redirectURI;
+    try {
+      redirectURI=new URI(location);
+      client.close();
+      client=null;
+      int redirectPort=redirectURI.getPort();
+      if (redirectPort == -1) {
+        redirectPort=80;
+      }
+      createClient(redirectURI.getHost(),redirectPort);
+      makeRequest(redirectURI.getHost(),redirectPort,redirectURI.getPath());
+    }
+ catch (    URISyntaxException e) {
+      log.error("Invalid redirect URI: " + location);
+    }
+  }
+}

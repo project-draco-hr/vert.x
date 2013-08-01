@@ -1,0 +1,4 @@
+{
+  logInternal(perms);
+  return super.createFileInternal(p,null,handler);
+}

@@ -1,0 +1,27 @@
+{
+  JsonObject msg=new JsonObject(data.toString());
+  String type=getMandatoryString(msg,"type");
+switch (type) {
+case "send":
+    String address=getMandatoryString(msg,"address");
+  internalHandleSendOrPub(sock,true,msg,address);
+break;
+case "publish":
+address=getMandatoryString(msg,"address");
+internalHandleSendOrPub(sock,false,msg,address);
+break;
+case "register":
+address=getMandatoryString(msg,"address");
+internalHandleRegister(sock,address,handlers);
+break;
+case "unregister":
+address=getMandatoryString(msg,"address");
+internalHandleUnregister(sock,address,handlers);
+break;
+case "ping":
+internalHandlePing(sock);
+break;
+default :
+throw new IllegalStateException("Invalid type: " + type);
+}
+}

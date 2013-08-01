@@ -1,0 +1,4 @@
+{
+  File file=new File(testDir,fileName);
+  return file.exists();
+}

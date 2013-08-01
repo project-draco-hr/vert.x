@@ -1,0 +1,4 @@
+{
+  doResume();
+  return this;
+}

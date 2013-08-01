@@ -1,0 +1,9 @@
+{
+  super(vertx,channel,context);
+  this.client=client;
+  this.ssl=ssl;
+  this.host=host;
+  this.port=port;
+  this.hostHeader=host + ':' + port;
+  this.keepAlive=keepAlive;
+}

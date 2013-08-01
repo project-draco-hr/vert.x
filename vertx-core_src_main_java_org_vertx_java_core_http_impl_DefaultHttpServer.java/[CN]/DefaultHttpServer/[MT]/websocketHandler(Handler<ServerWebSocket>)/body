@@ -1,0 +1,7 @@
+{
+  if (listening) {
+    throw new IllegalStateException("Please set handler before server is listening");
+  }
+  this.wsHandler=wsHandler;
+  return this;
+}

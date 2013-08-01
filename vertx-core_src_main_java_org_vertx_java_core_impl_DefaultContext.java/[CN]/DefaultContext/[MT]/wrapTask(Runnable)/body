@@ -1,0 +1,24 @@
+{
+  return new Runnable(){
+    public void run(){
+      Thread currentThread=Thread.currentThread();
+      String threadName=currentThread.getName();
+      try {
+        vertx.setContext(DefaultContext.this);
+        task.run();
+      }
+ catch (      Throwable t) {
+        reportException(t);
+      }
+ finally {
+        if (!threadName.equals(currentThread.getName())) {
+          currentThread.setName(threadName);
+        }
+      }
+      if (closed) {
+        unsetContext();
+      }
+    }
+  }
+;
+}

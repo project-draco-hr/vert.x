@@ -1,0 +1,4 @@
+{
+  ServiceLoader<VertxFactory> factories=ServiceLoader.load(VertxFactory.class);
+  return factories.iterator().next();
+}

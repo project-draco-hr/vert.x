@@ -1,0 +1,23 @@
+{
+  final DefaultContext context=vertx.getOrCreateContext();
+  vertx.getBackgroundPool().execute(new Runnable(){
+    public void run(){
+      try {
+        vertx.setContext(context);
+        runnable.run();
+      }
+ catch (      Throwable t) {
+        if (doneHandler != null) {
+          doneHandler.handle(new DefaultFutureResult<T>(t));
+        }
+ else {
+          log.error("Failed to run task",t);
+        }
+      }
+ finally {
+        vertx.setContext(null);
+      }
+    }
+  }
+);
+}

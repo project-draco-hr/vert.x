@@ -1,0 +1,14 @@
+{
+  FullHttpResponse resp=new DefaultFullHttpResponse(HTTP_1_1,status);
+  if (status.code() == METHOD_NOT_ALLOWED.code()) {
+    resp.headers().set("allow","GET");
+  }
+  if (err != null) {
+    resp.content().writeBytes(err.getBytes(CharsetUtil.UTF_8));
+    resp.headers().set("Content-Length",err.length());
+  }
+ else {
+    resp.headers().set(HttpHeaders.Names.CONTENT_LENGTH,"0");
+  }
+  ch.writeAndFlush(resp);
+}

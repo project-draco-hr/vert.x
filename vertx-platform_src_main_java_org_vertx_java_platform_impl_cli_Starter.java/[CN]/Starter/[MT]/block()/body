@@ -1,0 +1,10 @@
+{
+  while (true) {
+    try {
+      stopLatch.await();
+      break;
+    }
+ catch (    InterruptedException e) {
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  server.close(new AsyncResultHandler<Void>(){
+    public void handle(    AsyncResult<Void> result){
+      tu.checkThread();
+      tu.appStopped();
+    }
+  }
+);
+}

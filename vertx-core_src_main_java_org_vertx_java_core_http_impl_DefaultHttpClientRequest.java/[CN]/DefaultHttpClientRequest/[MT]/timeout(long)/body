@@ -1,0 +1,3 @@
+{
+  handleException(new TimeoutException("The timeout period of " + timeoutMs + "ms has been exceeded"));
+}

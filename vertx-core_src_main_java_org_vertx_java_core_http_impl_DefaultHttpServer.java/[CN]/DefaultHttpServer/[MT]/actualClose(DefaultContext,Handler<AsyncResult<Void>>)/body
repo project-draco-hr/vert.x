@@ -1,0 +1,23 @@
+{
+  if (id != null) {
+    vertx.sharedHttpServers().remove(id);
+  }
+  for (  ServerConnection conn : connectionMap.values()) {
+    conn.close();
+  }
+  vertx.setContext(closeContext);
+  final CountDownLatch latch=new CountDownLatch(1);
+  ChannelGroupFuture fut=serverChannelGroup.close();
+  fut.addListener(new ChannelGroupFutureListener(){
+    public void operationComplete(    ChannelGroupFuture channelGroupFuture) throws Exception {
+      latch.countDown();
+    }
+  }
+);
+  try {
+    latch.await(10,TimeUnit.SECONDS);
+  }
+ catch (  InterruptedException e) {
+  }
+  executeCloseDone(closeContext,done,fut.cause());
+}

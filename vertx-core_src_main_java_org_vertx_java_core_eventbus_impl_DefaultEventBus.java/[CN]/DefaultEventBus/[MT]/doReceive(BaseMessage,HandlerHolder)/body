@@ -1,0 +1,18 @@
+{
+  final Message copied=msg.copy();
+  holder.context.execute(new Runnable(){
+    public void run(){
+      try {
+        if (!holder.removed) {
+          holder.handler.handle(copied);
+        }
+      }
+  finally {
+        if (holder.replyHandler) {
+          unregisterHandler(msg.address,holder.handler);
+        }
+      }
+    }
+  }
+);
+}

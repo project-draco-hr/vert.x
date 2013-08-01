@@ -1,0 +1,10 @@
+{
+  boolean isNull=readBuff.getByte(pos) == (byte)0;
+  if (!isNull) {
+    pos++;
+    int buffLength=readBuff.getInt(pos);
+    pos+=4;
+    byte[] bytes=readBuff.getBytes(pos,pos + buffLength);
+    body=new Buffer(bytes);
+  }
+}

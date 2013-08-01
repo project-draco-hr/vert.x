@@ -1,0 +1,30 @@
+{
+  client.connect(1234,new AsyncResultHandler<NetSocket>(){
+    public void handle(    final AsyncResult<NetSocket> res){
+      tu.checkThread();
+      final NetSocket sock=res.result();
+      tu.azzert(!sock.writeQueueFull());
+      sock.setWriteQueueMaxSize(1000);
+      final Buffer buff=TestUtils.generateRandomBuffer(10000);
+      vertx.setPeriodic(1,new Handler<Long>(){
+        public void handle(        Long id){
+          sock.write(buff.copy());
+          if (sock.writeQueueFull()) {
+            vertx.cancelTimer(id);
+            sock.drainHandler(new VoidHandler(){
+              public void handle(){
+                tu.checkThread();
+                tu.azzert(!sock.writeQueueFull());
+                tu.testComplete();
+              }
+            }
+);
+            vertx.eventBus().send("server_resume","");
+          }
+        }
+      }
+);
+    }
+  }
+);
+}

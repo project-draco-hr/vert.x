@@ -1,0 +1,4 @@
+{
+  this.hook=hook;
+  return this;
+}

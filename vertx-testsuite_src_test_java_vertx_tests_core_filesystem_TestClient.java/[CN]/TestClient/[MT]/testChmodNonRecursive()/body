@@ -1,0 +1,12 @@
+{
+  final String perms=(String)params.get("perms");
+  final String file1="some-file.dat";
+  createFileWithJunk(file1,100);
+  testChmod(file1,perms,null,true,new VoidHandler(){
+    public void handle(){
+      azzertPerms(perms,file1);
+      deleteFile(file1);
+    }
+  }
+);
+}

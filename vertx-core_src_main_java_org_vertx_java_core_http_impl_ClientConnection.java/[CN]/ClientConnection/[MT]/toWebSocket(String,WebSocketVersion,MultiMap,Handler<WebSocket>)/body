@@ -1,0 +1,49 @@
+{
+  if (ws != null) {
+    throw new IllegalStateException("Already websocket");
+  }
+  try {
+    URI wsuri=new URI(uri);
+    if (!wsuri.isAbsolute()) {
+      wsuri=new URI((ssl ? "https:" : "http:") + "//" + host+ ":"+ port+ uri);
+    }
+    io.netty.handler.codec.http.websocketx.WebSocketVersion version;
+    if (wsVersion == WebSocketVersion.HYBI_00) {
+      version=io.netty.handler.codec.http.websocketx.WebSocketVersion.V00;
+    }
+ else     if (wsVersion == WebSocketVersion.HYBI_08) {
+      version=io.netty.handler.codec.http.websocketx.WebSocketVersion.V08;
+    }
+ else     if (wsVersion == WebSocketVersion.RFC6455) {
+      version=io.netty.handler.codec.http.websocketx.WebSocketVersion.V13;
+    }
+ else {
+      throw new IllegalArgumentException("Invalid version");
+    }
+    HttpHeaders nettyHeaders;
+    if (headers != null) {
+      nettyHeaders=new DefaultHttpHeaders();
+      for (      Map.Entry<String,String> entry : headers) {
+        nettyHeaders.add(entry.getKey(),entry.getValue());
+      }
+    }
+ else {
+      nettyHeaders=null;
+    }
+    handshaker=WebSocketClientHandshakerFactory.newHandshaker(wsuri,version,null,false,nettyHeaders);
+    final ChannelPipeline p=channel.pipeline();
+    p.addBefore("handler","handshakeCompleter",new HandshakeInboundHandler(wsConnect));
+    handshaker.handshake(channel).addListener(new ChannelFutureListener(){
+      @Override public void operationComplete(      ChannelFuture future) throws Exception {
+        if (!future.isSuccess()) {
+          client.handleException((Exception)future.cause());
+        }
+      }
+    }
+);
+    wsHandshakeConnection=true;
+  }
+ catch (  Exception e) {
+    handleException(e);
+  }
+}

@@ -1,0 +1,32 @@
+{
+  if (msg instanceof org.vertx.java.core.http.impl.ws.WebSocketFrame) {
+    org.vertx.java.core.http.impl.ws.WebSocketFrame frame=(org.vertx.java.core.http.impl.ws.WebSocketFrame)msg;
+    ByteBuf buf=((org.vertx.java.core.http.impl.ws.WebSocketFrame)msg).getBinaryData();
+    if (buf != Unpooled.EMPTY_BUFFER) {
+      buf=safeBuffer(buf);
+    }
+switch (frame.getType()) {
+case BINARY:
+      msg=new BinaryWebSocketFrame(buf);
+    break;
+case TEXT:
+  msg=new TextWebSocketFrame(buf);
+break;
+case CLOSE:
+msg=new CloseWebSocketFrame(true,0,buf);
+break;
+case CONTINUATION:
+msg=new ContinuationWebSocketFrame(buf);
+break;
+case PONG:
+msg=new PongWebSocketFrame(buf);
+break;
+case PING:
+msg=new PingWebSocketFrame(buf);
+break;
+default :
+throw new IllegalStateException("Unsupported websocket msg " + msg);
+}
+}
+ctx.write(msg,promise);
+}

@@ -1,0 +1,17 @@
+{
+  if (timeout != -1) {
+    cancelTimer();
+    timeoutTimerID=vertx.setTimer(timeout,new Handler<Long>(){
+      public void handle(      Long id){
+        vertx.cancelTimer(heartbeatID);
+        if (listener == null) {
+          shutdown();
+        }
+        if (listener != null) {
+          listener.close();
+        }
+      }
+    }
+);
+  }
+}

@@ -1,0 +1,22 @@
+{
+  final int numConnections=100;
+  final AtomicInteger connCount=new AtomicInteger(0);
+  for (int i=0; i < numConnections; i++) {
+    AsyncResultHandler<NetSocket> handler=new AsyncResultHandler<NetSocket>(){
+      public void handle(      AsyncResult<NetSocket> res){
+        tu.checkThread();
+        res.result().close();
+        if (connCount.incrementAndGet() == numConnections) {
+          tu.testComplete();
+        }
+      }
+    }
+;
+    if (host == null) {
+      client.connect(port,handler);
+    }
+ else {
+      client.connect(port,host,handler);
+    }
+  }
+}

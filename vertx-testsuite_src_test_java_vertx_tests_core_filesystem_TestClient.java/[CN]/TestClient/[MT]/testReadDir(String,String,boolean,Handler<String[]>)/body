@@ -1,0 +1,37 @@
+{
+  AsyncResultHandler<String[]> handler=new AsyncResultHandler<String[]>(){
+    public void handle(    AsyncResult<String[]> ar){
+      tu.checkThread();
+      if (ar.failed()) {
+        if (shouldPass) {
+          tu.exception(ar.cause(),"read failed");
+        }
+ else {
+          tu.azzert(ar.cause() instanceof FileSystemException);
+          if (afterOK != null) {
+            afterOK.handle(null);
+          }
+          tu.testComplete();
+        }
+      }
+ else {
+        if (shouldPass) {
+          if (afterOK != null) {
+            afterOK.handle(ar.result());
+          }
+          tu.testComplete();
+        }
+ else {
+          tu.azzert(false,"read should fail");
+        }
+      }
+    }
+  }
+;
+  if (filter == null) {
+    vertx.fileSystem().readDir(TEST_DIR + pathSep + dirName,handler);
+  }
+ else {
+    vertx.fileSystem().readDir(TEST_DIR + pathSep + dirName,filter,handler);
+  }
+}

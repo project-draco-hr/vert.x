@@ -1,0 +1,5 @@
+{
+  this.totalSpace=totalSpace;
+  this.unallocatedSpace=unallocatedSpace;
+  this.usableSpace=usableSpace;
+}

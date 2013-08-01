@@ -1,0 +1,10 @@
+{
+  client.exceptionHandler(createNoConnectHandler());
+  client.setPort(9998);
+  client.getNow("someurl",new Handler<HttpClientResponse>(){
+    public void handle(    HttpClientResponse resp){
+      tu.azzert(false,"Connect should not be called");
+    }
+  }
+);
+}

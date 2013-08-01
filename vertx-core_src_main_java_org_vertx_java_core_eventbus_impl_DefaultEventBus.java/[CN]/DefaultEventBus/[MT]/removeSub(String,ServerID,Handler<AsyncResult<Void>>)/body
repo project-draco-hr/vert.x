@@ -1,0 +1,3 @@
+{
+  subs.remove(subName,theServerID,completionHandler);
+}

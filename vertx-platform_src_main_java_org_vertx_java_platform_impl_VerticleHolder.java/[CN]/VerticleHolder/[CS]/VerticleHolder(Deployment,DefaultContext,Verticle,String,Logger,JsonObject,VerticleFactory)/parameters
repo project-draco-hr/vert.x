@@ -1,0 +1,7 @@
+Deployment deployment
+DefaultContext context
+Verticle verticle
+String loggerName
+Logger logger
+JsonObject config
+VerticleFactory factory

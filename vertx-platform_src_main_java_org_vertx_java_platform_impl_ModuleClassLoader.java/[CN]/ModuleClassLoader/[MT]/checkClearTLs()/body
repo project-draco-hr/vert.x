@@ -1,0 +1,6 @@
+{
+  if (decRecurseDepth() == 0) {
+    circDepTL.remove();
+    recurseDepth.remove();
+  }
+}

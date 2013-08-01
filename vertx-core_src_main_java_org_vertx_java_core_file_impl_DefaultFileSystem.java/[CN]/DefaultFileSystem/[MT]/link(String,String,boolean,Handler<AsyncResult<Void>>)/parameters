@@ -1,0 +1,4 @@
+String link
+String existing
+boolean symbolic
+Handler<AsyncResult<Void>> handler

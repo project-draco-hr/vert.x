@@ -1,0 +1,4 @@
+{
+  lpropsInternal(path,handler).run();
+  return this;
+}

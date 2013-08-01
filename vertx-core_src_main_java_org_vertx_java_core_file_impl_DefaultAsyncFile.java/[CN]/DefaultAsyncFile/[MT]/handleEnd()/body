@@ -1,0 +1,6 @@
+{
+  if (endHandler != null) {
+    checkContext();
+    endHandler.handle(null);
+  }
+}

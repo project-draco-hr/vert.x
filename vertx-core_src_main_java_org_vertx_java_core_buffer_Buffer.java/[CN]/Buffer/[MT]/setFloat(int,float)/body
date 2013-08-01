@@ -1,0 +1,5 @@
+{
+  ensureWritable(pos,4);
+  buffer.setFloat(pos,f);
+  return this;
+}

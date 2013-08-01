@@ -1,0 +1,8 @@
+{
+  timerID=vertx.setTimer(CHECK_PERIOD,new Handler<Long>(){
+    public void handle(    Long id){
+      runInBackground(checker);
+    }
+  }
+);
+}

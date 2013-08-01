@@ -1,0 +1,4 @@
+{
+  write(Unpooled.copiedBuffer(str,CharsetUtil.UTF_8));
+  return this;
+}

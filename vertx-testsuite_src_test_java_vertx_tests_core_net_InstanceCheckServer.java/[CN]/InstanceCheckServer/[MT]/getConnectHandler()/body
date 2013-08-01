@@ -1,0 +1,11 @@
+{
+  return new Handler<NetSocket>(){
+    public void handle(    final NetSocket socket){
+      tu.checkThread();
+      vertx.sharedData().getSet("instances").add(id);
+      vertx.sharedData().getSet("connections").add(UUID.randomUUID().toString());
+      socket.close();
+    }
+  }
+;
+}

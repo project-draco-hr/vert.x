@@ -1,0 +1,17 @@
+{
+  Matcher m=Pattern.compile(":([A-Za-z][A-Za-z0-9_]*)").matcher(input);
+  StringBuffer sb=new StringBuffer();
+  Set<String> groups=new HashSet<>();
+  while (m.find()) {
+    String group=m.group().substring(1);
+    if (groups.contains(group)) {
+      throw new IllegalArgumentException("Cannot use identifier " + group + " more than once in pattern string");
+    }
+    m.appendReplacement(sb,"(?<$1>[^\\/]+)");
+    groups.add(group);
+  }
+  m.appendTail(sb);
+  String regex=sb.toString();
+  PatternBinding binding=new PatternBinding(Pattern.compile(regex),groups,handler);
+  bindings.add(binding);
+}

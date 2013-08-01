@@ -1,0 +1,4 @@
+{
+  checkClosed();
+  return tcpHelper.getTrustStorePath();
+}

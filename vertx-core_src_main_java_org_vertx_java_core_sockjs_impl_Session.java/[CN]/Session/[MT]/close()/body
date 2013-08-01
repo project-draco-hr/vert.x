@@ -1,0 +1,9 @@
+{
+  if (endHandler != null) {
+    endHandler.handle(null);
+  }
+  closed=true;
+  if (listener != null && handleCalled) {
+    listener.sessionClosed();
+  }
+}

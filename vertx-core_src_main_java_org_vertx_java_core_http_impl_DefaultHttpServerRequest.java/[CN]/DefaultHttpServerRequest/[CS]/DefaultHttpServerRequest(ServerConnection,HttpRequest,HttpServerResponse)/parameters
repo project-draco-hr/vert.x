@@ -1,0 +1,3 @@
+ServerConnection conn
+HttpRequest request
+HttpServerResponse response

@@ -1,0 +1,15 @@
+{
+  client.close();
+  if (server != null) {
+    server.close(new AsyncResultHandler<Void>(){
+      public void handle(      AsyncResult<Void> result){
+        tu.checkThread();
+        HttpTestClient.super.stop();
+      }
+    }
+);
+  }
+ else {
+    super.stop();
+  }
+}

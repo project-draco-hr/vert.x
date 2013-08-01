@@ -1,0 +1,5 @@
+{
+  this.vertx=vertx;
+  this.channel=channel;
+  this.context=context;
+}

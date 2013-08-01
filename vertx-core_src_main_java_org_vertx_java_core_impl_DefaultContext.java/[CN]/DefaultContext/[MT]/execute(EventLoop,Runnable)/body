@@ -1,0 +1,8 @@
+{
+  if (isOnCorrectWorker(worker)) {
+    wrapTask(handler).run();
+  }
+ else {
+    execute(handler);
+  }
+}

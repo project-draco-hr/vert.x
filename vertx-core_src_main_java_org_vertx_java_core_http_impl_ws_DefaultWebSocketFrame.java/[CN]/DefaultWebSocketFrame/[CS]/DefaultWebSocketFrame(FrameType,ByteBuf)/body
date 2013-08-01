@@ -1,0 +1,4 @@
+{
+  this.type=type;
+  this.binaryData=Unpooled.unreleasableBuffer(binaryData);
+}

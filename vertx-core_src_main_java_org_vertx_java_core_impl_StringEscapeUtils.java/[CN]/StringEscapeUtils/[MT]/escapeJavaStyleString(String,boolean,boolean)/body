@@ -1,0 +1,8 @@
+{
+  if (str == null) {
+    return null;
+  }
+  StringWriter writer=new StringWriter(str.length() * 2);
+  escapeJavaStyleString(writer,str,escapeSingleQuotes,escapeForwardSlash);
+  return writer.toString();
+}

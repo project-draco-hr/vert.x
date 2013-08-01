@@ -1,0 +1,3 @@
+{
+  testWS(false,WebSocketVersion.HYBI_08);
+}

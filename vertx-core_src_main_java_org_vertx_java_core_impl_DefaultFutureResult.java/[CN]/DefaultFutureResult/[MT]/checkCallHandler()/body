@@ -1,0 +1,5 @@
+{
+  if (handler != null && complete()) {
+    handler.handle(this);
+  }
+}

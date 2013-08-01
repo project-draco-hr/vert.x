@@ -1,0 +1,11 @@
+{
+  this.vertx=vertx;
+  this.writeHandler=new Handler<Message<Buffer>>(){
+    public void handle(    Message<Buffer> buff){
+      write(buff.body());
+    }
+  }
+;
+  this.writeHandlerID=UUID.randomUUID().toString();
+  vertx.eventBus().registerLocalHandler(writeHandlerID,writeHandler);
+}

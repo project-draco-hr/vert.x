@@ -1,0 +1,9 @@
+{
+  List<Map.Entry<String,String>> all=new LinkedList<>();
+  MapEntry e=head.after;
+  while (e != head) {
+    all.add(e);
+    e=e.after;
+  }
+  return all;
+}

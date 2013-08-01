@@ -1,0 +1,5 @@
+{
+  if (listening) {
+    throw new IllegalStateException("Can't set property when server is listening");
+  }
+}

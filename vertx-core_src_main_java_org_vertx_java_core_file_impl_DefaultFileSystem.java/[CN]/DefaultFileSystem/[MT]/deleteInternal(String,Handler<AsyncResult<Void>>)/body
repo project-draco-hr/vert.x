@@ -1,0 +1,3 @@
+{
+  return deleteInternal(path,false,handler);
+}

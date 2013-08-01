@@ -1,0 +1,58 @@
+{
+  final AtomicInteger attributeCount=new AtomicInteger();
+  vertx.createHttpServer().requestHandler(new Handler<HttpServerRequest>(){
+    public void handle(    final HttpServerRequest req){
+      if (req.uri().startsWith("/form")) {
+        req.response().setChunked(true);
+        req.expectMultiPart(true);
+        req.uploadHandler(new Handler<HttpServerFileUpload>(){
+          @Override public void handle(          final HttpServerFileUpload event){
+            event.dataHandler(new Handler<Buffer>(){
+              @Override public void handle(              Buffer buffer){
+                tu.azzert(false);
+              }
+            }
+);
+          }
+        }
+);
+        req.endHandler(new VoidHandler(){
+          protected void handle(){
+            MultiMap attrs=req.formAttributes();
+            attributeCount.set(attrs.size());
+            tu.azzert(attrs.get("origin").equals("junit-testUserAlias"));
+            tu.azzert(attrs.get("login").equals("admin@foo.bar"));
+            tu.azzert(attrs.get("pass word").equals("admin"));
+            req.response().end();
+          }
+        }
+);
+      }
+    }
+  }
+).listen(8080,"0.0.0.0",new AsyncResultHandler<HttpServer>(){
+    @Override public void handle(    AsyncResult<HttpServer> ar){
+      tu.azzert(ar.succeeded());
+      HttpClientRequest req=vertx.createHttpClient().setPort(8080).post("/form",new Handler<HttpClientResponse>(){
+        @Override public void handle(        HttpClientResponse resp){
+          tu.azzert(200 == resp.statusCode());
+          resp.bodyHandler(new Handler<Buffer>(){
+            public void handle(            Buffer body){
+              tu.azzert(0 == body.length());
+            }
+          }
+);
+          tu.azzert(3 == attributeCount.get());
+          tu.testComplete();
+        }
+      }
+);
+      Buffer buffer=new Buffer();
+      buffer.appendString("origin=junit-testUserAlias&login=admin%40foo.bar&pass+word=admin");
+      req.headers().set("content-length",String.valueOf(buffer.length()));
+      req.headers().set("content-type","application/x-www-form-urlencoded");
+      req.write(buffer).end();
+    }
+  }
+);
+}

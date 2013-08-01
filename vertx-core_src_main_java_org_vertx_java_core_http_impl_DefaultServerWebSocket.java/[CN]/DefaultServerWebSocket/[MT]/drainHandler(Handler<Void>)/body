@@ -1,0 +1,5 @@
+{
+  checkClosed();
+  this.drainHandler=handler;
+  return this;
+}

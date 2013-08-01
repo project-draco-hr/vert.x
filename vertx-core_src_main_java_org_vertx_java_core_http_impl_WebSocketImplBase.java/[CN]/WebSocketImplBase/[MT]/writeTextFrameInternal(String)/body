@@ -1,0 +1,4 @@
+{
+  WebSocketFrame frame=new DefaultWebSocketFrame(str);
+  writeFrame(frame);
+}

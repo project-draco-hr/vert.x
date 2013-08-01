@@ -1,0 +1,21 @@
+{
+  String currentKey=null;
+  for (  String arg : args) {
+    if (arg.startsWith("-")) {
+      if (currentKey != null) {
+        map.put(currentKey,"");
+        currentKey=null;
+      }
+      currentKey=arg;
+    }
+ else {
+      if (currentKey != null) {
+        map.put(currentKey,arg);
+        currentKey=null;
+      }
+    }
+  }
+  if (currentKey != null) {
+    map.put(currentKey,"");
+  }
+}

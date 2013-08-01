@@ -1,0 +1,6 @@
+{
+  if (path == null) {
+    path=juri().getPath();
+  }
+  return path;
+}

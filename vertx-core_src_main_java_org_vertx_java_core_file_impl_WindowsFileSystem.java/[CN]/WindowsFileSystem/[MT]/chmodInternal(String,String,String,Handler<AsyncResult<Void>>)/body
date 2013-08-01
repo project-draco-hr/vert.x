@@ -1,0 +1,10 @@
+{
+  logInternal(perms);
+  logInternal(dirPerms);
+  return new BlockingAction<Void>(vertx,handler){
+    @Override public Void action(){
+      return null;
+    }
+  }
+;
+}

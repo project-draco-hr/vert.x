@@ -1,0 +1,4 @@
+{
+  readDirInternal(path,handler).run();
+  return this;
+}

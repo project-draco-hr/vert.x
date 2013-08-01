@@ -1,0 +1,33 @@
+{
+  byte type=buff.getByte(0);
+switch (type) {
+case TYPE_PING:
+    return new PingMessage(buff);
+case TYPE_BUFFER:
+  return new BufferMessage(buff);
+case TYPE_BOOLEAN:
+return new BooleanMessage(buff);
+case TYPE_BYTEARRAY:
+return new ByteArrayMessage(buff);
+case TYPE_BYTE:
+return new ByteMessage(buff);
+case TYPE_CHARACTER:
+return new CharacterMessage(buff);
+case TYPE_DOUBLE:
+return new DoubleMessage(buff);
+case TYPE_FLOAT:
+return new FloatMessage(buff);
+case TYPE_INT:
+return new IntMessage(buff);
+case TYPE_LONG:
+return new LongMessage(buff);
+case TYPE_SHORT:
+return new ShortMessage(buff);
+case TYPE_STRING:
+return new StringMessage(buff);
+case TYPE_JSON:
+return new JsonObjectMessage(buff);
+default :
+throw new IllegalStateException("Invalid type " + type);
+}
+}

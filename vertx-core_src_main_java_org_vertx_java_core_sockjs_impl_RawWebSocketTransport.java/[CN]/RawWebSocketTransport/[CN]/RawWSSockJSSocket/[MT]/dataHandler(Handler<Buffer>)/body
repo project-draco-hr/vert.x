@@ -1,0 +1,4 @@
+{
+  ws.dataHandler(handler);
+  return this;
+}

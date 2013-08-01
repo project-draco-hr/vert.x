@@ -1,0 +1,6 @@
+{
+  super(other.send,other.address,other.body == null ? null : other.body.copy());
+  this.replyAddress=other.replyAddress;
+  this.bus=other.bus;
+  this.sender=other.sender;
+}

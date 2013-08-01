@@ -1,0 +1,3 @@
+{
+  testRequestBodyStringAtEnd("UTF-16");
+}

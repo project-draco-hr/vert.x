@@ -1,0 +1,35 @@
+{
+  final Path target=PathAdjuster.adjust(vertx,Paths.get(path));
+  final Set<PosixFilePermission> permissions=PosixFilePermissions.fromString(perms);
+  final Set<PosixFilePermission> dirPermissions=dirPerms == null ? null : PosixFilePermissions.fromString(dirPerms);
+  return new BlockingAction<Void>(vertx,handler){
+    public Void action(){
+      try {
+        if (dirPermissions != null) {
+          Files.walkFileTree(target,new SimpleFileVisitor<Path>(){
+            public FileVisitResult preVisitDirectory(            Path dir,            BasicFileAttributes attrs) throws IOException {
+              Files.setPosixFilePermissions(dir,dirPermissions);
+              return FileVisitResult.CONTINUE;
+            }
+            public FileVisitResult visitFile(            Path file,            BasicFileAttributes attrs) throws IOException {
+              Files.setPosixFilePermissions(file,permissions);
+              return FileVisitResult.CONTINUE;
+            }
+          }
+);
+        }
+ else {
+          Files.setPosixFilePermissions(target,permissions);
+        }
+      }
+ catch (      SecurityException e) {
+        throw new FileSystemException("Accessed denied for chmod on " + target);
+      }
+catch (      IOException e) {
+        throw new FileSystemException(e);
+      }
+      return null;
+    }
+  }
+;
+}

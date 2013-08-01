@@ -1,0 +1,9 @@
+{
+  check();
+  if (conn != null) {
+    return conn.doWriteQueueFull();
+  }
+ else {
+    return false;
+  }
+}

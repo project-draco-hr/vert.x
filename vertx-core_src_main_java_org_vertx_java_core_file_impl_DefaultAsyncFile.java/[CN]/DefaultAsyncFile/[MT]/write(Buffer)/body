@@ -1,0 +1,30 @@
+{
+  check();
+  final int length=buffer.length();
+  Handler<AsyncResult<Void>> handler=new Handler<AsyncResult<Void>>(){
+    public void handle(    AsyncResult<Void> deferred){
+      if (deferred.succeeded()) {
+        checkContext();
+        checkDrained();
+        if (writesOutstanding == 0 && closedDeferred != null) {
+          closedDeferred.run();
+        }
+      }
+ else {
+        handleException(deferred.cause());
+      }
+    }
+  }
+;
+  ByteBuf buf=buffer.getByteBuf();
+  if (buf.nioBufferCount() > 1) {
+    final Iterator<ByteBuffer> buffers=Arrays.asList(buf.nioBuffers()).iterator();
+    doWrite(buffers,writePos,handler);
+  }
+ else {
+    ByteBuffer bb=buf.nioBuffer();
+    doWrite(bb,writePos,bb.limit(),handler);
+  }
+  writePos+=length;
+  return this;
+}

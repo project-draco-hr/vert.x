@@ -1,0 +1,4 @@
+{
+  symlinkInternal(link,existing,handler).run();
+  return this;
+}

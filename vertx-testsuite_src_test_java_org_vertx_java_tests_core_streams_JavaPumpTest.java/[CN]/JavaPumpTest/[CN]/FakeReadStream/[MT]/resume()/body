@@ -1,0 +1,5 @@
+{
+  paused=false;
+  resumeCount++;
+  return this;
+}

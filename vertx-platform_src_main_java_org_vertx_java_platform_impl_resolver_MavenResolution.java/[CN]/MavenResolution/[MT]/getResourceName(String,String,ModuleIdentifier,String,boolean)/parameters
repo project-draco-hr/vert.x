@@ -1,0 +1,5 @@
+String data
+String contentRoot
+ModuleIdentifier identifier
+String uriRoot
+boolean modSuffix

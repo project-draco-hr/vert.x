@@ -1,0 +1,24 @@
+{
+  boolean connect=false;
+  ClientConnection conn;
+  outer: synchronized (this) {
+    conn=available.poll();
+    if (conn != null) {
+      break outer;
+    }
+ else {
+      if (connectionCount < maxPoolSize) {
+        connect=true;
+        connectionCount++;
+        break outer;
+      }
+      waiters.add(new Waiter(handler,connectExceptionHandler,context));
+    }
+  }
+  if (conn != null) {
+    handler.handle(conn);
+  }
+ else   if (connect) {
+    connect(handler,connectExceptionHandler,context);
+  }
+}

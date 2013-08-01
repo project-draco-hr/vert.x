@@ -1,0 +1,14 @@
+{
+  final Path source=PathAdjuster.adjust(vertx,Paths.get(link));
+  return new BlockingAction<String>(vertx,handler){
+    public String action(){
+      try {
+        return Files.readSymbolicLink(source).toString();
+      }
+ catch (      IOException e) {
+        throw new FileSystemException(e);
+      }
+    }
+  }
+;
+}

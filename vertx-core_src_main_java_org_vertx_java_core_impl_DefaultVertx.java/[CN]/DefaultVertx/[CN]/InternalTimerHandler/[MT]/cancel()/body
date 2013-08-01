@@ -1,0 +1,4 @@
+{
+  cancelled=true;
+  return future.cancel(false);
+}

@@ -1,0 +1,4 @@
+{
+  startApp(EchoServer.class.getName());
+  startTest(getMethodName());
+}

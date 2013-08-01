@@ -1,0 +1,4 @@
+{
+  MultiMap<String,HazelcastServerID> map=instance.getMultiMap(name);
+  return new HazelcastSubsMap(vertx,map);
+}

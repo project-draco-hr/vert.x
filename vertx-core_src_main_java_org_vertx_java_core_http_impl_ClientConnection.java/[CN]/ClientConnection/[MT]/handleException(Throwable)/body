@@ -1,0 +1,9 @@
+{
+  super.handleException(e);
+  if (currentRequest != null) {
+    currentRequest.handleException(e);
+  }
+ else   if (currentResponse != null) {
+    currentResponse.handleException(e);
+  }
+}

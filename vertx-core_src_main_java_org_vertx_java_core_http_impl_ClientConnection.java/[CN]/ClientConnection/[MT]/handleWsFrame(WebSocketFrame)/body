@@ -1,0 +1,6 @@
+{
+  if (ws != null) {
+    setContext();
+    ws.handleFrame(frame);
+  }
+}

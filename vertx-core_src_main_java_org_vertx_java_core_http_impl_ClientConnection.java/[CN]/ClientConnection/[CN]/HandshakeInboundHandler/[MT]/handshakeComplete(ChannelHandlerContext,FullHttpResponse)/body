@@ -1,0 +1,12 @@
+{
+  handshaking=true;
+  try {
+    ws=new DefaultWebSocket(vertx,ClientConnection.this);
+    handshaker.finishHandshake(channel,response);
+    log.debug("WebSocket handshake complete");
+    wsConnect.handle(ws);
+  }
+ catch (  WebSocketHandshakeException e) {
+    client.handleException(e);
+  }
+}

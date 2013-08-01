@@ -1,0 +1,11 @@
+{
+  SharedMap<K,V> map=(SharedMap<K,V>)maps.get(name);
+  if (map == null) {
+    map=new SharedMap<>();
+    SharedMap prev=maps.putIfAbsent(name,map);
+    if (prev != null) {
+      map=prev;
+    }
+  }
+  return map;
+}

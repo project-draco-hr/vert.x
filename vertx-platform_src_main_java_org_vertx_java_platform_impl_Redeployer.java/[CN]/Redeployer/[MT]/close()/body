@@ -1,0 +1,4 @@
+{
+  vertx.cancelTimer(timerID);
+  closed=true;
+}

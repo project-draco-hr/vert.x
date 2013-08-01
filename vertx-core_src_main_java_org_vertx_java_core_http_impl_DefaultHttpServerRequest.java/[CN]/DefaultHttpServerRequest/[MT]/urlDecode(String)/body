@@ -1,0 +1,3 @@
+{
+  return QueryStringDecoder.decodeComponent(str,CharsetUtil.UTF_8);
+}

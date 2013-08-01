@@ -1,0 +1,3 @@
+{
+  this(vertx,inboundPermitted,outboundPermitted,DEFAULT_AUTH_TIMEOUT,null);
+}

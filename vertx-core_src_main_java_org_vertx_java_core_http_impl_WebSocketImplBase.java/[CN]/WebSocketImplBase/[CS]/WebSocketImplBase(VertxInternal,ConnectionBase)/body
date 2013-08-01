@@ -1,0 +1,20 @@
+{
+  this.vertx=vertx;
+  this.textHandlerID=UUID.randomUUID().toString();
+  this.binaryHandlerID=UUID.randomUUID().toString();
+  this.conn=conn;
+  binaryHandler=new Handler<Message<Buffer>>(){
+    public void handle(    Message<Buffer> msg){
+      writeBinaryFrameInternal(msg.body());
+    }
+  }
+;
+  vertx.eventBus().registerLocalHandler(binaryHandlerID,binaryHandler);
+  textHandler=new Handler<Message<String>>(){
+    public void handle(    Message<String> msg){
+      writeTextFrameInternal(msg.body());
+    }
+  }
+;
+  vertx.eventBus().registerLocalHandler(textHandlerID,textHandler);
+}

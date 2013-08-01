@@ -1,0 +1,11 @@
+{
+  if (!failed) {
+    if (doneHandler != null) {
+      callHandler(new DefaultFutureResult<T>(t));
+    }
+ else {
+      cause=t;
+    }
+    failed=true;
+  }
+}

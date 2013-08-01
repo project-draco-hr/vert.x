@@ -1,0 +1,6 @@
+{
+  StringBuilder sb=new StringBuilder("c[");
+  sb.append(String.valueOf(code)).append(",\"");
+  sb.append(msg).append("\"]");
+  lst.sendFrame(sb.toString());
+}

@@ -1,0 +1,7 @@
+{
+  Set<Map.Entry<K,V>> entries=new HashSet<>();
+  for (  Map.Entry<K,V> entry : map.entrySet()) {
+    entries.add(new Entry<>(entry));
+  }
+  return entries;
+}

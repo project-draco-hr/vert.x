@@ -1,0 +1,16 @@
+{
+  ConnectionHolder holder=connections.get(theServerID);
+  if (holder == null) {
+    NetClient client=vertx.createNetClient();
+    client.setConnectTimeout(60 * 1000);
+    holder=new ConnectionHolder(client);
+    ConnectionHolder prevHolder=connections.putIfAbsent(theServerID,holder);
+    if (prevHolder != null) {
+      holder=prevHolder;
+    }
+ else {
+      holder.connect(client,theServerID);
+    }
+  }
+  holder.writeMessage(message);
+}

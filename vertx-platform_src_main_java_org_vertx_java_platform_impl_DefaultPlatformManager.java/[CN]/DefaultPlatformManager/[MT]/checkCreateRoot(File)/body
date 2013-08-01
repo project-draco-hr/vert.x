@@ -1,0 +1,12 @@
+{
+  if (!modRoot.exists()) {
+    String smodRoot;
+    try {
+      smodRoot=modRoot.getCanonicalPath();
+    }
+ catch (    IOException e) {
+      throw new PlatformManagerException(e);
+    }
+    vertx.fileSystem().mkdirSync(smodRoot,true);
+  }
+}

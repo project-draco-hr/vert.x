@@ -1,0 +1,5 @@
+{
+  StringBuilder sb=new StringBuilder("o");
+  lst.sendFrame(sb.toString());
+  openWritten=true;
+}

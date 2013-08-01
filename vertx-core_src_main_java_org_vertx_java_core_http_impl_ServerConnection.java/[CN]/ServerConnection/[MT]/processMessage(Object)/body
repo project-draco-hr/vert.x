@@ -1,0 +1,28 @@
+{
+  if (msg instanceof HttpRequest) {
+    HttpRequest request=(HttpRequest)msg;
+    DefaultHttpServerResponse resp=new DefaultHttpServerResponse(vertx,this,request);
+    DefaultHttpServerRequest req=new DefaultHttpServerRequest(this,request,resp);
+    handleRequest(req,resp);
+  }
+  if (msg instanceof HttpContent) {
+    HttpContent chunk=(HttpContent)msg;
+    if (chunk.content().isReadable()) {
+      Buffer buff=new Buffer(chunk.content());
+      handleChunk(buff);
+    }
+    if (msg instanceof LastHttpContent) {
+      if (!paused) {
+        handleEnd();
+      }
+ else {
+        pending.add(LastHttpContent.EMPTY_LAST_CONTENT);
+      }
+    }
+  }
+ else   if (msg instanceof WebSocketFrame) {
+    WebSocketFrame frame=(WebSocketFrame)msg;
+    handleWsFrame(frame);
+  }
+  checkNextTick();
+}

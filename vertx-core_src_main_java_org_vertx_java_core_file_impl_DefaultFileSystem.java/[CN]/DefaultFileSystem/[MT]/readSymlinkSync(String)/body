@@ -1,0 +1,3 @@
+{
+  return readSymlinkInternal(link,null).action();
+}

@@ -1,0 +1,16 @@
+{
+  try {
+    String[] parts;
+    if (msgs.startsWith("[")) {
+      parts=(String[])JsonCodec.decodeValue(msgs,String[].class);
+    }
+ else {
+      String str=(String)JsonCodec.decodeValue(msgs,String.class);
+      parts=new String[]{str};
+    }
+    return parts;
+  }
+ catch (  DecodeException e) {
+    return null;
+  }
+}

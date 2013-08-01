@@ -1,0 +1,4 @@
+{
+  truncateInternal(path,len,handler).run();
+  return this;
+}

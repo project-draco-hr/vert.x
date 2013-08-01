@@ -1,0 +1,4 @@
+{
+  PatternBinding binding=new PatternBinding(Pattern.compile(regex),null,handler);
+  bindings.add(binding);
+}

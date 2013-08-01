@@ -1,0 +1,5 @@
+{
+  if (currentTimeoutTimerId != -1) {
+    lastDataReceived=System.currentTimeMillis();
+  }
+}

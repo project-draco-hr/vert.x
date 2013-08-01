@@ -1,0 +1,14 @@
+{
+  sincludes=sincludes.trim();
+  if ("".equals(sincludes)) {
+    log.error("Empty include string");
+    return null;
+  }
+  String[] arr=sincludes.split(",");
+  if (arr != null) {
+    for (int i=0; i < arr.length; i++) {
+      arr[i]=arr[i].trim();
+    }
+  }
+  return arr;
+}

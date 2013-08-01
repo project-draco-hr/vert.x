@@ -1,0 +1,7 @@
+{
+  if (drainHandler != null && writesOutstanding <= lwm) {
+    Handler<Void> handler=drainHandler;
+    drainHandler=null;
+    handler.handle(null);
+  }
+}

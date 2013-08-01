@@ -1,0 +1,21 @@
+{
+  if (buf == Unpooled.EMPTY_BUFFER) {
+    return buf;
+  }
+  if (buf.isDirect() || buf instanceof CompositeByteBuf) {
+    try {
+      if (buf.isReadable()) {
+        ByteBuf buffer=buf.alloc().heapBuffer(buf.readableBytes());
+        buffer.writeBytes(buf);
+        return buffer;
+      }
+ else {
+        return Unpooled.EMPTY_BUFFER;
+      }
+    }
+  finally {
+      buf.release();
+    }
+  }
+  return buf;
+}

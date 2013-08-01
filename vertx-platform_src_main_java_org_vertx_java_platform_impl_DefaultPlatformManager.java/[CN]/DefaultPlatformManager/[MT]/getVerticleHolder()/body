@@ -1,0 +1,9 @@
+{
+  DefaultContext context=vertx.getContext();
+  if (context != null) {
+    return (VerticleHolder)context.getDeploymentHandle();
+  }
+ else {
+    return null;
+  }
+}

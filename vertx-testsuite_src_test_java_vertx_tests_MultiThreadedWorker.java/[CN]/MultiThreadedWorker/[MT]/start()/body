@@ -1,0 +1,14 @@
+{
+  tu=new TestUtils(vertx);
+  vertx.eventBus().registerHandler("fooaddress",new Handler<Message>(){
+    AtomicInteger cnt=new AtomicInteger();
+    @Override public void handle(    Message event){
+      threads.add(Thread.currentThread());
+      if (cnt.incrementAndGet() == 1000) {
+        tu.azzert(threads.size() > 1);
+        tu.testComplete();
+      }
+    }
+  }
+);
+}

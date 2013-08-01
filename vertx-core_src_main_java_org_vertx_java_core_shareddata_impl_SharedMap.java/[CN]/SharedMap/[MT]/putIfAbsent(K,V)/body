@@ -1,0 +1,5 @@
+{
+  Checker.checkType(k);
+  Checker.checkType(v);
+  return map.putIfAbsent(k,v);
+}

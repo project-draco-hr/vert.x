@@ -1,0 +1,4 @@
+{
+  linkInternal(link,existing,handler).run();
+  return this;
+}

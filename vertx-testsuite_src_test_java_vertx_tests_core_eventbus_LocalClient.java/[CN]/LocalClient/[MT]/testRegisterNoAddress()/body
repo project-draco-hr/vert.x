@@ -1,0 +1,25 @@
+{
+  final String msg="foo";
+  final AtomicReference<String> idRef=new AtomicReference<>();
+  String id=UUID.randomUUID().toString();
+  eb.registerHandler(id,new Handler<Message<String>>(){
+    boolean handled=false;
+    public void handle(    Message<String> received){
+      tu.azzert(!handled);
+      tu.azzert(msg.equals(received.body()));
+      handled=true;
+      eb.unregisterHandler(idRef.get(),this);
+      vertx.setTimer(100,new Handler<Long>(){
+        public void handle(        Long timerID){
+          tu.testComplete();
+        }
+      }
+);
+    }
+  }
+);
+  idRef.set(id);
+  for (int i=0; i < 10; i++) {
+    eb.send(id,"foo");
+  }
+}

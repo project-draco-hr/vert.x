@@ -1,0 +1,36 @@
+{
+  final File file;
+  if (sendFile) {
+    file=setupFile("test-server-chaining.dat","blah");
+  }
+ else {
+    file=null;
+  }
+  AsyncResultHandler<HttpServer> handler=new AsyncResultHandler<HttpServer>(){
+    @Override public void handle(    AsyncResult<HttpServer> ar){
+      tu.azzert(ar.succeeded());
+      HttpClientRequest req=client.put("someurl",new Handler<HttpClientResponse>(){
+        public void handle(        HttpClientResponse resp){
+        }
+      }
+);
+      req.end();
+    }
+  }
+;
+  startServer(new Handler<HttpServerRequest>(){
+    public void handle(    HttpServerRequest req){
+      if (sendFile) {
+        tu.azzert(req.response().sendFile(file.getAbsolutePath()) == req.response());
+        file.delete();
+      }
+ else {
+        tu.azzert(req.response().setChunked(true) == req.response());
+        tu.azzert(req.response().write("foo","UTF-8") == req.response());
+        tu.azzert(req.response().write("foo") == req.response());
+      }
+      tu.testComplete();
+    }
+  }
+,handler);
+}

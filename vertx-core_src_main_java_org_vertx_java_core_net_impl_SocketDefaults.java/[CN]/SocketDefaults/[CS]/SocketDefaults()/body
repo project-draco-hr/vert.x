@@ -1,0 +1,22 @@
+{
+  try {
+    Socket csock=new Socket();
+    tcpNoDelay=csock.getTcpNoDelay();
+    tcpSendBufferSize=csock.getSendBufferSize();
+    tcpReceiveBufferSize=csock.getReceiveBufferSize();
+    tcpKeepAlive=csock.getKeepAlive();
+    reuseAddress=csock.getReuseAddress();
+    soLinger=csock.getSoLinger();
+    trafficClass=csock.getTrafficClass();
+  }
+ catch (  Exception e) {
+    log.warn("Failed to read socket defaults, using Vert.x defaults instead");
+    tcpNoDelay=true;
+    tcpSendBufferSize=8 * 1024;
+    tcpReceiveBufferSize=32 * 1024;
+    tcpKeepAlive=false;
+    reuseAddress=false;
+    soLinger=-1;
+    trafficClass=0;
+  }
+}

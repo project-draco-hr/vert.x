@@ -1,0 +1,5 @@
+{
+  ensureWritable(pos,8);
+  buffer.setDouble(pos,d);
+  return this;
+}

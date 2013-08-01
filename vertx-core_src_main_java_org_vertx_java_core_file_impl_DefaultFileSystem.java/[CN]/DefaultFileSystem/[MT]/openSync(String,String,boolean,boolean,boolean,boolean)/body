@@ -1,0 +1,3 @@
+{
+  return openInternal(path,perms,read,write,createNew,flush,null).action();
+}

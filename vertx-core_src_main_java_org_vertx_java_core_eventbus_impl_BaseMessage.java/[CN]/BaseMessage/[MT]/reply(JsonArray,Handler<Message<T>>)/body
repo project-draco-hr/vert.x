@@ -1,0 +1,3 @@
+{
+  sendReply(new JsonArrayMessage(true,replyAddress,message),replyHandler);
+}

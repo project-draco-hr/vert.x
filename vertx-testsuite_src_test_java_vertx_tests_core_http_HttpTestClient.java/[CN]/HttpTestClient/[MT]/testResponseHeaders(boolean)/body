@@ -1,0 +1,36 @@
+{
+  final MultiMap headers=getHeaders(10);
+  AsyncResultHandler<HttpServer> handler=new AsyncResultHandler<HttpServer>(){
+    @Override public void handle(    AsyncResult<HttpServer> ar){
+      tu.azzert(ar.succeeded());
+      HttpClientRequest req=getRequest(true,"GET","some-uri",new Handler<HttpClientResponse>(){
+        public void handle(        HttpClientResponse resp){
+          tu.checkThread();
+          tu.azzert(resp.headers().size() == headers.size() + 1);
+          for (          Map.Entry<String,String> entry : headers) {
+            tu.azzert(entry.getValue().equals(resp.headers().get(entry.getKey())));
+          }
+          tu.testComplete();
+        }
+      }
+);
+      req.end();
+    }
+  }
+;
+  startServer(new Handler<HttpServerRequest>(){
+    public void handle(    HttpServerRequest req){
+      tu.checkThread();
+      if (individually) {
+        for (        Map.Entry<String,String> header : headers) {
+          req.response().headers().add(header.getKey(),header.getValue());
+        }
+      }
+ else {
+        req.response().headers().set(headers);
+      }
+      req.response().end();
+    }
+  }
+,handler);
+}

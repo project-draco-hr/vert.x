@@ -1,0 +1,20 @@
+{
+  eb.registerHandler("test-handler",new Handler<Message<String>>(){
+    public void handle(    Message<String> message){
+      tu.checkThread();
+      if ("started".equals(message.body())) {
+        eb.unregisterHandler("test-handler",this);
+        tu.testComplete();
+      }
+    }
+  }
+);
+  container.deployModule("io.vertx~testmod-deploy1~1.0",null,1,new AsyncResultHandler<String>(){
+    public void handle(    AsyncResult<String> res){
+      tu.azzert(res.succeeded());
+      tu.azzert(res.result() != null);
+      tu.checkThread();
+    }
+  }
+);
+}

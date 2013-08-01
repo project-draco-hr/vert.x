@@ -1,0 +1,10 @@
+{
+  if (done != null) {
+    closeContext.execute(new Runnable(){
+      public void run(){
+        done.handle(new DefaultFutureResult<Void>(e));
+      }
+    }
+);
+  }
+}

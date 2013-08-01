@@ -1,0 +1,5 @@
+{
+  server=vertx.createHttpServer();
+  server.requestHandler(serverHandler);
+  server.listen(8080,"localhost",handler);
+}

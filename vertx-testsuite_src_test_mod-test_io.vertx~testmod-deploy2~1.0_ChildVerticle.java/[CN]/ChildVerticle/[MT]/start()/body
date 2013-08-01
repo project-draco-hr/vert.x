@@ -1,0 +1,3 @@
+{
+  container.deployModule("io.vertx~testmod-deploy3~1.0");
+}

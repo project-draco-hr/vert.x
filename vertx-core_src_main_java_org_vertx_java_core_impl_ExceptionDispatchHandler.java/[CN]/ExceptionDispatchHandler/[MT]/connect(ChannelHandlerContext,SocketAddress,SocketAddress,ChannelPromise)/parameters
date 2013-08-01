@@ -1,0 +1,4 @@
+ChannelHandlerContext ctx
+SocketAddress remoteAddress
+SocketAddress localAddress
+ChannelPromise promise

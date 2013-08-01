@@ -1,0 +1,42 @@
+{
+  if (sargs.length < 1) {
+    displaySyntax();
+  }
+ else {
+    String command=sargs[0].toLowerCase();
+    Args args=new Args(sargs);
+    if ("version".equals(command)) {
+      log.info(getVersion());
+    }
+ else {
+      if (sargs.length < 2) {
+        displaySyntax();
+      }
+ else {
+        String operand=sargs[1];
+switch (command) {
+case "run":
+          runVerticle(false,false,operand,args);
+        break;
+case "runmod":
+      runVerticle(false,true,operand,args);
+    break;
+case "runzip":
+  runVerticle(true,true,operand,args);
+break;
+case "install":
+installModule(operand);
+break;
+case "uninstall":
+uninstallModule(operand);
+break;
+case "pulldeps":
+pullDependencies(operand);
+break;
+default :
+displaySyntax();
+}
+}
+}
+}
+}

@@ -1,0 +1,31 @@
+{
+  Enumeration<?> en=props.propertyNames();
+  while (en.hasMoreElements()) {
+    String propName=(String)en.nextElement();
+    String propVal=props.getProperty(propName);
+    if (propName.startsWith(".")) {
+      if (propName.equals(".")) {
+        defaultLanguageImplName=propVal;
+      }
+ else {
+        propName=propName.substring(1);
+        extensionMappings.put(propName,propVal);
+      }
+    }
+ else {
+      int colonIndex=propVal.lastIndexOf(COLON);
+      String moduleName;
+      String factoryName;
+      if (colonIndex != -1) {
+        moduleName=propVal.substring(0,colonIndex);
+        factoryName=propVal.substring(colonIndex + 1);
+      }
+ else {
+        throw new PlatformManagerException("Language mapping: " + propVal + " does not specify an implementing module");
+      }
+      LanguageImplInfo langImpl=new LanguageImplInfo(moduleName,factoryName);
+      languageImpls.put(propName,langImpl);
+      extensionMappings.put(propName,propName);
+    }
+  }
+}

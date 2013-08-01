@@ -1,0 +1,5 @@
+{
+  if (pos == list.size()) {
+    pos=0;
+  }
+}

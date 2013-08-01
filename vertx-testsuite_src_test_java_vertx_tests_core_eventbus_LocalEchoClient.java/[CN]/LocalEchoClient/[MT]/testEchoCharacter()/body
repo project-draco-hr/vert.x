@@ -1,0 +1,5 @@
+{
+  Character chr=new Character((char)(new Random().nextInt()));
+  Handler<Message<Character>> handler=echoHandler(chr);
+  eb.send(echoAddress(),chr,handler);
+}

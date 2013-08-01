@@ -1,0 +1,8 @@
+{
+  handler.context.execute(ch.eventLoop(),new Runnable(){
+    public void run(){
+      doConnected(ch,handler);
+    }
+  }
+);
+}

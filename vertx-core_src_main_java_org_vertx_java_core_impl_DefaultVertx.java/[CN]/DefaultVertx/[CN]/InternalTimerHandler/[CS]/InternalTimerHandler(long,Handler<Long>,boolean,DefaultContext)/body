@@ -1,0 +1,6 @@
+{
+  this.context=context;
+  this.timerID=timerID;
+  this.handler=runnable;
+  this.periodic=periodic;
+}

@@ -1,0 +1,16 @@
+{
+  try {
+    if (!doWriteQueueFull()) {
+      setContext();
+      if (pendingResponse != null) {
+        pendingResponse.handleDrained();
+      }
+ else       if (ws != null) {
+        ws.writable();
+      }
+    }
+  }
+ catch (  Throwable t) {
+    handleHandlerException(t);
+  }
+}

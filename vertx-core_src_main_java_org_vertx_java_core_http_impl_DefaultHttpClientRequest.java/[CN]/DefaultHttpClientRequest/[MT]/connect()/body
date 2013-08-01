@@ -1,0 +1,16 @@
+{
+  if (!connecting) {
+    client.getConnection(new Handler<ClientConnection>(){
+      public void handle(      ClientConnection conn){
+        if (!conn.isClosed()) {
+          connected(conn);
+        }
+ else {
+          connect();
+        }
+      }
+    }
+,exceptionHandler,context);
+    connecting=true;
+  }
+}

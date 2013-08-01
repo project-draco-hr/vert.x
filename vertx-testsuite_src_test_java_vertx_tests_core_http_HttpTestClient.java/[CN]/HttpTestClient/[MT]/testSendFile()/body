@@ -1,0 +1,32 @@
+{
+  final String content=TestUtils.randomUnicodeString(10000);
+  final File file=setupFile("test-send-file.html",content);
+  AsyncResultHandler<HttpServer> handler=new AsyncResultHandler<HttpServer>(){
+    @Override public void handle(    AsyncResult<HttpServer> ar){
+      tu.azzert(ar.succeeded());
+      client.getNow("some-uri",new Handler<HttpClientResponse>(){
+        public void handle(        final HttpClientResponse response){
+          tu.azzert(response.statusCode() == 200);
+          tu.azzert(file.length() == Long.valueOf(response.headers().get("content-length")));
+          tu.azzert("text/html".equals(response.headers().get("content-type")));
+          response.bodyHandler(new Handler<Buffer>(){
+            public void handle(            Buffer buff){
+              tu.azzert(content.equals(buff.toString()));
+              file.delete();
+              tu.testComplete();
+            }
+          }
+);
+        }
+      }
+);
+    }
+  }
+;
+  startServer(new Handler<HttpServerRequest>(){
+    public void handle(    HttpServerRequest req){
+      req.response().sendFile(file.getAbsolutePath());
+    }
+  }
+,handler);
+}

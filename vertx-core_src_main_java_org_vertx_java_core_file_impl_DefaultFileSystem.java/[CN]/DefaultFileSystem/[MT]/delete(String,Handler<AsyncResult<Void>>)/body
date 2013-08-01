@@ -1,0 +1,4 @@
+{
+  deleteInternal(path,handler).run();
+  return this;
+}

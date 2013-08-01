@@ -1,0 +1,18 @@
+{
+  Waiter waiter;
+synchronized (this) {
+    connectionCount--;
+    if (connectionCount < maxPoolSize) {
+      waiter=waiters.poll();
+      if (waiter != null) {
+        connectionCount++;
+      }
+    }
+ else {
+      waiter=null;
+    }
+  }
+  if (waiter != null) {
+    connect(waiter.handler,waiter.connectionExceptionHandler,waiter.context);
+  }
+}

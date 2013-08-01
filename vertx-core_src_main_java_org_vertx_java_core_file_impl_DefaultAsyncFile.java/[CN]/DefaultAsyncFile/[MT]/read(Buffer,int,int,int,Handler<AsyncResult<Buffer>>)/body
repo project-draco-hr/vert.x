@@ -1,0 +1,6 @@
+{
+  check();
+  ByteBuffer bb=ByteBuffer.allocate(length);
+  doRead(buffer,offset,bb,position,handler);
+  return this;
+}

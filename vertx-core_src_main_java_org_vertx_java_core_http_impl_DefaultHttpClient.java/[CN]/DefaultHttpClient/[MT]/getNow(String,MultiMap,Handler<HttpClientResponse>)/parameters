@@ -1,0 +1,3 @@
+String uri
+MultiMap headers
+Handler<HttpClientResponse> responseHandler

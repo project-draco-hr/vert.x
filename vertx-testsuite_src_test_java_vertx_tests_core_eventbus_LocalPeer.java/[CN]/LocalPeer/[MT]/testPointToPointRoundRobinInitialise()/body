@@ -1,0 +1,44 @@
+{
+  final String address="some-address";
+  eb.registerHandler(address,new Handler<Message<Buffer>>(){
+    int count;
+    public void handle(    Message<Buffer> msg){
+      tu.checkThread();
+      tu.azzert(TestUtils.buffersEqual((Buffer)data.get("buffer"),msg.body()));
+      count++;
+      if (count == 2) {
+        final Handler<Message<Buffer>> hndlr=this;
+        vertx.setTimer(200,new Handler<Long>(){
+          public void handle(          Long id){
+            eb.unregisterHandler("some-address",hndlr,new AsyncResultHandler<Void>(){
+              public void handle(              AsyncResult<Void> event){
+                if (event.succeeded()) {
+                  tu.testComplete();
+                }
+ else {
+                  tu.azzert(false,"Failed to unregister");
+                }
+              }
+            }
+);
+          }
+        }
+);
+      }
+ else       if (count > 2) {
+        tu.azzert(false,"Too many messages");
+      }
+    }
+  }
+,new AsyncResultHandler<Void>(){
+    public void handle(    AsyncResult<Void> event){
+      if (event.succeeded()) {
+        tu.testComplete();
+      }
+ else {
+        tu.azzert(false,"Failed to register");
+      }
+    }
+  }
+);
+}

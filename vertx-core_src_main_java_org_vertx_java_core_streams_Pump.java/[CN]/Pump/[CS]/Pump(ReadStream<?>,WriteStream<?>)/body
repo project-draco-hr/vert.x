@@ -1,0 +1,4 @@
+{
+  this.readStream=rs;
+  this.writeStream=ws;
+}

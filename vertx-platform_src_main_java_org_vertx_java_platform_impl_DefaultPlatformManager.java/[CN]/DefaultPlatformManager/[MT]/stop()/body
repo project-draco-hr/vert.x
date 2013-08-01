@@ -1,0 +1,4 @@
+{
+  redeployer.close();
+  vertx.stop();
+}

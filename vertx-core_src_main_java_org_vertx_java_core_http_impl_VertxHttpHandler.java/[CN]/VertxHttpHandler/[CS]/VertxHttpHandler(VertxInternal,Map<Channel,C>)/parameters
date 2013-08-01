@@ -1,0 +1,2 @@
+VertxInternal vertx
+Map<Channel,C> connectionMap

@@ -1,0 +1,5 @@
+{
+  Long msg=null;
+  Handler<Message<Long>> handler=echoHandler(msg);
+  eb.send(echoAddress(),msg,handler);
+}

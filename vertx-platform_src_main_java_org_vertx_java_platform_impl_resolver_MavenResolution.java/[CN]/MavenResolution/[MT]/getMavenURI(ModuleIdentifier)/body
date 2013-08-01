@@ -1,0 +1,9 @@
+{
+  StringBuilder uri=new StringBuilder('/');
+  String[] groupParts=moduleIdentifier.getOwner().split("\\.");
+  for (  String groupPart : groupParts) {
+    uri.append(groupPart).append('/');
+  }
+  uri.append(moduleIdentifier.getName()).append('/').append(moduleIdentifier.getVersion()).append('/');
+  return uri.toString();
+}

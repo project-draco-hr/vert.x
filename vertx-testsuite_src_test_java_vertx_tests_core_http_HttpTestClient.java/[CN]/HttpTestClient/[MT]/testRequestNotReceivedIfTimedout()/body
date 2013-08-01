@@ -1,0 +1,41 @@
+{
+  AsyncResultHandler<HttpServer> handler=new AsyncResultHandler<HttpServer>(){
+    @Override public void handle(    AsyncResult<HttpServer> ar){
+      tu.azzert(ar.succeeded());
+      final HttpClientRequest req=getRequest(true,"GET","timeoutTest",new Handler<HttpClientResponse>(){
+        public void handle(        HttpClientResponse resp){
+          tu.azzert(false,"Response should not be handled");
+        }
+      }
+);
+      req.exceptionHandler(new Handler<Throwable>(){
+        @Override public void handle(        Throwable event){
+          tu.azzert(event instanceof TimeoutException,"Expected to end with timeout exception but ended with other exception: " + event);
+          vertx.setTimer(500,new Handler<Long>(){
+            public void handle(            Long event){
+              tu.checkThread();
+              tu.testComplete();
+            }
+          }
+);
+        }
+      }
+);
+      req.setTimeout(100);
+      req.end();
+    }
+  }
+;
+  startServer(new Handler<HttpServerRequest>(){
+    public void handle(    final HttpServerRequest req){
+      vertx.setTimer(500,new Handler<Long>(){
+        public void handle(        Long event){
+          req.response().setStatusCode(200);
+          req.response().end("OK");
+        }
+      }
+);
+    }
+  }
+,handler);
+}

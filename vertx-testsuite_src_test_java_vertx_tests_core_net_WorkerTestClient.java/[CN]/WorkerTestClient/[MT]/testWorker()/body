@@ -1,0 +1,54 @@
+{
+  final NetServer server=vertx.createNetServer();
+  server.connectHandler(new Handler<NetSocket>(){
+    public void handle(    NetSocket socket){
+      Pump p=Pump.createPump(socket,socket);
+      p.start();
+    }
+  }
+);
+  server.listen(1234,new AsyncResultHandler<NetServer>(){
+    @Override public void handle(    AsyncResult<NetServer> ar){
+      if (ar.succeeded()) {
+        final NetClient client=vertx.createNetClient();
+        client.connect(1234,new AsyncResultHandler<NetSocket>(){
+          public void handle(          AsyncResult<NetSocket> result){
+            if (result.succeeded()) {
+              NetSocket socket=result.result();
+              socket.dataHandler(new Handler<Buffer>(){
+                public void handle(                Buffer data){
+                  server.close(new AsyncResultHandler<Void>(){
+                    public void handle(                    AsyncResult<Void> res){
+                      if (res.succeeded()) {
+                        client.close();
+                      }
+ else {
+                        tu.azzert(false);
+                      }
+                      tu.testComplete();
+                    }
+                  }
+);
+                }
+              }
+);
+              socket.write("foo");
+            }
+ else {
+              result.cause().printStackTrace();
+              tu.azzert(false);
+              tu.testComplete();
+            }
+          }
+        }
+);
+      }
+ else {
+        ar.cause().printStackTrace();
+        tu.azzert(false);
+        tu.testComplete();
+      }
+    }
+  }
+);
+}

@@ -1,0 +1,51 @@
+{
+  final NetServer server=vertx.createNetServer().connectHandler(new Handler<NetSocket>(){
+    public void handle(    final NetSocket socket){
+      final RecordParser parser=RecordParser.newFixed(4,null);
+      Handler<Buffer> handler=new Handler<Buffer>(){
+        int size=-1;
+        public void handle(        Buffer buff){
+          if (size == -1) {
+            size=buff.getInt(0);
+            parser.fixedSizeMode(size);
+          }
+ else {
+            BaseMessage received=MessageFactory.read(buff);
+            if (received.type() == MessageFactory.TYPE_PING) {
+              socket.write(PONG);
+            }
+ else {
+              receiveMessage(received);
+            }
+            parser.fixedSizeMode(4);
+            size=-1;
+          }
+        }
+      }
+;
+      parser.setOutput(handler);
+      socket.dataHandler(parser);
+    }
+  }
+);
+  server.listen(port,hostName,new AsyncResultHandler<NetServer>(){
+    @Override public void handle(    AsyncResult<NetServer> asyncResult){
+      if (asyncResult.succeeded()) {
+        DefaultEventBus.this.serverID=new ServerID(server.port(),hostName);
+      }
+      if (listenHandler != null) {
+        if (asyncResult.succeeded()) {
+          listenHandler.handle(new DefaultFutureResult<>((Void)null));
+        }
+ else {
+          listenHandler.handle(new DefaultFutureResult<Void>(asyncResult.cause()));
+        }
+      }
+ else       if (asyncResult.failed()) {
+        log.error("Failed to listen",asyncResult.cause());
+      }
+    }
+  }
+);
+  return server;
+}

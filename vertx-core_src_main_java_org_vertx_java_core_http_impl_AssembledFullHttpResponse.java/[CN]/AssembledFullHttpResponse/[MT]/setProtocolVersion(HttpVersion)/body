@@ -1,0 +1,4 @@
+{
+  super.setProtocolVersion(version);
+  return this;
+}

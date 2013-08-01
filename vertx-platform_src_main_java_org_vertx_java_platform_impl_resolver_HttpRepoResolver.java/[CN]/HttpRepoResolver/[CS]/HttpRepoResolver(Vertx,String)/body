@@ -1,0 +1,16 @@
+{
+  this.vertx=vertx;
+  try {
+    URI uri=new URI(repoID);
+    repoHost=uri.getHost();
+    int port=uri.getPort();
+    if (port == -1) {
+      port=80;
+    }
+    repoPort=port;
+    contentRoot=uri.getPath();
+  }
+ catch (  Exception e) {
+    throw new IllegalArgumentException(repoID + " is not a valid repository identifier");
+  }
+}

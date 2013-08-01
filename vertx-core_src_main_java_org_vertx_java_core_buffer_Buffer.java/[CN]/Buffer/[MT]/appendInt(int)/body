@@ -1,0 +1,4 @@
+{
+  buffer.writeInt(i);
+  return this;
+}

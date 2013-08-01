@@ -1,0 +1,7 @@
+{
+  Collection<V> copied=new ArrayList<>();
+  for (  V v : map.values()) {
+    copied.add(Checker.copyIfRequired(v));
+  }
+  return copied;
+}

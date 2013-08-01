@@ -1,0 +1,5 @@
+{
+  req.pause();
+  paused=true;
+  return this;
+}

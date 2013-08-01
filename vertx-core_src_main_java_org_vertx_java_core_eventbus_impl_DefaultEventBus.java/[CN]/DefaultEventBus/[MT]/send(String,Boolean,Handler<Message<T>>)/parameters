@@ -1,0 +1,3 @@
+String address
+Boolean message
+Handler<Message<T>> replyHandler

@@ -1,0 +1,15 @@
+{
+  return new Handler<NetSocket>(){
+    public void handle(    final NetSocket socket){
+      tu.checkThread();
+      socket.dataHandler(new Handler<Buffer>(){
+        public void handle(        Buffer buffer){
+          tu.checkThread();
+          socket.write(buffer);
+        }
+      }
+);
+    }
+  }
+;
+}

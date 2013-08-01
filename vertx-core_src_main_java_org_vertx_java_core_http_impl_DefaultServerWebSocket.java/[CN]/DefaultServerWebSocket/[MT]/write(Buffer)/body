@@ -1,0 +1,4 @@
+{
+  writeBinaryFrame(data);
+  return this;
+}

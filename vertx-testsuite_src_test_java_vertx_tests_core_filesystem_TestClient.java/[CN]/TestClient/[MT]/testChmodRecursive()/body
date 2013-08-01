@@ -1,0 +1,25 @@
+{
+  final String perms=(String)params.get("perms");
+  final String dirPerms=(String)params.get("dirPerms");
+  final String dir="some-dir";
+  final String file1=pathSep + "file1.dat";
+  final String file2=pathSep + "index.html";
+  final String dir2="next-dir";
+  final String file3=pathSep + "blah.java";
+  mkDir(dir);
+  createFileWithJunk(dir + file1,100);
+  createFileWithJunk(dir + file2,100);
+  mkDir(dir + pathSep + dir2);
+  createFileWithJunk(dir + pathSep + dir2+ file3,100);
+  testChmod(dir,perms,dirPerms,true,new VoidHandler(){
+    public void handle(){
+      azzertPerms(dirPerms,dir);
+      azzertPerms(perms,dir + file1);
+      azzertPerms(perms,dir + file2);
+      azzertPerms(dirPerms,dir + pathSep + dir2);
+      azzertPerms(perms,dir + pathSep + dir2+ file3);
+      deleteDir(dir);
+    }
+  }
+);
+}

@@ -1,0 +1,5 @@
+{
+  Double db=new Random().nextInt() / 37.0d;
+  Handler<Message<Double>> handler=echoHandler(db);
+  eb.send(echoAddress(),db,handler);
+}

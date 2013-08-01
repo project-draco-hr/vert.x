@@ -1,0 +1,6 @@
+{
+  boolean isNull=readBuff.getByte(pos) == (byte)0;
+  if (!isNull) {
+    body=readBuff.getByte(++pos);
+  }
+}

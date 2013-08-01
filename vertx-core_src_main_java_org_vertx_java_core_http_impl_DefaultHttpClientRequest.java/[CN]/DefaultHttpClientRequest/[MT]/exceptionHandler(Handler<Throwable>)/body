@@ -1,0 +1,11 @@
+{
+  check();
+  this.exceptionHandler=new Handler<Throwable>(){
+    @Override public void handle(    Throwable event){
+      cancelOutstandingTimeoutTimer();
+      handler.handle(event);
+    }
+  }
+;
+  return this;
+}

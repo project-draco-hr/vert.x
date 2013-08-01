@@ -1,0 +1,4 @@
+{
+  String dirName="top-dir" + pathSep + "some-dir";
+  testMkdir(dirName,null,false,false,null);
+}

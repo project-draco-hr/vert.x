@@ -1,0 +1,8 @@
+{
+  Vertx vertx=VertxFactory.newVertx();
+  HttpServer httpServer=vertx.createHttpServer();
+  DefaultSockJSServer sjsServer=(DefaultSockJSServer)vertx.createSockJSServer(httpServer);
+  sjsServer.installTestApplications();
+  httpServer.listen(8081);
+  Thread.sleep(Long.MAX_VALUE);
+}

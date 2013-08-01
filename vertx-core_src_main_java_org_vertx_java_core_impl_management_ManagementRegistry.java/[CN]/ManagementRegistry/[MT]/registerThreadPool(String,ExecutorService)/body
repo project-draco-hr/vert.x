@@ -1,0 +1,17 @@
+{
+  if (!MANAGEMENT_ENABLED)   return;
+  try {
+    ThreadPoolExecutor exec=(ThreadPoolExecutor)service;
+    Hashtable<String,String> table=new Hashtable<>();
+    table.put("type","ThreadPool");
+    table.put("name",name);
+    ObjectName poolName=ObjectName.getInstance(DOMAIN,table);
+    if (!platformMBeanServer.isRegistered(poolName)) {
+      ThreadPoolMXBean eventBusMXBean=new ThreadPoolMXBeanImpl(exec);
+      platformMBeanServer.registerMBean(eventBusMXBean,poolName);
+    }
+  }
+ catch (  MalformedObjectNameException|InstanceAlreadyExistsException|MBeanRegistrationException|NotCompliantMBeanException e) {
+    throw new VertxManagementException(e);
+  }
+}

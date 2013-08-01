@@ -1,0 +1,4 @@
+{
+  byte[] b=getBinary(fieldName);
+  return b == null ? def : b;
+}

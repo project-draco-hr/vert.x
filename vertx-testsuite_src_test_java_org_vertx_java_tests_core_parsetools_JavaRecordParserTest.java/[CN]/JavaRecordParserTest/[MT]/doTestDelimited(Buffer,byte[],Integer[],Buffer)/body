@@ -1,0 +1,13 @@
+{
+  final Buffer[] results=new Buffer[expected.length];
+  Handler<Buffer> out=new Handler<Buffer>(){
+    int pos;
+    public void handle(    Buffer buff){
+      results[pos++]=buff;
+    }
+  }
+;
+  RecordParser parser=RecordParser.newDelimited(delim,out);
+  feedChunks(input,parser,chunkSizes);
+  checkResults(expected,results);
+}

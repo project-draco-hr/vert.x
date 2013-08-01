@@ -1,0 +1,13 @@
+{
+  if (log.isTraceEnabled())   log.trace("XHR stream closing listener");
+  if (!closed) {
+    session.resetListener();
+    try {
+      req.response().end();
+      req.response().close();
+      closed=true;
+    }
+ catch (    IllegalStateException e) {
+    }
+  }
+}

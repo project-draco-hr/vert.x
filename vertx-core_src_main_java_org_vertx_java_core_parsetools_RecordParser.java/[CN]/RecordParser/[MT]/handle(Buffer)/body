@@ -1,0 +1,9 @@
+{
+  if (buff == null) {
+    buff=buffer;
+  }
+ else {
+    buff.appendBuffer(buffer);
+  }
+  handleParsing();
+}

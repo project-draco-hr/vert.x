@@ -1,0 +1,7 @@
+boolean redeploy
+String depName
+ModuleIdentifier modID
+JsonObject config
+int instances
+URL[] classpath
+Handler<AsyncResult<String>> doneHandler

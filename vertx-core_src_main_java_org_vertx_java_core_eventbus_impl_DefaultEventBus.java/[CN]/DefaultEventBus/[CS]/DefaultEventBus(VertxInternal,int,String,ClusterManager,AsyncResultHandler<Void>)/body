@@ -1,0 +1,7 @@
+{
+  this.vertx=vertx;
+  this.clusterMgr=clusterManager;
+  this.subs=clusterMgr.getSubsMap("subs");
+  this.server=setServer(port,hostname,listenHandler);
+  ManagementRegistry.registerEventBus(serverID);
+}

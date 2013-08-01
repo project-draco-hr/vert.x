@@ -1,0 +1,5 @@
+{
+  int result=port;
+  result=31 * result + host.hashCode();
+  return result;
+}

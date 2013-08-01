@@ -1,0 +1,5 @@
+{
+  DefaultContext context=createWorkerContext(multiThreaded);
+  context.execute(runnable);
+  return context;
+}

@@ -1,0 +1,9 @@
+{
+  Set<String> names=new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+  MapEntry e=head.after;
+  while (e != head) {
+    names.add(e.key);
+    e=e.after;
+  }
+  return names;
+}

@@ -1,0 +1,30 @@
+{
+  return new Handler<NetSocket>(){
+    public void handle(    final NetSocket sock){
+      tu.checkThread();
+      sock.pause();
+      final Handler<Message<Buffer>> resumeHandler=new Handler<Message<Buffer>>(){
+        public void handle(        Message<Buffer> message){
+          tu.checkThread();
+          sock.resume();
+        }
+      }
+;
+      vertx.eventBus().registerHandler("server_resume",resumeHandler);
+      sock.closeHandler(new VoidHandler(){
+        public void handle(){
+          tu.checkThread();
+          vertx.eventBus().unregisterHandler("server_resume",resumeHandler);
+        }
+      }
+);
+      sock.dataHandler(new Handler<Buffer>(){
+        public void handle(        Buffer buffer){
+          tu.checkThread();
+        }
+      }
+);
+    }
+  }
+;
+}

@@ -1,0 +1,5 @@
+{
+  if (completed) {
+    throw new IllegalStateException("Request already complete");
+  }
+}

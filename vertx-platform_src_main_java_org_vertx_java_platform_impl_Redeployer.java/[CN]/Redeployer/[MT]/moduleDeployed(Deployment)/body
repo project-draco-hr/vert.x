@@ -1,0 +1,20 @@
+{
+  log.trace("Registering module: " + deployment.modID);
+  Set<Deployment> deps=deployments.get(deployment.modID);
+  if (deps == null) {
+    Set<File> watched=new HashSet<>();
+    for (    URL url : deployment.classpath) {
+      String sfile=url.getFile();
+      if (sfile != null) {
+        File file=new File(sfile);
+        if (file.isDirectory()) {
+          addDirectory(watched,file);
+        }
+      }
+    }
+    watchedDirs.put(deployment.modID,watched);
+    deps=new HashSet<>();
+    deployments.put(deployment.modID,deps);
+  }
+  deps.add(deployment);
+}

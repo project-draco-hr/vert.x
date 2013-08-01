@@ -1,0 +1,6 @@
+{
+  HandlerHolder<T> handler=list.get(pos);
+  pos++;
+  checkPos();
+  return handler;
+}

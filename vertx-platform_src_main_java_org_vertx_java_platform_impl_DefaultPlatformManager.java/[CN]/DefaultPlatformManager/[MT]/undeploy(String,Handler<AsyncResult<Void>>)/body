@@ -1,0 +1,30 @@
+{
+  runInBackground(new Runnable(){
+    public void run(){
+      if (deploymentID == null) {
+        throw new NullPointerException("deploymentID cannot be null");
+      }
+      final Deployment dep=deployments.get(deploymentID);
+      if (dep == null) {
+        throw new PlatformManagerException("There is no deployment with id " + deploymentID);
+      }
+      Handler<AsyncResult<Void>> wrappedHandler=wrapDoneHandler(new Handler<AsyncResult<Void>>(){
+        public void handle(        AsyncResult<Void> res){
+          if (res.succeeded() && dep.modID != null && dep.autoRedeploy) {
+            redeployer.moduleUndeployed(dep);
+          }
+          if (doneHandler != null) {
+            doneHandler.handle(res);
+          }
+ else           if (res.failed()) {
+            log.error("Failed to undeploy",res.cause());
+            ;
+          }
+        }
+      }
+);
+      doUndeploy(deploymentID,wrappedHandler);
+    }
+  }
+,wrapDoneHandler(doneHandler));
+}

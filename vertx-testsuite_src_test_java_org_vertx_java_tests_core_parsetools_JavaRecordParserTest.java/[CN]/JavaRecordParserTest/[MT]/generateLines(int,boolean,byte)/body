@@ -1,0 +1,8 @@
+{
+  List<Buffer> lineList=new ArrayList<Buffer>();
+  for (int i=0; i < lines; i++) {
+    lineList.add(TestUtils.generateRandomBuffer(i + 1,delim,delimByte));
+  }
+  Collections.shuffle(lineList);
+  return lineList;
+}

@@ -1,0 +1,28 @@
+{
+  final String path=PathAdjuster.adjust(vertx,p);
+  return new BlockingAction<Void>(vertx,handler){
+    public Void action(){
+      if (len < 0) {
+        throw new FileSystemException("Cannot truncate file to size < 0");
+      }
+      if (!Files.exists(Paths.get(path))) {
+        throw new FileSystemException("Cannot truncate file " + path + ". Does not exist");
+      }
+      RandomAccessFile raf=null;
+      try {
+        try {
+          raf=new RandomAccessFile(path,"rw");
+          raf.getChannel().truncate(len);
+        }
+  finally {
+          if (raf != null)           raf.close();
+        }
+      }
+ catch (      IOException e) {
+        throw new FileSystemException(e);
+      }
+      return null;
+    }
+  }
+;
+}

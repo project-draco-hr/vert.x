@@ -1,0 +1,4 @@
+boolean specificMethod
+String method
+String uri
+Handler<HttpClientResponse> responseHandler

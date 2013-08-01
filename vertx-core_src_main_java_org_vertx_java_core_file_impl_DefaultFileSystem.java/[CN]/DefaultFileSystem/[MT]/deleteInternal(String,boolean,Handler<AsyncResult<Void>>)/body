@@ -1,0 +1,35 @@
+{
+  final Path source=PathAdjuster.adjust(vertx,Paths.get(path));
+  return new BlockingAction<Void>(vertx,handler){
+    public Void action(){
+      try {
+        if (recursive) {
+          Files.walkFileTree(source,new SimpleFileVisitor<Path>(){
+            public FileVisitResult visitFile(            Path file,            BasicFileAttributes attrs) throws IOException {
+              Files.delete(file);
+              return FileVisitResult.CONTINUE;
+            }
+            public FileVisitResult postVisitDirectory(            Path dir,            IOException e) throws IOException {
+              if (e == null) {
+                Files.delete(dir);
+                return FileVisitResult.CONTINUE;
+              }
+ else {
+                throw e;
+              }
+            }
+          }
+);
+        }
+ else {
+          Files.delete(source);
+        }
+      }
+ catch (      IOException e) {
+        throw new FileSystemException(e);
+      }
+      return null;
+    }
+  }
+;
+}

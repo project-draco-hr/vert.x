@@ -1,0 +1,18 @@
+{
+  if (buf.isReadable()) {
+    if (trailingHeaders == null) {
+      return new DefaultLastHttpContent(buf);
+    }
+ else {
+      return new AssembledLastHttpContent(buf,trailingHeaders);
+    }
+  }
+ else {
+    if (trailingHeaders == null) {
+      return LastHttpContent.EMPTY_LAST_CONTENT;
+    }
+ else {
+      return new AssembledLastHttpContent(Unpooled.EMPTY_BUFFER,trailingHeaders);
+    }
+  }
+}

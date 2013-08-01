@@ -1,0 +1,5 @@
+{
+  int port=dataInput.readInt();
+  String host=dataInput.readUTF();
+  serverID=new ServerID(port,host);
+}

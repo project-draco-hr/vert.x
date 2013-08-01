@@ -1,0 +1,15 @@
+{
+  final String source="some-dir";
+  final String target="some-other-dir";
+  final String file1=pathSep + "somefile.bar";
+  mkDir(source);
+  createFileWithJunk(source + file1,100);
+  testCopy(source,target,false,true,new VoidHandler(){
+    public void handle(){
+      tu.azzert(fileExists(source));
+      tu.azzert(fileExists(target));
+      tu.azzert(!fileExists(target + file1));
+    }
+  }
+);
+}

@@ -1,0 +1,19 @@
+{
+  if (currentModDir != null) {
+    File modDir=new File(new File(currentModDir,LOCAL_MODS_DIR),modID.toString());
+    if (modDir.exists()) {
+      return modDir;
+    }
+  }
+  File modDir=new File(modRoot,modID.toString());
+  if (modDir.exists()) {
+    return modDir;
+  }
+ else   if (!systemModRoot.equals(modRoot)) {
+    modDir=new File(systemModRoot,modID.toString());
+    if (modDir.exists()) {
+      return modDir;
+    }
+  }
+  return null;
+}

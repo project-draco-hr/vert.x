@@ -1,0 +1,3 @@
+String uri
+WebSocketVersion wsVersion
+Handler<WebSocket> wsConnect

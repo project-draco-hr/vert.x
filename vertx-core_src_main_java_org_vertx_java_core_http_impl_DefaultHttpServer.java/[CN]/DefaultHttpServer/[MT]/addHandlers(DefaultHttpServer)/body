@@ -1,0 +1,8 @@
+{
+  if (requestHandler != null) {
+    server.reqHandlerManager.addHandler(requestHandler,actualCtx);
+  }
+  if (wsHandler != null) {
+    server.wsHandlerManager.addHandler(wsHandler,actualCtx);
+  }
+}

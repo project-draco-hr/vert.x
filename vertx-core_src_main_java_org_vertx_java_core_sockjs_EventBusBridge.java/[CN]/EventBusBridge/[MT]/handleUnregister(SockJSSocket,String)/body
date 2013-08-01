@@ -1,0 +1,6 @@
+{
+  if (hook != null) {
+    return hook.handleUnregister(sock,address);
+  }
+  return true;
+}

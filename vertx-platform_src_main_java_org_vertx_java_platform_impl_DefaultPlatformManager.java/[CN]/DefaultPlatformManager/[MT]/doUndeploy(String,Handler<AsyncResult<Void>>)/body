@@ -1,0 +1,17 @@
+{
+  CountingCompletionHandler<Void> count=new CountingCompletionHandler<>(vertx);
+  doUndeploy(name,count);
+  if (doneHandler != null) {
+    count.setHandler(doneHandler);
+  }
+ else {
+    count.setHandler(new Handler<AsyncResult<Void>>(){
+      @Override public void handle(      AsyncResult<Void> asyncResult){
+        if (asyncResult.failed()) {
+          log.error("Failed to undeploy",asyncResult.cause());
+        }
+      }
+    }
+);
+  }
+}

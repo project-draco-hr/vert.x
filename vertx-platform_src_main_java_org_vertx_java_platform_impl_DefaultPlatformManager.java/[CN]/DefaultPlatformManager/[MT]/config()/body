@@ -1,0 +1,4 @@
+{
+  VerticleHolder holder=getVerticleHolder();
+  return holder == null ? null : holder.config;
+}

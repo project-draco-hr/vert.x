@@ -1,0 +1,4 @@
+{
+  Vertx vertx=VertxFactory.newVertx();
+  assertNull(vertx.currentContext());
+}

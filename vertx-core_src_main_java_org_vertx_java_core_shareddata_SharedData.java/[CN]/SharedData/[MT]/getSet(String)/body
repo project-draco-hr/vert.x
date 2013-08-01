@@ -1,0 +1,11 @@
+{
+  SharedSet<E> set=(SharedSet<E>)sets.get(name);
+  if (set == null) {
+    set=new SharedSet<>();
+    SharedSet prev=sets.putIfAbsent(name,set);
+    if (prev != null) {
+      set=prev;
+    }
+  }
+  return set;
+}

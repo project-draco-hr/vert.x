@@ -1,0 +1,14 @@
+{
+  new BlockingAction<Void>(vertx,completionHandler){
+    public Void action(){
+      for (      Map.Entry<String,HazelcastServerID> entry : map.entrySet()) {
+        HazelcastServerID hid=entry.getValue();
+        if (hid.serverID.equals(serverID)) {
+          map.remove(entry.getKey(),hid);
+        }
+      }
+      return null;
+    }
+  }
+.run();
+}

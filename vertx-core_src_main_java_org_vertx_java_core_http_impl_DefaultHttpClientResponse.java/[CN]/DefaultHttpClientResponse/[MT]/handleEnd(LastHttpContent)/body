@@ -1,0 +1,13 @@
+{
+  if (paused) {
+    hasPausedEnd=true;
+    pausedTrailer=trailer;
+  }
+ else {
+    this.trailer=trailer;
+    trailers=new HttpHeadersAdapter(trailer.trailingHeaders());
+    if (endHandler != null) {
+      endHandler.handle(null);
+    }
+  }
+}

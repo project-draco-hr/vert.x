@@ -1,0 +1,3 @@
+{
+  return setBytes(pos,str,CharsetUtil.UTF_8);
+}

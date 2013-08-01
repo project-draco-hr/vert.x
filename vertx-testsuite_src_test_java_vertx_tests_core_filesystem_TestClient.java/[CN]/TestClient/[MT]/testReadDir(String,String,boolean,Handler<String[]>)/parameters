@@ -1,0 +1,4 @@
+String dirName
+String filter
+boolean shouldPass
+Handler<String[]> afterOK

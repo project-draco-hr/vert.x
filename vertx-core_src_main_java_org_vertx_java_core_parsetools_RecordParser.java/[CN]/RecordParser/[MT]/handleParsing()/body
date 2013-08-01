@@ -1,0 +1,22 @@
+{
+  int len=buff.length();
+  do {
+    reset=false;
+    if (delimited) {
+      parseDelimited();
+    }
+ else {
+      parseFixed();
+    }
+  }
+ while (reset);
+  if (start == len) {
+    buff=null;
+    pos=0;
+  }
+ else {
+    buff=buff.getBuffer(start,len);
+    pos=buff.length();
+  }
+  start=0;
+}

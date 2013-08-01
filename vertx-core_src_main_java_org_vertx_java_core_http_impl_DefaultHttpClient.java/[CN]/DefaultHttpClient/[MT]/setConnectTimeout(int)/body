@@ -1,0 +1,6 @@
+{
+  checkClosed();
+  checkConfigurable();
+  tcpHelper.setConnectTimeout(timeout);
+  return this;
+}

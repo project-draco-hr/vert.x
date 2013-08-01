@@ -1,0 +1,10 @@
+{
+  Object element=map.get(fieldName);
+  if (element instanceof Map<?,?>) {
+    return getObject(fieldName);
+  }
+  if (element instanceof List<?>) {
+    return getArray(fieldName);
+  }
+  throw new ClassCastException();
+}

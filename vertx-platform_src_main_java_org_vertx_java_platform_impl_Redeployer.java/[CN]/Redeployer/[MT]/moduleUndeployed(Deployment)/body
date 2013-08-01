@@ -1,0 +1,15 @@
+{
+  Set<File> watched=watchedDirs.remove(deployment.modID);
+  if (watched != null) {
+    for (    File dir : watched) {
+      directoryFiles.remove(dir);
+    }
+  }
+  Set<Deployment> deps=deployments.get(deployment.modID);
+  if (deps != null) {
+    deps.remove(deployment);
+    if (deps.isEmpty()) {
+      deployments.remove(deployment.modID);
+    }
+  }
+}

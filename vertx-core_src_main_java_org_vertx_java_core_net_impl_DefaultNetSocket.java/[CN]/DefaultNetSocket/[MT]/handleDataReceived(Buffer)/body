@@ -1,0 +1,11 @@
+{
+  if (dataHandler != null) {
+    setContext();
+    try {
+      dataHandler.handle(data);
+    }
+ catch (    Throwable t) {
+      handleHandlerException(t);
+    }
+  }
+}

@@ -1,0 +1,3 @@
+{
+  testSimpleRequest("PUT",true);
+}

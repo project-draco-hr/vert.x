@@ -1,0 +1,8 @@
+{
+  JsonArray array=new JsonArray();
+  array.add("test");
+  JsonObject object=new JsonObject();
+  object.putArray("array",array);
+  JsonObject object2=new JsonObject(object.toMap());
+  JsonArray array2=object2.getArray("array");
+}

@@ -1,0 +1,10 @@
+{
+  Object obj=map.get(fieldName);
+  if (obj instanceof Map) {
+    obj=new JsonObject((Map)obj);
+  }
+ else   if (obj instanceof List) {
+    obj=new JsonArray((List)obj);
+  }
+  return (T)obj;
+}

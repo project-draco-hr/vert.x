@@ -1,0 +1,8 @@
+{
+  this.upload=upload;
+  this.name=name;
+  this.filename=filename;
+  this.contentType=contentType;
+  this.contentTransferEncoding=contentTransferEncoding;
+  this.charset=charset;
+}

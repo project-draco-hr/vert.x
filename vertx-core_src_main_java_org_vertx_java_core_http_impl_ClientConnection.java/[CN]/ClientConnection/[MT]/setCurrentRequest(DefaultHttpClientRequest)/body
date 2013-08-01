@@ -1,0 +1,7 @@
+{
+  if (currentRequest != null) {
+    throw new IllegalStateException("Connection is already writing a request");
+  }
+  this.currentRequest=req;
+  this.requests.add(req);
+}

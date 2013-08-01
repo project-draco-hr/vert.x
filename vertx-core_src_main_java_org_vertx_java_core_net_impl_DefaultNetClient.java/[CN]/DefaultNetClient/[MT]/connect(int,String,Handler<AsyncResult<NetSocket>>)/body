@@ -1,0 +1,4 @@
+{
+  connect(port,host,connectHandler,reconnectAttempts);
+  return this;
+}

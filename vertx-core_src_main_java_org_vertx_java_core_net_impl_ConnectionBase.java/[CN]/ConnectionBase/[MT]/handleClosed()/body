@@ -1,0 +1,11 @@
+{
+  if (closeHandler != null) {
+    setContext();
+    try {
+      closeHandler.handle(null);
+    }
+ catch (    Throwable t) {
+      handleHandlerException(t);
+    }
+  }
+}

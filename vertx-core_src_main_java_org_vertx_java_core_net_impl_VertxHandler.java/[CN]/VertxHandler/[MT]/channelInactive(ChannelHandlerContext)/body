@@ -1,0 +1,13 @@
+{
+  final Channel ch=chctx.channel();
+  final C connection=connectionMap.remove(ch);
+  if (connection != null) {
+    DefaultContext context=getContext(connection);
+    context.execute(ch.eventLoop(),new Runnable(){
+      public void run(){
+        connection.handleClosed();
+      }
+    }
+);
+  }
+}

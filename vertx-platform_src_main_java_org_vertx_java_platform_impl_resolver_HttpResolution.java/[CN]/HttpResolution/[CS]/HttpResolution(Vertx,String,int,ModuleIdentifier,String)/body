@@ -1,0 +1,7 @@
+{
+  this.vertx=vertx;
+  this.repoHost=repoHost;
+  this.repoPort=repoPort;
+  this.modID=modID;
+  this.filename=filename;
+}

@@ -1,0 +1,8 @@
+{
+  if (str == null) {
+    return null;
+  }
+  StringWriter writer=new StringWriter(str.length());
+  unescapeJava(writer,str);
+  return writer.toString();
+}

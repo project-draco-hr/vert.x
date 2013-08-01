@@ -1,0 +1,5 @@
+{
+  Byte msg=(byte)(new Random().nextInt(Byte.MAX_VALUE));
+  Handler<Message<Byte>> handler=echoHandler(msg);
+  eb.send(echoAddress(),msg,handler);
+}

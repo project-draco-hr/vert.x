@@ -1,0 +1,3 @@
+{
+  buffer=Unpooled.unreleasableBuffer(Unpooled.buffer(bytes.length,Integer.MAX_VALUE)).writeBytes(bytes);
+}

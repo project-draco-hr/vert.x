@@ -1,0 +1,4 @@
+{
+  channel.config().setWriteBufferLowWaterMark(size / 2);
+  channel.config().setWriteBufferHighWaterMark(size);
+}

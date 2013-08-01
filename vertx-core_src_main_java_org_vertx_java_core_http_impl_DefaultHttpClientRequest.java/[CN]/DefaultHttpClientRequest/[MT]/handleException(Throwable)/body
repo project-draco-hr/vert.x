@@ -1,0 +1,10 @@
+{
+  cancelOutstandingTimeoutTimer();
+  exceptionOccurred=true;
+  if (exceptionHandler != null) {
+    exceptionHandler.handle(t);
+  }
+ else {
+    context.reportException(t);
+  }
+}

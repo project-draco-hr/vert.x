@@ -1,0 +1,6 @@
+{
+  ByteBuf cb=buff.getByteBuf();
+  buffer.writeBytes(buff.getByteBuf());
+  cb.readerIndex(0);
+  return this;
+}

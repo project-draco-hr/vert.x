@@ -1,0 +1,8 @@
+VertxInternal vertx
+DefaultHttpClient client
+Channel channel
+boolean ssl
+String host
+int port
+boolean keepAlive
+DefaultContext context

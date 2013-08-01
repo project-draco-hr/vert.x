@@ -1,0 +1,15 @@
+{
+  final String proxyHost=getProxyHost();
+  if (proxyHost != null) {
+    uri=new StringBuilder("http://").append(host).append(":").append(port).append(uri).toString();
+  }
+  HttpClientRequest req=client.get(uri,respHandler);
+  if (proxyHost != null) {
+    req.putHeader("host",proxyHost);
+  }
+ else {
+    req.putHeader("host",host);
+  }
+  req.putHeader("user-agent","Vert.x Module Installer");
+  req.end();
+}

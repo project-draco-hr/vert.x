@@ -1,0 +1,7 @@
+{
+  int h=hash(name);
+  int i=index(h);
+  remove0(h,i,name);
+  add0(h,i,name,strVal);
+  return this;
+}

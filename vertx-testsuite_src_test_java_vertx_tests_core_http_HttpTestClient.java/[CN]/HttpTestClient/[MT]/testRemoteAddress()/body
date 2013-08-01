@@ -1,0 +1,21 @@
+{
+  AsyncResultHandler<HttpServer> handler=new AsyncResultHandler<HttpServer>(){
+    @Override public void handle(    AsyncResult<HttpServer> ar){
+      tu.azzert(ar.succeeded());
+      client.getNow("/",new Handler<HttpClientResponse>(){
+        @Override public void handle(        HttpClientResponse resp){
+          tu.testComplete();
+        }
+      }
+);
+    }
+  }
+;
+  startServer(new Handler<HttpServerRequest>(){
+    @Override public void handle(    HttpServerRequest request){
+      tu.azzert(request.remoteAddress().getHostName().startsWith("localhost"));
+      request.response().end();
+    }
+  }
+,handler);
+}

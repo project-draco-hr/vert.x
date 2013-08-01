@@ -1,0 +1,4 @@
+{
+  needsFlush=true;
+  return channel.write(obj);
+}

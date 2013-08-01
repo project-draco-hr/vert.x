@@ -1,0 +1,21 @@
+{
+  try {
+    List<URL> urls=Collections.list(cl.getResources("mod.json"));
+    if (urls.size() < 1) {
+      return null;
+    }
+    try (Scanner scanner=new Scanner(urls.get(0).openStream()).useDelimiter("\\A")){
+      String conf=scanner.next();
+      return new JsonObject(conf);
+    }
+ catch (    NoSuchElementException e) {
+      throw new PlatformManagerException("Module " + modID + " contains an empty mod.json file");
+    }
+catch (    DecodeException e) {
+      throw new PlatformManagerException("Module " + modID + " mod.json contains invalid json");
+    }
+  }
+ catch (  IOException e) {
+    return null;
+  }
+}

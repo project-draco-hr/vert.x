@@ -1,0 +1,16 @@
+{
+  final Path target=PathAdjuster.adjust(vertx,Paths.get(path));
+  return new BlockingAction<Buffer>(vertx,handler){
+    public Buffer action(){
+      try {
+        byte[] bytes=Files.readAllBytes(target);
+        Buffer buff=new Buffer(bytes);
+        return buff;
+      }
+ catch (      IOException e) {
+        throw new FileSystemException(e);
+      }
+    }
+  }
+;
+}

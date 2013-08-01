@@ -1,0 +1,6 @@
+{
+  V old=internalEntry.getValue();
+  Checker.checkType(value);
+  internalEntry.setValue(value);
+  return old;
+}

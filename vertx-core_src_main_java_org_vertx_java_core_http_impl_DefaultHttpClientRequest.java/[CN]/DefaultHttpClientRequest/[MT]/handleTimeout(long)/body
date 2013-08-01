@@ -1,0 +1,16 @@
+{
+  if (lastDataReceived == 0) {
+    timeout(timeoutMs);
+  }
+ else {
+    long now=System.currentTimeMillis();
+    long timeSinceLastData=now - lastDataReceived;
+    if (timeSinceLastData >= timeoutMs) {
+      timeout(timeoutMs);
+    }
+ else {
+      lastDataReceived=0;
+      setTimeout(timeoutMs - timeSinceLastData);
+    }
+  }
+}

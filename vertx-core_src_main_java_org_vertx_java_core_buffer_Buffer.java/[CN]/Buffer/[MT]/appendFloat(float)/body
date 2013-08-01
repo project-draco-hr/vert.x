@@ -1,0 +1,4 @@
+{
+  buffer.writeFloat(f);
+  return this;
+}

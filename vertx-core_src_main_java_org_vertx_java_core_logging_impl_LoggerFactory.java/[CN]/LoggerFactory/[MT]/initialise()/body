@@ -1,0 +1,23 @@
+{
+  LogDelegateFactory delegateFactory;
+  String className=JULLogDelegateFactory.class.getName();
+  try {
+    className=System.getProperty(LOGGER_DELEGATE_FACTORY_CLASS_NAME);
+  }
+ catch (  Exception e) {
+  }
+  if (className != null) {
+    ClassLoader loader=Thread.currentThread().getContextClassLoader();
+    try {
+      Class<?> clz=loader.loadClass(className);
+      delegateFactory=(LogDelegateFactory)clz.newInstance();
+    }
+ catch (    Exception e) {
+      throw new IllegalArgumentException("Error instantiating transformer class \"" + className + "\"",e);
+    }
+  }
+ else {
+    delegateFactory=new JULLogDelegateFactory();
+  }
+  LoggerFactory.delegateFactory=delegateFactory;
+}

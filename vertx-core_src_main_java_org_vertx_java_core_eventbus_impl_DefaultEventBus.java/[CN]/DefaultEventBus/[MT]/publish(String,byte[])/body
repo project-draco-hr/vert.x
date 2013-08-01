@@ -1,0 +1,4 @@
+{
+  sendOrPub(new ByteArrayMessage(false,address,message),null);
+  return this;
+}

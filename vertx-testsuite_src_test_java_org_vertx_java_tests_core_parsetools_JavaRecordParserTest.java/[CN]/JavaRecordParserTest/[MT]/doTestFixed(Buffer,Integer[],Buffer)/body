@@ -1,0 +1,16 @@
+{
+  final Buffer[] results=new Buffer[expected.length];
+class MyHandler implements Handler<Buffer> {
+    int pos;
+    RecordParser parser=RecordParser.newFixed(expected[0].length(),this);
+    public void handle(    Buffer buff){
+      results[pos++]=buff;
+      if (pos < expected.length) {
+        parser.fixedSizeMode(expected[pos].length());
+      }
+    }
+  }
+  MyHandler out=new MyHandler();
+  feedChunks(input,out.parser,chunkSizes);
+  checkResults(expected,results);
+}

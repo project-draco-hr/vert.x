@@ -1,0 +1,3 @@
+{
+  return binaryData.release(decrement);
+}

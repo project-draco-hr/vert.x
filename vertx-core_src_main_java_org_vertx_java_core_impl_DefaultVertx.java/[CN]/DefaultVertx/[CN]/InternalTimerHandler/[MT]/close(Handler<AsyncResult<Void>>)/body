@@ -1,0 +1,5 @@
+{
+  DefaultVertx.this.timeouts.remove(timerID);
+  cancel();
+  doneHandler.handle(new DefaultFutureResult<>((Void)null));
+}

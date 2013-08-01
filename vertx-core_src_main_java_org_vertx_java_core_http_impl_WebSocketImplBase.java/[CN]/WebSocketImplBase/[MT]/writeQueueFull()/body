@@ -1,0 +1,4 @@
+{
+  checkClosed();
+  return conn.doWriteQueueFull();
+}

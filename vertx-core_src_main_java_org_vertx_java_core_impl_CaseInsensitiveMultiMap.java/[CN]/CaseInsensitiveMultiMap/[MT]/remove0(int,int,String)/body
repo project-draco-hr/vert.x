@@ -1,0 +1,36 @@
+{
+  MapEntry e=entries[i];
+  if (e == null) {
+    return;
+  }
+  for (; ; ) {
+    if (e.hash == h && eq(name,e.key)) {
+      e.remove();
+      MapEntry next=e.next;
+      if (next != null) {
+        entries[i]=next;
+        e=next;
+      }
+ else {
+        entries[i]=null;
+        return;
+      }
+    }
+ else {
+      break;
+    }
+  }
+  for (; ; ) {
+    MapEntry next=e.next;
+    if (next == null) {
+      break;
+    }
+    if (next.hash == h && eq(name,next.key)) {
+      e.next=next.next;
+      next.remove();
+    }
+ else {
+      e=next;
+    }
+  }
+}

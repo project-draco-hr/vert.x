@@ -1,0 +1,3 @@
+{
+  logger.log(Level.FINEST,message == null ? "NULL" : message.toString());
+}

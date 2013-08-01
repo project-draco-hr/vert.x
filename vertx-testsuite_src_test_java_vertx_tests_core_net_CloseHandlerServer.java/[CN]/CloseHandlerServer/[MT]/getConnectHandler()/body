@@ -1,0 +1,27 @@
+{
+  return new Handler<NetSocket>(){
+    final AtomicInteger counter=new AtomicInteger(0);
+    public void handle(    final NetSocket sock){
+      tu.checkThread();
+      sock.endHandler(new VoidHandler(){
+        public void handle(){
+          tu.checkThread();
+          tu.azzert(counter.incrementAndGet() == 1);
+        }
+      }
+);
+      sock.closeHandler(new VoidHandler(){
+        public void handle(){
+          tu.checkThread();
+          tu.azzert(counter.incrementAndGet() == 2);
+          tu.testComplete();
+        }
+      }
+);
+      if (closeFromServer) {
+        sock.close();
+      }
+    }
+  }
+;
+}

@@ -1,0 +1,10 @@
+{
+  final int size=10;
+  Buffer buffer=new Buffer(size);
+  for (int i=0; i < size; i++) {
+    buffer.setInt(i * 4,(i + 1) * 10);
+  }
+  for (int i=0; i < size; i++) {
+    assertEquals((i + 1) * 10,buffer.getInt(i * 4));
+  }
+}

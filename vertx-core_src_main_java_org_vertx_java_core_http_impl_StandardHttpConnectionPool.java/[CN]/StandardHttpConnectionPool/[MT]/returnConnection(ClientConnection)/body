@@ -1,0 +1,18 @@
+{
+  Waiter waiter;
+synchronized (this) {
+    waiter=waiters.poll();
+    if (waiter == null) {
+      available.add(conn);
+    }
+  }
+  if (waiter != null) {
+    final Waiter w=waiter;
+    w.context.runOnContext(new VoidHandler(){
+      public void handle(){
+        w.handler.handle(conn);
+      }
+    }
+);
+  }
+}

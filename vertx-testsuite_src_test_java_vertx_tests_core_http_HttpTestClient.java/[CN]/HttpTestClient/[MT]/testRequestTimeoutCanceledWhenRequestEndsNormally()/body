@@ -1,0 +1,37 @@
+{
+  AsyncResultHandler<HttpServer> handler=new AsyncResultHandler<HttpServer>(){
+    @Override public void handle(    AsyncResult<HttpServer> ar){
+      tu.azzert(ar.succeeded());
+      final AtomicReference<Throwable> exception=new AtomicReference<>();
+      final HttpClientRequest req=getRequest(true,"GET","timeoutTest",new Handler<HttpClientResponse>(){
+        public void handle(        HttpClientResponse resp){
+        }
+      }
+);
+      req.exceptionHandler(new Handler<Throwable>(){
+        @Override public void handle(        Throwable event){
+          exception.set(event);
+        }
+      }
+);
+      req.setTimeout(500);
+      req.end();
+      getVertx().setTimer(1000,new Handler<Long>(){
+        @Override public void handle(        Long event){
+          tu.azzert(exception.get() == null,"Did not expect any exception");
+          tu.checkThread();
+          tu.testComplete();
+        }
+      }
+);
+    }
+  }
+;
+  startServer(new Handler<HttpServerRequest>(){
+    public void handle(    HttpServerRequest req){
+      req.response().setStatusCode(200);
+      req.response().end("OK");
+    }
+  }
+,handler);
+}

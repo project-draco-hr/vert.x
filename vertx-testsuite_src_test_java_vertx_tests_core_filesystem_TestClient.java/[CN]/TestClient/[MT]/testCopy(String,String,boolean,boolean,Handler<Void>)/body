@@ -1,0 +1,9 @@
+{
+  AsyncResultHandler<Void> handler=createHandler(shouldPass,afterOK);
+  if (recursive) {
+    vertx.fileSystem().copy(TEST_DIR + pathSep + source,TEST_DIR + pathSep + target,true,handler);
+  }
+ else {
+    vertx.fileSystem().copy(TEST_DIR + pathSep + source,TEST_DIR + pathSep + target,handler);
+  }
+}

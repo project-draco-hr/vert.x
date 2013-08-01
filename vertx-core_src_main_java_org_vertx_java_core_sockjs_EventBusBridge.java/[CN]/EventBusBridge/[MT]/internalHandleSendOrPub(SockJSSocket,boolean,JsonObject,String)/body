@@ -1,0 +1,5 @@
+{
+  if (handleSendOrPub(sock,send,msg,address)) {
+    doSendOrPub(send,sock,address,msg);
+  }
+}

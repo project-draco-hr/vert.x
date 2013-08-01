@@ -1,0 +1,15 @@
+{
+  super.close();
+  if (heartbeatID != -1) {
+    vertx.cancelTimer(heartbeatID);
+  }
+  if (timeoutTimerID != -1) {
+    vertx.cancelTimer(timeoutTimerID);
+  }
+  if (id != null) {
+    sessions.remove(id);
+  }
+  if (endHandler != null) {
+    endHandler.handle(null);
+  }
+}

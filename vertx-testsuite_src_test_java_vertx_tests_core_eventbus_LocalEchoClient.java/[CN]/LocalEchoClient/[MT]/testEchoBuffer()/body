@@ -1,0 +1,5 @@
+{
+  Buffer buff=TestUtils.generateRandomBuffer(1000);
+  Handler<Message<Buffer>> handler=echoHandler(buff);
+  eb.send(echoAddress(),buff,handler);
+}

@@ -1,0 +1,11 @@
+{
+  final String dirName="some-dir";
+  mkDir(dirName);
+  tu.azzert(fileExists(dirName));
+  testDelete(dirName,false,true,new VoidHandler(){
+    public void handle(){
+      tu.azzert(!fileExists(dirName));
+    }
+  }
+);
+}

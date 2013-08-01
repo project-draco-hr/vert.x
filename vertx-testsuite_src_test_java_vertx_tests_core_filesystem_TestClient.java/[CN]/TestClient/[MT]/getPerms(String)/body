@@ -1,0 +1,9 @@
+{
+  try {
+    Set<PosixFilePermission> perms=Files.getPosixFilePermissions(Paths.get(testDir + pathSep + fileName));
+    return PosixFilePermissions.toString(perms);
+  }
+ catch (  Exception e) {
+    throw new RuntimeException(e.getMessage());
+  }
+}

@@ -1,0 +1,10 @@
+{
+  EventLoop worker=context.getEventLoop();
+  availableWorkers.addWorker(worker);
+  Handlers<T> handlers=handlerMap.get(worker);
+  if (handlers == null) {
+    handlers=new Handlers<>();
+    handlerMap.put(worker,handlers);
+  }
+  handlers.addHandler(new HandlerHolder<>(context,handler));
+}

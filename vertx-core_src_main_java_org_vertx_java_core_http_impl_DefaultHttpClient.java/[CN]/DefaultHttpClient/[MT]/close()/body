@@ -1,0 +1,9 @@
+{
+  checkClosed();
+  pool.close();
+  for (  ClientConnection conn : connectionMap.values()) {
+    conn.close();
+  }
+  actualCtx.removeCloseHook(closeHook);
+  closed=true;
+}

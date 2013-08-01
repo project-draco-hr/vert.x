@@ -1,0 +1,16 @@
+{
+  client.connect(1234,new AsyncResultHandler<NetSocket>(){
+    public void handle(    final AsyncResult<NetSocket> res){
+      tu.checkThread();
+      NetSocket sock=res.result();
+      sock.pause();
+      setHandlers(sock);
+      sock.dataHandler(new Handler<Buffer>(){
+        public void handle(        Buffer data){
+        }
+      }
+);
+    }
+  }
+);
+}

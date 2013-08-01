@@ -1,0 +1,12 @@
+{
+  addRegEx(regex,handler,getBindings);
+  addRegEx(regex,handler,putBindings);
+  addRegEx(regex,handler,postBindings);
+  addRegEx(regex,handler,deleteBindings);
+  addRegEx(regex,handler,optionsBindings);
+  addRegEx(regex,handler,headBindings);
+  addRegEx(regex,handler,traceBindings);
+  addRegEx(regex,handler,connectBindings);
+  addRegEx(regex,handler,patchBindings);
+  return this;
+}

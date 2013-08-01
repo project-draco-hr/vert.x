@@ -1,0 +1,16 @@
+{
+  if (id != null) {
+    vertx.sharedNetServers().remove(id);
+  }
+  for (  DefaultNetSocket sock : socketMap.values()) {
+    sock.close();
+  }
+  vertx.setContext(closeContext);
+  ChannelGroupFuture fut=serverChannelGroup.close();
+  fut.addListener(new ChannelGroupFutureListener(){
+    public void operationComplete(    ChannelGroupFuture fut) throws Exception {
+      executeCloseDone(closeContext,done,fut.cause());
+    }
+  }
+);
+}

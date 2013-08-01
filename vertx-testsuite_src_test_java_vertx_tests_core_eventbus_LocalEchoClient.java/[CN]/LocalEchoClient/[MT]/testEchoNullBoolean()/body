@@ -1,0 +1,5 @@
+{
+  Boolean fal=null;
+  Handler<Message<Boolean>> handler=echoHandler(fal);
+  eb.send(echoAddress(),fal,handler);
+}

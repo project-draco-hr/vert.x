@@ -1,0 +1,12 @@
+{
+  super.handleException(t);
+  if (currentRequest != null) {
+    currentRequest.handleException(t);
+  }
+  if (pendingResponse != null) {
+    pendingResponse.handleException(t);
+  }
+  if (ws != null) {
+    ws.handleException(t);
+  }
+}

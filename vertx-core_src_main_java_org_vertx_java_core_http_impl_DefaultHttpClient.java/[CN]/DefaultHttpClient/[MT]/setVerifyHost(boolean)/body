@@ -1,0 +1,6 @@
+{
+  checkClosed();
+  checkConfigurable();
+  tcpHelper.setVerifyHost(verifyHost);
+  return this;
+}

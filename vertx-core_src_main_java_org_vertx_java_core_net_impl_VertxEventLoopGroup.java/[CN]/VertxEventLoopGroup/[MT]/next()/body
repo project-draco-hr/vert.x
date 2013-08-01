@@ -1,0 +1,11 @@
+{
+  if (workers.isEmpty()) {
+    throw new IllegalStateException();
+  }
+ else {
+    EventLoop worker=workers.get(pos).worker;
+    pos++;
+    checkPos();
+    return worker;
+  }
+}

@@ -1,0 +1,4 @@
+{
+  Number num=(Number)map.get(fieldName);
+  return num == null ? null : num.longValue();
+}

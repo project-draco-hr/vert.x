@@ -1,0 +1,28 @@
+{
+  if (!listening) {
+    executeCloseDone(actualCtx,done,null);
+    return;
+  }
+  listening=false;
+synchronized (vertx.sharedHttpServers()) {
+    if (actualServer != null) {
+      if (requestHandler != null) {
+        actualServer.reqHandlerManager.removeHandler(requestHandler,actualCtx);
+      }
+      if (wsHandler != null) {
+        actualServer.wsHandlerManager.removeHandler(wsHandler,actualCtx);
+      }
+      if (actualServer.reqHandlerManager.hasHandlers() || actualServer.wsHandlerManager.hasHandlers()) {
+        if (done != null) {
+          executeCloseDone(actualCtx,done,null);
+        }
+      }
+ else {
+        actualServer.actualClose(actualCtx,done);
+      }
+    }
+  }
+  requestHandler=null;
+  wsHandler=null;
+  actualCtx.removeCloseHook(this);
+}

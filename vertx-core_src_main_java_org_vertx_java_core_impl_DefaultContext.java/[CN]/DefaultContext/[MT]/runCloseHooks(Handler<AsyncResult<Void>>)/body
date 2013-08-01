@@ -1,0 +1,27 @@
+{
+  if (closeHooks != null) {
+    final CountingCompletionHandler<Void> aggHandler=new CountingCompletionHandler<>(vertx,closeHooks.size());
+    aggHandler.setHandler(doneHandler);
+    for (    Closeable hook : new HashSet<>(closeHooks)) {
+      try {
+        hook.close(new AsyncResultHandler<Void>(){
+          @Override public void handle(          AsyncResult<Void> asyncResult){
+            if (asyncResult.failed()) {
+              aggHandler.failed(asyncResult.cause());
+            }
+ else {
+              aggHandler.complete();
+            }
+          }
+        }
+);
+      }
+ catch (      Throwable t) {
+        reportException(t);
+      }
+    }
+  }
+ else {
+    doneHandler.handle(new DefaultFutureResult<>((Void)null));
+  }
+}

@@ -1,0 +1,26 @@
+{
+  final String fileName="some-file.txt";
+  final long fileSize=1234;
+  final long start=1000 * (System.currentTimeMillis() / 1000 - 1);
+  createFileWithJunk(fileName,fileSize);
+  final long end=1000 * (System.currentTimeMillis() / 1000 + 1);
+  String linkName="some-link.txt";
+  Files.createSymbolicLink(Paths.get(TEST_DIR + pathSep + linkName),Paths.get(fileName));
+  testProps(linkName,false,true,new Handler<FileProps>(){
+    public void handle(    FileProps st){
+      tu.azzert(st != null);
+      tu.azzert(fileSize == st.size());
+      tu.azzert(st.creationTime().getTime() >= start);
+      tu.azzert(st.creationTime().getTime() <= end);
+      tu.azzert(st.lastAccessTime().getTime() >= start);
+      tu.azzert(st.lastAccessTime().getTime() <= end);
+      tu.azzert(st.lastModifiedTime().getTime() >= start);
+      tu.azzert(st.lastModifiedTime().getTime() <= end);
+      tu.azzert(!st.isDirectory());
+      tu.azzert(!st.isOther());
+      tu.azzert(st.isRegularFile());
+      tu.azzert(!st.isSymbolicLink());
+    }
+  }
+);
+}

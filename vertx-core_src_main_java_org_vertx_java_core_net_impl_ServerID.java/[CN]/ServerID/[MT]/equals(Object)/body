@@ -1,0 +1,8 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  ServerID serverID=(ServerID)o;
+  if (port != serverID.port)   return false;
+  if (!host.equals(serverID.host))   return false;
+  return true;
+}

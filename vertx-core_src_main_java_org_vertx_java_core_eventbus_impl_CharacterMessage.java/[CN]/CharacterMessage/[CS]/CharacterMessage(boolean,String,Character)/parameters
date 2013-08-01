@@ -1,0 +1,3 @@
+boolean send
+String address
+Character body

@@ -1,0 +1,31 @@
+{
+  final MultiMap extraHeaders=new CaseInsensitiveMultiMap();
+  extraHeaders.set("armadillos","yes");
+  extraHeaders.set("shoes","yellow");
+  extraHeaders.set("hair","purple");
+  server=vertx.createHttpServer().websocketHandler(new Handler<ServerWebSocket>(){
+    public void handle(    final ServerWebSocket ws){
+      tu.checkThread();
+      tu.azzert(ws.headers().get("upgrade").equals("websocket"));
+      tu.azzert(ws.headers().get("connection").equals("Upgrade"));
+      tu.azzert(ws.headers().get("host").equals("localhost:8080"));
+      for (      Map.Entry<String,String> entry : extraHeaders) {
+        tu.azzert(ws.headers().get(entry.getKey()).equals(entry.getValue()));
+      }
+      tu.testComplete();
+    }
+  }
+);
+  server.listen(8080,"localhost",new AsyncResultHandler<HttpServer>(){
+    @Override public void handle(    AsyncResult<HttpServer> ar){
+      tu.azzert(ar.succeeded());
+      client.connectWebsocket("/foo",WebSocketVersion.RFC6455,extraHeaders,new Handler<WebSocket>(){
+        public void handle(        final WebSocket ws){
+          tu.checkThread();
+        }
+      }
+);
+    }
+  }
+);
+}

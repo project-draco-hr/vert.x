@@ -1,0 +1,4 @@
+{
+  String deployID=startMod("io.vertx~testmod4-1~1.0");
+  assertNull(deployID);
+}

@@ -1,0 +1,5 @@
+String from
+String to
+boolean symbolic
+boolean shouldPass
+Handler<Void> afterOK

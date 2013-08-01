@@ -1,0 +1,4 @@
+{
+  unlinkInternal(link,handler).run();
+  return this;
+}

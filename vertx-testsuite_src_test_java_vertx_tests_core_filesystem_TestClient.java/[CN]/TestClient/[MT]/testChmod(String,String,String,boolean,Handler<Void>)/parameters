@@ -1,0 +1,5 @@
+String file
+String perms
+String dirPerms
+boolean shouldPass
+Handler<Void> afterOK

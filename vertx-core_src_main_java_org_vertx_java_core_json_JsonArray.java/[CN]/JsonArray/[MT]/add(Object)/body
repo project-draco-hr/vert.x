@@ -1,0 +1,10 @@
+{
+  if (obj instanceof JsonObject) {
+    obj=((JsonObject)obj).map;
+  }
+ else   if (obj instanceof JsonArray) {
+    obj=((JsonArray)obj).list;
+  }
+  list.add(obj);
+  return this;
+}

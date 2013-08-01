@@ -1,0 +1,4 @@
+{
+  openInternal(path,handler).run();
+  return this;
+}

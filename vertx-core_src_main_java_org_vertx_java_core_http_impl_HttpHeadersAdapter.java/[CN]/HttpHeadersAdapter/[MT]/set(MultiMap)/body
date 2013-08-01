@@ -1,0 +1,7 @@
+{
+  clear();
+  for (  Map.Entry<String,String> entry : httpHeaders) {
+    add(entry.getKey(),entry.getValue());
+  }
+  return this;
+}

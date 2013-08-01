@@ -1,0 +1,5 @@
+{
+  statusCode=HttpResponseStatus.NOT_FOUND.code();
+  putHeader("content-type","text/html");
+  end("<html><body>Resource not found</body><html>");
+}

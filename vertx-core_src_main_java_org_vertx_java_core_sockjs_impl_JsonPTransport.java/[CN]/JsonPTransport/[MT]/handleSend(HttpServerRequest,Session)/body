@@ -1,0 +1,45 @@
+{
+  req.bodyHandler(new Handler<Buffer>(){
+    public void handle(    Buffer buff){
+      String body=buff.toString();
+      boolean urlEncoded;
+      String ct=req.headers().get("content-type");
+      if ("application/x-www-form-urlencoded".equalsIgnoreCase(ct)) {
+        urlEncoded=true;
+      }
+ else       if ("text/plain".equalsIgnoreCase(ct)) {
+        urlEncoded=false;
+      }
+ else {
+        req.response().setStatusCode(500);
+        req.response().end("Invalid Content-Type");
+        return;
+      }
+      if (body.equals("") || urlEncoded && (!body.startsWith("d=") || body.length() <= 2)) {
+        req.response().setStatusCode(500);
+        req.response().end("Payload expected.");
+        return;
+      }
+      if (urlEncoded) {
+        try {
+          body=URLDecoder.decode(body,"UTF-8");
+        }
+ catch (        UnsupportedEncodingException e) {
+          throw new IllegalStateException("No UTF-8!");
+        }
+        body=body.substring(2);
+      }
+      if (!session.handleMessages(body)) {
+        sendInvalidJSON(req.response());
+      }
+ else {
+        setJSESSIONID(config,req);
+        req.response().headers().set("Content-Type","text/plain; charset=UTF-8");
+        setNoCacheHeaders(req);
+        req.response().end("ok");
+        if (log.isTraceEnabled())         log.trace("send handled ok");
+      }
+    }
+  }
+);
+}

@@ -1,0 +1,13 @@
+{
+  String fileName="some-file.txt";
+  final long fileSize=1234;
+  createFileWithJunk(fileName,fileSize);
+  final String symlinkName="some-sym-link.txt";
+  testLink(symlinkName,fileName,true,true,new VoidHandler(){
+    public void handle(){
+      tu.azzert(fileLength(symlinkName) == fileSize);
+      tu.azzert(Files.isSymbolicLink(Paths.get(TEST_DIR + pathSep + symlinkName)));
+    }
+  }
+);
+}

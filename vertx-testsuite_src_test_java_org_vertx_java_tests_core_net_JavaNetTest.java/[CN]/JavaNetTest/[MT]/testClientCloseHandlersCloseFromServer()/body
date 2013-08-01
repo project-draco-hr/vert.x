@@ -1,0 +1,4 @@
+{
+  startApp(CloseSocketServer.class.getName());
+  startTest(getMethodName());
+}

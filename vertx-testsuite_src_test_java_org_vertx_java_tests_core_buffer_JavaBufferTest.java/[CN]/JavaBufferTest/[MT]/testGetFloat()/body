@@ -1,0 +1,10 @@
+{
+  int numFloats=100;
+  Buffer b=new Buffer(numFloats * 4);
+  for (int i=0; i < numFloats; i++) {
+    b.setFloat(i * 4,i);
+  }
+  for (int i=0; i < numFloats; i++) {
+    assertEquals((float)i,b.getFloat(i * 4));
+  }
+}

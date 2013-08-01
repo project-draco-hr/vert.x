@@ -1,0 +1,11 @@
+{
+  HttpServer server=vertx.createHttpServer();
+  tu.azzert(!server.isSSL());
+  tu.azzert(server.getKeyStorePassword() == null);
+  tu.azzert(server.getKeyStorePath() == null);
+  tu.azzert(server.getTrustStorePassword() == null);
+  tu.azzert(server.getTrustStorePath() == null);
+  tu.azzert(server.isReuseAddress());
+  server.close();
+  tu.testComplete();
+}

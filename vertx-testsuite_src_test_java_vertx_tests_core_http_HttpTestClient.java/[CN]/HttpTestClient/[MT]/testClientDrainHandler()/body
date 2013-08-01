@@ -1,0 +1,30 @@
+{
+  final HttpClientRequest req=client.get("someurl",new Handler<HttpClientResponse>(){
+    public void handle(    HttpClientResponse resp){
+    }
+  }
+);
+  req.setChunked(true);
+  tu.azzert(!req.writeQueueFull());
+  req.setWriteQueueMaxSize(1000);
+  final Buffer buff=TestUtils.generateRandomBuffer(10000);
+  vertx.setPeriodic(1,new Handler<Long>(){
+    public void handle(    Long id){
+      tu.checkThread();
+      req.write(buff);
+      if (req.writeQueueFull()) {
+        vertx.cancelTimer(id);
+        req.drainHandler(new VoidHandler(){
+          public void handle(){
+            tu.checkThread();
+            tu.azzert(!req.writeQueueFull());
+            tu.testComplete();
+          }
+        }
+);
+        vertx.eventBus().send("server_resume","");
+      }
+    }
+  }
+);
+}

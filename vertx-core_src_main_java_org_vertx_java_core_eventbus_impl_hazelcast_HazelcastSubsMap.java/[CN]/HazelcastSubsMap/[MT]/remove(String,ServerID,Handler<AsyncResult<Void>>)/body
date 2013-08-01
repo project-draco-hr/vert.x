@@ -1,0 +1,9 @@
+{
+  new BlockingAction<Void>(vertx,completionHandler){
+    public Void action(){
+      map.remove(subName,new HazelcastServerID(serverID));
+      return null;
+    }
+  }
+.run();
+}

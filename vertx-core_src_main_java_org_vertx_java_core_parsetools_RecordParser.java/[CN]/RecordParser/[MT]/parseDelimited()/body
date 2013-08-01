@@ -1,0 +1,20 @@
+{
+  int len=buff.length();
+  for (; pos < len && !reset; pos++) {
+    if (buff.getByte(pos) == delim[delimPos]) {
+      delimPos++;
+      if (delimPos == delim.length) {
+        Buffer ret=buff.getBuffer(start,pos - delim.length + 1);
+        start=pos + 1;
+        delimPos=0;
+        output.handle(ret);
+      }
+    }
+ else {
+      if (delimPos > 0) {
+        pos-=delimPos;
+        delimPos=0;
+      }
+    }
+  }
+}

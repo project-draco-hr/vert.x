@@ -1,0 +1,4 @@
+{
+  startApp(PausingServer.class.getName());
+  startTest(getMethodName());
+}

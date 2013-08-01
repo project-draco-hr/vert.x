@@ -1,0 +1,44 @@
+{
+  ServerIDs entries=cache.get(subName);
+  DefaultFutureResult<ServerIDs> result=new DefaultFutureResult<>();
+  if (entries != null && entries.isInitialised()) {
+    result.setResult(entries).setHandler(completionHandler);
+  }
+ else {
+    new BlockingAction<Collection<HazelcastServerID>>(vertx,new AsyncResultHandler<Collection<HazelcastServerID>>(){
+      public void handle(      AsyncResult<Collection<HazelcastServerID>> result){
+        DefaultFutureResult<ServerIDs> sresult=new DefaultFutureResult<>();
+        if (result.succeeded()) {
+          Collection<HazelcastServerID> entries=result.result();
+          ServerIDs sids;
+          if (entries != null) {
+            sids=new ServerIDs(entries.size());
+            for (            HazelcastServerID hid : entries) {
+              sids.add(hid.serverID);
+            }
+          }
+ else {
+            sids=new ServerIDs(0);
+          }
+          ServerIDs prev=cache.putIfAbsent(subName,sids);
+          if (prev != null) {
+            prev.merge(sids);
+            sids=prev;
+          }
+          sids.setInitialised();
+          sresult.setResult(sids);
+        }
+ else {
+          sresult.setFailure(result.cause());
+        }
+        sresult.setHandler(completionHandler);
+      }
+    }
+){
+      public Collection<HazelcastServerID> action(){
+        return map.get(subName);
+      }
+    }
+.run();
+  }
+}

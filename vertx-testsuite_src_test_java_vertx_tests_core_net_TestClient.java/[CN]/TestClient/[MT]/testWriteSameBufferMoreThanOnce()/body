@@ -1,0 +1,35 @@
+{
+  vertx.createNetServer().connectHandler(new Handler<NetSocket>(){
+    @Override public void handle(    NetSocket socket){
+      final Buffer received=new Buffer();
+      socket.dataHandler(new Handler<Buffer>(){
+        @Override public void handle(        Buffer buff){
+          received.appendBuffer(buff);
+          if (received.toString().equals("foofoo")) {
+            tu.testComplete();
+          }
+        }
+      }
+);
+    }
+  }
+).listen(1234,new AsyncResultHandler<NetServer>(){
+    @Override public void handle(    AsyncResult<NetServer> ar){
+      if (ar.succeeded()) {
+        vertx.createNetClient().connect(1234,new AsyncResultHandler<NetSocket>(){
+          @Override public void handle(          AsyncResult<NetSocket> result){
+            NetSocket socket=result.result();
+            Buffer buff=new Buffer("foo");
+            socket.write(buff);
+            socket.write(buff);
+          }
+        }
+);
+      }
+ else {
+        ar.cause().printStackTrace();
+      }
+    }
+  }
+);
+}

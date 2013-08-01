@@ -1,0 +1,10 @@
+{
+  if (wsHandshakeConnection) {
+  }
+ else   if (!keepAlive) {
+    super.close();
+  }
+ else {
+    client.returnConnection(this);
+  }
+}

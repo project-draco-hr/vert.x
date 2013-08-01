@@ -1,0 +1,4 @@
+{
+  String echoAddress=(String)vertx.sharedData().getMap("echoaddress").get("echoaddress");
+  return echoAddress;
+}

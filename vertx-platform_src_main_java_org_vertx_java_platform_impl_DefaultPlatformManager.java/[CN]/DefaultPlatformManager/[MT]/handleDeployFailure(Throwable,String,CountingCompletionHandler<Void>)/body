@@ -1,0 +1,11 @@
+{
+  doUndeploy(deploymentID,new Handler<AsyncResult<Void>>(){
+    public void handle(    AsyncResult<Void> res){
+      if (res.failed()) {
+        vertx.reportException(res.cause());
+      }
+      handler.failed(t);
+    }
+  }
+);
+}

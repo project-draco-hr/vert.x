@@ -1,0 +1,4 @@
+{
+  this.uploadHandler=handler;
+  return this;
+}

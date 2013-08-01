@@ -1,0 +1,21 @@
+{
+  final Path target=PathAdjuster.adjust(vertx,Paths.get(path));
+  return new BlockingAction<FileProps>(vertx,handler){
+    public FileProps action(){
+      try {
+        BasicFileAttributes attrs;
+        if (followLinks) {
+          attrs=Files.readAttributes(target,BasicFileAttributes.class);
+        }
+ else {
+          attrs=Files.readAttributes(target,BasicFileAttributes.class,LinkOption.NOFOLLOW_LINKS);
+        }
+        return new DefaultFileProps(attrs);
+      }
+ catch (      IOException e) {
+        throw new FileSystemException(e);
+      }
+    }
+  }
+;
+}

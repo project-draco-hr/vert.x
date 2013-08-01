@@ -1,0 +1,3 @@
+{
+  vertx.fileSystem().truncate(TEST_DIR + pathSep + file,truncatedLen,createHandler(shouldPass,afterOK));
+}

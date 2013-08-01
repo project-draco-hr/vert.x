@@ -1,0 +1,4 @@
+{
+  vertx.setContext(null);
+  Thread.currentThread().setContextClassLoader(null);
+}

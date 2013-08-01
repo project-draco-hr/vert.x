@@ -1,0 +1,13 @@
+{
+  final String source="some-dir";
+  final String target="some-other-dir";
+  mkDir(source);
+  mkDir(target);
+  testMove(source,target,false,new VoidHandler(){
+    public void handle(){
+      tu.azzert(fileExists(source));
+      tu.azzert(fileExists(target));
+    }
+  }
+);
+}

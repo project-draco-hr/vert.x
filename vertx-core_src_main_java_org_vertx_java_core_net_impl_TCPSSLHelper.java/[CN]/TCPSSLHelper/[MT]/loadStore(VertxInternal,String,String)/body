@@ -1,0 +1,19 @@
+{
+  final String ksPath=PathAdjuster.adjust(vertx,path);
+  KeyStore ks=KeyStore.getInstance("JKS");
+  InputStream in=null;
+  try {
+    in=new FileInputStream(new File(ksPath));
+    ks.load(in,ksPassword != null ? ksPassword.toCharArray() : null);
+  }
+  finally {
+    if (in != null) {
+      try {
+        in.close();
+      }
+ catch (      IOException ignore) {
+      }
+    }
+  }
+  return ks;
+}

@@ -1,0 +1,72 @@
+{
+  if (bootstrap == null) {
+    tcpHelper.checkSSL(vertx);
+    bootstrap=new Bootstrap();
+    bootstrap.group(actualCtx.getEventLoop());
+    bootstrap.channel(NioSocketChannel.class);
+    bootstrap.handler(new ChannelInitializer<Channel>(){
+      @Override protected void initChannel(      Channel ch) throws Exception {
+        ChannelPipeline pipeline=ch.pipeline();
+        pipeline.addLast("exceptionDispatcher",EXCEPTION_DISPATCH_HANDLER);
+        if (tcpHelper.isSSL()) {
+          SSLEngine engine=tcpHelper.getSSLContext().createSSLEngine();
+          engine.setUseClientMode(true);
+          pipeline.addLast("ssl",new SslHandler(engine));
+        }
+        if (tcpHelper.isSSL()) {
+          pipeline.addLast("chunkedWriter",new ChunkedWriteHandler());
+        }
+        pipeline.addLast("handler",new VertxNetHandler(vertx,socketMap));
+      }
+    }
+);
+    configurable=false;
+  }
+  tcpHelper.applyConnectionOptions(bootstrap);
+  ChannelFuture future=bootstrap.connect(new InetSocketAddress(host,port));
+  future.addListener(new ChannelFutureListener(){
+    public void operationComplete(    ChannelFuture channelFuture) throws Exception {
+      final Channel ch=channelFuture.channel();
+      if (channelFuture.isSuccess()) {
+        if (tcpHelper.isSSL()) {
+          SslHandler sslHandler=ch.pipeline().get(SslHandler.class);
+          Future<Channel> fut=sslHandler.handshakeFuture();
+          fut.addListener(new GenericFutureListener<Future<Channel>>(){
+            @Override public void operationComplete(            Future<Channel> future) throws Exception {
+              if (future.isSuccess()) {
+                connected(ch,connectHandler);
+              }
+ else {
+                failed(ch,future.cause(),connectHandler);
+              }
+            }
+          }
+);
+        }
+ else {
+          connected(ch,connectHandler);
+        }
+      }
+ else {
+        if (remainingAttempts > 0 || remainingAttempts == -1) {
+          actualCtx.execute(ch.eventLoop(),new Runnable(){
+            public void run(){
+              log.debug("Failed to create connection. Will retry in " + reconnectInterval + " milliseconds");
+              vertx.setTimer(reconnectInterval,new Handler<Long>(){
+                public void handle(                Long timerID){
+                  connect(port,host,connectHandler,remainingAttempts == -1 ? remainingAttempts : remainingAttempts - 1);
+                }
+              }
+);
+            }
+          }
+);
+        }
+ else {
+          failed(ch,channelFuture.cause(),connectHandler);
+        }
+      }
+    }
+  }
+);
+}

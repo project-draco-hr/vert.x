@@ -1,0 +1,4 @@
+{
+  ChannelFuture future=lastWriteFuture=super.write(obj);
+  return future;
+}

@@ -1,0 +1,19 @@
+{
+  ClientConnection conn=null;
+  if (!available.isEmpty()) {
+    final boolean useOccupiedConnections=connectionCount >= maxPoolSize;
+    for (    final ClientConnection c : available) {
+      if (c.getOutstandingRequestCount() == 0 && !c.isClosed()) {
+        conn=c;
+        break;
+      }
+      if (useOccupiedConnections) {
+        if (conn == null || (conn.getOutstandingRequestCount() > c.getOutstandingRequestCount() && !c.isClosed())) {
+          conn=c;
+        }
+      }
+    }
+    if (conn != null)     available.remove(conn);
+  }
+  return conn;
+}

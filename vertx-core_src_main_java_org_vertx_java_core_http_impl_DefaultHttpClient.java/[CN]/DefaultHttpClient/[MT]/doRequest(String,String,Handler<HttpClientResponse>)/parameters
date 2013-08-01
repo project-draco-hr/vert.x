@@ -1,0 +1,3 @@
+String method
+String uri
+Handler<HttpClientResponse> responseHandler

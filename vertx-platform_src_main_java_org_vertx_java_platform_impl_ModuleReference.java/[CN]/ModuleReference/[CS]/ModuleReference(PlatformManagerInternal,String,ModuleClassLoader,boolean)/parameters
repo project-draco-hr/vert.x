@@ -1,0 +1,4 @@
+PlatformManagerInternal mgr
+String moduleKey
+ModuleClassLoader mcl
+boolean resident

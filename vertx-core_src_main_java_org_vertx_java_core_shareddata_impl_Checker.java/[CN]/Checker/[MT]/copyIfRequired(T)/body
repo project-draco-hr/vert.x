@@ -1,0 +1,14 @@
+{
+  if (obj instanceof byte[]) {
+    byte[] bytes=(byte[])obj;
+    byte[] copy=new byte[bytes.length];
+    System.arraycopy(bytes,0,copy,0,bytes.length);
+    return (T)copy;
+  }
+ else   if (obj instanceof Buffer) {
+    return (T)((Buffer)obj).copy();
+  }
+ else {
+    return obj;
+  }
+}

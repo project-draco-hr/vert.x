@@ -1,0 +1,4 @@
+{
+  startMod("io.vertx~json-comments~1.0");
+  startTest(getMethodName());
+}

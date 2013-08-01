@@ -1,0 +1,8 @@
+{
+  int h=hash(name);
+  int i=index(h);
+  for (  String vstr : values) {
+    add0(h,i,name,vstr);
+  }
+  return this;
+}

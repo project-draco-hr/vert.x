@@ -1,0 +1,17 @@
+{
+  final AtomicLong id=new AtomicLong(-1);
+  id.set(vertx.setTimer(delay,new Handler<Long>(){
+    int count;
+    boolean fired;
+    public void handle(    Long timerID){
+      tu.azzert(!fired);
+      fired=true;
+      tu.checkThread();
+      tu.azzert(id.get() == timerID.longValue());
+      tu.azzert(count == 0);
+      count++;
+      setEndTimer();
+    }
+  }
+));
+}

@@ -1,0 +1,17 @@
+{
+  if (log.isTraceEnabled())   log.trace("JsonP, sending frame");
+  if (!headersWritten) {
+    req.response().setChunked(true);
+    req.response().headers().set("Content-Type","application/javascript; charset=UTF-8");
+    setNoCacheHeaders(req);
+    setJSESSIONID(config,req);
+    headersWritten=true;
+  }
+  body=escapeForJavaScript(body);
+  StringBuilder sb=new StringBuilder();
+  sb.append(callback).append("(\"");
+  sb.append(body);
+  sb.append("\");\r\n");
+  req.response().write(sb.toString());
+  close();
+}

@@ -1,0 +1,12 @@
+{
+  int ni=pos + len;
+  int cap=buffer.capacity();
+  int over=ni - cap;
+  if (over > 0) {
+    buffer.writerIndex(cap);
+    buffer.ensureWritable(over);
+  }
+  if (ni > buffer.writerIndex()) {
+    buffer.writerIndex(ni);
+  }
+}

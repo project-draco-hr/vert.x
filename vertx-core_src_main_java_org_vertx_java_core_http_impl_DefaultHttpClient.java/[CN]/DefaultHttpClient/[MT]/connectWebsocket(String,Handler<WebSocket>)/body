@@ -1,0 +1,5 @@
+{
+  checkClosed();
+  connectWebsocket(uri,WebSocketVersion.RFC6455,wsConnect);
+  return this;
+}

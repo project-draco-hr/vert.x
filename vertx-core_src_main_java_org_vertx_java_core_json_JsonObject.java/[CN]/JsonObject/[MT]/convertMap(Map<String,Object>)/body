@@ -1,0 +1,18 @@
+{
+  Map<String,Object> converted=new LinkedHashMap<>(map.size());
+  for (  Map.Entry<String,Object> entry : map.entrySet()) {
+    Object obj=entry.getValue();
+    if (obj instanceof Map) {
+      Map<String,Object> jm=(Map<String,Object>)obj;
+      converted.put(entry.getKey(),convertMap(jm));
+    }
+ else     if (obj instanceof List) {
+      List<Object> list=(List<Object>)obj;
+      converted.put(entry.getKey(),JsonArray.convertList(list));
+    }
+ else {
+      converted.put(entry.getKey(),obj);
+    }
+  }
+  return converted;
+}

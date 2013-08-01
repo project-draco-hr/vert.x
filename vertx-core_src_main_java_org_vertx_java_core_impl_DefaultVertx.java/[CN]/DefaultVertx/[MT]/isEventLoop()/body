@@ -1,0 +1,7 @@
+{
+  DefaultContext context=getContext();
+  if (context != null) {
+    return context instanceof EventLoopContext;
+  }
+  return false;
+}

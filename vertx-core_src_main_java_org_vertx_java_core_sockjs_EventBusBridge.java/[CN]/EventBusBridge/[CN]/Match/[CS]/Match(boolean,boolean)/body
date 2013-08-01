@@ -1,0 +1,4 @@
+{
+  this.doesMatch=doesMatch;
+  this.requiresAuth=requiresAuth;
+}

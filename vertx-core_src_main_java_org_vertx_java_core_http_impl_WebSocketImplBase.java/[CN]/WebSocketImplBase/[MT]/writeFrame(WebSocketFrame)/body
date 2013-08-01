@@ -1,0 +1,4 @@
+{
+  checkClosed();
+  conn.write(frame);
+}

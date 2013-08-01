@@ -1,0 +1,6 @@
+{
+  after=e;
+  before=e.before;
+  before.after=this;
+  after.before=this;
+}

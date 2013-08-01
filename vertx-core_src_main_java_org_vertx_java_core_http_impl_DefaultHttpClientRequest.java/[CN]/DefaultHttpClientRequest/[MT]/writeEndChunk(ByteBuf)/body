@@ -1,0 +1,8 @@
+{
+  if (buf.isReadable()) {
+    conn.write(new DefaultLastHttpContent(buf));
+  }
+ else {
+    conn.write(LastHttpContent.EMPTY_LAST_CONTENT);
+  }
+}

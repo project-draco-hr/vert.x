@@ -1,0 +1,12 @@
+{
+  Logger logger=loggers.get(name);
+  if (logger == null) {
+    LogDelegate delegate=delegateFactory.createDelegate(name);
+    logger=new Logger(delegate);
+    Logger oldLogger=loggers.putIfAbsent(name,logger);
+    if (oldLogger != null) {
+      logger=oldLogger;
+    }
+  }
+  return logger;
+}

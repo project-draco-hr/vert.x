@@ -1,0 +1,5 @@
+{
+  checkConfigurable();
+  tcpHelper.setKeyStorePath(path);
+  return this;
+}

@@ -1,0 +1,7 @@
+{
+  Map<String,Integer> map=new HashMap<>();
+  for (  Map.Entry<String,Deployment> entry : deployments.entrySet()) {
+    map.put(entry.getKey(),entry.getValue().verticles.size());
+  }
+  return map;
+}

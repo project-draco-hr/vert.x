@@ -1,0 +1,11 @@
+boolean redeploy
+JsonObject modJSON
+String depName
+ModuleIdentifier modID
+JsonObject config
+int instances
+File modDir
+File currentModDir
+List<URL> moduleClasspath
+File modRoot
+Handler<AsyncResult<String>> doneHandler

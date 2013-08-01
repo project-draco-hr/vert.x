@@ -1,0 +1,35 @@
+{
+  if (decoder != null) {
+    try {
+      decoder.offer(LastHttpContent.EMPTY_LAST_CONTENT);
+      while (decoder.hasNext()) {
+        InterfaceHttpData data=decoder.next();
+        if (data instanceof Attribute) {
+          Attribute attr=(Attribute)data;
+          try {
+            if (isURLEncoded) {
+              attributes().add(urlDecode(attr.getName()),urlDecode(attr.getValue()));
+            }
+ else {
+              attributes().add(attr.getName(),attr.getValue());
+            }
+          }
+ catch (          Exception e) {
+            handleException(e);
+          }
+        }
+      }
+    }
+ catch (    HttpPostRequestDecoder.ErrorDataDecoderException e) {
+      handleException(e);
+    }
+catch (    HttpPostRequestDecoder.EndOfDataDecoderException e) {
+    }
+ finally {
+      decoder.destroy();
+    }
+  }
+  if (endHandler != null) {
+    endHandler.handle(null);
+  }
+}

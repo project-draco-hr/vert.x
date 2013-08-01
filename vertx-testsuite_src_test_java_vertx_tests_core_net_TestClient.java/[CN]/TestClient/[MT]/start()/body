@@ -1,0 +1,5 @@
+{
+  super.start();
+  client=vertx.createNetClient();
+  tu.appReady();
+}

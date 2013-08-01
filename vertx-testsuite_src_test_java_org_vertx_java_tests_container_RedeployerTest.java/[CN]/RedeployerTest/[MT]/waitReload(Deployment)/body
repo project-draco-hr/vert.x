@@ -1,0 +1,7 @@
+{
+  Set<Deployment> set=new HashSet<>();
+  for (  Deployment dep : deps) {
+    set.add(dep);
+  }
+  reloader.waitReload(set);
+}

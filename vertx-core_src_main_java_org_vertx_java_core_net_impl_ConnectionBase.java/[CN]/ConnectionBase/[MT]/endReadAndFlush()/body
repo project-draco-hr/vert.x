@@ -1,0 +1,7 @@
+{
+  read=false;
+  if (needsFlush) {
+    needsFlush=false;
+    channel.flush();
+  }
+}

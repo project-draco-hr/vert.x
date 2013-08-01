@@ -1,0 +1,18 @@
+{
+  if (absoluteURI == null) {
+    try {
+      URI uri=juri();
+      String scheme=uri.getScheme();
+      if (scheme != null && (scheme.equals("http") || scheme.equals("https"))) {
+        absoluteURI=uri;
+      }
+ else {
+        absoluteURI=new URI(conn.getServerOrigin() + uri);
+      }
+    }
+ catch (    URISyntaxException e) {
+      log.error("Failed to create abs uri",e);
+    }
+  }
+  return absoluteURI;
+}

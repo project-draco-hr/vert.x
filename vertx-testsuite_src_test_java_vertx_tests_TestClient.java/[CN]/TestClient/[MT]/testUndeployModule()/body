@@ -1,0 +1,32 @@
+{
+  final Thread t=Thread.currentThread();
+  container.deployModule("io.vertx~testmod-deploy1~1.0",null,1,new AsyncResultHandler<String>(){
+    public void handle(    final AsyncResult<String> res){
+      tu.azzert(res.succeeded());
+      tu.azzert(res.result() != null);
+      tu.azzert(Thread.currentThread() == t);
+      vertx.setTimer(1000,new Handler<Long>(){
+        public void handle(        Long tid){
+          eb.registerHandler("test-handler",new Handler<Message<String>>(){
+            public void handle(            Message<String> message){
+              if ("stopped".equals(message.body())) {
+                eb.unregisterHandler("test-handler",this);
+                tu.testComplete();
+              }
+            }
+          }
+);
+          container.undeployModule(res.result(),new Handler<AsyncResult<Void>>(){
+            public void handle(            AsyncResult<Void> res){
+              tu.azzert(res.succeeded());
+              tu.azzert(Thread.currentThread() == t);
+            }
+          }
+);
+        }
+      }
+);
+    }
+  }
+);
+}

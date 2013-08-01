@@ -1,0 +1,5 @@
+{
+  if (!str.matches(LEGAL)) {
+    throw new IllegalArgumentException("Module identifier: " + str + " contains illegal characters");
+  }
+}

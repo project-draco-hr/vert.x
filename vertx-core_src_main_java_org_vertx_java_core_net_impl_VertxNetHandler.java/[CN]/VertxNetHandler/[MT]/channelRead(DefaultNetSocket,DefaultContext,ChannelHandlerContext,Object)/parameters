@@ -1,0 +1,4 @@
+DefaultNetSocket sock
+DefaultContext context
+ChannelHandlerContext chctx
+Object msg

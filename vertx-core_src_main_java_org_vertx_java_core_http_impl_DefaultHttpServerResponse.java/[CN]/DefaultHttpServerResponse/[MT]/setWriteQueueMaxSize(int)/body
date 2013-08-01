@@ -1,0 +1,5 @@
+{
+  checkWritten();
+  conn.doSetWriteQueueMaxSize(size);
+  return this;
+}

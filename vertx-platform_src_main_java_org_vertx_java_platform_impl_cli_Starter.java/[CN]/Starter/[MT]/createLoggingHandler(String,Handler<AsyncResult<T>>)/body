@@ -1,0 +1,26 @@
+{
+  return new AsyncResultHandler<T>(){
+    @Override public void handle(    AsyncResult<T> res){
+      if (res.failed()) {
+        Throwable cause=res.cause();
+        if (cause instanceof VertxException) {
+          VertxException ve=(VertxException)cause;
+          log.error(ve.getMessage());
+          if (ve.getCause() != null) {
+            log.error(ve.getCause());
+          }
+        }
+ else {
+          log.error(cause);
+        }
+      }
+ else {
+        log.trace(successMessage);
+      }
+      if (doneHandler != null) {
+        doneHandler.handle(res);
+      }
+    }
+  }
+;
+}

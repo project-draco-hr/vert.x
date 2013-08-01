@@ -1,0 +1,8 @@
+{
+  checkConfigurable();
+  if (interval < 1) {
+    throw new IllegalArgumentException("reconnect interval nust be >= 1");
+  }
+  this.reconnectInterval=interval;
+  return this;
+}

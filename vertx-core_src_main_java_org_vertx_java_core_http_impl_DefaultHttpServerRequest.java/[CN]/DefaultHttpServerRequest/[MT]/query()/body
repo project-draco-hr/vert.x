@@ -1,0 +1,6 @@
+{
+  if (query == null) {
+    query=juri().getQuery();
+  }
+  return query;
+}

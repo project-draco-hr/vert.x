@@ -1,0 +1,3 @@
+{
+  delimitedMode(latin1StringToBytes(delim));
+}

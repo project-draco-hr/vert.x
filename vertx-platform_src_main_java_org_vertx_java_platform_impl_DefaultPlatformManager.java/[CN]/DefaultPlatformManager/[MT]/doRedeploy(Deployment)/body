@@ -1,0 +1,13 @@
+{
+  runInBackground(new Runnable(){
+    public void run(){
+      if (deployment.modDir != null) {
+        deployModuleFromFileSystem(modRoot,true,deployment.name,deployment.modID,deployment.config,deployment.instances,null,null);
+      }
+ else {
+        deployModuleFromCP(true,deployment.name,deployment.modID,deployment.config,deployment.instances,deployment.classpath,null);
+      }
+    }
+  }
+,null);
+}

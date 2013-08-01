@@ -1,0 +1,8 @@
+{
+  for (int i=0; i < numSets; i++) {
+    buff.setByte(i,(byte)i);
+  }
+  for (int i=0; i < numSets; i++) {
+    assertEquals(i,buff.getByte(i));
+  }
+}

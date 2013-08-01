@@ -1,0 +1,5 @@
+{
+  Map<String,String> params=new HashMap<>();
+  params.put("my_name","foo");
+  testRoute(false,"/:my_name/",params,method,"/foo/");
+}

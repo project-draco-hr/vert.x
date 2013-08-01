@@ -1,0 +1,26 @@
+{
+  final Channel ch=ctx.channel();
+  EventLoop worker=ch.eventLoop();
+  final HandlerHolder<NetSocket> handler=handlerManager.chooseHandler(worker);
+  if (handler == null) {
+    return;
+  }
+  if (tcpHelper.isSSL()) {
+    SslHandler sslHandler=ch.pipeline().get(SslHandler.class);
+    Future<Channel> fut=sslHandler.handshakeFuture();
+    fut.addListener(new GenericFutureListener<Future<Channel>>(){
+      @Override public void operationComplete(      Future<Channel> future) throws Exception {
+        if (future.isSuccess()) {
+          connected(ch,handler);
+        }
+ else {
+          log.error("Client from origin " + ch.remoteAddress() + " failed to connect over ssl");
+        }
+      }
+    }
+);
+  }
+ else {
+    connected(ch,handler);
+  }
+}

@@ -1,0 +1,10 @@
+{
+  try {
+    ByteArrayInputStream bais=new ByteArrayInputStream(serialized);
+    ObjectInputStream oos=new ObjectInputStream(bais);
+    return (TLSTestParams)oos.readObject();
+  }
+ catch (  Exception e) {
+    throw new RuntimeException("Failed to deserialise:" + e.getMessage());
+  }
+}

@@ -1,0 +1,5 @@
+{
+  checkClosed();
+  this.exceptionHandler=handler;
+  return this;
+}

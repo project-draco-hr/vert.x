@@ -1,0 +1,5 @@
+{
+  this.vertx=vertx;
+  this.reloader=reloader;
+  setTimer();
+}

@@ -1,0 +1,6 @@
+{
+  JsonArray arrayElement=new JsonArray().addString("foo");
+  JsonObject tester=new JsonObject().putElement("elementField",arrayElement);
+  JsonElement testElement=tester.getElement("elementField");
+  assertEquals(arrayElement.get(0),testElement.asArray().get(0));
+}

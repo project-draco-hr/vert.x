@@ -1,0 +1,10 @@
+{
+  this.vertx=vertx;
+  this.req=req;
+  this.name=name;
+  this.filename=filename;
+  this.contentType=contentType;
+  this.contentTransferEncoding=contentTransferEncoding;
+  this.charset=charset;
+  this.size=size;
+}

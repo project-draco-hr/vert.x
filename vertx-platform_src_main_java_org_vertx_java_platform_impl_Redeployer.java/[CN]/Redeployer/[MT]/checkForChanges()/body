@@ -1,0 +1,73 @@
+{
+  if (closed) {
+    return;
+  }
+  Set<ModuleIdentifier> haveChanged=new HashSet<>();
+  for (  Map.Entry<ModuleIdentifier,Set<File>> entry : watchedDirs.entrySet()) {
+    ModuleIdentifier modID=entry.getKey();
+    Set<File> dirs=entry.getValue();
+    boolean changed=false;
+    for (    File dir : new HashSet<>(dirs)) {
+      File[] files=dir.exists() ? dir.listFiles() : new File[]{};
+      Map<File,File> newFiles=new HashMap<>();
+      for (      File file : files) {
+        newFiles.put(file,file);
+      }
+      Map<File,FileInfo> currentFileMap=directoryFiles.get(dir);
+      for (      Map.Entry<File,FileInfo> currentEntry : new HashMap<>(currentFileMap).entrySet()) {
+        File currFile=currentEntry.getKey();
+        FileInfo currInfo=currentEntry.getValue();
+        File newFile=newFiles.get(currFile);
+        if (newFile == null) {
+          currentFileMap.remove(currFile);
+          if (currentFileMap.isEmpty()) {
+            directoryFiles.remove(dir);
+            dirs.remove(dir);
+          }
+          changed=true;
+        }
+ else         if (newFile.lastModified() != currInfo.lastModified || newFile.length() != currInfo.length) {
+          currentFileMap.put(newFile,new FileInfo(newFile.lastModified(),newFile.length()));
+          changed=true;
+        }
+      }
+      for (      File newFile : files) {
+        if (!currentFileMap.containsKey(newFile)) {
+          currentFileMap.put(newFile,new FileInfo(newFile.lastModified(),newFile.length()));
+          if (newFile.isDirectory()) {
+            Set<File> dirsToAdd=new HashSet<>();
+            addDirectory(dirsToAdd,newFile);
+            dirs.addAll(dirsToAdd);
+          }
+          changed=true;
+        }
+      }
+    }
+    if (changed) {
+      haveChanged.add(modID);
+    }
+  }
+  long now=System.currentTimeMillis();
+  for (  ModuleIdentifier modID : haveChanged) {
+    changing.put(modID,now);
+  }
+  Set<ModuleIdentifier> toReload=new HashSet<>();
+  Set<ModuleIdentifier> toNotReload=new HashSet<>();
+  for (  Map.Entry<ModuleIdentifier,Long> changeEntry : new HashMap<>(changing).entrySet()) {
+    ModuleIdentifier modID=changeEntry.getKey();
+    if (now - changeEntry.getValue() >= GRACE_PERIOD) {
+      toReload.add(modID);
+      changing.remove(modID);
+    }
+ else {
+      toNotReload.add(modID);
+    }
+  }
+  toReload.removeAll(toNotReload);
+  for (  ModuleIdentifier modID : toReload) {
+    log.info("Module " + modID + " has changed, reloading it.");
+    Set<Deployment> deps=deployments.get(modID);
+    reloader.reloadModules(deps);
+  }
+  setTimer();
+}

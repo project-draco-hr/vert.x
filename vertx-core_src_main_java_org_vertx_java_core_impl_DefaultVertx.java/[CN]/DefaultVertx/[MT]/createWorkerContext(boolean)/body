@@ -1,0 +1,8 @@
+{
+  if (multiThreaded) {
+    return new MultiThreadedWorkerContext(this,orderedFact.getExecutor(),backgroundPool);
+  }
+ else {
+    return new WorkerContext(this,orderedFact.getExecutor());
+  }
+}

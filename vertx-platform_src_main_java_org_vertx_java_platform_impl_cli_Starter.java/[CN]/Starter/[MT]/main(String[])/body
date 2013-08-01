@@ -1,0 +1,5 @@
+{
+  HttpResolution.suppressDownloadCounter=false;
+  System.setProperty("vertx.loadWithPlatformCL","false");
+  new Starter(args);
+}

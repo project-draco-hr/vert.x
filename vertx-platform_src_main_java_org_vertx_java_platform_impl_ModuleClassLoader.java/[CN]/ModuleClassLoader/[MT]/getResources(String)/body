@@ -1,0 +1,29 @@
+{
+  final List<URL> totURLs=new ArrayList<>();
+  addURLs(totURLs,findResources(name));
+  try {
+    incRecurseDepth();
+    Set<ModuleClassLoader> walked=getWalked();
+    walked.add(this);
+    for (    ModuleReference parent : parents) {
+      checkAlreadyWalked(walked,parent);
+      Enumeration<URL> urls=parent.mcl.getResources(name);
+      addURLs(totURLs,urls);
+    }
+    walked.remove(this);
+  }
+  finally {
+    checkClearTLs();
+  }
+  addURLs(totURLs,platformClassLoader.getResources(name));
+  return new Enumeration<URL>(){
+    Iterator<URL> iter=totURLs.iterator();
+    public boolean hasMoreElements(){
+      return iter.hasNext();
+    }
+    public URL nextElement(){
+      return iter.next();
+    }
+  }
+;
+}

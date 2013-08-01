@@ -1,0 +1,3 @@
+{
+  return LocalEchoPeer.class.getName();
+}

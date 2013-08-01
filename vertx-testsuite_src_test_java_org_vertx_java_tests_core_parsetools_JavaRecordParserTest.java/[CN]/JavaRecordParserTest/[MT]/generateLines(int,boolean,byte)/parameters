@@ -1,0 +1,3 @@
+int lines
+boolean delim
+byte delimByte

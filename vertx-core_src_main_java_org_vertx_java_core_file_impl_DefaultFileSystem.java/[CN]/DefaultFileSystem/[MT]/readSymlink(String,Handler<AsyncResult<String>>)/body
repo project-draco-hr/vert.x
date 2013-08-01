@@ -1,0 +1,4 @@
+{
+  readSymlinkInternal(link,handler).run();
+  return this;
+}

@@ -1,0 +1,3 @@
+{
+  channel.config().setAutoRead(false);
+}

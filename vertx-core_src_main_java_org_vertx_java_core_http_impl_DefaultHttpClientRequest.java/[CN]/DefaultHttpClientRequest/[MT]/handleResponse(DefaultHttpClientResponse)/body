@@ -1,0 +1,18 @@
+{
+  if (!exceptionOccurred) {
+    cancelOutstandingTimeoutTimer();
+    try {
+      if (resp.statusCode() == 100) {
+        if (continueHandler != null) {
+          continueHandler.handle(null);
+        }
+      }
+ else {
+        respHandler.handle(resp);
+      }
+    }
+ catch (    Throwable t) {
+      handleException(t);
+    }
+  }
+}

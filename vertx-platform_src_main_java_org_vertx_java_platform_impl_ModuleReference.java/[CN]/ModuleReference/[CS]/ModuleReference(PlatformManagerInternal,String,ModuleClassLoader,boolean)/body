@@ -1,0 +1,6 @@
+{
+  this.mgr=mgr;
+  this.moduleKey=moduleKey;
+  this.mcl=mcl;
+  this.resident=resident;
+}

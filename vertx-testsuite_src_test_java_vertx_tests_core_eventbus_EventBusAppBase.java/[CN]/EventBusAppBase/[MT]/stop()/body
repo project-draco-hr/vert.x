@@ -1,0 +1,13 @@
+{
+  if (!isLocal()) {
+    eb.close(new AsyncResultHandler<Void>(){
+      public void handle(      AsyncResult<Void> result){
+        EventBusAppBase.super.stop();
+      }
+    }
+);
+  }
+ else {
+    super.stop();
+  }
+}

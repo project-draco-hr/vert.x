@@ -1,0 +1,5 @@
+{
+  checkClosed();
+  conn.close();
+  cleanupHandlers();
+}

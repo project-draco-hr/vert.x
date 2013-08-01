@@ -1,0 +1,3 @@
+String err
+HttpResponseStatus status
+Channel ch

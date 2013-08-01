@@ -1,0 +1,6 @@
+{
+  if (currentTimeoutTimerId != -1) {
+    client.getVertx().cancelTimer(currentTimeoutTimerId);
+    currentTimeoutTimerId=-1;
+  }
+}

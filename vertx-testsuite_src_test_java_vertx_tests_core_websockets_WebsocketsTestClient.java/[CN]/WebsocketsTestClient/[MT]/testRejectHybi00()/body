@@ -1,0 +1,3 @@
+{
+  testReject(WebSocketVersion.HYBI_00);
+}

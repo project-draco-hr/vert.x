@@ -1,0 +1,9 @@
+{
+  EventLoopHolder wh=new EventLoopHolder(worker);
+  for (  EventLoopHolder holder : workers) {
+    if (holder.equals(wh)) {
+      return holder;
+    }
+  }
+  return null;
+}

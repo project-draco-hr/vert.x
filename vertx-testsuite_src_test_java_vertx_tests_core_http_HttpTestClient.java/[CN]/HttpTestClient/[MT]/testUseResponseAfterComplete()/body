@@ -1,0 +1,123 @@
+{
+  AsyncResultHandler<HttpServer> handler=new AsyncResultHandler<HttpServer>(){
+    @Override public void handle(    AsyncResult<HttpServer> ar){
+      tu.azzert(ar.succeeded());
+      HttpClientRequest req=getRequest(true,"GET","some-uri",new Handler<HttpClientResponse>(){
+        public void handle(        HttpClientResponse resp){
+          tu.checkThread();
+        }
+      }
+);
+      req.end();
+    }
+  }
+;
+  startServer(new Handler<HttpServerRequest>(){
+    public void handle(    HttpServerRequest req){
+      tu.checkThread();
+      Handler<Void> handler=new VoidHandler(){
+        public void handle(){
+        }
+      }
+;
+      AsyncResultHandler<Void> writeHandler=new AsyncResultHandler<Void>(){
+        public void handle(        AsyncResult<Void> res){
+        }
+      }
+;
+      Buffer buff=new Buffer();
+      HttpServerResponse resp=req.response();
+      resp.end();
+      try {
+        resp.drainHandler(handler);
+        tu.azzert(false,"Should throw exception");
+      }
+ catch (      IllegalStateException e) {
+      }
+      try {
+        resp.end();
+        tu.azzert(false,"Should throw exception");
+      }
+ catch (      IllegalStateException e) {
+      }
+      try {
+        resp.end("foo");
+        tu.azzert(false,"Should throw exception");
+      }
+ catch (      IllegalStateException e) {
+      }
+      try {
+        resp.end(buff);
+        tu.azzert(false,"Should throw exception");
+      }
+ catch (      IllegalStateException e) {
+      }
+      try {
+        resp.end("foo","UTF-8");
+        tu.azzert(false,"Should throw exception");
+      }
+ catch (      IllegalStateException e) {
+      }
+      try {
+        resp.exceptionHandler(new Handler<Throwable>(){
+          public void handle(          Throwable t){
+          }
+        }
+);
+        tu.azzert(false,"Should throw exception");
+      }
+ catch (      IllegalStateException e) {
+      }
+      try {
+        resp.setChunked(false);
+        tu.azzert(false,"Should throw exception");
+      }
+ catch (      IllegalStateException e) {
+      }
+      try {
+        resp.setWriteQueueMaxSize(123);
+        tu.azzert(false,"Should throw exception");
+      }
+ catch (      IllegalStateException e) {
+      }
+      try {
+        resp.write(buff);
+        tu.azzert(false,"Should throw exception");
+      }
+ catch (      IllegalStateException e) {
+      }
+      try {
+        resp.write("foo");
+        tu.azzert(false,"Should throw exception");
+      }
+ catch (      IllegalStateException e) {
+      }
+      try {
+        resp.write("foo","UTF-8");
+        tu.azzert(false,"Should throw exception");
+      }
+ catch (      IllegalStateException e) {
+      }
+      try {
+        resp.write(buff);
+        tu.azzert(false,"Should throw exception");
+      }
+ catch (      IllegalStateException e) {
+      }
+      try {
+        resp.writeQueueFull();
+        tu.azzert(false,"Should throw exception");
+      }
+ catch (      IllegalStateException e) {
+      }
+      try {
+        resp.sendFile("asokdasokd");
+        tu.azzert(false,"Should throw exception");
+      }
+ catch (      IllegalStateException e) {
+      }
+      tu.testComplete();
+    }
+  }
+,handler);
+}

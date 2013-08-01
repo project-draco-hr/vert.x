@@ -1,0 +1,4 @@
+{
+  DefaultContext context=getOrCreateContext();
+  context.runOnContext(task);
+}

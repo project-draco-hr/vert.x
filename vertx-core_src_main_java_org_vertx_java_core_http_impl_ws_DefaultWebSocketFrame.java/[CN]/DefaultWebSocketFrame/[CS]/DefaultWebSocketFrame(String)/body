@@ -1,0 +1,3 @@
+{
+  this(FrameType.TEXT,Unpooled.copiedBuffer(textData,CharsetUtil.UTF_8));
+}

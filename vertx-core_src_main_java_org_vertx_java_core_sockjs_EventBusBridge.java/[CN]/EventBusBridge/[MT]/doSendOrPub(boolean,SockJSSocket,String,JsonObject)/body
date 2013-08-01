@@ -1,0 +1,41 @@
+{
+  final Object body=getMandatoryValue(message,"body");
+  final String replyAddress=message.getString("replyAddress");
+  if (log.isDebugEnabled()) {
+    log.debug("Received msg from client in bridge. address:" + address + " message:"+ body);
+  }
+  Match curMatch=checkMatches(true,address,body);
+  if (curMatch.doesMatch) {
+    if (curMatch.requiresAuth) {
+      final String sessionID=message.getString("sessionID");
+      if (sessionID != null) {
+        authorise(message,sessionID,new AsyncResultHandler<Boolean>(){
+          public void handle(          AsyncResult<Boolean> res){
+            if (res.succeeded()) {
+              if (res.result()) {
+                cacheAuthorisation(sessionID,sock);
+                checkAndSend(send,address,body,sock,replyAddress);
+              }
+ else {
+                log.debug("Inbound message for address " + address + " rejected because sessionID is not authorised");
+              }
+            }
+ else {
+              log.error("Error in performing authorisation",res.cause());
+            }
+          }
+        }
+);
+      }
+ else {
+        log.debug("Inbound message for address " + address + " rejected because it requires auth and sessionID is missing");
+      }
+    }
+ else {
+      checkAndSend(send,address,body,sock,replyAddress);
+    }
+  }
+ else {
+    log.debug("Inbound message for address " + address + " rejected because there is no match");
+  }
+}

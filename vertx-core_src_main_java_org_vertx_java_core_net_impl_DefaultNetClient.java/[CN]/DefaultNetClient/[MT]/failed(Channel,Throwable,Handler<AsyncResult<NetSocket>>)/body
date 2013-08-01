@@ -1,0 +1,9 @@
+{
+  ch.close();
+  actualCtx.execute(ch.eventLoop(),new Runnable(){
+    public void run(){
+      doFailed(connectHandler,t);
+    }
+  }
+);
+}

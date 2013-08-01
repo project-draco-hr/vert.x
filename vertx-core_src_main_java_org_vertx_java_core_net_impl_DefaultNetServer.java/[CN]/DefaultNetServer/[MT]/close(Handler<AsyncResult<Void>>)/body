@@ -1,0 +1,23 @@
+{
+  if (!listening) {
+    if (done != null) {
+      executeCloseDone(actualCtx,done,null);
+    }
+    return;
+  }
+  listening=false;
+synchronized (vertx.sharedNetServers()) {
+    if (actualServer != null) {
+      actualServer.handlerManager.removeHandler(connectHandler,actualCtx);
+      if (actualServer.handlerManager.hasHandlers()) {
+        if (done != null) {
+          executeCloseDone(actualCtx,done,null);
+        }
+      }
+ else {
+        actualServer.actualClose(actualCtx,done);
+      }
+    }
+  }
+  actualCtx.removeCloseHook(this);
+}

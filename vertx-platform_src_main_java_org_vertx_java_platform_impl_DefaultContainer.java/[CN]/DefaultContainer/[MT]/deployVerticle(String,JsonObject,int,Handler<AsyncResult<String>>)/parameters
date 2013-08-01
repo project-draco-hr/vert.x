@@ -1,0 +1,4 @@
+String main
+JsonObject config
+int instances
+Handler<AsyncResult<String>> doneHandler

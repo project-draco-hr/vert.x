@@ -1,0 +1,7 @@
+{
+  if (obj instanceof String || obj instanceof Integer || obj instanceof Long|| obj instanceof Boolean|| obj instanceof Double|| obj instanceof Float|| obj instanceof Short|| obj instanceof Byte|| obj instanceof Character|| obj instanceof byte[]|| obj instanceof Buffer|| obj instanceof Shareable) {
+  }
+ else {
+    throw new IllegalArgumentException("Invalid type for shareddata data structure: " + obj.getClass().getName());
+  }
+}

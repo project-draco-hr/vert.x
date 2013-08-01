@@ -1,0 +1,3 @@
+ServerID replyDest
+BaseMessage message
+Handler replyHandler

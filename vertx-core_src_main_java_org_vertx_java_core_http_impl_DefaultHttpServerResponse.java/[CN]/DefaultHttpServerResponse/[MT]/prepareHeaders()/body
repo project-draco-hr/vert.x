@@ -1,0 +1,13 @@
+{
+  HttpResponseStatus status=statusMessage == null ? HttpResponseStatus.valueOf(statusCode) : new HttpResponseStatus(statusCode,statusMessage);
+  response.setStatus(status);
+  if (version == HttpVersion.HTTP_1_0 && keepAlive) {
+    response.headers().set("Connection","Keep-Alive");
+  }
+  if (chunked) {
+    response.headers().set(Names.TRANSFER_ENCODING,io.netty.handler.codec.http.HttpHeaders.Values.CHUNKED);
+  }
+ else   if (version != HttpVersion.HTTP_1_0 && !contentLengthSet()) {
+    response.headers().set(Names.CONTENT_LENGTH,"0");
+  }
+}

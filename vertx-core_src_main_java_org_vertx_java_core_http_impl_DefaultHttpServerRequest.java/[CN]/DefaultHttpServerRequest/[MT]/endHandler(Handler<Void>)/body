@@ -1,0 +1,4 @@
+{
+  this.endHandler=handler;
+  return this;
+}

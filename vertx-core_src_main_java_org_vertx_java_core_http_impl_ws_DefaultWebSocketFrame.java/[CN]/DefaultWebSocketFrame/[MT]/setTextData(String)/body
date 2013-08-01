@@ -1,0 +1,6 @@
+{
+  if (this.binaryData != null) {
+    this.binaryData.release();
+  }
+  this.binaryData=Unpooled.copiedBuffer(textData,CharsetUtil.UTF_8);
+}

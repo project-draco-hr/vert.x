@@ -1,0 +1,3 @@
+{
+  return getBooleanField("load-resources-with-tccl");
+}

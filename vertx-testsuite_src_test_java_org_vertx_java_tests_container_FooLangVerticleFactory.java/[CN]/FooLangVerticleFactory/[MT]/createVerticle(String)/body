@@ -1,0 +1,15 @@
+{
+  return new Verticle(){
+    @Override public void start(){
+      JsonObject config=container.config();
+      String foo=config.getString("foo","bar");
+      if (foo.equalsIgnoreCase("bar")) {
+        throw new RuntimeException("foo must not be bar!");
+      }
+      if (!(main.endsWith("foo"))) {
+        throw new RuntimeException("main must end with foo!");
+      }
+    }
+  }
+;
+}

@@ -1,0 +1,3 @@
+{
+  return openInternal(path,null,true,true,true,false,handler);
+}

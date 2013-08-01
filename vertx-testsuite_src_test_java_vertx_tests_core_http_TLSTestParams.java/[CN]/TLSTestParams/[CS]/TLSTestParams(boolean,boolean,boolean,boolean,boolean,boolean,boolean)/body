@@ -1,0 +1,9 @@
+{
+  this.clientCert=clientCert;
+  this.clientTrust=clientTrust;
+  this.serverCert=serverCert;
+  this.serverTrust=serverTrust;
+  this.requireClientAuth=requireClientAuth;
+  this.clientTrustAll=clientTrustAll;
+  this.shouldPass=shouldPass;
+}

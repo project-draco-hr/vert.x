@@ -1,0 +1,10 @@
+{
+  createDirectory(modDir,"some-dir");
+  File subDir=new File(modDir,"some-dir");
+  createFile(subDir,"bar.txt",TestUtils.randomAlphaString(1000));
+  Deployment dep=createDeployment("dep1",null);
+  red.moduleDeployed(dep);
+  Thread.sleep(1);
+  vertx.fileSystem().deleteSync(subDir.getAbsolutePath(),true);
+  waitReload(dep);
+}

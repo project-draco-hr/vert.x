@@ -1,0 +1,7 @@
+{
+  Deployment dep=createDeployment("dep1",null);
+  red.moduleDeployed(dep);
+  Thread.sleep(1);
+  modifyFile(modDir,"blah.txt");
+  waitReload(dep);
+}

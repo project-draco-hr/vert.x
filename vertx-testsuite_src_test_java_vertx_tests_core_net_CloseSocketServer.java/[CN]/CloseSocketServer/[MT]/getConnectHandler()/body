@@ -1,0 +1,9 @@
+{
+  return new Handler<NetSocket>(){
+    public void handle(    final NetSocket socket){
+      tu.checkThread();
+      socket.close();
+    }
+  }
+;
+}

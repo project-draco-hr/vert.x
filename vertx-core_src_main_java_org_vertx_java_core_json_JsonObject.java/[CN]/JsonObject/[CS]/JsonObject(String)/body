@@ -1,0 +1,3 @@
+{
+  map=Json.decodeValue(jsonString,Map.class);
+}

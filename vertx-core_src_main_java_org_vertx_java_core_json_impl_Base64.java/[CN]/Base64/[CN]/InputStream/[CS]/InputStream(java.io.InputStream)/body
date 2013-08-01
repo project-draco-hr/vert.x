@@ -1,0 +1,3 @@
+{
+  this(in,Base64.DECODE);
+}

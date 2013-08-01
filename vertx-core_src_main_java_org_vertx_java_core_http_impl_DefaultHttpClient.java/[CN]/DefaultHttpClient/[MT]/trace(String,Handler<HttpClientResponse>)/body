@@ -1,0 +1,4 @@
+{
+  checkClosed();
+  return doRequest("TRACE",uri,responseHandler);
+}

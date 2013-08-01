@@ -1,0 +1,20 @@
+{
+  for (  Map.Entry<String,Handler<Message>> entry : handlers.entrySet()) {
+    handleUnregister(sock,entry.getKey());
+    eb.unregisterHandler(entry.getKey(),entry.getValue());
+  }
+  Set<String> auths=sockAuths.remove(sock);
+  if (auths != null) {
+    for (    String sessionID : auths) {
+      Auth auth=authCache.remove(sessionID);
+      if (auth != null) {
+        auth.cancel();
+      }
+    }
+  }
+  PingInfo pingInfo=pingInfos.remove(sock);
+  if (pingInfo != null) {
+    vertx.cancelTimer(pingInfo.timerID);
+  }
+  handleSocketClosed(sock);
+}

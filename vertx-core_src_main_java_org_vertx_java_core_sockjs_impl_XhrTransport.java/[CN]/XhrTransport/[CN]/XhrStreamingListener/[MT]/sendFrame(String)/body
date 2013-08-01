@@ -1,0 +1,14 @@
+{
+  boolean hr=headersWritten;
+  super.sendFrame(body);
+  if (!hr) {
+    req.response().write(H_BLOCK);
+  }
+  String sbody=body + "\n";
+  Buffer buff=new Buffer(sbody);
+  req.response().write(buff);
+  bytesSent+=buff.length();
+  if (bytesSent >= maxBytesStreaming) {
+    close();
+  }
+}

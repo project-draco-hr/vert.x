@@ -1,0 +1,11 @@
+{
+  ServerIDs entries=cache.get(key);
+  if (entries == null) {
+    entries=new ServerIDs(1);
+    ServerIDs prev=cache.putIfAbsent(key,entries);
+    if (prev != null) {
+      entries=prev;
+    }
+  }
+  entries.add(value);
+}

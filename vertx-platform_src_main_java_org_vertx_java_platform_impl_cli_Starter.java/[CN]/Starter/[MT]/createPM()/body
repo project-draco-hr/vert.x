@@ -1,0 +1,5 @@
+{
+  PlatformManager pm=PlatformLocator.factory.createPlatformManager();
+  registerExitHandler(pm);
+  return pm;
+}

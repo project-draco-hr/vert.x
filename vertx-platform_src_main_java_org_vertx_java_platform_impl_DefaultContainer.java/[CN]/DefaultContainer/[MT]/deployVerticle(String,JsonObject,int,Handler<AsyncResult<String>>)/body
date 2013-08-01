@@ -1,0 +1,3 @@
+{
+  mgr.deployVerticle(main,config,null,instances,null,doneHandler);
+}

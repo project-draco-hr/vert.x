@@ -1,0 +1,5 @@
+{
+  if (endHandler != null) {
+    endHandler.handle(null);
+  }
+}

@@ -1,0 +1,12 @@
+{
+  super.start();
+  container.deployVerticle(AsyncStartChildVerticle.class.getName(),new AsyncResultHandler<String>(){
+    public void handle(    AsyncResult<String> res){
+      if (res.succeeded()) {
+        startedResult.setResult(null);
+        tu.appReady();
+      }
+    }
+  }
+);
+}

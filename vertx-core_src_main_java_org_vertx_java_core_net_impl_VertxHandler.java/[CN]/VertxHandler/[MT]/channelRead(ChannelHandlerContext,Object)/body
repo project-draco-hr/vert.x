@@ -1,0 +1,15 @@
+{
+  final Object message=safeObject(msg);
+  final C connection=connectionMap.get(chctx.channel());
+  DefaultContext context;
+  if (connection != null) {
+    context=getContext(connection);
+    if (context.isOnCorrectWorker(chctx.channel().eventLoop())) {
+      connection.startRead();
+    }
+  }
+ else {
+    context=null;
+  }
+  channelRead(connection,context,chctx,message);
+}

@@ -1,0 +1,72 @@
+{
+  final String fileName1="some-file.dat";
+  final String fileName2="some-other-file.dat";
+  final int fileSize=(int)(DefaultAsyncFile.BUFFER_SIZE * 1000.3);
+  final byte[] content=TestUtils.generateRandomByteArray(fileSize);
+  createFile(fileName1,content);
+  vertx.fileSystem().open(TEST_DIR + pathSep + fileName1,null,true,false,false,new AsyncResultHandler<AsyncFile>(){
+    public void handle(    final AsyncResult<AsyncFile> arr){
+      tu.checkThread();
+      if (arr.succeeded()) {
+        final ReadStream rs=arr.result();
+        vertx.fileSystem().open(TEST_DIR + pathSep + fileName2,null,true,true,true,new AsyncResultHandler<AsyncFile>(){
+          public void handle(          final AsyncResult<AsyncFile> ar){
+            tu.checkThread();
+            if (ar.succeeded()) {
+              WriteStream ws=ar.result();
+              Pump p=Pump.createPump(rs,ws);
+              p.start();
+              rs.endHandler(new VoidHandler(){
+                public void handle(){
+                  tu.checkThread();
+                  arr.result().close(new AsyncResultHandler<Void>(){
+                    @Override public void handle(                    AsyncResult<Void> car){
+                      tu.checkThread();
+                      if (car.failed()) {
+                        tu.exception(car.cause(),"failed to close");
+                      }
+ else {
+                        ar.result().close(new AsyncResultHandler<Void>(){
+                          public void handle(                          AsyncResult<Void> ar){
+                            tu.checkThread();
+                            if (ar.failed()) {
+                              tu.exception(ar.cause(),"failed to close");
+                            }
+ else {
+                              tu.azzert(fileExists(fileName2));
+                              byte[] readBytes;
+                              try {
+                                readBytes=Files.readAllBytes(Paths.get(TEST_DIR + pathSep + fileName2));
+                              }
+ catch (                              IOException e) {
+                                tu.exception(e,"failed to read");
+                                return;
+                              }
+                              tu.azzert(TestUtils.buffersEqual(new Buffer(content),new Buffer(readBytes)));
+                              tu.testComplete();
+                            }
+                          }
+                        }
+);
+                      }
+                    }
+                  }
+);
+                }
+              }
+);
+            }
+ else {
+              tu.exception(ar.cause(),"failed to open");
+            }
+          }
+        }
+);
+      }
+ else {
+        tu.exception(arr.cause(),"failed to open");
+      }
+    }
+  }
+);
+}

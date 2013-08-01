@@ -1,0 +1,48 @@
+{
+  int readableBytes=buff.readableBytes();
+  if (readableBytes == 0 && !end) {
+    return this;
+  }
+  if (end) {
+    completed=true;
+  }
+  written+=buff.readableBytes();
+  if (!end && !raw && !chunked&& !contentLengthSet()) {
+    throw new IllegalStateException("You must set the Content-Length header to be the total size of the message " + "body BEFORE sending any data if you are not using HTTP chunked encoding.");
+  }
+  if (conn == null) {
+    if (pendingChunks == null) {
+      pendingChunks=buff;
+    }
+ else {
+      CompositeByteBuf pending;
+      if (pendingChunks instanceof CompositeByteBuf) {
+        pending=(CompositeByteBuf)pendingChunks;
+      }
+ else {
+        pending=Unpooled.compositeBuffer();
+        pending.addComponent(pendingChunks).writerIndex(pendingChunks.writerIndex());
+        pendingChunks=pending;
+      }
+      pending.addComponent(buff).writerIndex(pending.writerIndex() + buff.writerIndex());
+    }
+    connect();
+  }
+ else {
+    if (!headWritten) {
+      writeHeadWithContent(buff,end);
+    }
+ else {
+      if (end) {
+        writeEndChunk(buff);
+      }
+ else {
+        sendChunk(buff);
+      }
+    }
+    if (end) {
+      conn.endRequest();
+    }
+  }
+  return this;
+}

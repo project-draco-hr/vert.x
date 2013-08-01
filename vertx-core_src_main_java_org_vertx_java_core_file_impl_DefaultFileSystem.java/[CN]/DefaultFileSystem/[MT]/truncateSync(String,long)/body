@@ -1,0 +1,4 @@
+{
+  truncateInternal(path,len,null).action();
+  return this;
+}

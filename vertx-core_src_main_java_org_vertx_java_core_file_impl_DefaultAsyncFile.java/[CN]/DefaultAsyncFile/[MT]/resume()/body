@@ -1,0 +1,10 @@
+{
+  check();
+  if (paused && !closed) {
+    paused=false;
+    if (dataHandler != null) {
+      doRead();
+    }
+  }
+  return this;
+}

@@ -1,0 +1,9 @@
+{
+  request.headers().remove(HttpHeaders.Names.TRANSFER_ENCODING);
+  if (!raw) {
+    request.headers().set(HttpHeaders.Names.HOST,conn.hostHeader);
+    if (chunked) {
+      HttpHeaders.setTransferEncodingChunked(request);
+    }
+  }
+}

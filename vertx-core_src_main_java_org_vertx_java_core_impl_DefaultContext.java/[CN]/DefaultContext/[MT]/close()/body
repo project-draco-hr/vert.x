@@ -1,0 +1,4 @@
+{
+  unsetContext();
+  closed=true;
+}

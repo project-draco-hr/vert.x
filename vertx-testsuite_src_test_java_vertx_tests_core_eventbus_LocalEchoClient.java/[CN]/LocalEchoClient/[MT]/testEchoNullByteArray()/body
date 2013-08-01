@@ -1,0 +1,5 @@
+{
+  byte[] bytes=null;
+  Handler<Message<byte[]>> handler=echoHandler(bytes);
+  eb.send(echoAddress(),bytes,handler);
+}

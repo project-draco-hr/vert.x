@@ -1,0 +1,5 @@
+{
+  if (serverID == null) {
+    throw new IllegalStateException("Event Bus is not started");
+  }
+}

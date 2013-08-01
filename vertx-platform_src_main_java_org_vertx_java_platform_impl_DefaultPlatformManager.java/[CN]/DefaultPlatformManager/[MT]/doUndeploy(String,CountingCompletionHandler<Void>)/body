@@ -1,0 +1,58 @@
+{
+  if (name == null) {
+    throw new NullPointerException("deployment id is null");
+  }
+  final Deployment deployment=deployments.remove(name);
+  if (deployment == null) {
+    parentCount.incRequired();
+    parentCount.complete();
+    return;
+  }
+  final CountingCompletionHandler<Void> count=new CountingCompletionHandler<>(vertx);
+  parentCount.incRequired();
+  for (  String childDeployment : deployment.childDeployments) {
+    doUndeploy(childDeployment,count);
+  }
+  if (!deployment.verticles.isEmpty()) {
+    for (    final VerticleHolder holder : deployment.verticles) {
+      count.incRequired();
+      holder.context.execute(new Runnable(){
+        public void run(){
+          holder.verticle.stop();
+          LoggerFactory.removeLogger(holder.loggerName);
+          holder.context.runCloseHooks(new AsyncResultHandler<Void>(){
+            @Override public void handle(            AsyncResult<Void> asyncResult){
+              holder.context.close();
+              if (asyncResult.failed()) {
+                count.failed(asyncResult.cause());
+              }
+ else {
+                count.complete();
+              }
+            }
+          }
+);
+        }
+      }
+);
+    }
+  }
+  if (deployment.parentDeploymentName != null) {
+    Deployment parent=deployments.get(deployment.parentDeploymentName);
+    if (parent != null) {
+      parent.childDeployments.remove(name);
+    }
+  }
+  count.setHandler(new Handler<AsyncResult<Void>>(){
+    public void handle(    AsyncResult<Void> res){
+      deployment.moduleReference.decRef();
+      if (res.failed()) {
+        parentCount.failed(res.cause());
+      }
+ else {
+        parentCount.complete();
+      }
+    }
+  }
+);
+}

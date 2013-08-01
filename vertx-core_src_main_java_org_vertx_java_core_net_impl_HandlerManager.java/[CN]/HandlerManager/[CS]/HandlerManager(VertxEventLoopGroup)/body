@@ -1,0 +1,3 @@
+{
+  this.availableWorkers=availableWorkers;
+}

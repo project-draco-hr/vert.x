@@ -1,0 +1,25 @@
+{
+  if (handlePreRegister(sock,address)) {
+    Handler<Message> handler=new Handler<Message>(){
+      public void handle(      final Message msg){
+        Match curMatch=checkMatches(false,address,msg.body());
+        if (curMatch.doesMatch) {
+          if (curMatch.requiresAuth && sockAuths.get(sock) == null) {
+            log.debug("Outbound message for address " + address + " rejected because auth is required and socket is not authed");
+          }
+ else {
+            checkAddAccceptedReplyAddress(msg.replyAddress());
+            deliverMessage(sock,address,msg);
+          }
+        }
+ else {
+          log.debug("Outbound message for address " + address + " rejected because there is no inbound match");
+        }
+      }
+    }
+;
+    handlers.put(address,handler);
+    eb.registerHandler(address,handler);
+    handlePostRegister(sock,address);
+  }
+}

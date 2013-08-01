@@ -1,0 +1,29 @@
+{
+  final String path="/some/path";
+  server=vertx.createHttpServer().websocketHandler(new Handler<ServerWebSocket>(){
+    public void handle(    final ServerWebSocket ws){
+      tu.checkThread();
+      tu.azzert(path.equals(ws.path()));
+      ws.reject();
+    }
+  }
+);
+  server.listen(8080,"localhost",new AsyncResultHandler<HttpServer>(){
+    @Override public void handle(    AsyncResult<HttpServer> ar){
+      tu.azzert(ar.succeeded());
+      client.exceptionHandler(new Handler<Throwable>(){
+        public void handle(        Throwable t){
+          tu.testComplete();
+        }
+      }
+);
+      client.connectWebsocket(path,version,new Handler<WebSocket>(){
+        public void handle(        final WebSocket ws){
+          tu.azzert(false,"Should not be called");
+        }
+      }
+);
+    }
+  }
+);
+}

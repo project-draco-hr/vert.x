@@ -1,0 +1,3 @@
+Channel ch
+Handler<Throwable> connectionExceptionHandler
+Throwable t

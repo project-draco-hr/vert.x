@@ -1,0 +1,10 @@
+{
+  cancelOutstandingTimeoutTimer();
+  currentTimeoutTimerId=client.getVertx().setTimer(timeoutMs,new Handler<Long>(){
+    @Override public void handle(    Long event){
+      handleTimeout(timeoutMs);
+    }
+  }
+);
+  return this;
+}

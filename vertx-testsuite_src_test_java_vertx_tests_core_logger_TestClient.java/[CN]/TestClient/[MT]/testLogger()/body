@@ -1,0 +1,6 @@
+{
+  Logger logger=container.logger();
+  tu.azzert(logger != null);
+  logger.info("foo");
+  tu.testComplete();
+}

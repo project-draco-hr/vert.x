@@ -1,0 +1,3 @@
+ReadStream<?> rs
+WriteStream<?> ws
+int maxWriteQueueSize

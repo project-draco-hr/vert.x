@@ -1,0 +1,5 @@
+{
+  if (exitHandler != null) {
+    exitHandler.handle(null);
+  }
+}

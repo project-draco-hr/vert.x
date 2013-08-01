@@ -1,0 +1,26 @@
+{
+  DefaultNetSocket socket=new DefaultNetSocket(vertx,channel,context);
+  Map<Channel,DefaultNetSocket> connectionMap=new HashMap<Channel,DefaultNetSocket>(1);
+  connectionMap.put(channel,socket);
+  endReadAndFlush();
+  channel.pipeline().remove("codec");
+  channel.pipeline().replace("handler","handler",new VertxNetHandler(client.vertx,connectionMap){
+    @Override public void exceptionCaught(    ChannelHandlerContext chctx,    Throwable t) throws Exception {
+      client.connectionMap.remove(channel);
+      super.exceptionCaught(chctx,t);
+    }
+    @Override public void channelInactive(    ChannelHandlerContext chctx) throws Exception {
+      client.connectionMap.remove(channel);
+      super.channelInactive(chctx);
+    }
+    @Override public void channelRead(    ChannelHandlerContext chctx,    Object msg) throws Exception {
+      if (msg instanceof HttpContent) {
+        ReferenceCountUtil.release(msg);
+        return;
+      }
+      super.channelRead(chctx,msg);
+    }
+  }
+);
+  return socket;
+}

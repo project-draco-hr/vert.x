@@ -1,0 +1,3 @@
+{
+  testSetFloat(new Buffer());
+}

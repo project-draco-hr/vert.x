@@ -1,0 +1,4 @@
+SockJSSocket sock
+boolean send
+JsonObject msg
+String address

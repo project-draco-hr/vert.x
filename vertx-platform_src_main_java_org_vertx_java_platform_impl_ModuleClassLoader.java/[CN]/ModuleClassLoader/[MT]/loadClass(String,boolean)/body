@@ -1,0 +1,10 @@
+{
+  Class<?> c=doLoadClass(name);
+  if (c == null) {
+    c=platformClassLoader.loadClass(name);
+  }
+  if (resolve) {
+    resolveClass(c);
+  }
+  return c;
+}

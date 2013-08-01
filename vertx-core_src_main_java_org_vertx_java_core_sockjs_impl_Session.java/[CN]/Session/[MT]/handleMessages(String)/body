@@ -1,0 +1,24 @@
+{
+  String[] msgArr=parseMessageString(messages);
+  if (msgArr == null) {
+    return false;
+  }
+ else {
+    if (dataHandler != null) {
+      for (      String msg : msgArr) {
+        if (!paused) {
+          try {
+            dataHandler.handle(new Buffer(msg));
+          }
+ catch (          Throwable t) {
+            log.error("Unhandle exception",t);
+          }
+        }
+ else {
+          pendingReads.add(msg);
+        }
+      }
+    }
+    return true;
+  }
+}

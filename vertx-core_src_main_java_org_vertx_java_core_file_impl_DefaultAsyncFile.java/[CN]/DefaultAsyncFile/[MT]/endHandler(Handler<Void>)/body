@@ -1,0 +1,5 @@
+{
+  check();
+  this.endHandler=handler;
+  return this;
+}

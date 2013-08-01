@@ -1,0 +1,29 @@
+{
+  conn.setCurrentRequest(this);
+  this.conn=conn;
+  if (pendingMaxSize != -1) {
+    conn.doSetWriteQueueMaxSize(pendingMaxSize);
+  }
+  if (pendingChunks != null) {
+    ByteBuf pending=pendingChunks;
+    pendingChunks=null;
+    if (completed) {
+      writeHeadWithContent(pending,true);
+      conn.endRequest();
+    }
+ else {
+      writeHeadWithContent(pending,false);
+    }
+  }
+ else {
+    if (completed) {
+      writeHeadWithContent(Unpooled.EMPTY_BUFFER,true);
+      conn.endRequest();
+    }
+ else {
+      if (writeHead) {
+        writeHead();
+      }
+    }
+  }
+}

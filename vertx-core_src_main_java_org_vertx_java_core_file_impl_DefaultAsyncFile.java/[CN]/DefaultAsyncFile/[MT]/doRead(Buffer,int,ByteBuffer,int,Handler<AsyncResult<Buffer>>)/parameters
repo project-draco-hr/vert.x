@@ -1,0 +1,5 @@
+Buffer writeBuff
+int offset
+ByteBuffer buff
+int position
+Handler<AsyncResult<Buffer>> handler

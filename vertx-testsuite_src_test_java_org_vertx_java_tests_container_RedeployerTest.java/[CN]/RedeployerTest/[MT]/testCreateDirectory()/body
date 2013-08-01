@@ -1,0 +1,7 @@
+{
+  Deployment dep=createDeployment("dep1",null);
+  red.moduleDeployed(dep);
+  Thread.sleep(1);
+  createDirectory(modDir,"some-dir");
+  waitReload(dep);
+}

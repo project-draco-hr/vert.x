@@ -1,0 +1,3 @@
+{
+  connectHandler.handle(new DefaultFutureResult<NetSocket>(t));
+}
