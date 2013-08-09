@@ -50,18 +50,22 @@ case TEXT:
         conn.handleMessage(msg);
       }
     break;
+case PING:
+  ch.writeAndFlush(new DefaultWebSocketFrame(WebSocketFrame.FrameType.PONG,wsFrame.getBinaryData()));
+break;
 case CLOSE:
-  ch.writeAndFlush(wsFrame).addListener(ChannelFutureListener.CLOSE);
+ch.writeAndFlush(wsFrame).addListener(ChannelFutureListener.CLOSE);
+break;
 }
 }
  else if (msg instanceof HttpContent) {
 if (wsRequest != null) {
 wsRequest.content().writeBytes(((HttpContent)msg).content());
 if (msg instanceof LastHttpContent) {
-  FullHttpRequest req=wsRequest;
-  wsRequest=null;
-  handshake(req,ch,ctx);
-  return;
+FullHttpRequest req=wsRequest;
+wsRequest=null;
+handshake(req,ch,ctx);
+return;
 }
 }
 if (conn != null) {
