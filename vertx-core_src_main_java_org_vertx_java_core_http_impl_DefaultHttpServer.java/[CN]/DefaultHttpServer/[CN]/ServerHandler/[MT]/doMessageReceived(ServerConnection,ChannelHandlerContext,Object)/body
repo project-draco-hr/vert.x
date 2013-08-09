@@ -51,7 +51,7 @@ case TEXT:
       }
     break;
 case CLOSE:
-  ch.writeAndFlush(new DefaultWebSocketFrame(WebSocketFrame.FrameType.CLOSE));
+  ch.writeAndFlush(wsFrame).addListener(ChannelFutureListener.CLOSE);
 }
 }
  else if (msg instanceof HttpContent) {
