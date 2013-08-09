@@ -54,7 +54,10 @@ case PING:
   ch.writeAndFlush(new DefaultWebSocketFrame(WebSocketFrame.FrameType.PONG,wsFrame.getBinaryData()));
 break;
 case CLOSE:
+if (!closeFrameSent) {
 ch.writeAndFlush(wsFrame).addListener(ChannelFutureListener.CLOSE);
+closeFrameSent=true;
+}
 break;
 }
 }
