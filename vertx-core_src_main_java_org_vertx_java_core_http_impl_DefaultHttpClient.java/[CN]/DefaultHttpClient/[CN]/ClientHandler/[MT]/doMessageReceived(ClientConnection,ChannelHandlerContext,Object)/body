@@ -21,10 +21,24 @@
   }
  else   if (msg instanceof WebSocketFrame) {
     WebSocketFrame frame=(WebSocketFrame)msg;
-    conn.handleWsFrame(frame);
-    valid=true;
-  }
-  if (!valid) {
-    throw new IllegalStateException("Invalid object " + msg);
-  }
+switch (frame.getType()) {
+case BINARY:
+case TEXT:
+      conn.handleWsFrame(frame);
+    break;
+case PING:
+  ctx.writeAndFlush(new DefaultWebSocketFrame(WebSocketFrame.FrameType.PONG,frame.getBinaryData()));
+break;
+case CLOSE:
+if (!closeFrameSent) {
+ctx.writeAndFlush(frame).addListener(ChannelFutureListener.CLOSE);
+closeFrameSent=true;
+}
+break;
+}
+valid=true;
+}
+if (!valid) {
+throw new IllegalStateException("Invalid object " + msg);
+}
 }
