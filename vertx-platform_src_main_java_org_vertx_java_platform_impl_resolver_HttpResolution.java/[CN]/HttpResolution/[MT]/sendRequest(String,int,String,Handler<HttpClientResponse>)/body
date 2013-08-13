@@ -10,6 +10,10 @@
  else {
     req.putHeader("host",host);
   }
+  if (getBasicAuth() != null) {
+    log.debug("Using HTTP Basic Authorization");
+    req.putHeader("Authorization","Basic " + getBasicAuth());
+  }
   req.putHeader("user-agent","Vert.x Module Installer");
   req.end();
 }
