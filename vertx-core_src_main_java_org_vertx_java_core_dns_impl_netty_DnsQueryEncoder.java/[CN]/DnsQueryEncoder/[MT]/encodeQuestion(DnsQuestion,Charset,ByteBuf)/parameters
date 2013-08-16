@@ -1,0 +1,3 @@
+DnsQuestion question
+Charset charset
+ByteBuf buf

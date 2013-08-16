@@ -1,0 +1,50 @@
+{
+  bootstrap.connect(dnsServer,53).addListener(new ChannelFutureListener(){
+    @Override public void operationComplete(    ChannelFuture future) throws Exception {
+      if (!future.isSuccess()) {
+        if (!result.complete()) {
+          result.setFailure(future.cause());
+        }
+      }
+ else {
+        DnsQuery query=new DnsQuery(ThreadLocalRandom.current().nextInt());
+        for (        int type : types) {
+          query.addQuestion(new DnsQuestion(record,type));
+        }
+        future.channel().write(query).addListener(new ChannelFutureListener(){
+          @Override public void operationComplete(          ChannelFuture future) throws Exception {
+            if (!future.isSuccess()) {
+              if (!result.complete()) {
+                result.setFailure(future.cause());
+              }
+            }
+ else {
+              future.channel().pipeline().addLast(new SimpleChannelInboundHandler<DnsResponse>(){
+                @Override protected void channelRead0(                ChannelHandlerContext ctx,                DnsResponse msg) throws Exception {
+                  List<DnsResource> resources=msg.getAnswers();
+                  List<Object> records=new ArrayList<>(resources.size());
+                  for (                  DnsResource resource : msg.getAnswers()) {
+                    Object record=RecordDecoderFactory.getFactory().decode(resource.type(),msg,resource);
+                    records.add(record);
+                  }
+                  if (!result.complete()) {
+                    result.setResult(records);
+                  }
+                  ctx.close();
+                }
+                @Override public void exceptionCaught(                ChannelHandlerContext ctx,                Throwable cause) throws Exception {
+                  if (!result.complete()) {
+                    result.setFailure(cause);
+                  }
+                }
+              }
+);
+            }
+          }
+        }
+);
+      }
+    }
+  }
+);
+}

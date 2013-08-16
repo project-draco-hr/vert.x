@@ -1,0 +1,6 @@
+{
+  ByteBuf packet=response.content().readerIndex(resource.contentIndex());
+  int priority=packet.readShort();
+  String name=DnsResponseDecoder.readName(packet);
+  return new MailExchangerRecord(priority,name);
+}

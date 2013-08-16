@@ -1,0 +1,3 @@
+ChannelHandlerContext ctx
+DnsQuery query
+ByteBuf out

@@ -1,0 +1,7 @@
+{
+  if (type != TYPE_QUERY) {
+    throw new IllegalArgumentException("type cannot be anything but TYPE_QUERY (0) for a query header.");
+  }
+  super.setType(type);
+  return this;
+}

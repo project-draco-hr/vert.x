@@ -1,0 +1,5 @@
+String fullPath
+int priority
+int weight
+int port
+String target

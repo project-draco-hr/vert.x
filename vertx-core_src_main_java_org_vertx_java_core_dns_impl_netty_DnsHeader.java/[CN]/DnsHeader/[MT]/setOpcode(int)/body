@@ -1,0 +1,4 @@
+{
+  this.opcode=opcode;
+  return this;
+}

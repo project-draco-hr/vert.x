@@ -1,0 +1,2 @@
+DnsQuery query
+ByteBuf buf

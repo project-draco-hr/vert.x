@@ -1,0 +1,3 @@
+{
+  out.add(decodeResponse(packet.content(),ctx.alloc()).retain());
+}

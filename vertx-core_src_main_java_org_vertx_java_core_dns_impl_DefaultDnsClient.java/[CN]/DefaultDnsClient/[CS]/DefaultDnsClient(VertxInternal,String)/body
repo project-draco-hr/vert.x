@@ -1,0 +1,19 @@
+{
+  if (defaultDnsServers == null || defaultDnsServers.length == 0) {
+    throw new IllegalArgumentException("Need at least one default DNS Server");
+  }
+  this.defaultDnsServers=defaultDnsServers;
+  this.vertx=vertx;
+  actualCtx=vertx.getOrCreateContext();
+  bootstrap=new Bootstrap();
+  bootstrap.group(actualCtx.getEventLoop());
+  bootstrap.channel(NioDatagramChannel.class);
+  bootstrap.handler(new ChannelInitializer<DatagramChannel>(){
+    @Override protected void initChannel(    DatagramChannel ch) throws Exception {
+      ChannelPipeline pipeline=ch.pipeline();
+      pipeline.addLast(new DnsQueryEncoder());
+      pipeline.addLast(new DnsResponseDecoder());
+    }
+  }
+);
+}

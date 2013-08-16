@@ -1,0 +1,4 @@
+{
+  this.rawPacket=rawPacket;
+  this.originalIndex=rawPacket.readerIndex();
+}

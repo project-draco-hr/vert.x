@@ -1,0 +1,3 @@
+{
+  setHeader(new DnsQueryHeader(this,id));
+}

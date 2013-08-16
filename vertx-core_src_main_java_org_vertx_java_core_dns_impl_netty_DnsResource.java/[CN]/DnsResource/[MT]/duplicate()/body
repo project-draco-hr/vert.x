@@ -1,0 +1,3 @@
+{
+  return new DnsResource(name(),type(),dnsClass(),ttl,contentIndex,content.duplicate());
+}

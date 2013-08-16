@@ -1,0 +1,4 @@
+{
+  authority.add(resource);
+  return this;
+}

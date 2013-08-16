@@ -1,0 +1,6 @@
+String name
+int type
+int aClass
+long ttl
+int contentIndex
+ByteBuf content

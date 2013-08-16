@@ -1,0 +1,4 @@
+{
+  additional.add(resource);
+  return this;
+}

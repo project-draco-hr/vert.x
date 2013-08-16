@@ -1,0 +1,11 @@
+{
+  List<String> list=new ArrayList<String>();
+  ByteBuf data=resource.content().readerIndex(response.originalIndex());
+  int index=data.readerIndex();
+  while (index < data.writerIndex()) {
+    int len=data.getUnsignedByte(index++);
+    list.add(data.toString(index,len,CharsetUtil.UTF_8));
+    index+=len;
+  }
+  return list;
+}

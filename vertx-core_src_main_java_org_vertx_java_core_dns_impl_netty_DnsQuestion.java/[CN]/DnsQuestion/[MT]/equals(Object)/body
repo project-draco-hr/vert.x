@@ -1,0 +1,10 @@
+{
+  if (other == this) {
+    return true;
+  }
+  if (other instanceof DnsQuestion) {
+    DnsQuestion question=(DnsQuestion)other;
+    return question.name().equals(name()) && question.type() == type() && question.dnsClass() == dnsClass();
+  }
+  return false;
+}

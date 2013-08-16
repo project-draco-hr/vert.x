@@ -1,0 +1,2 @@
+boolean useDefaultDecoders
+Map<Integer,RecordDecoder<?>> customDecoders

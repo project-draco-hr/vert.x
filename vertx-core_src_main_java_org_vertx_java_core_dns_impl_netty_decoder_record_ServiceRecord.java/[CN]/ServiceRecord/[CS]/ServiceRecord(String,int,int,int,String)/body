@@ -1,0 +1,10 @@
+{
+  String[] parts=fullPath.split("\\.",3);
+  service=parts[0];
+  protocol=parts[1];
+  name=parts[2];
+  this.priority=priority;
+  this.weight=weight;
+  this.port=port;
+  this.target=target;
+}

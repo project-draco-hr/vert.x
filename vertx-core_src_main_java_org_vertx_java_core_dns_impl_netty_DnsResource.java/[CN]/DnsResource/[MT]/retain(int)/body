@@ -1,0 +1,4 @@
+{
+  content.retain(increment);
+  return this;
+}

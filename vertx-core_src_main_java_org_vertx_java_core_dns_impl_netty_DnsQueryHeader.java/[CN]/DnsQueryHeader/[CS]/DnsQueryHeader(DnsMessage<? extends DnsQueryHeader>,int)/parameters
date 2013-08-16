@@ -1,0 +1,2 @@
+DnsMessage<? extends DnsQueryHeader> parent
+int id

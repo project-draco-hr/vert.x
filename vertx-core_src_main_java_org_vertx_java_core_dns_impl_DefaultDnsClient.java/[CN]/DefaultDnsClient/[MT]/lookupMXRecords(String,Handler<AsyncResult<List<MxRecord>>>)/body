@@ -1,0 +1,21 @@
+{
+  final DefaultFutureResult result=new DefaultFutureResult<>();
+  result.setHandler(new Handler<AsyncResult>(){
+    @Override public void handle(    AsyncResult event){
+      if (event.failed()) {
+        handler.handle(event);
+      }
+ else {
+        List<Object> records=(List<Object>)event.result();
+        for (int i=0; i < records.size(); i++) {
+          MailExchangerRecord mx=(MailExchangerRecord)records.get(i);
+          records.set(i,new DefaultMxRecord(mx));
+        }
+        handler.handle(new DefaultFutureResult(records));
+      }
+    }
+  }
+);
+  lookup(defaultDnsServers[0],record,result,DnsEntry.TYPE_A);
+  return this;
+}

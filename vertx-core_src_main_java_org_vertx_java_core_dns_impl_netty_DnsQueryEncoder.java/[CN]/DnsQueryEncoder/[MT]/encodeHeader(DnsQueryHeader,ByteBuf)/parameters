@@ -1,0 +1,2 @@
+DnsQueryHeader header
+ByteBuf buf

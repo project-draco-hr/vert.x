@@ -1,0 +1,12 @@
+{
+  buf.writeShort(header.getId());
+  int flags=0;
+  flags|=header.getType() << 15;
+  flags|=header.getOpcode() << 14;
+  flags|=header.isRecursionDesired() ? 1 << 8 : 0;
+  buf.writeShort(flags);
+  buf.writeShort(header.questionCount());
+  buf.writeShort(header.answerCount());
+  buf.writeShort(header.authorityResourceCount());
+  buf.writeShort(header.additionalResourceCount());
+}

@@ -1,0 +1,3 @@
+{
+  return new StringBuilder().append(getClass().getSimpleName()).append("(domain name: ").append(name).append(", type: ").append(type).append(", class: ").append(dnsClass).append(')').toString();
+}
