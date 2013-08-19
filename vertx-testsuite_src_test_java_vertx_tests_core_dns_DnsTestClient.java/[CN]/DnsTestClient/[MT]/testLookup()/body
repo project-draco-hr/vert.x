@@ -1,0 +1,25 @@
+{
+  DnsClient dns=prepareDns(new RecordStore(){
+    @Override public Set<ResourceRecord> getRecords(    QuestionRecord questionRecord) throws org.apache.directory.server.dns.DnsException {
+      Set<ResourceRecord> set=new HashSet<>();
+      ResourceRecordModifier rm=new ResourceRecordModifier();
+      rm.setDnsClass(RecordClass.IN);
+      rm.setDnsName("dns.vertx.io");
+      rm.setDnsTtl(100);
+      rm.setDnsType(RecordType.A);
+      rm.put(DnsAttribute.IP_ADDRESS,"10.0.0.1");
+      set.add(rm.getEntry());
+      return set;
+    }
+  }
+);
+  dns.lookup("vertx.io",new Handler<AsyncResult<InetAddress>>(){
+    @Override public void handle(    AsyncResult<InetAddress> event){
+      InetAddress result=event.result();
+      tu.azzert(result != null);
+      tu.azzert("10.0.0.1".equals(result.getHostAddress()));
+      tu.testComplete();
+    }
+  }
+);
+}

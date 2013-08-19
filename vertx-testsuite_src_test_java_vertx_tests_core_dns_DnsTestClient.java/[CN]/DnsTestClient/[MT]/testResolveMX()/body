@@ -1,0 +1,29 @@
+{
+  DnsClient dns=prepareDns(new RecordStore(){
+    @Override public Set<ResourceRecord> getRecords(    QuestionRecord questionRecord) throws org.apache.directory.server.dns.DnsException {
+      Set<ResourceRecord> set=new HashSet<>();
+      ResourceRecordModifier rm=new ResourceRecordModifier();
+      rm.setDnsClass(RecordClass.IN);
+      rm.setDnsName("dns.vertx.io");
+      rm.setDnsTtl(100);
+      rm.setDnsType(RecordType.MX);
+      rm.put(DnsAttribute.MX_PREFERENCE,String.valueOf(10));
+      rm.put(DnsAttribute.DOMAIN_NAME,"mail.vertx.io");
+      set.add(rm.getEntry());
+      return set;
+    }
+  }
+);
+  dns.resolveMX("vertx.io",new Handler<AsyncResult<List<MxRecord>>>(){
+    @Override public void handle(    AsyncResult<List<MxRecord>> event){
+      List<MxRecord> result=event.result();
+      tu.azzert(!result.isEmpty());
+      tu.azzert(1 == result.size());
+      MxRecord record=result.get(0);
+      tu.azzert(record.priority() == 10);
+      tu.azzert("mail.vertx.io".equals(record.name()));
+      tu.testComplete();
+    }
+  }
+);
+}

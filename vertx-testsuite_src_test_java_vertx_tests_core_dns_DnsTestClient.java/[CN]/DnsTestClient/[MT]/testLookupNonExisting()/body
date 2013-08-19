@@ -1,0 +1,16 @@
+{
+  DnsClient dns=prepareDns(new RecordStore(){
+    @Override public Set<ResourceRecord> getRecords(    QuestionRecord questionRecord) throws org.apache.directory.server.dns.DnsException {
+      return null;
+    }
+  }
+);
+  dns.lookup("gfegjegjf.sg1",new Handler<AsyncResult<InetAddress>>(){
+    @Override public void handle(    AsyncResult<InetAddress> event){
+      DnsException cause=(DnsException)event.cause();
+      tu.azzert(cause.code() == DnsResponseCode.NXDOMAIN);
+      tu.testComplete();
+    }
+  }
+);
+}

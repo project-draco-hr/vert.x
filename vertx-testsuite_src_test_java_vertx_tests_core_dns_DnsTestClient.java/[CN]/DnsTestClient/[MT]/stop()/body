@@ -1,0 +1,6 @@
+{
+  super.stop();
+  if (dnsServer != null) {
+    dnsServer.stop();
+  }
+}
