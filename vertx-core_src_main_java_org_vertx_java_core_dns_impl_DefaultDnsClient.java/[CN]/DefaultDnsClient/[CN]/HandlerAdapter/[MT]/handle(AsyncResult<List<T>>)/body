@@ -3,7 +3,7 @@
     handler.handle(event);
   }
  else {
-    List<T> result=(List<T>)event.result();
+    List<T> result=event.result();
     if (result.isEmpty()) {
       handler.handle(new DefaultFutureResult<>((T)null));
     }

@@ -1,6 +1,6 @@
 {
   final DefaultFutureResult result=new DefaultFutureResult<>();
   result.setHandler(handler);
-  lookup(record,result,DnsEntry.TYPE_TXT);
+  lookup(name,result,DnsEntry.TYPE_TXT);
   return this;
 }

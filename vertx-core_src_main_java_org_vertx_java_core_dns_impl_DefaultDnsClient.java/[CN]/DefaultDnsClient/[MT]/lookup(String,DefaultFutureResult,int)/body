@@ -9,7 +9,7 @@
  else {
         DnsQuery query=new DnsQuery(ThreadLocalRandom.current().nextInt());
         for (        int type : types) {
-          query.addQuestion(new DnsQuestion(record,type));
+          query.addQuestion(new DnsQuestion(name,type));
         }
         future.channel().writeAndFlush(query).addListener(new ChannelFutureListener(){
           @Override public void operationComplete(          ChannelFuture future) throws Exception {

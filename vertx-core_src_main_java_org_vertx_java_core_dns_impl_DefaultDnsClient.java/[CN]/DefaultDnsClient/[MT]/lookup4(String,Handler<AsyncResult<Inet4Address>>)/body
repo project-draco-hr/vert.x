@@ -1,6 +1,6 @@
 {
   final DefaultFutureResult result=new DefaultFutureResult<>();
   result.setHandler(new HandlerAdapter<Inet4Address>(handler));
-  lookup(record,result,DnsEntry.TYPE_A);
+  lookup(name,result,DnsEntry.TYPE_A);
   return this;
 }
