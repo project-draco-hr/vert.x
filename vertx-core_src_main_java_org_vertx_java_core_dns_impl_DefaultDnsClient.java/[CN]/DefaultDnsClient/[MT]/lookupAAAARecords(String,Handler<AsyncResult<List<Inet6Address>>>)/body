@@ -1,6 +1,0 @@
-{
-  final DefaultFutureResult result=new DefaultFutureResult<>();
-  result.setHandler(handler);
-  lookup(name,result,DnsEntry.TYPE_AAAA);
-  return this;
-}

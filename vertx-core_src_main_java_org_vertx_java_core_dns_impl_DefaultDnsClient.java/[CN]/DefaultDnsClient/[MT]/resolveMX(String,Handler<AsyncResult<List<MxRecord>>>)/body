@@ -1,7 +1,6 @@
 {
-  final DefaultFutureResult result=new DefaultFutureResult<>();
-  result.setHandler(new Handler<AsyncResult>(){
-    @Override public void handle(    AsyncResult event){
+  lookup(name,new Handler<AsyncResult>(){
+    @SuppressWarnings("unchecked") @Override public void handle(    AsyncResult event){
       if (event.failed()) {
         handler.handle(event);
       }
@@ -16,7 +15,6 @@
       }
     }
   }
-);
-  lookup(name,result,DnsEntry.TYPE_MX);
+,DnsEntry.TYPE_MX);
   return this;
 }

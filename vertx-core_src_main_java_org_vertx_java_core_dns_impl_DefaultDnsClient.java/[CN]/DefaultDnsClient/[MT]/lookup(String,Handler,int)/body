@@ -1,4 +1,6 @@
 {
+  final DefaultFutureResult result=new DefaultFutureResult<>();
+  result.setHandler(handler);
   bootstrap.connect(chooseDnsServer()).addListener(new ChannelFutureListener(){
     @Override public void operationComplete(    ChannelFuture future) throws Exception {
       if (!future.isSuccess()) {
