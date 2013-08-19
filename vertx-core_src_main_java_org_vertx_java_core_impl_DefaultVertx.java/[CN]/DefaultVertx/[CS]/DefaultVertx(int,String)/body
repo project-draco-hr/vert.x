@@ -1,4 +1,3 @@
 {
   this.eventBus=new DefaultEventBus(this,port,hostname,new HazelcastClusterManager(this));
-  this.dnsClient=createDnsClient();
 }

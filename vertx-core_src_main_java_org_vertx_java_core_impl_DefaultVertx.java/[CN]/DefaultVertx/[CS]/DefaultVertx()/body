@@ -1,4 +1,3 @@
 {
   this.eventBus=new DefaultEventBus(this);
-  this.dnsClient=createDnsClient();
 }
