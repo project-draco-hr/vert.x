@@ -6,11 +6,12 @@
         handler.handle(event);
       }
  else {
-        List<Object> records=(List<Object>)event.result();
+        List records=(List)event.result();
         for (int i=0; i < records.size(); i++) {
           MailExchangerRecord mx=(MailExchangerRecord)records.get(i);
           records.set(i,new DefaultMxRecord(mx));
         }
+        Collections.sort((List<DefaultMxRecord>)records);
         handler.handle(new DefaultFutureResult(records));
       }
     }
