@@ -1,16 +1,6 @@
 {
   final DefaultFutureResult result=new DefaultFutureResult<>();
-  result.setHandler(new Handler<AsyncResult>(){
-    @Override public void handle(    AsyncResult event){
-      if (event.failed()) {
-        handler.handle(event);
-      }
- else {
-        handler.handle(new DefaultFutureResult<>((Inet6Address)((List)event.result()).get(0)));
-      }
-    }
-  }
-);
+  result.setHandler(new HandlerAdapter<Inet6Address>(handler));
   lookup(record,result,DnsEntry.TYPE_AAAA);
   return this;
 }

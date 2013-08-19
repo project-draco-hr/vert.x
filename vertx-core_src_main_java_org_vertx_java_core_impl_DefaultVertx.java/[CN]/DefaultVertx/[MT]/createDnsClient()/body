@@ -1,0 +1,3 @@
+{
+  return new DefaultDnsClient(this,new InetSocketAddress("8.8.8.8",53),new InetSocketAddress("8.8.4.4",53));
+}

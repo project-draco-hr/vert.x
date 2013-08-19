@@ -16,6 +16,6 @@
     }
   }
 );
-  lookup(record,result,DnsEntry.TYPE_A);
+  lookup(record,result,DnsEntry.TYPE_MX);
   return this;
 }

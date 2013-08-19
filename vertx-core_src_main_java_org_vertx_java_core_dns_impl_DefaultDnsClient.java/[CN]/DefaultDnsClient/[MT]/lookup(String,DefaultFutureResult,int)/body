@@ -11,7 +11,7 @@
         for (        int type : types) {
           query.addQuestion(new DnsQuestion(record,type));
         }
-        future.channel().write(query).addListener(new ChannelFutureListener(){
+        future.channel().writeAndFlush(query).addListener(new ChannelFutureListener(){
           @Override public void operationComplete(          ChannelFuture future) throws Exception {
             if (!future.isSuccess()) {
               if (!result.complete()) {
@@ -36,6 +36,7 @@
                   if (!result.complete()) {
                     result.setFailure(cause);
                   }
+                  ctx.close();
                 }
               }
 );

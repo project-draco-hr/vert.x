@@ -1,4 +1,4 @@
 {
   this.eventBus=new DefaultEventBus(this);
-  this.dnsClient=new DefaultDnsClient(this,InetSocketAddress.createUnresolved("8.8.8.8",53));
+  this.dnsClient=createDnsClient();
 }
