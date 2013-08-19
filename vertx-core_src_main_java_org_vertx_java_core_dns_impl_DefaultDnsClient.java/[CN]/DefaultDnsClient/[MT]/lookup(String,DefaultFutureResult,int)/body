@@ -1,5 +1,5 @@
 {
-  bootstrap.connect(dnsServer,53).addListener(new ChannelFutureListener(){
+  bootstrap.connect(chooseDnsServer()).addListener(new ChannelFutureListener(){
     @Override public void operationComplete(    ChannelFuture future) throws Exception {
       if (!future.isSuccess()) {
         if (!result.complete()) {

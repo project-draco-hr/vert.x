@@ -1,10 +1,9 @@
 {
-  if (defaultDnsServers == null || defaultDnsServers.length == 0) {
+  if (dnsServers == null || dnsServers.length == 0) {
     throw new IllegalArgumentException("Need at least one default DNS Server");
   }
-  this.defaultDnsServers=defaultDnsServers;
-  this.vertx=vertx;
-  actualCtx=vertx.getOrCreateContext();
+  this.dnsServers=dnsServers;
+  DefaultContext actualCtx=vertx.getOrCreateContext();
   bootstrap=new Bootstrap();
   bootstrap.group(actualCtx.getEventLoop());
   bootstrap.channel(NioDatagramChannel.class);

@@ -11,6 +11,6 @@
     }
   }
 );
-  lookup(defaultDnsServers[0],record,result,DnsEntry.TYPE_A,DnsEntry.TYPE_AAAA);
+  lookup(record,result,DnsEntry.TYPE_A,DnsEntry.TYPE_AAAA);
   return this;
 }

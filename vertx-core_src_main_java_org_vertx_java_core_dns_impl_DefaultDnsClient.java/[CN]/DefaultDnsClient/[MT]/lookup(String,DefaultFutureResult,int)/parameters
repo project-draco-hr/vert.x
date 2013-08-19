@@ -1,4 +1,3 @@
-String dnsServer
 String record
 DefaultFutureResult result
 int types

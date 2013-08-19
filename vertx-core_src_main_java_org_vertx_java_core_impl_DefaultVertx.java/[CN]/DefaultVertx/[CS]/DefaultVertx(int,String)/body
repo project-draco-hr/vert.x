@@ -1,3 +1,4 @@
 {
   this.eventBus=new DefaultEventBus(this,port,hostname,new HazelcastClusterManager(this));
+  this.dnsClient=new DefaultDnsClient(this,InetSocketAddress.createUnresolved("8.8.8.8",53));
 }

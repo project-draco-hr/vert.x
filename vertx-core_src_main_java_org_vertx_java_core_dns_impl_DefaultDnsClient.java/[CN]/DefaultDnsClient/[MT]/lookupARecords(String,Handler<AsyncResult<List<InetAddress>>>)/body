@@ -1,6 +1,6 @@
 {
   final DefaultFutureResult result=new DefaultFutureResult<>();
   result.setHandler(handler);
-  lookup(defaultDnsServers[0],record,result,DnsEntry.TYPE_A);
+  lookup(record,result,DnsEntry.TYPE_A);
   return this;
 }
