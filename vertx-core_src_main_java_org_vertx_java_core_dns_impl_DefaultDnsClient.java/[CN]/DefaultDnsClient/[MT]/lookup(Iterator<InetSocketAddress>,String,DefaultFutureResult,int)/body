@@ -1,0 +1,39 @@
+{
+  bootstrap.connect(dns.next()).addListener(new RetryChannelFutureListener(dns,name,result,types){
+    @Override public void onSuccess(    ChannelFuture future) throws Exception {
+      DnsQuery query=new DnsQuery(ThreadLocalRandom.current().nextInt());
+      for (      int type : types) {
+        query.addQuestion(new DnsQuestion(name,type));
+      }
+      future.channel().writeAndFlush(query).addListener(new RetryChannelFutureListener(dns,name,result,types){
+        @Override public void onSuccess(        ChannelFuture future) throws Exception {
+          future.channel().pipeline().addLast(new SimpleChannelInboundHandler<DnsResponse>(){
+            @Override protected void channelRead0(            ChannelHandlerContext ctx,            DnsResponse msg) throws Exception {
+              DnsResponseCode code=DnsResponseCode.valueOf(msg.getHeader().getResponseCode());
+              if (code == DnsResponseCode.NOERROR) {
+                List<DnsResource> resources=msg.getAnswers();
+                List<Object> records=new ArrayList<>(resources.size());
+                for (                DnsResource resource : msg.getAnswers()) {
+                  Object record=RecordDecoderFactory.getFactory().decode(resource.type(),msg,resource);
+                  records.add(record);
+                }
+                setResult(result,records);
+              }
+ else {
+                setResult(result,new DnsException(code));
+              }
+              ctx.close();
+            }
+            @Override public void exceptionCaught(            ChannelHandlerContext ctx,            Throwable cause) throws Exception {
+              setResult(result,cause);
+              ctx.close();
+            }
+          }
+);
+        }
+      }
+);
+    }
+  }
+);
+}

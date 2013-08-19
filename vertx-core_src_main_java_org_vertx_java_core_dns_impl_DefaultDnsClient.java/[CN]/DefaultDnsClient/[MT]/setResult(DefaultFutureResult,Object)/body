@@ -1,0 +1,11 @@
+{
+  if (r.complete()) {
+    return;
+  }
+  if (result instanceof Throwable) {
+    r.setFailure((Throwable)result);
+  }
+ else {
+    r.setResult(result);
+  }
+}

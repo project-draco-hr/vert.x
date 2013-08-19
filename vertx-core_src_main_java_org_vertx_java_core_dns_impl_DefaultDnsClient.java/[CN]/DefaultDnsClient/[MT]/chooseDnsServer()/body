@@ -1,3 +1,0 @@
-{
-  return dnsServers[0];
-}

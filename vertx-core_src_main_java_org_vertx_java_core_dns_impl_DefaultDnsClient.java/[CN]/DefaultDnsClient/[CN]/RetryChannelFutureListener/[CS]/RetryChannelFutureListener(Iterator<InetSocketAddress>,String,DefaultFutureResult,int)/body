@@ -1,0 +1,6 @@
+{
+  this.dns=dns;
+  this.name=name;
+  this.result=result;
+  this.types=types;
+}

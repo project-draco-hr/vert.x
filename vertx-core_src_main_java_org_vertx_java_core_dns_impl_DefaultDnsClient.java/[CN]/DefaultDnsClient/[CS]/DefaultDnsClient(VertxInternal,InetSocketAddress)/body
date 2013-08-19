@@ -2,7 +2,7 @@
   if (dnsServers == null || dnsServers.length == 0) {
     throw new IllegalArgumentException("Need at least one default DNS Server");
   }
-  this.dnsServers=dnsServers;
+  this.dnsServers=new LinkedList<>(Arrays.asList(dnsServers));
   DefaultContext actualCtx=vertx.getOrCreateContext();
   bootstrap=new Bootstrap();
   bootstrap.group(actualCtx.getEventLoop());
