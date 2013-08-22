@@ -1,18 +1,7 @@
 {
-  lookup(name,new Handler<AsyncResult>(){
-    @SuppressWarnings("unchecked") @Override public void handle(    AsyncResult event){
-      if (event.failed()) {
-        handler.handle(event);
-      }
- else {
-        List records=(List)event.result();
-        for (int i=0; i < records.size(); i++) {
-          MailExchangerRecord mx=(MailExchangerRecord)records.get(i);
-          records.set(i,new DefaultMxRecord(mx));
-        }
-        Collections.sort((List<DefaultMxRecord>)records);
-        handler.handle(new DefaultFutureResult(records));
-      }
+  lookup(name,new ConvertingHandler<MailExchangerRecord,MxRecord>(handler,DefaultMxRecordComparator.INSTANCE){
+    @Override protected MxRecord convert(    MailExchangerRecord entry){
+      return new DefaultMxRecord(entry);
     }
   }
 ,DnsEntry.TYPE_MX);

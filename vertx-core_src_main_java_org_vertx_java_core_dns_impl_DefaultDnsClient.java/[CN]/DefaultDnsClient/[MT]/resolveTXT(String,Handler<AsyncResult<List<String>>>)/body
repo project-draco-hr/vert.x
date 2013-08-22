@@ -1,6 +1,6 @@
 {
   lookup(name,new Handler<AsyncResult>(){
-    @Override public void handle(    AsyncResult event){
+    @SuppressWarnings("unchecked") @Override public void handle(    AsyncResult event){
       if (event.failed()) {
         handler.handle(event);
       }

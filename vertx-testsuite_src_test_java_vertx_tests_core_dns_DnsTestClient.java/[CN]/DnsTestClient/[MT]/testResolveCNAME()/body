@@ -1,0 +1,28 @@
+{
+  DnsClient dns=prepareDns(new RecordStore(){
+    @Override public Set<ResourceRecord> getRecords(    QuestionRecord questionRecord) throws org.apache.directory.server.dns.DnsException {
+      Set<ResourceRecord> set=new HashSet<>();
+      ResourceRecordModifier rm=new ResourceRecordModifier();
+      rm.setDnsClass(RecordClass.IN);
+      rm.setDnsName("dns.vertx.io");
+      rm.setDnsTtl(100);
+      rm.setDnsType(RecordType.CNAME);
+      rm.put(DnsAttribute.DOMAIN_NAME,"cname.vertx.io");
+      set.add(rm.getEntry());
+      return set;
+    }
+  }
+);
+  dns.resolveCNAME("vertx.io",new Handler<AsyncResult<List<String>>>(){
+    @Override public void handle(    AsyncResult<List<String>> event){
+      List<String> result=event.result();
+      tu.azzert(!result.isEmpty());
+      tu.azzert(result.size() == 1);
+      String record=result.get(0);
+      tu.azzert(!record.isEmpty());
+      tu.azzert("cname.vertx.io".equals(record));
+      tu.testComplete();
+    }
+  }
+);
+}

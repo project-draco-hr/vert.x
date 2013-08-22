@@ -1,4 +1,0 @@
-{
-  lookup(name,handler,DnsEntry.TYPE_SRV);
-  return this;
-}
