@@ -1,0 +1,47 @@
+{
+  try {
+    final InetAddress inetAddress=InetAddress.getByName(address);
+    byte[] addr=inetAddress.getAddress();
+    StringBuilder reverseName=new StringBuilder(64);
+    if (inetAddress instanceof Inet4Address) {
+      reverseName.append(addr[3] & 0xff).append(".").append(addr[2] & 0xff).append(".").append(addr[1] & 0xff).append(".").append(addr[0] & 0xff);
+    }
+ else {
+      for (int i=0; i < 16; i++) {
+        reverseName.append(HEX_TABLE[(addr[15 - i] & 0xf)]);
+        reverseName.append(".");
+        reverseName.append(HEX_TABLE[(addr[15 - i] >> 4) & 0xf]);
+        if (i != 15) {
+          reverseName.append(".");
+        }
+      }
+    }
+    reverseName.append(".in-addr.arpa");
+    return resolvePTR(reverseName.toString(),new Handler<AsyncResult<String>>(){
+      @Override public void handle(      AsyncResult event){
+        if (event.failed()) {
+          handler.handle(event);
+        }
+ else {
+          String result=(String)event.result();
+          try {
+            handler.handle(new DefaultFutureResult<>(InetAddress.getByAddress(result,inetAddress.getAddress())));
+          }
+ catch (          UnknownHostException e) {
+            handler.handle(new DefaultFutureResult<InetAddress>(e));
+          }
+        }
+      }
+    }
+);
+  }
+ catch (  final UnknownHostException e) {
+    bootstrap.group().next().execute(new Runnable(){
+      @Override public void run(){
+        handler.handle(new DefaultFutureResult<InetAddress>(e));
+      }
+    }
+);
+  }
+  return this;
+}
