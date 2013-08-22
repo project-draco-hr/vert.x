@@ -1,0 +1,11 @@
+{
+  if (msg instanceof DatagramPacket) {
+    DatagramPacket packet=(DatagramPacket)msg;
+    ByteBuf content=packet.content();
+    if (content.isDirect()) {
+      content=safeBuffer(content);
+    }
+    return new DefaultDatagramPacket(packet.sender(),new Buffer(content));
+  }
+  return msg;
+}

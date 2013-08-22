@@ -1,0 +1,29 @@
+{
+  peer1=vertx.createDatagramSocket(null);
+  peer2=vertx.createDatagramSocket(null);
+  peer1.close(new AsyncResultHandler<Void>(){
+    @Override public void handle(    AsyncResult<Void> event){
+      peer1.send("Test","127.0.0.1",1234,new AsyncResultHandler<DatagramSocket>(){
+        @Override public void handle(        AsyncResult<DatagramSocket> event){
+          tu.azzert(event.failed());
+          peer1=null;
+          peer2.close(new AsyncResultHandler<Void>(){
+            @Override public void handle(            AsyncResult<Void> event){
+              peer2.send("Test","127.0.0.1",1234,new AsyncResultHandler<DatagramSocket>(){
+                @Override public void handle(                AsyncResult<DatagramSocket> event){
+                  tu.azzert(event.failed());
+                  peer2=null;
+                  tu.testComplete();
+                }
+              }
+);
+            }
+          }
+);
+        }
+      }
+);
+    }
+  }
+);
+}

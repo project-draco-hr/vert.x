@@ -1,0 +1,5 @@
+{
+  checkConfigurable();
+  channel().config().setLoopbackModeDisabled(loopbackModeDisabled);
+  return this;
+}

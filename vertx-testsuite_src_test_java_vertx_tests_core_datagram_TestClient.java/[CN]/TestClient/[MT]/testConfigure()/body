@@ -1,0 +1,26 @@
+{
+  peer1=vertx.createDatagramSocket(null);
+  tu.azzert(!peer1.isBroadcast());
+  peer1.setBroadcast(true);
+  tu.azzert(peer1.isBroadcast());
+  tu.azzert(peer1.isMulticastLoopbackMode());
+  peer1.setMulticastLoopbackMode(false);
+  tu.azzert(!peer1.isMulticastLoopbackMode());
+  tu.azzert(peer1.getMulticastNetworkInterface() == null);
+  NetworkInterface iface=NetworkInterface.getNetworkInterfaces().nextElement();
+  peer1.setMulticastNetworkInterface(iface.getName());
+  tu.azzert(peer1.getMulticastNetworkInterface().equals(iface.getName()));
+  tu.azzert(peer1.getReceiveBufferSize() != 1024);
+  peer1.setReceiveBufferSize(1024);
+  tu.azzert(peer1.getReceiveBufferSize() == 1024);
+  tu.azzert(peer1.getSendBufferSize() != 1024);
+  peer1.setSendBufferSize(1024);
+  tu.azzert(peer1.getSendBufferSize() == 1024);
+  tu.azzert(!peer1.isReuseAddress());
+  peer1.setReuseAddress(true);
+  tu.azzert(peer1.isReuseAddress());
+  tu.azzert(peer1.getMulticastTimeToLive() != 2);
+  peer1.setMulticastTimeToLive(2);
+  tu.azzert(peer1.getMulticastTimeToLive() == 2);
+  tu.testComplete();
+}

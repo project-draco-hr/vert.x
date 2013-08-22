@@ -1,0 +1,60 @@
+{
+  peer1=vertx.createDatagramSocket(null);
+  peer2=vertx.createDatagramSocket(null);
+  peer1.exceptionHandler(new Handler<Throwable>(){
+    @Override public void handle(    Throwable event){
+      tu.azzert(false);
+    }
+  }
+);
+  peer2.exceptionHandler(new Handler<Throwable>(){
+    @Override public void handle(    Throwable event){
+      tu.azzert(false);
+    }
+  }
+);
+  peer2.listen("127.0.0.1",1234,new AsyncResultHandler<DatagramSocket>(){
+    @Override public void handle(    AsyncResult<DatagramSocket> event){
+      tu.checkThread();
+      tu.azzert(event.succeeded());
+      final Buffer buffer=TestUtils.generateRandomBuffer(128);
+      peer2.dataHandler(new Handler<DatagramPacket>(){
+        @Override public void handle(        DatagramPacket event){
+          tu.checkThread();
+          tu.azzert(event.sender().equals(new InetSocketAddress("127.0.0.1",1235)));
+          tu.azzert(event.data().equals(buffer));
+          peer2.send(event.data(),"127.0.0.1",1235,new AsyncResultHandler<DatagramSocket>(){
+            @Override public void handle(            AsyncResult<DatagramSocket> event){
+              tu.checkThread();
+              tu.azzert(event.succeeded());
+            }
+          }
+);
+        }
+      }
+);
+      peer1.listen("127.0.0.1",1235,new AsyncResultHandler<DatagramSocket>(){
+        @Override public void handle(        AsyncResult<DatagramSocket> event){
+          peer1.dataHandler(new Handler<DatagramPacket>(){
+            @Override public void handle(            DatagramPacket event){
+              tu.checkThread();
+              tu.azzert(event.data().equals(buffer));
+              tu.azzert(event.sender().equals(new InetSocketAddress("127.0.0.1",1234)));
+              tu.testComplete();
+            }
+          }
+);
+          peer1.send(buffer,"127.0.0.1",1234,new AsyncResultHandler<DatagramSocket>(){
+            @Override public void handle(            AsyncResult<DatagramSocket> event){
+              tu.checkThread();
+              tu.azzert(event.succeeded());
+            }
+          }
+);
+        }
+      }
+);
+    }
+  }
+);
+}

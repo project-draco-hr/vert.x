@@ -1,0 +1,10 @@
+{
+  configurable=false;
+  try {
+    addListener(channel().joinGroup(InetAddress.getByName(multicastAddress)),handler);
+  }
+ catch (  UnknownHostException e) {
+    notifyException(handler,e);
+  }
+  return this;
+}

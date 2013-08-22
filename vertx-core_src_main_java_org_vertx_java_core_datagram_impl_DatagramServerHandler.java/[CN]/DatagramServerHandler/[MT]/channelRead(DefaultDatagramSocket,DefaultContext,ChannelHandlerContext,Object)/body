@@ -1,0 +1,24 @@
+{
+  if (context.isOnCorrectWorker(chctx.channel().eventLoop())) {
+    try {
+      vertx.setContext(context);
+      server.handleMessage((org.vertx.java.core.datagram.DatagramPacket)msg);
+    }
+ catch (    Throwable t) {
+      context.reportException(t);
+    }
+  }
+ else {
+    context.execute(new Runnable(){
+      public void run(){
+        try {
+          server.handleMessage((org.vertx.java.core.datagram.DatagramPacket)msg);
+        }
+ catch (        Throwable t) {
+          context.reportException(t);
+        }
+      }
+    }
+);
+  }
+}

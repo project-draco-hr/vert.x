@@ -1,0 +1,4 @@
+String multicastAddress
+String networkInterface
+String sourceToBlock
+Handler<AsyncResult<DatagramSocket>> handler

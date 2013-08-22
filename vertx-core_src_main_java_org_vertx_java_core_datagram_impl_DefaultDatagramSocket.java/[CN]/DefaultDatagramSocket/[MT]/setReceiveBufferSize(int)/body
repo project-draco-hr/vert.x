@@ -1,0 +1,5 @@
+{
+  checkConfigurable();
+  channel().config().setReceiveBufferSize(receiveBufferSize);
+  return this;
+}
