@@ -1,18 +1,5 @@
 {
-  DnsClient dns=prepareDns(new RecordStore(){
-    @Override public Set<ResourceRecord> getRecords(    QuestionRecord questionRecord) throws org.apache.directory.server.dns.DnsException {
-      Set<ResourceRecord> set=new HashSet<>();
-      ResourceRecordModifier rm=new ResourceRecordModifier();
-      rm.setDnsClass(RecordClass.IN);
-      rm.setDnsName("dns.vertx.io");
-      rm.setDnsTtl(100);
-      rm.setDnsType(RecordType.AAAA);
-      rm.put(DnsAttribute.IP_ADDRESS,"::1");
-      set.add(rm.getEntry());
-      return set;
-    }
-  }
-);
+  DnsClient dns=prepareDns(TestDnsServer.testLookup6());
   dns.lookup6("vertx.io",new Handler<AsyncResult<Inet6Address>>(){
     @Override public void handle(    AsyncResult<Inet6Address> event){
       Inet6Address result=event.result();

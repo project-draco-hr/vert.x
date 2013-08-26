@@ -1,31 +1,19 @@
 {
-  DnsClient dns=prepareDns(new RecordStore(){
-    @Override public Set<ResourceRecord> getRecords(    QuestionRecord questionRecord) throws org.apache.directory.server.dns.DnsException {
-      Set<ResourceRecord> set=new HashSet<>();
-      ResourceRecordModifier rm=new ResourceRecordModifier();
-      rm.setDnsClass(RecordClass.IN);
-      rm.setDnsName("dns.vertx.io");
-      rm.setDnsTtl(100);
-      rm.setDnsType(RecordType.SRV);
-      rm.put(DnsAttribute.SERVICE_PRIORITY,"10");
-      rm.put(DnsAttribute.SERVICE_WEIGHT,"1");
-      rm.put(DnsAttribute.SERVICE_PORT,"80");
-      rm.put(DnsAttribute.DOMAIN_NAME,"vertx.io");
-      set.add(rm.getEntry());
-      return set;
-    }
-  }
-);
+  final int priority=10;
+  final int weight=1;
+  final int port=80;
+  final String target="vertx.io";
+  DnsClient dns=prepareDns(TestDnsServer.testResolveSRV(priority,weight,port,target));
   dns.resolveSRV("vertx.io",new Handler<AsyncResult<List<SrvRecord>>>(){
     @Override public void handle(    AsyncResult<List<SrvRecord>> event){
       List<SrvRecord> result=event.result();
       tu.azzert(!result.isEmpty());
       tu.azzert(result.size() == 1);
       SrvRecord record=result.get(0);
-      tu.azzert(10 == record.priority());
-      tu.azzert(1 == record.weight());
-      tu.azzert(80 == record.port());
-      tu.azzert("vertx.io".equals(record.target()));
+      tu.azzert(priority == record.priority());
+      tu.azzert(weight == record.weight());
+      tu.azzert(port == record.port());
+      tu.azzert(target.equals(record.target()));
       tu.testComplete();
     }
   }
