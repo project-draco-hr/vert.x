@@ -1,0 +1,4 @@
+int port
+String hostname
+int quorumSize
+String haGroup

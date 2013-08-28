@@ -1,0 +1,8 @@
+{
+  int clusterSize=10;
+  Cluster cluster=new Cluster(clusterSize);
+  cluster.createCluster();
+  cluster.deployMods(clusterSize / 2,new NodeMods().addDeployment(new DepInfo("io.vertx~ha-test1~1.0")));
+  killAllRandomly(cluster,clusterSize);
+  cluster.closeCluster();
+}

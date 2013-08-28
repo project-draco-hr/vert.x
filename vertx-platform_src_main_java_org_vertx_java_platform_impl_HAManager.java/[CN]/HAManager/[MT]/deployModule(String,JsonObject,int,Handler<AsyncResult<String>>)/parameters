@@ -1,0 +1,4 @@
+String moduleName
+JsonObject config
+int instances
+Handler<AsyncResult<String>> doneHandler

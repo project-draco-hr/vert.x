@@ -1,0 +1,5 @@
+{
+  this.modName=modName;
+  this.instances=instances;
+  this.config=config;
+}

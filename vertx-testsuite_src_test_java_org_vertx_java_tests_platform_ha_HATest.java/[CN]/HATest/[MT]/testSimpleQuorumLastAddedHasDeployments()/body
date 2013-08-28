@@ -1,0 +1,14 @@
+{
+  Cluster cluster=new Cluster();
+  cluster.nodes.add(new NodeMods("group1",2));
+  cluster.createCluster();
+  NodeMods mods0=new NodeMods().addDeployment(new DepInfo("io.vertx~ha-test1~1.0"));
+  cluster.deployModsNoCheck(0,mods0);
+  Thread.sleep(500);
+  assertTrue(cluster.pms.get(0).getDeployments().isEmpty());
+  cluster.addNode(new NodeMods("group1",2));
+  NodeMods mods1=new NodeMods().addDeployment(new DepInfo("io.vertx~ha-test2~1.0"));
+  cluster.deployMods(1,mods1);
+  cluster.checkModulesDeployed(0,mods0);
+  cluster.closeCluster();
+}

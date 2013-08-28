@@ -1,0 +1,5 @@
+VertxInternal vertx
+PlatformManagerInternal platformManager
+ClusterManager clusterManager
+int quorumSize
+String group

@@ -1,0 +1,11 @@
+{
+  AsyncMultiMap<K,V> map=(AsyncMultiMap<K,V>)asyncMultiMaps.get(name);
+  if (map == null) {
+    map=new FakeAsyncMultiMap<>();
+    AsyncMultiMap<K,V> prevMap=(AsyncMultiMap<K,V>)asyncMultiMaps.putIfAbsent(name,map);
+    if (prevMap != null) {
+      map=prevMap;
+    }
+  }
+  return map;
+}

@@ -1,0 +1,8 @@
+{
+  Set<Member> members=hazelcast.getCluster().getMembers();
+  List<String> lMembers=new ArrayList<>();
+  for (  Member member : members) {
+    lMembers.add(member.getUuid());
+  }
+  return lMembers;
+}

@@ -1,9 +1,0 @@
-{
-  ServerIDs entries=cache.get(key);
-  if (entries != null) {
-    entries.remove(value);
-    if (entries.isEmpty()) {
-      cache.remove(key);
-    }
-  }
-}

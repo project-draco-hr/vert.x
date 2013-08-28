@@ -27,7 +27,7 @@
     }
     handlers.list.add(new HandlerHolder(handler,replyHandler,localOnly,context));
     if (subs != null && !replyHandler && !localOnly) {
-      subs.put(address,serverID,completionHandler);
+      subs.add(address,serverID,completionHandler);
     }
  else {
       callCompletionHandler(completionHandler);

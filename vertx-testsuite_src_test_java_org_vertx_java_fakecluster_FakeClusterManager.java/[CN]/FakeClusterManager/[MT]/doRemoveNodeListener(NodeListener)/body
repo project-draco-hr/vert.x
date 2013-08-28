@@ -1,0 +1,6 @@
+{
+  if (!nodeListeners.contains(listener)) {
+    throw new IllegalStateException("Listener not registered!");
+  }
+  nodeListeners.remove(listener);
+}

@@ -1,0 +1,3 @@
+{
+  ids=new ConcurrentHashSet<>(initialSize);
+}

@@ -1,0 +1,12 @@
+{
+  JsonObject moduleConf=new JsonObject().putString("dep_id",deploymentID);
+  moduleConf.putString("module_name",moduleName);
+  if (conf != null) {
+    moduleConf.putObject("conf",conf);
+  }
+  moduleConf.putNumber("instances",instances);
+synchronized (haMods) {
+    haMods.addObject(moduleConf);
+  }
+  clusterMap.put(nodeID,haInfo.encode());
+}

@@ -1,0 +1,7 @@
+{
+  Cluster cluster=new Cluster(3);
+  cluster.createCluster();
+  cluster.killNode(1);
+  cluster.killNode(1);
+  cluster.closeCluster();
+}

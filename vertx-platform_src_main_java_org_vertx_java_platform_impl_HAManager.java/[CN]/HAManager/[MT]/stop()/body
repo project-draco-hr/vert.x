@@ -1,0 +1,5 @@
+{
+  clusterMap.remove(nodeID);
+  vertx.cancelTimer(quorumTimerID);
+  stopped=true;
+}

@@ -1,0 +1,9 @@
+{
+  ChoosableSet<V> entries=cache.get(k);
+  if (entries != null) {
+    entries.remove(v);
+    if (entries.isEmpty()) {
+      cache.remove(k);
+    }
+  }
+}

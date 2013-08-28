@@ -1,3 +1,0 @@
-{
-  addEntry(entry.getKey(),entry.getValue().serverID);
-}

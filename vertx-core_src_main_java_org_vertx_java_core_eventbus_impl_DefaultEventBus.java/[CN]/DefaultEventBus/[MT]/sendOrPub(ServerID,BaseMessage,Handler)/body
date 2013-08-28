@@ -17,11 +17,11 @@
     }
  else {
       if (subs != null) {
-        subs.get(message.address,new AsyncResultHandler<ServerIDs>(){
-          public void handle(          AsyncResult<ServerIDs> event){
+        subs.get(message.address,new AsyncResultHandler<ChoosableIterable<ServerID>>(){
+          public void handle(          AsyncResult<ChoosableIterable<ServerID>> event){
             if (event.succeeded()) {
-              ServerIDs serverIDs=event.result();
-              if (!serverIDs.isEmpty()) {
+              ChoosableIterable<ServerID> serverIDs=event.result();
+              if (serverIDs != null && !serverIDs.isEmpty()) {
                 sendToSubs(serverIDs,message);
               }
  else {

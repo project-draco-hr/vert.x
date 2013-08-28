@@ -1,0 +1,4 @@
+String deploymentID
+String moduleName
+JsonObject conf
+int instances

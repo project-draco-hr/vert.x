@@ -1,0 +1,44 @@
+{
+  TestPlatformManager toKill=pms.get(node);
+  NodeMods failoverMods=nodes.get(node);
+  nodes.remove(node);
+  pms.remove(node);
+  final CountDownLatch failoverLatch=new CountDownLatch(1);
+  final AtomicInteger afailoverNode=new AtomicInteger(-1);
+  for (int i=0; i < pms.size(); i++) {
+    final int nodeID=i;
+    pms.get(i).failoverCompleteHandler(new Handler<Boolean>(){
+      @Override public void handle(      Boolean b){
+        if (b) {
+          afailoverNode.set(nodeID);
+        }
+        failoverLatch.countDown();
+      }
+    }
+);
+  }
+  toKill.simulateKill();
+  assertTrue(failoverLatch.await(10,TimeUnit.SECONDS));
+  int failoverNode=afailoverNode.get();
+  if (failoverNode != -1) {
+    for (int i=0; i < pms.size(); i++) {
+      Map<String,Deployment> deployments=pms.get(i).getDeployments();
+      Collection<Deployment> deps=deployments.values();
+      NodeMods expectedMods=nodes.get(i);
+      if (i == failoverNode) {
+        expectedMods.deployments.addAll(failoverMods.deployments);
+        if (limboMods != null) {
+          expectedMods.deployments.addAll(limboMods.deployments);
+          limboMods=null;
+        }
+      }
+      for (      DepInfo expectedDep : expectedMods.deployments) {
+        assertTrue(containsDep(deps,expectedDep));
+      }
+    }
+  }
+ else {
+    limboMods=failoverMods;
+  }
+  return failoverNode;
+}

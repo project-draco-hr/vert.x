@@ -1,0 +1,4 @@
+{
+  doAddNodeListener(listener);
+  this.nodeListener=listener;
+}

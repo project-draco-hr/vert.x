@@ -1,0 +1,8 @@
+{
+  for (  Deployment dep : deployments.values()) {
+    if (dep.modID.toString().equals(moduleName)) {
+      return true;
+    }
+  }
+  return false;
+}

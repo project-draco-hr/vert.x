@@ -1,0 +1,10 @@
+{
+  for (  Deployment d : deps) {
+    if (!d.modID.toString().equals(dep.modName))     continue;
+    if (d.config == null && dep.config != null)     continue;
+    if (d.config != null && !d.config.equals(dep.config))     continue;
+    if (d.instances != dep.instances)     continue;
+    return true;
+  }
+  return false;
+}

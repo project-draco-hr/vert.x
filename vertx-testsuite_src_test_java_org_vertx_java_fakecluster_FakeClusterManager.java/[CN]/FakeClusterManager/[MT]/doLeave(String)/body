@@ -1,0 +1,9 @@
+{
+  if (!nodes.containsKey(nodeID)) {
+    throw new IllegalStateException("Node hasn't joined!");
+  }
+  nodes.remove(nodeID);
+  for (  NodeListener listener : nodeListeners) {
+    listener.nodeLeft(nodeID);
+  }
+}

@@ -1,0 +1,2 @@
+VertxSPI vertx
+com.hazelcast.core.MultiMap<K,V> map

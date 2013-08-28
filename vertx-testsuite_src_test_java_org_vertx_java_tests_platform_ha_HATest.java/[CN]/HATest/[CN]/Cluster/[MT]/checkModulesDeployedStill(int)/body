@@ -1,0 +1,20 @@
+{
+  NodeMods mods=nodes.get(node);
+  TestPlatformManager pm=pms.get(node);
+  long start=System.currentTimeMillis();
+  outer:   while (true) {
+    Thread.sleep(1);
+    if (System.currentTimeMillis() - start > 10000) {
+      throw new IllegalStateException("Timed out waiting for deployments");
+    }
+    if (mods.deployments.size() != pm.getDeployments().size()) {
+      continue;
+    }
+    for (    DepInfo dep : mods.deployments) {
+      if (!hasModule(dep.modName,pm.getDeployments())) {
+        continue outer;
+      }
+    }
+    break;
+  }
+}
