@@ -1,8 +1,0 @@
-{
-  return new TestDnsServer(new RecordStore(){
-    @Override public Set<ResourceRecord> getRecords(    QuestionRecord questionRecord) throws org.apache.directory.server.dns.DnsException {
-      return null;
-    }
-  }
-);
-}

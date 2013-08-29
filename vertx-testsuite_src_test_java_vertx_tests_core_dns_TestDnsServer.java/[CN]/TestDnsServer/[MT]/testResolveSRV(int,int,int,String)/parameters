@@ -1,4 +1,0 @@
-int priority
-int weight
-int port
-String target
