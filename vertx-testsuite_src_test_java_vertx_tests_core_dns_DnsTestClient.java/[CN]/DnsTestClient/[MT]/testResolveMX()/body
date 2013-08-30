@@ -4,6 +4,7 @@
   DnsClient dns=prepareDns(TestDnsServer.testResolveMX(prio,mxRecord));
   dns.resolveMX("vertx.io",new Handler<AsyncResult<List<MxRecord>>>(){
     @Override public void handle(    AsyncResult<List<MxRecord>> event){
+      tu.checkThread();
       List<MxRecord> result=event.result();
       tu.azzert(!result.isEmpty());
       tu.azzert(1 == result.size());

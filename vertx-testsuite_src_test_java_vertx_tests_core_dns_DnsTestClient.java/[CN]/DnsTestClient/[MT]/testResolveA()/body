@@ -3,6 +3,7 @@
   DnsClient dns=prepareDns(TestDnsServer.testResolveA(ip));
   dns.resolveA("vertx.io",new Handler<AsyncResult<List<Inet4Address>>>(){
     @Override public void handle(    AsyncResult<List<Inet4Address>> event){
+      tu.checkThread();
       List<Inet4Address> result=event.result();
       tu.azzert(!result.isEmpty());
       tu.azzert(result.size() == 1);

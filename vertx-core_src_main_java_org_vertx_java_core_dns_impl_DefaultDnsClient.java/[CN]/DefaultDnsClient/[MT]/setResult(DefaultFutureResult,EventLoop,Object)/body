@@ -1,0 +1,32 @@
+{
+  if (r.complete()) {
+    return;
+  }
+  if (actualCtx.isOnCorrectWorker(loop)) {
+    try {
+      vertx.setContext(actualCtx);
+      if (result instanceof Throwable) {
+        r.setFailure((Throwable)result);
+      }
+ else {
+        r.setResult(result);
+      }
+    }
+ catch (    Throwable t) {
+      actualCtx.reportException(t);
+    }
+  }
+ else {
+    actualCtx.execute(new Runnable(){
+      public void run(){
+        if (result instanceof Throwable) {
+          r.setFailure((Throwable)result);
+        }
+ else {
+          r.setResult(result);
+        }
+      }
+    }
+);
+  }
+}

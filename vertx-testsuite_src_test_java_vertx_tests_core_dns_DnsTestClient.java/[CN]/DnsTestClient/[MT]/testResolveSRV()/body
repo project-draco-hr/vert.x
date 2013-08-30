@@ -6,6 +6,7 @@
   DnsClient dns=prepareDns(TestDnsServer.testResolveSRV(priority,weight,port,target));
   dns.resolveSRV("vertx.io",new Handler<AsyncResult<List<SrvRecord>>>(){
     @Override public void handle(    AsyncResult<List<SrvRecord>> event){
+      tu.checkThread();
       List<SrvRecord> result=event.result();
       tu.azzert(!result.isEmpty());
       tu.azzert(result.size() == 1);

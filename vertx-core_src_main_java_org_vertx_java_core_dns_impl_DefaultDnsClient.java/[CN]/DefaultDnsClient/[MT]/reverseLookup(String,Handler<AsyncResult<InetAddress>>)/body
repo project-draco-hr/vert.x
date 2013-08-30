@@ -36,8 +36,8 @@
 );
   }
  catch (  final UnknownHostException e) {
-    bootstrap.group().next().execute(new Runnable(){
-      @Override public void run(){
+    actualCtx.execute(new Runnable(){
+      public void run(){
         handler.handle(new DefaultFutureResult<InetAddress>(e));
       }
     }

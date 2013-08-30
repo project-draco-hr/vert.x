@@ -3,6 +3,7 @@
   DnsClient dns=prepareDns(TestDnsServer.testLookup(ip));
   dns.lookup("vertx.io",new Handler<AsyncResult<InetAddress>>(){
     @Override public void handle(    AsyncResult<InetAddress> event){
+      tu.checkThread();
       InetAddress result=event.result();
       tu.azzert(result != null);
       tu.azzert(ip.equals(result.getHostAddress()));

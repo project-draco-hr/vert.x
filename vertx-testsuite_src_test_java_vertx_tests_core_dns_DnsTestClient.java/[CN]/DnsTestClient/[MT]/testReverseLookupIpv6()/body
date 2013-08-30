@@ -4,6 +4,7 @@
   DnsClient dns=prepareDns(TestDnsServer.testReverseLookup(ptr));
   dns.reverseLookup("::1",new Handler<AsyncResult<InetAddress>>(){
     @Override public void handle(    AsyncResult<InetAddress> event){
+      tu.checkThread();
       InetAddress result=event.result();
       tu.azzert(result != null);
       tu.azzert(result instanceof Inet6Address);

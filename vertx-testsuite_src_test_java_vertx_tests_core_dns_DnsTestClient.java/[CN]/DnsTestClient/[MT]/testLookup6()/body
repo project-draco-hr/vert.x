@@ -2,6 +2,7 @@
   DnsClient dns=prepareDns(TestDnsServer.testLookup6());
   dns.lookup6("vertx.io",new Handler<AsyncResult<Inet6Address>>(){
     @Override public void handle(    AsyncResult<Inet6Address> event){
+      tu.checkThread();
       Inet6Address result=event.result();
       tu.azzert(result != null);
       tu.azzert(Arrays.equals(IP6_BYTES,result.getAddress()));

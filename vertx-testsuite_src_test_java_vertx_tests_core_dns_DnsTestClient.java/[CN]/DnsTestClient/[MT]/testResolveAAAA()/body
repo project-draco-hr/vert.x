@@ -2,6 +2,7 @@
   DnsClient dns=prepareDns(TestDnsServer.testResolveAAAA("::1"));
   dns.resolveAAAA("vertx.io",new Handler<AsyncResult<List<Inet6Address>>>(){
     @Override public void handle(    AsyncResult<List<Inet6Address>> event){
+      tu.checkThread();
       List<Inet6Address> result=event.result();
       tu.azzert(result != null);
       tu.azzert(!result.isEmpty());

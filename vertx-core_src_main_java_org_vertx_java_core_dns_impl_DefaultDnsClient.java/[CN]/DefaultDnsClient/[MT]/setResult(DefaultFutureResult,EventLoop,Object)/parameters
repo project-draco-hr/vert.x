@@ -1,2 +1,3 @@
 DefaultFutureResult r
+EventLoop loop
 Object result

@@ -3,7 +3,8 @@
     throw new IllegalArgumentException("Need at least one default DNS Server");
   }
   this.dnsServers=new LinkedList<>(Arrays.asList(dnsServers));
-  DefaultContext actualCtx=vertx.getOrCreateContext();
+  actualCtx=vertx.getOrCreateContext();
+  this.vertx=vertx;
   bootstrap=new Bootstrap();
   bootstrap.group(actualCtx.getEventLoop());
   bootstrap.channel(NioDatagramChannel.class);
