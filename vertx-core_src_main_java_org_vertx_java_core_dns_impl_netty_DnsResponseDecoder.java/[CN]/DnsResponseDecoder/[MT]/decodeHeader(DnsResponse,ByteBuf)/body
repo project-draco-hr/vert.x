@@ -1,0 +1,18 @@
+{
+  int id=buf.readUnsignedShort();
+  DnsResponseHeader header=new DnsResponseHeader(parent,id);
+  int flags=buf.readUnsignedShort();
+  header.setType(flags >> 15);
+  header.setOpcode(flags >> 11 & 0xf);
+  header.setRecursionDesired((flags >> 8 & 1) == 1);
+  header.setAuthoritativeAnswer((flags >> 10 & 1) == 1);
+  header.setTruncated((flags >> 9 & 1) == 1);
+  header.setRecursionAvailable((flags >> 7 & 1) == 1);
+  header.setZ(flags >> 4 & 0x7);
+  header.setResponseCode(flags & 0xf);
+  header.setReadQuestions(buf.readUnsignedShort());
+  header.setReadAnswers(buf.readUnsignedShort());
+  header.setReadAuthorityResources(buf.readUnsignedShort());
+  header.setReadAdditionalResources(buf.readUnsignedShort());
+  return header;
+}

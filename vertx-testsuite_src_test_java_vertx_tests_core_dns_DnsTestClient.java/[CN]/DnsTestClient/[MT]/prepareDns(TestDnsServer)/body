@@ -1,0 +1,6 @@
+{
+  dnsServer=server;
+  dnsServer.start();
+  InetSocketAddress addr=(InetSocketAddress)dnsServer.getTransports()[0].getAcceptor().getLocalAddress();
+  return vertx.createDnsClient(addr);
+}

@@ -1,0 +1,12 @@
+{
+  DnsClient dns=prepareDns(TestDnsServer.testLookupNonExisting());
+  dns.lookup("gfegjegjf.sg1",new Handler<AsyncResult<InetAddress>>(){
+    @Override public void handle(    AsyncResult<InetAddress> event){
+      tu.checkThread();
+      DnsException cause=(DnsException)event.cause();
+      tu.azzert(cause.code() == DnsResponseCode.NXDOMAIN);
+      tu.testComplete();
+    }
+  }
+);
+}

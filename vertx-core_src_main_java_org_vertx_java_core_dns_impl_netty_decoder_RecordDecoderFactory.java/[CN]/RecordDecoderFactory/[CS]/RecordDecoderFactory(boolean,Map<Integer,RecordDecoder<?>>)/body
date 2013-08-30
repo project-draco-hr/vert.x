@@ -1,0 +1,20 @@
+{
+  if (!useDefaultDecoders && (customDecoders == null || customDecoders.isEmpty())) {
+    throw new IllegalStateException("No decoders have been included to be used with this factory.");
+  }
+  if (useDefaultDecoders) {
+    decoders.put(DnsEntry.TYPE_A,new AddressDecoder(4));
+    decoders.put(DnsEntry.TYPE_AAAA,new AddressDecoder(16));
+    decoders.put(DnsEntry.TYPE_MX,new MailExchangerDecoder());
+    decoders.put(DnsEntry.TYPE_TXT,new TextDecoder());
+    decoders.put(DnsEntry.TYPE_SRV,new ServiceDecoder());
+    RecordDecoder<?> decoder=new DomainDecoder();
+    decoders.put(DnsEntry.TYPE_NS,decoder);
+    decoders.put(DnsEntry.TYPE_CNAME,decoder);
+    decoders.put(DnsEntry.TYPE_PTR,decoder);
+    decoders.put(DnsEntry.TYPE_SOA,new StartOfAuthorityDecoder());
+  }
+  if (customDecoders != null) {
+    decoders.putAll(customDecoders);
+  }
+}

@@ -1,0 +1,11 @@
+{
+  String name=readName(buf);
+  int type=buf.readUnsignedShort();
+  int aClass=buf.readUnsignedShort();
+  long ttl=buf.readUnsignedInt();
+  int len=buf.readUnsignedShort();
+  ByteBuf resourceData=allocator.buffer(len);
+  int contentIndex=buf.readerIndex();
+  resourceData.writeBytes(buf,len);
+  return new DnsResource(name,type,aClass,ttl,contentIndex,resourceData);
+}

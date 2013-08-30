@@ -1,0 +1,6 @@
+{
+  String name=readName(buf);
+  int type=buf.readUnsignedShort();
+  int qClass=buf.readUnsignedShort();
+  return new DnsQuestion(name,type,qClass);
+}

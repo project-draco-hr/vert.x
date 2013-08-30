@@ -1,0 +1,5 @@
+{
+  super(parent);
+  setId(id);
+  setType(TYPE_RESPONSE);
+}

@@ -1,0 +1,6 @@
+{
+  if (code == null) {
+    throw new NullPointerException("code");
+  }
+  this.code=code;
+}

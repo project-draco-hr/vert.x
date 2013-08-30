@@ -1,0 +1,9 @@
+{
+  this.primaryNameServer=primaryNameServer;
+  this.responsiblePerson=responsiblePerson;
+  this.serial=serial;
+  this.refreshTime=refreshTime;
+  this.retryTime=retryTime;
+  this.expireTime=expireTime;
+  this.minimumTtl=minimumTtl;
+}

@@ -1,0 +1,7 @@
+{
+  if (type != TYPE_RESPONSE) {
+    throw new IllegalArgumentException("type cannot be anything but TYPE_RESPONSE (1) for a response header.");
+  }
+  super.setType(type);
+  return this;
+}

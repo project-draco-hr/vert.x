@@ -1,0 +1,7 @@
+{
+  encodeHeader(query.getHeader(),buf);
+  List<DnsQuestion> questions=query.getQuestions();
+  for (  DnsQuestion question : questions) {
+    encodeQuestion(question,CharsetUtil.UTF_8,buf);
+  }
+}

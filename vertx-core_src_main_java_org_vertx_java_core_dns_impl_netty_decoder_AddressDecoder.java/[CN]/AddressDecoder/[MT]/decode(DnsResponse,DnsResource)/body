@@ -1,0 +1,15 @@
+{
+  ByteBuf data=resource.content().copy().readerIndex(response.originalIndex());
+  int size=data.writerIndex() - data.readerIndex();
+  if (data.readerIndex() != 0 || size != octets) {
+    throw new DecoderException("Invalid content length, or reader index when decoding address [index: " + data.readerIndex() + ", expected length: "+ octets+ ", actual: "+ size+ "].");
+  }
+  byte[] address=new byte[octets];
+  data.getBytes(data.readerIndex(),address);
+  try {
+    return InetAddress.getByAddress(address);
+  }
+ catch (  UnknownHostException e) {
+    throw new DecoderException("Could not convert address " + data.toString(data.readerIndex(),size,CharsetUtil.UTF_8) + " to InetAddress.");
+  }
+}

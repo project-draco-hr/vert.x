@@ -1,0 +1,6 @@
+{
+  super(name,type,aClass);
+  this.ttl=ttl;
+  this.contentIndex=contentIndex;
+  this.content=content;
+}

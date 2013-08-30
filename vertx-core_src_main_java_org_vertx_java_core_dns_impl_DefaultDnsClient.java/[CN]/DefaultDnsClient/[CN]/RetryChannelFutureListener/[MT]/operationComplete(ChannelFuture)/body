@@ -1,0 +1,15 @@
+{
+  if (!future.isSuccess()) {
+    if (!result.complete()) {
+      if (dns.hasNext()) {
+        lookup(dns,name,result,types);
+      }
+ else {
+        result.setFailure(future.cause());
+      }
+    }
+  }
+ else {
+    onSuccess(future);
+  }
+}

@@ -1,0 +1,3 @@
+int type
+DnsResponse response
+DnsResource resource

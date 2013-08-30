@@ -1,0 +1,8 @@
+{
+  ByteBuf packet=response.content().readerIndex(resource.contentIndex());
+  int priority=packet.readShort();
+  int weight=packet.readShort();
+  int port=packet.readUnsignedShort();
+  String target=DnsResponseDecoder.readName(packet);
+  return new ServiceRecord(resource.name(),priority,weight,port,target);
+}

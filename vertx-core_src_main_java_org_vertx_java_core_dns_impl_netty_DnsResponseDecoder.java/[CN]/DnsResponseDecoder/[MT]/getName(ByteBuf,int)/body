@@ -1,0 +1,17 @@
+{
+  StringBuilder name=new StringBuilder();
+  for (int len=buf.getUnsignedByte(offset++); buf.writerIndex() > offset && len != 0; len=buf.getUnsignedByte(offset++)) {
+    boolean pointer=(len & 0xc0) == 0xc0;
+    if (pointer) {
+      offset=(len & 0x3f) << 8 | buf.getUnsignedByte(offset++);
+    }
+ else {
+      name.append(buf.toString(offset,len,CharsetUtil.UTF_8)).append(".");
+      offset+=len;
+    }
+  }
+  if (name.length() == 0) {
+    return null;
+  }
+  return name.substring(0,name.length() - 1);
+}

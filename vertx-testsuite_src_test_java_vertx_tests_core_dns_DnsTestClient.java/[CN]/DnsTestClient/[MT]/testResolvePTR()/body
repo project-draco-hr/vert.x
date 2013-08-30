@@ -1,0 +1,14 @@
+{
+  final String ptr="ptr.vertx.io";
+  DnsClient dns=prepareDns(TestDnsServer.testResolvePTR(ptr));
+  dns.resolvePTR("10.0.0.1.in-addr.arpa",new Handler<AsyncResult<String>>(){
+    @Override public void handle(    AsyncResult<String> event){
+      tu.checkThread();
+      String result=event.result();
+      tu.azzert(result != null);
+      tu.azzert(ptr.equals(result));
+      tu.testComplete();
+    }
+  }
+);
+}

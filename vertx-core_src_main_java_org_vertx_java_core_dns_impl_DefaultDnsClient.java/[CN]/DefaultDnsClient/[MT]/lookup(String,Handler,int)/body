@@ -1,0 +1,5 @@
+{
+  final DefaultFutureResult result=new DefaultFutureResult<>();
+  result.setHandler(handler);
+  lookup(dnsServers.iterator(),name,result,types);
+}

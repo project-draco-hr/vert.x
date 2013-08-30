@@ -1,0 +1,7 @@
+String primaryNameServer
+String responsiblePerson
+long serial
+int refreshTime
+int retryTime
+int expireTime
+long minimumTtl

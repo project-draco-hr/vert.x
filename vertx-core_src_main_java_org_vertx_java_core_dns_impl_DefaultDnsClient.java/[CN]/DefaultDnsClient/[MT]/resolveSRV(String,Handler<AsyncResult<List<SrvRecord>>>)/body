@@ -1,0 +1,9 @@
+{
+  lookup(name,new ConvertingHandler<ServiceRecord,SrvRecord>(handler,DefaultSrvRecordComparator.INSTANCE){
+    @Override protected SrvRecord convert(    ServiceRecord entry){
+      return new DefaultSrvRecord(entry);
+    }
+  }
+,DnsEntry.TYPE_SRV);
+  return this;
+}

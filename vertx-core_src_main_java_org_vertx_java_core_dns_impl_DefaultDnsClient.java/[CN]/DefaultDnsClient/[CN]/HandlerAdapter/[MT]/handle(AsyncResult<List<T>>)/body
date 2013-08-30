@@ -1,0 +1,14 @@
+{
+  if (event.failed()) {
+    handler.handle(event);
+  }
+ else {
+    List<T> result=event.result();
+    if (result.isEmpty()) {
+      handler.handle(new DefaultFutureResult<>((T)null));
+    }
+ else {
+      handler.handle(new DefaultFutureResult<>(result.get(0)));
+    }
+  }
+}

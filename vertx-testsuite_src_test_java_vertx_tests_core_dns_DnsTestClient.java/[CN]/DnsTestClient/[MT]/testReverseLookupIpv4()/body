@@ -1,0 +1,17 @@
+{
+  final byte[] address=InetAddress.getByName("10.0.0.1").getAddress();
+  final String ptr="ptr.vertx.io";
+  DnsClient dns=prepareDns(TestDnsServer.testReverseLookup(ptr));
+  dns.reverseLookup("10.0.0.1",new Handler<AsyncResult<InetAddress>>(){
+    @Override public void handle(    AsyncResult<InetAddress> event){
+      tu.checkThread();
+      InetAddress result=event.result();
+      tu.azzert(result != null);
+      tu.azzert(result instanceof Inet4Address);
+      tu.azzert(ptr.equals(result.getHostName()));
+      tu.azzert(Arrays.equals(address,result.getAddress()));
+      tu.testComplete();
+    }
+  }
+);
+}
