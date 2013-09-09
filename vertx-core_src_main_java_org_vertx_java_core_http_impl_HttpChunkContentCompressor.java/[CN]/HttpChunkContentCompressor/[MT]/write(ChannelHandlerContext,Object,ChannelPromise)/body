@@ -1,0 +1,6 @@
+{
+  if (msg instanceof ByteBuf) {
+    msg=new DefaultHttpContent((ByteBuf)msg);
+  }
+  super.write(ctx,msg,promise);
+}

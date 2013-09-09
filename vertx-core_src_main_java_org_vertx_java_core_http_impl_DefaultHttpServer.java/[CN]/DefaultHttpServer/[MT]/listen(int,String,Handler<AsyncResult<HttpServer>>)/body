@@ -46,7 +46,10 @@ case NONE:
     pipeline.addLast("flashpolicy",new FlashPolicyHandler());
     pipeline.addLast("httpDecoder",new HttpRequestDecoder());
     pipeline.addLast("httpEncoder",new HttpResponseEncoder());
-    if (tcpHelper.isSSL()) {
+    if (compressionSupported) {
+      pipeline.addLast("deflater",new HttpChunkContentCompressor());
+    }
+    if (tcpHelper.isSSL() || compressionSupported) {
       pipeline.addLast("chunkedWriter",new ChunkedWriteHandler());
     }
     pipeline.addLast("handler",new ServerHandler());

@@ -1,0 +1,3 @@
+{
+  return super.supportsFileRegion() && channel.pipeline().get(HttpChunkContentCompressor.class) == null;
+}

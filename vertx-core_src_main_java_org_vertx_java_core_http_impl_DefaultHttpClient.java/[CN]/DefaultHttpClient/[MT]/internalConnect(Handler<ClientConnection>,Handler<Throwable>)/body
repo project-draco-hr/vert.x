@@ -21,6 +21,9 @@
           pipeline.addLast("ssl",new SslHandler(engine));
         }
         pipeline.addLast("codec",new HttpClientCodec());
+        if (tryUseCompression) {
+          pipeline.addLast("inflater",new HttpContentDecompressor());
+        }
         pipeline.addLast("handler",new ClientHandler());
       }
     }

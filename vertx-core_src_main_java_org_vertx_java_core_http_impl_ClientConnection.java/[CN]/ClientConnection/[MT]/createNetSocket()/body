@@ -3,8 +3,13 @@
   Map<Channel,DefaultNetSocket> connectionMap=new HashMap<Channel,DefaultNetSocket>(1);
   connectionMap.put(channel,socket);
   endReadAndFlush();
-  channel.pipeline().remove("codec");
-  channel.pipeline().replace("handler","handler",new VertxNetHandler(client.vertx,connectionMap){
+  ChannelPipeline pipeline=channel.pipeline();
+  ChannelHandler inflater=pipeline.get(HttpContentDecompressor.class);
+  if (inflater != null) {
+    pipeline.remove(inflater);
+  }
+  pipeline.remove("codec");
+  pipeline.replace("handler","handler",new VertxNetHandler(client.vertx,connectionMap){
     @Override public void exceptionCaught(    ChannelHandlerContext chctx,    Throwable t) throws Exception {
       client.connectionMap.remove(channel);
       super.exceptionCaught(chctx,t);
