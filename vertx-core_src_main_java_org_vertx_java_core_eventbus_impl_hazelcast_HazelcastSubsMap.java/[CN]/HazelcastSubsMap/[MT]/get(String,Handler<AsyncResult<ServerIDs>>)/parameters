@@ -1,2 +1,0 @@
-String subName
-Handler<AsyncResult<ServerIDs>> completionHandler

@@ -1,4 +1,11 @@
 {
+  if (stopped) {
+    return;
+  }
+  if (haManager != null) {
+    haManager.stop();
+  }
   redeployer.close();
   vertx.stop();
+  stopped=true;
 }

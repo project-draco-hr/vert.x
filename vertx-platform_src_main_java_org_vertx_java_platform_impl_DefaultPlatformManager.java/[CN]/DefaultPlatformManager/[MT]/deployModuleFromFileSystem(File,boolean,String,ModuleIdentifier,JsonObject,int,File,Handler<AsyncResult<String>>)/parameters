@@ -1,8 +1,0 @@
-File modRoot
-boolean redeploy
-String depName
-ModuleIdentifier modID
-JsonObject config
-int instances
-File currentModDir
-Handler<AsyncResult<String>> doneHandler

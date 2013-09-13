@@ -1,0 +1,36 @@
+{
+  for (  final Map.Entry<String,Deployment> entry : platformManager.deployments().entrySet()) {
+    if (entry.getValue().ha) {
+      DefaultContext ctx=vertx.getContext();
+      try {
+        vertx.setContext(null);
+        platformManager.undeploy(entry.getKey(),new AsyncResultHandler<Void>(){
+          @Override public void handle(          AsyncResult<Void> result){
+            if (result.succeeded()) {
+              final Deployment dep=entry.getValue();
+              log.info("Successfully undeployed HA deployment " + dep.modID + " as there is no quorum");
+              addToHADeployList(dep.modID.toString(),dep.config,dep.instances,new AsyncResultHandler<String>(){
+                @Override public void handle(                AsyncResult<String> result){
+                  if (result.succeeded()) {
+                    log.info("Successfully redeployed module " + entry.getValue().modID + " after quorum was re-attained");
+                  }
+ else {
+                    log.error("Failed to redeploy module " + entry.getValue().modID + " after quorum was re-attained",result.cause());
+                  }
+                }
+              }
+);
+            }
+ else {
+              log.error("Failed to undeploy deployment on lost quorum",result.cause());
+            }
+          }
+        }
+);
+      }
+  finally {
+        vertx.setContext(ctx);
+      }
+    }
+  }
+}

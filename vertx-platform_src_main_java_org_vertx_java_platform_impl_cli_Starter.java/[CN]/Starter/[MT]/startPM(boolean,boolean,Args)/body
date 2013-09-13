@@ -1,0 +1,34 @@
+{
+  PlatformManager mgr;
+  if (clustered || ha) {
+    log.info("Starting clustering...");
+    int clusterPort=args.getInt("-cluster-port");
+    if (clusterPort == -1) {
+      clusterPort=0;
+    }
+    String clusterHost=args.map.get("-cluster-host");
+    if (clusterHost == null) {
+      clusterHost=getDefaultAddress();
+      if (clusterHost == null) {
+        log.error("Unable to find a default network interface for clustering. Please specify one using -cluster-host");
+        return null;
+      }
+ else {
+        log.info("No cluster-host specified so using address " + clusterHost);
+      }
+    }
+    if (ha) {
+      String sQuorumSize=args.map.get("-quorum");
+      String haGroup=args.map.get("-hagroup");
+      int quorumSize=sQuorumSize == null ? 0 : Integer.valueOf(sQuorumSize);
+      mgr=createPM(clusterPort,clusterHost,quorumSize,haGroup);
+    }
+ else {
+      mgr=createPM(clusterPort,clusterHost);
+    }
+  }
+ else {
+    mgr=createPM();
+  }
+  return mgr;
+}

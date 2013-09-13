@@ -1,0 +1,3 @@
+{
+  this(modName,1,new JsonObject());
+}

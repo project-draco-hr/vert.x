@@ -1,0 +1,12 @@
+{
+  if (ha && haManager != null) {
+    final File currentModDir=getDeploymentModDir();
+    if (currentModDir != null) {
+      throw new IllegalStateException("Only top-level modules can be deployed with HA");
+    }
+    haManager.deployModule(moduleName,config,instances,doneHandler);
+  }
+ else {
+    deployModule(moduleName,config,instances,doneHandler);
+  }
+}

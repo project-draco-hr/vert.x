@@ -1,0 +1,6 @@
+{
+  for (int size=clusterSize; size > 1; size--) {
+    int toKill=random.nextInt(size);
+    cluster.killNode(toKill);
+  }
+}

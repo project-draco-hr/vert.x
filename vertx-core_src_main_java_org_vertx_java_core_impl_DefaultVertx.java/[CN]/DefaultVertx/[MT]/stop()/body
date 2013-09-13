@@ -26,5 +26,6 @@
     eventLoopGroup.shutdownGracefully();
     eventLoopGroup=null;
   }
+  eventBus.close(null);
   setContext(null);
 }

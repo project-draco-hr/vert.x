@@ -1,6 +1,6 @@
 {
   if (clusterMgr != null) {
-    clusterMgr.close();
+    clusterMgr.leave();
   }
   if (server != null) {
     server.close(doneHandler);

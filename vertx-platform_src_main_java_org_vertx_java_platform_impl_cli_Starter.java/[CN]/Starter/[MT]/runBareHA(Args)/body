@@ -1,0 +1,13 @@
+{
+  boolean ha=args.map.get("-ha") != null;
+  if (!ha) {
+    log.info("Vert.x can only be run bare if -ha is specified");
+    return;
+  }
+  PlatformManager mgr=startPM(ha,false,args);
+  if (mgr == null) {
+    return;
+  }
+  addShutdownHook(mgr);
+  block();
+}

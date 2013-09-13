@@ -1,0 +1,10 @@
+{
+  if (val.getClass() == ServerID.class) {
+    ServerID sid=(ServerID)val;
+    HazelcastServerID hsid=new HazelcastServerID(sid);
+    return (V)hsid;
+  }
+ else {
+    return val;
+  }
+}

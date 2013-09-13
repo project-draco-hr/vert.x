@@ -1,0 +1,4 @@
+int clusterPort
+String clusterHost
+int quorumSize
+String haGroup

@@ -1,0 +1,23 @@
+{
+  List<String> nodes=clusterManager.getNodes();
+  int count=0;
+  for (  String node : nodes) {
+    String json=clusterMap.get(node);
+    if (json != null) {
+      JsonObject clusterInfo=new JsonObject(json);
+      String group=clusterInfo.getString("group");
+      if (group.equals(this.group)) {
+        count++;
+      }
+    }
+  }
+  boolean attained=count >= quorumSize;
+  if (!attainedQuorum && attained) {
+    log.info("A quorum has been obtained. Any deployments waiting on a quorum will now be deployed");
+    this.attainedQuorum=true;
+  }
+ else   if (attainedQuorum && !attained) {
+    log.info("There is no longer a quorum. Any HA deployments will be undeployed until a quorum is re-attained");
+    this.attainedQuorum=false;
+  }
+}

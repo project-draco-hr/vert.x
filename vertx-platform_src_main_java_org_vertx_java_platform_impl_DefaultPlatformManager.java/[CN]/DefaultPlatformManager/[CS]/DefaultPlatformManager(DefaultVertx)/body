@@ -1,6 +1,7 @@
 {
   this.platformClassLoader=Thread.currentThread().getContextClassLoader();
   this.vertx=new WrappedVertx(vertx);
+  this.clusterManager=vertx.clusterManager();
   String modDir=System.getProperty(MODS_DIR_PROP_NAME);
   if (modDir != null && !modDir.trim().equals("")) {
     modRoot=new File(modDir);

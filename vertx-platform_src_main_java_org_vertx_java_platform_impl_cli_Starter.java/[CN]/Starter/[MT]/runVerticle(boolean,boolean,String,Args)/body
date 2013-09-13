@@ -1,27 +1,9 @@
 {
+  boolean ha=args.map.get("-ha") != null;
   boolean clustered=args.map.get("-cluster") != null;
-  PlatformManager mgr;
-  if (clustered) {
-    log.info("Starting clustering...");
-    int clusterPort=args.getInt("-cluster-port");
-    if (clusterPort == -1) {
-      clusterPort=0;
-    }
-    String clusterHost=args.map.get("-cluster-host");
-    if (clusterHost == null) {
-      clusterHost=getDefaultAddress();
-      if (clusterHost == null) {
-        log.error("Unable to find a default network interface for clustering. Please specify one using -cluster-host");
-        return;
-      }
- else {
-        log.info("No cluster-host specified so using address " + clusterHost);
-      }
-    }
-    mgr=createPM(clusterPort,clusterHost);
-  }
- else {
-    mgr=createPM();
+  PlatformManager mgr=startPM(ha,clustered,args);
+  if (mgr == null) {
+    return;
   }
   String sinstances=args.map.get("-instances");
   int instances;
@@ -100,6 +82,9 @@
  else   if (module) {
     if (hasClasspath) {
       mgr.deployModuleFromClasspath(main,conf,instances,classpath,createLoggingHandler("Successfully deployed module",doneHandler));
+    }
+ else     if (ha) {
+      mgr.deployModule(main,conf,instances,true,createLoggingHandler("Successfully deployed module",doneHandler));
     }
  else {
       mgr.deployModule(main,conf,instances,createLoggingHandler("Successfully deployed module",doneHandler));

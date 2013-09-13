@@ -1,0 +1,9 @@
+{
+  if (nodes.containsKey(nodeID)) {
+    throw new IllegalStateException("Node has already joined!");
+  }
+  nodes.put(nodeID,node);
+  for (  NodeListener listener : nodeListeners) {
+    listener.nodeAdded(nodeID);
+  }
+}

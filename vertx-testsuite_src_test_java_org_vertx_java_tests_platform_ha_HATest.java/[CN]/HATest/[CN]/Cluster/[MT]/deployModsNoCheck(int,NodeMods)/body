@@ -1,0 +1,14 @@
+{
+  TestPlatformManager pm=pms.get(node);
+  for (  DepInfo dep : nodeMods.deployments) {
+    pm.deployModule(dep.modName,dep.config,dep.instances,true,new Handler<AsyncResult<String>>(){
+      @Override public void handle(      AsyncResult<String> res){
+        if (!res.succeeded()) {
+          res.cause().printStackTrace();
+          fail("Failed to deploy module");
+        }
+      }
+    }
+);
+  }
+}

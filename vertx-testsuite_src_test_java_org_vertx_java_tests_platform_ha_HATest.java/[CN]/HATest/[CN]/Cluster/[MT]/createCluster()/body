@@ -1,0 +1,6 @@
+{
+  pms=new ArrayList<>();
+  for (  NodeMods node : nodes) {
+    pms.add(new TestPlatformManager(0,"localhost",node.quorumSize,node.group));
+  }
+}

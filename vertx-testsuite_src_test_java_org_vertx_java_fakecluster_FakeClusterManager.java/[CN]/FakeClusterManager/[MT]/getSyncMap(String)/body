@@ -1,0 +1,11 @@
+{
+  Map<K,V> map=(Map<K,V>)syncMaps.get(name);
+  if (map == null) {
+    map=new ConcurrentHashMap<>();
+    Map<K,V> prevMap=(Map<K,V>)syncMaps.putIfAbsent(name,map);
+    if (prevMap != null) {
+      map=prevMap;
+    }
+  }
+  return map;
+}

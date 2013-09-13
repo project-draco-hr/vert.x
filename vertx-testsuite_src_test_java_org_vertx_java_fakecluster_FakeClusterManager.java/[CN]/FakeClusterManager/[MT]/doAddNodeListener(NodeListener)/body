@@ -1,0 +1,6 @@
+{
+  if (nodeListeners.contains(listener)) {
+    throw new IllegalStateException("Listener already registered!");
+  }
+  nodeListeners.add(listener);
+}

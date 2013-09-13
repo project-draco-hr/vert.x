@@ -1,6 +1,13 @@
 {
   this.vertx=vertx;
   this.orderedBgExec=orderedBgExec;
-  this.eventLoop=vertx.getEventLoopGroup().next();
-  this.tccl=Thread.currentThread().getContextClassLoader();
+  EventLoopGroup group=vertx.getEventLoopGroup();
+  if (group != null) {
+    this.eventLoop=group.next();
+    this.tccl=Thread.currentThread().getContextClassLoader();
+  }
+ else {
+    this.eventLoop=null;
+    this.tccl=null;
+  }
 }

@@ -1,11 +1,3 @@
 {
-  final File currentModDir=getDeploymentModDir();
-  final Handler<AsyncResult<String>> wrapped=wrapDoneHandler(doneHandler);
-  runInBackground(new Runnable(){
-    public void run(){
-      ModuleIdentifier modID=new ModuleIdentifier(moduleName);
-      deployModuleFromFileSystem(modRoot,false,null,modID,config,instances,currentModDir,wrapped);
-    }
-  }
-,wrapped);
+  deployModuleInternal(moduleName,config,instances,false,doneHandler);
 }

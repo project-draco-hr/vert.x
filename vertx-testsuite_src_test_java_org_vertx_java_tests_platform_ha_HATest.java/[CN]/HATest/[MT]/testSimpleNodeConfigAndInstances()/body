@@ -1,0 +1,7 @@
+{
+  Cluster cluster=new Cluster(3);
+  cluster.createCluster();
+  cluster.deployMods(0,new NodeMods().addDeployment(new DepInfo("io.vertx~ha-test1~1.0",3,new JsonObject().putString("foo","bar"))));
+  cluster.killNode(0);
+  cluster.closeCluster();
+}

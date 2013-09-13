@@ -1,10 +1,11 @@
 {
-  if (sargs.length < 1) {
-    displaySyntax();
+  Args args=new Args(sargs);
+  sargs=removeOptions(sargs);
+  if (sargs.length == 0) {
+    runBareHA(args);
   }
  else {
     String command=sargs[0].toLowerCase();
-    Args args=new Args(sargs);
     if ("version".equals(command)) {
       log.info(getVersion());
     }

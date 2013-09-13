@@ -1,0 +1,14 @@
+String depID
+boolean autoRedeploy
+boolean worker
+boolean multiThreaded
+String theMain
+ModuleIdentifier modID
+JsonObject config
+URL[] urls
+int instances
+File modDir
+ModuleReference mr
+File modRoot
+boolean ha
+Handler<AsyncResult<String>> dHandler

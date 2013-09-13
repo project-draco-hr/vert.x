@@ -1,0 +1,4 @@
+{
+  hazelcast.getCluster().removeMembershipListener(this);
+  hazelcast.getLifecycleService().shutdown();
+}

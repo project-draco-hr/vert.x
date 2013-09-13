@@ -8,7 +8,7 @@
   }
  else {
     VertxInternal vertxi=((VertxInternal)vertx);
-    ClusterManager clusterManager=new HazelcastClusterManager(vertxi);
+    ClusterManager clusterManager=new FakeClusterManager(vertxi);
     eb=new DefaultEventBus(vertxi,0,"localhost",clusterManager,new AsyncResultHandler<Void>(){
       @Override public void handle(      AsyncResult<Void> asyncResult){
         if (asyncResult.succeeded()) {

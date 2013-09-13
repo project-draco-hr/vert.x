@@ -1,0 +1,2 @@
+Action<T> action
+Handler<AsyncResult<T>> resultHandler

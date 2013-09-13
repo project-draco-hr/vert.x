@@ -1,0 +1,10 @@
+{
+  int pos=0;
+  for (int size=clusterSize; size > 1; size--) {
+    cluster.killNode(pos);
+    pos++;
+    if (pos >= size - 1) {
+      pos=0;
+    }
+  }
+}

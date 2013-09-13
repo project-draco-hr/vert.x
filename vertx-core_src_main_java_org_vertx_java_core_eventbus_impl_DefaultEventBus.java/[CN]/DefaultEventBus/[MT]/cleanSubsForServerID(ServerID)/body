@@ -1,6 +1,6 @@
 {
   if (subs != null) {
-    subs.removeAllForServerID(theServerID,new Handler<AsyncResult<Void>>(){
+    subs.removeAllForValue(theServerID,new Handler<AsyncResult<Void>>(){
       public void handle(      AsyncResult<Void> event){
       }
     }

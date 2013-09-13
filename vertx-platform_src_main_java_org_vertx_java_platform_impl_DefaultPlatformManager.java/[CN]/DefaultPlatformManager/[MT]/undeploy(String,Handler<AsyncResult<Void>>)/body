@@ -10,8 +10,13 @@
       }
       Handler<AsyncResult<Void>> wrappedHandler=wrapDoneHandler(new Handler<AsyncResult<Void>>(){
         public void handle(        AsyncResult<Void> res){
-          if (res.succeeded() && dep.modID != null && dep.autoRedeploy) {
-            redeployer.moduleUndeployed(dep);
+          if (res.succeeded()) {
+            if (dep.modID != null && dep.autoRedeploy) {
+              redeployer.moduleUndeployed(dep);
+            }
+            if (dep.ha && haManager != null) {
+              haManager.removeFromHA(deploymentID);
+            }
           }
           if (doneHandler != null) {
             doneHandler.handle(res);
