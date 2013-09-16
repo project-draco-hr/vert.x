@@ -18,7 +18,7 @@
 );
   }
   toKill.simulateKill();
-  assertTrue(failoverLatch.await(10,TimeUnit.SECONDS));
+  assertTrue(failoverLatch.await(30,TimeUnit.SECONDS));
   int failoverNode=afailoverNode.get();
   if (failoverNode != -1) {
     for (int i=0; i < pms.size(); i++) {

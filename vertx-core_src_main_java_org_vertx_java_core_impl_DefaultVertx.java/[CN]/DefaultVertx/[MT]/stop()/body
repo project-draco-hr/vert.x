@@ -3,13 +3,13 @@
     for (    HttpServer server : sharedHttpServers.values()) {
       server.close();
     }
-    sharedHttpServers=null;
+    sharedHttpServers.clear();
   }
   if (sharedNetServers != null) {
     for (    NetServer server : sharedNetServers.values()) {
       server.close();
     }
-    sharedNetServers=null;
+    sharedNetServers.clear();
   }
   if (backgroundPool != null) {
     backgroundPool.shutdown();
@@ -24,7 +24,6 @@
   }
   if (eventLoopGroup != null) {
     eventLoopGroup.shutdownGracefully();
-    eventLoopGroup=null;
   }
   eventBus.close(null);
   setContext(null);

@@ -1,6 +1,6 @@
 {
   if (!stopped) {
-    clusterMap.remove(nodeID);
+    clusterManager.leave();
     vertx.cancelTimer(quorumTimerID);
     stopped=true;
   }

@@ -1,5 +1,6 @@
 {
-  if (clusterManager != null) {
-    clusterManager.leave();
+  if (haManager != null) {
+    haManager.simulateKill();
   }
+  super.stop();
 }

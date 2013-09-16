@@ -15,6 +15,6 @@
     }
 );
   }
-  assertTrue(latch.await(10,TimeUnit.SECONDS));
+  assertTrue(latch.await(30,TimeUnit.SECONDS));
   checkModulesDeployed(node,nodeMods);
 }

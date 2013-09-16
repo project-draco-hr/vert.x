@@ -1,0 +1,7 @@
+{
+  nodes.clear();
+  nodeListeners.clear();
+  syncMaps.clear();
+  asyncMaps.clear();
+  asyncMultiMaps.clear();
+}
