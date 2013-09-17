@@ -1,7 +1,7 @@
 {
-  Config cfg=getConfig(null);
+  Config cfg=getConfig();
   if (cfg == null) {
-    log.warn("Cannot find cluster.xml on classpath. Using default cluster configuration");
+    log.warn("Cannot find cluster configuration on classpath. Using default hazelcast configuration");
   }
   hazelcast=Hazelcast.newHazelcastInstance(cfg);
   nodeID=hazelcast.getCluster().getLocalMember().getUuid();

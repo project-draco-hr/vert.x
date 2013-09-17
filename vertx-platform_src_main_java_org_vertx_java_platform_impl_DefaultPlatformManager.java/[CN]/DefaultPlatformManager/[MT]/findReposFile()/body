@@ -1,0 +1,7 @@
+{
+  InputStream is=platformClassLoader.getResourceAsStream(REPOS_FILE_NAME);
+  if (is == null) {
+    is=platformClassLoader.getResourceAsStream(DEFAULT_REPOS_FILE_NAME);
+  }
+  return is;
+}

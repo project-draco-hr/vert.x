@@ -3,7 +3,7 @@
   extensionMappings.put("java","java");
   extensionMappings.put("class","java");
   defaultLanguageImplName="java";
-  try (InputStream is=getClass().getClassLoader().getResourceAsStream(LANG_PROPS_FILE_NAME)){
+  try (InputStream is=findLangsFile()){
     if (is != null) {
       Properties props=new Properties();
       props.load(new BufferedInputStream(is));

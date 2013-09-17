@@ -1,5 +1,5 @@
 {
-  try (InputStream is=getClass().getClassLoader().getResourceAsStream(REPOS_FILE_NAME)){
+  try (InputStream is=findReposFile()){
     if (is != null) {
       BufferedReader rdr=new BufferedReader(new InputStreamReader(is));
       String line;
@@ -39,6 +39,6 @@ repos.add(resolver);
 }
 }
  catch (IOException e) {
-log.error("Failed to load " + LANG_PROPS_FILE_NAME + " "+ e.getMessage());
+log.error("Failed to load repos file ",e);
 }
 }

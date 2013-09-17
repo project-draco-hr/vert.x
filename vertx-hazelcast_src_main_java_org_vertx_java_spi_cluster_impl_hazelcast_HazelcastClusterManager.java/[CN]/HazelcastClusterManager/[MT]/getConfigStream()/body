@@ -1,0 +1,7 @@
+{
+  InputStream is=getClass().getClassLoader().getResourceAsStream(CONFIG_FILE);
+  if (is == null) {
+    is=getClass().getClassLoader().getResourceAsStream(CONFIG_FILE);
+  }
+  return is;
+}
