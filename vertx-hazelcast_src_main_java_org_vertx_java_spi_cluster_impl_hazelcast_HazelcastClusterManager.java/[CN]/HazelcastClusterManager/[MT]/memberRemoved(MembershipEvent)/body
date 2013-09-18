@@ -1,4 +1,7 @@
 {
+  if (!active) {
+    return;
+  }
   try {
     if (nodeListener != null) {
       Member member=membershipEvent.getMember();
