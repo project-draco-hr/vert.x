@@ -19,5 +19,16 @@
   }
   this.clusterManager=factory.createClusterManager(this);
   this.clusterManager.join();
-  this.eventBus=new DefaultEventBus(this,port,hostname,clusterManager);
+  final Vertx inst=this;
+  this.eventBus=new DefaultEventBus(this,port,hostname,clusterManager,new AsyncResultHandler<Void>(){
+    @Override public void handle(    AsyncResult<Void> res){
+      if (res.succeeded()) {
+        resultHandler.handle(new DefaultFutureResult<Vertx>(inst));
+      }
+ else {
+        resultHandler.handle(new DefaultFutureResult<Vertx>(res.cause()));
+      }
+    }
+  }
+);
 }

@@ -1,4 +1,4 @@
 {
-  this(new DefaultVertx(port,hostname));
+  this(new DefaultVertx(port,hostname,null));
   this.haManager=new HAManager(vertx,this,clusterManager,quorumSize,haGroup);
 }

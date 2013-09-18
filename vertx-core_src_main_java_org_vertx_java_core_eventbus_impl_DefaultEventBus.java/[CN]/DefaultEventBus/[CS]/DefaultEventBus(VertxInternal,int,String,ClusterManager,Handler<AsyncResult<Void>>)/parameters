@@ -2,4 +2,4 @@ VertxInternal vertx
 int port
 String hostname
 ClusterManager clusterManager
-AsyncResultHandler<Void> listenHandler
+Handler<AsyncResult<Void>> listenHandler
