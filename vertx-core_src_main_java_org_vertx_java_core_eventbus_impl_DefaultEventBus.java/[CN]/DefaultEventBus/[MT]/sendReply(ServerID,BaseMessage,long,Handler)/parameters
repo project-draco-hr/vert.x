@@ -1,3 +1,4 @@
 ServerID dest
 BaseMessage message
+long timeout
 Handler replyHandler

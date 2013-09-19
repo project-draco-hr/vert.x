@@ -1,2 +1,3 @@
-BaseMessage msg
+JsonArray message
+long timeout
 Handler<Message<T>> replyHandler
