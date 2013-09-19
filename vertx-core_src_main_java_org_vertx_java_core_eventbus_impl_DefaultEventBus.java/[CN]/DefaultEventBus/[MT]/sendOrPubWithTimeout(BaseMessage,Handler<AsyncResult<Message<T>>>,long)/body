@@ -1,0 +1,4 @@
+{
+  Handler<Message<T>> handler=convertHandler(asyncResultHandler);
+  sendOrPub(null,message,handler,asyncResultHandler,timeout);
+}

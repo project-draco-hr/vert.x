@@ -3,4 +3,5 @@
   this.handler=handler;
   this.replyHandler=replyHandler;
   this.localOnly=localOnly;
+  this.timeoutID=timeoutID;
 }

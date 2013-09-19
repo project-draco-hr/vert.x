@@ -1,3 +1,5 @@
 ServerID replyDest
 BaseMessage message
 Handler replyHandler
+Handler asyncResultHandler
+long timeout

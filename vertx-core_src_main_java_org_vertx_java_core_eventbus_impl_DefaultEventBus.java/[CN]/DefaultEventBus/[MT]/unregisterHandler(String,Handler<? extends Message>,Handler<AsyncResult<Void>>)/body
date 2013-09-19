@@ -7,6 +7,9 @@ synchronized (handlers) {
       for (int i=0; i < size; i++) {
         HandlerHolder holder=handlers.list.get(i);
         if (holder.handler == handler) {
+          if (holder.timeoutID != -1) {
+            vertx.cancelTimer(holder.timeoutID);
+          }
           handlers.list.remove(i);
           holder.removed=true;
           if (handlers.list.isEmpty()) {

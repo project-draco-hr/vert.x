@@ -25,7 +25,7 @@
       }
 ;
     }
-    handlers.list.add(new HandlerHolder(handler,replyHandler,localOnly,context));
+    handlers.list.add(new HandlerHolder(handler,replyHandler,localOnly,context,timeoutID));
     if (subs != null && !replyHandler && !localOnly) {
       subs.add(address,serverID,completionHandler);
     }
@@ -34,7 +34,7 @@
     }
   }
  else {
-    handlers.list.add(new HandlerHolder(handler,replyHandler,localOnly,context));
+    handlers.list.add(new HandlerHolder(handler,replyHandler,localOnly,context,timeoutID));
     if (completionHandler != null) {
       callCompletionHandler(completionHandler);
     }

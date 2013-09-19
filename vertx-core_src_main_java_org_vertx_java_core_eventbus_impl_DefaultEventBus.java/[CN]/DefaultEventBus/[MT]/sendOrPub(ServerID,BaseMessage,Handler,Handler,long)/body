@@ -1,11 +1,30 @@
 {
   checkStarted();
   DefaultContext context=vertx.getOrCreateContext();
+  if (timeout == -1) {
+    timeout=defaultReplyTimeout;
+  }
   try {
     message.sender=serverID;
     if (replyHandler != null) {
       message.replyAddress=prefix + String.valueOf(seq.incrementAndGet());
-      registerHandler(message.replyAddress,replyHandler,null,true,true);
+      long timeoutID;
+      if (timeout != -1) {
+        timeoutID=vertx.setTimer(timeout,new Handler<Long>(){
+          @Override public void handle(          Long timerID){
+            log.warn("Message reply handler timed out as no reply was received - it will be removed");
+            unregisterHandler(message.replyAddress,replyHandler);
+            if (asyncResultHandler != null) {
+              asyncResultHandler.handle(new DefaultFutureResult(new VertxException("Timed out waiting for reply")));
+            }
+          }
+        }
+);
+      }
+ else {
+        timeoutID=-1;
+      }
+      registerHandler(message.replyAddress,replyHandler,null,true,true,timeoutID);
     }
     if (replyDest != null) {
       if (!replyDest.equals(this.serverID)) {

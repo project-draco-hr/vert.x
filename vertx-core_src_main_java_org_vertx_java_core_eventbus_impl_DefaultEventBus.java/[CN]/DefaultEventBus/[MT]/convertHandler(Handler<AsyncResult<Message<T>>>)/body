@@ -1,0 +1,8 @@
+{
+  return new Handler<Message<T>>(){
+    @Override public void handle(    Message<T> reply){
+      handler.handle(new DefaultFutureResult<>(reply));
+    }
+  }
+;
+}
