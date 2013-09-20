@@ -1,31 +1,32 @@
 {
-  final long start=System.currentTimeMillis();
   final long timeout=500;
   String address="some-address";
+  final long start=System.currentTimeMillis();
   eb.registerHandler(address,new Handler<Message<String>>(){
     @Override public void handle(    final Message<String> message){
-      vertx.setTimer(timeout * 2,new Handler<Long>(){
-        @Override public void handle(        Long tid){
-          message.reply("bar");
+      message.replyWithTimeout("bar",timeout,new Handler<AsyncResult<Message<String>>>(){
+        boolean called;
+        @Override public void handle(        AsyncResult<Message<String>> replyReply){
+          tu.azzert(!called);
+          tu.azzert(replyReply.failed());
+          tu.azzert(System.currentTimeMillis() - start >= timeout);
+          tu.testComplete();
+          called=true;
         }
       }
 );
     }
   }
 );
-  eb.sendWithTimeout(address,"foo",timeout,new Handler<AsyncResult<Message<String>>>(){
-    boolean replied;
-    @Override public void handle(    AsyncResult<Message<String>> reply){
-      tu.azzert(!replied);
-      tu.azzert(reply.failed());
-      tu.azzert(System.currentTimeMillis() - start >= timeout);
+  eb.send(address,"foo",new Handler<Message<String>>(){
+    @Override public void handle(    final Message<String> reply){
+      tu.azzert("bar".equals(reply.body()));
       vertx.setTimer(timeout * 2,new Handler<Long>(){
         @Override public void handle(        Long tid){
-          tu.testComplete();
+          reply.reply("quux");
         }
       }
 );
-      replied=true;
     }
   }
 );

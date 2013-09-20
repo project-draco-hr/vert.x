@@ -1,0 +1,3 @@
+ServerID dest
+BaseMessage<U> message
+Handler<Message<T>> replyHandler

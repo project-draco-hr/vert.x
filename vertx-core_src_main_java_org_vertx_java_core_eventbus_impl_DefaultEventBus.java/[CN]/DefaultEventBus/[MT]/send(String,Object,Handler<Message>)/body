@@ -1,4 +1,10 @@
 {
-  sendOrPub(createMessage(true,address,message),replyHandler);
+  Handler<Message<String>> wrapped=new Handler<Message<String>>(){
+    @Override public void handle(    Message msg){
+      replyHandler.handle(msg);
+    }
+  }
+;
+  sendOrPub(createMessage(true,address,message),wrapped);
   return this;
 }

@@ -1,3 +1,0 @@
-{
-  sendReply(new LongMessage(true,replyAddress,message),timeout,replyHandler);
-}

@@ -1,0 +1,4 @@
+ServerID replyDest
+BaseMessage<U> message
+Handler<Message<T>> replyHandler
+long timeout

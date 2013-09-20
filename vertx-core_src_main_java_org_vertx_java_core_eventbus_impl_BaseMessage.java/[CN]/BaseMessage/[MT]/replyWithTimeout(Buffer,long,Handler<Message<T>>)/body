@@ -1,3 +1,0 @@
-{
-  sendReply(new BufferMessage(true,replyAddress,message),timeout,replyHandler);
-}

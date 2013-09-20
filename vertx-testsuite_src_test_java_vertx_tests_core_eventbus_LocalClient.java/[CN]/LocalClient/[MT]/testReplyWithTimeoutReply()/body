@@ -1,17 +1,23 @@
 {
-  System.out.println("in test");
+  final long timeout=500;
   String address="some-address";
   eb.registerHandler(address,new Handler<Message<String>>(){
-    @Override public void handle(    Message<String> message){
-      message.reply("bar");
+    @Override public void handle(    final Message<String> message){
+      message.replyWithTimeout("bar",timeout,new Handler<AsyncResult<Message<String>>>(){
+        @Override public void handle(        AsyncResult<Message<String>> replyReply){
+          tu.azzert(replyReply.succeeded());
+          tu.azzert("quux".equals(replyReply.result().body()));
+          tu.testComplete();
+        }
+      }
+);
     }
   }
 );
-  eb.sendWithTimeout(address,"foo",500,new Handler<AsyncResult<Message<String>>>(){
-    @Override public void handle(    AsyncResult<Message<String>> reply){
-      tu.azzert(reply.succeeded());
-      tu.azzert("bar".equals(reply.result().body()));
-      tu.testComplete();
+  eb.send(address,"foo",new Handler<Message<String>>(){
+    @Override public void handle(    Message<String> reply){
+      tu.azzert("bar".equals(reply.body()));
+      reply.reply("quux");
     }
   }
 );

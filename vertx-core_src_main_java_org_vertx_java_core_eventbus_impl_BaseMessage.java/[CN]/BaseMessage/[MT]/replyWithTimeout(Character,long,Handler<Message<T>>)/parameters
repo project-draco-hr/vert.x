@@ -1,3 +1,0 @@
-Character message
-long timeout
-Handler<Message<T>> replyHandler

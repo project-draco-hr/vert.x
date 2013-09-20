@@ -1,0 +1,5 @@
+{
+  if (bus != null && replyAddress != null) {
+    bus.sendReplyWithTimeout(sender,msg,timeout,replyHandler);
+  }
+}
