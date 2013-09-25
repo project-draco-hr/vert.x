@@ -8,7 +8,14 @@
         if (filename == null || "".equals(filename)) {
           throw new IllegalStateException("Vert.x jars not available as file urls");
         }
-        return filename;
+        String correctedFileName;
+        try {
+          correctedFileName=new File(URLDecoder.decode(filename,"UTF-8")).getPath();
+        }
+ catch (        UnsupportedEncodingException e) {
+          throw new IllegalStateException(e);
+        }
+        return correctedFileName;
       }
     }
   }
