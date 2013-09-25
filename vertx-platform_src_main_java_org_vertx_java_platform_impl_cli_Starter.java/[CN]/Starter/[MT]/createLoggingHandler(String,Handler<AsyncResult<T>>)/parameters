@@ -1,2 +1,2 @@
-String successMessage
+String message
 Handler<AsyncResult<T>> doneHandler

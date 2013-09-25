@@ -1,3 +1,4 @@
 {
   logger.log(Level.SEVERE,message == null ? "NULL" : message.toString(),t);
+  logger.log(Level.SEVERE,message == null ? "NULL" : message.toString(),t);
 }

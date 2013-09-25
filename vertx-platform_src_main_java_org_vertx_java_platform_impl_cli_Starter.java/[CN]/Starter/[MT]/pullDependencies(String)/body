@@ -1,5 +1,5 @@
 {
   log.info("Attempting to pull in dependencies for module " + modName);
-  createPM().pullInDependencies(modName,createLoggingHandler("Successfully pulled in dependencies",unblockHandler()));
+  createPM().pullInDependencies(modName,createLoggingHandler("pulling in dependencies",unblockHandler()));
   block();
 }

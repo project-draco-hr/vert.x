@@ -1,0 +1,7 @@
+{
+  String[] jars=new String[names.length];
+  for (int i=0; i < jars.length; i++) {
+    jars[i]=locateJar(names[i],cl);
+  }
+  return jars;
+}

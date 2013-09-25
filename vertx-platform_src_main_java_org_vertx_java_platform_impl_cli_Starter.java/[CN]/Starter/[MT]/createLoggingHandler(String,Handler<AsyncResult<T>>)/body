@@ -11,11 +11,11 @@
           }
         }
  else {
-          log.error(cause);
+          log.error("Failed in " + message,cause);
         }
       }
  else {
-        log.trace(successMessage);
+        log.info("Succeeded in " + message);
       }
       if (doneHandler != null) {
         doneHandler.handle(res);

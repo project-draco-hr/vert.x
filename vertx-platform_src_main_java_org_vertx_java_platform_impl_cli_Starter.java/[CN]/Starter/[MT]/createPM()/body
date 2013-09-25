@@ -1,5 +1,11 @@
 {
-  PlatformManager pm=PlatformLocator.factory.createPlatformManager();
-  registerExitHandler(pm);
-  return pm;
+  try {
+    PlatformManager pm=PlatformLocator.factory.createPlatformManager();
+    registerExitHandler(pm);
+    return pm;
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    throw new IllegalStateException(e);
+  }
 }

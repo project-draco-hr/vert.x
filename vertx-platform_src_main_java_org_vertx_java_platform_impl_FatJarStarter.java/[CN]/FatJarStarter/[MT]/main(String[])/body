@@ -1,0 +1,9 @@
+{
+  try {
+    new FatJarStarter().go(args);
+  }
+ catch (  Exception e) {
+    System.err.println("Failed to run fat jar");
+    e.printStackTrace();
+  }
+}

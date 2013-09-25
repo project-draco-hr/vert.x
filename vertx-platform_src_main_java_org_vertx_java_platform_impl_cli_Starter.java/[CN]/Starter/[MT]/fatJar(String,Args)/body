@@ -1,0 +1,10 @@
+{
+  log.info("Attempting to make a fat jar for module " + modName);
+  String directory=args.map.get("-d");
+  if (directory != null && !new File(directory).exists()) {
+    log.info("Directory does not exist: " + directory);
+    return;
+  }
+  createPM().makeFatJar(modName,directory,createLoggingHandler("making fat jar",unblockHandler()));
+  block();
+}

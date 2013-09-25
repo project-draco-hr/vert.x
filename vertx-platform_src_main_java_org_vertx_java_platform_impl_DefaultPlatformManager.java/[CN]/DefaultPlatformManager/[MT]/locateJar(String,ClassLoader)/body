@@ -1,0 +1,21 @@
+{
+  if (cl instanceof URLClassLoader) {
+    URLClassLoader urlc=(URLClassLoader)cl;
+    for (    URL url : urlc.getURLs()) {
+      String surl=url.toString();
+      if (surl.contains("/" + name)) {
+        String filename=url.getFile();
+        if (filename == null || "".equals(filename)) {
+          throw new IllegalStateException("Vert.x jars not available as file urls");
+        }
+        return filename;
+      }
+    }
+  }
+  if (cl.getParent() != null) {
+    return locateJar(name,cl.getParent());
+  }
+ else {
+    throw new IllegalStateException("Cannot find jar for " + name);
+  }
+}

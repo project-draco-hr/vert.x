@@ -1,0 +1,19 @@
+{
+  final Path source=file.toPath();
+  Files.walkFileTree(source,new SimpleFileVisitor<Path>(){
+    public FileVisitResult visitFile(    Path file,    BasicFileAttributes attrs) throws IOException {
+      Files.delete(file);
+      return FileVisitResult.CONTINUE;
+    }
+    public FileVisitResult postVisitDirectory(    Path dir,    IOException e) throws IOException {
+      if (e == null) {
+        Files.delete(dir);
+        return FileVisitResult.CONTINUE;
+      }
+ else {
+        throw e;
+      }
+    }
+  }
+);
+}

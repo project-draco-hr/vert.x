@@ -1,5 +1,5 @@
 {
   log.info("Attempting to install module " + modName);
-  createPM().installModule(modName,createLoggingHandler("Successfully installed module",unblockHandler()));
+  createPM().installModule(modName,createLoggingHandler("installing module",unblockHandler()));
   block();
 }

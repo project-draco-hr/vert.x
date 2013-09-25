@@ -1,0 +1,56 @@
+{
+  File modDir=new File(modRoot,modID.toString());
+  if (!modDir.exists()) {
+    throw new PlatformManagerException("Cannot find module");
+  }
+  String[] jars=locateJars(platformClassLoader,"vertx-core","vertx-platform","vertx-hazelcast","netty-all","jackson-core","jackson-annotations","jackson-databind","hazelcast");
+  if (directory == null) {
+    directory=".";
+  }
+  String tdir=generateTmpFileName();
+  File vertxHome=new File(tdir);
+  File libDir=new File(vertxHome,"lib");
+  vertx.fileSystem().mkdirSync(libDir.getAbsolutePath(),true);
+  File modHome=new File(vertxHome,"mods");
+  File modDest=new File(modHome,modID.toString());
+  vertx.fileSystem().mkdirSync(modDest.getAbsolutePath(),true);
+  vertx.fileSystem().copySync(modDir.getAbsolutePath(),modDest.getAbsolutePath(),true);
+  for (  String jar : jars) {
+    Path path=Paths.get(jar);
+    String jarName=path.getFileName().toString();
+    vertx.fileSystem().copySync(jar,new File(libDir,jarName).getAbsolutePath());
+    if (jarName.startsWith("vertx-platform")) {
+      File fatClassDir=new File(vertxHome,"org/vertx/java/platform/impl");
+      vertx.fileSystem().mkdirSync(fatClassDir.getAbsolutePath(),true);
+      try {
+        FileInputStream fin=new FileInputStream(jar);
+        BufferedInputStream bin=new BufferedInputStream(fin);
+        ZipInputStream zin=new ZipInputStream(bin);
+        ZipEntry ze;
+        while ((ze=zin.getNextEntry()) != null) {
+          String entryName=ze.getName();
+          if (entryName.contains("FatJarStarter")) {
+            entryName=entryName.substring(entryName.lastIndexOf('/') + 1);
+            File fatClassFile=new File(fatClassDir,entryName);
+            OutputStream out=new FileOutputStream(fatClassFile);
+            byte[] buffer=new byte[4096];
+            int len;
+            while ((len=zin.read(buffer)) != -1) {
+              out.write(buffer,0,len);
+            }
+            out.close();
+          }
+        }
+      }
+ catch (      Exception e) {
+        throw new PlatformManagerException(e);
+      }
+    }
+  }
+  String manifest="Manifest-Version: 1.0\n" + "Main-Class: " + FatJarStarter.class.getName() + "\n"+ "Vertx-Module-ID: "+ modID.toString()+ "\n";
+  vertx.fileSystem().mkdirSync(new File(vertxHome,"META-INF").getAbsolutePath());
+  vertx.fileSystem().writeFileSync(new File(vertxHome,"META-INF/MANIFEST.MF").getAbsolutePath(),new Buffer(manifest));
+  File jarName=new File(directory,modID.getName() + ModuleIdentifier.SEPARATOR + modID.getVersion()+ "-fat.jar");
+  zipDir(jarName.getPath(),vertxHome.getAbsolutePath());
+  vertx.fileSystem().deleteSync(vertxHome.getAbsolutePath(),true);
+}

@@ -6,6 +6,7 @@
     haManager.stop();
   }
   redeployer.close();
+  deleteTmpDeployments();
   vertx.stop();
   stopped=true;
 }

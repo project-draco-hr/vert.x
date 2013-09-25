@@ -10,12 +10,12 @@
  else {
     modRoot=new File(LOCAL_MODS_DIR);
   }
-  String vertxHome=System.getProperty(VERTX_HOME_SYS_PROP);
-  if (vertxHome == null || modDir != null) {
+  vertxHomeDir=System.getProperty(VERTX_HOME_SYS_PROP);
+  if (vertxHomeDir == null || modDir != null) {
     systemModRoot=modRoot;
   }
  else {
-    systemModRoot=new File(vertxHome,SYS_MODS_DIR);
+    systemModRoot=new File(vertxHomeDir,SYS_MODS_DIR);
   }
   this.redeployer=new Redeployer(vertx,this);
   this.disableMavenLocal=System.getenv("VERTX_DISABLE_MAVENLOCAL") != null;

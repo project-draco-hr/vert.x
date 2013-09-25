@@ -12,6 +12,7 @@
       tempDir.mkdirs();
       unzipModuleData(tempDir,info,false);
       deployModuleFromFileSystem(modRoot,false,null,modID,config,instances,null,false,wrapped);
+      addTmpDeployment(tempDir.getAbsolutePath());
     }
   }
 ,wrapped);

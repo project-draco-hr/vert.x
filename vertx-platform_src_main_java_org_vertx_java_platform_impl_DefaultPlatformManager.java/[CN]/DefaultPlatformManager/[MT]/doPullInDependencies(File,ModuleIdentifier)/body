@@ -1,11 +1,11 @@
 {
   File modDir=new File(modRoot,modID.toString());
   if (!modDir.exists()) {
-    log.error("Cannot find module to uninstall");
+    throw new PlatformManagerException("Cannot find module");
   }
   JsonObject conf=loadModuleConfig(modID,modDir);
   if (conf == null) {
-    log.error("Module " + modID + " does not contain a mod.json");
+    throw new PlatformManagerException("Module " + modID + " does not contain a mod.json");
   }
   ModuleFields fields=new ModuleFields(conf);
   List<String> mods=new ArrayList<>();

@@ -77,27 +77,28 @@
   }
 ;
   if (zip) {
-    mgr.deployModuleFromZip(main,conf,instances,createLoggingHandler("Successfully deployed module from zip",doneHandler));
+    mgr.deployModuleFromZip(main,conf,instances,createLoggingHandler("deploying module from zip",doneHandler));
   }
  else   if (module) {
+    final String deployMsg="deploying module";
     if (hasClasspath) {
-      mgr.deployModuleFromClasspath(main,conf,instances,classpath,createLoggingHandler("Successfully deployed module",doneHandler));
+      mgr.deployModuleFromClasspath(main,conf,instances,classpath,createLoggingHandler(deployMsg,doneHandler));
     }
  else     if (ha) {
-      mgr.deployModule(main,conf,instances,true,createLoggingHandler("Successfully deployed module",doneHandler));
+      mgr.deployModule(main,conf,instances,true,createLoggingHandler(deployMsg,doneHandler));
     }
  else {
-      mgr.deployModule(main,conf,instances,createLoggingHandler("Successfully deployed module",doneHandler));
+      mgr.deployModule(main,conf,instances,createLoggingHandler(deployMsg,doneHandler));
     }
   }
  else {
     boolean worker=args.map.get("-worker") != null;
     String includes=args.map.get("-includes");
     if (worker) {
-      mgr.deployWorkerVerticle(false,main,conf,classpath,instances,includes,createLoggingHandler("Successfully deployed worker verticle",doneHandler));
+      mgr.deployWorkerVerticle(false,main,conf,classpath,instances,includes,createLoggingHandler("deploying worker verticle",doneHandler));
     }
  else {
-      mgr.deployVerticle(main,conf,classpath,instances,includes,createLoggingHandler("Successfully deployed verticle",doneHandler));
+      mgr.deployVerticle(main,conf,classpath,instances,includes,createLoggingHandler("deploying verticle",doneHandler));
     }
   }
   addShutdownHook(mgr);
