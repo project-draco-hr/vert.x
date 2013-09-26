@@ -1,10 +1,8 @@
 {
   DefaultContext context=vertx.getContext();
   if (modDir != null) {
-    Path cwd=Paths.get(".").toAbsolutePath().getParent();
     Path pmodDir=Paths.get(modDir.getAbsolutePath());
-    Path relative=cwd.relativize(pmodDir);
-    context.setPathResolver(new ModuleFileSystemPathResolver(relative));
+    context.setPathResolver(new ModuleFileSystemPathResolver(pmodDir));
   }
  else   if (modID != null) {
     context.setPathResolver(new ClasspathPathResolver());

@@ -1,5 +1,5 @@
 {
-  Handler<Message<String>> wrapped=new Handler<Message<String>>(){
+  Handler<Message<String>> wrapped=replyHandler == null ? null : new Handler<Message<String>>(){
     @Override public void handle(    Message msg){
       replyHandler.handle(msg);
     }
