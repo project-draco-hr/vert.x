@@ -7,7 +7,7 @@
   try {
     message.sender=serverID;
     if (replyHandler != null) {
-      message.replyAddress=prefix + String.valueOf(seq.incrementAndGet());
+      message.replyAddress=UUID.randomUUID().toString();
       long timeoutID;
       if (timeout != -1) {
         timeoutID=vertx.setTimer(timeout,new Handler<Long>(){
@@ -15,7 +15,7 @@
             log.warn("Message reply handler timed out as no reply was received - it will be removed");
             unregisterHandler(message.replyAddress,replyHandler);
             if (asyncResultHandler != null) {
-              asyncResultHandler.handle(new DefaultFutureResult(new VertxException("Timed out waiting for reply")));
+              asyncResultHandler.handle(new DefaultFutureResult<Message<T>>(new VertxException("Timed out waiting for reply")));
             }
           }
         }
