@@ -27,7 +27,7 @@
       urls.add(file.toURI().toURL());
     }
   }
-  URLClassLoader platformLoader=new URLClassLoader(urls.toArray(new URL[urls.size()]),urlc.getParent());
+  platformLoader=new URLClassLoader(urls.toArray(new URL[urls.size()]),urlc.getParent());
   Thread.currentThread().setContextClassLoader(platformLoader);
   Class<?> starterClass=platformLoader.loadClass("org.vertx.java.platform.impl.cli.Starter");
   List<String> largs=new ArrayList<>();
@@ -48,6 +48,8 @@
   System.setProperty("vertx.home",vertxHome.getAbsolutePath());
   System.setProperty("vertx.mods",modsDir.getAbsolutePath());
   System.setProperty("vertx.clusterManagerFactory","org.vertx.java.spi.cluster.impl.hazelcast.HazelcastClusterManagerFactory");
+  Method afterShutdownMeth=starterClass.getMethod("addAfterShutdownTask",new Class[]{Runnable.class});
+  afterShutdownMeth.invoke(null,this);
   Method meth=starterClass.getMethod("main",new Class[]{String[].class});
   String[] theargs=largs.toArray(new String[largs.size()]);
   meth.invoke(null,(Object)theargs);

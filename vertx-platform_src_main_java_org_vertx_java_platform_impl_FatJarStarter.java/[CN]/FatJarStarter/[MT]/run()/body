@@ -1,5 +1,6 @@
 {
   try {
+    platformLoader.close();
     deleteDir(vertxHome);
   }
  catch (  Exception e) {
