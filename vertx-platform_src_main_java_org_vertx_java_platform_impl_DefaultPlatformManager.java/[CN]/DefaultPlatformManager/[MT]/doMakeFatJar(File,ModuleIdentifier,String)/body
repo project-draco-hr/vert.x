@@ -50,7 +50,7 @@
   String manifest="Manifest-Version: 1.0\n" + "Main-Class: " + FatJarStarter.class.getName() + "\n"+ "Vertx-Module-ID: "+ modID.toString()+ "\n";
   vertx.fileSystem().mkdirSync(new File(vertxHome,"META-INF").getAbsolutePath());
   vertx.fileSystem().writeFileSync(new File(vertxHome,"META-INF/MANIFEST.MF").getAbsolutePath(),new Buffer(manifest));
-  File jarName=new File(directory,modID.getName() + ModuleIdentifier.SEPARATOR + modID.getVersion()+ "-fat.jar");
+  File jarName=new File(directory,modID.getName() + "-" + modID.getVersion()+ "-fat.jar");
   zipDir(jarName.getPath(),vertxHome.getAbsolutePath());
   vertx.fileSystem().deleteSync(vertxHome.getAbsolutePath(),true);
 }
