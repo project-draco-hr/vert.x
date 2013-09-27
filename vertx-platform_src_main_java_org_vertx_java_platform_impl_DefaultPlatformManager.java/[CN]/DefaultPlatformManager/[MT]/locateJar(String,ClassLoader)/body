@@ -23,6 +23,6 @@
     return locateJar(name,cl.getParent());
   }
  else {
-    throw new IllegalStateException("Cannot find jar for " + name);
+    return null;
   }
 }
