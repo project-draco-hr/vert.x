@@ -15,7 +15,7 @@
               socket.write(PONG);
             }
  else {
-              receiveMessage(received);
+              receiveMessage(received,null);
             }
             parser.fixedSizeMode(4);
             size=-1;

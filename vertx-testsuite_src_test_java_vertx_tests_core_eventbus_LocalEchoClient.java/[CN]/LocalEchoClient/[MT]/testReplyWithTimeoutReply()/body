@@ -1,0 +1,11 @@
+{
+  final long timeout=500;
+  String address="some-address";
+  eb.send(address,"foo",new Handler<Message<String>>(){
+    @Override public void handle(    Message<String> reply){
+      tu.azzert("bar".equals(reply.body()));
+      reply.reply("quux");
+    }
+  }
+);
+}

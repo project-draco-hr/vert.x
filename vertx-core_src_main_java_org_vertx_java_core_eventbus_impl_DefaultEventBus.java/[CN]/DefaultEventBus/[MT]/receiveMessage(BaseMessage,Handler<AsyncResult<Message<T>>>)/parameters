@@ -1,0 +1,2 @@
+BaseMessage msg
+Handler<AsyncResult<Message<T>>> asyncResultHandler

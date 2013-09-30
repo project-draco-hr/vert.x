@@ -1,0 +1,31 @@
+{
+  final long timeout=500;
+  String address="some-address";
+  final long start=System.currentTimeMillis();
+  eb.registerHandler(address,new Handler<Message<String>>(){
+    @Override public void handle(    final Message<String> message){
+      message.replyWithTimeout("bar",timeout,new Handler<AsyncResult<Message<String>>>(){
+        boolean called;
+        @Override public void handle(        AsyncResult<Message<String>> replyReply){
+          tu.azzert(!called);
+          tu.azzert(replyReply.failed());
+          tu.azzert(System.currentTimeMillis() - start >= timeout);
+          tu.testComplete();
+          called=true;
+        }
+      }
+);
+    }
+  }
+,new Handler<AsyncResult<Void>>(){
+    @Override public void handle(    AsyncResult<Void> res){
+      if (res.succeeded()) {
+        tu.testComplete();
+      }
+ else {
+        tu.azzert(false,"Failed to register");
+      }
+    }
+  }
+);
+}

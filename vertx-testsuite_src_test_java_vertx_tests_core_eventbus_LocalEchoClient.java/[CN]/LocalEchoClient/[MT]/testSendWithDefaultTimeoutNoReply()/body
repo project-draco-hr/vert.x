@@ -1,0 +1,18 @@
+{
+  final long timeout=500;
+  eb.setDefaultReplyTimeout(timeout);
+  String address="some-address";
+  eb.send(address,"foo",new Handler<Message<String>>(){
+    @Override public void handle(    Message<String> reply){
+      tu.azzert(false,"reply handler should not be called");
+    }
+  }
+);
+  vertx.setTimer(timeout * 3,new Handler<Long>(){
+    @Override public void handle(    Long tid){
+      tu.testComplete();
+    }
+  }
+);
+  eb.setDefaultReplyTimeout(-1);
+}

@@ -1,7 +1,14 @@
 {
   return new Handler<Message<T>>(){
     @Override public void handle(    Message<T> reply){
-      handler.handle(new DefaultFutureResult<>(reply));
+      DefaultFutureResult<Message<T>> result;
+      if (reply.body() instanceof ReplyException) {
+        result=new DefaultFutureResult<>((ReplyException)reply.body());
+      }
+ else {
+        result=new DefaultFutureResult<>(reply);
+      }
+      handler.handle(result);
     }
   }
 ;

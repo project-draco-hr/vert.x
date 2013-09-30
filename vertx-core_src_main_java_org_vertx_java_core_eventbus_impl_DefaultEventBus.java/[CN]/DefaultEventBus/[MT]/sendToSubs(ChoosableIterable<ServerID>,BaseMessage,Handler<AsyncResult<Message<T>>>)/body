@@ -1,0 +1,21 @@
+{
+  if (message.send) {
+    ServerID sid=subs.choose();
+    if (!sid.equals(serverID)) {
+      sendRemote(sid,message);
+    }
+ else {
+      receiveMessage(message,asyncResultHandler);
+    }
+  }
+ else {
+    for (    ServerID sid : subs) {
+      if (!sid.equals(serverID)) {
+        sendRemote(sid,message);
+      }
+ else {
+        receiveMessage(message,null);
+      }
+    }
+  }
+}

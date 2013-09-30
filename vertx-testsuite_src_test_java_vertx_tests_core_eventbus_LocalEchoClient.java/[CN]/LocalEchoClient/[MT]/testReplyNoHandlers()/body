@@ -1,0 +1,14 @@
+{
+  String address="some-address";
+  long timeout=500;
+  eb.sendWithTimeout(address,"foo",timeout,new Handler<AsyncResult<Message<String>>>(){
+    @Override public void handle(    AsyncResult<Message<String>> reply){
+      tu.azzert(reply.failed());
+      tu.azzert(reply.cause() instanceof ReplyException);
+      ReplyException ex=(ReplyException)reply.cause();
+      tu.azzert(ex.failureType() == ReplyFailure.NO_HANDLERS);
+      tu.testComplete();
+    }
+  }
+);
+}

@@ -1,0 +1,5 @@
+{
+  super((String)null);
+  this.failureType=failureType;
+  this.failureCode=-1;
+}

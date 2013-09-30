@@ -1,0 +1,3 @@
+{
+  return MessageFactory.TYPE_REPLY_FAILURE;
+}
