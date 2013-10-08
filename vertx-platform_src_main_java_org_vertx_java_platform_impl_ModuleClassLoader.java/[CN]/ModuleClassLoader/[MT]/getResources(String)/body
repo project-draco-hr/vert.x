@@ -1,5 +1,6 @@
 {
   final List<URL> totURLs=new ArrayList<>();
+  addURLs(totURLs,platformClassLoader.getResources(name));
   addURLs(totURLs,findResources(name));
   try {
     incRecurseDepth();
@@ -15,7 +16,6 @@
   finally {
     checkClearTLs();
   }
-  addURLs(totURLs,platformClassLoader.getResources(name));
   return new Enumeration<URL>(){
     Iterator<URL> iter=totURLs.iterator();
     public boolean hasMoreElements(){

@@ -1,7 +1,13 @@
 {
-  Class<?> c=doLoadClass(name);
-  if (c == null) {
+  Class<?> c;
+  try {
     c=platformClassLoader.loadClass(name);
+  }
+ catch (  ClassNotFoundException e) {
+    c=doLoadClass(name);
+    if (c == null) {
+      throw new ClassNotFoundException(name);
+    }
   }
   if (resolve) {
     resolveClass(c);
