@@ -3,4 +3,5 @@
     parent.decRef();
   }
   parents.clear();
+  allToWalk.clear();
 }

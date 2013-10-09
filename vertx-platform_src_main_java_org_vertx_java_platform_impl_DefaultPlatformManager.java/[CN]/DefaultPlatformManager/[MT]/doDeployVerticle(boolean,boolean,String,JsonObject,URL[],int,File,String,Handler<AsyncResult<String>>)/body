@@ -15,14 +15,7 @@
  else {
     moduleKey=enclosingModName.toString() + "#" + main;
   }
-  ModuleReference mr=moduleRefs.get(moduleKey);
-  if (mr == null) {
-    mr=new ModuleReference(this,moduleKey,new ModuleClassLoader(platformClassLoader,urls,false),false);
-    ModuleReference prev=moduleRefs.putIfAbsent(moduleKey,mr);
-    if (prev != null) {
-      mr=prev;
-    }
-  }
+  ModuleReference mr=getModuleReference(moduleKey,urls);
   if (enclosingModName != null) {
     ModuleReference parentRef=moduleRefs.get(enclosingModName.toString());
     mr.mcl.addParent(parentRef);

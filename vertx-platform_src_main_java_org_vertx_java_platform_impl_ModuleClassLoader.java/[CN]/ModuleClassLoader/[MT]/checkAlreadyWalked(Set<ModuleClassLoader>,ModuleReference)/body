@@ -1,6 +1,3 @@
 {
-  if (walked.contains(mr.mcl)) {
-    clearParents();
-    throw new IllegalStateException("Circular dependency in module includes. " + mr.moduleKey);
-  }
+  return walked.contains(mr.mcl);
 }

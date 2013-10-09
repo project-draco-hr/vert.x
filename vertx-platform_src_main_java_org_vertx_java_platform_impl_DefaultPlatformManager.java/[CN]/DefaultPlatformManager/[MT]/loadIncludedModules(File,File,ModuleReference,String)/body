@@ -1,29 +1,5 @@
 {
-  checkWorkerContext();
-  for (  String moduleName : parseIncludeString(includesString)) {
-    ModuleIdentifier modID=new ModuleIdentifier(moduleName);
-    ModuleReference includedMr=moduleRefs.get(moduleName);
-    if (includedMr == null) {
-      File modDir=locateModule(modRoot,currentModuleDir,modID);
-      if (modDir == null) {
-        doInstallMod(modID);
-      }
-      modDir=locateModule(modRoot,currentModuleDir,modID);
-      List<URL> urls=getModuleClasspath(modDir);
-      JsonObject conf=loadModuleConfig(modID,modDir);
-      ModuleFields fields=new ModuleFields(conf);
-      boolean res=fields.isResident();
-      includedMr=new ModuleReference(this,moduleName,new ModuleClassLoader(platformClassLoader,urls.toArray(new URL[urls.size()]),fields.isLoadResourcesWithTCCL()),res);
-      ModuleReference prev=moduleRefs.putIfAbsent(moduleName,includedMr);
-      if (prev != null) {
-        includedMr=prev;
-      }
-      String includes=fields.getIncludes();
-      if (includes != null) {
-        loadIncludedModules(modRoot,modDir,includedMr,includes);
-      }
-    }
-    includedMr.incRef();
-    mr.mcl.addParent(includedMr);
-  }
+  Set<String> included=new HashSet<>();
+  included.add(mr.moduleKey);
+  doLoadIncludedModules(modRoot,currentModuleDir,mr,includesString,included);
 }

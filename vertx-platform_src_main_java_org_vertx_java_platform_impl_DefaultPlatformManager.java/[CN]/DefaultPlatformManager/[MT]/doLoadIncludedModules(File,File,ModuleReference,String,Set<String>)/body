@@ -1,0 +1,36 @@
+{
+  checkWorkerContext();
+  for (  String moduleName : parseIncludeString(includesString)) {
+    ModuleIdentifier modID=new ModuleIdentifier(moduleName);
+    if (included.contains(modID.toString())) {
+      log.warn("Module " + modID + " is included more than once in chain of includes");
+    }
+ else {
+      included.add(modID.toString());
+      ModuleReference includedMr=moduleRefs.get(moduleName);
+      if (includedMr == null) {
+        File modDir=locateModule(modRoot,currentModuleDir,modID);
+        if (modDir == null) {
+          doInstallMod(modID);
+        }
+        modDir=locateModule(modRoot,currentModuleDir,modID);
+        List<URL> urls=getModuleClasspath(modDir);
+        JsonObject conf=loadModuleConfig(modID,modDir);
+        ModuleFields fields=new ModuleFields(conf);
+        boolean res=fields.isResident();
+        includedMr=new ModuleReference(this,moduleName,new ModuleClassLoader(modID.toString(),platformClassLoader,urls.toArray(new URL[urls.size()]),fields.isLoadResourcesWithTCCL()),res);
+        ModuleReference prev=moduleRefs.putIfAbsent(moduleName,includedMr);
+        if (prev != null) {
+          includedMr=prev;
+        }
+        String includes=fields.getIncludes();
+        if (includes != null) {
+          doLoadIncludedModules(modRoot,modDir,includedMr,includes,included);
+        }
+      }
+      includedMr.incRef();
+      mr.mcl.addParent(includedMr);
+      includedMr.mcl.addIncludingModule(mr);
+    }
+  }
+}

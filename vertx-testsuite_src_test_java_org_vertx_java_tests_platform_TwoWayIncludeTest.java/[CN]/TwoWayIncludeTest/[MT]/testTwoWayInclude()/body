@@ -1,0 +1,4 @@
+{
+  startMod("io.vertx~twowayinclude1~1.0");
+  startTest(getMethodName());
+}

@@ -9,11 +9,12 @@
         incRecurseDepth();
         Set<ModuleClassLoader> walked=getWalked();
         walked.add(this);
-        for (        ModuleReference parent : parents) {
-          checkAlreadyWalked(walked,parent);
-          c=parent.mcl.doLoadClass(name);
-          if (c != null) {
-            break;
+        for (        ModuleReference parent : allToWalk) {
+          if (!checkAlreadyWalked(walked,parent)) {
+            c=parent.mcl.doLoadClass(name);
+            if (c != null) {
+              break;
+            }
           }
         }
         walked.remove(this);

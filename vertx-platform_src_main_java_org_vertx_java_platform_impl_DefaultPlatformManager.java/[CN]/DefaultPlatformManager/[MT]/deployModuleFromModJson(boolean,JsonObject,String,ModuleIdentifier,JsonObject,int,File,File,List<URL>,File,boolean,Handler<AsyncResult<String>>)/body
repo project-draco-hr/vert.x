@@ -14,7 +14,7 @@
   ModuleReference mr=moduleRefs.get(modID.toString());
   if (mr == null) {
     boolean res=fields.isResident();
-    mr=new ModuleReference(this,modID.toString(),new ModuleClassLoader(platformClassLoader,moduleClasspath.toArray(new URL[moduleClasspath.size()]),fields.isLoadResourcesWithTCCL()),res);
+    mr=new ModuleReference(this,modID.toString(),new ModuleClassLoader(modID.toString(),platformClassLoader,moduleClasspath.toArray(new URL[moduleClasspath.size()]),fields.isLoadResourcesWithTCCL()),res);
     ModuleReference prev=moduleRefs.putIfAbsent(modID.toString(),mr);
     if (prev != null) {
       mr=prev;

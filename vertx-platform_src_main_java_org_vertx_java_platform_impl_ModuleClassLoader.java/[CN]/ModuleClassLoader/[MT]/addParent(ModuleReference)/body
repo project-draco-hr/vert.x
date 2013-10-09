@@ -1,3 +1,4 @@
 {
   parents.add(parent);
+  allToWalk.add(parent);
 }

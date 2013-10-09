@@ -1,5 +1,6 @@
 {
   super(classpath);
+  this.modID=modID;
   this.platformClassLoader=platformClassLoader;
   this.loadResourcesFromTCCL=loadResourcesFromTCCL;
 }

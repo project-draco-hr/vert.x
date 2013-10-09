@@ -7,11 +7,12 @@
       if (url == null) {
         Set<ModuleClassLoader> walked=getWalked();
         walked.add(this);
-        for (        ModuleReference parent : parents) {
-          checkAlreadyWalked(walked,parent);
-          url=parent.mcl.doGetResource(name,considerTCCL);
-          if (url != null) {
-            return url;
+        for (        ModuleReference parent : allToWalk) {
+          if (!checkAlreadyWalked(walked,parent)) {
+            url=parent.mcl.doGetResource(name,considerTCCL);
+            if (url != null) {
+              return url;
+            }
           }
         }
         walked.remove(this);

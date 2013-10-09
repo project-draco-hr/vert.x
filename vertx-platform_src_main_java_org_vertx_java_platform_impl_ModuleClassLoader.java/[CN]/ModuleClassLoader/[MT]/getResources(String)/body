@@ -6,10 +6,11 @@
     incRecurseDepth();
     Set<ModuleClassLoader> walked=getWalked();
     walked.add(this);
-    for (    ModuleReference parent : parents) {
-      checkAlreadyWalked(walked,parent);
-      Enumeration<URL> urls=parent.mcl.getResources(name);
-      addURLs(totURLs,urls);
+    for (    ModuleReference parent : allToWalk) {
+      if (!checkAlreadyWalked(walked,parent)) {
+        Enumeration<URL> urls=parent.mcl.getResources(name);
+        addURLs(totURLs,urls);
+      }
     }
     walked.remove(this);
   }
