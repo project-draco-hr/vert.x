@@ -15,7 +15,7 @@
             log.warn("Message reply handler timed out as no reply was received - it will be removed");
             unregisterHandler(message.replyAddress,replyHandler);
             if (asyncResultHandler != null) {
-              asyncResultHandler.handle(new DefaultFutureResult<Message<T>>(new VertxException("Timed out waiting for reply")));
+              asyncResultHandler.handle(new DefaultFutureResult<Message<T>>(new ReplyException(ReplyFailure.TIMEOUT,"Timed out waiting for reply")));
             }
           }
         }
@@ -31,7 +31,7 @@
         sendRemote(replyDest,message);
       }
  else {
-        receiveMessage(message);
+        receiveMessage(message,asyncResultHandler);
       }
     }
  else {
@@ -41,10 +41,10 @@
             if (event.succeeded()) {
               ChoosableIterable<ServerID> serverIDs=event.result();
               if (serverIDs != null && !serverIDs.isEmpty()) {
-                sendToSubs(serverIDs,message);
+                sendToSubs(serverIDs,message,asyncResultHandler);
               }
  else {
-                receiveMessage(message);
+                receiveMessage(message,asyncResultHandler);
               }
             }
  else {
@@ -55,7 +55,7 @@
 );
       }
  else {
-        receiveMessage(message);
+        receiveMessage(message,asyncResultHandler);
       }
     }
   }

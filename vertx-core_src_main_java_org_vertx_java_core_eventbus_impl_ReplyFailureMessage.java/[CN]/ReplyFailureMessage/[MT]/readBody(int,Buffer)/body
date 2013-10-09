@@ -1,0 +1,20 @@
+{
+  int i=(int)readBuff.getByte(pos);
+  ReplyFailure rf=ReplyFailure.fromInt(i);
+  pos++;
+  int failureCode=readBuff.getInt(pos);
+  pos+=4;
+  boolean isNull=readBuff.getByte(pos) == (byte)0;
+  String message;
+  if (!isNull) {
+    pos++;
+    int strLength=readBuff.getInt(pos);
+    pos+=4;
+    byte[] bytes=readBuff.getBytes(pos,pos + strLength);
+    message=new String(bytes,CharsetUtil.UTF_8);
+  }
+ else {
+    message=null;
+  }
+  body=new ReplyException(rf,failureCode,message);
+}

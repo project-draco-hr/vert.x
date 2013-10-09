@@ -1,0 +1,27 @@
+{
+  msg.bus=this;
+  final Handlers handlers=handlerMap.get(msg.address);
+  if (handlers != null) {
+    if (msg.send) {
+      HandlerHolder holder=handlers.choose();
+      if (holder != null) {
+        doReceive(msg,holder);
+      }
+    }
+ else {
+      for (      final HandlerHolder holder : handlers.list) {
+        doReceive(msg,holder);
+      }
+    }
+  }
+ else {
+    if (asyncResultHandler != null) {
+      vertx.runOnContext(new Handler<Void>(){
+        @Override public void handle(        Void v){
+          asyncResultHandler.handle(new DefaultFutureResult<Message<T>>(new ReplyException(ReplyFailure.NO_HANDLERS)));
+        }
+      }
+);
+    }
+  }
+}

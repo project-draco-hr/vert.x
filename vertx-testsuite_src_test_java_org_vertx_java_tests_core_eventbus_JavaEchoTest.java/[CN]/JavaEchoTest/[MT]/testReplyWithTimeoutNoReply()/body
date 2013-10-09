@@ -1,0 +1,3 @@
+{
+  runPeerTest(getMethodName());
+}

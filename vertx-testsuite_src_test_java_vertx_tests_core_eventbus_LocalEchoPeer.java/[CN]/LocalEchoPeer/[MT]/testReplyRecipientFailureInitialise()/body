@@ -1,0 +1,20 @@
+{
+  String address="some-address";
+  final String msg="too many giraffes";
+  eb.registerHandler(address,new Handler<Message<String>>(){
+    @Override public void handle(    Message<String> message){
+      message.fail(23,msg);
+    }
+  }
+,new Handler<AsyncResult<Void>>(){
+    @Override public void handle(    AsyncResult<Void> res){
+      if (res.succeeded()) {
+        tu.testComplete();
+      }
+ else {
+        tu.azzert(false,"Failed to register");
+      }
+    }
+  }
+);
+}

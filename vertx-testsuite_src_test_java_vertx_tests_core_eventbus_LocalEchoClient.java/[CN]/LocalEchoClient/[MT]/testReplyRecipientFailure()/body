@@ -1,0 +1,17 @@
+{
+  String address="some-address";
+  long timeout=500;
+  final String msg="too many giraffes";
+  eb.sendWithTimeout(address,"foo",timeout,new Handler<AsyncResult<Message<String>>>(){
+    @Override public void handle(    AsyncResult<Message<String>> reply){
+      tu.azzert(reply.failed());
+      tu.azzert(reply.cause() instanceof ReplyException);
+      ReplyException ex=(ReplyException)reply.cause();
+      tu.azzert(ex.failureType() == ReplyFailure.RECIPIENT_FAILURE);
+      tu.azzert(23 == ex.failureCode());
+      tu.azzert(msg.equals(ex.getMessage()));
+      tu.testComplete();
+    }
+  }
+);
+}

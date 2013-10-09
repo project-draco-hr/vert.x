@@ -1,0 +1,19 @@
+{
+  String address="some-address";
+  eb.registerHandler(address,new Handler<Message<String>>(){
+    @Override public void handle(    Message<String> message){
+      message.reply("bar");
+    }
+  }
+,new Handler<AsyncResult<Void>>(){
+    @Override public void handle(    AsyncResult<Void> res){
+      if (res.succeeded()) {
+        tu.testComplete();
+      }
+ else {
+        tu.azzert(false,"Failed to register");
+      }
+    }
+  }
+);
+}

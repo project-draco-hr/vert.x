@@ -27,6 +27,8 @@ case TYPE_STRING:
 return new StringMessage(buff);
 case TYPE_JSON:
 return new JsonObjectMessage(buff);
+case TYPE_REPLY_FAILURE:
+return new ReplyFailureMessage(buff);
 default :
 throw new IllegalStateException("Invalid type " + type);
 }
