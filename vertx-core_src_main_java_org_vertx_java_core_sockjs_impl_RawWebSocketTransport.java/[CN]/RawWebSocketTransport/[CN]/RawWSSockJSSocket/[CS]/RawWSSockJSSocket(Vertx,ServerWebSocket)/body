@@ -1,4 +1,10 @@
 {
   super(vertx);
   this.ws=ws;
+  ws.closeHandler(new Handler<Void>(){
+    @Override public void handle(    Void v){
+      RawWSSockJSSocket.super.close();
+    }
+  }
+);
 }
