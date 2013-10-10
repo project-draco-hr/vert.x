@@ -1,0 +1,58 @@
+{
+  final Buffer buffer=TestUtils.generateRandomBuffer(128);
+  final String groupAddress="230.0.0.1";
+  peer1=vertx.createDatagramSocket(null);
+  peer2=vertx.createDatagramSocket(InternetProtocolFamily.IPv4);
+  peer2.dataHandler(new Handler<DatagramPacket>(){
+    @Override public void handle(    DatagramPacket event){
+      tu.checkThread();
+      tu.azzert(event.data().equals(buffer));
+    }
+  }
+);
+  peer2.listen("127.0.0.1",1234,new AsyncResultHandler<DatagramSocket>(){
+    @Override public void handle(    AsyncResult<DatagramSocket> event){
+      tu.checkThread();
+      tu.azzert(event.succeeded());
+      peer2.listenMulticastGroup(groupAddress,new AsyncResultHandler<DatagramSocket>(){
+        @Override public void handle(        AsyncResult<DatagramSocket> event){
+          tu.azzert(event.succeeded());
+          peer1.send(buffer,groupAddress,1234,new AsyncResultHandler<DatagramSocket>(){
+            @Override public void handle(            AsyncResult<DatagramSocket> event){
+              tu.azzert(event.succeeded());
+              peer2.unlistenMulticastGroup(groupAddress,new AsyncResultHandler<DatagramSocket>(){
+                @Override public void handle(                AsyncResult<DatagramSocket> event){
+                  tu.azzert(event.succeeded());
+                  final AtomicBoolean received=new AtomicBoolean(false);
+                  peer2.dataHandler(new Handler<DatagramPacket>(){
+                    @Override public void handle(                    DatagramPacket event){
+                      received.set(true);
+                    }
+                  }
+);
+                  peer1.send(buffer,groupAddress,1234,new AsyncResultHandler<DatagramSocket>(){
+                    @Override public void handle(                    AsyncResult<DatagramSocket> event){
+                      tu.azzert(event.succeeded());
+                      vertx.setTimer(1000,new Handler<Long>(){
+                        @Override public void handle(                        Long event){
+                          tu.azzert(!received.get());
+                          tu.testComplete();
+                        }
+                      }
+);
+                    }
+                  }
+);
+                }
+              }
+);
+            }
+          }
+);
+        }
+      }
+);
+    }
+  }
+);
+}

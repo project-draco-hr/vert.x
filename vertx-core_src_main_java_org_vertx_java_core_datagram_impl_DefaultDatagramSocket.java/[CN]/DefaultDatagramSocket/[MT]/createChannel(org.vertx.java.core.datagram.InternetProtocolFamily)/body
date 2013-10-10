@@ -1,0 +1,13 @@
+{
+  if (family == null) {
+    return new NioDatagramChannel();
+  }
+switch (family) {
+case IPv4:
+    return new NioDatagramChannel(InternetProtocolFamily.IPv4);
+case IPv6:
+  return new NioDatagramChannel(InternetProtocolFamily.IPv6);
+default :
+return new NioDatagramChannel();
+}
+}

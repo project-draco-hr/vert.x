@@ -1,0 +1,53 @@
+{
+  try {
+    endpoint.setBroadcast(true);
+    tu.azzert(false);
+  }
+ catch (  IllegalStateException e) {
+  }
+  try {
+    endpoint.setMulticastLoopbackMode(true);
+    tu.azzert(false);
+  }
+ catch (  IllegalStateException e) {
+  }
+  try {
+    endpoint.setMulticastNetworkInterface(NetworkInterface.getNetworkInterfaces().nextElement().getName());
+    tu.azzert(false);
+  }
+ catch (  IllegalStateException e) {
+  }
+catch (  SocketException e) {
+  }
+  try {
+    endpoint.setReceiveBufferSize(1024);
+    tu.azzert(false);
+  }
+ catch (  IllegalStateException e) {
+  }
+  try {
+    endpoint.setReuseAddress(true);
+    tu.azzert(false);
+  }
+ catch (  IllegalStateException e) {
+  }
+  try {
+    endpoint.setSendBufferSize(1024);
+    tu.azzert(false);
+  }
+ catch (  IllegalStateException e) {
+  }
+  try {
+    endpoint.setMulticastTimeToLive(2);
+    tu.azzert(false);
+  }
+ catch (  IllegalStateException e) {
+  }
+  try {
+    endpoint.setTrafficClass(1);
+    tu.azzert(false);
+  }
+ catch (  IllegalStateException e) {
+  }
+  tu.testComplete();
+}

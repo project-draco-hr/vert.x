@@ -4,7 +4,7 @@
     raf=new RandomAccessFile(file,"r");
     long fileLength=file.length();
     ChannelFuture writeFuture;
-    if (isSSL()) {
+    if (!supportsFileRegion()) {
       writeFuture=write(new ChunkedFile(raf,0,fileLength,8192));
     }
  else {

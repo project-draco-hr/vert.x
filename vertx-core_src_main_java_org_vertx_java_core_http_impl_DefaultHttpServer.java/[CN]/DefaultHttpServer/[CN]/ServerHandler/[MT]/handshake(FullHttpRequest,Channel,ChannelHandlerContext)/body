@@ -42,6 +42,10 @@
       }
     }
  else {
+      ChannelHandler handler=ctx.pipeline().get(HttpChunkContentCompressor.class);
+      if (handler != null) {
+        ctx.pipeline().remove(handler);
+      }
       ws.connectNow();
       return;
     }

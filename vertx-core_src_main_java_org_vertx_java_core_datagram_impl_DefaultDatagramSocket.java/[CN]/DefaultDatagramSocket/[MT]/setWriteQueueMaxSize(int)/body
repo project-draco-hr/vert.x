@@ -1,0 +1,4 @@
+{
+  doSetWriteQueueMaxSize(maxSize);
+  return this;
+}

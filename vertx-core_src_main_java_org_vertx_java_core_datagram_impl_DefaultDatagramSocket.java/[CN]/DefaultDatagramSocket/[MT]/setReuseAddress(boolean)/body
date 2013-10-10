@@ -1,0 +1,5 @@
+{
+  checkConfigurable();
+  channel().config().setReuseAddress(reuseAddress);
+  return this;
+}

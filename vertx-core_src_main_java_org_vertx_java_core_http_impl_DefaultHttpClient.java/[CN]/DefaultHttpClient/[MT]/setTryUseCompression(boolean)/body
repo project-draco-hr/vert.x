@@ -1,0 +1,5 @@
+{
+  checkClosed();
+  this.tryUseCompression=tryUseCompression;
+  return this;
+}

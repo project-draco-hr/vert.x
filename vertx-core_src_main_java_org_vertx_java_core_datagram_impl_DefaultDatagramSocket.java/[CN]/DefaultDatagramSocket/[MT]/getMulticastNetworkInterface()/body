@@ -1,0 +1,7 @@
+{
+  NetworkInterface iface=channel().config().getNetworkInterface();
+  if (iface == null) {
+    return null;
+  }
+  return iface.getName();
+}

@@ -1,0 +1,4 @@
+{
+  doPause();
+  return this;
+}

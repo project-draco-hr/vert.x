@@ -3,9 +3,14 @@
   Map<Channel,DefaultNetSocket> connectionMap=new HashMap<Channel,DefaultNetSocket>(1);
   connectionMap.put(channel,socket);
   endReadAndFlush();
-  channel.pipeline().remove("httpDecoder");
-  if (channel.pipeline().get("chunkedWriter") != null) {
-    channel.pipeline().remove("chunkedWriter");
+  ChannelPipeline pipeline=channel.pipeline();
+  ChannelHandler compressor=pipeline.get(HttpChunkContentCompressor.class);
+  if (compressor != null) {
+    pipeline.remove(compressor);
+  }
+  pipeline.remove("httpDecoder");
+  if (pipeline.get("chunkedWriter") != null) {
+    pipeline.remove("chunkedWriter");
   }
   channel.pipeline().replace("handler","handler",new VertxNetHandler(server.vertx,connectionMap){
     @Override public void exceptionCaught(    ChannelHandlerContext chctx,    Throwable t) throws Exception {

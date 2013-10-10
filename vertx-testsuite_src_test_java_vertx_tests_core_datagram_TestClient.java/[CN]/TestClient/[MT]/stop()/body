@@ -1,0 +1,14 @@
+{
+  if (peer1 != null) {
+    peer1.close(new AsyncResultHandler<Void>(){
+      @Override public void handle(      AsyncResult<Void> event){
+        tu.checkThread();
+        stopServer();
+      }
+    }
+);
+  }
+ else {
+    stopServer();
+  }
+}

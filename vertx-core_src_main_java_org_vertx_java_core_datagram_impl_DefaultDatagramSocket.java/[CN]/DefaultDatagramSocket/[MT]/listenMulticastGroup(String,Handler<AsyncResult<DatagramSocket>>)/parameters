@@ -1,0 +1,2 @@
+String multicastAddress
+Handler<AsyncResult<DatagramSocket>> handler
