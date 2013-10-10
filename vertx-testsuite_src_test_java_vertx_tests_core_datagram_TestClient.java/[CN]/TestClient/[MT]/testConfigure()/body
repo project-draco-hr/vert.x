@@ -7,7 +7,7 @@
   peer1.setMulticastLoopbackMode(false);
   tu.azzert(!peer1.isMulticastLoopbackMode());
   tu.azzert(peer1.getMulticastNetworkInterface() == null);
-  NetworkInterface iface=NetworkInterface.getNetworkInterfaces().nextElement();
+  NetworkInterface iface=NetworkInterface.getByInetAddress(InetAddress.getLoopbackAddress());
   peer1.setMulticastNetworkInterface(iface.getName());
   tu.azzert(peer1.getMulticastNetworkInterface().equals(iface.getName()));
   tu.azzert(peer1.getReceiveBufferSize() != 1024);
