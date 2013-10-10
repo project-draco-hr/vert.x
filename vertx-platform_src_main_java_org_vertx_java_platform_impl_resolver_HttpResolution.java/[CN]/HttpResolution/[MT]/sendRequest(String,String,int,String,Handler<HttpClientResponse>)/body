@@ -1,7 +1,7 @@
 {
   final String proxyHost=getProxyHost();
   if (proxyHost != null) {
-    uri=new StringBuilder("http://").append(host).append(":").append(port).append(uri).toString();
+    uri=new StringBuilder().append(scheme).append("://").append(host).append(":").append(port).append(uri).toString();
   }
   HttpClientRequest req=client.get(uri,respHandler);
   if (proxyHost != null) {

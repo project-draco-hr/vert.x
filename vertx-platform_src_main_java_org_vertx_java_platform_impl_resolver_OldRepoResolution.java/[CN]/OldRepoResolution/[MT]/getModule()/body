@@ -1,5 +1,5 @@
 {
-  createClient(repoHost,repoPort);
+  createClient(repoScheme,repoHost,repoPort);
   addHandler(404,new Handler<HttpClientResponse>(){
     @Override public void handle(    HttpClientResponse resp){
       end(false);
@@ -13,5 +13,5 @@
   }
 );
   String uri=contentRoot + '/' + modID.getOwner()+ '.'+ modID.getName()+ "-v"+ modID.getVersion()+ "/mod.zip";
-  makeRequest(repoHost,repoPort,uri);
+  makeRequest(repoScheme,repoHost,repoPort,uri);
 }

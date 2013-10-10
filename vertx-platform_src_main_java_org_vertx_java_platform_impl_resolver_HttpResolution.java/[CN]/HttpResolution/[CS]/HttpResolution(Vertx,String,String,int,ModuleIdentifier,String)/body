@@ -4,4 +4,5 @@
   this.repoPort=repoPort;
   this.modID=modID;
   this.filename=filename;
+  this.repoScheme=repoScheme;
 }

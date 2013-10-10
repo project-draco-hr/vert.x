@@ -13,8 +13,8 @@
       if (redirectPort == -1) {
         redirectPort=80;
       }
-      createClient(redirectURI.getHost(),redirectPort);
-      makeRequest(redirectURI.getHost(),redirectPort,redirectURI.getPath());
+      createClient(redirectURI.getScheme(),redirectURI.getHost(),redirectPort);
+      makeRequest(redirectURI.getScheme(),redirectURI.getHost(),redirectPort,redirectURI.getPath());
     }
  catch (    URISyntaxException e) {
       log.error("Invalid redirect URI: " + location);

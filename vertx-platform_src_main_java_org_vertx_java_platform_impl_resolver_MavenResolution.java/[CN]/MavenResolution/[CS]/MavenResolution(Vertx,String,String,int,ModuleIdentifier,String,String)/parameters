@@ -1,6 +1,7 @@
 Vertx vertx
+String repoScheme
 String repoHost
 int repoPort
-ModuleIdentifier moduleID
+ModuleIdentifier moduleIdentifier
 String filename
 String contentRoot

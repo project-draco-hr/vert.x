@@ -16,6 +16,9 @@
     client.setHost(host);
     client.setPort(port);
   }
+  if (scheme.equals("https")) {
+    client.setSSL(true);
+  }
   client.exceptionHandler(new Handler<Throwable>(){
     public void handle(    Throwable t){
       end(false);
