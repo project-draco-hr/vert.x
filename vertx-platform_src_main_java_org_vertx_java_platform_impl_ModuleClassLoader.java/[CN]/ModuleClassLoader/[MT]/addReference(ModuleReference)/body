@@ -1,0 +1,4 @@
+{
+  references.add(reference);
+  modGraph=null;
+}

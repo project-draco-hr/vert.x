@@ -3,7 +3,7 @@
   try {
     return url != null ? url.openStream() : null;
   }
- catch (  IOException e) {
+ catch (  IOException ignore) {
   }
   return null;
 }

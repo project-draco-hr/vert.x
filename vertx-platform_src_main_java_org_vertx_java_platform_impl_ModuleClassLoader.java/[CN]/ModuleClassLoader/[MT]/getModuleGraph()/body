@@ -1,0 +1,8 @@
+{
+  if (modGraph == null) {
+    modGraph=new LinkedHashSet<>();
+    modGraph.add(this);
+    computeModules(modGraph);
+  }
+  return modGraph;
+}

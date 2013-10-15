@@ -1,7 +1,0 @@
-{
-  for (  ModuleReference parent : parents) {
-    parent.decRef();
-  }
-  parents.clear();
-  allToWalk.clear();
-}

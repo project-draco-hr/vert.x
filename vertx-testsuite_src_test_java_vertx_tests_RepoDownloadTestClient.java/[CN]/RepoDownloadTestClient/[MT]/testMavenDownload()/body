@@ -4,6 +4,9 @@
       if (res.succeeded()) {
         container.deployModule("io.vertx~mod-maven-test~1.0.0");
       }
+ else {
+        res.cause().printStackTrace();
+      }
     }
   }
 );

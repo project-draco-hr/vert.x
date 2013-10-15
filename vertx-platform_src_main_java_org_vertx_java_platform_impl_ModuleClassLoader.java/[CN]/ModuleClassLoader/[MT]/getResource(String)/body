@@ -1,3 +1,13 @@
 {
-  return doGetResource(name,true);
+  URL url=platformClassLoader.getResource(name);
+  if (url == null) {
+    Set<ModuleClassLoader> toWalk=getModulesToWalk();
+    for (    ModuleClassLoader cl : toWalk) {
+      url=cl.findResource(name);
+      if (url != null) {
+        return url;
+      }
+    }
+  }
+  return url;
 }

@@ -8,6 +8,9 @@
         }
 );
       }
+ else {
+        res.cause().printStackTrace();
+      }
     }
   }
 );

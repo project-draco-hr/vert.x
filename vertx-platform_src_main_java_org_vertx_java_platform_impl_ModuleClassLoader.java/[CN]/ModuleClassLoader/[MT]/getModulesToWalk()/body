@@ -1,0 +1,10 @@
+{
+  ClassLoader mcl=Thread.currentThread().getContextClassLoader();
+  if (mcl instanceof ModuleClassLoader) {
+    ModuleClassLoader mmcl=(ModuleClassLoader)mcl;
+    return mmcl.getModuleGraph();
+  }
+ else {
+    return getModuleGraph();
+  }
+}

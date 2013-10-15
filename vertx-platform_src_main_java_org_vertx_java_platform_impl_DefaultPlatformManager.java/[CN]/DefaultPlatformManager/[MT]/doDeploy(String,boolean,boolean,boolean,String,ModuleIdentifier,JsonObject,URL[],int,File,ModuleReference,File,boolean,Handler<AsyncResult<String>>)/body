@@ -58,6 +58,8 @@
     parentDeployment.childDeployments.add(deploymentID);
   }
   final VerticleFactory verticleFactory;
+  ClassLoader oldTCCL=Thread.currentThread().getContextClassLoader();
+  Thread.currentThread().setContextClassLoader(mr.mcl);
   try {
     verticleFactory=mr.getVerticleFactory(langImplInfo.factoryName,vertx,new DefaultContainer(this));
   }
@@ -79,8 +81,6 @@
   final Deployment deployment=new Deployment(deploymentID,main,modID,instances,config == null ? new JsonObject() : config.copy(),urls,modDir,parentDeploymentName,mr,autoRedeploy,ha);
   mr.incRef();
   deployments.put(deploymentID,deployment);
-  ClassLoader oldTCCL=Thread.currentThread().getContextClassLoader();
-  Thread.currentThread().setContextClassLoader(mr.mcl);
   try {
     for (int i=0; i < instances; i++) {
       Runnable runner=new Runnable(){

@@ -18,7 +18,7 @@
         JsonObject conf=loadModuleConfig(modID,modDir);
         ModuleFields fields=new ModuleFields(conf);
         boolean res=fields.isResident();
-        includedMr=new ModuleReference(this,moduleName,new ModuleClassLoader(modID.toString(),platformClassLoader,urls.toArray(new URL[urls.size()]),fields.isLoadResourcesWithTCCL()),res);
+        includedMr=new ModuleReference(this,moduleName,new ModuleClassLoader(modID.toString(),platformClassLoader,urls.toArray(new URL[urls.size()])),res);
         ModuleReference prev=moduleRefs.putIfAbsent(moduleName,includedMr);
         if (prev != null) {
           includedMr=prev;
@@ -29,8 +29,7 @@
         }
       }
       includedMr.incRef();
-      mr.mcl.addParent(includedMr);
-      includedMr.mcl.addIncludingModule(mr);
+      mr.mcl.addReference(includedMr);
     }
   }
 }

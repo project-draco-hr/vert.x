@@ -1,21 +1,10 @@
 {
   final List<URL> totURLs=new ArrayList<>();
   addURLs(totURLs,platformClassLoader.getResources(name));
-  addURLs(totURLs,findResources(name));
-  try {
-    incRecurseDepth();
-    Set<ModuleClassLoader> walked=getWalked();
-    walked.add(this);
-    for (    ModuleReference parent : allToWalk) {
-      if (!checkAlreadyWalked(walked,parent)) {
-        Enumeration<URL> urls=parent.mcl.getResources(name);
-        addURLs(totURLs,urls);
-      }
-    }
-    walked.remove(this);
-  }
-  finally {
-    checkClearTLs();
+  Set<ModuleClassLoader> toWalk=getModulesToWalk();
+  for (  ModuleClassLoader cl : toWalk) {
+    Enumeration<URL> urls=cl.findResources(name);
+    addURLs(totURLs,urls);
   }
   return new Enumeration<URL>(){
     Iterator<URL> iter=totURLs.iterator();

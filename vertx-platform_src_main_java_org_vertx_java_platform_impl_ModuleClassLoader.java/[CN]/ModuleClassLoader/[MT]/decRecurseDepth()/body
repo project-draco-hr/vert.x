@@ -1,6 +1,0 @@
-{
-  Integer depth=recurseDepth.get();
-  depth=depth - 1;
-  recurseDepth.set(depth);
-  return depth;
-}

@@ -1,8 +1,0 @@
-{
-  Set<ModuleClassLoader> walked=circDepTL.get();
-  if (walked == null) {
-    walked=new HashSet<>();
-    circDepTL.set(walked);
-  }
-  return walked;
-}

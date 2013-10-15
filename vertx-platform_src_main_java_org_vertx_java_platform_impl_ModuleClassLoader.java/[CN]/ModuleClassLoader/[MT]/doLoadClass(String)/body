@@ -5,23 +5,7 @@
       c=findClass(name);
     }
  catch (    ClassNotFoundException e) {
-      try {
-        incRecurseDepth();
-        Set<ModuleClassLoader> walked=getWalked();
-        walked.add(this);
-        for (        ModuleReference parent : allToWalk) {
-          if (!checkAlreadyWalked(walked,parent)) {
-            c=parent.mcl.doLoadClass(name);
-            if (c != null) {
-              break;
-            }
-          }
-        }
-        walked.remove(this);
-      }
-  finally {
-        checkClearTLs();
-      }
+      return null;
     }
   }
   return c;
