@@ -1,0 +1,21 @@
+{
+  if (match == null)   return true;
+  if (bodyObject == null)   return false;
+  if (bodyObject instanceof JsonObject) {
+    JsonObject body=(JsonObject)bodyObject;
+    for (    String fieldName : match.getFieldNames()) {
+      Object mv=match.getField(fieldName);
+      Object bv=body.getField(fieldName);
+      if (mv instanceof JsonObject) {
+        if (!structureMatches((JsonObject)mv,bv)) {
+          return false;
+        }
+      }
+ else       if (!match.getField(fieldName).equals(body.getField(fieldName))) {
+        return false;
+      }
+    }
+    return true;
+  }
+  return false;
+}
