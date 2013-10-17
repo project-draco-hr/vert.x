@@ -1,5 +1,6 @@
 {
   if (handlePreRegister(sock,address)) {
+    final boolean debug=log.isDebugEnabled();
     Match match=checkMatches(false,address,message);
     if (match.doesMatch) {
       Handler<Message> handler=new Handler<Message>(){
@@ -7,7 +8,9 @@
           Match curMatch=checkMatches(false,address,msg.body());
           if (curMatch.doesMatch) {
             if (curMatch.requiresAuth && sockAuths.get(sock) == null) {
-              log.debug("Outbound message for address " + address + " rejected because auth is required and socket is not authed");
+              if (debug) {
+                log.debug("Outbound message for address " + address + " rejected because auth is required and socket is not authed");
+              }
             }
  else {
               checkAddAccceptedReplyAddress(msg.replyAddress());
@@ -15,7 +18,9 @@
             }
           }
  else {
-            log.debug("Outbound message for address " + address + " rejected because there is no inbound match");
+            if (debug) {
+              log.debug("Outbound message for address " + address + " rejected because there is no inbound match");
+            }
           }
         }
       }
@@ -25,7 +30,9 @@
       handlePostRegister(sock,address);
     }
  else {
-      log.debug("Cannot register handler for address " + address + " because there is no inbound match");
+      if (debug) {
+        log.debug("Cannot register handler for address " + address + " because there is no inbound match");
+      }
     }
   }
 }
