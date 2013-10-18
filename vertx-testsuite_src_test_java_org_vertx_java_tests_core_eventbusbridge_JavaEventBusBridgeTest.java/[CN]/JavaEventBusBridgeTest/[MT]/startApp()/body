@@ -1,0 +1,3 @@
+{
+  startApp(EventBusBridgeTestClient.class.getName());
+}
