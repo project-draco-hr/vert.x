@@ -1,5 +1,5 @@
 {
-  createClient(repoHost,repoPort);
+  createClient(repoScheme,repoHost,repoPort);
   if (moduleIdentifier.getVersion().endsWith("-SNAPSHOT")) {
     addHandler(200,new Handler<HttpClientResponse>(){
       @Override public void handle(      HttpClientResponse resp){
@@ -13,14 +13,21 @@
                 addOKHandler();
                 removeHandler(404);
                 String actualURI=getResourceName(data,contentRoot,moduleIdentifier,uriRoot,false);
-                makeRequest(repoHost,repoPort,actualURI);
+                makeRequest(repoScheme,repoHost,repoPort,actualURI);
               }
             }
 );
-            makeRequest(repoHost,repoPort,actualURI);
+            makeRequest(repoScheme,repoHost,repoPort,actualURI);
           }
         }
 );
+      }
+    }
+);
+    addHandler(401,new Handler<HttpClientResponse>(){
+      @Override public void handle(      HttpClientResponse event){
+        log.info(event.statusCode() + " - " + event.statusMessage());
+        removeHandler(401);
       }
     }
 );
@@ -30,7 +37,7 @@
       }
     }
 );
-    makeRequest(repoHost,repoPort,contentRoot + '/' + uriRoot+ "maven-metadata.xml");
+    makeRequest(repoScheme,repoHost,repoPort,contentRoot + '/' + uriRoot+ "maven-metadata.xml");
   }
  else {
     attemptDirectDownload();

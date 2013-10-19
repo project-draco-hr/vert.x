@@ -1,4 +1,5 @@
 Vertx vertx
+String repoScheme
 String repoHost
 int repoPort
 ModuleIdentifier modID
