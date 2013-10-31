@@ -1,0 +1,4 @@
+{
+  String address="some-address";
+  eb.send(address,"foo");
+}
