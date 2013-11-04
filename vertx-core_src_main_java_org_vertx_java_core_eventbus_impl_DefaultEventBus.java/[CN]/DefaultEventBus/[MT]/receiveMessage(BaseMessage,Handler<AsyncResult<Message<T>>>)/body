@@ -16,12 +16,7 @@
   }
  else {
     if (asyncResultHandler != null) {
-      vertx.runOnContext(new Handler<Void>(){
-        @Override public void handle(        Void v){
-          asyncResultHandler.handle(new DefaultFutureResult<Message<T>>(new ReplyException(ReplyFailure.NO_HANDLERS)));
-        }
-      }
-);
+      sendNoHandlersFailure(asyncResultHandler);
     }
   }
 }
