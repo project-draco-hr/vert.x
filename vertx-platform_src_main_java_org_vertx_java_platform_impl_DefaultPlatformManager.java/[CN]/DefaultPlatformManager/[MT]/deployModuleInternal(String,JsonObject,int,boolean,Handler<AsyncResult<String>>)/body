@@ -4,7 +4,7 @@
   runInBackground(new Runnable(){
     public void run(){
       ModuleIdentifier modID=new ModuleIdentifier(moduleName);
-      deployModuleFromFileSystem(modRoot,false,null,modID,config,instances,currentModDir,ha,wrapped);
+      deployModuleFromFileSystem(modRoot,null,modID,config,instances,currentModDir,ha,wrapped);
     }
   }
 ,wrapped);

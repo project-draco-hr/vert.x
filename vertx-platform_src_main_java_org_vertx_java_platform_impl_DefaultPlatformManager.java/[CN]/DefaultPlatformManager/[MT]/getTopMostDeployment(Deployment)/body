@@ -3,6 +3,9 @@
     String parentDep=dep.parentDeploymentName;
     if (parentDep != null) {
       dep=deployments.get(parentDep);
+      if (dep == null) {
+        throw new IllegalStateException("Cannot find deployment " + parentDep);
+      }
     }
  else {
       return dep;

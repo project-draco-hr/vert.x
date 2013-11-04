@@ -1,4 +1,3 @@
-boolean redeploy
 JsonObject modJSON
 String depName
 ModuleIdentifier modID

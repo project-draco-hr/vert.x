@@ -90,7 +90,7 @@
             verticle=verticleFactory.createVerticle(main);
           }
  catch (          Throwable t) {
-            handleDeployFailure(t,deploymentID,aggHandler);
+            handleDeployFailure(t,deployment,aggHandler);
             return;
           }
           try {
@@ -104,14 +104,14 @@
                   aggHandler.complete();
                 }
  else {
-                  handleDeployFailure(ar.cause(),deploymentID,aggHandler);
+                  handleDeployFailure(ar.cause(),deployment,aggHandler);
                 }
               }
             }
 );
           }
  catch (          Throwable t) {
-            handleDeployFailure(t,deploymentID,aggHandler);
+            handleDeployFailure(t,deployment,aggHandler);
           }
         }
       }

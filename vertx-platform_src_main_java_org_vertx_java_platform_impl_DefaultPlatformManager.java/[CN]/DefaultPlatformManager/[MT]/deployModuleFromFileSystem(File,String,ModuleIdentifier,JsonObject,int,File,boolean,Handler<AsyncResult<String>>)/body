@@ -4,7 +4,7 @@
   if (modDir != null) {
     JsonObject modJSON=loadModuleConfig(modID,modDir);
     List<URL> urls=getModuleClasspath(modDir);
-    deployModuleFromModJson(redeploy,modJSON,depName,modID,config,instances,modDir,currentModDir,urls,modRoot,ha,doneHandler);
+    deployModuleFromModJson(modJSON,depName,modID,config,instances,modDir,currentModDir,urls,modRoot,ha,doneHandler);
   }
  else {
     JsonObject modJSON;
@@ -15,11 +15,11 @@
       modJSON=null;
     }
     if (modJSON != null) {
-      deployModuleFromModJson(redeploy,modJSON,depName,modID,config,instances,modDir,currentModDir,new ArrayList<URL>(),modRoot,ha,doneHandler);
+      deployModuleFromModJson(modJSON,depName,modID,config,instances,modDir,currentModDir,new ArrayList<URL>(),modRoot,ha,doneHandler);
     }
  else {
       doInstallMod(modID);
-      deployModuleFromFileSystem(modRoot,redeploy,depName,modID,config,instances,currentModDir,ha,doneHandler);
+      deployModuleFromFileSystem(modRoot,depName,modID,config,instances,currentModDir,ha,doneHandler);
     }
   }
 }

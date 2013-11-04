@@ -3,7 +3,7 @@
   runInBackground(new Runnable(){
     public void run(){
       ModuleIdentifier modID=new ModuleIdentifier(moduleName);
-      deployModuleFromCP(false,null,modID,config,instances,classpath,wrapped);
+      deployModuleFromCP(null,modID,config,instances,classpath,wrapped);
     }
   }
 ,wrapped);

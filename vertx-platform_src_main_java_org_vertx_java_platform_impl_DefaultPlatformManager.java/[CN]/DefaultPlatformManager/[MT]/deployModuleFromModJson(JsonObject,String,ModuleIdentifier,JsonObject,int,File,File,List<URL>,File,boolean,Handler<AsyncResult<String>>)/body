@@ -35,7 +35,7 @@
     @Override public void handle(    AsyncResult<String> res){
       if (res.succeeded()) {
         String deploymentID=res.result();
-        if (deploymentID != null && !redeploy && autoRedeploy) {
+        if (deploymentID != null && autoRedeploy) {
           redeployer.moduleDeployed(deployments.get(deploymentID));
         }
       }

@@ -11,7 +11,7 @@
       File tempDir=new File(modRoot,modID.toString());
       tempDir.mkdirs();
       unzipModuleData(tempDir,info,false);
-      deployModuleFromFileSystem(modRoot,false,null,modID,config,instances,null,false,wrapped);
+      deployModuleFromFileSystem(modRoot,null,modID,config,instances,null,false,wrapped);
       addTmpDeployment(tempDir.getAbsolutePath());
     }
   }

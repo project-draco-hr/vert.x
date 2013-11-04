@@ -7,7 +7,7 @@
     public void run(){
       for (      final Deployment deployment : parents) {
         if (deployments.containsKey(deployment.name)) {
-          doUndeploy(deployment.name,new Handler<AsyncResult<Void>>(){
+          doUndeploy(deployment,new Handler<AsyncResult<Void>>(){
             public void handle(            AsyncResult<Void> res){
               if (res.succeeded()) {
                 doRedeploy(deployment);

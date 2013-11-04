@@ -29,12 +29,28 @@
           holder.context.runCloseHooks(new AsyncResultHandler<Void>(){
             @Override public void handle(            AsyncResult<Void> asyncResult){
               holder.context.close();
-              if (asyncResult.failed()) {
-                count.failed(asyncResult.cause());
+              runInBackground(new Runnable(){
+                public void run(){
+                  if (deployment.modID != null && deployment.autoRedeploy) {
+                    redeployer.moduleUndeployed(deployment);
+                  }
+                  if (deployment.ha && haManager != null) {
+                    haManager.removeFromHA(deployment.name);
+                  }
+                  count.complete();
+                }
               }
+,new Handler<AsyncResult<Void>>(){
+                public void handle(                AsyncResult<Void> res){
+                  if (res.failed()) {
+                    count.failed(res.cause());
+                  }
  else {
-                count.complete();
+                    count.complete();
+                  }
+                }
               }
+);
             }
           }
 );

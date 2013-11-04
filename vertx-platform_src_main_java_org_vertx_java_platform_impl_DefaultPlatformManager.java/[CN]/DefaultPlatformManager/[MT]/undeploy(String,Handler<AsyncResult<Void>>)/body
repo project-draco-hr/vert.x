@@ -8,27 +8,7 @@
       if (dep == null) {
         throw new PlatformManagerException("There is no deployment with id " + deploymentID);
       }
-      Handler<AsyncResult<Void>> wrappedHandler=wrapDoneHandler(new Handler<AsyncResult<Void>>(){
-        public void handle(        AsyncResult<Void> res){
-          if (res.succeeded()) {
-            if (dep.modID != null && dep.autoRedeploy) {
-              redeployer.moduleUndeployed(dep);
-            }
-            if (dep.ha && haManager != null) {
-              haManager.removeFromHA(deploymentID);
-            }
-          }
-          if (doneHandler != null) {
-            doneHandler.handle(res);
-          }
- else           if (res.failed()) {
-            log.error("Failed to undeploy",res.cause());
-            ;
-          }
-        }
-      }
-);
-      doUndeploy(deploymentID,wrappedHandler);
+      doUndeploy(dep,doneHandler);
     }
   }
 ,wrapDoneHandler(doneHandler));

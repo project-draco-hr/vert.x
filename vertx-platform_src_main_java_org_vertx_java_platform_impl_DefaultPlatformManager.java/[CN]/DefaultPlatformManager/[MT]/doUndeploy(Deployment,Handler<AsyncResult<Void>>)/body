@@ -1,0 +1,5 @@
+{
+  CountingCompletionHandler<Void> count=new CountingCompletionHandler<>(vertx);
+  doUndeploy(dep.name,count);
+  count.setHandler(doneHandler);
+}

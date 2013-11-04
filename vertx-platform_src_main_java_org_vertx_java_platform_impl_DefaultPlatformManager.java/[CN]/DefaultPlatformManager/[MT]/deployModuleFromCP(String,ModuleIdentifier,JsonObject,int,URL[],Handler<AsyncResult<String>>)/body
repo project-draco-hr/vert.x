@@ -9,5 +9,5 @@
   if (modDir != null) {
     cpList.addAll(getModuleClasspath(modDir));
   }
-  deployModuleFromModJson(redeploy,modJSON,depName,modID,config,instances,null,null,cpList,modRoot,false,doneHandler);
+  deployModuleFromModJson(modJSON,depName,modID,config,instances,null,null,cpList,modRoot,false,doneHandler);
 }
