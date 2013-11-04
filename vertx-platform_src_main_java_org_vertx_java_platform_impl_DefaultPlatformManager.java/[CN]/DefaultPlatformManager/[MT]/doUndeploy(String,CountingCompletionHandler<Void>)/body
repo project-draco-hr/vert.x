@@ -18,7 +18,13 @@
       count.incRequired();
       holder.context.execute(new Runnable(){
         public void run(){
-          holder.verticle.stop();
+          try {
+            holder.verticle.stop();
+          }
+ catch (          Throwable t) {
+            System.err.println("Failure in stop()");
+            t.printStackTrace();
+          }
           LoggerFactory.removeLogger(holder.loggerName);
           holder.context.runCloseHooks(new AsyncResultHandler<Void>(){
             @Override public void handle(            AsyncResult<Void> asyncResult){
