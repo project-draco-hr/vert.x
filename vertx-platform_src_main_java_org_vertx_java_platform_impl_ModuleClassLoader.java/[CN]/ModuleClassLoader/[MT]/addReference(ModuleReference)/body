@@ -1,4 +1,10 @@
 {
-  references.add(reference);
-  modGraph=null;
+  if (!references.contains(reference)) {
+    references.add(reference);
+    modGraph=null;
+    return true;
+  }
+ else {
+    return false;
+  }
 }

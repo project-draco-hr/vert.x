@@ -28,8 +28,9 @@
           doLoadIncludedModules(modRoot,modDir,includedMr,includes,included);
         }
       }
-      includedMr.incRef();
-      mr.mcl.addReference(includedMr);
+      if (mr.mcl.addReference(includedMr)) {
+        includedMr.incRef();
+      }
     }
   }
 }

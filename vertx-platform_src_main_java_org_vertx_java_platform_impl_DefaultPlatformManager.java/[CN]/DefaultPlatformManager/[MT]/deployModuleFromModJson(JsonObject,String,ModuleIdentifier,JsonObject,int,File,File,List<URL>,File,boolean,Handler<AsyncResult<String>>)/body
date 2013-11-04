@@ -23,8 +23,9 @@
   ModuleIdentifier enclosingModID=getEnclosingModID();
   if (enclosingModID != null) {
     ModuleReference parentRef=moduleRefs.get(enclosingModID.toString());
-    mr.mcl.addReference(parentRef);
-    parentRef.incRef();
+    if (mr.mcl.addReference(parentRef)) {
+      parentRef.incRef();
+    }
   }
   String includes=fields.getIncludes();
   if (includes != null) {

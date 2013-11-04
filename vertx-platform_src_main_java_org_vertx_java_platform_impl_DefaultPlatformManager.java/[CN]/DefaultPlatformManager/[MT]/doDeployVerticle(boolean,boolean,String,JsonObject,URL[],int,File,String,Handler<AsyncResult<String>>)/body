@@ -18,8 +18,9 @@
   ModuleReference mr=getModuleReference(moduleKey,urls);
   if (enclosingModName != null) {
     ModuleReference parentRef=moduleRefs.get(enclosingModName.toString());
-    mr.mcl.addReference(parentRef);
-    parentRef.incRef();
+    if (mr.mcl.addReference(parentRef)) {
+      parentRef.incRef();
+    }
   }
   if (includes != null) {
     loadIncludedModules(modRoot,currentModDir,mr,includes);
