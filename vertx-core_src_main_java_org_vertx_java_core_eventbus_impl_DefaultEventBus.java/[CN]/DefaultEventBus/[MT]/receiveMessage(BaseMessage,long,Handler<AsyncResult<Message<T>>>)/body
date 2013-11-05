@@ -9,7 +9,7 @@
       }
     }
  else {
-      for (      final HandlerHolder holder : handlers.list) {
+      for (      HandlerHolder holder : handlers.list) {
         doReceive(msg,holder);
       }
     }
@@ -17,6 +17,9 @@
  else {
     if (asyncResultHandler != null) {
       sendNoHandlersFailure(asyncResultHandler);
+      if (timeoutID != -1) {
+        vertx.cancelTimer(timeoutID);
+      }
     }
   }
 }

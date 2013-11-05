@@ -1,2 +1,3 @@
 BaseMessage msg
+long timeoutID
 Handler<AsyncResult<Message<T>>> asyncResultHandler

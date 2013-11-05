@@ -6,9 +6,9 @@
   }
   try {
     message.sender=serverID;
+    long timeoutID=-1;
     if (replyHandler != null) {
       message.replyAddress=UUID.randomUUID().toString();
-      long timeoutID;
       if (timeout != -1) {
         timeoutID=vertx.setTimer(timeout,new Handler<Long>(){
           @Override public void handle(          Long timerID){
@@ -21,9 +21,6 @@
         }
 );
       }
- else {
-        timeoutID=-1;
-      }
       registerHandler(message.replyAddress,replyHandler,null,true,true,timeoutID);
     }
     if (replyDest != null) {
@@ -31,20 +28,21 @@
         sendRemote(replyDest,message);
       }
  else {
-        receiveMessage(message,asyncResultHandler);
+        receiveMessage(message,timeoutID,asyncResultHandler);
       }
     }
  else {
       if (subs != null) {
+        final long fTimeoutID=timeoutID;
         subs.get(message.address,new AsyncResultHandler<ChoosableIterable<ServerID>>(){
           public void handle(          AsyncResult<ChoosableIterable<ServerID>> event){
             if (event.succeeded()) {
               ChoosableIterable<ServerID> serverIDs=event.result();
               if (serverIDs != null && !serverIDs.isEmpty()) {
-                sendToSubs(serverIDs,message,asyncResultHandler);
+                sendToSubs(serverIDs,message,fTimeoutID,asyncResultHandler);
               }
  else {
-                receiveMessage(message,asyncResultHandler);
+                receiveMessage(message,fTimeoutID,asyncResultHandler);
               }
             }
  else {
@@ -55,7 +53,7 @@
 );
       }
  else {
-        receiveMessage(message,asyncResultHandler);
+        receiveMessage(message,timeoutID,asyncResultHandler);
       }
     }
   }
