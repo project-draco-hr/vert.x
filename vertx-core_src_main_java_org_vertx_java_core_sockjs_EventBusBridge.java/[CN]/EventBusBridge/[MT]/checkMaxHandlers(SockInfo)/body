@@ -1,0 +1,9 @@
+{
+  if (info.handlerCount == maxHandlersPerSocket) {
+    log.error("Refusing to register as max_handlers_per_socket reached already");
+    return false;
+  }
+ else {
+    return true;
+  }
+}

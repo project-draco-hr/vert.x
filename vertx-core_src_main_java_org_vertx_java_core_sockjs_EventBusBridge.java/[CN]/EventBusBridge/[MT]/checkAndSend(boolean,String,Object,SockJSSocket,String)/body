@@ -1,10 +1,15 @@
 {
+  final SockInfo info=sockInfos.get(sock);
+  if (replyAddress != null && !checkMaxHandlers(info)) {
+    return;
+  }
   final Handler<Message> replyHandler;
   if (replyAddress != null) {
     replyHandler=new Handler<Message>(){
       public void handle(      Message message){
         checkAddAccceptedReplyAddress(message.replyAddress());
         deliverMessage(sock,replyAddress,message);
+        info.handlerCount--;
       }
     }
 ;
@@ -17,6 +22,9 @@
   }
   if (send) {
     eb.send(address,body,replyHandler);
+    if (replyAddress != null) {
+      info.handlerCount++;
+    }
   }
  else {
     eb.publish(address,body);

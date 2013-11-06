@@ -3,6 +3,8 @@
     Handler<Message> handler=handlers.remove(address);
     if (handler != null) {
       eb.unregisterHandler(address,handler);
+      SockInfo info=sockInfos.get(sock);
+      info.handlerCount--;
     }
   }
 }

@@ -13,13 +13,15 @@
   }
 );
   final PingInfo pingInfo=new PingInfo();
-  pingInfo.timerID=vertx.setPeriodic(PING_INTERVAL,new Handler<Long>(){
+  pingInfo.timerID=vertx.setPeriodic(pingTimeout,new Handler<Long>(){
     @Override public void handle(    Long id){
-      if (System.currentTimeMillis() - pingInfo.lastPing >= PING_INTERVAL) {
+      if (System.currentTimeMillis() - pingInfo.lastPing >= pingTimeout) {
         sock.close();
       }
     }
   }
 );
-  pingInfos.put(sock,pingInfo);
+  SockInfo sockInfo=new SockInfo();
+  sockInfo.pingInfo=pingInfo;
+  sockInfos.put(sock,sockInfo);
 }

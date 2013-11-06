@@ -1,6 +1,10 @@
 {
   final Object body=getMandatoryValue(message,"body");
   final String replyAddress=message.getString("replyAddress");
+  if (replyAddress != null && replyAddress.length() > 36) {
+    log.error("Will not send message, reply address is > 36 chars");
+    return;
+  }
   final boolean debug=log.isDebugEnabled();
   if (debug) {
     log.debug("Received msg from client in bridge. address:" + address + " message:"+ body);

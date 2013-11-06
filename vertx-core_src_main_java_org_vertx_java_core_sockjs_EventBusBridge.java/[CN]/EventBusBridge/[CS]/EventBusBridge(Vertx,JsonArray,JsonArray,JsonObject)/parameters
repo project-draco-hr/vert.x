@@ -1,0 +1,4 @@
+Vertx vertx
+JsonArray inboundPermitted
+JsonArray outboundPermitted
+JsonObject conf

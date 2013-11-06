@@ -3,18 +3,21 @@
     handleUnregister(sock,entry.getKey());
     eb.unregisterHandler(entry.getKey(),entry.getValue());
   }
-  Set<String> auths=sockAuths.remove(sock);
-  if (auths != null) {
-    for (    String sessionID : auths) {
-      Auth auth=authCache.remove(sessionID);
-      if (auth != null) {
-        auth.cancel();
+  SockInfo info=sockInfos.remove(sock);
+  if (info != null) {
+    Set<String> auths=info.sockAuths;
+    if (auths != null) {
+      for (      String sessionID : auths) {
+        Auth auth=authCache.remove(sessionID);
+        if (auth != null) {
+          auth.cancel();
+        }
       }
     }
-  }
-  PingInfo pingInfo=pingInfos.remove(sock);
-  if (pingInfo != null) {
-    vertx.cancelTimer(pingInfo.timerID);
+    PingInfo pingInfo=info.pingInfo;
+    if (pingInfo != null) {
+      vertx.cancelTimer(pingInfo.timerID);
+    }
   }
   handleSocketClosed(sock);
 }

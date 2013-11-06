@@ -1,14 +1,3 @@
 {
-  this.vertx=vertx;
-  this.eb=vertx.eventBus();
-  this.inboundPermitted=convertArray(inboundPermitted);
-  this.outboundPermitted=convertArray(outboundPermitted);
-  if (authTimeout < 0) {
-    throw new IllegalArgumentException("authTimeout < 0");
-  }
-  this.authTimeout=authTimeout;
-  if (authAddress == null) {
-    authAddress=DEFAULT_AUTH_ADDRESS;
-  }
-  this.authAddress=authAddress;
+  this(vertx,inboundPermitted,outboundPermitted,new JsonObject().putNumber("auth_timeout",authTimeout).putString("auth_address",authAddress));
 }
