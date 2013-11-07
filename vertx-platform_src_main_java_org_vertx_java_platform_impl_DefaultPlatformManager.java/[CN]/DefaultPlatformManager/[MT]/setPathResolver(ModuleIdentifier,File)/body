@@ -4,7 +4,7 @@
     Path pmodDir=Paths.get(modDir.getAbsolutePath());
     context.setPathResolver(new ModuleFileSystemPathResolver(pmodDir));
   }
- else   if (modID != null) {
+ else {
     context.setPathResolver(new ClasspathPathResolver());
   }
 }
