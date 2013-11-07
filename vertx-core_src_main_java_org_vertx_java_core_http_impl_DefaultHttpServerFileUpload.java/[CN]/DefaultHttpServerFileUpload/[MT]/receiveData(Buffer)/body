@@ -1,5 +1,6 @@
 {
   if (!paused) {
+    size+=data.length();
     if (dataHandler != null) {
       dataHandler.handle(data);
     }
