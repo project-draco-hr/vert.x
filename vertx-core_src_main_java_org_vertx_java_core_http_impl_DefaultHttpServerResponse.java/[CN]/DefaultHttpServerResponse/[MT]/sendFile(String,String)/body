@@ -1,41 +1,4 @@
 {
-  if (headWritten) {
-    throw new IllegalStateException("Head already written");
-  }
-  checkWritten();
-  File file=new File(PathAdjuster.adjust(vertx,filename));
-  if (!file.exists()) {
-    if (notFoundResource != null) {
-      statusCode=HttpResponseStatus.NOT_FOUND.code();
-      sendFile(notFoundResource,null);
-    }
- else {
-      sendNotFound();
-    }
-  }
- else {
-    if (!contentLengthSet()) {
-      putHeader(Names.CONTENT_LENGTH,String.valueOf(file.length()));
-    }
-    if (!contentTypeSet()) {
-      int li=filename.lastIndexOf('.');
-      if (li != -1 && li != filename.length() - 1) {
-        String ext=filename.substring(li + 1,filename.length());
-        String contentType=MimeMapping.getMimeTypeForExtension(ext);
-        if (contentType != null) {
-          putHeader(Names.CONTENT_TYPE,contentType);
-        }
-      }
-    }
-    prepareHeaders();
-    conn.queueForWrite(response);
-    conn.sendFile(file);
-    channelFuture=conn.write(LastHttpContent.EMPTY_LAST_CONTENT);
-    headWritten=written=true;
-    if (!keepAlive) {
-      closeConnAfterWrite();
-    }
-    conn.responseComplete();
-  }
+  doSendFile(filename,notFoundResource,null);
   return this;
 }
