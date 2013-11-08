@@ -12,6 +12,7 @@
     public void handle(    Message<Buffer> msg){
       tu.checkThread();
       tu.azzert(TestUtils.buffersEqual((Buffer)data.get("buffer"),msg.body()));
+      tu.azzert(msg.address().equals("some-address"));
       eb.unregisterHandler(address,this,new AsyncResultHandler<Void>(){
         public void handle(        AsyncResult<Void> event){
           if (event.succeeded()) {
