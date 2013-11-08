@@ -37,6 +37,7 @@
       }
     }
 );
+    addRedirectHandlers();
     makeRequest(repoScheme,repoHost,repoPort,contentRoot + '/' + uriRoot+ "maven-metadata.xml");
   }
  else {

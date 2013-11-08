@@ -15,5 +15,6 @@
     }
   }
 );
+  addRedirectHandlers();
   makeRequest(repoScheme,repoHost,repoPort,getNonVersionedResourceName(contentRoot,moduleIdentifier,uriRoot,true));
 }
