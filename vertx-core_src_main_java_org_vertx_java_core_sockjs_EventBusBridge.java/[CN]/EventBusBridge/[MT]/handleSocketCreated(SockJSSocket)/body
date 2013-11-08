@@ -1,0 +1,8 @@
+{
+  if (hook != null) {
+    return hook.handleSocketCreated(sock);
+  }
+ else {
+    return true;
+  }
+}

@@ -1,4 +1,5 @@
 VertxInternal vertx
+String uri
 String path
 String query
 MultiMap headers
