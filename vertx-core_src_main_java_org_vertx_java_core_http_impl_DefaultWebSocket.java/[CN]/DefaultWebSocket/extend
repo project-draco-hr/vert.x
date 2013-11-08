@@ -1,1 +1,1 @@
-WebSocketImplBase
+WebSocketImplBase<WebSocket>
