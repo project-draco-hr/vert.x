@@ -1,7 +1,7 @@
 {
   try {
     String source=new String(Files.readAllBytes(file.toPath()),StandardCharsets.UTF_8);
-    source=source.replaceAll(REMOVE_COMMENTS_REGEXP," ");
+    source=source.replaceAll("//.*|(\"(?:\\\\[^\"]|\\\\\"|.)*?\")|(?s)/\\*.*?\\*/","$1 ");
     for (    String line : source.split("\\r?\\n")) {
       line=line.trim();
       if (!line.isEmpty()) {
