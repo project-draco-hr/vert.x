@@ -1,4 +1,5 @@
 String uri
 WebSocketVersion wsVersion
 MultiMap headers
+int maxWebSocketFrameSize
 Handler<WebSocket> wsConnect

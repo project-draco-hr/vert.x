@@ -1,0 +1,4 @@
+{
+  maxWebSocketFrameSize=maxSize;
+  return this;
+}

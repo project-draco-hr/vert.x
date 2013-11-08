@@ -1,0 +1,7 @@
+{
+  HttpClient client=vertx.createHttpClient();
+  int size=61231763;
+  tu.azzert(client == client.setMaxWebSocketFrameSize(size));
+  tu.azzert(size == client.getMaxWebSocketFrameSize());
+  tu.testComplete();
+}

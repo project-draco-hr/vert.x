@@ -1,6 +1,6 @@
 {
   final WebSocketServerHandshaker shake;
-  WebSocketServerHandshakerFactory factory=new WebSocketServerHandshakerFactory(getWebSocketLocation(ch.pipeline(),request),null,false);
+  WebSocketServerHandshakerFactory factory=new WebSocketServerHandshakerFactory(getWebSocketLocation(ch.pipeline(),request),null,false,maxWebSocketFrameSize);
   shake=factory.newHandshaker(request);
   if (shake == null) {
     log.error("Unrecognised websockets handshake");
