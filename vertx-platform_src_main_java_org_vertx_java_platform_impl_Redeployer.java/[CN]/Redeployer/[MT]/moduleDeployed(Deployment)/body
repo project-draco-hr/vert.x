@@ -17,4 +17,8 @@
     deployments.put(deployment.modID,deps);
   }
   deps.add(deployment);
+  if (!scannerStarted) {
+    setTimer();
+    scannerStarted=true;
+  }
 }
