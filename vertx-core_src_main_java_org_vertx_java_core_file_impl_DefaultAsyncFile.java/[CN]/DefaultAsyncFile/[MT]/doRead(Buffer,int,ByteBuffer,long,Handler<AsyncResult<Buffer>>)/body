@@ -1,6 +1,6 @@
 {
   ch.read(buff,position,null,new java.nio.channels.CompletionHandler<Integer,Object>(){
-    int pos=position;
+    long pos=position;
     final DefaultFutureResult<Buffer> result=new DefaultFutureResult<>();
     private void done(){
       context.execute(new Runnable(){

@@ -1,4 +1,3 @@
 ByteBuffer buff
-int position
-int toWrite
+long position
 Handler<AsyncResult<Void>> handler

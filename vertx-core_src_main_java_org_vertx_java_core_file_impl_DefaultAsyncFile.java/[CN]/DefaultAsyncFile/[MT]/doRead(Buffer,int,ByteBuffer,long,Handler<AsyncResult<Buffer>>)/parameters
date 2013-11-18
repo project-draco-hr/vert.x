@@ -1,5 +1,5 @@
-Buffer buffer
+Buffer writeBuff
 int offset
-int position
-int length
+ByteBuffer buff
+long position
 Handler<AsyncResult<Buffer>> handler
