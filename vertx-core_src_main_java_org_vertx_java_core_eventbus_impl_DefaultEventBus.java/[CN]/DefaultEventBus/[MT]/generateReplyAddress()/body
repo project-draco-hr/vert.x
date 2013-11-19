@@ -1,0 +1,8 @@
+{
+  if (clusterMgr != null) {
+    return UUID.randomUUID().toString();
+  }
+ else {
+    return Long.toString(replySequence.incrementAndGet());
+  }
+}

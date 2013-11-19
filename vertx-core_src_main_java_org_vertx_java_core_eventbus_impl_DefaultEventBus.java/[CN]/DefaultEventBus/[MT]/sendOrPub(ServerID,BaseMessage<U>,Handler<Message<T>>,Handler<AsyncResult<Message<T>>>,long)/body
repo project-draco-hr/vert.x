@@ -8,7 +8,7 @@
     message.sender=serverID;
     long timeoutID=-1;
     if (replyHandler != null) {
-      message.replyAddress=UUID.randomUUID().toString();
+      message.replyAddress=generateReplyAddress();
       if (timeout != -1) {
         timeoutID=vertx.setTimer(timeout,new Handler<Long>(){
           @Override public void handle(          Long timerID){
