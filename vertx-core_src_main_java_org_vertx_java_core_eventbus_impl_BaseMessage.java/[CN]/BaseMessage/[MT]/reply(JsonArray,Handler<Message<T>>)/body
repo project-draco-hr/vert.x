@@ -1,3 +1,4 @@
 {
+  System.out.println("Sending a json array");
   sendReply(new JsonArrayMessage(true,replyAddress,message),replyHandler);
 }

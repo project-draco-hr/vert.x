@@ -25,8 +25,10 @@ case TYPE_SHORT:
 return new ShortMessage(buff);
 case TYPE_STRING:
 return new StringMessage(buff);
-case TYPE_JSON:
+case TYPE_JSON_OBJECT:
 return new JsonObjectMessage(buff);
+case TYPE_JSON_ARRAY:
+return new JsonArrayMessage(buff);
 case TYPE_REPLY_FAILURE:
 return new ReplyFailureMessage(buff);
 default :

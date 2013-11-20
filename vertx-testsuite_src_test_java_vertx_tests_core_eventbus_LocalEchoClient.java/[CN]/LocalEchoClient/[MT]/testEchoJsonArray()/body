@@ -1,0 +1,9 @@
+{
+  JsonArray obj=new JsonArray();
+  obj.add("foo");
+  obj.add(12);
+  obj.add(true);
+  obj.add(false);
+  Handler<Message<JsonArray>> handler=echoHandler(obj);
+  eb.send(echoAddress(),obj,handler);
+}
