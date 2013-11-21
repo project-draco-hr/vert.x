@@ -1,0 +1,20 @@
+{
+  String[] parts;
+  if (cp.contains(CP_SEPARATOR)) {
+    parts=cp.split(CP_SEPARATOR);
+  }
+ else {
+    parts=new String[]{cp};
+  }
+  List<URL> classpath=new ArrayList<>();
+  for (  String part : parts) {
+    try {
+      URL url=new File(part).toURI().toURL();
+      classpath.add(url);
+    }
+ catch (    MalformedURLException e) {
+      throw new IllegalArgumentException("Invalid path " + part + " in cp "+ cp);
+    }
+  }
+  return classpath;
+}

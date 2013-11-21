@@ -1,6 +1,17 @@
 {
   URLClassLoader urlc=(URLClassLoader)FatJarStarter.class.getClassLoader();
   String fileName=urlc.getURLs()[0].getFile();
+  String classpath=null;
+  boolean hasCP=false;
+  for (  String arg : args) {
+    if (hasCP) {
+      classpath=arg;
+      break;
+    }
+ else     if ("-cp".equals(arg) || "-classpath".equals(arg)) {
+      hasCP=true;
+    }
+  }
   vertxHome=unzipIntoTmpDir(fileName);
   File modsDir=new File(vertxHome,"mods");
   File manifest=new File(new File(vertxHome,"META-INF"),"MANIFEST.MF");
@@ -22,6 +33,9 @@
   File libDir=new File(vertxHome,"lib");
   File[] files=libDir.listFiles();
   List<URL> urls=new ArrayList<>();
+  if (classpath != null) {
+    urls.addAll(splitCP(classpath));
+  }
   for (  File file : files) {
     if (file.getName().endsWith(".jar") || file.getName().endsWith(".zip")) {
       urls.add(file.toURI().toURL());
