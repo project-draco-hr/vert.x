@@ -14,13 +14,18 @@
   final String deploymentID=depID != null ? depID : genDepName();
   log.debug("Deploying name : " + deploymentID + " main: "+ theMain+ " instances: "+ instances);
   LanguageImplInfo langImplInfo=null;
+  if (langMod != null) {
+    langImplInfo=parseLangImplInfo(langMod);
+  }
   final String main;
   int prefixMarker=theMain.indexOf(COLON);
   if (prefixMarker != -1) {
     String prefix=theMain.substring(0,prefixMarker);
-    langImplInfo=languageImpls.get(prefix);
     if (langImplInfo == null) {
-      throw new IllegalStateException("No language implementation known for prefix " + prefix);
+      langImplInfo=languageImpls.get(prefix);
+      if (langImplInfo == null) {
+        throw new IllegalStateException("No language implementation known for prefix " + prefix);
+      }
     }
     main=theMain.substring(prefixMarker + 1);
   }

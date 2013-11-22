@@ -2,6 +2,7 @@ String depID
 boolean autoRedeploy
 boolean worker
 boolean multiThreaded
+String langMod
 String theMain
 ModuleIdentifier modID
 JsonObject config

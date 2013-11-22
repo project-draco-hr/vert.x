@@ -1,0 +1,13 @@
+{
+  int colonIndex=line.lastIndexOf(COLON);
+  String moduleName;
+  String factoryName;
+  if (colonIndex != -1) {
+    moduleName=line.substring(0,colonIndex);
+    factoryName=line.substring(colonIndex + 1);
+  }
+ else {
+    throw new PlatformManagerException("Language mapping: " + line + " does not specify an implementing module");
+  }
+  return new LanguageImplInfo(moduleName,factoryName);
+}

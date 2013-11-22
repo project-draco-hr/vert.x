@@ -32,7 +32,7 @@
     loadIncludedModules(modRoot,modDir,mr,includes);
   }
   final boolean autoRedeploy=fields.isAutoRedeploy();
-  doDeploy(depName,autoRedeploy,worker,multiThreaded,main,modID,config,moduleClasspath.toArray(new URL[moduleClasspath.size()]),instances,modDirToUse,mr,modRoot,ha,new Handler<AsyncResult<String>>(){
+  doDeploy(depName,autoRedeploy,worker,multiThreaded,fields.getLangMod(),main,modID,config,moduleClasspath.toArray(new URL[moduleClasspath.size()]),instances,modDirToUse,mr,modRoot,ha,new Handler<AsyncResult<String>>(){
     @Override public void handle(    AsyncResult<String> res){
       if (res.succeeded()) {
         String deploymentID=res.result();
