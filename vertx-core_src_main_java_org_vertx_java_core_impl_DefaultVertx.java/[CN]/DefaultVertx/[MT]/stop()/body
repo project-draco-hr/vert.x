@@ -1,12 +1,12 @@
 {
   if (sharedHttpServers != null) {
-    for (    HttpServer server : sharedHttpServers.values()) {
+    for (    HttpServer server : new HashSet<>(sharedHttpServers.values())) {
       server.close();
     }
     sharedHttpServers.clear();
   }
   if (sharedNetServers != null) {
-    for (    NetServer server : sharedNetServers.values()) {
+    for (    NetServer server : new HashSet<>(sharedNetServers.values())) {
       server.close();
     }
     sharedNetServers.clear();
