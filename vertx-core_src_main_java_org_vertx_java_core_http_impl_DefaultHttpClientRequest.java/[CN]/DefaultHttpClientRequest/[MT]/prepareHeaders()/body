@@ -9,4 +9,7 @@
       HttpHeaders.setTransferEncodingChunked(request);
     }
   }
+  if (client.getTryUseCompression() && request.headers().get(HttpHeaders.Names.ACCEPT_ENCODING) == null) {
+    request.headers().set(HttpHeaders.Names.ACCEPT_ENCODING,"deflate, gzip");
+  }
 }

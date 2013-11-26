@@ -25,7 +25,12 @@
   startServer(new Handler<HttpServerRequest>(){
     public void handle(    HttpServerRequest req){
       tu.checkThread();
-      tu.azzert(req.headers().size() == 1 + headers.size());
+      if (compression()) {
+        tu.azzert(req.headers().size() == 2 + headers.size());
+      }
+ else {
+        tu.azzert(req.headers().size() == 1 + headers.size());
+      }
       for (      Map.Entry<String,String> entry : headers) {
         tu.azzert(entry.getValue().equals(req.headers().get(entry.getKey())));
       }

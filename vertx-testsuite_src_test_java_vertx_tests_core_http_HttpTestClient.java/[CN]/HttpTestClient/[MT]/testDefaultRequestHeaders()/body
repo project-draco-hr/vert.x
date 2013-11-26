@@ -15,8 +15,12 @@
   startServer(new Handler<HttpServerRequest>(){
     public void handle(    HttpServerRequest req){
       tu.checkThread();
-      tu.azzert(req.headers().size() == 1);
-      tu.azzert(req.headers().get("host").equals("localhost:8080"));
+      if (compression()) {
+        tu.azzert(req.headers().size() == 2);
+      }
+ else {
+        tu.azzert(req.headers().size() == 1);
+      }
       tu.azzert(req.headers().get("host").equals("localhost:8080"));
       req.response().end();
     }
