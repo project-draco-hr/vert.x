@@ -1,3 +1,5 @@
 {
-  return new JsonArray(encode());
+  JsonArray copy=new JsonArray(list);
+  copy.setNeedsCopy();
+  return copy;
 }

@@ -1,0 +1,6 @@
+{
+  if (needsCopy) {
+    map=convertMap(map);
+    needsCopy=false;
+  }
+}

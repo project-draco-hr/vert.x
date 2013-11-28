@@ -1,4 +1,5 @@
 {
+  checkCopy();
   if (obj instanceof JsonObject) {
     obj=((JsonObject)obj).map;
   }

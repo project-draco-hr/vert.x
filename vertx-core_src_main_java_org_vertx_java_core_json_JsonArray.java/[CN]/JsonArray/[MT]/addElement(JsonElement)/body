@@ -1,4 +1,5 @@
 {
+  checkCopy();
   if (value.isArray()) {
     return addArray(value.asArray());
   }

@@ -1,0 +1,6 @@
+{
+  if (needsCopy) {
+    list=convertList(list);
+    needsCopy=false;
+  }
+}
