@@ -1,9 +1,9 @@
 {
   HttpHeaders headers=request.headers();
-  headers.remove(HttpHeaders.Names.TRANSFER_ENCODING);
+  headers.remove(TRANSFER_ENCODING);
   if (!raw) {
-    if (!headers.contains(HttpHeaders.Names.HOST)) {
-      request.headers().set(HttpHeaders.Names.HOST,conn.hostHeader);
+    if (!headers.contains(HOST)) {
+      request.headers().set(HOST,conn.hostHeader);
     }
     if (chunked) {
       HttpHeaders.setTransferEncodingChunked(request);

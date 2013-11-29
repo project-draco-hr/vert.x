@@ -1,4 +1,5 @@
 {
+  checkCopy();
   map.putAll(other.map);
   return this;
 }

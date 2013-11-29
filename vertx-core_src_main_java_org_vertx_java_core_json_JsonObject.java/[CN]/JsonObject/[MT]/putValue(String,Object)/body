@@ -1,4 +1,5 @@
 {
+  checkCopy();
   if (value instanceof JsonObject) {
     putObject(fieldName,(JsonObject)value);
   }

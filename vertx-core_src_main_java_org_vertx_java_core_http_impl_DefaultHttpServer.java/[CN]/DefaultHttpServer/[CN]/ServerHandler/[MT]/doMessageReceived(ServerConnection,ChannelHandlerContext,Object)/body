@@ -6,7 +6,7 @@
     if (HttpHeaders.is100ContinueExpected(request)) {
       ch.writeAndFlush(new DefaultFullHttpResponse(HTTP_1_1,CONTINUE));
     }
-    if (wsHandlerManager.hasHandlers() && WEBSOCKET.equalsIgnoreCase(request.headers().get(HttpHeaders.Names.UPGRADE))) {
+    if (request.headers().contains(UPGRADE,WEBSOCKET,true) && wsHandlerManager.hasHandlers()) {
       String connectionHeader=request.headers().get(CONNECTION);
       if (connectionHeader == null || !connectionHeader.toLowerCase().contains("upgrade")) {
         sendError("\"Connection\" must be \"Upgrade\".",BAD_REQUEST,ch);

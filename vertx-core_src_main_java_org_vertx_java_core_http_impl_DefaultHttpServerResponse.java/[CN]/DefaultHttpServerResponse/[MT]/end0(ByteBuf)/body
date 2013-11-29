@@ -27,7 +27,7 @@
         content=new AssembledLastHttpContent(data,trailing.trailingHeaders());
       }
  else {
-        content=new DefaultLastHttpContent(data);
+        content=new DefaultLastHttpContent(data,false);
       }
       channelFuture=conn.write(content);
     }

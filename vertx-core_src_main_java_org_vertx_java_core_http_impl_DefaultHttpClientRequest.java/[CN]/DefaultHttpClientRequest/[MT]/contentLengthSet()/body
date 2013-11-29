@@ -1,6 +1,6 @@
 {
   if (headers != null) {
-    return headers.contains(HttpHeaders.Names.CONTENT_LENGTH);
+    return request.headers().contains(CONTENT_LENGTH);
   }
  else {
     return false;

@@ -44,8 +44,8 @@ case NONE:
       pipeline.addLast("ssl",new SslHandler(engine));
     }
     pipeline.addLast("flashpolicy",new FlashPolicyHandler());
-    pipeline.addLast("httpDecoder",new HttpRequestDecoder());
-    pipeline.addLast("httpEncoder",new HttpResponseEncoder());
+    pipeline.addLast("httpDecoder",new HttpRequestDecoder(4096,8192,8192,false));
+    pipeline.addLast("httpEncoder",new VertxHttpResponseEncoder());
     if (compressionSupported) {
       pipeline.addLast("deflater",new HttpChunkContentCompressor());
     }

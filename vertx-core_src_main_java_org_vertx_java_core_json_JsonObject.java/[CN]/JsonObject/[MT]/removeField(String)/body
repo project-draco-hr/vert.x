@@ -1,3 +1,4 @@
 {
+  checkCopy();
   return map.remove(fieldName);
 }

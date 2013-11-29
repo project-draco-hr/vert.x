@@ -1,4 +1,5 @@
 {
+  checkCopy();
   map.put(fieldName,Base64.encodeBytes(binary));
   return this;
 }

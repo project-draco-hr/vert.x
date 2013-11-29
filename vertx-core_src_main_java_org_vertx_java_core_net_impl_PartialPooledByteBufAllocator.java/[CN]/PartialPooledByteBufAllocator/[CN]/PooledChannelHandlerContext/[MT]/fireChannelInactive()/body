@@ -1,0 +1,4 @@
+{
+  ctx.fireChannelInactive();
+  return this;
+}

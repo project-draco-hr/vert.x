@@ -1,4 +1,5 @@
 {
+  checkCopy();
   if (value.isArray()) {
     return this.putArray(fieldName,value.asArray());
   }

@@ -7,7 +7,7 @@
   MapEntry e=entries[i];
   while (e != null) {
     if (e.hash == h && eq(name,e.key)) {
-      return e.value;
+      return e.getValue();
     }
     e=e.next;
   }

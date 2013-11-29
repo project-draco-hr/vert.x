@@ -1,0 +1,4 @@
+{
+  ctx.fireChannelUnregistered();
+  return this;
+}

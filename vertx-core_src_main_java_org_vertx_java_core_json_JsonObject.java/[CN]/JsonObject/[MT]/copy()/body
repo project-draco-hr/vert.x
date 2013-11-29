@@ -1,3 +1,5 @@
 {
-  return new JsonObject(encode());
+  JsonObject copy=new JsonObject(map);
+  copy.setNeedsCopy();
+  return copy;
 }
