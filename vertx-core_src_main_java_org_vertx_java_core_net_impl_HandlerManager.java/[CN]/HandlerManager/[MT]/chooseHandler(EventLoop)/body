@@ -1,7 +1,4 @@
 {
   Handlers<T> handlers=handlerMap.get(worker);
-  if (handlers == null) {
-    return null;
-  }
-  return handlers.chooseHandler();
+  return handlers == null ? null : handlers.chooseHandler();
 }

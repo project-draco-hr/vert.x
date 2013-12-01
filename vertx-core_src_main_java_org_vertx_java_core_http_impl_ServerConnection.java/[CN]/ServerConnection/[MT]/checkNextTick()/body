@@ -1,5 +1,5 @@
 {
-  if (!sentCheck && !pending.isEmpty() && !paused&& (pendingResponse == null || pending.peek() instanceof HttpContent)) {
+  if (!pending.isEmpty() && !sentCheck && !paused&& (pendingResponse == null || pending.peek() instanceof HttpContent)) {
     sentCheck=true;
     vertx.runOnContext(new VoidHandler(){
       public void handle(){

@@ -1,12 +1,11 @@
 {
   EventLoop worker=context.getEventLoop();
   availableWorkers.addWorker(worker);
-synchronized (this) {
-    Handlers<T> handlers=handlerMap.get(worker);
-    if (handlers == null) {
-      handlers=new Handlers<>();
-      handlerMap.put(worker,handlers);
-    }
-    handlers.addHandler(new HandlerHolder<>(context,handler));
+  Handlers<T> handlers=new Handlers<T>();
+  Handlers<T> prev=handlerMap.putIfAbsent(worker,handlers);
+  if (prev != null) {
+    handlers=prev;
   }
+  handlers.addHandler(new HandlerHolder<>(context,handler));
+  handlerCount++;
 }

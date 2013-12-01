@@ -1,5 +1,5 @@
 {
-  if (paused || (msg instanceof HttpRequest && pendingResponse != null) || !pending.isEmpty()) {
+  if (paused || (pendingResponse != null && msg instanceof HttpRequest) || !pending.isEmpty()) {
     pending.add(msg);
     if (pending.size() == CHANNEL_PAUSE_QUEUE_SIZE) {
       super.doPause();
