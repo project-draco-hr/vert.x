@@ -1,0 +1,4 @@
+{
+  ctx.fireChannelRegistered();
+  return this;
+}

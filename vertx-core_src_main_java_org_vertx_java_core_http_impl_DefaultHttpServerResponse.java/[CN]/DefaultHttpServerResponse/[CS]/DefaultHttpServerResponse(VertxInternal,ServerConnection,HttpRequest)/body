@@ -2,6 +2,6 @@
   this.vertx=vertx;
   this.conn=conn;
   this.version=request.getProtocolVersion();
-  this.response=new DefaultHttpResponse(version,HttpResponseStatus.OK);
-  this.keepAlive=version == HttpVersion.HTTP_1_1 || (version == HttpVersion.HTTP_1_0 && "Keep-Alive".equalsIgnoreCase(request.headers().get("Connection")));
+  this.response=new DefaultHttpResponse(version,HttpResponseStatus.OK,false);
+  this.keepAlive=version == HttpVersion.HTTP_1_1 || (version == HttpVersion.HTTP_1_0 && request.headers().contains(CONNECTION,KEEP_ALIVE,true));
 }

@@ -8,7 +8,7 @@
   MapEntry e=entries[i];
   while (e != null) {
     if (e.hash == h && eq(name,e.key)) {
-      values.addFirst(e.value);
+      values.addFirst(e.getValue());
     }
     e=e.next;
   }

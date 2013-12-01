@@ -6,5 +6,5 @@
  else {
     prefix="wss://";
   }
-  return prefix + req.headers().get(HOST) + new URI(req.getUri()).getPath();
+  return prefix + HttpHeaders.getHost(req) + new URI(req.getUri()).getPath();
 }

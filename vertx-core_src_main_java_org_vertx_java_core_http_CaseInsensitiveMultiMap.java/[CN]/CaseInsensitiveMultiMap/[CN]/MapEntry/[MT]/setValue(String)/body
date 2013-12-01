@@ -2,7 +2,7 @@
   if (value == null) {
     throw new NullPointerException("value");
   }
-  String oldValue=this.value;
+  CharSequence oldValue=this.value;
   this.value=value;
-  return oldValue;
+  return oldValue.toString();
 }

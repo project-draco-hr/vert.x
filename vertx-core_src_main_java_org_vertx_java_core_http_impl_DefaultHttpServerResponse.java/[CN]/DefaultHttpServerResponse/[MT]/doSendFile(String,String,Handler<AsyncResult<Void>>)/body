@@ -15,7 +15,7 @@
   }
  else {
     if (!contentLengthSet()) {
-      putHeader(Names.CONTENT_LENGTH,String.valueOf(file.length()));
+      putHeader("Content-Length",String.valueOf(file.length()));
     }
     if (!contentTypeSet()) {
       int li=filename.lastIndexOf('.');
@@ -23,7 +23,7 @@
         String ext=filename.substring(li + 1,filename.length());
         String contentType=MimeMapping.getMimeTypeForExtension(ext);
         if (contentType != null) {
-          putHeader(Names.CONTENT_TYPE,contentType);
+          putHeader("Content-Type",contentType);
         }
       }
     }

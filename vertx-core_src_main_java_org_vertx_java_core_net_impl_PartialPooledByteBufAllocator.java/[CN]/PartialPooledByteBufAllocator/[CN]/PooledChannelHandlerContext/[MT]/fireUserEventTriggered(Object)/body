@@ -1,0 +1,4 @@
+{
+  ctx.fireUserEventTriggered(event);
+  return this;
+}

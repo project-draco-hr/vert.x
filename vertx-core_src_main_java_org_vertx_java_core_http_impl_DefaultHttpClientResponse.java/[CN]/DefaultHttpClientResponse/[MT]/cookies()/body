@@ -1,9 +1,9 @@
 {
   if (cookies == null) {
     cookies=new ArrayList<>();
-    cookies.addAll(response.headers().getAll("Set-Cookie"));
+    cookies.addAll(response.headers().getAll(SET_COOKIE));
     if (trailer != null) {
-      cookies.addAll(trailer.trailingHeaders().getAll("Set-Cookie"));
+      cookies.addAll(trailer.trailingHeaders().getAll(SET_COOKIE));
     }
   }
   return cookies;
