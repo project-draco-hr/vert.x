@@ -9,9 +9,8 @@
         ChannelPipeline pipeline=ch.pipeline();
         pipeline.addLast("exceptionDispatcher",EXCEPTION_DISPATCH_HANDLER);
         if (tcpHelper.isSSL()) {
-          SSLEngine engine=tcpHelper.getSSLContext().createSSLEngine();
-          engine.setUseClientMode(true);
-          pipeline.addLast("ssl",new SslHandler(engine));
+          SslHandler sslHandler=tcpHelper.createSslHandler(vertx,true);
+          pipeline.addLast("ssl",sslHandler);
         }
         if (tcpHelper.isSSL()) {
           pipeline.addLast("chunkedWriter",new ChunkedWriteHandler());

@@ -1,0 +1,28 @@
+{
+  return new Handler<NetSocket>(){
+    public void handle(    final NetSocket socket){
+      tu.checkThread();
+      socket.dataHandler(new Handler<Buffer>(){
+        boolean ssl=false;
+        public void handle(        Buffer buffer){
+          tu.checkThread();
+          socket.write(buffer);
+          if (!ssl) {
+            tu.azzert(!socket.isSsl());
+            ssl=true;
+            socket.ssl(new Handler<Void>(){
+              @Override public void handle(              Void event){
+              }
+            }
+);
+          }
+ else {
+            tu.azzert(socket.isSsl());
+          }
+        }
+      }
+);
+    }
+  }
+;
+}

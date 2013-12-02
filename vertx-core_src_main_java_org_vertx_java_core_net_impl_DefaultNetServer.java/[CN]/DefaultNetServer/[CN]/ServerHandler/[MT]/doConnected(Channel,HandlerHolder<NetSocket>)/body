@@ -1,5 +1,5 @@
 {
-  DefaultNetSocket sock=new DefaultNetSocket(vertx,ch,handler.context);
+  DefaultNetSocket sock=new DefaultNetSocket(vertx,ch,handler.context,tcpHelper,false);
   socketMap.put(ch,sock);
   handler.handler.handle(sock);
 }

@@ -21,109 +21,91 @@ synchronized (vertx.sharedNetServers()) {
           ChannelPipeline pipeline=ch.pipeline();
           pipeline.addLast("exceptionDispatcher",EXCEPTION_DISPATCH_HANDLER);
           if (tcpHelper.isSSL()) {
-            SSLEngine engine=tcpHelper.getSSLContext().createSSLEngine();
-            engine.setUseClientMode(false);
-switch (tcpHelper.getClientAuth()) {
-case REQUEST:
-{
-                engine.setWantClientAuth(true);
-                break;
-              }
-case REQUIRED:
-{
-              engine.setNeedClientAuth(true);
-              break;
-            }
-case NONE:
-{
-            engine.setNeedClientAuth(false);
-            break;
+            SslHandler sslHandler=tcpHelper.createSslHandler(vertx,false);
+            pipeline.addLast("ssl",sslHandler);
           }
+          if (tcpHelper.isSSL()) {
+            pipeline.addLast("chunkedWriter",new ChunkedWriteHandler());
+          }
+          pipeline.addLast("handler",new ServerHandler());
+        }
       }
-      pipeline.addLast("ssl",new SslHandler(engine));
-    }
-    if (tcpHelper.isSSL()) {
-      pipeline.addLast("chunkedWriter",new ChunkedWriteHandler());
-    }
-    pipeline.addLast("handler",new ServerHandler());
-  }
-}
 );
-tcpHelper.applyConnectionOptions(bootstrap);
-if (connectHandler != null) {
-  handlerManager.addHandler(connectHandler,actualCtx);
-}
-try {
-  InetSocketAddress addr=new InetSocketAddress(InetAddress.getByName(host),port);
-  bindFuture=bootstrap.bind(addr).addListener(new ChannelFutureListener(){
-    @Override public void operationComplete(    ChannelFuture future) throws Exception {
-      if (future.isSuccess()) {
-        log.trace("Net server listening on " + host + ":"+ bindFuture.channel().localAddress());
-        DefaultNetServer.this.port=((InetSocketAddress)bindFuture.channel().localAddress()).getPort();
-        id=new ServerID(DefaultNetServer.this.port,id.host);
-        vertx.sharedNetServers().put(id,DefaultNetServer.this);
+      tcpHelper.applyConnectionOptions(bootstrap);
+      if (connectHandler != null) {
+        handlerManager.addHandler(connectHandler,actualCtx);
       }
+      try {
+        InetSocketAddress addr=new InetSocketAddress(InetAddress.getByName(host),port);
+        bindFuture=bootstrap.bind(addr).addListener(new ChannelFutureListener(){
+          @Override public void operationComplete(          ChannelFuture future) throws Exception {
+            if (future.isSuccess()) {
+              log.trace("Net server listening on " + host + ":"+ bindFuture.channel().localAddress());
+              DefaultNetServer.this.port=((InetSocketAddress)bindFuture.channel().localAddress()).getPort();
+              id=new ServerID(DefaultNetServer.this.port,id.host);
+              vertx.sharedNetServers().put(id,DefaultNetServer.this);
+            }
  else {
-        vertx.sharedNetServers().remove(id);
-      }
-    }
-  }
+              vertx.sharedNetServers().remove(id);
+            }
+          }
+        }
 );
-  serverChannelGroup.add(bindFuture.channel());
-}
- catch (final Throwable t) {
-  if (listenHandler != null) {
-    vertx.runOnContext(new VoidHandler(){
-      @Override protected void handle(){
-        listenHandler.handle(new DefaultFutureResult<NetServer>(t));
+        serverChannelGroup.add(bindFuture.channel());
       }
-    }
+ catch (      final Throwable t) {
+        if (listenHandler != null) {
+          vertx.runOnContext(new VoidHandler(){
+            @Override protected void handle(){
+              listenHandler.handle(new DefaultFutureResult<NetServer>(t));
+            }
+          }
 );
-  }
+        }
  else {
-    actualCtx.reportException(t);
+          actualCtx.reportException(t);
+        }
+        listening=false;
+        return this;
+      }
+      if (port != 0) {
+        vertx.sharedNetServers().put(id,this);
+      }
+      actualServer=this;
+    }
+ else {
+      checkConfigs(actualServer,this);
+      actualServer=shared;
+      this.port=shared.port();
+      if (connectHandler != null) {
+        actualServer.handlerManager.addHandler(connectHandler,actualCtx);
+      }
+    }
+    actualServer.bindFuture.addListener(new ChannelFutureListener(){
+      @Override public void operationComplete(      final ChannelFuture future) throws Exception {
+        if (listenHandler != null) {
+          final AsyncResult<NetServer> res;
+          if (future.isSuccess()) {
+            res=new DefaultFutureResult<NetServer>(DefaultNetServer.this);
+          }
+ else {
+            listening=false;
+            res=new DefaultFutureResult<>(future.cause());
+          }
+          actualCtx.execute(future.channel().eventLoop(),new Runnable(){
+            @Override public void run(){
+              listenHandler.handle(res);
+            }
+          }
+);
+        }
+ else         if (!future.isSuccess()) {
+          actualCtx.reportException(future.cause());
+          listening=false;
+        }
+      }
+    }
+);
   }
-  listening=false;
   return this;
-}
-if (port != 0) {
-  vertx.sharedNetServers().put(id,this);
-}
-actualServer=this;
-}
- else {
-checkConfigs(actualServer,this);
-actualServer=shared;
-this.port=shared.port();
-if (connectHandler != null) {
-  actualServer.handlerManager.addHandler(connectHandler,actualCtx);
-}
-}
-actualServer.bindFuture.addListener(new ChannelFutureListener(){
-@Override public void operationComplete(final ChannelFuture future) throws Exception {
-  if (listenHandler != null) {
-    final AsyncResult<NetServer> res;
-    if (future.isSuccess()) {
-      res=new DefaultFutureResult<NetServer>(DefaultNetServer.this);
-    }
- else {
-      listening=false;
-      res=new DefaultFutureResult<>(future.cause());
-    }
-    actualCtx.execute(future.channel().eventLoop(),new Runnable(){
-      @Override public void run(){
-        listenHandler.handle(res);
-      }
-    }
-);
-  }
- else   if (!future.isSuccess()) {
-    actualCtx.reportException(future.cause());
-    listening=false;
-  }
-}
-}
-);
-}
-return this;
 }

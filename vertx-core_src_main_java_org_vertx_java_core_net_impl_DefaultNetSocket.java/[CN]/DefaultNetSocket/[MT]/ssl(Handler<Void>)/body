@@ -1,0 +1,40 @@
+{
+  SslHandler sslHandler=channel.pipeline().get(SslHandler.class);
+  if (sslHandler == null) {
+    sslHandler=helper.createSslHandler(vertx,client);
+    channel.pipeline().addFirst(sslHandler);
+  }
+  sslHandler.handshakeFuture().addListener(new GenericFutureListener<Future<Channel>>(){
+    @Override public void operationComplete(    final Future<Channel> future) throws Exception {
+      if (context.isOnCorrectWorker(channel.eventLoop())) {
+        if (future.isSuccess()) {
+          try {
+            vertx.setContext(context);
+            handler.handle(null);
+          }
+ catch (          Throwable t) {
+            context.reportException(t);
+          }
+        }
+ else {
+          context.reportException(future.cause());
+        }
+      }
+ else {
+        context.execute(new Runnable(){
+          public void run(){
+            if (future.isSuccess()) {
+              handler.handle(null);
+            }
+ else {
+              context.reportException(future.cause());
+            }
+          }
+        }
+);
+      }
+    }
+  }
+);
+  return this;
+}
