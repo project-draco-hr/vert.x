@@ -1,0 +1,5 @@
+{
+  checkWritten();
+  trailers().set(name,value);
+  return this;
+}

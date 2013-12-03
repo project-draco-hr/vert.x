@@ -1,17 +1,4 @@
 {
-  HttpResponseStatus status;
-  if (statusCode == HttpResponseStatus.OK.code() && statusMessage == null) {
-    status=HttpResponseStatus.OK;
-  }
- else {
-    if (statusMessage == null) {
-      status=HttpResponseStatus.valueOf(statusCode);
-    }
- else {
-      status=new HttpResponseStatus(statusCode,statusMessage);
-    }
-  }
-  response.setStatus(status);
   if (version == HttpVersion.HTTP_1_0 && keepAlive) {
     response.headers().set(CONNECTION,KEEP_ALIVE);
   }

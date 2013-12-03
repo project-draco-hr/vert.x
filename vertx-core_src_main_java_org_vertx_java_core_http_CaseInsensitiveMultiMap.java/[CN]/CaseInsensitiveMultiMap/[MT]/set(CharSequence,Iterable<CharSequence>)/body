@@ -1,0 +1,8 @@
+{
+  remove(name);
+  String n=name.toString();
+  for (  CharSequence seq : values) {
+    add(n,seq.toString());
+  }
+  return this;
+}

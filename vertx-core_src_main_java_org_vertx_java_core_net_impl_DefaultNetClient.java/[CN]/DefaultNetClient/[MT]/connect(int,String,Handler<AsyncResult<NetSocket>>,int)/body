@@ -7,7 +7,6 @@
     bootstrap.handler(new ChannelInitializer<Channel>(){
       @Override protected void initChannel(      Channel ch) throws Exception {
         ChannelPipeline pipeline=ch.pipeline();
-        pipeline.addLast("exceptionDispatcher",EXCEPTION_DISPATCH_HANDLER);
         if (tcpHelper.isSSL()) {
           SslHandler sslHandler=tcpHelper.createSslHandler(vertx,true);
           pipeline.addLast("ssl",sslHandler);

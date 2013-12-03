@@ -1,0 +1,3 @@
+{
+  return set(name.toString(),value.toString());
+}

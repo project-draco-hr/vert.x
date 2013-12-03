@@ -1,7 +1,6 @@
 {
   C conn=connectionMap.get(ctx.channel());
   if (conn != null) {
-    conn.endReadAndFlush();
     DefaultContext context=getContext(conn);
     if (context.isOnCorrectWorker(ctx.channel().eventLoop())) {
       conn.endReadAndFlush();
