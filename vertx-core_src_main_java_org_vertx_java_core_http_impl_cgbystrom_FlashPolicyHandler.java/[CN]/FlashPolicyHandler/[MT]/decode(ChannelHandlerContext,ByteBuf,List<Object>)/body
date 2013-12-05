@@ -7,8 +7,7 @@
   boolean isFlashPolicyRequest=(magic1 == '<' && magic2 == 'p');
   if (isFlashPolicyRequest) {
     buffer.skipBytes(buffer.readableBytes());
-    removeAllPipelineHandlers(ctx.pipeline());
-    ctx.writeAndFlush(policyResponse).addListener(ChannelFutureListener.CLOSE);
+    ctx.writeAndFlush(Unpooled.copiedBuffer(XML,CharsetUtil.UTF_8)).addListener(ChannelFutureListener.CLOSE);
     return;
   }
   ctx.pipeline().remove(this);

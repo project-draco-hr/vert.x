@@ -1,5 +1,0 @@
-{
-  while (pipeline.first() != null) {
-    pipeline.removeFirst();
-  }
-}

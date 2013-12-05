@@ -1,3 +1,0 @@
-{
-  this(Unpooled.copiedBuffer(XML,CharsetUtil.UTF_8));
-}
