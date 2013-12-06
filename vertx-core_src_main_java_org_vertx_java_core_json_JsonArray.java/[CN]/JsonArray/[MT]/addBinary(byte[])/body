@@ -1,6 +1,6 @@
 {
   checkCopy();
-  String encoded=Base64.encodeBytes(value);
+  String encoded=org.vertx.java.core.json.impl.Base64.encodeBytes(value);
   list.add(encoded);
   return this;
 }
