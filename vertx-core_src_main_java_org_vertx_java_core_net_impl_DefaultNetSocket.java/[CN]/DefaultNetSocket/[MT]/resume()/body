@@ -1,4 +1,22 @@
 {
+  if (!paused) {
+    return this;
+  }
+  paused=false;
+  if (pendingData != null) {
+    for (; ; ) {
+      final Buffer buf=pendingData.poll();
+      if (buf == null) {
+        break;
+      }
+      vertx.runOnContext(new VoidHandler(){
+        @Override protected void handle(){
+          handleDataReceived(buf);
+        }
+      }
+);
+    }
+  }
   doResume();
   return this;
 }

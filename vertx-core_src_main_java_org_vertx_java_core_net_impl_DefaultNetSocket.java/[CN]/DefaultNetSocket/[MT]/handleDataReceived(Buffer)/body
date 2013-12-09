@@ -1,4 +1,11 @@
 {
+  if (paused) {
+    if (pendingData == null) {
+      pendingData=new ArrayDeque<>();
+    }
+    pendingData.add(data);
+    return;
+  }
   if (dataHandler != null) {
     setContext();
     try {
