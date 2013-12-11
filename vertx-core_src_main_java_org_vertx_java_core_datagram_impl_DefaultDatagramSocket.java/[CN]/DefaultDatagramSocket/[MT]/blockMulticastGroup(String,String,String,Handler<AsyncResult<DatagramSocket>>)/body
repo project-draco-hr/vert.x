@@ -1,7 +1,14 @@
 {
   configurable=false;
   try {
-    addListener(channel().block(InetAddress.getByName(multicastAddress),NetworkInterface.getByName(networkInterface),InetAddress.getByName(sourceToBlock)),handler);
+    InetAddress sourceAddress;
+    if (sourceToBlock == null) {
+      sourceAddress=null;
+    }
+ else {
+      sourceAddress=InetAddress.getByName(sourceToBlock);
+    }
+    addListener(channel().block(InetAddress.getByName(multicastAddress),NetworkInterface.getByName(networkInterface),sourceAddress),handler);
   }
  catch (  Exception e) {
     notifyException(handler,e);
