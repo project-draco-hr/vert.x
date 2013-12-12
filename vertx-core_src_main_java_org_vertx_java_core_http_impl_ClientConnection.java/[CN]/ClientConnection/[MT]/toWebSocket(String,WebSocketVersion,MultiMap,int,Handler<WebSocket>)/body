@@ -41,7 +41,7 @@
       }
     }
 );
-    wsHandshakeConnection=true;
+    upgradedConnection=true;
   }
  catch (  Exception e) {
     handleException(e);
