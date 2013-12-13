@@ -1,0 +1,3 @@
+{
+  testChownFails("jfhfhjejweg");
+}
