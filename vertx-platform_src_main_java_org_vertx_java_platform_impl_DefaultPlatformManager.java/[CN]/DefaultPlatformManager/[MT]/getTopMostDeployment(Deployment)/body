@@ -1,4 +1,5 @@
 {
+  Deployment topMostMod=dep;
   while (true) {
     String parentDep=dep.parentDeploymentName;
     if (parentDep != null) {
@@ -6,9 +7,12 @@
       if (dep == null) {
         throw new IllegalStateException("Cannot find deployment " + parentDep);
       }
+      if (dep.modID != null) {
+        topMostMod=dep;
+      }
     }
  else {
-      return dep;
+      return topMostMod;
     }
   }
 }
