@@ -31,7 +31,11 @@
   server.listen(port,hostName,new AsyncResultHandler<NetServer>(){
     @Override public void handle(    AsyncResult<NetServer> asyncResult){
       if (asyncResult.succeeded()) {
-        DefaultEventBus.this.serverID=new ServerID(server.port(),hostName);
+        int publicPort=Integer.getInteger("vertx.cluster.public.port",-1);
+        String publicHost=System.getProperty("vertx.cluster.public.host",null);
+        int serverPort=(publicPort == -1) ? server.port() : publicPort;
+        String serverHost=(publicHost == null) ? hostName : publicHost;
+        DefaultEventBus.this.serverID=new ServerID(serverPort,serverHost);
       }
       if (listenHandler != null) {
         if (asyncResult.succeeded()) {
