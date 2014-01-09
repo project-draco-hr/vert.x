@@ -3,7 +3,7 @@
   if (!modDir.exists()) {
     throw new PlatformManagerException("Cannot find module");
   }
-  JsonObject conf=loadModuleConfig(modID,modDir);
+  JsonObject conf=loadModuleConfig(createModJSONFile(modDir),modID);
   if (conf == null) {
     throw new PlatformManagerException("Module " + modID + " does not contain a mod.json");
   }

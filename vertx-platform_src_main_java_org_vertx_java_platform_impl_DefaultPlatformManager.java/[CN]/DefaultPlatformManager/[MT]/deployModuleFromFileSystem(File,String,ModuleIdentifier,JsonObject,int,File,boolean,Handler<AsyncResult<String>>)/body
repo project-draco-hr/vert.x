@@ -2,9 +2,8 @@
   checkWorkerContext();
   File modDir=locateModule(modRoot,currentModDir,modID);
   if (modDir != null) {
-    JsonObject modJSON=loadModuleConfig(modID,modDir);
-    List<URL> urls=getModuleClasspath(modDir);
-    deployModuleFromModJson(modJSON,depName,modID,config,instances,modDir,currentModDir,urls,modRoot,ha,doneHandler);
+    ModuleInfo info=loadModuleInfo(modDir,modID);
+    deployModuleFromModJson(info.modJSON,depName,modID,config,instances,modDir,currentModDir,info.cp,modRoot,ha,doneHandler);
   }
  else {
     JsonObject modJSON;

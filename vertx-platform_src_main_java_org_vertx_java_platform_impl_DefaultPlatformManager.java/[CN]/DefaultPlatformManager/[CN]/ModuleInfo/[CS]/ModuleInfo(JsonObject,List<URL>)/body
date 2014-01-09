@@ -1,0 +1,4 @@
+{
+  this.modJSON=modJSON;
+  this.cp=cp;
+}
