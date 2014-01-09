@@ -1,0 +1,20 @@
+{
+  File cpFile=new File(CLASSPATH_FILE);
+  if (!cpFile.exists()) {
+    throw new PlatformManagerException("Must create a module.classpath first before creating a module link");
+  }
+  File modDir=new File(modRoot,modID.toString());
+  if (modDir.exists()) {
+    throw new PlatformManagerException("Module directory " + modDir + " already exists.");
+  }
+  if (!modDir.mkdirs()) {
+    throw new PlatformManagerException("Failed to make directory " + modDir);
+  }
+  try {
+    File currentDir=new File(".").getCanonicalFile();
+    vertx.fileSystem().writeFileSync(modDir.getPath() + "/module.link",new Buffer(currentDir.getCanonicalPath() + "\n"));
+  }
+ catch (  IOException e) {
+    throw new PlatformManagerException(e);
+  }
+}

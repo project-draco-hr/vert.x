@@ -9,7 +9,7 @@ synchronized (modName.intern()) {
       return;
     }
     File tdest=unzipIntoTmpDir(zipInfo,deleteZip);
-    JsonObject conf=loadModuleConfig(modID,tdest);
+    JsonObject conf=loadModuleConfig(createModJSONFile(tdest),modID);
     ModuleFields fields=new ModuleFields(conf);
     boolean system=fields.isSystem();
     String moveFrom=tdest.getAbsolutePath();

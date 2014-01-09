@@ -1,0 +1,45 @@
+{
+  List<URL> cpList;
+  JsonObject modJSON;
+  File modJSONFile=createModJSONFile(modDir);
+  if (!modJSONFile.exists()) {
+    File linkFile=new File(modDir,"module.link");
+    if (linkFile.exists()) {
+      try (Scanner scanner=new Scanner(linkFile).useDelimiter("\\A")){
+        String path=scanner.next().trim();
+        File cpFile=new File(path,CLASSPATH_FILE);
+        if (!cpFile.exists()) {
+          throw new PlatformManagerException("Module link file: " + linkFile + " points to path without module.classpath");
+        }
+        cpList=new ArrayList<>();
+        try (Scanner scanner2=new Scanner(cpFile)){
+          while (scanner2.hasNextLine()) {
+            String entry=scanner2.nextLine();
+            File fentry=new File(entry);
+            if (!fentry.isAbsolute()) {
+              fentry=new File(path,entry);
+            }
+            URL url=fentry.toURI().toURL();
+            cpList.add(url);
+          }
+        }
+ catch (        Exception e) {
+          e.printStackTrace();
+          throw new PlatformManagerException(e);
+        }
+        modJSON=loadModJSONFromClasspath(modID,new URLClassLoader(cpList.toArray(new URL[cpList.size()]),platformClassLoader));
+      }
+ catch (      Exception e) {
+        throw new PlatformManagerException(e);
+      }
+    }
+ else {
+      throw new PlatformManagerException("Module directory " + modDir + " contains no mod.json nor module.link file");
+    }
+  }
+ else {
+    modJSON=loadModuleConfig(modJSONFile,modID);
+    cpList=getModuleClasspath(modDir);
+  }
+  return new ModuleInfo(modJSON,cpList);
+}

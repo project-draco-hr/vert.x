@@ -37,6 +37,9 @@ break;
 case "fatjar":
 fatJar(operand,args);
 break;
+case "create-module-link":
+createModuleLink(operand);
+break;
 default :
 displaySyntax();
 }
