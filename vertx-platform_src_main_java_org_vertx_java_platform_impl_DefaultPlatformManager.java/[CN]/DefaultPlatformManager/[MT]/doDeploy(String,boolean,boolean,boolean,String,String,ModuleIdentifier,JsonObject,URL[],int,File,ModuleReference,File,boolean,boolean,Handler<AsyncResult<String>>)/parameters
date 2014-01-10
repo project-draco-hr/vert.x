@@ -12,4 +12,5 @@ File modDir
 ModuleReference mr
 File modRoot
 boolean ha
+boolean loadFromModuleFirst
 Handler<AsyncResult<String>> dHandler

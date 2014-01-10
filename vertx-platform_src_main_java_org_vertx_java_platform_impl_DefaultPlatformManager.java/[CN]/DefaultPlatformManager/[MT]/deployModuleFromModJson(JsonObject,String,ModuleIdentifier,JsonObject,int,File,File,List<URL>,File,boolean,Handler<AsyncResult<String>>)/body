@@ -14,7 +14,7 @@
   ModuleReference mr=moduleRefs.get(modID.toString());
   if (mr == null) {
     boolean res=fields.isResident();
-    mr=new ModuleReference(this,modID.toString(),new ModuleClassLoader(modID.toString(),platformClassLoader,moduleClasspath.toArray(new URL[moduleClasspath.size()])),res);
+    mr=new ModuleReference(this,modID.toString(),new ModuleClassLoader(modID.toString(),platformClassLoader,moduleClasspath.toArray(new URL[moduleClasspath.size()]),fields.isLoadFromModuleFirst()),res);
     ModuleReference prev=moduleRefs.putIfAbsent(modID.toString(),mr);
     if (prev != null) {
       mr=prev;
@@ -32,7 +32,7 @@
     loadIncludedModules(modRoot,modDir,mr,includes);
   }
   final boolean autoRedeploy=fields.isAutoRedeploy();
-  doDeploy(depName,autoRedeploy,worker,multiThreaded,fields.getLangMod(),main,modID,config,moduleClasspath.toArray(new URL[moduleClasspath.size()]),instances,modDirToUse,mr,modRoot,ha,new Handler<AsyncResult<String>>(){
+  doDeploy(depName,autoRedeploy,worker,multiThreaded,fields.getLangMod(),main,modID,config,moduleClasspath.toArray(new URL[moduleClasspath.size()]),instances,modDirToUse,mr,modRoot,ha,fields.isLoadFromModuleFirst(),new Handler<AsyncResult<String>>(){
     @Override public void handle(    AsyncResult<String> res){
       if (res.succeeded()) {
         String deploymentID=res.result();

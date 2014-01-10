@@ -9,13 +9,18 @@
   String depName=genDepName();
   ModuleIdentifier enclosingModName=getEnclosingModID();
   String moduleKey;
+  boolean loadFromModuleFirst;
   if (enclosingModName == null) {
     moduleKey=ModuleIdentifier.createInternalModIDForVerticle(depName).toString();
+    loadFromModuleFirst=false;
   }
  else {
     moduleKey=enclosingModName.toString() + "#" + main;
+    VerticleHolder holder=getVerticleHolder();
+    Deployment dep=holder.deployment;
+    loadFromModuleFirst=dep.loadFromModuleFirst;
   }
-  ModuleReference mr=getModuleReference(moduleKey,urls);
+  ModuleReference mr=getModuleReference(moduleKey,urls,loadFromModuleFirst);
   if (enclosingModName != null) {
     ModuleReference parentRef=moduleRefs.get(enclosingModName.toString());
     if (mr.mcl.addReference(parentRef)) {
@@ -25,5 +30,5 @@
   if (includes != null) {
     loadIncludedModules(modRoot,currentModDir,mr,includes);
   }
-  doDeploy(depName,false,worker,multiThreaded,null,main,null,config,urls,instances,currentModDir,mr,modRoot,false,doneHandler);
+  doDeploy(depName,false,worker,multiThreaded,null,main,null,config,urls,instances,currentModDir,mr,modRoot,false,loadFromModuleFirst,doneHandler);
 }

@@ -1,2 +1,3 @@
 String moduleKey
 URL[] urls
+boolean loadFromModuleFirst

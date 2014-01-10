@@ -1,18 +1,19 @@
 {
-  Class<?> c=null;
-  try {
-    c=platformClassLoader.loadClass(name);
-  }
- catch (  ClassNotFoundException e) {
-    Set<ModuleClassLoader> toWalk=getModulesToWalk();
-    for (    ModuleClassLoader cl : toWalk) {
-      c=cl.doLoadClass(name);
-      if (c != null) {
-        break;
-      }
+  Class<?> c;
+  if (loadFromModuleFirst) {
+    try {
+      c=loadFromModule(name);
     }
-    if (c == null) {
-      throw new ClassNotFoundException(name);
+ catch (    ClassNotFoundException e) {
+      c=platformClassLoader.loadClass(name);
+    }
+  }
+ else {
+    try {
+      c=platformClassLoader.loadClass(name);
+    }
+ catch (    ClassNotFoundException e) {
+      c=loadFromModule(name);
     }
   }
   if (resolve) {

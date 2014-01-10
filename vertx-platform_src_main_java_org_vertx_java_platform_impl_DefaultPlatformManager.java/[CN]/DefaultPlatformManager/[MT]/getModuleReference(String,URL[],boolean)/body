@@ -1,7 +1,7 @@
 {
   ModuleReference mr=moduleRefs.get(moduleKey);
   if (mr == null) {
-    mr=new ModuleReference(this,moduleKey,new ModuleClassLoader(moduleKey,platformClassLoader,urls),false);
+    mr=new ModuleReference(this,moduleKey,new ModuleClassLoader(moduleKey,platformClassLoader,urls,loadFromModuleFirst),false);
     ModuleReference prev=moduleRefs.putIfAbsent(moduleKey,mr);
     if (prev != null) {
       mr=prev;

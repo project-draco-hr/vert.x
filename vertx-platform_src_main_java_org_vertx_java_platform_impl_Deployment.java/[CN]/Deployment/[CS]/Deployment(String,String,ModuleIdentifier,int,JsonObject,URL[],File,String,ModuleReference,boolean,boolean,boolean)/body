@@ -10,4 +10,5 @@
   this.moduleReference=moduleReference;
   this.autoRedeploy=autoRedeploy;
   this.ha=ha;
+  this.loadFromModuleFirst=loadFromModuleFirst;
 }

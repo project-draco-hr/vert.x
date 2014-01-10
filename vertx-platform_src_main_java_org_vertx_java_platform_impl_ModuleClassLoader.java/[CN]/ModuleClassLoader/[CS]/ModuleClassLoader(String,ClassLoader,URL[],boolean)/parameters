@@ -1,3 +1,4 @@
 String modID
 ClassLoader platformClassLoader
 URL[] classpath
+boolean loadFromModuleFirst

@@ -17,7 +17,7 @@
         ModuleInfo info=loadModuleInfo(modDir,modID);
         ModuleFields fields=new ModuleFields(info.modJSON);
         boolean res=fields.isResident();
-        includedMr=new ModuleReference(this,moduleName,new ModuleClassLoader(modID.toString(),platformClassLoader,info.cp.toArray(new URL[info.cp.size()])),res);
+        includedMr=new ModuleReference(this,moduleName,new ModuleClassLoader(modID.toString(),platformClassLoader,info.cp.toArray(new URL[info.cp.size()]),fields.isLoadFromModuleFirst()),res);
         ModuleReference prev=moduleRefs.putIfAbsent(moduleName,includedMr);
         if (prev != null) {
           includedMr=prev;
