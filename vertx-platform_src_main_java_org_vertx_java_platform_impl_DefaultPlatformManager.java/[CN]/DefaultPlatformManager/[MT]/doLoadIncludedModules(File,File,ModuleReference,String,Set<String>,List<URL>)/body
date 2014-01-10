@@ -16,6 +16,7 @@
         modDir=locateModule(modRoot,currentModuleDir,modID);
         ModuleInfo info=loadModuleInfo(modDir,modID);
         ModuleFields fields=new ModuleFields(info.modJSON);
+        includedCP.addAll(info.cp);
         boolean res=fields.isResident();
         includedMr=new ModuleReference(this,moduleName,new ModuleClassLoader(modID.toString(),platformClassLoader,info.cp.toArray(new URL[info.cp.size()]),fields.isLoadFromModuleFirst()),res);
         ModuleReference prev=moduleRefs.putIfAbsent(moduleName,includedMr);
@@ -24,7 +25,7 @@
         }
         String includes=fields.getIncludes();
         if (includes != null) {
-          doLoadIncludedModules(modRoot,modDir,includedMr,includes,included);
+          doLoadIncludedModules(modRoot,modDir,includedMr,includes,included,includedCP);
         }
       }
       if (mr.mcl.addReference(includedMr)) {

@@ -1,5 +1,7 @@
 {
   Set<String> included=new HashSet<>();
+  List<URL> includedCP=new ArrayList<>();
   included.add(mr.moduleKey);
-  doLoadIncludedModules(modRoot,currentModuleDir,mr,includesString,included);
+  doLoadIncludedModules(modRoot,currentModuleDir,mr,includesString,included,includedCP);
+  return includedCP;
 }

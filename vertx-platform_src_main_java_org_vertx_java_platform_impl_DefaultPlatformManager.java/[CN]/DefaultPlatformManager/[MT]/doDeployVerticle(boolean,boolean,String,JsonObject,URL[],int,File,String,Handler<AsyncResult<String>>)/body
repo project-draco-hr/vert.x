@@ -30,5 +30,5 @@
   if (includes != null) {
     loadIncludedModules(modRoot,currentModDir,mr,includes);
   }
-  doDeploy(depName,false,worker,multiThreaded,null,main,null,config,urls,instances,currentModDir,mr,modRoot,false,loadFromModuleFirst,doneHandler);
+  doDeploy(depName,false,worker,multiThreaded,null,main,null,config,urls,null,instances,currentModDir,mr,modRoot,false,loadFromModuleFirst,doneHandler);
 }

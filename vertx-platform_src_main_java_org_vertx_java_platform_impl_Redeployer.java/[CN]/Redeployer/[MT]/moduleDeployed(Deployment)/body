@@ -3,7 +3,12 @@
   Set<Deployment> deps=deployments.get(deployment.modID);
   if (deps == null) {
     Set<File> watched=new HashSet<>();
-    for (    URL url : deployment.classpath) {
+    List<URL> totCP=new ArrayList<>();
+    Collections.addAll(totCP,deployment.classpath);
+    if (deployment.includedClasspath != null) {
+      Collections.addAll(totCP,deployment.includedClasspath);
+    }
+    for (    URL url : totCP) {
       String sfile=url.getFile();
       if (sfile != null) {
         File file=new File(sfile);

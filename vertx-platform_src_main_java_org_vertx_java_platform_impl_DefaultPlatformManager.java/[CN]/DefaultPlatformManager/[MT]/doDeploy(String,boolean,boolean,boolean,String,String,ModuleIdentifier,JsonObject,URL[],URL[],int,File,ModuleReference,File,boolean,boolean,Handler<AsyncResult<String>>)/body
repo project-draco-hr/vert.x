@@ -83,7 +83,7 @@
     }
   }
 );
-  final Deployment deployment=new Deployment(deploymentID,main,modID,instances,config == null ? new JsonObject() : config.copy(),urls,modDir,parentDeploymentName,mr,autoRedeploy,ha,loadFromModuleFirst);
+  final Deployment deployment=new Deployment(deploymentID,main,modID,instances,config == null ? new JsonObject() : config.copy(),urls,includedURLs,modDir,parentDeploymentName,mr,autoRedeploy,ha,loadFromModuleFirst);
   mr.incRef();
   deployments.put(deploymentID,deployment);
   try {

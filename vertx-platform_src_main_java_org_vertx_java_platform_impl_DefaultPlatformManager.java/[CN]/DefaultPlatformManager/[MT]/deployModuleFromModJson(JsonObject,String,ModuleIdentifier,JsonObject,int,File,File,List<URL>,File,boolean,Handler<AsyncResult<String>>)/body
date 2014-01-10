@@ -28,11 +28,15 @@
     }
   }
   String includes=fields.getIncludes();
+  URL[] includedCP=null;
   if (includes != null) {
-    loadIncludedModules(modRoot,modDir,mr,includes);
+    List<URL> includedCPList=loadIncludedModules(modRoot,modDir,mr,includes);
+    if (!includedCPList.isEmpty()) {
+      includedCP=includedCPList.toArray(new URL[includedCPList.size()]);
+    }
   }
   final boolean autoRedeploy=fields.isAutoRedeploy();
-  doDeploy(depName,autoRedeploy,worker,multiThreaded,fields.getLangMod(),main,modID,config,moduleClasspath.toArray(new URL[moduleClasspath.size()]),instances,modDirToUse,mr,modRoot,ha,fields.isLoadFromModuleFirst(),new Handler<AsyncResult<String>>(){
+  doDeploy(depName,autoRedeploy,worker,multiThreaded,fields.getLangMod(),main,modID,config,moduleClasspath.toArray(new URL[moduleClasspath.size()]),includedCP,instances,modDirToUse,mr,modRoot,ha,fields.isLoadFromModuleFirst(),new Handler<AsyncResult<String>>(){
     @Override public void handle(    AsyncResult<String> res){
       if (res.succeeded()) {
         String deploymentID=res.result();
