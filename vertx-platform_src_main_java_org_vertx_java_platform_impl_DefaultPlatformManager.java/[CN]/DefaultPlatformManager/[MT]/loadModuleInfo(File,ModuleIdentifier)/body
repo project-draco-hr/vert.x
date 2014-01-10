@@ -14,13 +14,15 @@
         cpList=new ArrayList<>();
         try (Scanner scanner2=new Scanner(cpFile)){
           while (scanner2.hasNextLine()) {
-            String entry=scanner2.nextLine();
-            File fentry=new File(entry);
-            if (!fentry.isAbsolute()) {
-              fentry=new File(path,entry);
+            String entry=scanner2.nextLine().trim();
+            if (!entry.startsWith("#") && !entry.equals("")) {
+              File fentry=new File(entry);
+              if (!fentry.isAbsolute()) {
+                fentry=new File(path,entry);
+              }
+              URL url=fentry.toURI().toURL();
+              cpList.add(url);
             }
-            URL url=fentry.toURI().toURL();
-            cpList.add(url);
           }
         }
  catch (        Exception e) {
