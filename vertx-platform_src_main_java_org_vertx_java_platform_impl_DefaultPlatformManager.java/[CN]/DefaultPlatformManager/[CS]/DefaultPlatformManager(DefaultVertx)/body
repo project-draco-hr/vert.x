@@ -3,6 +3,12 @@
   this.platformClassLoader=tccl != null ? tccl : getClass().getClassLoader();
   this.vertx=new WrappedVertx(vertx);
   this.clusterManager=vertx.clusterManager();
+  if (System.getProperty(SERIALISE_BLOCKING_PROP_NAME,"false").equalsIgnoreCase("true")) {
+    this.backgroundExec=new OrderedExecutorFactory(vertx.getBackgroundPool()).getExecutor();
+  }
+ else {
+    this.backgroundExec=vertx.getBackgroundPool();
+  }
   String modDir=System.getProperty(MODS_DIR_PROP_NAME);
   if (modDir != null && !modDir.trim().equals("")) {
     modRoot=new File(modDir);
