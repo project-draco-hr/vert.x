@@ -1,6 +1,6 @@
 {
   System.setProperty("http.proxyHost","127.0.0.1");
-  System.setProperty("http.proxyPort","9193");
+  System.setProperty("http.proxyPort","9194");
   super.setUp();
   startApp(RepoDownloadTestClient.class.getName());
   Thread.sleep(1000);

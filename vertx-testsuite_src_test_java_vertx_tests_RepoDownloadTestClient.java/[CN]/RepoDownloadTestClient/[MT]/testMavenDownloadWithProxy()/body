@@ -2,7 +2,7 @@
   container.deployModule("io.vertx~mod-proxy-maven-server~1.0",new AsyncResultHandler<String>(){
     public void handle(    AsyncResult<String> res){
       if (res.succeeded()) {
-        container.deployModule("io.vertx~mod-maven-test~1.0.0",new AsyncResultHandler<String>(){
+        container.deployModule("io.vertx~mod-maven-proxy-test~1.0.0",new AsyncResultHandler<String>(){
           @Override public void handle(          AsyncResult<String> res){
           }
         }
