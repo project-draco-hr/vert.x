@@ -41,6 +41,14 @@
       urls.add(file.toURI().toURL());
     }
   }
+  File platformLibDir=new File(new File(modsDir,moduleID),"platform_lib");
+  urls.add(platformLibDir.toURI().toURL());
+  files=platformLibDir.listFiles();
+  for (  File file : files) {
+    if (file.getName().endsWith(".jar") || file.getName().endsWith(".zip")) {
+      urls.add(file.toURI().toURL());
+    }
+  }
   platformLoader=new URLClassLoader(urls.toArray(new URL[urls.size()]),urlc.getParent());
   Thread.currentThread().setContextClassLoader(platformLoader);
   Class<?> starterClass=platformLoader.loadClass("org.vertx.java.platform.impl.cli.Starter");
@@ -61,7 +69,9 @@
   }
   System.setProperty("vertx.home",vertxHome.getAbsolutePath());
   System.setProperty("vertx.mods",modsDir.getAbsolutePath());
-  System.setProperty("vertx.clusterManagerFactory","org.vertx.java.spi.cluster.impl.hazelcast.HazelcastClusterManagerFactory");
+  if (System.getProperty(CLUSTERMANAGER_FACTORY_PROP_NAME) == null) {
+    System.setProperty(CLUSTERMANAGER_FACTORY_PROP_NAME,"org.vertx.java.spi.cluster.impl.hazelcast.HazelcastClusterManagerFactory");
+  }
   Method afterShutdownMeth=starterClass.getMethod("addAfterShutdownTask",new Class[]{Runnable.class});
   afterShutdownMeth.invoke(null,this);
   Method meth=starterClass.getMethod("main",new Class[]{String[].class});
