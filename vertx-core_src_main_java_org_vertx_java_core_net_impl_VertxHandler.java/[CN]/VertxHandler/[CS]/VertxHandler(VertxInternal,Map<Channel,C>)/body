@@ -1,4 +1,0 @@
-{
-  this.vertx=vertx;
-  this.connectionMap=connectionMap;
-}

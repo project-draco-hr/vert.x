@@ -6,7 +6,7 @@
   File file=new File(PathAdjuster.adjust(vertx,filename));
   if (!file.exists()) {
     if (notFoundResource != null) {
-      statusCode=HttpResponseStatus.NOT_FOUND.code();
+      setStatusCode(HttpResponseStatus.NOT_FOUND.code());
       sendFile(notFoundResource,(String)null,resultHandler);
     }
  else {

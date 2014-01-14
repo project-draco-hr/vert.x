@@ -1,0 +1,3 @@
+{
+  return io.netty.handler.codec.http.HttpHeaders.newEntity(value);
+}

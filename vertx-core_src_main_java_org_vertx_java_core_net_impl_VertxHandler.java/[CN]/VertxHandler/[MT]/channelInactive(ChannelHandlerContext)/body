@@ -1,6 +1,6 @@
 {
   final Channel ch=chctx.channel();
-  final C connection=connectionMap.remove(ch);
+  final C connection=(C)ch.attr(KEY).getAndRemove();
   if (connection != null) {
     DefaultContext context=getContext(connection);
     context.execute(ch.eventLoop(),new Runnable(){

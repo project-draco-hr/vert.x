@@ -1,6 +1,6 @@
 {
   final Object message=safeObject(msg);
-  final C connection=connectionMap.get(chctx.channel());
+  final C connection=(C)chctx.channel().attr(KEY).get();
   DefaultContext context;
   if (connection != null) {
     context=getContext(connection);

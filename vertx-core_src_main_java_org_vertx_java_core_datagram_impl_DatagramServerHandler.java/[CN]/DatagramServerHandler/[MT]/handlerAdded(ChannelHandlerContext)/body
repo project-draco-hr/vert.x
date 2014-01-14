@@ -1,4 +1,4 @@
 {
   super.handlerAdded(ctx);
-  connectionMap.put(ctx.channel(),server);
+  ctx.channel().attr(VertxHandler.KEY).set(server);
 }

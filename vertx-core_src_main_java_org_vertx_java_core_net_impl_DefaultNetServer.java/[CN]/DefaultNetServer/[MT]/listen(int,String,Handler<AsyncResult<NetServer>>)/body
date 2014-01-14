@@ -12,6 +12,7 @@ synchronized (vertx.sharedNetServers()) {
     DefaultNetServer shared=vertx.sharedNetServers().get(id);
     if (shared == null || port == 0) {
       serverChannelGroup=new DefaultChannelGroup("vertx-acceptor-channels",GlobalEventExecutor.INSTANCE);
+      group=new DefaultChannelGroup("vertx-channels",GlobalEventExecutor.INSTANCE);
       ServerBootstrap bootstrap=new ServerBootstrap();
       bootstrap.group(availableWorkers);
       bootstrap.channel(NioServerSocketChannel.class);
@@ -19,7 +20,6 @@ synchronized (vertx.sharedNetServers()) {
       bootstrap.childHandler(new ChannelInitializer<Channel>(){
         @Override protected void initChannel(        Channel ch) throws Exception {
           ChannelPipeline pipeline=ch.pipeline();
-          pipeline.addLast("exceptionDispatcher",EXCEPTION_DISPATCH_HANDLER);
           if (tcpHelper.isSSL()) {
             SslHandler sslHandler=tcpHelper.createSslHandler(vertx,false);
             pipeline.addLast("ssl",sslHandler);

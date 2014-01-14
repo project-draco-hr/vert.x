@@ -6,6 +6,7 @@
     }
   }
 );
-  connectionMap.put(ch,conn);
+  ch.attr(VertxHandler.KEY).set(conn);
+  group.add(ch);
   connectHandler.handle(conn);
 }
