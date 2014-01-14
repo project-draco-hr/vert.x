@@ -24,7 +24,8 @@
     wsConn.wsHandler(wsHandler.handler);
     Runnable connectRunnable=new Runnable(){
       public void run(){
-        connectionMap.put(ch,wsConn);
+        ch.attr(VertxHandler.KEY).set(wsConn);
+        group.add(ch);
         try {
           shake.handshake(ch,request);
         }

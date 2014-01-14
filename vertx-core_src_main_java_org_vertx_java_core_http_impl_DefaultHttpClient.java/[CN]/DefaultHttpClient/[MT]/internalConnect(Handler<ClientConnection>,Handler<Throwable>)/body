@@ -1,5 +1,6 @@
 {
   if (bootstrap == null) {
+    group=new DefaultChannelGroup("vertx-channels",GlobalEventExecutor.INSTANCE);
     VertxEventLoopGroup pool=new VertxEventLoopGroup();
     pool.addWorker(actualCtx.getEventLoop());
     bootstrap=new Bootstrap();
@@ -9,7 +10,6 @@
     bootstrap.handler(new ChannelInitializer<Channel>(){
       @Override protected void initChannel(      Channel ch) throws Exception {
         ChannelPipeline pipeline=ch.pipeline();
-        pipeline.addLast("exceptionDispatcher",EXCEPTION_DISPATCH_HANDLER);
         if (tcpHelper.isSSL()) {
           SSLEngine engine=tcpHelper.getSSLContext().createSSLEngine(host,port);
           if (tcpHelper.isVerifyHost()) {

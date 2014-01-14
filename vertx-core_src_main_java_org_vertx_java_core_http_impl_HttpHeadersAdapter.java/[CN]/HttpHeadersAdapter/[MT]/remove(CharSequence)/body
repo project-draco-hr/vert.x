@@ -1,0 +1,4 @@
+{
+  headers.remove(name);
+  return this;
+}
