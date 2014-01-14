@@ -1,6 +1,11 @@
 {
-  for (  NetSocket sock : socketMap.values()) {
-    sock.close();
+  if (group != null) {
+    for (    Channel sock : group) {
+      ConnectionBase conn=sock.attr(VertxHandler.KEY).get();
+      if (conn != null) {
+        conn.close();
+      }
+    }
   }
   actualCtx.removeCloseHook(closeHook);
 }

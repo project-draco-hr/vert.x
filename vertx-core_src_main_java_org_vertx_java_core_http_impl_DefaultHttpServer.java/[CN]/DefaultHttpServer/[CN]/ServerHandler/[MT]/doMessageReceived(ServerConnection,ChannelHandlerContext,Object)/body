@@ -32,7 +32,8 @@
         if (reqHandler != null) {
           conn=new ServerConnection(DefaultHttpServer.this,ch,reqHandler.context,serverOrigin);
           conn.requestHandler(reqHandler.handler);
-          connectionMap.put(ch,conn);
+          ch.attr(VertxHandler.KEY).set(conn);
+          group.add(ch);
           conn.handleMessage(msg);
         }
       }

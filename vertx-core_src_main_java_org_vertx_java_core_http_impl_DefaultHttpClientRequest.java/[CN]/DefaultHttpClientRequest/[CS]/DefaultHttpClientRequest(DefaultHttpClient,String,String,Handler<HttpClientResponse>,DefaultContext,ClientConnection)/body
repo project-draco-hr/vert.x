@@ -1,5 +1,0 @@
-{
-  this(client,method,uri,respHandler,context,true);
-  this.conn=conn;
-  conn.setCurrentRequest(this);
-}
