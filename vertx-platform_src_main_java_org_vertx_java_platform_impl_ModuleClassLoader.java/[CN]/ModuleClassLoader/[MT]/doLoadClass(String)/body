@@ -7,6 +7,12 @@
  catch (    ClassNotFoundException e) {
       return null;
     }
+catch (    LinkageError le) {
+      c=findLoadedClass(name);
+      if (c == null) {
+        throw le;
+      }
+    }
   }
   return c;
 }
