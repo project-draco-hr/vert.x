@@ -1,0 +1,3 @@
+{
+  ctx.bind(localAddress,promise.addListener(ChannelFutureListener.FIRE_EXCEPTION_ON_FAILURE));
+}

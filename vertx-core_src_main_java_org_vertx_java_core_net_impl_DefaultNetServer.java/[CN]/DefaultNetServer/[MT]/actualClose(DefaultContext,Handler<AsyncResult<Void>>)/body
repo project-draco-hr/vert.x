@@ -2,13 +2,8 @@
   if (id != null) {
     vertx.sharedNetServers().remove(id);
   }
-  if (group != null) {
-    for (    Channel sock : group) {
-      ConnectionBase conn=sock.attr(VertxHandler.KEY).get();
-      if (conn != null) {
-        conn.close();
-      }
-    }
+  for (  DefaultNetSocket sock : socketMap.values()) {
+    sock.close();
   }
   vertx.setContext(closeContext);
   ChannelGroupFuture fut=serverChannelGroup.close();

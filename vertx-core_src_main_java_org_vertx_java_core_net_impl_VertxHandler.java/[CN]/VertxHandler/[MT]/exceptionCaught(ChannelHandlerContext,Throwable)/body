@@ -1,6 +1,6 @@
 {
   final Channel ch=chctx.channel();
-  final C connection=(C)ch.attr(KEY).get();
+  final C connection=connectionMap.get(ch);
   if (connection != null) {
     DefaultContext context=getContext(connection);
     context.execute(ch.eventLoop(),new Runnable(){

@@ -1,3 +1,0 @@
-{
-  return add(name.toString(),value.toString());
-}

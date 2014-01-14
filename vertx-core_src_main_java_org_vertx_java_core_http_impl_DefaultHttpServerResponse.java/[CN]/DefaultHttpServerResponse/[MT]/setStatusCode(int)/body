@@ -1,4 +1,4 @@
 {
-  this.response.setStatus(HttpResponseStatus.valueOf(statusCode));
+  this.statusCode=statusCode;
   return this;
 }

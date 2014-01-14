@@ -2,11 +2,8 @@
   if (id != null) {
     vertx.sharedHttpServers().remove(id);
   }
-  for (  Channel sock : group) {
-    ConnectionBase conn=sock.attr(VertxHandler.KEY).get();
-    if (conn != null) {
-      conn.close();
-    }
+  for (  ServerConnection conn : connectionMap.values()) {
+    conn.close();
   }
   vertx.setContext(closeContext);
   final CountDownLatch latch=new CountDownLatch(1);

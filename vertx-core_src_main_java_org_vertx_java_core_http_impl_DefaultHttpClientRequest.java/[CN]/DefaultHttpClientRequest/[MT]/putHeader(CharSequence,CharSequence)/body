@@ -1,5 +1,0 @@
-{
-  check();
-  headers().set(name,value);
-  return this;
-}

@@ -1,0 +1,6 @@
+DefaultHttpClient client
+String method
+String uri
+Handler<HttpClientResponse> respHandler
+DefaultContext context
+ClientConnection conn

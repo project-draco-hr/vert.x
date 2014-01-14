@@ -1,5 +1,5 @@
 {
-  setStatusCode(HttpResponseStatus.NOT_FOUND.code());
+  statusCode=HttpResponseStatus.NOT_FOUND.code();
   putHeader("Content-Type","text/html");
   end(NOT_FOUND);
 }

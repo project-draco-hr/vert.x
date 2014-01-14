@@ -1,4 +1,0 @@
-{
-  super(vertx);
-  this.vertx=vertx;
-}

@@ -1,4 +1,4 @@
 {
-  super(vertx);
+  super(vertx,new HashMap<Channel,DefaultDatagramSocket>());
   this.server=server;
 }

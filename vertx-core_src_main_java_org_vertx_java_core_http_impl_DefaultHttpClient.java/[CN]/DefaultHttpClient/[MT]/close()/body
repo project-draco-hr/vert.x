@@ -1,13 +1,8 @@
 {
   checkClosed();
   pool.close();
-  if (group != null) {
-    for (    Channel sock : group) {
-      ConnectionBase conn=sock.attr(VertxHandler.KEY).get();
-      if (conn != null) {
-        conn.close();
-      }
-    }
+  for (  ClientConnection conn : connectionMap.values()) {
+    conn.close();
   }
   actualCtx.removeCloseHook(closeHook);
   closed=true;
