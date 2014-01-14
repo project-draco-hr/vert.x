@@ -1,6 +1,6 @@
 {
   Date date=new Date();
-  SimpleDateFormat dateFormat=new SimpleDateFormat("HH:mm:ss,SSS");
+  SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
   StringBuffer sb=new StringBuffer();
   date.setTime(record.getMillis());
   sb.append("[").append(Thread.currentThread().getName()).append("] ");
