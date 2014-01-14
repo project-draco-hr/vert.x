@@ -1,5 +1,5 @@
 {
-  final Object body=getMandatoryValue(message,"body");
+  final Object body=message.getValue("body");
   final String replyAddress=message.getString("replyAddress");
   if (replyAddress != null && replyAddress.length() > 36) {
     log.error("Will not send message, reply address is > 36 chars");
