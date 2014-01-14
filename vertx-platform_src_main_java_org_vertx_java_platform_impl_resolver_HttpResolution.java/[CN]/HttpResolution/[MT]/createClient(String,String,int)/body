@@ -3,6 +3,7 @@
     throw new IllegalStateException("Client already created");
   }
   client=vertx.createHttpClient();
+  client.setKeepAlive(false);
   if (proxyHost != null) {
     client.setHost(proxyHost);
     if (proxyPort != 80) {
