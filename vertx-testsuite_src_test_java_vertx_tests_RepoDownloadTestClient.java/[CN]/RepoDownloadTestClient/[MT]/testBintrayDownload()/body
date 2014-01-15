@@ -2,7 +2,12 @@
   container.deployModule("io.vertx~mod-bintray-server~1.0",new AsyncResultHandler<String>(){
     public void handle(    AsyncResult<String> res){
       if (res.succeeded()) {
-        container.deployModule("purplefox~mod-bintray-test~1.0.0");
+        vertx.setTimer(2000,new Handler<Long>(){
+          @Override public void handle(          Long event){
+            container.deployModule("purplefox~mod-bintray-test~1.0.0");
+          }
+        }
+);
       }
  else {
         res.cause().printStackTrace();

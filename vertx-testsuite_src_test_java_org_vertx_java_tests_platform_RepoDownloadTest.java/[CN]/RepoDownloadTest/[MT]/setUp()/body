@@ -1,5 +1,4 @@
 {
   super.setUp();
   startApp(RepoDownloadTestClient.class.getName());
-  Thread.sleep(1000);
 }
