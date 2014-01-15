@@ -19,7 +19,6 @@ synchronized (vertx.sharedNetServers()) {
       bootstrap.childHandler(new ChannelInitializer<Channel>(){
         @Override protected void initChannel(        Channel ch) throws Exception {
           ChannelPipeline pipeline=ch.pipeline();
-          pipeline.addLast("exceptionDispatcher",EXCEPTION_DISPATCH_HANDLER);
           if (tcpHelper.isSSL()) {
             SslHandler sslHandler=tcpHelper.createSslHandler(vertx,false);
             pipeline.addLast("ssl",sslHandler);
