@@ -1,7 +1,6 @@
 {
   String address="some-address";
-  long timeout=500;
-  eb.sendWithTimeout(address,"foo",timeout,new Handler<AsyncResult<Message<String>>>(){
+  eb.sendWithTimeout(address,"foo",TIMEOUT,new Handler<AsyncResult<Message<String>>>(){
     @Override public void handle(    AsyncResult<Message<String>> reply){
       tu.azzert(reply.failed());
       tu.azzert(reply.cause() instanceof ReplyException);

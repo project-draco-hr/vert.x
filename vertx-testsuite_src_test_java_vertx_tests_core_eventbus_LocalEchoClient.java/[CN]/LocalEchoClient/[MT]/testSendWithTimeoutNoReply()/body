@@ -1,14 +1,13 @@
 {
   final long start=System.currentTimeMillis();
-  final long timeout=500;
   String address="some-address";
-  eb.sendWithTimeout(address,"foo",timeout,new Handler<AsyncResult<Message<String>>>(){
+  eb.sendWithTimeout(address,"foo",TIMEOUT,new Handler<AsyncResult<Message<String>>>(){
     boolean replied;
     @Override public void handle(    AsyncResult<Message<String>> reply){
       tu.azzert(!replied);
       tu.azzert(reply.failed());
-      tu.azzert(System.currentTimeMillis() - start >= timeout);
-      vertx.setTimer(timeout * 2,new Handler<Long>(){
+      tu.azzert(System.currentTimeMillis() - start >= TIMEOUT);
+      vertx.setTimer(TIMEOUT * 2,new Handler<Long>(){
         @Override public void handle(        Long tid){
           tu.testComplete();
         }

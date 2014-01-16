@@ -1,11 +1,10 @@
 {
-  final long timeout=500;
   String address="some-address";
   final long start=System.currentTimeMillis();
   eb.send(address,"foo",new Handler<Message<String>>(){
     @Override public void handle(    final Message<String> reply){
       tu.azzert("bar".equals(reply.body()));
-      vertx.setTimer(timeout * 2,new Handler<Long>(){
+      vertx.setTimer(TIMEOUT * 2,new Handler<Long>(){
         @Override public void handle(        Long tid){
           reply.reply("quux");
         }

@@ -1,9 +1,8 @@
 {
-  final long timeout=500;
   String address="some-address";
   eb.registerHandler(address,new Handler<Message<String>>(){
     @Override public void handle(    final Message<String> message){
-      message.replyWithTimeout("bar",timeout,new Handler<AsyncResult<Message<String>>>(){
+      message.replyWithTimeout("bar",TIMEOUT,new Handler<AsyncResult<Message<String>>>(){
         @Override public void handle(        AsyncResult<Message<String>> event){
           tu.azzert(event.failed(),"Should not get a reply after timeout");
           tu.azzert(event.cause() instanceof ReplyException);

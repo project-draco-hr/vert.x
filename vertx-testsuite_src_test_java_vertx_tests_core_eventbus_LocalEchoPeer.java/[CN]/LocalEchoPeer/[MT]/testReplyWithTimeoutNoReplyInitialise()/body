@@ -1,15 +1,14 @@
 {
-  final long timeout=500;
   String address="some-address";
   final long start=System.currentTimeMillis();
   eb.registerHandler(address,new Handler<Message<String>>(){
     @Override public void handle(    final Message<String> message){
-      message.replyWithTimeout("bar",timeout,new Handler<AsyncResult<Message<String>>>(){
+      message.replyWithTimeout("bar",TIMEOUT,new Handler<AsyncResult<Message<String>>>(){
         boolean called;
         @Override public void handle(        AsyncResult<Message<String>> replyReply){
           tu.azzert(!called);
           tu.azzert(replyReply.failed());
-          tu.azzert(System.currentTimeMillis() - start >= timeout);
+          tu.azzert(System.currentTimeMillis() - start >= TIMEOUT);
           tu.testComplete();
           called=true;
         }

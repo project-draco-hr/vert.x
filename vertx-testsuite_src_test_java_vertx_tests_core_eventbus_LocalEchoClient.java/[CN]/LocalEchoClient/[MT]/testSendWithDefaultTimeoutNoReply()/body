@@ -1,6 +1,5 @@
 {
-  final long timeout=500;
-  eb.setDefaultReplyTimeout(timeout);
+  eb.setDefaultReplyTimeout(TIMEOUT);
   String address="some-address";
   eb.send(address,"foo",new Handler<Message<String>>(){
     @Override public void handle(    Message<String> reply){
@@ -8,7 +7,7 @@
     }
   }
 );
-  vertx.setTimer(timeout * 3,new Handler<Long>(){
+  vertx.setTimer(TIMEOUT * 3,new Handler<Long>(){
     @Override public void handle(    Long tid){
       tu.testComplete();
     }

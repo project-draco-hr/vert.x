@@ -1,9 +1,8 @@
 {
-  final long timeout=500;
   String address="some-address";
   eb.registerHandler(address,new Handler<Message<String>>(){
     @Override public void handle(    final Message<String> message){
-      message.replyWithTimeout("bar",timeout,new Handler<AsyncResult<Message<String>>>(){
+      message.replyWithTimeout("bar",TIMEOUT,new Handler<AsyncResult<Message<String>>>(){
         @Override public void handle(        AsyncResult<Message<String>> replyReply){
           tu.azzert(replyReply.succeeded());
           tu.azzert("quux".equals(replyReply.result().body()));

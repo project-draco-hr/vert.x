@@ -1,10 +1,9 @@
 {
-  final long timeout=500;
-  eb.setDefaultReplyTimeout(timeout);
+  eb.setDefaultReplyTimeout(TIMEOUT);
   String address="some-address";
   eb.registerHandler(address,new Handler<Message<String>>(){
     @Override public void handle(    final Message<String> message){
-      vertx.setTimer(timeout * 2,new Handler<Long>(){
+      vertx.setTimer(TIMEOUT * 2,new Handler<Long>(){
         @Override public void handle(        Long tid){
           message.reply("bar");
         }
