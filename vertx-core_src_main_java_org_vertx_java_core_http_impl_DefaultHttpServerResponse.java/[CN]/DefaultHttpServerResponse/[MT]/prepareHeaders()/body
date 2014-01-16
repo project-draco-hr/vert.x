@@ -1,11 +1,11 @@
 {
   if (version == HttpVersion.HTTP_1_0 && keepAlive) {
-    response.headers().set(CONNECTION,KEEP_ALIVE);
+    response.headers().set(org.vertx.java.core.http.HttpHeaders.CONNECTION,KEEP_ALIVE);
   }
   if (chunked) {
-    response.headers().set(TRANSFER_ENCODING,CHUNKED);
+    response.headers().set(org.vertx.java.core.http.HttpHeaders.TRANSFER_ENCODING,CHUNKED);
   }
  else   if (version != HttpVersion.HTTP_1_0 && !contentLengthSet()) {
-    response.headers().set(CONTENT_LENGTH,"0");
+    response.headers().set(org.vertx.java.core.http.HttpHeaders.CONTENT_LENGTH,"0");
   }
 }
