@@ -1,16 +1,11 @@
 {
   handshaking=false;
-  try {
-    ChannelHandler handler=ctx.pipeline().get(HttpContentDecompressor.class);
-    if (handler != null) {
-      ctx.pipeline().remove(handler);
-    }
-    ws=new DefaultWebSocket(vertx,ClientConnection.this);
-    handshaker.finishHandshake(channel,response);
-    log.debug("WebSocket handshake complete");
-    wsConnect.handle(ws);
+  ChannelHandler handler=ctx.pipeline().get(HttpContentDecompressor.class);
+  if (handler != null) {
+    ctx.pipeline().remove(handler);
   }
- catch (  WebSocketHandshakeException e) {
-    client.handleException(e);
-  }
+  ws=new DefaultWebSocket(vertx,ClientConnection.this);
+  handshaker.finishHandshake(channel,response);
+  log.debug("WebSocket handshake complete");
+  wsConnect.handle(ws);
 }

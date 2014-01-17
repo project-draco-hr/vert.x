@@ -3,7 +3,7 @@
   context.execute(ctx.channel().eventLoop(),new Runnable(){
     @Override public void run(){
       if (handshaking) {
-        client.handleException(new WebSocketHandshakeException("Connection closed while handshake in process"));
+        handleException(new WebSocketHandshakeException("Connection closed while handshake in process"));
       }
     }
   }

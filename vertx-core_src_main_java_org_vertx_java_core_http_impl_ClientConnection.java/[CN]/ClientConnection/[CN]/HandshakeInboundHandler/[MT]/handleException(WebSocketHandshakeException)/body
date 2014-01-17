@@ -1,0 +1,5 @@
+{
+  handshaking=false;
+  buffered.clear();
+  client.handleException(e);
+}
