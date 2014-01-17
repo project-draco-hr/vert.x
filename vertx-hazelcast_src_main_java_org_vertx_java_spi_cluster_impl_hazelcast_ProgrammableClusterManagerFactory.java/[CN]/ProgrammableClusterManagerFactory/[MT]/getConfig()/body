@@ -1,0 +1,7 @@
+{
+  if (config == null) {
+    System.setProperty("vertx.clusterManagerFactory",ProgrammableClusterManagerFactory.class.getName());
+    config=new Config();
+  }
+  return config;
+}
