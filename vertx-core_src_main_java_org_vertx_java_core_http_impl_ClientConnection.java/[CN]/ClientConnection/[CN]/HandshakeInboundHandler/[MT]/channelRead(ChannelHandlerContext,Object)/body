@@ -29,6 +29,8 @@
         }
       }
  catch (      WebSocketHandshakeException e) {
+        handshaking=false;
+        actualClose();
         fire=false;
         for (; ; ) {
           Object m=buffered.poll();

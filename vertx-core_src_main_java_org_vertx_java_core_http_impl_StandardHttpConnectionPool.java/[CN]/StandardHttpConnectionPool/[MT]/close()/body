@@ -1,4 +1,0 @@
-{
-  available.clear();
-  waiters.clear();
-}

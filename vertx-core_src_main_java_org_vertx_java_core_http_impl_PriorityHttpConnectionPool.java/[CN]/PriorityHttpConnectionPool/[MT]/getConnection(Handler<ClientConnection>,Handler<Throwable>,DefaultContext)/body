@@ -19,6 +19,12 @@
     handler.handle(conn);
   }
  else   if (connect) {
-    connect(handler,connectExceptionHandler,context);
+    connect(new Handler<ClientConnection>(){
+      @Override public void handle(      ClientConnection conn){
+        allConnections.add(conn);
+        handler.handle(conn);
+      }
+    }
+,connectExceptionHandler,context);
   }
 }

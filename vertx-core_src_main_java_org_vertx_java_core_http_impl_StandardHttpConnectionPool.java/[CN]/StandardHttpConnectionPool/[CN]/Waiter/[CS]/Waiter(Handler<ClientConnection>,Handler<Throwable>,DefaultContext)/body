@@ -1,5 +1,0 @@
-{
-  this.handler=handler;
-  this.connectionExceptionHandler=connectionExceptionHandler;
-  this.context=context;
-}

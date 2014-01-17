@@ -2,7 +2,7 @@
   if (upgradedConnection) {
   }
  else   if (!keepAlive) {
-    super.close();
+    actualClose();
   }
  else {
     client.returnConnection(this);

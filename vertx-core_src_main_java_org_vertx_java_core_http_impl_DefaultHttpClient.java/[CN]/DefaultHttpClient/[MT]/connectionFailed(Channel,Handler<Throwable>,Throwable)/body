@@ -2,7 +2,7 @@
   final Handler<Throwable> exHandler=connectionExceptionHandler == null ? exceptionHandler : connectionExceptionHandler;
   actualCtx.execute(ch.eventLoop(),new Runnable(){
     public void run(){
-      pool.connectionClosed();
+      pool.connectionClosed(null);
       try {
         ch.close();
       }

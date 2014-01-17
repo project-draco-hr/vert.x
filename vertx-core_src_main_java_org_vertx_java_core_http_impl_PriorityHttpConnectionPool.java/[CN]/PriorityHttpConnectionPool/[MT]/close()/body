@@ -1,4 +1,15 @@
 {
-  available.clear();
-  waiters.clear();
+synchronized (this) {
+    available.clear();
+    waiters.clear();
+  }
+  for (  ClientConnection conn : allConnections) {
+    try {
+      conn.actualClose();
+    }
+ catch (    Throwable t) {
+      log.error("Failed to close connection",t);
+    }
+  }
+  allConnections.clear();
 }

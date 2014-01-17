@@ -2,6 +2,9 @@
   Waiter waiter;
 synchronized (this) {
     connectionCount--;
+    if (conn != null) {
+      allConnections.remove(conn);
+    }
     if (connectionCount < maxPoolSize) {
       waiter=waiters.poll();
       if (waiter != null) {

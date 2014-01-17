@@ -43,7 +43,7 @@
                 connected(ch,connectHandler);
               }
  else {
-                failed(ch,connectErrorHandler,new SSLHandshakeException("Failed to create SSL connection"));
+                connectionFailed(ch,connectErrorHandler,new SSLHandshakeException("Failed to create SSL connection"));
               }
             }
           }
@@ -54,7 +54,7 @@
         }
       }
  else {
-        failed(ch,connectErrorHandler,channelFuture.cause());
+        connectionFailed(ch,connectErrorHandler,channelFuture.cause());
       }
     }
   }
