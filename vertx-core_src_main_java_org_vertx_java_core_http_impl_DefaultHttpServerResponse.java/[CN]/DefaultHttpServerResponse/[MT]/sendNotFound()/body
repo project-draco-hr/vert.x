@@ -1,5 +1,5 @@
 {
   setStatusCode(HttpResponseStatus.NOT_FOUND.code());
-  putHeader("Content-Type","text/html");
+  putHeader(org.vertx.java.core.http.HttpHeaders.CONTENT_TYPE,TEXT_HTML);
   end(NOT_FOUND);
 }

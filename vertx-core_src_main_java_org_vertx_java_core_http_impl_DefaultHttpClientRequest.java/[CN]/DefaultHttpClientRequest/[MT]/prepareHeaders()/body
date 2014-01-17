@@ -1,15 +1,15 @@
 {
   HttpHeaders headers=request.headers();
-  headers.remove(TRANSFER_ENCODING);
+  headers.remove(org.vertx.java.core.http.HttpHeaders.TRANSFER_ENCODING);
   if (!raw) {
-    if (!headers.contains(HOST)) {
-      request.headers().set(HOST,conn.hostHeader);
+    if (!headers.contains(org.vertx.java.core.http.HttpHeaders.HOST)) {
+      request.headers().set(org.vertx.java.core.http.HttpHeaders.HOST,conn.hostHeader);
     }
     if (chunked) {
       HttpHeaders.setTransferEncodingChunked(request);
     }
   }
   if (client.getTryUseCompression() && request.headers().get(HttpHeaders.Names.ACCEPT_ENCODING) == null) {
-    request.headers().set(HttpHeaders.Names.ACCEPT_ENCODING,"deflate, gzip");
+    request.headers().set(HttpHeaders.Names.ACCEPT_ENCODING,DEFLATE_GZIP);
   }
 }

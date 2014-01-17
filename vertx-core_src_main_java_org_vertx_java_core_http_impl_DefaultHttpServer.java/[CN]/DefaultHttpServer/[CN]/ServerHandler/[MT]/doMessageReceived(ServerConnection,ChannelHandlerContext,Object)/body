@@ -7,7 +7,7 @@
       ch.writeAndFlush(new DefaultFullHttpResponse(HTTP_1_1,CONTINUE));
     }
     if (wsHandlerManager.hasHandlers() && request.headers().contains(UPGRADE,WEBSOCKET,true)) {
-      String connectionHeader=request.headers().get(CONNECTION);
+      String connectionHeader=request.headers().get(org.vertx.java.core.http.HttpHeaders.CONNECTION);
       if (connectionHeader == null || !connectionHeader.toLowerCase().contains("upgrade")) {
         sendError("\"Connection\" must be \"Upgrade\".",BAD_REQUEST,ch);
         return;

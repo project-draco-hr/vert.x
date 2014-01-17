@@ -15,7 +15,7 @@
   }
  else {
     if (!contentLengthSet()) {
-      putHeader("Content-Length",String.valueOf(file.length()));
+      putHeader(org.vertx.java.core.http.HttpHeaders.CONTENT_LENGTH,String.valueOf(file.length()));
     }
     if (!contentTypeSet()) {
       int li=filename.lastIndexOf('.');
@@ -23,7 +23,7 @@
         String ext=filename.substring(li + 1,filename.length());
         String contentType=MimeMapping.getMimeTypeForExtension(ext);
         if (contentType != null) {
-          putHeader("Content-Type",contentType);
+          putHeader(org.vertx.java.core.http.HttpHeaders.CONTENT_TYPE,contentType);
         }
       }
     }

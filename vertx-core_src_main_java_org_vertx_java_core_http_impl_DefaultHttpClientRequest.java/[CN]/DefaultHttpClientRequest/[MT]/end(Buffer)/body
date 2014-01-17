@@ -1,7 +1,7 @@
 {
   check();
   if (!chunked && !contentLengthSet()) {
-    headers().set("Content-Length",String.valueOf(chunk.length()));
+    headers().set(org.vertx.java.core.http.HttpHeaders.CONTENT_LENGTH,String.valueOf(chunk.length()));
   }
   write(chunk.getByteBuf(),true);
 }
