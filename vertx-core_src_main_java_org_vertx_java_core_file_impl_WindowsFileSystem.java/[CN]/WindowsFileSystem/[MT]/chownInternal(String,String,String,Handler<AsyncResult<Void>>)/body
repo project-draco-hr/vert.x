@@ -1,0 +1,6 @@
+{
+  if (group != null && log.isDebugEnabled()) {
+    log.debug("You are running on Windows and POSIX style file ownership is not supported");
+  }
+  return super.chownInternal(path,user,group,handler);
+}
