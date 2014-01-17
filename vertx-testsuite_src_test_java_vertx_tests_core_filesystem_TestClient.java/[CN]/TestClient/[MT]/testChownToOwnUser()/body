@@ -1,0 +1,16 @@
+{
+  final String file1="some-file.dat";
+  createFileWithJunk(file1,100);
+  String fullPath=TEST_DIR + pathSep + file1;
+  Path path=Paths.get(fullPath);
+  UserPrincipal owner=Files.getOwner(path);
+  String user=owner.getName();
+  vertx.fileSystem().chown(fullPath,user,null,new AsyncResultHandler<Void>(){
+    public void handle(    AsyncResult<Void> result){
+      deleteFile(file1);
+      tu.azzert(result.succeeded());
+      tu.testComplete();
+    }
+  }
+);
+}
