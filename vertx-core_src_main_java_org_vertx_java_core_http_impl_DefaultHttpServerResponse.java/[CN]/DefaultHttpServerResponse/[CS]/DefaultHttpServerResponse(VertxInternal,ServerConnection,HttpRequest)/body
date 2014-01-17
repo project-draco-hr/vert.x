@@ -3,5 +3,5 @@
   this.conn=conn;
   this.version=request.getProtocolVersion();
   this.response=new DefaultHttpResponse(version,HttpResponseStatus.OK,false);
-  this.keepAlive=version == HttpVersion.HTTP_1_1 || (version == HttpVersion.HTTP_1_0 && request.headers().contains(org.vertx.java.core.http.HttpHeaders.CONNECTION,KEEP_ALIVE,true));
+  this.keepAlive=version == HttpVersion.HTTP_1_1 || (version == HttpVersion.HTTP_1_0 && request.headers().contains(org.vertx.java.core.http.HttpHeaders.CONNECTION,org.vertx.java.core.http.HttpHeaders.KEEP_ALIVE,true));
 }
