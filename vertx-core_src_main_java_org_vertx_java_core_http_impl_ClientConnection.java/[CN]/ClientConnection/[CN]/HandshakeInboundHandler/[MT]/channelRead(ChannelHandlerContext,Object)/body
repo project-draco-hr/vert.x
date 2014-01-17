@@ -3,7 +3,7 @@
     public void run(){
       boolean fire=false;
       try {
-        if (handshaker != null && !handshaking) {
+        if (handshaker != null && handshaking) {
           if (msg instanceof HttpResponse) {
             HttpResponse resp=(HttpResponse)msg;
             if (resp.getStatus().code() != 101) {

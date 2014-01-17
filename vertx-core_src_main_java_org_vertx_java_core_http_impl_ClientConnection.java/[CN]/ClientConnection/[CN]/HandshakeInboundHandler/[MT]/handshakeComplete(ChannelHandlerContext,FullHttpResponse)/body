@@ -1,5 +1,5 @@
 {
-  handshaking=true;
+  handshaking=false;
   try {
     ChannelHandler handler=ctx.pipeline().get(HttpContentDecompressor.class);
     if (handler != null) {
