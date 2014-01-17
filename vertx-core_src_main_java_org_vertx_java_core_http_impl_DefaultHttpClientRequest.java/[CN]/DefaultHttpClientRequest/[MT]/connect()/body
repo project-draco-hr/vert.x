@@ -2,7 +2,10 @@
   if (!connecting) {
     client.getConnection(new Handler<ClientConnection>(){
       public void handle(      ClientConnection conn){
-        if (!conn.isClosed()) {
+        if (exceptionOccurred) {
+          conn.close();
+        }
+ else         if (!conn.isClosed()) {
           connected(conn);
         }
  else {
