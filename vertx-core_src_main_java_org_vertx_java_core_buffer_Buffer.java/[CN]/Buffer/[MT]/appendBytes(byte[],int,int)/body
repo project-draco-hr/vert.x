@@ -1,0 +1,4 @@
+{
+  buffer.writeBytes(bytes,offset,len);
+  return this;
+}
