@@ -1,4 +1,7 @@
 {
-  this(new DefaultVertx(port,hostname,null));
+  DefaultVertx v=new DefaultVertx(port,hostname,null);
+  this.vertx=new WrappedVertx(v);
+  this.clusterManager=v.clusterManager();
+  init();
   this.haManager=new HAManager(vertx,this,clusterManager,quorumSize,haGroup);
 }

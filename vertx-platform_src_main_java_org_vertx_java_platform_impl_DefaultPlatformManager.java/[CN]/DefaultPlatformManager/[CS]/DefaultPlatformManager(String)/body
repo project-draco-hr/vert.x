@@ -1,3 +1,6 @@
 {
-  this(new DefaultVertx(hostname));
+  DefaultVertx v=new DefaultVertx(hostname);
+  this.vertx=new WrappedVertx(v);
+  this.clusterManager=v.clusterManager();
+  init();
 }

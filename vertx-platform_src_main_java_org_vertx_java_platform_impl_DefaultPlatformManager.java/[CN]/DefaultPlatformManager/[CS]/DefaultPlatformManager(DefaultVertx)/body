@@ -1,30 +1,5 @@
 {
-  ClassLoader tccl=Thread.currentThread().getContextClassLoader();
-  this.platformClassLoader=tccl != null ? tccl : getClass().getClassLoader();
   this.vertx=new WrappedVertx(vertx);
   this.clusterManager=vertx.clusterManager();
-  if (System.getProperty(SERIALISE_BLOCKING_PROP_NAME,"false").equalsIgnoreCase("true")) {
-    this.backgroundExec=new OrderedExecutorFactory(vertx.getBackgroundPool()).getExecutor();
-  }
- else {
-    this.backgroundExec=vertx.getBackgroundPool();
-  }
-  String modDir=System.getProperty(MODS_DIR_PROP_NAME);
-  if (modDir != null && !modDir.trim().equals("")) {
-    modRoot=new File(modDir);
-  }
- else {
-    modRoot=new File(LOCAL_MODS_DIR);
-  }
-  vertxHomeDir=System.getProperty(VERTX_HOME_SYS_PROP);
-  if (vertxHomeDir == null || modDir != null) {
-    systemModRoot=modRoot;
-  }
- else {
-    systemModRoot=new File(vertxHomeDir,SYS_MODS_DIR);
-  }
-  this.redeployer=new Redeployer(vertx,this);
-  this.disableMavenLocal=System.getenv("VERTX_DISABLE_MAVENLOCAL") != null;
-  loadLanguageMappings();
-  loadRepos();
+  init();
 }
