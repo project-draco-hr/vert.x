@@ -2,7 +2,12 @@
   Args args=new Args(sargs);
   sargs=removeOptions(sargs);
   if (sargs.length == 0) {
-    runBareHA(args);
+    if (args.map.get("-ha") != null) {
+      runBareHA(args);
+    }
+ else {
+      displaySyntax();
+    }
   }
  else {
     String command=sargs[0].toLowerCase();

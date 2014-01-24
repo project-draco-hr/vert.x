@@ -1,10 +1,5 @@
 {
-  boolean ha=args.map.get("-ha") != null;
-  if (!ha) {
-    log.info("Vert.x can only be run bare if -ha is specified");
-    return;
-  }
-  PlatformManager mgr=startPM(ha,false,args);
+  PlatformManager mgr=startPM(true,false,args);
   if (mgr == null) {
     return;
   }
