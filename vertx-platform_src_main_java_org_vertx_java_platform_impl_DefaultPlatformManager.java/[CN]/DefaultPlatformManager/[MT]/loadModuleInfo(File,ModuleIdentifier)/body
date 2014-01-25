@@ -38,7 +38,7 @@
           e.printStackTrace();
           throw new PlatformManagerException(e);
         }
-        modJSON=loadModJSONFromClasspath(modID,new URLClassLoader(cpList.toArray(new URL[cpList.size()]),platformClassLoader));
+        modJSON=loadModJSONFromClasspath(modID,new ModJSONClassLoader(cpList.toArray(new URL[cpList.size()]),platformClassLoader));
       }
  catch (      Exception e) {
         throw new PlatformManagerException(e);

@@ -1,0 +1,7 @@
+{
+  List<URL> resources=new ArrayList<>(Collections.list(findResources(name)));
+  if (parent != null) {
+    resources.addAll(Collections.list(parent.getResources(name)));
+  }
+  return Collections.enumeration(resources);
+}
