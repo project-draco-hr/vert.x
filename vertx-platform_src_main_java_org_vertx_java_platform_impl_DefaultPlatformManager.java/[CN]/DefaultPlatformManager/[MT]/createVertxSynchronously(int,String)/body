@@ -1,0 +1,16 @@
+{
+  final CountDownLatch latch=new CountDownLatch(1);
+  DefaultVertx v=new DefaultVertx(port,hostname,new Handler<AsyncResult<Vertx>>(){
+    @Override public void handle(    AsyncResult<Vertx> result){
+      latch.countDown();
+    }
+  }
+);
+  try {
+    latch.await(10,TimeUnit.SECONDS);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  return new WrappedVertx(v);
+}

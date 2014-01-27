@@ -1,0 +1,8 @@
+{
+  if (!listenersRun) {
+    bindListeners.add(runner);
+  }
+ else {
+    runner.run();
+  }
+}
