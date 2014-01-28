@@ -1,4 +1,11 @@
 {
+  log.debug(new JsonObject().putString("null",null).encode());
   log.debug(new JsonObject().putObject("null",null).encode());
+  log.debug(new JsonObject().putArray("null",null).encode());
+  log.debug(new JsonObject().putElement("null",null).encode());
+  log.debug(new JsonObject().putNumber("null",null).encode());
+  log.debug(new JsonObject().putBoolean("null",null).encode());
+  log.debug(new JsonObject().putBinary("null",null).encode());
+  log.debug(new JsonObject().putValue("null",null).encode());
   log.debug(new JsonObject().putObject("null",new JsonObject().putString("foo","bar")).encode());
 }

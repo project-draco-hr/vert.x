@@ -1,5 +1,8 @@
 {
-  if (value instanceof JsonObject) {
+  if (value == null) {
+    putObject(fieldName,null);
+  }
+ else   if (value instanceof JsonObject) {
     putObject(fieldName,(JsonObject)value);
   }
  else   if (value instanceof JsonArray) {

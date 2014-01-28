@@ -1,5 +1,5 @@
 {
   checkCopy();
-  map.put(fieldName,value.list);
+  map.put(fieldName,value == null ? null : value.list);
   return this;
 }
