@@ -1,4 +1,5 @@
 {
+  System.out.println(("**** do close called !!"));
   super.close();
   if (heartbeatID != -1) {
     vertx.cancelTimer(heartbeatID);
@@ -7,6 +8,7 @@
     vertx.cancelTimer(timeoutTimerID);
   }
   if (id != null) {
+    System.out.println(("**** removing session!!"));
     sessions.remove(id);
   }
   if (endHandler != null) {

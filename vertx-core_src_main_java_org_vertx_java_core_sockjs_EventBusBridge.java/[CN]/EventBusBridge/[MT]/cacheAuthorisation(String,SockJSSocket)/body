@@ -1,6 +1,9 @@
 {
   authCache.put(sessionID,new Auth(sessionID,sock));
   SockInfo sockInfo=sockInfos.get(sock);
+  if (sockInfo == null) {
+    return;
+  }
   Set<String> sess=sockInfo.sockAuths;
   if (sess == null) {
     sess=new HashSet<>();

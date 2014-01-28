@@ -4,6 +4,9 @@
     return;
   }
   final SockInfo info=sockInfos.get(sock);
+  if (info == null) {
+    return;
+  }
   if (!checkMaxHandlers(info)) {
     return;
   }
