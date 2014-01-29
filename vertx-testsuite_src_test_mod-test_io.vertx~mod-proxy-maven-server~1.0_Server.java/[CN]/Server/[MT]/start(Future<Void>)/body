@@ -2,7 +2,6 @@
   final TestUtils tu=new TestUtils(vertx);
   vertx.createHttpServer().requestHandler(new Handler<HttpServerRequest>(){
     public void handle(    HttpServerRequest req){
-      System.out.println("******************************************* uri is " + req.uri());
       tu.azzert(req.uri().equals("http://localhost:9193/maven2/io/vertx/mod-maven-proxy-test/1.0.0/mod-maven-proxy-test-1.0.0-mod.zip") || req.uri().equals("http://localhost:9193/maven2/io/vertx/mod-maven-proxy-test/1.0.0/mod-maven-proxy-test-1.0.0.zip"));
       if (req.path().indexOf("..") != -1) {
         req.response().setStatusCode(403);
