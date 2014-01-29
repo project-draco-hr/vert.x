@@ -1,0 +1,4 @@
+int pos
+byte[] b
+int offset
+int len

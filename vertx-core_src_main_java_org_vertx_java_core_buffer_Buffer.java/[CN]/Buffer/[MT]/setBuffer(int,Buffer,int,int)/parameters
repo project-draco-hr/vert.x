@@ -1,0 +1,4 @@
+int pos
+Buffer b
+int offset
+int len

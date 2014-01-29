@@ -3,7 +3,7 @@
     HttpContent content=(HttpContent)msg;
     ByteBuf buf=content.content();
     if (buf != Unpooled.EMPTY_BUFFER && buf.isDirect()) {
-      ByteBuf newBuf=safeBuffer(content);
+      ByteBuf newBuf=safeBuffer(content,allocator);
       if (msg instanceof LastHttpContent) {
         LastHttpContent last=(LastHttpContent)msg;
         return new AssembledLastHttpContent(newBuf,last.trailingHeaders());
@@ -14,7 +14,7 @@
     }
   }
  else   if (msg instanceof WebSocketFrame) {
-    ByteBuf payload=safeBuffer((WebSocketFrame)msg);
+    ByteBuf payload=safeBuffer((WebSocketFrame)msg,allocator);
     if (msg instanceof BinaryWebSocketFrame) {
       return new DefaultWebSocketFrame(org.vertx.java.core.http.impl.ws.WebSocketFrame.FrameType.BINARY,payload);
     }

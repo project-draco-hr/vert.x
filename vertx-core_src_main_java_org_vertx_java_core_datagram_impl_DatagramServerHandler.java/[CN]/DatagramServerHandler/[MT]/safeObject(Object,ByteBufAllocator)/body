@@ -3,7 +3,7 @@
     DatagramPacket packet=(DatagramPacket)msg;
     ByteBuf content=packet.content();
     if (content.isDirect()) {
-      content=safeBuffer(content);
+      content=safeBuffer(content,allocator);
     }
     return new DefaultDatagramPacket(packet.sender(),new Buffer(content));
   }
