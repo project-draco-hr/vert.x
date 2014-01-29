@@ -2,6 +2,8 @@
   this.vertx=vertx;
   this.repoHost=repoHost;
   this.repoPort=repoPort;
+  this.repoUsername=repoUsername;
+  this.repoPassword=repoPassword;
   this.modID=modID;
   this.filename=filename;
   this.repoScheme=repoScheme;
