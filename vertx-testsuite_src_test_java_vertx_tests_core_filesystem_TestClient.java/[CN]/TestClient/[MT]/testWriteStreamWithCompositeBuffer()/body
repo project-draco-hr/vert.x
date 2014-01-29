@@ -4,7 +4,8 @@
   final int chunks=10;
   byte[] content1=TestUtils.generateRandomByteArray(chunkSize * (chunks / 2));
   byte[] content2=TestUtils.generateRandomByteArray(chunkSize * (chunks / 2));
-  final Buffer buff=new Buffer(Unpooled.wrappedBuffer(content1,content2));
+  final ByteBuf byteBuf=Unpooled.wrappedBuffer(content1,content2);
+  final Buffer buff=new Buffer(byteBuf);
   vertx.fileSystem().open(TEST_DIR + pathSep + fileName,new AsyncResultHandler<AsyncFile>(){
     public void handle(    AsyncResult<AsyncFile> ar){
       tu.checkThread();
@@ -35,6 +36,7 @@
                 return;
               }
               tu.azzert(TestUtils.buffersEqual(buff,new Buffer(readBytes)));
+              byteBuf.release();
               tu.testComplete();
             }
           }
