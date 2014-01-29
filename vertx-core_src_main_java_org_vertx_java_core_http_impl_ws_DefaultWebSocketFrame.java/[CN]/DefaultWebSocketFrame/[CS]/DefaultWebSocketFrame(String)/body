@@ -1,3 +1,4 @@
 {
-  this(FrameType.TEXT,Unpooled.copiedBuffer(textData,CharsetUtil.UTF_8));
+  this.type=FrameType.TEXT;
+  this.binaryData=Unpooled.copiedBuffer(textData,CharsetUtil.UTF_8);
 }

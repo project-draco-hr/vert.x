@@ -8,6 +8,7 @@
   bootstrap=new Bootstrap();
   bootstrap.group(actualCtx.getEventLoop());
   bootstrap.channel(NioDatagramChannel.class);
+  bootstrap.option(ChannelOption.ALLOCATOR,PartialPooledByteBufAllocator.INSTANCE);
   bootstrap.handler(new ChannelInitializer<DatagramChannel>(){
     @Override protected void initChannel(    DatagramChannel ch) throws Exception {
       ChannelPipeline pipeline=ch.pipeline();
