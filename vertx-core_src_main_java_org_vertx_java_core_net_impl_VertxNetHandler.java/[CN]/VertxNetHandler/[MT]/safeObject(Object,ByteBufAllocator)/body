@@ -1,6 +1,6 @@
 {
   if (msg instanceof ByteBuf) {
-    return safeBuffer((ByteBuf)msg);
+    return safeBuffer((ByteBuf)msg,allocator);
   }
   return msg;
 }

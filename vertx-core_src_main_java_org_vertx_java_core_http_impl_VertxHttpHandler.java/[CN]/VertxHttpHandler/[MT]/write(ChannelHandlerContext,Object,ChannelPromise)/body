@@ -3,7 +3,7 @@
     org.vertx.java.core.http.impl.ws.WebSocketFrame frame=(org.vertx.java.core.http.impl.ws.WebSocketFrame)msg;
     ByteBuf buf=((org.vertx.java.core.http.impl.ws.WebSocketFrame)msg).getBinaryData();
     if (buf != Unpooled.EMPTY_BUFFER) {
-      buf=safeBuffer(buf);
+      buf=safeBuffer(buf,ctx.alloc());
     }
 switch (frame.getType()) {
 case BINARY:

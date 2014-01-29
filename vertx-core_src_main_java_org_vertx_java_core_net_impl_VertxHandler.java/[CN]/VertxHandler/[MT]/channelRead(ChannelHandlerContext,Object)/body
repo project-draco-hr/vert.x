@@ -1,5 +1,5 @@
 {
-  final Object message=safeObject(msg);
+  final Object message=safeObject(msg,chctx.alloc());
   final C connection=connectionMap.get(chctx.channel());
   DefaultContext context;
   if (connection != null) {

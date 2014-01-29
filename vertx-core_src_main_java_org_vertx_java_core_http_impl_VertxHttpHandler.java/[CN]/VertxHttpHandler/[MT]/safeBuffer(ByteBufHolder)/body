@@ -1,3 +1,0 @@
-{
-  return safeBuffer(holder.content());
-}
