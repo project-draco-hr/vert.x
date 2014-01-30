@@ -6,7 +6,6 @@
     final Map<String,Handler<Message>> handlers=new HashMap<>();
     sock.endHandler(new VoidHandler(){
       public void handle(){
-        System.out.println("In handlesocketclosed");
         handleSocketClosed(sock,handlers);
       }
     }
