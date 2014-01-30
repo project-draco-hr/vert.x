@@ -1,8 +1,5 @@
 {
   final SockInfo info=sockInfos.get(sock);
-  if (info == null) {
-    return;
-  }
   if (replyAddress != null && !checkMaxHandlers(info)) {
     return;
   }

@@ -4,9 +4,6 @@
     if (handler != null) {
       eb.unregisterHandler(address,handler);
       SockInfo info=sockInfos.get(sock);
-      if (info == null) {
-        return;
-      }
       info.handlerCount--;
     }
   }
