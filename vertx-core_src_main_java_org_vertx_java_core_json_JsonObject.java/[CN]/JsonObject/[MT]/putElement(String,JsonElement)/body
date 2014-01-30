@@ -1,7 +1,13 @@
 {
   checkCopy();
-  if (value.isArray()) {
+  if (value == null) {
+    map.put(fieldName,null);
+    return this;
+  }
+ else   if (value.isArray()) {
     return putArray(fieldName,value.asArray());
   }
-  return putObject(fieldName,value.asObject());
+ else {
+    return putObject(fieldName,value.asObject());
+  }
 }

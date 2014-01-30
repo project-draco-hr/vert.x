@@ -1,0 +1,10 @@
+{
+  assertTrue(new JsonObject().putString("foo",null).containsField("foo"));
+  assertTrue(new JsonObject().putObject("foo",null).containsField("foo"));
+  assertTrue(new JsonObject().putArray("foo",null).containsField("foo"));
+  assertTrue(new JsonObject().putElement("foo",null).containsField("foo"));
+  assertTrue(new JsonObject().putNumber("foo",null).containsField("foo"));
+  assertTrue(new JsonObject().putBoolean("foo",null).containsField("foo"));
+  assertTrue(new JsonObject().putBinary("foo",null).containsField("foo"));
+  assertTrue(new JsonObject().putValue("foo",null).containsField("foo"));
+}
