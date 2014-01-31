@@ -25,7 +25,7 @@
     standardFileManager.setLocation(StandardLocation.SOURCE_PATH,Collections.singleton(javaSourceContext.getSourceRoot()));
     fileManager=new MemoryFileManager(loader,standardFileManager);
     JavaFileObject javaFile=standardFileManager.getJavaFileForInput(StandardLocation.SOURCE_PATH,resolveMainClassName(),Kind.SOURCE);
-    JavaCompiler.CompilationTask task=javaCompiler.getTask(null,fileManager,diagnostics,null,null,Collections.singleton(javaFile));
+    JavaCompiler.CompilationTask task=javaCompiler.getTask(null,fileManager,diagnostics,COMPILER_OPTIONS,null,Collections.singleton(javaFile));
     boolean valid=task.call();
     if (valid) {
       for (      Diagnostic<?> d : diagnostics.getDiagnostics()) {
