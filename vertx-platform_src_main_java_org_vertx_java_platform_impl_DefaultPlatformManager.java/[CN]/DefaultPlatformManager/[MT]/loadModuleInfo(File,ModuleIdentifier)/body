@@ -9,7 +9,7 @@
         String path=scanner.next().trim();
         File cpFile=new File(path,CLASSPATH_FILE);
         if (!cpFile.exists()) {
-          throw new PlatformManagerException("Module link file: " + linkFile + " points to path without module.classpath");
+          throw new PlatformManagerException("Module link file: " + linkFile + " points to path without vertx_classpath.txt");
         }
         cpList=new ArrayList<>();
         try (Scanner scanner2=new Scanner(cpFile)){
