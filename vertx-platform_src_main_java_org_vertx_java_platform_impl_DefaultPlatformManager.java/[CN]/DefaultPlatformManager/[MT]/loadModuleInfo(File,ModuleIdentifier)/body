@@ -3,13 +3,13 @@
   JsonObject modJSON;
   File modJSONFile=createModJSONFile(modDir);
   if (!modJSONFile.exists()) {
-    File linkFile=new File(modDir,"module.link");
+    File linkFile=new File(modDir,MODULE_LINK_FILE);
     if (linkFile.exists()) {
       try (Scanner scanner=new Scanner(linkFile).useDelimiter("\\A")){
         String path=scanner.next().trim();
         File cpFile=new File(path,CLASSPATH_FILE);
         if (!cpFile.exists()) {
-          throw new PlatformManagerException("Module link file: " + linkFile + " points to path without module.classpath");
+          throw new PlatformManagerException("Module link file: " + linkFile + " points to path without vertx_classpath.txt");
         }
         cpList=new ArrayList<>();
         try (Scanner scanner2=new Scanner(cpFile)){
@@ -38,7 +38,17 @@
           e.printStackTrace();
           throw new PlatformManagerException(e);
         }
-        modJSON=loadModJSONFromClasspath(modID,new ModJSONClassLoader(cpList.toArray(new URL[cpList.size()]),platformClassLoader));
+        ClassLoader cl=new ModJSONClassLoader(cpList.toArray(new URL[cpList.size()]),platformClassLoader);
+        URL url=cl.getResource(MOD_JSON_FILE);
+        if (url != null) {
+          Path p=ClasspathPathResolver.urlToPath(url);
+          Path parent=p.getParent();
+          modDir=parent.toFile();
+          modJSON=loadModJSONFromURL(modID,url);
+        }
+ else {
+          throw new PlatformManagerException("Cannot find mod.json");
+        }
       }
  catch (      Exception e) {
         throw new PlatformManagerException(e);
@@ -52,5 +62,5 @@
     modJSON=loadModuleConfig(modJSONFile,modID);
     cpList=getModuleClasspath(modDir);
   }
-  return new ModuleInfo(modJSON,cpList);
+  return new ModuleInfo(modJSON,cpList,modDir);
 }

@@ -100,7 +100,7 @@
           }
           try {
             addVerticle(deployment,verticle,verticleFactory,modID,main);
-            setPathResolver(modID,modDir);
+            setPathResolver(modDir);
             DefaultFutureResult<Void> vr=new DefaultFutureResult<>();
             verticle.start(vr);
             vr.setHandler(new Handler<AsyncResult<Void>>(){
