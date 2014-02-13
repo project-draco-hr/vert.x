@@ -1,4 +1,5 @@
 {
+  vertx.clusterManager().leave();
   if (exitHandler != null) {
     exitHandler.handle(null);
   }
