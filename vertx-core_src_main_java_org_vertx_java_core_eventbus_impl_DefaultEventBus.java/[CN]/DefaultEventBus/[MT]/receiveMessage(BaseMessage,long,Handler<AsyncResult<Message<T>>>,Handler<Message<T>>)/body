@@ -20,6 +20,9 @@
       if (timeoutID != -1) {
         vertx.cancelTimer(timeoutID);
       }
+      if (replyHandler != null) {
+        unregisterHandler(msg.replyAddress,replyHandler);
+      }
     }
   }
 }

@@ -1,4 +1,4 @@
-ChoosableIterable<ServerID> subs
-BaseMessage message
+BaseMessage msg
 long timeoutID
 Handler<AsyncResult<Message<T>>> asyncResultHandler
+Handler<Message<T>> replyHandler

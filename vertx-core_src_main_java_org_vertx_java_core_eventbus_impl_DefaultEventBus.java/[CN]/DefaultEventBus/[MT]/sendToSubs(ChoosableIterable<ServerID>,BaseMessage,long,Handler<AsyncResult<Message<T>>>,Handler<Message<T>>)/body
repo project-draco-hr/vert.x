@@ -5,7 +5,7 @@
       sendRemote(sid,message);
     }
  else {
-      receiveMessage(message,timeoutID,asyncResultHandler);
+      receiveMessage(message,timeoutID,asyncResultHandler,replyHandler);
     }
   }
  else {
@@ -14,7 +14,7 @@
         sendRemote(sid,message);
       }
  else {
-        receiveMessage(message,timeoutID,null);
+        receiveMessage(message,timeoutID,null,replyHandler);
       }
     }
   }
