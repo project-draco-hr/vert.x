@@ -5,14 +5,14 @@
   if (!modJSONFile.exists()) {
     File linkFile=new File(modDir,MODULE_LINK_FILE);
     if (linkFile.exists()) {
-      try (Scanner scanner=new Scanner(linkFile).useDelimiter("\\A")){
+      try (Scanner scanner=new Scanner(linkFile,"UTF-8").useDelimiter("\\A")){
         String path=scanner.next().trim();
         File cpFile=new File(path,CLASSPATH_FILE);
         if (!cpFile.exists()) {
           throw new PlatformManagerException("Module link file: " + linkFile + " points to path without vertx_classpath.txt");
         }
         cpList=new ArrayList<>();
-        try (Scanner scanner2=new Scanner(cpFile)){
+        try (Scanner scanner2=new Scanner(cpFile,"UTF-8")){
           while (scanner2.hasNextLine()) {
             String entry=scanner2.nextLine().trim();
             if (!entry.startsWith("#") && !entry.equals("")) {
