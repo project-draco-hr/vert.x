@@ -1,5 +1,5 @@
 {
-  try (Scanner scanner=new Scanner(modJSON).useDelimiter("\\A")){
+  try (Scanner scanner=new Scanner(modJSON,"UTF-8").useDelimiter("\\A")){
     String conf=scanner.next();
     return new JsonObject(conf);
   }

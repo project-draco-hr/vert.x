@@ -1,4 +1,5 @@
 {
+  client.setConnectTimeout(1000);
   client.exceptionHandler(createNoConnectHandler());
   client.setHost("127.0.0.2");
   client.getNow("someurl",new Handler<HttpClientResponse>(){
