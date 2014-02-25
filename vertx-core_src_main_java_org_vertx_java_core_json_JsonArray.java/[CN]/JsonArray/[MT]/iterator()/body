@@ -1,5 +1,4 @@
 {
-  checkCopy();
   return new Iterator<Object>(){
     Iterator<Object> iter=list.iterator();
     @Override public boolean hasNext(){

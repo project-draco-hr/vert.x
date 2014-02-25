@@ -1,5 +1,4 @@
 {
-  checkCopy();
   list.add(value);
   return this;
 }

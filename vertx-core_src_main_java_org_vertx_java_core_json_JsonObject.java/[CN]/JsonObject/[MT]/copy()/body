@@ -1,6 +1,3 @@
 {
-  JsonObject copy=new JsonObject(map);
-  copy.setNeedsCopy();
-  this.setNeedsCopy();
-  return copy;
+  return new JsonObject(convertMap(map));
 }

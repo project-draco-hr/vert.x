@@ -1,3 +1,4 @@
 {
+  checkMap(map);
   this.map=map;
 }

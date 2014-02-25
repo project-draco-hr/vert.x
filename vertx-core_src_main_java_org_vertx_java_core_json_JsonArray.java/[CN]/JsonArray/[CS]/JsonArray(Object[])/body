@@ -1,3 +1,4 @@
 {
   this.list=new ArrayList<>(Arrays.asList(array));
+  checkList(list);
 }
