@@ -1,4 +1,3 @@
 {
-  this.list=array;
-  checkList(list);
+  this(list,true);
 }

@@ -1,1 +1,2 @@
 List<Object> list
+boolean copy

@@ -1,0 +1,3 @@
+{
+  this.map=copy ? convertMap(map) : map;
+}

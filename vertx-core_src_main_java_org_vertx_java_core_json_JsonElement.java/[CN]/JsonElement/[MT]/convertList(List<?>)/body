@@ -1,0 +1,18 @@
+{
+  List<Object> arr=new ArrayList<>(list.size());
+  for (  Object obj : list) {
+    if (obj instanceof Map) {
+      arr.add(convertMap((Map<String,Object>)obj));
+    }
+ else     if (obj instanceof List) {
+      arr.add(convertList((List<?>)obj));
+    }
+ else     if (obj == null || obj instanceof String || obj instanceof Number || obj instanceof Boolean) {
+      arr.add(obj);
+    }
+ else {
+      throw new VertxException("Cannot have objects of class " + obj.getClass() + " in JSON");
+    }
+  }
+  return arr;
+}

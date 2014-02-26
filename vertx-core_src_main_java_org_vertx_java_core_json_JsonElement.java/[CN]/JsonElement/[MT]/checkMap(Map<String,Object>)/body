@@ -1,5 +1,0 @@
-{
-  for (  Object value : map.values()) {
-    checkValue(value);
-  }
-}

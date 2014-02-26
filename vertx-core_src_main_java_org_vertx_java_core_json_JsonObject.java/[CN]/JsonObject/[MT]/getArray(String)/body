@@ -1,4 +1,4 @@
 {
   List<Object> l=(List<Object>)map.get(fieldName);
-  return l == null ? null : new JsonArray(l);
+  return l == null ? null : new JsonArray(l,false);
 }

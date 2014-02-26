@@ -8,10 +8,13 @@
     }
  else     if (obj instanceof List) {
       List<Object> list=(List<Object>)obj;
-      converted.put(entry.getKey(),JsonArray.convertList(list));
+      converted.put(entry.getKey(),convertList(list));
+    }
+ else     if (obj == null || obj instanceof String || obj instanceof Number || obj instanceof Boolean) {
+      converted.put(entry.getKey(),obj);
     }
  else {
-      converted.put(entry.getKey(),obj);
+      throw new VertxException("Cannot have objects of class " + obj.getClass() + " in JSON");
     }
   }
   return converted;
