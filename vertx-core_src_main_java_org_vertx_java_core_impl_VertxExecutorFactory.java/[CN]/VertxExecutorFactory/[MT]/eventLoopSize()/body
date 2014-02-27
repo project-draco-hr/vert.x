@@ -1,0 +1,3 @@
+{
+  return Integer.getInteger("vertx.pool.eventloop.size",2 * Runtime.getRuntime().availableProcessors());
+}

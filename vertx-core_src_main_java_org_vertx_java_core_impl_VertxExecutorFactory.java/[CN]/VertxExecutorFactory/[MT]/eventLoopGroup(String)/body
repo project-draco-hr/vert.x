@@ -1,4 +1,3 @@
 {
-  int poolSize=Integer.getInteger("vertx.pool.eventloop.size",2 * Runtime.getRuntime().availableProcessors());
-  return new NioEventLoopGroup(poolSize,new VertxThreadFactory(poolName));
+  return new NioEventLoopGroup(eventLoopSize(),new VertxThreadFactory(poolName));
 }
