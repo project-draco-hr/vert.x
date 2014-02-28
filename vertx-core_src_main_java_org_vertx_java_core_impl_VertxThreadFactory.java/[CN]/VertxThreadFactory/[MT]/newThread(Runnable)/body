@@ -1,5 +1,5 @@
 {
-  Thread t=new Thread(runnable,prefix + threadCount.getAndIncrement());
+  Thread t=new VertxThread(runnable,prefix + threadCount.getAndIncrement());
   t.setDaemon(true);
   return t;
 }
