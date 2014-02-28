@@ -6,4 +6,7 @@
   if (context != null) {
     context.setTCCL();
   }
+ else {
+    Thread.currentThread().setContextClassLoader(null);
+  }
 }
