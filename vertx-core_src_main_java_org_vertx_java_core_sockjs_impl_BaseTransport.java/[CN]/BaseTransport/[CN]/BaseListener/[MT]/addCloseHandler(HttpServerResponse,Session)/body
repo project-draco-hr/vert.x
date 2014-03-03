@@ -3,7 +3,7 @@
     public void handle(){
       if (log.isTraceEnabled())       log.trace("Connection closed (from client?), closing session");
       session.shutdown();
-      close();
+      closed=true;
     }
   }
 );
