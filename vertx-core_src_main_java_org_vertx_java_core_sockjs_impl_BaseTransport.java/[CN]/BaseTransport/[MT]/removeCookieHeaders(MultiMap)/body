@@ -1,3 +1,13 @@
 {
-  return headers.remove("cookie");
+  String jsessionid=null;
+  for (  String cookie : headers.getAll("cookie")) {
+    if (cookie.startsWith("JSESSIONID=")) {
+      jsessionid=cookie;
+    }
+  }
+  headers.remove("cookie");
+  if (jsessionid != null) {
+    headers.add("cookie",jsessionid);
+  }
+  return headers;
 }
