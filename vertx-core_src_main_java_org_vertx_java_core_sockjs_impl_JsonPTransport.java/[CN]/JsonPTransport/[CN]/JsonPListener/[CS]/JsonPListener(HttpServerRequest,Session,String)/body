@@ -1,6 +1,5 @@
 {
-  this.req=req;
-  this.session=session;
+  super(req,session);
   this.callback=callback;
   addCloseHandler(req.response(),session);
 }

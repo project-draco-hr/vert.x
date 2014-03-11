@@ -1,4 +1,3 @@
 {
-  this.req=req;
-  this.session=session;
+  super(req,session);
 }

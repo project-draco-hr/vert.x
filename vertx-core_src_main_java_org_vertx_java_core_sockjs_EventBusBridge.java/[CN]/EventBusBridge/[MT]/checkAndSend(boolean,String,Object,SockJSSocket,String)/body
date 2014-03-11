@@ -3,13 +3,16 @@
   if (replyAddress != null && !checkMaxHandlers(info)) {
     return;
   }
-  final Handler<Message> replyHandler;
+  final Handler<AsyncResult<Message<Object>>> replyHandler;
   if (replyAddress != null) {
-    replyHandler=new Handler<Message>(){
-      public void handle(      Message message){
-        checkAddAccceptedReplyAddress(message.replyAddress());
-        deliverMessage(sock,replyAddress,message);
-        info.handlerCount--;
+    replyHandler=new Handler<AsyncResult<Message<Object>>>(){
+      public void handle(      AsyncResult<Message<Object>> result){
+        if (result.succeeded()) {
+          Message message=result.result();
+          checkAddAccceptedReplyAddress(message.replyAddress());
+          deliverMessage(sock,replyAddress,message);
+          info.handlerCount--;
+        }
       }
     }
 ;
@@ -21,7 +24,7 @@
     log.debug("Forwarding message to address " + address + " on event bus");
   }
   if (send) {
-    eb.send(address,body,replyHandler);
+    eb.sendWithTimeout(address,body,replyTimeout,replyHandler);
     if (replyAddress != null) {
       info.handlerCount++;
     }

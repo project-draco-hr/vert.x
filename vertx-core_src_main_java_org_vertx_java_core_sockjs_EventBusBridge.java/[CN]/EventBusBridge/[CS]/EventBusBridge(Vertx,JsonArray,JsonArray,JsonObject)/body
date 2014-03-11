@@ -12,4 +12,5 @@
   this.maxAddressLength=conf.getInteger("max_address_length",DEFAULT_MAX_ADDRESS_LENGTH);
   this.maxHandlersPerSocket=conf.getInteger("max_handlers_per_socket",DEFAULT_MAX_HANDLERS_PER_SOCKET);
   this.pingTimeout=conf.getLong("ping_interval",DEFAULT_PING_TIMEOUT);
+  this.replyTimeout=conf.getLong("reply_timeout",DEFAULT_REPLY_TIMEOUT);
 }

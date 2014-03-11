@@ -9,7 +9,10 @@
   if (id != null) {
     sessions.remove(id);
   }
-  if (endHandler != null) {
-    endHandler.handle(null);
+  if (!closed) {
+    closed=true;
+    if (endHandler != null) {
+      endHandler.handle(null);
+    }
   }
 }

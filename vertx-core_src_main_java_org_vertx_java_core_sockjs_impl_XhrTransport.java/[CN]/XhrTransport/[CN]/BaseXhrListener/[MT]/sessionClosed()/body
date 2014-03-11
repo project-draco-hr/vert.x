@@ -1,0 +1,4 @@
+{
+  session.writeClosed(this);
+  close();
+}
