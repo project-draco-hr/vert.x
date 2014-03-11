@@ -2,7 +2,7 @@
   runInBackground(new Runnable(){
     public void run(){
       if (deployment.modDir != null) {
-        deployModuleFromFileSystem(modRoot,deployment.name,deployment.modID,deployment.config,deployment.instances,null,deployment.ha,null);
+        deployModuleFromFileSystem(deployment.modDir.getParentFile(),deployment.name,deployment.modID,deployment.config,deployment.instances,null,deployment.ha,null);
       }
  else {
         deployModuleFromCP(deployment.name,deployment.modID,deployment.config,deployment.instances,deployment.classpath,null);
