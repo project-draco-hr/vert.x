@@ -1,4 +1,4 @@
 {
-  list.add(value.list);
+  list.add(value == null ? null : value.list);
   return this;
 }

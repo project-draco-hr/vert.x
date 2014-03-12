@@ -1,5 +1,8 @@
 {
-  if (value instanceof JsonObject) {
+  if (value == null) {
+    list.add(null);
+  }
+ else   if (value instanceof JsonObject) {
     addObject((JsonObject)value);
   }
  else   if (value instanceof JsonArray) {
