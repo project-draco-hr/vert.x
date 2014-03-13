@@ -1,4 +1,8 @@
 {
+  if (value == null) {
+    list.add(null);
+    return this;
+  }
   if (value.isArray()) {
     return addArray(value.asArray());
   }
