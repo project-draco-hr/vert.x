@@ -1,0 +1,3 @@
+{
+  testInvalidSubProtocol(WebSocketVersion.RFC6455);
+}
