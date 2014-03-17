@@ -1,14 +1,9 @@
 {
-  final Buffer body=new Buffer();
-  dataHandler(new Handler<Buffer>(){
-    public void handle(    Buffer buff){
-      body.appendBuffer(buff);
-    }
-  }
-);
+  final BodyHandler handler=new BodyHandler();
+  dataHandler(handler);
   endHandler(new VoidHandler(){
     public void handle(){
-      bodyHandler.handle(body);
+      handler.notifyHandler(bodyHandler);
     }
   }
 );
