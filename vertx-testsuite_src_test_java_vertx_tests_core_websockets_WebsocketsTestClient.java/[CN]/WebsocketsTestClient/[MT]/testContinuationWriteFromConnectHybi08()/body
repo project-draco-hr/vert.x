@@ -1,0 +1,3 @@
+{
+  testContinuationWriteFromConnectHandler(WebSocketVersion.HYBI_08);
+}

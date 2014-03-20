@@ -15,27 +15,30 @@
   }
  else   if (msg instanceof WebSocketFrame) {
     ByteBuf payload=safeBuffer((WebSocketFrame)msg,allocator);
+    boolean isFinal=((WebSocketFrame)msg).isFinalFragment();
+    org.vertx.java.core.http.WebSocketFrame.FrameType frameType;
     if (msg instanceof BinaryWebSocketFrame) {
-      return new DefaultWebSocketFrame(org.vertx.java.core.http.impl.ws.WebSocketFrame.FrameType.BINARY,payload);
+      frameType=org.vertx.java.core.http.WebSocketFrame.FrameType.BINARY;
     }
  else     if (msg instanceof CloseWebSocketFrame) {
-      return new DefaultWebSocketFrame(org.vertx.java.core.http.impl.ws.WebSocketFrame.FrameType.CLOSE,payload);
+      frameType=org.vertx.java.core.http.WebSocketFrame.FrameType.CLOSE;
     }
  else     if (msg instanceof PingWebSocketFrame) {
-      return new DefaultWebSocketFrame(org.vertx.java.core.http.impl.ws.WebSocketFrame.FrameType.PING,payload);
+      frameType=org.vertx.java.core.http.WebSocketFrame.FrameType.PING;
     }
  else     if (msg instanceof PongWebSocketFrame) {
-      return new DefaultWebSocketFrame(org.vertx.java.core.http.impl.ws.WebSocketFrame.FrameType.PONG,payload);
+      frameType=org.vertx.java.core.http.WebSocketFrame.FrameType.PONG;
     }
  else     if (msg instanceof TextWebSocketFrame) {
-      return new DefaultWebSocketFrame(org.vertx.java.core.http.impl.ws.WebSocketFrame.FrameType.TEXT,payload);
+      frameType=org.vertx.java.core.http.WebSocketFrame.FrameType.TEXT;
     }
  else     if (msg instanceof ContinuationWebSocketFrame) {
-      return new DefaultWebSocketFrame(org.vertx.java.core.http.impl.ws.WebSocketFrame.FrameType.CONTINUATION,payload);
+      frameType=org.vertx.java.core.http.WebSocketFrame.FrameType.CONTINUATION;
     }
  else {
       throw new IllegalStateException("Unsupported websocket msg " + msg);
     }
+    return new DefaultWebSocketFrame(frameType,payload,isFinal);
   }
   return msg;
 }

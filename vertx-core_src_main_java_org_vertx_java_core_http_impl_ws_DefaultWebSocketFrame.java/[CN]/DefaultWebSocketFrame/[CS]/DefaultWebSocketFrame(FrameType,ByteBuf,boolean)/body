@@ -1,0 +1,5 @@
+{
+  this.type=type;
+  this.isFinalFrame=isFinalFrame;
+  this.binaryData=Unpooled.unreleasableBuffer(binaryData);
+}
