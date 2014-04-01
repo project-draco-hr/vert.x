@@ -1,7 +1,7 @@
 {
   if (paused) {
     if (pausedChunks == null) {
-      pausedChunks=new LinkedList<>();
+      pausedChunks=new ArrayDeque<>();
     }
     pausedChunks.add(data);
   }
