@@ -20,8 +20,8 @@
       }
     }
   }
- else   if (msg instanceof WebSocketFrame) {
-    WebSocketFrame frame=(WebSocketFrame)msg;
+ else   if (msg instanceof WebSocketFrameInternal) {
+    WebSocketFrameInternal frame=(WebSocketFrameInternal)msg;
     handleWsFrame(frame);
   }
   checkNextTick();

@@ -1,0 +1,5 @@
+{
+  checkClosed();
+  this.frameHandler=handler;
+  return this;
+}

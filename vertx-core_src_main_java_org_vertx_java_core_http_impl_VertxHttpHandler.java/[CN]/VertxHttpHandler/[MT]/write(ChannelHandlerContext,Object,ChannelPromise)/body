@@ -1,11 +1,11 @@
 {
-  if (msg instanceof org.vertx.java.core.http.impl.ws.WebSocketFrame) {
-    org.vertx.java.core.http.impl.ws.WebSocketFrame frame=(org.vertx.java.core.http.impl.ws.WebSocketFrame)msg;
-    ByteBuf buf=((org.vertx.java.core.http.impl.ws.WebSocketFrame)msg).getBinaryData();
+  if (msg instanceof WebSocketFrameInternal) {
+    WebSocketFrameInternal frame=(WebSocketFrameInternal)msg;
+    ByteBuf buf=frame.getBinaryData();
     if (buf != Unpooled.EMPTY_BUFFER) {
       buf=safeBuffer(buf,ctx.alloc());
     }
-switch (frame.getType()) {
+switch (frame.type()) {
 case BINARY:
       msg=new BinaryWebSocketFrame(buf);
     break;

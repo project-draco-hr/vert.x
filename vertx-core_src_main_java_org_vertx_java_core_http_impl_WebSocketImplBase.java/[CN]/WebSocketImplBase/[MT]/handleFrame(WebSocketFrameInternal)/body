@@ -3,4 +3,7 @@
     Buffer buff=new Buffer(frame.getBinaryData());
     dataHandler.handle(buff);
   }
+  if (frameHandler != null) {
+    frameHandler.handle(frame);
+  }
 }

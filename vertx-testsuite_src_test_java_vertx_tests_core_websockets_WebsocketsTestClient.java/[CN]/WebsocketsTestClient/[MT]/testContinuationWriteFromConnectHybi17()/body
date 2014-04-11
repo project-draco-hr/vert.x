@@ -1,0 +1,3 @@
+{
+  testContinuationWriteFromConnectHandler(WebSocketVersion.RFC6455);
+}

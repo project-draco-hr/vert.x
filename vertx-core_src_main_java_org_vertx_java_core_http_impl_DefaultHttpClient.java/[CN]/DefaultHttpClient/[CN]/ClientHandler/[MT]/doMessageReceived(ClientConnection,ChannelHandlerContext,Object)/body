@@ -19,10 +19,11 @@
     }
     valid=true;
   }
- else   if (msg instanceof WebSocketFrame) {
-    WebSocketFrame frame=(WebSocketFrame)msg;
-switch (frame.getType()) {
+ else   if (msg instanceof WebSocketFrameInternal) {
+    WebSocketFrameInternal frame=(WebSocketFrameInternal)msg;
+switch (frame.type()) {
 case BINARY:
+case CONTINUATION:
 case TEXT:
       conn.handleWsFrame(frame);
     break;
