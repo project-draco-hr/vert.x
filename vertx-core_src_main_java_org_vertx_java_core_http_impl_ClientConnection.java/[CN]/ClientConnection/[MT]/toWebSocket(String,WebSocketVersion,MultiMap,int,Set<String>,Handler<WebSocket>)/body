@@ -30,7 +30,19 @@
  else {
       nettyHeaders=null;
     }
-    handshaker=WebSocketClientHandshakerFactory.newHandshaker(wsuri,version,null,false,nettyHeaders,maxWebSocketFrameSize);
+    String wsSubProtocols=null;
+    if (subProtocols != null && !subProtocols.isEmpty()) {
+      StringBuilder sb=new StringBuilder();
+      Iterator<String> protocols=subProtocols.iterator();
+      while (protocols.hasNext()) {
+        sb.append(protocols.next());
+        if (protocols.hasNext()) {
+          sb.append(",");
+        }
+      }
+      wsSubProtocols=sb.toString();
+    }
+    handshaker=WebSocketClientHandshakerFactory.newHandshaker(wsuri,version,wsSubProtocols,false,nettyHeaders,maxWebSocketFrameSize);
     final ChannelPipeline p=channel.pipeline();
     p.addBefore("handler","handshakeCompleter",new HandshakeInboundHandler(wsConnect));
     handshaker.handshake(channel).addListener(new ChannelFutureListener(){

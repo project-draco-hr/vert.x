@@ -1,6 +1,19 @@
 {
   final WebSocketServerHandshaker shake;
-  WebSocketServerHandshakerFactory factory=new WebSocketServerHandshakerFactory(getWebSocketLocation(ch.pipeline(),request),null,false,maxWebSocketFrameSize);
+  String subProtocols=null;
+  Set<String> webSocketSubProtocols=DefaultHttpServer.this.webSocketSubProtocols;
+  if (!webSocketSubProtocols.isEmpty()) {
+    StringBuilder sb=new StringBuilder();
+    Iterator<String> protocols=webSocketSubProtocols.iterator();
+    while (protocols.hasNext()) {
+      sb.append(protocols.next());
+      if (protocols.hasNext()) {
+        sb.append(',');
+      }
+    }
+    subProtocols=sb.toString();
+  }
+  WebSocketServerHandshakerFactory factory=new WebSocketServerHandshakerFactory(getWebSocketLocation(ch.pipeline(),request),subProtocols,false,maxWebSocketFrameSize);
   shake=factory.newHandshaker(request);
   if (shake == null) {
     log.error("Unrecognised websockets handshake");
@@ -28,7 +41,10 @@
         try {
           shake.handshake(ch,request);
         }
- catch (        Exception e) {
+ catch (        WebSocketHandshakeException e) {
+          wsConn.handleException(e);
+        }
+catch (        Exception e) {
           log.error("Failed to generate shake response",e);
         }
       }
