@@ -70,7 +70,6 @@ try {
 );
 }
  catch (final Throwable t) {
-  t.printStackTrace();
   if (listenHandler != null) {
     vertx.runOnContext(new VoidHandler(){
       @Override protected void handle(){

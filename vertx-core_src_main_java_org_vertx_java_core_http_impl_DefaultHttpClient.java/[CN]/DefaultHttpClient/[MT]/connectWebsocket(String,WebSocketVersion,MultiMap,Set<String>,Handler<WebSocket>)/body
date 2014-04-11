@@ -1,0 +1,16 @@
+{
+  checkClosed();
+  configurable=false;
+  getConnection(new Handler<ClientConnection>(){
+    public void handle(    final ClientConnection conn){
+      if (!conn.isClosed()) {
+        conn.toWebSocket(uri,wsVersion,headers,maxWebSocketFrameSize,subprotocols,wsConnect);
+      }
+ else {
+        connectWebsocket(uri,wsVersion,headers,subprotocols,wsConnect);
+      }
+    }
+  }
+,exceptionHandler,actualCtx);
+  return this;
+}

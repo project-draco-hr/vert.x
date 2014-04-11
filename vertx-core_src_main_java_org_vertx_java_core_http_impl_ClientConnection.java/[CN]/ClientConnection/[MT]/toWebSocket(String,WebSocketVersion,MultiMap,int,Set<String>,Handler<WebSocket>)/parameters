@@ -2,4 +2,5 @@ String uri
 WebSocketVersion wsVersion
 MultiMap headers
 int maxWebSocketFrameSize
+Set<String> subProtocols
 Handler<WebSocket> wsConnect

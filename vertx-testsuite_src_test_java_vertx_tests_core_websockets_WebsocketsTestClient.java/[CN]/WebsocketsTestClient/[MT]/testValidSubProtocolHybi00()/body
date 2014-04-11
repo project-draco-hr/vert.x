@@ -1,0 +1,3 @@
+{
+  testValidSubProtocol(WebSocketVersion.HYBI_00);
+}
