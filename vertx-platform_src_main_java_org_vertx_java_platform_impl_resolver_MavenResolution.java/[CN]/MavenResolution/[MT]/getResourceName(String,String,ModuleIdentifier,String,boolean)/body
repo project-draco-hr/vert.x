@@ -8,7 +8,7 @@
       int pos3=data.indexOf("<buildNumber>",pos);
       int pos4=data.indexOf('<',pos3 + 12);
       String buildNumber=data.substring(pos3 + 13,pos4);
-      actualURI=contentRoot + '/' + uriRoot+ identifier.getName()+ '-'+ identifier.getVersion().substring(0,identifier.getVersion().length() - 9)+ '-'+ timestamp+ '-'+ buildNumber+ (modSuffix ? "" : "-mod")+ ".zip";
+      actualURI=contentRoot + '/' + uriRoot+ identifier.getName()+ '-'+ identifier.getVersion().substring(0,identifier.getVersion().length() - 9)+ '-'+ timestamp+ '-'+ buildNumber+ (modSuffix ? "-mod" : "")+ ".zip";
     }
   }
   if (actualURI == null) {
