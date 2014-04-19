@@ -1,5 +1,0 @@
-{
-  this.vertx=vertx;
-  this.map=map;
-  map.addEntryListener(this,true);
-}

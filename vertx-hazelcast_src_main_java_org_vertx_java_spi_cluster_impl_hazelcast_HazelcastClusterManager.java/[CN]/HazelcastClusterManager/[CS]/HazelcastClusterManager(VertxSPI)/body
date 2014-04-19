@@ -1,4 +1,0 @@
-{
-  this.vertx=vertx;
-  System.setProperty("hazelcast.shutdownhook.enabled","false");
-}
