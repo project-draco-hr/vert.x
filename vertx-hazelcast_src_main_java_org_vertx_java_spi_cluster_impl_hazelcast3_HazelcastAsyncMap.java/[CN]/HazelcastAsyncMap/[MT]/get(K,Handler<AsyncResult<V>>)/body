@@ -1,0 +1,8 @@
+{
+  vertx.executeBlocking(new Action<V>(){
+    public V perform(){
+      return map.get(k);
+    }
+  }
+,asyncResultHandler);
+}

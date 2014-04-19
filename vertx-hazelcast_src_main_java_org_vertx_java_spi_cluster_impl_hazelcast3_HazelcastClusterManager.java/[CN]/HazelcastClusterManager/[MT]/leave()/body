@@ -1,0 +1,8 @@
+{
+  if (!active) {
+    return;
+  }
+  hazelcast.getCluster().removeMembershipListener(this);
+  hazelcast.getLifecycleService().shutdown();
+  active=false;
+}

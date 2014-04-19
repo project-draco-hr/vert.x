@@ -1,0 +1,8 @@
+{
+  return new Hazelcast3ClusterManager(vertx){
+    @Override protected Config getConfig(){
+      return config;
+    }
+  }
+;
+}

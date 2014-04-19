@@ -1,0 +1,16 @@
+{
+  if (!ids.isEmpty()) {
+    if (iter == null || !iter.hasNext()) {
+      iter=ids.iterator();
+    }
+    try {
+      return iter.next();
+    }
+ catch (    NoSuchElementException e) {
+      return null;
+    }
+  }
+ else {
+    return null;
+  }
+}

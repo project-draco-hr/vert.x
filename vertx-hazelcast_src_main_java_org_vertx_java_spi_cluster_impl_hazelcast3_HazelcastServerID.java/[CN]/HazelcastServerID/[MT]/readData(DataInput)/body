@@ -1,0 +1,4 @@
+{
+  port=dataInput.readInt();
+  host=dataInput.readUTF();
+}

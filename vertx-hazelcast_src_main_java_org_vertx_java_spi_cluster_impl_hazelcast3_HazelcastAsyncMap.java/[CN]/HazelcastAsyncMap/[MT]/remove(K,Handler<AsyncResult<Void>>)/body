@@ -1,0 +1,9 @@
+{
+  vertx.executeBlocking(new Action<Void>(){
+    public Void perform(){
+      map.remove(k);
+      return null;
+    }
+  }
+,completionHandler);
+}

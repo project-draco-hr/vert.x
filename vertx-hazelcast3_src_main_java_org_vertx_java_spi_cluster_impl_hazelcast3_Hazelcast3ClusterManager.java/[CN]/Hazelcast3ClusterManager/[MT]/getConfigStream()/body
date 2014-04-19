@@ -1,0 +1,14 @@
+{
+  ClassLoader ctxClsLoader=Thread.currentThread().getContextClassLoader();
+  InputStream is=null;
+  if (ctxClsLoader != null) {
+    is=ctxClsLoader.getResourceAsStream(CONFIG_FILE);
+  }
+  if (is == null) {
+    is=getClass().getClassLoader().getResourceAsStream(CONFIG_FILE);
+    if (is == null) {
+      is=getClass().getClassLoader().getResourceAsStream(DEFAULT_CONFIG_FILE);
+    }
+  }
+  return is;
+}

@@ -1,0 +1,7 @@
+{
+  K k=entry.getKey();
+  ChoosableSet<V> entries=cache.get(k);
+  if (entries != null) {
+    entries.add(entry.getValue());
+  }
+}
