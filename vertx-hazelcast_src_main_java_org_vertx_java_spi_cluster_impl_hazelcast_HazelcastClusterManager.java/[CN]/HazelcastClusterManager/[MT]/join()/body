@@ -8,6 +8,6 @@
   }
   hazelcast=Hazelcast.newHazelcastInstance(cfg);
   nodeID=hazelcast.getCluster().getLocalMember().getUuid();
-  hazelcast.getCluster().addMembershipListener(this);
+  membershipListenerId=hazelcast.getCluster().addMembershipListener(this);
   active=true;
 }
