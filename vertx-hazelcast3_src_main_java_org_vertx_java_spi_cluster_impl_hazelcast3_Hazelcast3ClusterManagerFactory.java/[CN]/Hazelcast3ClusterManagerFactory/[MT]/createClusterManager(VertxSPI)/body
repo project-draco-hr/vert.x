@@ -1,3 +1,0 @@
-{
-  return new Hazelcast3ClusterManager(vertx);
-}
