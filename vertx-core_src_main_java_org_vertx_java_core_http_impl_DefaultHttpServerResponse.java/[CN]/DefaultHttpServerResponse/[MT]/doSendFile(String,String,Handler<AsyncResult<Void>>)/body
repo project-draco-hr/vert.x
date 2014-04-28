@@ -13,6 +13,9 @@
       sendNotFound();
     }
   }
+ else   if (file.isDirectory()) {
+    sendForbidden();
+  }
  else {
     if (!contentLengthSet()) {
       putHeader(org.vertx.java.core.http.HttpHeaders.CONTENT_LENGTH,String.valueOf(file.length()));
