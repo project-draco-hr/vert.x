@@ -2,7 +2,10 @@
   if (!active) {
     return;
   }
-  hazelcast.getCluster().removeMembershipListener(this);
+  boolean left=hazelcast.getCluster().removeMembershipListener(membershipListenerId);
+  if (!left) {
+    log.warn("Unable to remove membership listener");
+  }
   hazelcast.getLifecycleService().shutdown();
   active=false;
 }
