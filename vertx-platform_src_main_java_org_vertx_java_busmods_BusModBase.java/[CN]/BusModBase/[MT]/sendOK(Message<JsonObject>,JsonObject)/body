@@ -1,3 +1,0 @@
-{
-  sendStatus("ok",message,json);
-}

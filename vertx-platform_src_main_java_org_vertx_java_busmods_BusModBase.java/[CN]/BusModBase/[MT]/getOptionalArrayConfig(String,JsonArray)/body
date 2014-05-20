@@ -1,4 +1,0 @@
-{
-  JsonArray a=config.getArray(fieldName);
-  return a == null ? defaultValue : a;
-}

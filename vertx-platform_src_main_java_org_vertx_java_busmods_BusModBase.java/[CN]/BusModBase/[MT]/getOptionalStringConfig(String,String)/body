@@ -1,4 +1,0 @@
-{
-  String s=config.getString(fieldName);
-  return s == null ? defaultValue : s;
-}

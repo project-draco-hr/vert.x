@@ -1,0 +1,7 @@
+{
+  if (testCompleteCalled) {
+    throw new IllegalStateException("testComplete already called");
+  }
+  testCompleteCalled=true;
+  latch.countDown();
+}

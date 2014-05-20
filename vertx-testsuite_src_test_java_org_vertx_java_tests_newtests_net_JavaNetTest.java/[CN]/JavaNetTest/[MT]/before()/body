@@ -1,0 +1,4 @@
+{
+  vertx=VertxFactory.newVertx();
+  atest=new ATest();
+}

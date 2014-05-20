@@ -1,7 +1,0 @@
-{
-  Boolean b=config.getBoolean(fieldName);
-  if (b == null) {
-    throw new IllegalArgumentException(fieldName + " must be specified in config for busmod");
-  }
-  return b;
-}

@@ -1,4 +1,0 @@
-{
-  JsonObject o=config.getObject(fieldName);
-  return o == null ? defaultValue : o;
-}

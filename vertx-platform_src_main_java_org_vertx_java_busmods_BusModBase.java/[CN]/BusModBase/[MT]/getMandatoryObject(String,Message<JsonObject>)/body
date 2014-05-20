@@ -1,7 +1,0 @@
-{
-  JsonObject val=message.body().getObject(field);
-  if (val == null) {
-    sendError(message,field + " must be specified");
-  }
-  return val;
-}

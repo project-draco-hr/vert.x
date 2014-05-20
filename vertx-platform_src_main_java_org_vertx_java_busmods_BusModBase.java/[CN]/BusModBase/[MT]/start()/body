@@ -1,5 +1,0 @@
-{
-  eb=vertx.eventBus();
-  config=container.config();
-  logger=container.logger();
-}
