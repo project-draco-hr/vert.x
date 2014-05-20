@@ -1,0 +1,3 @@
+{
+  return randomBuffer(length,false,(byte)0);
+}

@@ -1,0 +1,3 @@
+{
+  testEchoStringWithEncoding("UTF-8");
+}

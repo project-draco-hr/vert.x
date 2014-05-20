@@ -1,0 +1,3 @@
+Consumer<NetSocket> writer
+Consumer<Buffer> dataChecker
+int length

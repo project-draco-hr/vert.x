@@ -1,4 +1,4 @@
 {
   vertx=VertxFactory.newVertx();
-  atest=new ATest();
+  helper=new JUnitAsyncHelper();
 }

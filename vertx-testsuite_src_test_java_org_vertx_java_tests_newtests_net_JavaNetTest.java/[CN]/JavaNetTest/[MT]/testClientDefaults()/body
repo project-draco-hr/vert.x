@@ -1,0 +1,13 @@
+{
+  client=vertx.createNetClient();
+  assertFalse(client.isSSL());
+  assertNull(client.getKeyStorePassword());
+  assertNull(client.getKeyStorePath());
+  assertNull(client.getTrustStorePassword());
+  assertNull(client.getTrustStorePath());
+  assertEquals(0,client.getReconnectAttempts());
+  assertEquals(1000,client.getReconnectInterval());
+  assertEquals(60000,client.getConnectTimeout());
+  assertEquals(-1,client.getReceiveBufferSize());
+  assertEquals(-1,client.getSendBufferSize());
+}

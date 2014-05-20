@@ -1,4 +1,4 @@
 {
   executor=Executors.newFixedThreadPool(10);
-  atest=new ATest();
+  atest=new JUnitAsyncHelper();
 }

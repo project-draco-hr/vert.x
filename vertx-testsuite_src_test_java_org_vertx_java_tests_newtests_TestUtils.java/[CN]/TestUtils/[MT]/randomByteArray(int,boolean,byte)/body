@@ -1,0 +1,12 @@
+{
+  byte[] line=new byte[length];
+  for (int i=0; i < length; i++) {
+    byte rand;
+    do {
+      rand=(byte)((int)(Math.random() * 255) - 128);
+    }
+ while (avoid && rand == avoidByte);
+    line[i]=rand;
+  }
+  return line;
+}

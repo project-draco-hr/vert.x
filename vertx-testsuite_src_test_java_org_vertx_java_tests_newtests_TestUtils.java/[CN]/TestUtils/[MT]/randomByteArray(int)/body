@@ -1,0 +1,3 @@
+{
+  return randomByteArray(length,false,(byte)0);
+}
