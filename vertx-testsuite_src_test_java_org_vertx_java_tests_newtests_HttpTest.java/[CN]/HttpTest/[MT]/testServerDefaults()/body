@@ -1,0 +1,9 @@
+{
+  assertFalse(server.isSSL());
+  assertNull(server.getKeyStorePassword());
+  assertNull(server.getKeyStorePath());
+  assertNull(server.getTrustStorePassword());
+  assertNull(server.getTrustStorePath());
+  assertTrue(server.isReuseAddress());
+  testComplete();
+}
