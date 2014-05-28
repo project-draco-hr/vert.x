@@ -1,13 +1,20 @@
 {
-  client=vertx.createNetClient();
   assertFalse(client.isSSL());
   assertNull(client.getKeyStorePassword());
   assertNull(client.getKeyStorePath());
   assertNull(client.getTrustStorePassword());
   assertNull(client.getTrustStorePath());
+  assertFalse(client.isTrustAll());
   assertEquals(0,client.getReconnectAttempts());
   assertEquals(1000,client.getReconnectInterval());
   assertEquals(60000,client.getConnectTimeout());
   assertEquals(-1,client.getReceiveBufferSize());
   assertEquals(-1,client.getSendBufferSize());
+  assertEquals(SocketDefaults.instance.isTcpKeepAlive(),client.isTCPKeepAlive());
+  assertEquals(true,client.isTCPNoDelay());
+  assertEquals(SocketDefaults.instance.getSoLinger(),client.getSoLinger());
+  assertEquals(false,client.isUsePooledBuffers());
+  assertEquals(SocketDefaults.instance.isReuseAddress(),client.isReuseAddress());
+  assertEquals(-1,client.getTrafficClass());
+  helper.testComplete();
 }

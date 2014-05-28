@@ -6,4 +6,5 @@
     awaitClose(server);
   }
   vertx.stop();
+  helper.close();
 }

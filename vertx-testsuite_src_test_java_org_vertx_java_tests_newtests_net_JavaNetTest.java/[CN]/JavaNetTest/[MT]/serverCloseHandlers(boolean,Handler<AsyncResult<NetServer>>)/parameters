@@ -1,0 +1,2 @@
+boolean closeFromServer
+Handler<AsyncResult<NetServer>> listenHandler

@@ -1,0 +1,18 @@
+{
+  assertFalse(server.isSSL());
+  assertNull(server.getKeyStorePassword());
+  assertNull(server.getKeyStorePath());
+  assertNull(server.getTrustStorePassword());
+  assertNull(server.getTrustStorePath());
+  assertFalse(server.isClientAuthRequired());
+  assertEquals(1024,server.getAcceptBacklog());
+  assertEquals(-1,server.getReceiveBufferSize());
+  assertEquals(-1,server.getSendBufferSize());
+  assertEquals(SocketDefaults.instance.isTcpKeepAlive(),server.isTCPKeepAlive());
+  assertEquals(true,server.isTCPNoDelay());
+  assertEquals(SocketDefaults.instance.getSoLinger(),server.getSoLinger());
+  assertEquals(false,server.isUsePooledBuffers());
+  assertEquals(true,server.isReuseAddress());
+  assertEquals(-1,server.getTrafficClass());
+  helper.testComplete();
+}

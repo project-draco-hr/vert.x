@@ -29,6 +29,10 @@
   assertTrue(client.isTCPNoDelay());
   assertEquals(client,client.setTCPNoDelay(false));
   assertFalse(client.isTCPNoDelay());
+  assertEquals(client,client.setUsePooledBuffers(true));
+  assertTrue(client.isUsePooledBuffers());
+  assertEquals(client,client.setUsePooledBuffers(false));
+  assertFalse(client.isUsePooledBuffers());
   int reconnectAttempts=new Random().nextInt(1000) + 1;
   assertEquals(client,client.setReconnectAttempts(reconnectAttempts));
   assertEquals(reconnectAttempts,client.getReconnectAttempts());
@@ -84,6 +88,7 @@
  catch (  IllegalArgumentException e) {
   }
   int trafficClass=new Random().nextInt(10000000);
-  assertEquals(client,client.setTrafficClass(trafficClass) == client);
+  assertEquals(client,client.setTrafficClass(trafficClass));
   assertEquals(trafficClass,client.getTrafficClass());
+  helper.testComplete();
 }
