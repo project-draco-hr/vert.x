@@ -1,0 +1,14 @@
+{
+  long timeout=5000;
+  long start=System.currentTimeMillis();
+  try {
+    await(timeout,TimeUnit.MILLISECONDS);
+  }
+ catch (  IllegalStateException error) {
+    long now=System.currentTimeMillis();
+    assertTrue(error.getMessage().startsWith("Timed out in waiting for test complete"));
+    long delay=now - start;
+    assertTrue(delay >= timeout);
+    assertTrue(delay < timeout * 1.5);
+  }
+}

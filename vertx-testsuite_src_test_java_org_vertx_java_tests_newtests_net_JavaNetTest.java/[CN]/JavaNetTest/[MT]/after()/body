@@ -1,4 +1,5 @@
 {
+  super.after();
   if (client != null) {
     client.close();
   }
@@ -6,5 +7,4 @@
     awaitClose(server);
   }
   vertx.stop();
-  helper.close();
 }

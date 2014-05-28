@@ -1,0 +1,8 @@
+{
+  try {
+    Assert.assertSame(expected,actual);
+  }
+ catch (  AssertionError e) {
+    handleThrowable(e);
+  }
+}

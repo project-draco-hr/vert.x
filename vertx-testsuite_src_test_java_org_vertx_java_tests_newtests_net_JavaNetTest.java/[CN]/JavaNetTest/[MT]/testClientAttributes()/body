@@ -90,5 +90,5 @@
   int trafficClass=new Random().nextInt(10000000);
   assertEquals(client,client.setTrafficClass(trafficClass));
   assertEquals(trafficClass,client.getTrafficClass());
-  helper.testComplete();
+  testComplete();
 }

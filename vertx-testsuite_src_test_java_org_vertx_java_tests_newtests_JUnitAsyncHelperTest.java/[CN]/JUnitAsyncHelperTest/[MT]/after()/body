@@ -1,4 +1,0 @@
-{
-  assertTrue(atest.isAwaitCalled());
-  executor.shutdownNow();
-}

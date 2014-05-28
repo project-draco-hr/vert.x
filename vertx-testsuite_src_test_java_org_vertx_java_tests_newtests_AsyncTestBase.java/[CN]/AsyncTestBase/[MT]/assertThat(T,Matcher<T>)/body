@@ -1,0 +1,8 @@
+{
+  try {
+    Assert.assertThat(actual,matcher);
+  }
+ catch (  AssertionError e) {
+    handleThrowable(e);
+  }
+}

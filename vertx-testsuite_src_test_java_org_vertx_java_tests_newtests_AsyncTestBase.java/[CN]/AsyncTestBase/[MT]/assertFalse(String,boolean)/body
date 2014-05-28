@@ -1,0 +1,8 @@
+{
+  try {
+    Assert.assertFalse(message,condition);
+  }
+ catch (  AssertionError e) {
+    handleThrowable(e);
+  }
+}

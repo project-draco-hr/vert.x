@@ -1,6 +1,0 @@
-{
-  if (!testCompleteCalled && throwable == null) {
-    testCompleteCalled=true;
-    throw new IllegalStateException("Closed without calling testComplete()! Your test must call testComplete() before exiting");
-  }
-}

@@ -1,6 +1,5 @@
 {
   vertx=VertxFactory.newVertx();
-  helper=new JUnitAsyncHelper();
   client=vertx.createNetClient();
   server=vertx.createNetServer();
 }

@@ -1,0 +1,8 @@
+{
+  try {
+    Assert.assertNotNull(message,object);
+  }
+ catch (  AssertionError e) {
+    handleThrowable(e);
+  }
+}

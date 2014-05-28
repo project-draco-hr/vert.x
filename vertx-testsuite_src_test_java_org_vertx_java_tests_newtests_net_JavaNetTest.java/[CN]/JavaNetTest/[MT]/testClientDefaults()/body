@@ -16,5 +16,5 @@
   assertEquals(false,client.isUsePooledBuffers());
   assertEquals(SocketDefaults.instance.isReuseAddress(),client.isReuseAddress());
   assertEquals(-1,client.getTrafficClass());
-  helper.testComplete();
+  testComplete();
 }

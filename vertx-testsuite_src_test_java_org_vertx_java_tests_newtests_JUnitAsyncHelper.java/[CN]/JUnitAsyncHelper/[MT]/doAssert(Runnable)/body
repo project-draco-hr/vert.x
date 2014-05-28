@@ -1,9 +1,0 @@
-{
-  try {
-    runner.run();
-  }
- catch (  Throwable t) {
-    throwable=t;
-    latch.countDown();
-  }
-}

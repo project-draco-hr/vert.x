@@ -1,0 +1,5 @@
+{
+  assertEquals("foo","foo");
+  testComplete();
+  await();
+}
