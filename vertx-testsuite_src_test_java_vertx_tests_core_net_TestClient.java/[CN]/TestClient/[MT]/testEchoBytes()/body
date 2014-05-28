@@ -1,3 +1,0 @@
-{
-  client.connect(1234,getEchoHandler());
-}

@@ -1,3 +1,0 @@
-{
-  testTLS0(testName,clientCert,clientTrust,serverCert,serverTrust,requireClientAuth,clientTrustAll,shouldPass,TLSServer.class);
-}

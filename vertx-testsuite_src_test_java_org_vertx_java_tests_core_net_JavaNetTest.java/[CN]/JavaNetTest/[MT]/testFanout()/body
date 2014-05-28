@@ -1,4 +1,0 @@
-{
-  startApp(FanoutServer.class.getName());
-  startTest(getMethodName());
-}

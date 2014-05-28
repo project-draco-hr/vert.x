@@ -1,9 +1,0 @@
-String testName
-boolean clientCert
-boolean clientTrust
-boolean serverCert
-boolean serverTrust
-boolean requireClientAuth
-boolean clientTrustAll
-boolean shouldPass
-Class<?> clazz

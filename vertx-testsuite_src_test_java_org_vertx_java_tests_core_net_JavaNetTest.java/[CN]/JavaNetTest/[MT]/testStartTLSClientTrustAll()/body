@@ -1,3 +1,0 @@
-{
-  testTLS0(getMethodName(),false,false,true,false,false,true,true,StartTLSServer.class);
-}

@@ -1,4 +1,0 @@
-{
-  startApp(DrainingServer.class.getName());
-  startTest(getMethodName());
-}

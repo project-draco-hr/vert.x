@@ -1,5 +1,0 @@
-String testName
-boolean multipleInstances
-int numInstances
-int initialServers
-int initialToStop

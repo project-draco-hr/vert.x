@@ -1,6 +1,0 @@
-{
-  TLSTestParams params=new TLSTestParams(clientCert,clientTrust,serverCert,serverTrust,requireClientAuth,clientTrustAll,shouldPass);
-  vertx.sharedData().getMap("TLSTest").put("params",params.serialize());
-  startApp(clazz.getName());
-  startTest(testName);
-}

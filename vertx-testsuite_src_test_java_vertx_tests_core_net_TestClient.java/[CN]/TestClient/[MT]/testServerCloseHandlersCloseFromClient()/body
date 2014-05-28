@@ -1,8 +1,0 @@
-{
-  client.connect(1234,new AsyncResultHandler<NetSocket>(){
-    public void handle(    AsyncResult<NetSocket> res){
-      res.result().close();
-    }
-  }
-);
-}

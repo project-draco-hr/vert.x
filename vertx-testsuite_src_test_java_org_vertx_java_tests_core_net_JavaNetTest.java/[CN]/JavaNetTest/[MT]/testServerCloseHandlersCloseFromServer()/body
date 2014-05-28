@@ -1,4 +1,0 @@
-{
-  startApp(CloseHandlerServerCloseFromServer.class.getName());
-  startTest(getMethodName());
-}

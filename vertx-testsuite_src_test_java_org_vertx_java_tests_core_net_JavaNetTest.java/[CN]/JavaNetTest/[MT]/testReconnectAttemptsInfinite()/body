@@ -1,4 +1,0 @@
-{
-  startTest(getMethodName(),false);
-  reconnectAttempts();
-}
