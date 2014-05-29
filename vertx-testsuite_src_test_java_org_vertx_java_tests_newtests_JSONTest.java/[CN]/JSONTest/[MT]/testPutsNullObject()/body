@@ -1,0 +1,10 @@
+{
+  String nullEncode="{\"null\":null}";
+  assertEquals(nullEncode,new JsonObject().putString("null",null).encode());
+  assertEquals(nullEncode,new JsonObject().putObject("null",null).encode());
+  assertEquals(nullEncode,new JsonObject().putArray("null",null).encode());
+  assertEquals(nullEncode,new JsonObject().putElement("null",null).encode());
+  assertEquals(nullEncode,new JsonObject().putNumber("null",null).encode());
+  assertEquals(nullEncode,new JsonObject().putBoolean("null",null).encode());
+  assertEquals(nullEncode,new JsonObject().putValue("null",null).encode());
+}

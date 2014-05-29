@@ -1,0 +1,9 @@
+{
+  JsonElement objElement=new JsonObject().putString("foo","bar");
+  try {
+    objElement.asArray();
+    fail("Coercing JsonElement(Object) into JsonArray did not throw a ClassCastException");
+  }
+ catch (  ClassCastException e) {
+  }
+}
