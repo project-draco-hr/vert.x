@@ -3,7 +3,7 @@
   for (int i=0; i < length; i++) {
     byte rand;
     do {
-      rand=(byte)((int)(Math.random() * 255) - 128);
+      rand=randomByte();
     }
  while (avoid && rand == avoidByte);
     line[i]=rand;

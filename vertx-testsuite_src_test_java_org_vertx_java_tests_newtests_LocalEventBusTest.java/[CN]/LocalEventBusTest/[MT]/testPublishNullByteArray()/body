@@ -1,0 +1,3 @@
+{
+  testPublishNull((byte[])null);
+}

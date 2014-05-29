@@ -1,0 +1,3 @@
+{
+  return (byte)((int)(Math.random() * 255) - 128);
+}

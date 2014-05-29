@@ -1,0 +1,3 @@
+{
+  testSendNull((Short)null);
+}

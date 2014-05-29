@@ -1,0 +1,3 @@
+{
+  testReplyNull((Character)null);
+}

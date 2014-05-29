@@ -1,0 +1,3 @@
+{
+  testPublishNull((String)null);
+}

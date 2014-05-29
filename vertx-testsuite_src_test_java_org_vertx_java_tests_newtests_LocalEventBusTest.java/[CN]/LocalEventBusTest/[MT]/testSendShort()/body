@@ -1,0 +1,3 @@
+{
+  testSend((short)123);
+}

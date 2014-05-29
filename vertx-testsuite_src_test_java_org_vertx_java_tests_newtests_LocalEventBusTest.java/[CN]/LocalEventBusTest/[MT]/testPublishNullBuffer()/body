@@ -1,0 +1,3 @@
+{
+  testPublishNull((Buffer)null);
+}

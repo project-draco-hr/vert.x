@@ -1,0 +1,3 @@
+{
+  testPublish((short)1234);
+}

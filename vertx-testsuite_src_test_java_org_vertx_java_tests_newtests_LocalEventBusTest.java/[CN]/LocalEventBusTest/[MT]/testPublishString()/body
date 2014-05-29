@@ -1,0 +1,4 @@
+{
+  String str=randomUnicodeString(100);
+  testPublish(str);
+}
