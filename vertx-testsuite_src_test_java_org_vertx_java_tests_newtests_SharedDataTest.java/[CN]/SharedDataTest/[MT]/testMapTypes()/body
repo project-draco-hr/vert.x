@@ -1,5 +1,5 @@
 {
-  Map map=sharedData.getMap("foo");
+  Map<String,Object> map=sharedData.getMap("foo");
   String key="key";
   double d=new Random().nextDouble();
   map.put(key,d);

@@ -1,0 +1,3 @@
+{
+  testResponseBodyWriteBuffer(false);
+}

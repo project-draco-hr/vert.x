@@ -1,0 +1,3 @@
+{
+  testResponseBodyStringAtEnd("UTF-16");
+}

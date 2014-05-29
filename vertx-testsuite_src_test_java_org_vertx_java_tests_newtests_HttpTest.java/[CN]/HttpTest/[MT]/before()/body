@@ -1,5 +1,4 @@
 {
-  super.before();
   server=vertx.createHttpServer();
   client=vertx.createHttpClient().setPort(port);
 }

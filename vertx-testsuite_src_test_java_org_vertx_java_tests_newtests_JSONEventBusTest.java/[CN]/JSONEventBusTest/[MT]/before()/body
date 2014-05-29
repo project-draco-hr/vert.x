@@ -1,4 +1,3 @@
 {
-  super.before();
   eb=vertx.eventBus();
 }

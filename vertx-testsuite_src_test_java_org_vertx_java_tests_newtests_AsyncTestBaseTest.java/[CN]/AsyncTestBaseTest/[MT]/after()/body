@@ -1,4 +1,3 @@
 {
-  super.after();
   executor.shutdownNow();
 }
