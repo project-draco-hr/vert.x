@@ -1,6 +1,6 @@
 {
-  if (!testCompleteCalled && throwable == null && !timedOut) {
+  if (!testCompleteCalled && !timedOut) {
     testCompleteCalled=true;
-    throw new IllegalStateException("Your test must call testComplete() before exiting test");
+    throw new IllegalStateException("Your test must call testComplete() before exiting test - maybe you didn't await()?");
   }
 }

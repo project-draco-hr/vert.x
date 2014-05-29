@@ -1,5 +1,0 @@
-{
-  vertx=VertxFactory.newVertx();
-  client=vertx.createNetClient();
-  server=vertx.createNetServer();
-}

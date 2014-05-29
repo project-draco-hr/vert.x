@@ -1,0 +1,17 @@
+{
+  final AtomicLong id=new AtomicLong(-1);
+  id.set(vertx.setTimer(delay,new Handler<Long>(){
+    int count;
+    boolean fired;
+    public void handle(    Long timerID){
+      assertFalse(fired);
+      fired=true;
+      assertEquals(id.get(),timerID.longValue());
+      assertEquals(0,count);
+      count++;
+      setEndTimer();
+    }
+  }
+));
+  await();
+}

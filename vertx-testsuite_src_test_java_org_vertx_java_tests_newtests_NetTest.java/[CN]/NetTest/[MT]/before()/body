@@ -1,0 +1,5 @@
+{
+  super.before();
+  client=vertx.createNetClient();
+  server=vertx.createNetServer();
+}

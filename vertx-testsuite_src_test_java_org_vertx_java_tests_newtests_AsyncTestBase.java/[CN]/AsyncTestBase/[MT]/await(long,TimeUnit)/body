@@ -1,6 +1,6 @@
 {
   if (awaitCalled) {
-    throw new IllegalStateException("testComplete already called");
+    throw new IllegalStateException("await() already called");
   }
   awaitCalled=true;
   try {

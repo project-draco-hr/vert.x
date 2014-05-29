@@ -1,9 +1,0 @@
-{
-  vertx.setTimer(10,new Handler<Long>(){
-    public void handle(    Long timerID){
-      tu.checkThread();
-      tu.testComplete();
-    }
-  }
-);
-}
