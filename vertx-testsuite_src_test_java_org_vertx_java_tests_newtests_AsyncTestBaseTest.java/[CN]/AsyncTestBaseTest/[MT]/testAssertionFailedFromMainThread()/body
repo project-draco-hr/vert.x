@@ -1,10 +1,9 @@
 {
-  assertEquals("foo","bar");
-  testComplete();
   try {
-    await();
+    assertEquals("foo","bar");
   }
  catch (  ComparisonFailure error) {
     assertTrue(error.getMessage().startsWith("expected:"));
   }
+  testComplete();
 }

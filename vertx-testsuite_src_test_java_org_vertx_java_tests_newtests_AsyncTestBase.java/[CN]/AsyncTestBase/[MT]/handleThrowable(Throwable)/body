@@ -1,4 +1,7 @@
 {
   throwable=t;
   latch.countDown();
+  if (t instanceof AssertionError) {
+    throw (AssertionError)t;
+  }
 }
