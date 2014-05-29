@@ -1,0 +1,41 @@
+{
+  peer1=vertx.createDatagramSocket(InternetProtocolFamily.IPv4);
+  assertFalse(peer1.isBroadcast());
+  peer1.setBroadcast(true);
+  assertTrue(peer1.isBroadcast());
+  assertTrue(peer1.isMulticastLoopbackMode());
+  peer1.setMulticastLoopbackMode(false);
+  assertFalse(peer1.isMulticastLoopbackMode());
+  NetworkInterface iface=null;
+  Enumeration<NetworkInterface> ifaces=NetworkInterface.getNetworkInterfaces();
+  while (ifaces.hasMoreElements()) {
+    NetworkInterface networkInterface=ifaces.nextElement();
+    try {
+      if (networkInterface.supportsMulticast()) {
+        Enumeration<InetAddress> addresses=networkInterface.getInetAddresses();
+        while (addresses.hasMoreElements()) {
+          if (addresses.nextElement() instanceof Inet4Address) {
+            iface=networkInterface;
+            break;
+          }
+        }
+      }
+    }
+ catch (    SocketException e) {
+    }
+  }
+  if (iface != null) {
+    assertNull(peer1.getMulticastNetworkInterface());
+    peer1.setMulticastNetworkInterface(iface.getName());
+    assertEquals(iface.getName(),peer1.getMulticastNetworkInterface());
+  }
+  peer1.setReceiveBufferSize(1024);
+  peer1.setSendBufferSize(1024);
+  assertFalse(peer1.isReuseAddress());
+  peer1.setReuseAddress(true);
+  assertTrue(peer1.isReuseAddress());
+  assertNotSame(2,peer1.getMulticastTimeToLive());
+  peer1.setMulticastTimeToLive(2);
+  assertEquals(2,peer1.getMulticastTimeToLive());
+  testComplete();
+}
