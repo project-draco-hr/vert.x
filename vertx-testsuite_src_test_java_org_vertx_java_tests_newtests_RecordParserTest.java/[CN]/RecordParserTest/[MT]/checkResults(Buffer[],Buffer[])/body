@@ -1,0 +1,5 @@
+{
+  for (int i=0; i < expected.length; i++) {
+    assertTrue("Expected:" + expected[i] + " length:"+ expected[i].length()+ " Actual:"+ results[i]+ " length:"+ results[i].length(),TestUtils.buffersEqual(expected[i],results[i]));
+  }
+}

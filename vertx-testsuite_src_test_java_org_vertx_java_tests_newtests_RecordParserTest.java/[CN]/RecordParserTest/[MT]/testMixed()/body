@@ -1,12 +1,10 @@
 {
   final int lines=8;
   final List<Object> types=new ArrayList<Object>();
-  final Buffer[] results=new Buffer[lines];
 class MyHandler implements Handler<Buffer> {
     RecordParser parser=RecordParser.newFixed(10,this);
     int pos;
     public void handle(    Buffer buff){
-      results[pos++]=buff;
       if (pos < lines) {
         Object type=types.get(pos);
         if (type instanceof byte[]) {
@@ -23,35 +21,35 @@ class MyHandler implements Handler<Buffer> {
   MyHandler out=new MyHandler();
   Buffer[] expected=new Buffer[lines];
   Buffer input=new Buffer(100);
-  expected[0]=TestUtils.generateRandomBuffer(10);
+  expected[0]=TestUtils.randomBuffer(10);
   input.appendBuffer(expected[0]);
   types.add(expected[0].length());
-  expected[1]=TestUtils.generateRandomBuffer(100);
+  expected[1]=TestUtils.randomBuffer(100);
   input.appendBuffer(expected[1]);
   types.add(expected[1].length());
   byte[] delim=new byte[]{23,-120,100,3};
-  expected[2]=TestUtils.generateRandomBuffer(50,true,delim[0]);
+  expected[2]=TestUtils.randomBuffer(50,true,delim[0]);
   input.appendBuffer(expected[2]);
   types.add(delim);
   input.appendBuffer(new Buffer(delim));
-  expected[3]=TestUtils.generateRandomBuffer(1000);
+  expected[3]=TestUtils.randomBuffer(1000);
   input.appendBuffer(expected[3]);
   types.add(expected[3].length());
-  expected[4]=TestUtils.generateRandomBuffer(230,true,delim[0]);
+  expected[4]=TestUtils.randomBuffer(230,true,delim[0]);
   input.appendBuffer(expected[4]);
   types.add(delim);
   input.appendBuffer(new Buffer(delim));
   delim=new byte[]{17};
-  expected[5]=TestUtils.generateRandomBuffer(341,true,delim[0]);
+  expected[5]=TestUtils.randomBuffer(341,true,delim[0]);
   input.appendBuffer(expected[5]);
   types.add(delim);
   input.appendBuffer(new Buffer(delim));
   delim=new byte[]{54,-32,0};
-  expected[6]=TestUtils.generateRandomBuffer(1234,true,delim[0]);
+  expected[6]=TestUtils.randomBuffer(1234,true,delim[0]);
   input.appendBuffer(expected[6]);
   types.add(delim);
   input.appendBuffer(new Buffer(delim));
-  expected[7]=TestUtils.generateRandomBuffer(100);
+  expected[7]=TestUtils.randomBuffer(100);
   input.appendBuffer(expected[7]);
   types.add(expected[7].length());
   feedChunks(input,out.parser,new Integer[]{50,10,3});

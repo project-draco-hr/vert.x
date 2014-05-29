@@ -1,5 +1,5 @@
 {
-  Set set=sharedData.getSet("foo");
+  Set<Object> set=sharedData.getSet("foo");
   double d=new Random().nextDouble();
   set.add(d);
   assertEquals(d,set.iterator().next());
@@ -34,7 +34,7 @@
   set.add(c);
   assertEquals(c,set.iterator().next());
   set.clear();
-  Buffer buff=TestUtils.generateRandomBuffer(100);
+  Buffer buff=org.vertx.java.testframework.TestUtils.generateRandomBuffer(100);
   set.add(buff);
   Buffer got1=(Buffer)set.iterator().next();
   assertTrue(got1 != buff);
@@ -44,15 +44,15 @@
   assertTrue(got2 != buff);
   assertEquals(buff,set.iterator().next());
   set.clear();
-  byte[] bytes=TestUtils.generateRandomByteArray(100);
+  byte[] bytes=org.vertx.java.testframework.TestUtils.generateRandomByteArray(100);
   set.add(bytes);
   byte[] bgot1=(byte[])set.iterator().next();
   assertTrue(bgot1 != bytes);
-  assertTrue(TestUtils.byteArraysEqual(bytes,bgot1));
+  assertTrue(org.vertx.java.testframework.TestUtils.byteArraysEqual(bytes,bgot1));
   byte[] bgot2=(byte[])set.iterator().next();
   assertTrue(bgot2 != bytes);
   assertTrue(bgot1 != bgot2);
-  assertTrue(TestUtils.byteArraysEqual(bytes,bgot2));
+  assertTrue(org.vertx.java.testframework.TestUtils.byteArraysEqual(bytes,bgot2));
   set.clear();
   try {
     set.add(new SomeOtherClass());
