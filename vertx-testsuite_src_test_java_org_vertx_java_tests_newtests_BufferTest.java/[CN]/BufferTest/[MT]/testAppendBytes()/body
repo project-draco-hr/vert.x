@@ -1,0 +1,10 @@
+{
+  int bytesLen=100;
+  byte[] bytes=randomByteArray(bytesLen);
+  Buffer b=new Buffer();
+  b.appendBytes(bytes);
+  assertEquals(b.length(),bytes.length);
+  assertTrue(byteArraysEqual(bytes,b.getBytes()));
+  b.appendBytes(bytes);
+  assertEquals(b.length(),2 * bytes.length);
+}

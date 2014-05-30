@@ -1,0 +1,8 @@
+{
+  for (int i=0; i < numSets; i++) {
+    buff.setDouble(i * 8,(double)i);
+  }
+  for (int i=0; i < numSets; i++) {
+    assertEquals((double)i,buff.getDouble(i * 8),0);
+  }
+}

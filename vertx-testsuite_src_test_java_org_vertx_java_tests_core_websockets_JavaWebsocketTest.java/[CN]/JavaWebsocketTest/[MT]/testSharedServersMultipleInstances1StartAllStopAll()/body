@@ -1,4 +1,0 @@
-{
-  int numInstances=Runtime.getRuntime().availableProcessors() * 2;
-  sharedServers(getMethodName(),true,numInstances,numInstances,numInstances);
-}

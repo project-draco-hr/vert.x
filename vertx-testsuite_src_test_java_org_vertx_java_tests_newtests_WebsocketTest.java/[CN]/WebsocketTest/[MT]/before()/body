@@ -1,0 +1,3 @@
+{
+  client=vertx.createHttpClient().setHost("localhost").setPort(8080);
+}

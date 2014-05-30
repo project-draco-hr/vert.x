@@ -1,0 +1,7 @@
+{
+  String str=randomUnicodeString(100);
+  buff.setString(50,str);
+  byte[] b1=buff.getBytes(50,buff.length());
+  String str2=new String(b1,"UTF-8");
+  assertEquals(str,str2);
+}

@@ -1,8 +1,0 @@
-{
-  Buffer buff=TestUtils.generateRandomBuffer(100);
-  assertTrue(TestUtils.buffersEqual(buff,buff.copy()));
-  Buffer copy=buff.getBuffer(0,buff.length());
-  assertTrue(TestUtils.buffersEqual(buff,copy));
-  buff.setInt(0,1);
-  assertTrue(!TestUtils.buffersEqual(buff,copy));
-}

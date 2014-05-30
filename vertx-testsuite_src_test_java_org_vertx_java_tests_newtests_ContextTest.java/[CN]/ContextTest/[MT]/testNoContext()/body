@@ -1,0 +1,4 @@
+{
+  assertNull(vertx.currentContext());
+  testComplete();
+}

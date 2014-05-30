@@ -1,5 +1,0 @@
-{
-  int bytesLen=100;
-  Buffer b=new Buffer(TestUtils.generateRandomByteArray(bytesLen));
-  b.setByte(b.length(),(byte)9);
-}

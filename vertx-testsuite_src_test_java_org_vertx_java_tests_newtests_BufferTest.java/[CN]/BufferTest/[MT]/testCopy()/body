@@ -1,0 +1,8 @@
+{
+  Buffer buff=randomBuffer(100);
+  assertTrue(buffersEqual(buff,buff.copy()));
+  Buffer copy=buff.getBuffer(0,buff.length());
+  assertTrue(buffersEqual(buff,copy));
+  buff.setInt(0,1);
+  assertFalse(buffersEqual(buff,copy));
+}
