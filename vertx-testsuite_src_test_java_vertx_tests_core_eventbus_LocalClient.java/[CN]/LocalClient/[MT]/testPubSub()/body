@@ -1,5 +1,0 @@
-{
-  Buffer buff=TestUtils.generateRandomBuffer(1000);
-  data.put("buffer",buff);
-  eb.publish("some-address",buff);
-}

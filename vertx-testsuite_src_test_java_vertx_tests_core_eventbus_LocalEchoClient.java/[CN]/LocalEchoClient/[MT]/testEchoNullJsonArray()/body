@@ -1,5 +1,0 @@
-{
-  JsonArray obj=null;
-  Handler<Message<JsonArray>> handler=echoHandler(obj);
-  eb.send(echoAddress(),obj,handler);
-}

@@ -2,7 +2,12 @@
   AtomicInteger count=new AtomicInteger();
 class MyHandler implements Handler<Message<T>> {
     @Override public void handle(    Message<T> msg){
-      assertNull(msg.body());
+      if (consumer == null) {
+        assertEquals(val,msg.body());
+      }
+ else {
+        consumer.accept(msg.body());
+      }
       if (count.incrementAndGet() == 2) {
         testComplete();
       }
@@ -10,6 +15,6 @@ class MyHandler implements Handler<Message<T>> {
   }
   eb.registerHandler(ADDRESS1,new MyHandler());
   eb.registerHandler(ADDRESS1,new MyHandler());
-  eb.publish(ADDRESS1,(T)null);
+  eb.publish(ADDRESS1,(T)val);
   await();
 }

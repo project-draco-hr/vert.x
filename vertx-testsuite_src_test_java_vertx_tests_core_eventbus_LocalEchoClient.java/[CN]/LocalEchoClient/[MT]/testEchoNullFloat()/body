@@ -1,5 +1,0 @@
-{
-  Float fl=null;
-  Handler<Message<Float>> handler=echoHandler(fl);
-  eb.send(echoAddress(),fl,handler);
-}

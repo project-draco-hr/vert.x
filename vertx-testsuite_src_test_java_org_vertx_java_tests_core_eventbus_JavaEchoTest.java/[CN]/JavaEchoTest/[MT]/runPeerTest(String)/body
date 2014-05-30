@@ -1,4 +1,0 @@
-{
-  startTest(testName + "Initialise");
-  startTest(testName);
-}

@@ -1,3 +1,0 @@
-{
-  return LocalClient.class.getName();
-}

@@ -1,5 +1,0 @@
-{
-  byte[] bytes=TestUtils.generateRandomByteArray(1000);
-  Handler<Message<byte[]>> handler=echoHandler(bytes);
-  eb.send(echoAddress(),bytes,handler);
-}

@@ -1,3 +1,0 @@
-{
-  return ClusteredPeer.class.getName();
-}

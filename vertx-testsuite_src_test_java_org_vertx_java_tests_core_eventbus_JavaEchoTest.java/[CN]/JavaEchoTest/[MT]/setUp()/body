@@ -1,5 +1,0 @@
-{
-  super.setUp();
-  startApp(getPeerClassName());
-  startApp(getClientClassName());
-}

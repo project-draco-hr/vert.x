@@ -1,5 +1,0 @@
-{
-  Buffer buff=null;
-  Handler<Message<Buffer>> handler=echoHandler(buff);
-  eb.send(echoAddress(),buff,handler);
-}

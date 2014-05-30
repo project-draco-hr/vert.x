@@ -1,5 +1,0 @@
-{
-  Integer msg=null;
-  Handler<Message<Integer>> handler=echoHandler(msg);
-  eb.send(echoAddress(),msg,handler);
-}

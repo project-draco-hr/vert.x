@@ -1,3 +1,0 @@
-{
-  runPeerTest(testName,numPeers);
-}

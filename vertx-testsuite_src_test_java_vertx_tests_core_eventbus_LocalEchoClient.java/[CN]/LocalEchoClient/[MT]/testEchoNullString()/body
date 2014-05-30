@@ -1,5 +1,0 @@
-{
-  String msg=null;
-  Handler<Message<String>> handler=echoHandler(msg);
-  eb.send(echoAddress(),msg,handler);
-}

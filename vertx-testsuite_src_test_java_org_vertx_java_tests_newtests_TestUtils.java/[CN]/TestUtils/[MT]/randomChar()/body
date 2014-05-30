@@ -1,0 +1,3 @@
+{
+  return (char)(random.nextInt(16));
+}

@@ -1,5 +1,0 @@
-{
-  Integer msg=new Integer(new Random().nextInt());
-  Handler<Message<Integer>> handler=echoHandler(msg);
-  eb.send(echoAddress(),msg,handler);
-}

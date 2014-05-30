@@ -1,7 +1,2 @@
 {
-  if (vertices != null) {
-    for (    Vertx vertx : vertices) {
-      vertx.stop();
-    }
-  }
 }

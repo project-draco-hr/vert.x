@@ -1,5 +1,0 @@
-{
-  String msg=TestUtils.randomUnicodeString(1000);
-  Handler<Message<String>> hndlr=echoHandler(msg);
-  eb.send(echoAddress(),msg,hndlr);
-}

@@ -1,0 +1,3 @@
+{
+  return (short)(random.nextInt(16) - Short.MAX_VALUE);
+}

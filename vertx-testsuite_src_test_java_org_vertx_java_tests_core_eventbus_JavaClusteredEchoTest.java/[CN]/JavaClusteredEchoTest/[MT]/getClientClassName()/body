@@ -1,3 +1,0 @@
-{
-  return ClusteredEchoClient.class.getName();
-}

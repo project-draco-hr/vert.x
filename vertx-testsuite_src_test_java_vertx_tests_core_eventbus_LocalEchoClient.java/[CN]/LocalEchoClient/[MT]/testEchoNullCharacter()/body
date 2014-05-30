@@ -1,5 +1,0 @@
-{
-  Character chr=null;
-  Handler<Message<Character>> handler=echoHandler(chr);
-  eb.send(echoAddress(),chr,handler);
-}

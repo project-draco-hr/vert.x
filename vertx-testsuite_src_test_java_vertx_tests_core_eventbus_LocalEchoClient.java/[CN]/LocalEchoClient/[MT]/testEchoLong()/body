@@ -1,5 +1,0 @@
-{
-  Long msg=new Long(new Random().nextLong());
-  Handler<Message<Long>> handler=echoHandler(msg);
-  eb.send(echoAddress(),msg,handler);
-}

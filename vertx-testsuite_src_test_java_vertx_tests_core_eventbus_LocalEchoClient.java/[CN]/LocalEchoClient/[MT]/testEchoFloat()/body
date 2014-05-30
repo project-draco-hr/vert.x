@@ -1,5 +1,0 @@
-{
-  Float fl=new Random().nextInt() / 37.0f;
-  Handler<Message<Float>> handler=echoHandler(fl);
-  eb.send(echoAddress(),fl,handler);
-}

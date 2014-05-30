@@ -1,5 +1,0 @@
-{
-  Short msg=new Short((short)(new Random().nextInt(Short.MAX_VALUE)));
-  Handler<Message<Short>> handler=echoHandler(msg);
-  eb.send(echoAddress(),msg,handler);
-}
