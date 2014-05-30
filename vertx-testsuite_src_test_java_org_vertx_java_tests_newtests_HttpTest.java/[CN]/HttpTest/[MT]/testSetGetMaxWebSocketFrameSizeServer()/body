@@ -1,0 +1,6 @@
+{
+  int size=61231763;
+  assertTrue(server == server.setMaxWebSocketFrameSize(size));
+  assertTrue(size == server.getMaxWebSocketFrameSize());
+  testComplete();
+}
