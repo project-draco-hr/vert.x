@@ -1,0 +1,5 @@
+{
+  File dir=new File(testDir + pathSep + dirName);
+  dir.mkdir();
+  setPerms(Paths.get(dir.getCanonicalPath()),DEFAULT_DIR_PERMS);
+}

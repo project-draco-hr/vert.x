@@ -1,0 +1,6 @@
+{
+  String dirName="some-dir";
+  assertFalse(fileExists(dirName));
+  testDelete(dirName,false,false,null);
+  await();
+}

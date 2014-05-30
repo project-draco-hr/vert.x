@@ -1,0 +1,3 @@
+{
+  testChmodNonRecursive("rw-r--r--");
+}

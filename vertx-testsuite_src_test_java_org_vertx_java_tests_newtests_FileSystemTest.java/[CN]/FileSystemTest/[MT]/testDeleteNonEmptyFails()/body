@@ -1,0 +1,8 @@
+{
+  String dirName="some-dir";
+  mkDir(dirName);
+  String file1="some-file.txt";
+  createFileWithJunk(dirName + pathSep + file1,100);
+  testDelete(dirName,false,false,null);
+  await();
+}

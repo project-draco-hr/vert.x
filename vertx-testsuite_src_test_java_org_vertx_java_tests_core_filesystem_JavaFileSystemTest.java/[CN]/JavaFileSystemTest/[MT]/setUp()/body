@@ -1,5 +1,0 @@
-{
-  super.setUp();
-  params=vertx.sharedData().getMap("params");
-  startApp(TestClient.class.getName());
-}

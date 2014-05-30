@@ -1,5 +1,0 @@
-{
-  String dirName="some-dir";
-  tu.azzert(!fileExists(dirName));
-  testDelete(dirName,false,false,null);
-}

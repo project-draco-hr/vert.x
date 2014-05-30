@@ -1,4 +1,0 @@
-{
-  super.start();
-  tu.appReady();
-}

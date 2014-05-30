@@ -1,0 +1,3 @@
+{
+  vertx.fileSystem().move(testDir + pathSep + source,testDir + pathSep + target,createHandler(shouldPass,afterOK));
+}

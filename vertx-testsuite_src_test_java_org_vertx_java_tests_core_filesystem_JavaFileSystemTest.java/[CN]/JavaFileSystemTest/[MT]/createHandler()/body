@@ -1,7 +1,0 @@
-{
-  return new AsyncResultHandler<Void>(){
-    public void handle(    AsyncResult<Void> event){
-    }
-  }
-;
-}

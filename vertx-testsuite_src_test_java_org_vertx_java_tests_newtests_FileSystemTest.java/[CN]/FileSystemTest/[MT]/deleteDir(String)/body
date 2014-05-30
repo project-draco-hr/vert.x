@@ -1,0 +1,3 @@
+{
+  deleteDir(new File(testDir + pathSep + dir));
+}

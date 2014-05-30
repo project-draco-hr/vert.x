@@ -1,9 +1,0 @@
-{
-  AsyncResultHandler<Void> handler=createHandler(shouldPass,afterOK);
-  if (recursive) {
-    vertx.fileSystem().delete(TEST_DIR + pathSep + fileName,recursive,handler);
-  }
- else {
-    vertx.fileSystem().delete(TEST_DIR + pathSep + fileName,handler);
-  }
-}

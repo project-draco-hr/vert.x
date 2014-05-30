@@ -1,4 +1,0 @@
-{
-  params.put("perms","rwx------");
-  startTest(getMethodName());
-}

@@ -1,3 +1,0 @@
-{
-  createFile(fileName,TestUtils.generateRandomByteArray((int)length));
-}

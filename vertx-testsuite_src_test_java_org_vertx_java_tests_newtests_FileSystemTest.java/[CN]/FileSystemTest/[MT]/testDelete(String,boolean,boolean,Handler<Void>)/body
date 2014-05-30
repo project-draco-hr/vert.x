@@ -1,0 +1,8 @@
+{
+  if (recursive) {
+    vertx.fileSystem().delete(testDir + pathSep + fileName,recursive,createHandler(shouldPass,afterOK));
+  }
+ else {
+    vertx.fileSystem().delete(testDir + pathSep + fileName,createHandler(shouldPass,afterOK));
+  }
+}

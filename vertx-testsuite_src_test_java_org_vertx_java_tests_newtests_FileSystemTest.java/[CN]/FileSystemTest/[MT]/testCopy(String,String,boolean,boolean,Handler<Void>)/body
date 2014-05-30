@@ -1,0 +1,8 @@
+{
+  if (recursive) {
+    vertx.fileSystem().copy(testDir + pathSep + source,testDir + pathSep + target,true,createHandler(shouldPass,afterOK));
+  }
+ else {
+    vertx.fileSystem().copy(testDir + pathSep + source,testDir + pathSep + target,createHandler(shouldPass,afterOK));
+  }
+}

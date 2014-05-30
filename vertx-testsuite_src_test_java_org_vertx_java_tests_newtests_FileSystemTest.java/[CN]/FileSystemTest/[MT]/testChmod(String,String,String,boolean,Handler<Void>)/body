@@ -1,0 +1,14 @@
+{
+  if (Files.isDirectory(Paths.get(testDir + pathSep + file))) {
+    azzertPerms(DEFAULT_DIR_PERMS,file);
+  }
+ else {
+    azzertPerms(DEFAULT_FILE_PERMS,file);
+  }
+  if (dirPerms != null) {
+    vertx.fileSystem().chmod(testDir + pathSep + file,perms,dirPerms,createHandler(shouldPass,afterOK));
+  }
+ else {
+    vertx.fileSystem().chmod(testDir + pathSep + file,perms,createHandler(shouldPass,afterOK));
+  }
+}

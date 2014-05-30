@@ -1,0 +1,8 @@
+{
+  if (symbolic) {
+    vertx.fileSystem().symlink(testDir + pathSep + from,to,createHandler(shouldPass,afterOK));
+  }
+ else {
+    vertx.fileSystem().link(testDir + pathSep + from,testDir + pathSep + to,createHandler(shouldPass,afterOK));
+  }
+}

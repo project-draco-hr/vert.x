@@ -1,4 +1,0 @@
-{
-  String fileName="some-file.txt";
-  testProps(fileName,false,false,null);
-}

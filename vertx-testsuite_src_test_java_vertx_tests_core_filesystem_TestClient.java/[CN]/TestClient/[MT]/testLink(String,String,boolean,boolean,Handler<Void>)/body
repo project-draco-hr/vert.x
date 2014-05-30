@@ -1,9 +1,0 @@
-{
-  AsyncResultHandler<Void> handler=createHandler(shouldPass,afterOK);
-  if (symbolic) {
-    vertx.fileSystem().symlink(TEST_DIR + pathSep + from,to,handler);
-  }
- else {
-    vertx.fileSystem().link(TEST_DIR + pathSep + from,TEST_DIR + pathSep + to,handler);
-  }
-}

@@ -1,0 +1,5 @@
+{
+  if (!Windows.isWindows()) {
+    assertEquals(perms,getPerms(file1));
+  }
+}

@@ -1,0 +1,3 @@
+{
+  testChmodRecursive("rw--w--w-","rwx-w--w-");
+}

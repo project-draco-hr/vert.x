@@ -1,5 +1,0 @@
-{
-  if (Windows.isWindows() == false) {
-    tu.azzert(perms.equals(getPerms(file1)));
-  }
-}
