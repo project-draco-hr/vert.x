@@ -9,44 +9,39 @@
   if (!end && !raw && !chunked&& !contentLengthSet()) {
     throw new IllegalStateException("You must set the Content-Length header to be the total size of the message " + "body BEFORE sending any data if you are not using HTTP chunked encoding.");
   }
-  context.execute(new Runnable(){
-    @Override public void run(){
-      written+=buff.readableBytes();
-      if (conn == null) {
-        if (pendingChunks == null) {
-          pendingChunks=buff;
-        }
+  written+=buff.readableBytes();
+  if (conn == null) {
+    if (pendingChunks == null) {
+      pendingChunks=buff;
+    }
  else {
-          CompositeByteBuf pending;
-          if (pendingChunks instanceof CompositeByteBuf) {
-            pending=(CompositeByteBuf)pendingChunks;
-          }
- else {
-            pending=Unpooled.compositeBuffer();
-            pending.addComponent(pendingChunks).writerIndex(pendingChunks.writerIndex());
-            pendingChunks=pending;
-          }
-          pending.addComponent(buff).writerIndex(pending.writerIndex() + buff.writerIndex());
-        }
-        connect();
+      CompositeByteBuf pending;
+      if (pendingChunks instanceof CompositeByteBuf) {
+        pending=(CompositeByteBuf)pendingChunks;
       }
  else {
-        if (!headWritten) {
-          writeHeadWithContent(buff,end);
-        }
+        pending=Unpooled.compositeBuffer();
+        pending.addComponent(pendingChunks).writerIndex(pendingChunks.writerIndex());
+        pendingChunks=pending;
+      }
+      pending.addComponent(buff).writerIndex(pending.writerIndex() + buff.writerIndex());
+    }
+    connect();
+  }
  else {
-          if (end) {
-            writeEndChunk(buff);
-          }
+    if (!headWritten) {
+      writeHeadWithContent(buff,end);
+    }
  else {
-            sendChunk(buff);
-          }
-        }
-        if (end) {
-          conn.endRequest();
-        }
+      if (end) {
+        writeEndChunk(buff);
+      }
+ else {
+        sendChunk(buff);
       }
     }
+    if (end) {
+      conn.endRequest();
+    }
   }
-);
 }
