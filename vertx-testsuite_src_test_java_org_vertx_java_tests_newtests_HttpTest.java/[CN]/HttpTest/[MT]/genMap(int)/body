@@ -1,0 +1,12 @@
+{
+  Map<String,String> map=new HashMap<>();
+  for (int i=0; i < num; i++) {
+    String key;
+    do {
+      key=randomAlphaString(1 + (int)((19) * Math.random())).toLowerCase();
+    }
+ while (map.containsKey(key));
+    map.put(key,randomAlphaString(1 + (int)((19) * Math.random())));
+  }
+  return map;
+}

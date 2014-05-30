@@ -1,0 +1,3 @@
+{
+  testSimpleRequest(uri,method,client.request(method,uri,handler));
+}

@@ -1,0 +1,3 @@
+{
+  testResponseBodyWriteString(false,"UTF-16");
+}

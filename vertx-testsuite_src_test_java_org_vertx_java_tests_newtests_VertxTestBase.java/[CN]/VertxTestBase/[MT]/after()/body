@@ -1,4 +1,0 @@
-{
-  vertx.stop();
-  super.after();
-}

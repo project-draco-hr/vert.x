@@ -1,0 +1,70 @@
+{
+  assertTrue(client.setSSL(false) == client);
+  assertFalse(client.isSSL());
+  assertTrue(client.setSSL(true) == client);
+  assertTrue(client.isSSL());
+  assertTrue(client.setVerifyHost(false) == client);
+  assertFalse(client.isVerifyHost());
+  assertTrue(client.setVerifyHost(true) == client);
+  assertTrue(client.isVerifyHost());
+  String pwd=randomUnicodeString(10);
+  assertTrue(client.setKeyStorePassword(pwd) == client);
+  assertTrue(client.getKeyStorePassword().equals(pwd));
+  String path=randomUnicodeString(10);
+  assertTrue(client.setKeyStorePath(path) == client);
+  assertTrue(client.getKeyStorePath().equals(path));
+  pwd=randomUnicodeString(10);
+  assertTrue(client.setTrustStorePassword(pwd) == client);
+  assertTrue(client.getTrustStorePassword().equals(pwd));
+  path=randomUnicodeString(10);
+  assertTrue(client.setTrustStorePath(path) == client);
+  assertTrue(client.getTrustStorePath().equals(path));
+  assertTrue(client.setReuseAddress(true) == client);
+  assertTrue(client.isReuseAddress());
+  assertTrue(client.setReuseAddress(false) == client);
+  assertFalse(client.isReuseAddress());
+  assertTrue(client.setSoLinger(10) == client);
+  assertEquals(10,client.getSoLinger());
+  assertTrue(client.setTCPKeepAlive(true) == client);
+  assertTrue(client.isTCPKeepAlive());
+  assertTrue(client.setTCPKeepAlive(false) == client);
+  assertFalse(client.isTCPKeepAlive());
+  assertTrue(client.setTCPNoDelay(true) == client);
+  assertTrue(client.isTCPNoDelay());
+  assertTrue(client.setTCPNoDelay(false) == client);
+  assertFalse(client.isTCPNoDelay());
+  int rbs=new Random().nextInt(1024 * 1024) + 1;
+  assertTrue(client.setReceiveBufferSize(rbs) == client);
+  assertEquals(rbs,client.getReceiveBufferSize());
+  try {
+    client.setReceiveBufferSize(0);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  try {
+    client.setReceiveBufferSize(-1);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  int sbs=new Random().nextInt(1024 * 1024);
+  assertTrue(client.setSendBufferSize(sbs) == client);
+  assertEquals(sbs,client.getSendBufferSize());
+  try {
+    client.setSendBufferSize(0);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  try {
+    client.setSendBufferSize(-1);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  int trafficClass=new Random().nextInt(10000000);
+  assertTrue(client.setTrafficClass(trafficClass) == client);
+  assertEquals(trafficClass,client.getTrafficClass());
+  testComplete();
+}

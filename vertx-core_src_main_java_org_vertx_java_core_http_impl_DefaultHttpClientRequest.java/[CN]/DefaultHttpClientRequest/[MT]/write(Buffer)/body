@@ -1,5 +1,6 @@
 {
   check();
   ByteBuf buf=chunk.getByteBuf();
-  return write(buf,false);
+  write(buf,false);
+  return this;
 }

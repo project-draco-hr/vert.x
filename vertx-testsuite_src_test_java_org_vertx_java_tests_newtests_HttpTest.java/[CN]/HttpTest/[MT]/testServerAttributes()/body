@@ -1,0 +1,66 @@
+{
+  assertTrue(server.setSSL(false) == server);
+  assertFalse(server.isSSL());
+  assertTrue(server.setSSL(true) == server);
+  assertTrue(server.isSSL());
+  String pwd=randomUnicodeString(10);
+  assertTrue(server.setKeyStorePassword(pwd) == server);
+  assertEquals(pwd,server.getKeyStorePassword());
+  String path=randomUnicodeString(10);
+  assertTrue(server.setKeyStorePath(path) == server);
+  assertEquals(path,server.getKeyStorePath());
+  pwd=randomUnicodeString(10);
+  assertTrue(server.setTrustStorePassword(pwd) == server);
+  assertEquals(pwd,server.getTrustStorePassword());
+  path=randomUnicodeString(10);
+  assertTrue(server.setTrustStorePath(path) == server);
+  assertEquals(path,server.getTrustStorePath());
+  assertTrue(server.setReuseAddress(true) == server);
+  assertTrue(server.isReuseAddress());
+  assertTrue(server.setReuseAddress(false) == server);
+  assertFalse(server.isReuseAddress());
+  assertTrue(server.setSoLinger(10) == server);
+  assertEquals(10,server.getSoLinger());
+  assertTrue(server.setTCPKeepAlive(true) == server);
+  assertTrue(server.isTCPKeepAlive());
+  assertTrue(server.setTCPKeepAlive(false) == server);
+  assertFalse(server.isTCPKeepAlive());
+  assertTrue(server.setTCPNoDelay(true) == server);
+  assertTrue(server.isTCPNoDelay());
+  assertTrue(server.setTCPNoDelay(false) == server);
+  assertFalse(server.isTCPNoDelay());
+  int rbs=new Random().nextInt(1024 * 1024) + 1;
+  assertTrue(server.setReceiveBufferSize(rbs) == server);
+  assertEquals(rbs,server.getReceiveBufferSize());
+  try {
+    server.setReceiveBufferSize(0);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  try {
+    server.setReceiveBufferSize(-1);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  int sbs=new Random().nextInt(1024 * 1024);
+  assertTrue(server.setSendBufferSize(sbs) == server);
+  assertEquals(sbs,server.getSendBufferSize());
+  try {
+    server.setSendBufferSize(0);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  try {
+    server.setSendBufferSize(-1);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  int trafficClass=new Random().nextInt(10000000);
+  assertTrue(server.setTrafficClass(trafficClass) == server);
+  assertEquals(trafficClass,server.getTrafficClass());
+  testComplete();
+}

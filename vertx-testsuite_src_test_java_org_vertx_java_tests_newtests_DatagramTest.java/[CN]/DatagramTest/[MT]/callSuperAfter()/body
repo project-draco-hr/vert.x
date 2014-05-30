@@ -1,8 +1,0 @@
-{
-  try {
-    super.after();
-  }
- catch (  Exception e) {
-    fail(e.getMessage());
-  }
-}
