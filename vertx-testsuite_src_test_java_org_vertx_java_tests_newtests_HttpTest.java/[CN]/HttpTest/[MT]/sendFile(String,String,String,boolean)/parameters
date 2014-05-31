@@ -1,0 +1,4 @@
+String sendFile
+String contentExpected
+String notFoundFile
+boolean handler

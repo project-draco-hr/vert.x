@@ -1,0 +1,4 @@
+{
+  String content="<html><body>This is my 404 page</body></html>";
+  sendFile(null,content,"my-404-page.html",true);
+}

@@ -1,0 +1,4 @@
+{
+  client.setTryUseCompression(true);
+  server.setCompressionSupported(true);
+}

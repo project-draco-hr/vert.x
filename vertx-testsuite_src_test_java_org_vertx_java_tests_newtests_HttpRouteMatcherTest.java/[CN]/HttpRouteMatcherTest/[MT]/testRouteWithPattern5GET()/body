@@ -1,0 +1,3 @@
+{
+  testRouteWithPattern5("GET");
+}
