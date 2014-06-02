@@ -1,8 +1,2 @@
 {
-  timerID=vertx.setTimer(authTimeout,new Handler<Long>(){
-    public void handle(    Long id){
-      uncacheAuthorisation(sessionID,sock);
-    }
-  }
-);
 }

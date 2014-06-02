@@ -1,13 +1,2 @@
 {
-  if (vertx.getContext() == context) {
-    doneHandler.handle(result);
-  }
- else {
-    context.execute(new Runnable(){
-      public void run(){
-        doneHandler.handle(result);
-      }
-    }
-);
-  }
 }

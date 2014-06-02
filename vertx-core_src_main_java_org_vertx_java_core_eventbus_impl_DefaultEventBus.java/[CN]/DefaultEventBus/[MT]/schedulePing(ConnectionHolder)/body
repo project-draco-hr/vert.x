@@ -1,15 +1,2 @@
 {
-  holder.pingTimeoutID=vertx.setTimer(PING_INTERVAL,new Handler<Long>(){
-    public void handle(    Long ignore){
-      holder.timeoutID=vertx.setTimer(PING_REPLY_INTERVAL,new Handler<Long>(){
-        public void handle(        Long timerID){
-          log.warn("No pong from server " + serverID + " - will consider it dead, timerID: "+ timerID+ " holder "+ holder);
-          cleanupConnection(holder.theServerID,holder,true);
-        }
-      }
-);
-      new PingMessage(serverID).write(holder.socket);
-    }
-  }
-);
 }

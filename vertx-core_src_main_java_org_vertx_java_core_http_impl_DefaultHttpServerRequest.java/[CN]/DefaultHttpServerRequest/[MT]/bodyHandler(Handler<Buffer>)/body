@@ -1,16 +1,2 @@
 {
-  final Buffer body=new Buffer();
-  dataHandler(new Handler<Buffer>(){
-    public void handle(    Buffer buff){
-      body.appendBuffer(buff);
-    }
-  }
-);
-  endHandler(new VoidHandler(){
-    public void handle(){
-      bodyHandler.handle(body);
-    }
-  }
-);
-  return this;
 }

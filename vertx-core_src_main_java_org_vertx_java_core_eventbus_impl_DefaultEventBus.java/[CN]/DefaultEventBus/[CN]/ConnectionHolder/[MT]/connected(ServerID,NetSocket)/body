@@ -1,29 +1,2 @@
 {
-  this.socket=socket;
-  this.theServerID=theServerID;
-  connected=true;
-  socket.exceptionHandler(new Handler<Throwable>(){
-    public void handle(    Throwable t){
-      cleanupConnection(theServerID,ConnectionHolder.this,true);
-    }
-  }
-);
-  socket.closeHandler(new VoidHandler(){
-    public void handle(){
-      cleanupConnection(theServerID,ConnectionHolder.this,false);
-    }
-  }
-);
-  socket.dataHandler(new Handler<Buffer>(){
-    public void handle(    Buffer data){
-      vertx.cancelTimer(timeoutID);
-      schedulePing(ConnectionHolder.this);
-    }
-  }
-);
-  schedulePing(ConnectionHolder.this);
-  for (  BaseMessage message : pending) {
-    message.write(socket);
-  }
-  pending.clear();
 }

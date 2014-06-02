@@ -1,25 +1,2 @@
 {
-  final DefaultContext context=getOrCreateContext();
-  Runnable runner=new Runnable(){
-    public void run(){
-      final DefaultFutureResult<T> res=new DefaultFutureResult<>();
-      try {
-        T result=action.perform();
-        res.setResult(result);
-      }
- catch (      Exception e) {
-        res.setFailure(e);
-      }
-      if (resultHandler != null) {
-        context.execute(new Runnable(){
-          public void run(){
-            res.setHandler(resultHandler);
-          }
-        }
-);
-      }
-    }
-  }
-;
-  context.executeOnOrderedWorkerExec(runner);
 }

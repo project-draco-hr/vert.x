@@ -1,11 +1,2 @@
 {
-  if (replyAddress != null) {
-    acceptedReplyAddresses.add(replyAddress);
-    vertx.setTimer(replyTimeout,new Handler<Long>(){
-      public void handle(      Long id){
-        acceptedReplyAddresses.remove(replyAddress);
-      }
-    }
-);
-  }
 }

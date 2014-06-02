@@ -3,6 +3,6 @@
     handler.handle(new DefaultFutureResult<>(result));
   }
  else {
-    handler.handle(new DefaultFutureResult<T>(future.cause()));
+    handler.handle(new DefaultFutureResult<>(future.cause()));
   }
 }

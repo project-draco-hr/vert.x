@@ -1,6 +1,6 @@
 {
   checkClosed();
-  if (this.connectRunnable != null) {
+  if (connectRunnable != null) {
     if (rejected) {
       throw new IllegalStateException("Cannot close websocket, it has been rejected");
     }

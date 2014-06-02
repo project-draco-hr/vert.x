@@ -1,17 +1,2 @@
 {
-  if (!handleAuthorise(message,sessionID,handler)) {
-    final DefaultFutureResult<Boolean> res=new DefaultFutureResult<>();
-    if (authCache.containsKey(sessionID)) {
-      res.setResult(true).setHandler(handler);
-    }
- else {
-      eb.send(authAddress,message,new Handler<Message<JsonObject>>(){
-        public void handle(        Message<JsonObject> reply){
-          boolean authed=reply.body().getString("status").equals("ok");
-          res.setResult(authed).setHandler(handler);
-        }
-      }
-);
-    }
-  }
 }

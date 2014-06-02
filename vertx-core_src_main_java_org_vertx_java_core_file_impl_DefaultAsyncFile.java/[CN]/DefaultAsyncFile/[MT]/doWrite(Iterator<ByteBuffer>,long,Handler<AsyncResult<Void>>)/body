@@ -1,20 +1,2 @@
 {
-  final ByteBuffer b=buffers.next();
-  final int limit=b.limit();
-  doWrite(b,position,limit,new Handler<AsyncResult<Void>>(){
-    @Override public void handle(    AsyncResult<Void> event){
-      if (event.failed()) {
-        handler.handle(event);
-      }
- else {
-        if (buffers.hasNext()) {
-          doWrite(buffers,position + limit,handler);
-        }
- else {
-          handler.handle(event);
-        }
-      }
-    }
-  }
-);
 }

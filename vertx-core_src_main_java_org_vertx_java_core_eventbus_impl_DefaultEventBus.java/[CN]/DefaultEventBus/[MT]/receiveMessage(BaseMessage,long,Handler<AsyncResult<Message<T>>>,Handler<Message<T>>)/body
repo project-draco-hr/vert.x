@@ -1,6 +1,6 @@
 {
   msg.bus=this;
-  final Handlers handlers=handlerMap.get(msg.address);
+  Handlers handlers=handlerMap.get(msg.address);
   if (handlers != null) {
     if (msg.send) {
       HandlerHolder holder=handlers.choose();

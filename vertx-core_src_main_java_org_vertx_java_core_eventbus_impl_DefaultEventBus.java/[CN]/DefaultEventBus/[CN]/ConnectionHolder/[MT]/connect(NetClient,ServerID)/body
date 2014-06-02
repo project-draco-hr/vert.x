@@ -1,13 +1,2 @@
 {
-  client.connect(theServerID.port,theServerID.host,new AsyncResultHandler<NetSocket>(){
-    public void handle(    AsyncResult<NetSocket> res){
-      if (res.succeeded()) {
-        connected(theServerID,res.result());
-      }
- else {
-        cleanupConnection(theServerID,ConnectionHolder.this,true);
-      }
-    }
-  }
-);
 }

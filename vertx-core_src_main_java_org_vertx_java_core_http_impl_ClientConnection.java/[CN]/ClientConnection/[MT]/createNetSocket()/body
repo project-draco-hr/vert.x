@@ -1,7 +1,7 @@
 {
   upgradedConnection=true;
   DefaultNetSocket socket=new DefaultNetSocket(vertx,channel,context,client.tcpHelper,true);
-  Map<Channel,DefaultNetSocket> connectionMap=new HashMap<Channel,DefaultNetSocket>(1);
+  Map<Channel,DefaultNetSocket> connectionMap=new HashMap<>(1);
   connectionMap.put(channel,socket);
   endReadAndFlush();
   ChannelPipeline pipeline=channel.pipeline();

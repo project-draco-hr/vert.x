@@ -1,16 +1,2 @@
 {
-  if (gracefulShutdown.compareAndSet(false,true)) {
-    final AtomicInteger counter=new AtomicInteger(workers.size());
-    for (    EventLoopHolder holder : workers) {
-      holder.worker.shutdownGracefully().addListener(new GenericFutureListener(){
-        @Override public void operationComplete(        Future future) throws Exception {
-          if (counter.decrementAndGet() == 0) {
-            terminationFuture.setSuccess(null);
-          }
-        }
-      }
-);
-    }
-  }
-  return terminationFuture;
 }
