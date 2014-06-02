@@ -1,4 +1,0 @@
-{
-  super.setUp();
-  startApp(RouteMatcherTestClient.class.getName());
-}

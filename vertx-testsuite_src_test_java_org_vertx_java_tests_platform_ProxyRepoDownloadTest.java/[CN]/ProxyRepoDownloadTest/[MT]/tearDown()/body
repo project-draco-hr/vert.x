@@ -1,5 +1,0 @@
-{
-  super.tearDown();
-  System.clearProperty("http.proxyHost");
-  System.clearProperty("http.proxyPort");
-}

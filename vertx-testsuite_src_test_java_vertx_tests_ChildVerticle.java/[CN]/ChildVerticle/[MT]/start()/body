@@ -1,3 +1,0 @@
-{
-  container.deployVerticle(SubChildVerticle.class.getName());
-}

@@ -1,3 +1,0 @@
-{
-  testTLS(getMethodName(),false,true,true,false,false,false,true);
-}

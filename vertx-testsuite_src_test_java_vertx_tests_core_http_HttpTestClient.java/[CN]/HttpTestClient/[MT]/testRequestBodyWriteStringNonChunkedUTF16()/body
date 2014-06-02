@@ -1,3 +1,0 @@
-{
-  testRequestBodyWriteString(false,"UTF-16");
-}

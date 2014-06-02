@@ -1,0 +1,22 @@
+{
+  return new DnsUdpEncoder(){
+    @Override public void encode(    IoSession session,    Object message,    ProtocolEncoderOutput out){
+      IoBuffer buf=IoBuffer.allocate(1024);
+      DnsMessage dnsMessage=(DnsMessage)message;
+      encoder.encode(buf,dnsMessage);
+      for (      ResourceRecord record : dnsMessage.getAnswerRecords()) {
+        if (record.getRecordType() == RecordType.AAAA) {
+          try {
+            recordEncoder.put(buf,record);
+          }
+ catch (          IOException e) {
+            throw new IllegalStateException(e);
+          }
+        }
+      }
+      buf.flip();
+      out.write(buf);
+    }
+  }
+;
+}

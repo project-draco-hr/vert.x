@@ -1,8 +1,0 @@
-{
-  startApp(TestClient1.class.getName());
-  startApp(TestClient2.class.getName());
-  startTest(getMethodName(),false);
-  for (int i=0; i < 2; i++) {
-    waitTestComplete();
-  }
-}

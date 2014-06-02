@@ -1,0 +1,13 @@
+{
+  UdpTransport transport=new UdpTransport("127.0.0.1",PORT);
+  setTransports(transport);
+  DatagramAcceptor acceptor=transport.getAcceptor();
+  acceptor.setHandler(new DnsProtocolHandler(this,store){
+    @Override public void sessionCreated(    IoSession session) throws Exception {
+      session.getFilterChain().addFirst("codec",new ProtocolCodecFilter(new TestDnsProtocolUdpCodecFactory()));
+    }
+  }
+);
+  ((DatagramSessionConfig)acceptor.getSessionConfig()).setReuseAddress(true);
+  acceptor.bind();
+}

@@ -1,4 +1,0 @@
-{
-  super.setUp();
-  System.setProperty("vertx.mods","src/test/mod-test");
-}

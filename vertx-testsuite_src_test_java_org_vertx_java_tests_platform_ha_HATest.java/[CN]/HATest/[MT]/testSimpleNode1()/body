@@ -1,7 +1,0 @@
-{
-  Cluster cluster=new Cluster(3);
-  cluster.createCluster();
-  cluster.deployMods(1,new NodeMods().addDeployment(new DepInfo("io.vertx~ha-test1~1.0")));
-  cluster.killNode(1);
-  cluster.closeCluster();
-}

@@ -1,3 +1,0 @@
-{
-  startApp(HttpCompressionTestClient.class.getName());
-}

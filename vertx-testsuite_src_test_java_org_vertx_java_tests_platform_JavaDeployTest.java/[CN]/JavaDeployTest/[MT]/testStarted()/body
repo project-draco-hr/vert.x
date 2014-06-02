@@ -1,4 +1,0 @@
-{
-  startApp(AsyncStartClient.class.getName());
-  startTest(getMethodName());
-}

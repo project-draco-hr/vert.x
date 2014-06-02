@@ -1,0 +1,5 @@
+{
+  String jsonWithComments="// single line comment\n" + "/*\n" + "  This is a multi \n"+ "  line comment\n"+ "*/\n"+ "{\n"+ "// another single line comment this time inside the JSON object itself\n"+ "  \"foo\": \"bar\" // and a single line comment at end of line \n"+ "/*\n"+ "  This is a another multi \n"+ "  line comment this time inside the JSON object itself\n"+ "*/\n"+ "}";
+  JsonObject json=new JsonObject(jsonWithComments);
+  assertEquals("{\"foo\":\"bar\"}",json.encode());
+}

@@ -1,3 +1,0 @@
-{
-  logger.error("Exception in Foo verticle!",t);
-}

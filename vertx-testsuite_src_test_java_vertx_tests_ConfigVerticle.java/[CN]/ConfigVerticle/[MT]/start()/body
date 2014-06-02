@@ -1,6 +1,0 @@
-{
-  tu=new TestUtils(vertx);
-  String val=container.config().getString("animals");
-  tu.azzert("armadillos".equals(val));
-  tu.testComplete();
-}

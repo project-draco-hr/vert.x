@@ -1,9 +1,0 @@
-{
-  tu.azzert(!client.isSSL());
-  tu.azzert(client.isVerifyHost());
-  tu.azzert(client.getKeyStorePassword() == null);
-  tu.azzert(client.getKeyStorePath() == null);
-  tu.azzert(client.getTrustStorePassword() == null);
-  tu.azzert(client.getTrustStorePath() == null);
-  tu.testComplete();
-}

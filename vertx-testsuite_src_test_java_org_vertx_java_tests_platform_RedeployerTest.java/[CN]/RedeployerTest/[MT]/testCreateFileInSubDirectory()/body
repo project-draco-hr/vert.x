@@ -1,9 +1,0 @@
-{
-  createDirectory(modDir,"some-dir");
-  Deployment dep=createDeployment("dep1",null);
-  red.moduleDeployed(dep);
-  Thread.sleep(1);
-  File subDir=new File(modDir,"some-dir");
-  createFile(subDir,"bar.txt",TestUtils.randomAlphaString(1000));
-  waitReload(dep);
-}

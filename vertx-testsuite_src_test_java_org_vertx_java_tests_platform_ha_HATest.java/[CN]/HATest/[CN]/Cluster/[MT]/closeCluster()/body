@@ -1,5 +1,0 @@
-{
-  for (  TestPlatformManager pm : pms) {
-    pm.stop();
-  }
-}

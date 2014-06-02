@@ -1,3 +1,0 @@
-{
-  testRoute(regex,pattern,params,method,uri,true,false);
-}

@@ -1,4 +1,0 @@
-{
-  super.setUp();
-  startApp(RepoDownloadTestClient.class.getName());
-}

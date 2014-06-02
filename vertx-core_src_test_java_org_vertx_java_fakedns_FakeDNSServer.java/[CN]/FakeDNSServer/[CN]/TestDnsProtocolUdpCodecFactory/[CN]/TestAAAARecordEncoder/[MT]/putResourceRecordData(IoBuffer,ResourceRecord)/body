@@ -1,0 +1,6 @@
+{
+  if (!resourceRecord.get(DnsAttribute.IP_ADDRESS).equals("::1")) {
+    throw new IllegalStateException("Only supposed to be used with IPV6 address of ::1");
+  }
+  ioBuffer.put(new byte[]{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1});
+}

@@ -1,7 +1,0 @@
-{
-  Map<String,String> params=new HashMap<>();
-  params.put("param0","foo");
-  params.put("param1","v0.1");
-  String regex="\\/([^\\/]+)\\/([^\\/]+)";
-  testRoute(true,regex,params,method,"/foo/v0.1");
-}

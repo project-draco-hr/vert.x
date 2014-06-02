@@ -1,4 +1,0 @@
-{
-  tu.azzert(counter.incrementAndGet() == 1);
-  tu.testComplete();
-}

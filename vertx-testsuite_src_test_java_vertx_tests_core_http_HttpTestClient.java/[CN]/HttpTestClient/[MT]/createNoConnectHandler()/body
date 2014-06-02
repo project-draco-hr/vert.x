@@ -1,9 +1,0 @@
-{
-  return new Handler<Throwable>(){
-    public void handle(    Throwable t){
-      tu.checkThread();
-      tu.testComplete();
-    }
-  }
-;
-}

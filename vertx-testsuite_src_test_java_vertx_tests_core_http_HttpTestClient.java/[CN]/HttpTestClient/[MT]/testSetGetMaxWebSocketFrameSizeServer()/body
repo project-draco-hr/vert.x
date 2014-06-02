@@ -1,7 +1,0 @@
-{
-  HttpServer server=vertx.createHttpServer();
-  int size=61231763;
-  tu.azzert(server == server.setMaxWebSocketFrameSize(size));
-  tu.azzert(size == server.getMaxWebSocketFrameSize());
-  tu.testComplete();
-}

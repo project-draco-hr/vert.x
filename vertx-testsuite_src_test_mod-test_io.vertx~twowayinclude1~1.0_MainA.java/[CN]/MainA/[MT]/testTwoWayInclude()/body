@@ -1,5 +1,0 @@
-{
-  Mod3Class m3=new Mod3Class();
-  tu.azzert("foo".equals(m3.bar()));
-  tu.testComplete();
-}

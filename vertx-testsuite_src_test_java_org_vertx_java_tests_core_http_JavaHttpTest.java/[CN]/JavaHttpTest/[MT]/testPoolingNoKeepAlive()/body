@@ -1,4 +1,0 @@
-{
-  startApp(CountServer.class.getName());
-  startTest(getMethodName());
-}

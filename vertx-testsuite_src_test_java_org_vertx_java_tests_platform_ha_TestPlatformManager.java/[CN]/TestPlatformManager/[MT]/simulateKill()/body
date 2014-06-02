@@ -1,6 +1,0 @@
-{
-  if (haManager != null) {
-    haManager.simulateKill();
-  }
-  super.stop();
-}

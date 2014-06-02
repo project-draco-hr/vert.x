@@ -1,9 +1,0 @@
-{
-  client.close();
-  server.close(new AsyncResultHandler<Void>(){
-    public void handle(    AsyncResult<Void> result){
-      tu.testComplete();
-    }
-  }
-);
-}

@@ -1,9 +1,0 @@
-{
-  for (  Deployment dep : deps) {
-    red.moduleUndeployed(dep);
-  }
-  assertTrue(red.isEmpty());
-  red.close();
-  vertx.fileSystem().deleteSync(modRoot.getAbsolutePath(),true);
-  super.tearDown();
-}

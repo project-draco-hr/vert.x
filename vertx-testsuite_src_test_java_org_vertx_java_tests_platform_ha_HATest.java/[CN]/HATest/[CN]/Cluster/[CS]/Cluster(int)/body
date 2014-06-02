@@ -1,5 +1,0 @@
-{
-  for (int i=0; i < nodeCount; i++) {
-    nodes.add(new NodeMods());
-  }
-}

@@ -1,3 +1,0 @@
-{
-  vertx.eventBus().send("test-handler","stopped");
-}

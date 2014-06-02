@@ -1,3 +1,0 @@
-{
-  testStatusCode(404,"some message");
-}

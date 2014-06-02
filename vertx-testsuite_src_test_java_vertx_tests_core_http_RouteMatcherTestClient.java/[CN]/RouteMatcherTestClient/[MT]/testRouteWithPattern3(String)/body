@@ -1,6 +1,0 @@
-{
-  Map<String,String> params=new HashMap<>();
-  params.put("name","foo");
-  params.put("version","v0.1");
-  testRoute(false,"modules/:name/:version/",params,method,"modules/foo/v0.1/");
-}

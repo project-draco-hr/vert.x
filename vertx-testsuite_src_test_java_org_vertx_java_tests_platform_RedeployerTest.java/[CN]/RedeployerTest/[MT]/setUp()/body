@@ -1,9 +1,0 @@
-{
-  super.setUp();
-  reloader=new TestReloader();
-  modRoot=new File("reloader-test-mods");
-  modRoot.mkdir();
-  modDir=createModDir(modName);
-  createFile(modDir,"foo.js",TestUtils.randomAlphaString(1000));
-  red=new Redeployer(vertx,reloader);
-}

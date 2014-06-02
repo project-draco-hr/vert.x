@@ -1,3 +1,0 @@
-{
-  testSimpleRequest("POST",false);
-}

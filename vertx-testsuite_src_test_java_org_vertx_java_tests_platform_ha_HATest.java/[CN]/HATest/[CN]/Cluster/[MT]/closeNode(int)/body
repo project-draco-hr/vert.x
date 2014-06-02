@@ -1,5 +1,0 @@
-{
-  pms.get(node).stop();
-  nodes.remove(node);
-  pms.remove(node);
-}

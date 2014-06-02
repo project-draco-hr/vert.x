@@ -1,4 +1,0 @@
-{
-  startMod("io.vertx~testmod6-1~1.0");
-  startTest(getMethodName());
-}

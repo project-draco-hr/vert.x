@@ -1,4 +1,0 @@
-{
-  FakeClusterManager.reset();
-  super.tearDown();
-}

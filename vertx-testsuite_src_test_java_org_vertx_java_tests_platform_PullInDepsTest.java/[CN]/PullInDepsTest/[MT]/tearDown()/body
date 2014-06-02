@@ -1,4 +1,0 @@
-{
-  super.tearDown();
-  vertx.fileSystem().deleteSync(MOD_TEST_BASE + "/io.vertx~mod-pullin~1.0/mods",true);
-}

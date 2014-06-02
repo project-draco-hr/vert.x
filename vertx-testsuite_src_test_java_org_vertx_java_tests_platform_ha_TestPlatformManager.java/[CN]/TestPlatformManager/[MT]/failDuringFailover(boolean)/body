@@ -1,3 +1,0 @@
-{
-  haManager.failDuringFailover(fail);
-}

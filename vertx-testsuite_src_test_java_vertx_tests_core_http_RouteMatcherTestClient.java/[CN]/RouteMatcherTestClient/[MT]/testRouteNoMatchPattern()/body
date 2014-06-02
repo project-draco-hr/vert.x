@@ -1,4 +1,0 @@
-{
-  Map<String,String> params=new HashMap<>();
-  testRoute(false,"foo",params,"GET","bar",false,false);
-}

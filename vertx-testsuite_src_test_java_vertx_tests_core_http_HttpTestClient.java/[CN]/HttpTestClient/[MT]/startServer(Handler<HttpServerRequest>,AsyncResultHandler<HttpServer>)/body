@@ -1,6 +1,0 @@
-{
-  server=vertx.createHttpServer();
-  server.setCompressionSupported(compression());
-  server.requestHandler(serverHandler);
-  server.listen(8080,"localhost",handler);
-}

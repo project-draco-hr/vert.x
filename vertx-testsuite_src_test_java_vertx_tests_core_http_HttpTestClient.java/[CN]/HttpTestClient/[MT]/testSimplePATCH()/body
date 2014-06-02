@@ -1,3 +1,0 @@
-{
-  testSimpleRequest("PATCH",true);
-}

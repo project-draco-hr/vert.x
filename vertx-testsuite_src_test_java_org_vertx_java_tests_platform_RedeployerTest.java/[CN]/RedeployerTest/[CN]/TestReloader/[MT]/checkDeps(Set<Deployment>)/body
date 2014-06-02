@@ -1,6 +1,0 @@
-{
-  assertEquals(deps.size(),reloaded.size());
-  for (  Deployment dep : deps) {
-    assertTrue(reloaded.contains(dep));
-  }
-}

@@ -1,0 +1,4 @@
+{
+  testDir=Files.createTempDirectory("vertx-test").toFile();
+  testDir.deleteOnExit();
+}
