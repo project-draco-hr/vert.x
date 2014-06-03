@@ -1,3 +1,7 @@
 {
+  if (exceptionInStop) {
+    throw new Exception("BooFar!");
+  }
   stopCalled=true;
+  stopContext=vertx.currentContext();
 }

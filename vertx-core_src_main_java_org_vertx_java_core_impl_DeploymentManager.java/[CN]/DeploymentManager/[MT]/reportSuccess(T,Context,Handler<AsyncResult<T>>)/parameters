@@ -1,0 +1,3 @@
+T result
+Context context
+Handler<AsyncResult<T>> doneHandler

@@ -1,0 +1,8 @@
+{
+  if (doneHandler != null) {
+    reportResult(context,doneHandler,new DefaultFutureResult<>(t));
+  }
+ else {
+    log.error(t.getMessage(),t);
+  }
+}

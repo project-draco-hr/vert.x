@@ -1,0 +1,2 @@
+String verticleClass
+Handler<AsyncResult<VerticleDeployment>> doneHandler

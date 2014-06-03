@@ -5,5 +5,4 @@
   assertNull(server.getTrustStorePassword());
   assertNull(server.getTrustStorePath());
   assertTrue(server.isReuseAddress());
-  testComplete();
 }

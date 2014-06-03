@@ -1,4 +1,0 @@
-String verticleClass
-int instances
-JsonObject config
-Handler<AsyncResult<VerticleDeployment>> doneHandler

@@ -1,0 +1,4 @@
+Verticle verticle
+JsonObject config
+boolean worker
+Handler<AsyncResult<VerticleDeployment>> doneHandler

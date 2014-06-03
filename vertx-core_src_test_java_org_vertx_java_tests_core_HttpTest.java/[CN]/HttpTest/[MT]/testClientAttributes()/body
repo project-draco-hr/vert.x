@@ -66,5 +66,4 @@
   int trafficClass=new Random().nextInt(10000000);
   assertTrue(client.setTrafficClass(trafficClass) == client);
   assertEquals(trafficClass,client.getTrafficClass());
-  testComplete();
 }

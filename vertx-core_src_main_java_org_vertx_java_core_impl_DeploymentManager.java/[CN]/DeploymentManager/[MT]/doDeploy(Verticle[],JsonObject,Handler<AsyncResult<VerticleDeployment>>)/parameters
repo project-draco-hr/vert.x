@@ -1,3 +1,0 @@
-Verticle[] verticles
-JsonObject config
-Handler<AsyncResult<VerticleDeployment>> doneHandler

@@ -1,0 +1,4 @@
+{
+  this.exceptionInStart=exceptionInStart;
+  this.exceptionInStop=exceptionInStop;
+}

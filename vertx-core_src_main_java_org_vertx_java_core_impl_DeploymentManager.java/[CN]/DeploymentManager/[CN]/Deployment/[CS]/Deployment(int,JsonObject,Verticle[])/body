@@ -1,5 +1,0 @@
-{
-  this.instances=instances;
-  this.config=config;
-  this.verticles=verticles;
-}

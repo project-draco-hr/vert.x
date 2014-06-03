@@ -1,0 +1,4 @@
+int instances
+TestVerticle verticle
+JsonObject config
+AsyncResult<VerticleDeployment> ar

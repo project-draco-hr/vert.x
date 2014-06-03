@@ -1,3 +1,0 @@
-String verticleClass
-int instances
-Handler<AsyncResult<VerticleDeployment>> doneHandler

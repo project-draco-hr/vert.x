@@ -1,16 +1,2 @@
 {
-  boolean failed=false;
-  for (  Verticle verticle : verticles) {
-    try {
-      verticle.stop();
-    }
- catch (    Throwable t) {
-      failed=true;
-      reportFailure(t,doneHandler);
-    }
-  }
-  deployments.remove(this);
-  if (!failed) {
-    doneHandler.handle(new DefaultFutureResult<>((Void)null));
-  }
 }

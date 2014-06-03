@@ -5,5 +5,4 @@
   assertNull(client.getKeyStorePath());
   assertNull(client.getTrustStorePassword());
   assertNull(client.getTrustStorePath());
-  testComplete();
 }

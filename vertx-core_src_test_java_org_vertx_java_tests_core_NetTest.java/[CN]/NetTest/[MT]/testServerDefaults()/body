@@ -14,5 +14,4 @@
   assertEquals(false,server.isUsePooledBuffers());
   assertEquals(true,server.isReuseAddress());
   assertEquals(-1,server.getTrafficClass());
-  testComplete();
 }
