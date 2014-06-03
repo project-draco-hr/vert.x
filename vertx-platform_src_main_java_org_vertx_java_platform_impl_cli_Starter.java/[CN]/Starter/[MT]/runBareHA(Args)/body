@@ -1,8 +1,0 @@
-{
-  PlatformManager mgr=startPM(true,false,args);
-  if (mgr == null) {
-    return;
-  }
-  addShutdownHook(mgr);
-  block();
-}

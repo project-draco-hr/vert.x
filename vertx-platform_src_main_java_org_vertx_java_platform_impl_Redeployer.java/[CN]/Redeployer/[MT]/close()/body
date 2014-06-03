@@ -1,5 +1,0 @@
-{
-  vertx.cancelTimer(timerID);
-  scannerStarted=false;
-  closed=true;
-}

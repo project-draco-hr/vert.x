@@ -1,6 +1,0 @@
-{
-  for (  ModuleReference ref : references) {
-    ref.decRef();
-  }
-  references.clear();
-}

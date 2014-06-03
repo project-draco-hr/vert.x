@@ -1,7 +1,0 @@
-{
-  Boolean res=conf.getBoolean(name);
-  if (res == null) {
-    res=Boolean.FALSE;
-  }
-  return res;
-}

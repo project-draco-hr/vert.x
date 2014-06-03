@@ -1,3 +1,0 @@
-{
-  return TEMP_DIR + FILE_SEP + "vertx-"+ UUID.randomUUID().toString();
-}

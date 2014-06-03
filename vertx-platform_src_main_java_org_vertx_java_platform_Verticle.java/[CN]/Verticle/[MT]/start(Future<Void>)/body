@@ -1,4 +1,0 @@
-{
-  start();
-  startedResult.setResult(null);
-}

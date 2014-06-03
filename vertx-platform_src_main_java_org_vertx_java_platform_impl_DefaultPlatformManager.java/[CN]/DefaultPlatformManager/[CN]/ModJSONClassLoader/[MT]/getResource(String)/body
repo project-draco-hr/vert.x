@@ -1,7 +1,0 @@
-{
-  URL url=findResource(name);
-  if (url == null) {
-    url=super.getResource(name);
-  }
-  return url;
-}

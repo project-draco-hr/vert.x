@@ -1,3 +1,0 @@
-{
-  return contentRoot + '/' + uriRoot+ identifier.getName()+ '-'+ identifier.getVersion()+ (modSuffix ? "-mod" : "")+ ".zip";
-}

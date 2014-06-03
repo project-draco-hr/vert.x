@@ -1,7 +1,0 @@
-{
-  if (toAdd != null) {
-    while (toAdd.hasMoreElements()) {
-      urls.add(toAdd.nextElement());
-    }
-  }
-}

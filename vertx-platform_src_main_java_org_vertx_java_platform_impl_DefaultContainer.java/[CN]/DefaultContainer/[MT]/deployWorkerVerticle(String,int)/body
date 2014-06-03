@@ -1,3 +1,0 @@
-{
-  deployWorkerVerticle(main,null,instances);
-}

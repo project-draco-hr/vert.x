@@ -1,4 +1,0 @@
-{
-  super(vertx,repoScheme,null,null,repoHost,repoPort,moduleIdentifier,filename);
-  this.contentRoot=contentRoot;
-}

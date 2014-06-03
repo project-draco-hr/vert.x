@@ -1,6 +1,0 @@
-{
-  Thread t=Thread.currentThread();
-  if (!t.getName().startsWith("vert.x-worker-thread")) {
-    throw new IllegalStateException("Not a worker thread");
-  }
-}

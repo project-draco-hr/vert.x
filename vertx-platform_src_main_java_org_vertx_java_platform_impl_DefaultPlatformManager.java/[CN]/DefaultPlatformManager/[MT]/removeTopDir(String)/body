@@ -1,7 +1,0 @@
-{
-  int pos=entry.indexOf(FILE_SEP);
-  if (pos != -1) {
-    entry=entry.substring(pos + 1);
-  }
-  return entry;
-}

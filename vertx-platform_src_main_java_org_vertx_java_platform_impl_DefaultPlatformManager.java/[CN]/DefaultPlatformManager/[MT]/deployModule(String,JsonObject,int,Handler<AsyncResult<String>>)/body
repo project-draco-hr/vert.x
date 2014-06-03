@@ -1,3 +1,0 @@
-{
-  deployModuleInternal(moduleName,config,instances,false,doneHandler);
-}

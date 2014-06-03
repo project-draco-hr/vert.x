@@ -1,3 +1,0 @@
-{
-  return System.getProperty(HTTP_PROXY_HOST_PROP_NAME);
-}

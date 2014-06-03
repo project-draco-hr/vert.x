@@ -1,0 +1,8 @@
+{
+  if (doneHandler != null) {
+    doneHandler.handle(new DefaultFutureResult<>(t));
+  }
+ else {
+    log.error(t.getMessage(),t);
+  }
+}

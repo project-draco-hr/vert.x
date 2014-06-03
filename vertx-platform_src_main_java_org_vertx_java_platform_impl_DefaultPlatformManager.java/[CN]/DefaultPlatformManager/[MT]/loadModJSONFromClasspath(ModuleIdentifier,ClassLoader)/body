@@ -1,7 +1,0 @@
-{
-  URL url=cl.getResource(MOD_JSON_FILE);
-  if (url == null) {
-    return null;
-  }
-  return loadModJSONFromURL(modID,url);
-}

@@ -1,3 +1,0 @@
-{
-  return getBooleanField("auto-redeploy");
-}

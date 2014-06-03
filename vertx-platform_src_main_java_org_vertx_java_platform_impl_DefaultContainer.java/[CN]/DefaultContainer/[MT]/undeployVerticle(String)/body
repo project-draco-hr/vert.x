@@ -1,3 +1,0 @@
-{
-  undeployVerticle(deploymentID,null);
-}

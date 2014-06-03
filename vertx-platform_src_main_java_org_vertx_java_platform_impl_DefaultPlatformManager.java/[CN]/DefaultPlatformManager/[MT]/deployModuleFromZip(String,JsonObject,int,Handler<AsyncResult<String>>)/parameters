@@ -1,4 +1,0 @@
-String zipFileName
-JsonObject config
-int instances
-Handler<AsyncResult<String>> doneHandler

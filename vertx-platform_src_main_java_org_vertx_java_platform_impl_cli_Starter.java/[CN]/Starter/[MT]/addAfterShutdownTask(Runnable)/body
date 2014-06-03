@@ -1,3 +1,0 @@
-{
-  afterShutdownTasks.add(task);
-}

@@ -1,3 +1,0 @@
-{
-  checkQuorumWhenAdded(nodeID,System.currentTimeMillis());
-}

@@ -1,6 +1,0 @@
-{
-  super(classpath);
-  this.modID=modID;
-  this.platformClassLoader=platformClassLoader;
-  this.loadFromModuleFirst=loadFromModuleFirst;
-}

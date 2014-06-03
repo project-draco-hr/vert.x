@@ -1,4 +1,0 @@
-{
-  VerticleHolder holder=getVerticleHolder();
-  return holder == null ? null : holder.deployment.modDir;
-}

@@ -1,3 +1,0 @@
-{
-  deployVerticle(main,config,instances,null);
-}

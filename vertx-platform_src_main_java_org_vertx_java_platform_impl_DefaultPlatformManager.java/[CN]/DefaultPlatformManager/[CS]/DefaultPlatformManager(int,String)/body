@@ -1,5 +1,0 @@
-{
-  this.vertx=createVertxSynchronously(port,hostname);
-  this.clusterManager=vertx.clusterManager();
-  init();
-}

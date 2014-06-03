@@ -1,3 +1,0 @@
-{
-  return vertx.createDnsClient(dnsServers);
-}

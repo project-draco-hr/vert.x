@@ -1,5 +1,0 @@
-{
-  log.info("Attempting to uninstall module " + modName);
-  createPM().uninstallModule(modName,createLoggingHandler("uninstalling module",unblockHandler()));
-  block();
-}

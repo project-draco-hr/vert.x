@@ -1,4 +1,0 @@
-{
-  map.put(t,obj);
-  return true;
-}

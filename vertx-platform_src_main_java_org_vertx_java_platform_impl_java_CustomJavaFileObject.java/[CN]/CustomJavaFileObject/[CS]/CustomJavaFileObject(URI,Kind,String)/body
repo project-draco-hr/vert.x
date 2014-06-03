@@ -1,5 +1,0 @@
-{
-  this.uri=uri;
-  this.kind=kind;
-  this.binaryName=binaryName;
-}

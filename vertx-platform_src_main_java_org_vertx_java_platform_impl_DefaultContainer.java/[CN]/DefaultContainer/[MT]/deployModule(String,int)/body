@@ -1,3 +1,0 @@
-{
-  deployModule(moduleName,null,instances);
-}

@@ -1,7 +1,0 @@
-{
-  if (!stopped) {
-    clusterManager.leave();
-    vertx.cancelTimer(quorumTimerID);
-    stopped=true;
-  }
-}

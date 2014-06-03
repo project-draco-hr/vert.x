@@ -1,0 +1,3 @@
+{
+  doDeploy(new Verticle[]{verticle},config,doneHandler);
+}

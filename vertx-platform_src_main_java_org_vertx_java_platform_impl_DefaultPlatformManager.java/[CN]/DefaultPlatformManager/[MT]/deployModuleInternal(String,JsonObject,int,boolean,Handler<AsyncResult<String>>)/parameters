@@ -1,5 +1,0 @@
-String moduleName
-JsonObject config
-int instances
-boolean ha
-Handler<AsyncResult<String>> doneHandler

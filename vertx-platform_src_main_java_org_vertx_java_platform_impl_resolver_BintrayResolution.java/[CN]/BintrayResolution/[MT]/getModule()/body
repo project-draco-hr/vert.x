@@ -1,4 +1,0 @@
-{
-  createClient(repoScheme,repoHost,repoPort);
-  makeRequest(repoScheme,repoHost,repoPort,uri);
-}

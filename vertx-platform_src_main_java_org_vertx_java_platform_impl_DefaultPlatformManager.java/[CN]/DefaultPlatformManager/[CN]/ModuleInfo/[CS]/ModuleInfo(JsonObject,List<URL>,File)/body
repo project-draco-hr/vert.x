@@ -1,5 +1,0 @@
-{
-  this.modJSON=modJSON;
-  this.cp=cp;
-  this.modDir=modDir;
-}

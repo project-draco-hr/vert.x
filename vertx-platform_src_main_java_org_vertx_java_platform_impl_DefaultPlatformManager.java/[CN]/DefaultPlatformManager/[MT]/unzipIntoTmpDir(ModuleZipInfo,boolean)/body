@@ -1,9 +1,0 @@
-{
-  String tdir=generateTmpFileName();
-  File tdest=new File(tdir);
-  if (!tdest.mkdir()) {
-    throw new PlatformManagerException("Failed to create directory " + tdest);
-  }
-  unzipModuleData(tdest,zipInfo,deleteZip);
-  return tdest;
-}

@@ -1,5 +1,0 @@
-{
-  this.vertx=new WrappedVertx(vertx);
-  this.clusterManager=vertx.clusterManager();
-  init();
-}

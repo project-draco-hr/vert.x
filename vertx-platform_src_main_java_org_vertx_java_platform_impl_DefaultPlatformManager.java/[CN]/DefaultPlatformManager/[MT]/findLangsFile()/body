@@ -1,7 +1,0 @@
-{
-  InputStream is=platformClassLoader.getResourceAsStream(LANG_PROPS_FILE_NAME);
-  if (is == null) {
-    is=platformClassLoader.getResourceAsStream(DEFAULT_LANG_PROPS_FILE_NAME);
-  }
-  return is;
-}

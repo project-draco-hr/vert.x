@@ -1,3 +1,0 @@
-{
-  mgr.deployWorkerVerticle(multiThreaded,main,config,null,instances,null,doneHandler);
-}

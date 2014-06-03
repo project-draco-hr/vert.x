@@ -1,3 +1,0 @@
-{
-  return vertx.setTimer(delay,handler);
-}

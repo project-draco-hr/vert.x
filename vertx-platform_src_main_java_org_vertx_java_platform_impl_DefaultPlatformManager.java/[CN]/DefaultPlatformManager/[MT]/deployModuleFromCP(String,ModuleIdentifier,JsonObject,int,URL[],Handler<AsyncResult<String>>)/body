@@ -1,9 +1,0 @@
-{
-  checkWorkerContext();
-  JsonObject modJSON=loadModJSONFromClasspath(modID,new URLClassLoader(classpath,platformClassLoader));
-  if (modJSON == null) {
-    throw new PlatformManagerException("Failed to find mod.json on classpath");
-  }
-  List<URL> cpList=new ArrayList<>(Arrays.asList(classpath));
-  deployModuleFromModJson(modJSON,depName,modID,config,instances,null,null,cpList,modRoot,false,doneHandler);
-}

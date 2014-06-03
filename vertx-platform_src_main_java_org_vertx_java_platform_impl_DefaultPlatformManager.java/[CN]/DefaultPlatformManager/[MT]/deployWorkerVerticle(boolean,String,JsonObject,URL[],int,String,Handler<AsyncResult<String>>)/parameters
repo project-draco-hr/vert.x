@@ -1,7 +1,0 @@
-boolean multiThreaded
-String main
-JsonObject config
-URL[] classpath
-int instances
-String includes
-Handler<AsyncResult<String>> doneHandler

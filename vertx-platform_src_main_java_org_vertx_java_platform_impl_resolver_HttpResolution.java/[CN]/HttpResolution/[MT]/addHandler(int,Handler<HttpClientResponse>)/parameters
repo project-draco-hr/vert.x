@@ -1,2 +1,0 @@
-int statusCode
-Handler<HttpClientResponse> handler

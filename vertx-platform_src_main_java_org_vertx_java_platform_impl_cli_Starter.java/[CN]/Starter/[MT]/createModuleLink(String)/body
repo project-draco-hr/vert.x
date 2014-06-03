@@ -1,5 +1,0 @@
-{
-  log.info("Attempting to create module link for module " + modName);
-  createPM().createModuleLink(modName,createLoggingHandler("creating module link",unblockHandler()));
-  block();
-}

@@ -1,3 +1,0 @@
-{
-  deployVerticle(true,multiThreaded,main,config,classpath,instances,includes,doneHandler);
-}

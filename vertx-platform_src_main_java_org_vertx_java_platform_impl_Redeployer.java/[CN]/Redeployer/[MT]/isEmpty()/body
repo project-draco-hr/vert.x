@@ -1,3 +1,0 @@
-{
-  return deployments.isEmpty() && watchedDirs.isEmpty() && directoryFiles.isEmpty();
-}

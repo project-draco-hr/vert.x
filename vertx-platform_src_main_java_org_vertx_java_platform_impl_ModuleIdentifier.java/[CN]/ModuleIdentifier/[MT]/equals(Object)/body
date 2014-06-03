@@ -1,9 +1,0 @@
-{
-  if (this == o)   return true;
-  if (o == null || getClass() != o.getClass())   return false;
-  ModuleIdentifier that=(ModuleIdentifier)o;
-  if (!name.equals(that.name))   return false;
-  if (!owner.equals(that.owner))   return false;
-  if (!version.equals(that.version))   return false;
-  return true;
-}

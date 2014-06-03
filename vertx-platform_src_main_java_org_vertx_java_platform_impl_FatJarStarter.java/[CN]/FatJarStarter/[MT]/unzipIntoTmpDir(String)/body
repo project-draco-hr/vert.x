@@ -1,9 +1,0 @@
-{
-  String tdir=generateTmpFileName();
-  File tdest=new File(tdir);
-  if (!tdest.mkdir()) {
-    throw new IllegalStateException("Failed to create directory " + tdest);
-  }
-  unzipJar(tdest,fileName);
-  return tdest;
-}

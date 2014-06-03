@@ -1,3 +1,0 @@
-{
-  factory.reportException(logger,t);
-}

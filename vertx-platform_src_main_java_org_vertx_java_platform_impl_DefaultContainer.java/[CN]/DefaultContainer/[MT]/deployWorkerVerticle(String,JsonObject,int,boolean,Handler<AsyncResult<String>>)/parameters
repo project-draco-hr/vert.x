@@ -1,5 +1,0 @@
-String main
-JsonObject config
-int instances
-boolean multiThreaded
-Handler<AsyncResult<String>> doneHandler

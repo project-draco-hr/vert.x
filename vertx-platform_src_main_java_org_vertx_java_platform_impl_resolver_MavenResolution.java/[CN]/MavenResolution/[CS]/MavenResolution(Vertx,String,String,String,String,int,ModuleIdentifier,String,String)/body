@@ -1,6 +1,0 @@
-{
-  super(vertx,repoScheme,repoUsername,repoPassword,repoHost,repoPort,moduleIdentifier,filename);
-  this.contentRoot=contentRoot;
-  this.moduleIdentifier=moduleIdentifier;
-  uriRoot=getMavenURI(moduleIdentifier);
-}

@@ -1,5 +1,0 @@
-{
-  client.close();
-  result=ok;
-  latch.countDown();
-}

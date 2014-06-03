@@ -1,6 +1,0 @@
-{
-  this.vertx=createVertxSynchronously(port,hostname);
-  this.clusterManager=vertx.clusterManager();
-  init();
-  this.haManager=new HAManager(vertx,this,clusterManager,quorumSize,haGroup);
-}

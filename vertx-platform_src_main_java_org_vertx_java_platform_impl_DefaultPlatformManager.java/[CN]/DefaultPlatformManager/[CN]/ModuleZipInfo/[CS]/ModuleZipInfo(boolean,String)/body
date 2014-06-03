@@ -1,4 +1,0 @@
-{
-  this.oldStyle=oldStyle;
-  this.filename=filename;
-}

@@ -1,4 +1,0 @@
-{
-  HttpResolution.suppressDownloadCounter=false;
-  new Starter(args);
-}

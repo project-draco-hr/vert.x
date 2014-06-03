@@ -1,8 +1,0 @@
-{
-  for (  ModuleReference mod : references) {
-    if (!mods.contains(mod.mcl)) {
-      mods.add(mod.mcl);
-      mod.mcl.computeModules(mods);
-    }
-  }
-}

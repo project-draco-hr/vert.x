@@ -1,7 +1,0 @@
-{
-  ByteArrayOutputStream bytes=compiledClasses.get(name);
-  if (bytes == null) {
-    return null;
-  }
-  return bytes.toByteArray();
-}

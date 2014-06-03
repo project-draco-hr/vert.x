@@ -1,8 +1,0 @@
-Vertx vertx
-String repoScheme
-String repoUsername
-String repoPassword
-String repoHost
-int repoPort
-ModuleIdentifier modID
-String filename

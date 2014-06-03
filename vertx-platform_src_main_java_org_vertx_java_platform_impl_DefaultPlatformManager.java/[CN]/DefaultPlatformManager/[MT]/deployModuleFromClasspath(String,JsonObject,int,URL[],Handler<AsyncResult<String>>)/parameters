@@ -1,5 +1,0 @@
-String moduleName
-JsonObject config
-int instances
-URL[] classpath
-Handler<AsyncResult<String>> doneHandler

@@ -1,0 +1,22 @@
+{
+  ClassLoader cl=Thread.currentThread().getContextClassLoader();
+  if (cl == null) {
+    cl=getClass().getClassLoader();
+  }
+  Class clazz;
+  Verticle[] verticles=new Verticle[instances];
+  try {
+    clazz=cl.loadClass(verticleClass);
+    for (int i=0; i < instances; i++) {
+      try {
+        verticles[i]=(Verticle)clazz.newInstance();
+      }
+ catch (      Exception e) {
+        reportFailure(e,doneHandler);
+      }
+    }
+  }
+ catch (  ClassNotFoundException e) {
+    reportFailure(e,doneHandler);
+  }
+}

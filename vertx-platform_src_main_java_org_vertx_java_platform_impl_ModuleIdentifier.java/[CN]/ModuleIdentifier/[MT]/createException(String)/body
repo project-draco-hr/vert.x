@@ -1,3 +1,0 @@
-{
-  return new IllegalArgumentException("Invalid module identifier: " + stringForm + ". "+ msg);
-}

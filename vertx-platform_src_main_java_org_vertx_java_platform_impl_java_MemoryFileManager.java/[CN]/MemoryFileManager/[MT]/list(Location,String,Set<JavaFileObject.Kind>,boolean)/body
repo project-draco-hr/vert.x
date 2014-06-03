@@ -1,6 +1,0 @@
-{
-  if (location == StandardLocation.CLASS_PATH && kinds.contains(JavaFileObject.Kind.CLASS)) {
-    return helper.find(packageName);
-  }
-  return super.list(location,packageName,kinds,recurse);
-}

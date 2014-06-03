@@ -1,3 +1,0 @@
-{
-  this.deployVerticle(main,null,1,doneHandler);
-}

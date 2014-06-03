@@ -1,3 +1,0 @@
-{
-  mgr.undeploy(deploymentID,doneHandler);
-}

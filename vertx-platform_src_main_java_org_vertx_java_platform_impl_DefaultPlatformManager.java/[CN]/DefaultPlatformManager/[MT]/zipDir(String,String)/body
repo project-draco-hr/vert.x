@@ -1,9 +1,0 @@
-{
-  File dir=new File(dirToZip);
-  try (ZipOutputStream out=new ZipOutputStream(new FileOutputStream(zipFile))){
-    addDirToZip(dir,dir,out);
-  }
- catch (  Exception e) {
-    throw new PlatformManagerException("Failed to unzip module",e);
-  }
-}
