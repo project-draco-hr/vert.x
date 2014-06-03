@@ -1,4 +1,0 @@
-{
-  registerHandler(address,handler,completionHandler,false,false,-1);
-  return this;
-}

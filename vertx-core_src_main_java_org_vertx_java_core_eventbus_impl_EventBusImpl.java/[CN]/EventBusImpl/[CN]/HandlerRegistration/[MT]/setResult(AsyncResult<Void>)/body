@@ -1,0 +1,9 @@
+{
+  this.result=result;
+  if (completionHandler != null) {
+    completionHandler.handle(result);
+  }
+ else   if (result.failed()) {
+    log.error("Failed to propagate registration for handler " + handler + " and address "+ address);
+  }
+}

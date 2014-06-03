@@ -1,0 +1,3 @@
+{
+  return (Handler<T>)_emptyHandler;
+}

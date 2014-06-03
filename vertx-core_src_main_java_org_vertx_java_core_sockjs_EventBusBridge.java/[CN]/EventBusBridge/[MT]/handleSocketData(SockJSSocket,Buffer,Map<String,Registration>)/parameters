@@ -1,0 +1,3 @@
+SockJSSocket sock
+Buffer data
+Map<String,Registration> registrations

@@ -12,11 +12,11 @@ internalHandleSendOrPub(sock,false,msg,address);
 break;
 case "register":
 address=getMandatoryString(msg,"address");
-internalHandleRegister(sock,msg,address,handlers);
+internalHandleRegister(sock,msg,address,registrations);
 break;
 case "unregister":
 address=getMandatoryString(msg,"address");
-internalHandleUnregister(sock,address,handlers);
+internalHandleUnregister(sock,address,registrations);
 break;
 case "ping":
 internalHandlePing(sock);
