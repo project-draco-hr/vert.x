@@ -1,0 +1,5 @@
+{
+  String[] args=new String[]{"version"};
+  Starter.main(args);
+  assertEquals("3.0.0-SNAPSHOT",Starter.instance.getVersion());
+}

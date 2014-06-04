@@ -1,0 +1,16 @@
+{
+  String arg=map.get(argName);
+  int val;
+  if (arg != null) {
+    try {
+      val=Integer.parseInt(arg.trim());
+    }
+ catch (    NumberFormatException e) {
+      throw new IllegalArgumentException("Invalid " + argName + ": "+ arg);
+    }
+  }
+ else {
+    val=-1;
+  }
+  return val;
+}

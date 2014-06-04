@@ -1,0 +1,4 @@
+String verticleClass
+String isolationGroup
+boolean worker
+Handler<AsyncResult<String>> doneHandler

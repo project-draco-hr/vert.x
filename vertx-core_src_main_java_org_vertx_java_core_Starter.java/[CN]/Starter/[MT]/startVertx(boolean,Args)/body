@@ -1,0 +1,26 @@
+{
+  Vertx vertx;
+  if (clustered) {
+    log.info("Starting clustering...");
+    int clusterPort=args.getInt("-cluster-port");
+    if (clusterPort == -1) {
+      clusterPort=0;
+    }
+    String clusterHost=args.map.get("-cluster-host");
+    if (clusterHost == null) {
+      clusterHost=getDefaultAddress();
+      if (clusterHost == null) {
+        log.error("Unable to find a default network interface for clustering. Please specify one using -cluster-host");
+        return null;
+      }
+ else {
+        log.info("No cluster-host specified so using address " + clusterHost);
+      }
+    }
+    vertx=VertxFactory.newVertx(clusterPort,clusterHost);
+  }
+ else {
+    vertx=VertxFactory.newVertx();
+  }
+  return vertx;
+}

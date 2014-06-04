@@ -1,0 +1,5 @@
+String verticleClass
+JsonObject config
+String isolationGroup
+boolean worker
+Handler<AsyncResult<String>> doneHandler
