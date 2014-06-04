@@ -1,9 +1,6 @@
 {
   DefaultContext currentContext=vertx.getOrCreateContext();
-  ClassLoader cl=Thread.currentThread().getContextClassLoader();
-  if (cl == null) {
-    cl=getClass().getClassLoader();
-  }
+  ClassLoader cl=getClassLoader(isolationGroup);
   Class clazz;
   Verticle verticle;
   try {

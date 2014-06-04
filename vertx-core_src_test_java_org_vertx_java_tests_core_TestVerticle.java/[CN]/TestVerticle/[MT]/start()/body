@@ -1,2 +1,3 @@
 {
+  vertx.eventBus().send("testcounts",new JsonObject().putString("deploymentID",getDeploymentID()).putNumber("count",instanceCount.incrementAndGet()));
 }

@@ -1,0 +1,3 @@
+String verticleClass
+String isolationGroup
+Handler<AsyncResult<String>> doneHandler

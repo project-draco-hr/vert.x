@@ -1,0 +1,3 @@
+{
+  testIsolationGroup("somegroup","somegroup",1,2);
+}

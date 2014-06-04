@@ -1,0 +1,22 @@
+{
+  ClassLoader cl;
+  if (isolationGroup == null) {
+    cl=getCurrentClassLoader();
+  }
+ else {
+synchronized (this) {
+      cl=classloaders.get(isolationGroup);
+      if (cl == null) {
+        ClassLoader current=getCurrentClassLoader();
+        if (!(current instanceof URLClassLoader)) {
+          throw new IllegalStateException("Current classloader must be URLClassLoader");
+        }
+        URLClassLoader urlc=(URLClassLoader)current;
+        URL[] urls=urlc.getURLs();
+        cl=new IsolatingClassLoader(urls,getCurrentClassLoader());
+        classloaders.put(isolationGroup,cl);
+      }
+    }
+  }
+  return cl;
+}

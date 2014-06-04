@@ -3,6 +3,7 @@
   assertEquals(vertx,verticle.getVertx());
   String deploymentID=ar.result();
   assertNotNull(ar.result());
+  assertEquals(deploymentID,verticle.getDeploymentID());
   if (config == null) {
     assertNull(verticle.getConfig());
   }
