@@ -1,0 +1,3 @@
+{
+  deploymentManager.deployVerticle(verticleClass,null,false,doneHandler);
+}

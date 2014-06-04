@@ -1,0 +1,22 @@
+{
+  DefaultContext currentContext=vertx.getOrCreateContext();
+  ClassLoader cl=Thread.currentThread().getContextClassLoader();
+  if (cl == null) {
+    cl=getClass().getClassLoader();
+  }
+  Class clazz;
+  Verticle verticle;
+  try {
+    clazz=cl.loadClass(verticleClass);
+    try {
+      verticle=(Verticle)clazz.newInstance();
+      doDeploy(verticle,config,worker,currentContext,doneHandler);
+    }
+ catch (    Exception e) {
+      reportFailure(e,currentContext,doneHandler);
+    }
+  }
+ catch (  ClassNotFoundException e) {
+    reportFailure(e,currentContext,doneHandler);
+  }
+}

@@ -1,8 +1,0 @@
-{
-  if (exceptionInStart) {
-    throw new Exception("FooBar!");
-  }
-  deployment=theDeployment;
-  startCalled=true;
-  startContext=vertx.currentContext();
-}

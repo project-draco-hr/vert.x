@@ -1,5 +1,5 @@
 {
-  TestVerticle verticle=new TestVerticle();
+  MyVerticle verticle=new MyVerticle();
   vertx.deployVerticle(verticle);
   long start=System.currentTimeMillis();
   long timeout=2000;

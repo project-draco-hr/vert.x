@@ -1,0 +1,3 @@
+{
+  deploymentManager.undeployVerticle(deploymentID,doneHandler);
+}

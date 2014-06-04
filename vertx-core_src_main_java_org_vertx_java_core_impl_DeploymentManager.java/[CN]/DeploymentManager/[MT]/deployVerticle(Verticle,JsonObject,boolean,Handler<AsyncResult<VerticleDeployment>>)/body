@@ -1,4 +1,0 @@
-{
-  Context currentContext=vertx.getOrCreateContext();
-  doDeploy(verticle,config,worker,currentContext,doneHandler);
-}

@@ -1,0 +1,3 @@
+Verticle verticle
+boolean worker
+Handler<AsyncResult<String>> doneHandler

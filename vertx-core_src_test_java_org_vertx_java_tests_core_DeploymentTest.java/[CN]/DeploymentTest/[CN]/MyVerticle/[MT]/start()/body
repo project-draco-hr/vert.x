@@ -1,0 +1,7 @@
+{
+  if (exceptionInStart) {
+    throw new Exception("FooBar!");
+  }
+  startCalled=true;
+  startContext=vertx.currentContext();
+}

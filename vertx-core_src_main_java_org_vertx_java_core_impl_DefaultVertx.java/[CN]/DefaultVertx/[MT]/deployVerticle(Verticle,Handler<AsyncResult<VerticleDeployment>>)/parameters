@@ -1,2 +1,0 @@
-Verticle verticle
-Handler<AsyncResult<VerticleDeployment>> doneHandler

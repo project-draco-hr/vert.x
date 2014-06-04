@@ -1,0 +1,4 @@
+{
+  start();
+  startFuture.setResult(null);
+}

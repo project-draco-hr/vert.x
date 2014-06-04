@@ -1,0 +1,4 @@
+{
+  this.startRunnable=startRunnable;
+  this.stopRunnable=stopRunnable;
+}

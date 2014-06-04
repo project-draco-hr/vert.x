@@ -1,0 +1,18 @@
+{
+  assertTrue(ar.succeeded());
+  assertEquals(vertx,verticle.getVertx());
+  String deploymentID=ar.result();
+  assertNotNull(ar.result());
+  if (config == null) {
+    assertNull(verticle.getConfig());
+  }
+ else {
+    assertEquals(config,verticle.getConfig());
+  }
+  assertTrue(verticle.startCalled);
+  assertFalse(verticle.stopCalled);
+  assertTrue(vertx.deployments().contains(deploymentID));
+  assertEquals(instances,vertx.deployments().size());
+  Context currentContext=vertx.currentContext();
+  assertNotSame(currentContext,verticle.startContext);
+}

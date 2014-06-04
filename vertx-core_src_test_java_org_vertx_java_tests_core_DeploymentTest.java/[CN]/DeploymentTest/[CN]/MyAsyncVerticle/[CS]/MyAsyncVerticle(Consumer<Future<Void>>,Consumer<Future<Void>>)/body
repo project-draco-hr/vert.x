@@ -1,0 +1,4 @@
+{
+  this.startConsumer=startConsumer;
+  this.stopConsumer=stopConsumer;
+}

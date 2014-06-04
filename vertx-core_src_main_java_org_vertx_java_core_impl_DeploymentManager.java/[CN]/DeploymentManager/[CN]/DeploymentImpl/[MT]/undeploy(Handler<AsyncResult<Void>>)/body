@@ -1,0 +1,9 @@
+{
+  DefaultContext currentContext=vertx.getOrCreateContext();
+  if (!undeployed) {
+    doUndeploy(currentContext,doneHandler);
+  }
+ else {
+    reportFailure(new IllegalStateException("Already undeployed"),currentContext,doneHandler);
+  }
+}

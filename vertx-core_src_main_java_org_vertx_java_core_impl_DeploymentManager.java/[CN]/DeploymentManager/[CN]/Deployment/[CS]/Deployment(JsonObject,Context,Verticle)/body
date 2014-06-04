@@ -1,5 +1,0 @@
-{
-  this.config=config;
-  this.context=context;
-  this.verticle=verticle;
-}
