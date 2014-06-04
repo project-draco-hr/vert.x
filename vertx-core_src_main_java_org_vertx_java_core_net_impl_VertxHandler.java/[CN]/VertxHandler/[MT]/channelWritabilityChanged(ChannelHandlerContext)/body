@@ -1,25 +1,2 @@
 {
-  final Channel ch=ctx.channel();
-  final C conn=connectionMap.get(ch);
-  if (conn != null) {
-    conn.setWritable(ctx.channel().isWritable());
-    DefaultContext context=getContext(conn);
-    if (context.isOnCorrectWorker(ch.eventLoop())) {
-      try {
-        vertx.setContext(context);
-        conn.handleInterestedOpsChanged();
-      }
- catch (      Throwable t) {
-        context.reportException(t);
-      }
-    }
- else {
-      context.execute(new Runnable(){
-        public void run(){
-          conn.handleInterestedOpsChanged();
-        }
-      }
-);
-    }
-  }
 }

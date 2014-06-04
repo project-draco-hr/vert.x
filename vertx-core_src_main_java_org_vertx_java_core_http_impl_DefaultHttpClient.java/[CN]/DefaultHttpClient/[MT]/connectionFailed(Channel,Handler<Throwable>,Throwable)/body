@@ -1,20 +1,2 @@
 {
-  final Handler<Throwable> exHandler=connectionExceptionHandler == null ? exceptionHandler : connectionExceptionHandler;
-  actualCtx.execute(ch.eventLoop(),new Runnable(){
-    public void run(){
-      pool.connectionClosed(null);
-      try {
-        ch.close();
-      }
- catch (      Exception ignore) {
-      }
-      if (exHandler != null) {
-        exHandler.handle(t);
-      }
- else {
-        actualCtx.reportException(t);
-      }
-    }
-  }
-);
 }

@@ -1,5 +1,0 @@
-{
-  if (stopRunnable != null) {
-    stopRunnable.run();
-  }
-}
