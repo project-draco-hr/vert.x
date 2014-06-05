@@ -1,4 +1,4 @@
 {
   this.host=host;
-  return this;
+  this.port=port;
 }

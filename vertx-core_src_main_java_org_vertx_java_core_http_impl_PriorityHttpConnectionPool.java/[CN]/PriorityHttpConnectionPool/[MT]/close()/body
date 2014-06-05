@@ -5,7 +5,7 @@ synchronized (this) {
   }
   for (  ClientConnection conn : allConnections) {
     try {
-      conn.actualClose();
+      conn.close();
     }
  catch (    Throwable t) {
       log.error("Failed to close connection",t);

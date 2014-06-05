@@ -6,7 +6,5 @@
  catch (  Throwable t) {
     handleHandlerException(t);
   }
-  if (!keepAlive) {
-    close();
-  }
+  responseEnded();
 }

@@ -1,0 +1,8 @@
+{
+  if (!pipelining && keepAlive) {
+    client.returnConnection(this);
+  }
+ else   if (!keepAlive) {
+    close();
+  }
+}

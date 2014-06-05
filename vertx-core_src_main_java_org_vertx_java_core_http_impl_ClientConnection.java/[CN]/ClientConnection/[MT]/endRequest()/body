@@ -3,9 +3,5 @@
     throw new IllegalStateException("No write in progress");
   }
   currentRequest=null;
-  if (keepAlive) {
-    close();
-  }
- else {
-  }
+  requestEnded();
 }

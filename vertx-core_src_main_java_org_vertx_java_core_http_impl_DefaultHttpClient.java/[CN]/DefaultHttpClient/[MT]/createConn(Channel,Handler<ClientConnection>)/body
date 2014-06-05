@@ -1,11 +1,2 @@
 {
-  final ClientConnection conn=new ClientConnection(vertx,DefaultHttpClient.this,ch,tcpHelper.isSSL(),host,port,keepAlive,actualCtx);
-  conn.closeHandler(new VoidHandler(){
-    public void handle(){
-      pool.connectionClosed(conn);
-    }
-  }
-);
-  connectionMap.put(ch,conn);
-  connectHandler.handle(conn);
 }

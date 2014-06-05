@@ -1,0 +1,8 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  TargetAddress that=(TargetAddress)o;
+  if (port != that.port)   return false;
+  if (host != null ? !host.equals(that.host) : that.host != null)   return false;
+  return true;
+}

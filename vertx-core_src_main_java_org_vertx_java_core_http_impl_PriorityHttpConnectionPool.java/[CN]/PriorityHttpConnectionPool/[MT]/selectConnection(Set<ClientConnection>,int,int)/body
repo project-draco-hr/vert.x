@@ -1,8 +1,8 @@
 {
   ClientConnection conn=null;
   if (!available.isEmpty()) {
-    final boolean useOccupiedConnections=connectionCount >= maxPoolSize;
-    for (    final ClientConnection c : available) {
+    boolean useOccupiedConnections=connectionCount >= maxPoolSize;
+    for (    ClientConnection c : available) {
       if (c.getOutstandingRequestCount() == 0 && !c.isClosed()) {
         conn=c;
         break;
