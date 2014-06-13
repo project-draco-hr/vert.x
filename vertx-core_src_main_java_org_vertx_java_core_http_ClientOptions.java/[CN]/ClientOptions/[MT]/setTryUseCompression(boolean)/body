@@ -1,0 +1,4 @@
+{
+  this.tryUseCompression=tryUseCompression;
+  return this;
+}

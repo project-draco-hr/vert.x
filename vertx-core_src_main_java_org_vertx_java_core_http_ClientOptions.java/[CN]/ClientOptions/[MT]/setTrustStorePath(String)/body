@@ -1,0 +1,4 @@
+{
+  this.trustStorePath=trustStorePath;
+  return this;
+}

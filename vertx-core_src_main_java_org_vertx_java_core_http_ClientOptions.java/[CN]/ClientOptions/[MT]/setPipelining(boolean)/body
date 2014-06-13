@@ -1,0 +1,4 @@
+{
+  this.pipelining=pipelining;
+  return this;
+}
