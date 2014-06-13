@@ -1,0 +1,4 @@
+{
+  super.setRequestURI(requestURI);
+  return this;
+}

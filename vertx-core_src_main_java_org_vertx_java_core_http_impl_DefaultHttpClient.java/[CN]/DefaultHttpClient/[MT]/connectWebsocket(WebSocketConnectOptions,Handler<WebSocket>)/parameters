@@ -1,0 +1,2 @@
+WebSocketConnectOptions wsOptions
+Handler<WebSocket> wsConnect

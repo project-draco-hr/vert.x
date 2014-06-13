@@ -1,2 +1,0 @@
-String uri
-Handler<WebSocket> wsConnect

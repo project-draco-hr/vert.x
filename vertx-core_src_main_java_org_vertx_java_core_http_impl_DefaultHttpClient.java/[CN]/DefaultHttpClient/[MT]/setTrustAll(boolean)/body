@@ -1,6 +1,0 @@
-{
-  checkClosed();
-  checkConfigurable();
-  tcpHelper.setTrustAll(trustAll);
-  return this;
-}

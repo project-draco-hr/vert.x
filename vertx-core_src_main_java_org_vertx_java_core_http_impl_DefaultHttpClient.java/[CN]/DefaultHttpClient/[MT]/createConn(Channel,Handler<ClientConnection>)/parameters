@@ -1,2 +1,0 @@
-Channel ch
-Handler<ClientConnection> connectHandler

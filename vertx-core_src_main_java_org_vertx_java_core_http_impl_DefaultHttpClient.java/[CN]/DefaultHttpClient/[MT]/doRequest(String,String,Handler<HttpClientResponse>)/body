@@ -1,4 +1,0 @@
-{
-  configurable=false;
-  return new DefaultHttpClientRequest(this,method,uri,responseHandler,actualCtx);
-}

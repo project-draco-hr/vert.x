@@ -9,7 +9,7 @@
       HttpHeaders.setTransferEncodingChunked(request);
     }
   }
-  if (client.getTryUseCompression() && request.headers().get(org.vertx.java.core.http.HttpHeaders.ACCEPT_ENCODING) == null) {
+  if (client.getOptions().isTryUseCompression() && request.headers().get(org.vertx.java.core.http.HttpHeaders.ACCEPT_ENCODING) == null) {
     request.headers().set(org.vertx.java.core.http.HttpHeaders.ACCEPT_ENCODING,org.vertx.java.core.http.HttpHeaders.DEFLATE_GZIP);
   }
 }

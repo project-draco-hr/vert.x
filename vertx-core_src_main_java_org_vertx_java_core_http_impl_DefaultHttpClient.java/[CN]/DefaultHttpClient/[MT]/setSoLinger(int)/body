@@ -1,6 +1,0 @@
-{
-  checkClosed();
-  checkConfigurable();
-  tcpHelper.setSoLinger(linger);
-  return this;
-}

@@ -1,4 +1,0 @@
-{
-  connectWebsocket(uri,wsVersion,headers,null,wsConnect);
-  return this;
-}

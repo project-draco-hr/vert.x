@@ -1,6 +1,0 @@
-{
-  checkClosed();
-  checkConfigurable();
-  this.keepAlive=keepAlive;
-  return this;
-}

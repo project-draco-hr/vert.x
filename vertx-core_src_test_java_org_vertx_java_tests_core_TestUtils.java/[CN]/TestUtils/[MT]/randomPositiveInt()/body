@@ -1,0 +1,8 @@
+{
+  while (true) {
+    int rand=random.nextInt();
+    if (rand > 0) {
+      return rand;
+    }
+  }
+}

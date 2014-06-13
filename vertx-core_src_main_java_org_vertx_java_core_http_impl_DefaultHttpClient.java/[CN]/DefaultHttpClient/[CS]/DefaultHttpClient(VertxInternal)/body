@@ -1,5 +1,0 @@
-{
-  this.vertx=vertx;
-  actualCtx=vertx.getOrCreateContext();
-  actualCtx.addCloseHook(closeHook);
-}

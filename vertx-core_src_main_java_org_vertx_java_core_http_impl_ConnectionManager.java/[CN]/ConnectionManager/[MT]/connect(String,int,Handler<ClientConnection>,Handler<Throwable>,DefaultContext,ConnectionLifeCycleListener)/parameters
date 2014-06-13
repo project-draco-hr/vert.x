@@ -1,0 +1,6 @@
+String host
+int port
+Handler<ClientConnection> connectHandler
+Handler<Throwable> connectErrorHandler
+DefaultContext context
+ConnectionLifeCycleListener listener

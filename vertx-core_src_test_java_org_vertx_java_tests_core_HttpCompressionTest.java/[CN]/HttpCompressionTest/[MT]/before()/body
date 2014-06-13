@@ -1,4 +1,4 @@
 {
-  client.setTryUseCompression(true);
+  client=vertx.createHttpClient(new ClientOptions().setTryUseCompression(true));
   server.setCompressionSupported(true);
 }

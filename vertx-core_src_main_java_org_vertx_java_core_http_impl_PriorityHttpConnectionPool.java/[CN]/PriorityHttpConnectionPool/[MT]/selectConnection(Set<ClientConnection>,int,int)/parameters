@@ -1,3 +1,0 @@
-Set<ClientConnection> available
-int connectionCount
-int maxPoolSize

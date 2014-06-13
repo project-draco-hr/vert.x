@@ -1,0 +1,6 @@
+DefaultHttpClient client
+String method
+RequestOptions options
+Handler<HttpClientResponse> respHandler
+DefaultContext context
+boolean raw

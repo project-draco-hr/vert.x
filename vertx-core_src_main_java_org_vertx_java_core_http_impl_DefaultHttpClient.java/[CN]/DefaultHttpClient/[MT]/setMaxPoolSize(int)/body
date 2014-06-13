@@ -1,6 +1,0 @@
-{
-  checkClosed();
-  checkConfigurable();
-  pool.setMaxPoolSize(maxConnections);
-  return this;
-}

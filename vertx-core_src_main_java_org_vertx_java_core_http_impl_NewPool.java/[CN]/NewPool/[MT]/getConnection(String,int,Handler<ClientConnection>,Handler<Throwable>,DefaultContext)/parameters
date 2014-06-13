@@ -1,5 +1,0 @@
-String host
-int port
-Handler<ClientConnection> handler
-Handler<Throwable> connectionExceptionHandler
-DefaultContext context

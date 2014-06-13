@@ -1,5 +1,0 @@
-{
-  if (pipelining) {
-    client.returnConnection(this);
-  }
-}

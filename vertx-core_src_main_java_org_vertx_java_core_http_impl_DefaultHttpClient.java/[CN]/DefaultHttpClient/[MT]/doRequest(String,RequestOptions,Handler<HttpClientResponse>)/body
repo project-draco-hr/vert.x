@@ -1,0 +1,8 @@
+{
+  checkClosed();
+  HttpClientRequest req=new DefaultHttpClientRequest(this,method,options,responseHandler,actualCtx);
+  if (options.getHeaders() != null) {
+    req.headers().set(options.getHeaders());
+  }
+  return req;
+}

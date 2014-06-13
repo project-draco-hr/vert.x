@@ -6,5 +6,7 @@
  catch (  Throwable t) {
     handleHandlerException(t);
   }
-  responseEnded();
+  if (currentResponse.statusCode() != 100 && requestForResponse.getRequest().getMethod() != HttpMethod.CONNECT) {
+    listener.responseEnded(this);
+  }
 }

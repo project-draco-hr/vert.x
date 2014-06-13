@@ -1,9 +1,0 @@
-{
-  checkClosed();
-  HttpClientRequest req=get(uri,responseHandler);
-  if (headers != null) {
-    req.headers().set(headers);
-  }
-  req.end();
-  return this;
-}

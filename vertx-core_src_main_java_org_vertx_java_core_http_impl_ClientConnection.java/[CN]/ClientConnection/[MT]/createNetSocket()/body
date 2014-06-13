@@ -1,5 +1,5 @@
 {
-  DefaultNetSocket socket=new DefaultNetSocket(vertx,channel,context,client.tcpHelper,true);
+  DefaultNetSocket socket=new DefaultNetSocket(vertx,channel,context,client.getSslHelper(),true);
   Map<Channel,DefaultNetSocket> connectionMap=new HashMap<>(1);
   connectionMap.put(channel,socket);
   endReadAndFlush();
@@ -9,13 +9,13 @@
     pipeline.remove(inflater);
   }
   pipeline.remove("codec");
-  pipeline.replace("handler","handler",new VertxNetHandler(client.vertx,connectionMap){
+  pipeline.replace("handler","handler",new VertxNetHandler(client.getVertx(),connectionMap){
     @Override public void exceptionCaught(    ChannelHandlerContext chctx,    Throwable t) throws Exception {
-      client.connectionMap.remove(channel);
+      client.removeChannel(channel);
       super.exceptionCaught(chctx,t);
     }
     @Override public void channelInactive(    ChannelHandlerContext chctx) throws Exception {
-      client.connectionMap.remove(channel);
+      client.removeChannel(channel);
       super.channelInactive(chctx);
     }
     @Override public void channelRead(    ChannelHandlerContext chctx,    Object msg) throws Exception {

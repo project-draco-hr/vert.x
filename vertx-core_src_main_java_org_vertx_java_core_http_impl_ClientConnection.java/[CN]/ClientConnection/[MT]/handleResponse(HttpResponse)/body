@@ -1,16 +1,15 @@
 {
-  DefaultHttpClientRequest req;
   if (resp.getStatus().code() == 100) {
-    req=requests.peek();
+    requestForResponse=requests.peek();
   }
  else {
-    req=requests.poll();
+    requestForResponse=requests.poll();
   }
-  if (req == null) {
+  if (requestForResponse == null) {
     throw new IllegalStateException("No response handler");
   }
   setContext();
-  DefaultHttpClientResponse nResp=new DefaultHttpClientResponse(vertx,req,this,resp);
+  DefaultHttpClientResponse nResp=new DefaultHttpClientResponse(vertx,requestForResponse,this,resp);
   currentResponse=nResp;
-  req.handleResponse(nResp);
+  requestForResponse.handleResponse(nResp);
 }

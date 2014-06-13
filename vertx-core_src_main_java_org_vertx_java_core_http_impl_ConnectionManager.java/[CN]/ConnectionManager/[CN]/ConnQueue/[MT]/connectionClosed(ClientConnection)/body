@@ -1,0 +1,13 @@
+{
+  connCount--;
+  if (conn != null) {
+    allConnections.remove(conn);
+  }
+  Waiter waiter=waiters.poll();
+  if (waiter != null) {
+    createNewConnection(waiter.handler,waiter.connectionExceptionHandler,waiter.context);
+  }
+ else   if (connCount == 0) {
+    connQueues.remove(address);
+  }
+}

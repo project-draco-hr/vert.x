@@ -1,0 +1,11 @@
+{
+  for (  ClientConnection conn : new HashSet<>(allConnections)) {
+    try {
+      conn.close();
+    }
+ catch (    Throwable t) {
+      log.error("Failed to close connection",t);
+    }
+  }
+  allConnections.clear();
+}

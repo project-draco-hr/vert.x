@@ -1,6 +1,0 @@
-{
-  if (!keepAlive && pipelining) {
-    throw new IllegalArgumentException("Cannot have pipelining for non Keep-Alive connection");
-  }
-  pool.getConnection(handler,connectionExceptionHandler,context);
-}

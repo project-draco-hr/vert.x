@@ -1,6 +1,6 @@
 {
   super(vertx,channel,context);
-  this.helper=helper;
+  this.oldHelper=helper;
   this.client=client;
   this.writeHandlerID=UUID.randomUUID().toString();
   writeHandler=new Handler<Message<Buffer>>(){

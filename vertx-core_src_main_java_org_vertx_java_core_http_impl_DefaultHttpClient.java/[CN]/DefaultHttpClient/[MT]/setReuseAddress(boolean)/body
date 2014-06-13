@@ -1,6 +1,0 @@
-{
-  checkClosed();
-  checkConfigurable();
-  tcpHelper.setReuseAddress(reuse);
-  return this;
-}

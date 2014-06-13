@@ -1,4 +1,0 @@
-{
-  checkClosed();
-  return doRequest("CONNECT",uri,connectHandler(responseHandler));
-}

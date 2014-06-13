@@ -1,8 +1,0 @@
-{
-  assertFalse(client.isSSL());
-  assertTrue(client.isVerifyHost());
-  assertNull(client.getKeyStorePassword());
-  assertNull(client.getKeyStorePath());
-  assertNull(client.getTrustStorePassword());
-  assertNull(client.getTrustStorePath());
-}

@@ -1,0 +1,3 @@
+{
+  return doRequest("TRACE",options,responseHandler);
+}

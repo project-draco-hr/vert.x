@@ -1,4 +1,0 @@
-{
-  checkClosed();
-  return doRequest("OPTIONS",uri,responseHandler);
-}

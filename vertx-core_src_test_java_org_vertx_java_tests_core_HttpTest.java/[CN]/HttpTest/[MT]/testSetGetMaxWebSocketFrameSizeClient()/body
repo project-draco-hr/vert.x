@@ -1,6 +1,0 @@
-{
-  int size=61231763;
-  assertTrue(client == client.setMaxWebSocketFrameSize(size));
-  assertTrue(size == client.getMaxWebSocketFrameSize());
-  testComplete();
-}

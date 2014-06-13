@@ -1,0 +1,8 @@
+{
+  if (state == STATE_CONF_FROM_URI) {
+    throw new IllegalStateException("The port is determined from the URI you provided");
+  }
+  this.port=port;
+  this.state=STATE_CONF_EXPL;
+  return this;
+}

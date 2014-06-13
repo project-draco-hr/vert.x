@@ -8,4 +8,7 @@
       handleHandlerException(t2);
     }
   }
+ else {
+    context.reportException(t);
+  }
 }

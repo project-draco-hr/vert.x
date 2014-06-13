@@ -1,0 +1,7 @@
+{
+  if (headers == null) {
+    headers=new CaseInsensitiveMultiMap();
+  }
+  headers.add(name,value);
+  return this;
+}

@@ -1,0 +1,6 @@
+{
+  for (  ConnQueue queue : connQueues.values()) {
+    queue.closeAllConnections();
+  }
+  connQueues.clear();
+}

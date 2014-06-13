@@ -1,5 +1,0 @@
-{
-  checkClosed();
-  getNow(uri,null,responseHandler);
-  return this;
-}

@@ -1,4 +1,0 @@
-{
-  checkClosed();
-  return pool.getMaxPoolSize();
-}
