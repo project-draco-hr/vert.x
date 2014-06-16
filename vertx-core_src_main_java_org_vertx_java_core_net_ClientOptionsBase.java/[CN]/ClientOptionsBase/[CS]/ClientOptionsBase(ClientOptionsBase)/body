@@ -1,0 +1,5 @@
+{
+  super(other);
+  this.connectTimeout=other.connectTimeout;
+  this.trustAll=other.trustAll;
+}

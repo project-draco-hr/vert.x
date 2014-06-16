@@ -1,5 +1,5 @@
 {
-  ClientOptions options=new ClientOptions();
+  HttpClientOptions options=new HttpClientOptions();
   assertEquals(-1,options.getSendBufferSize());
   int rand=randomPositiveInt();
   assertEquals(options,options.setSendBufferSize(rand));
@@ -132,4 +132,5 @@
   assertFalse(options.isTryUseCompression());
   assertEquals(options,options.setTryUseCompression(true));
   assertEquals(true,options.isTryUseCompression());
+  testComplete();
 }

@@ -1,3 +1,0 @@
-{
-  clientAuth=required ? ClientAuth.REQUIRED : ClientAuth.NONE;
-}

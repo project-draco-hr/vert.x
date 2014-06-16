@@ -1,5 +1,0 @@
-VertxInternal vertx
-Channel channel
-DefaultContext context
-TCPSSLHelper helper
-boolean client

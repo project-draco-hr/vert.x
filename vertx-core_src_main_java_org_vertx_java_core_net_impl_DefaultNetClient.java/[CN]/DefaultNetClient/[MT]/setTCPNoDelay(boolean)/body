@@ -1,5 +1,0 @@
-{
-  checkConfigurable();
-  tcpHelper.setTCPNoDelay(tcpNoDelay);
-  return this;
-}

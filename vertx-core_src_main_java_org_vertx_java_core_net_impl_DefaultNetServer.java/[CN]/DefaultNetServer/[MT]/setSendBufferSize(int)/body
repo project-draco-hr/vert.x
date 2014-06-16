@@ -1,5 +1,0 @@
-{
-  checkListening();
-  tcpHelper.setSendBufferSize(size);
-  return this;
-}

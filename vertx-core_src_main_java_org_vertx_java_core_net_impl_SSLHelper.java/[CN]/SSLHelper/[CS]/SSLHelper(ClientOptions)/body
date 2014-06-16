@@ -1,9 +1,0 @@
-{
-  this.ssl=options.isSsl();
-  this.verifyHost=options.isVerifyHost();
-  this.keyStorePath=options.getKeyStorePath();
-  this.keyStorePassword=options.getKeyStorePassword();
-  this.trustStorePath=options.getTrustStorePath();
-  this.trustStorePassword=options.getTrustStorePassword();
-  this.trustAll=options.isTrustAll();
-}

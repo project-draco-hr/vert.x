@@ -1,4 +1,4 @@
 {
-  connect(port,host,connectHandler,reconnectAttempts);
+  connect(port,host,connectHandler,options.getReconnectAttempts());
   return this;
 }

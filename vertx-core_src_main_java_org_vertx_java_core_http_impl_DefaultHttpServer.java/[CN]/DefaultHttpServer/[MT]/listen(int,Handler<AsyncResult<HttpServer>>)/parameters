@@ -1,2 +1,0 @@
-int port
-Handler<AsyncResult<HttpServer>> listenHandler

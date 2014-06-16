@@ -1,5 +1,0 @@
-{
-  checkConfigurable();
-  tcpHelper.setConnectTimeout(timeout);
-  return this;
-}

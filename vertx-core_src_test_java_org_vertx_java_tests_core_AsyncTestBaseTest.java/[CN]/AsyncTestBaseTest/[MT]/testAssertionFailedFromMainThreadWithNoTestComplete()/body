@@ -1,0 +1,17 @@
+{
+  try {
+    assertEquals("foo","bar");
+  }
+ catch (  AssertionError e) {
+    testComplete();
+    try {
+      super.afterAsyncTestBase();
+    }
+ catch (    IllegalStateException e2) {
+      fail("Should not throw exception");
+    }
+ finally {
+      clearThrown();
+    }
+  }
+}

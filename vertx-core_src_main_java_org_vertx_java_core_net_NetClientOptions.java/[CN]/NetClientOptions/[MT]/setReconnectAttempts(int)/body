@@ -1,0 +1,7 @@
+{
+  if (attempts < -1) {
+    throw new IllegalArgumentException("reconnect attempts must be >= -1");
+  }
+  this.reconnectAttempts=attempts;
+  return this;
+}

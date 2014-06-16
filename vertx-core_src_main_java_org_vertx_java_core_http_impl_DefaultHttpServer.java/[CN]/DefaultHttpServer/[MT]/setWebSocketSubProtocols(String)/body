@@ -1,9 +1,0 @@
-{
-  if (subProtocols == null || subProtocols.length == 0) {
-    webSocketSubProtocols=Collections.unmodifiableSet(Collections.<String>emptySet());
-  }
- else {
-    webSocketSubProtocols=Collections.unmodifiableSet(new HashSet<>(Arrays.asList(subProtocols)));
-  }
-  return this;
-}

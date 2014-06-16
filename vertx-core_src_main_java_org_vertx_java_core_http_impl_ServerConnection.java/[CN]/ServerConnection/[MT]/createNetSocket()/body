@@ -1,5 +1,5 @@
 {
-  DefaultNetSocket socket=new DefaultNetSocket(vertx,channel,context,server.tcpHelper,false);
+  DefaultNetSocket socket=new DefaultNetSocket(vertx,channel,context,server.getSslHelper(),false);
   Map<Channel,DefaultNetSocket> connectionMap=new HashMap<Channel,DefaultNetSocket>(1);
   connectionMap.put(channel,socket);
   endReadAndFlush();
@@ -12,13 +12,13 @@
   if (pipeline.get("chunkedWriter") != null) {
     pipeline.remove("chunkedWriter");
   }
-  channel.pipeline().replace("handler","handler",new VertxNetHandler(server.vertx,connectionMap){
+  channel.pipeline().replace("handler","handler",new VertxNetHandler(vertx,connectionMap){
     @Override public void exceptionCaught(    ChannelHandlerContext chctx,    Throwable t) throws Exception {
-      server.connectionMap.remove(channel);
+      server.removeChannel(channel);
       super.exceptionCaught(chctx,t);
     }
     @Override public void channelInactive(    ChannelHandlerContext chctx) throws Exception {
-      server.connectionMap.remove(channel);
+      server.removeChannel(channel);
       super.channelInactive(chctx);
     }
     @Override public void channelRead(    ChannelHandlerContext chctx,    Object msg) throws Exception {

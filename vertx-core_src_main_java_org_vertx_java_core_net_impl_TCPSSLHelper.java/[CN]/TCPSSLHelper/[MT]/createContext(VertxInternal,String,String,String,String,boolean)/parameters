@@ -1,6 +1,0 @@
-VertxInternal vertx
-String ksPath
-String ksPassword
-String tsPath
-String tsPassword
-boolean trustAll

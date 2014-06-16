@@ -5,7 +5,7 @@
   if (handler == null) {
     return;
   }
-  if (tcpHelper.isSSL()) {
+  if (sslHelper.isSSL()) {
     SslHandler sslHandler=ch.pipeline().get(SslHandler.class);
     Future<Channel> fut=sslHandler.handshakeFuture();
     fut.addListener(new GenericFutureListener<Future<Channel>>(){

@@ -1,5 +1,0 @@
-{
-  checkListening();
-  tcpHelper.setSoLinger(linger);
-  return this;
-}

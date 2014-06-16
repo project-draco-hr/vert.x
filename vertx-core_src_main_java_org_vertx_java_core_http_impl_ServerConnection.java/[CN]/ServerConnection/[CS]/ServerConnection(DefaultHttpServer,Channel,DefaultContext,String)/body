@@ -1,5 +1,0 @@
-{
-  super(server.vertx,channel,context);
-  this.serverOrigin=serverOrigin;
-  this.server=server;
-}

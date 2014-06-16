@@ -1,5 +1,0 @@
-{
-  checkListening();
-  tcpHelper.setKeyStorePath(path);
-  return this;
-}

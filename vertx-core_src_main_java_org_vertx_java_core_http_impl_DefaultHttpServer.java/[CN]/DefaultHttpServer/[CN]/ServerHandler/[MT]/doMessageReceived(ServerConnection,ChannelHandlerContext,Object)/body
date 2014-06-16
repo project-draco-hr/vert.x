@@ -30,7 +30,7 @@
       if (conn == null) {
         HandlerHolder<HttpServerRequest> reqHandler=reqHandlerManager.chooseHandler(ch.eventLoop());
         if (reqHandler != null) {
-          conn=new ServerConnection(DefaultHttpServer.this,ch,reqHandler.context,serverOrigin);
+          conn=new ServerConnection(vertx,DefaultHttpServer.this,ch,reqHandler.context,serverOrigin);
           conn.requestHandler(reqHandler.handler);
           connectionMap.put(ch,conn);
           conn.handleMessage(msg);

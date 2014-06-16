@@ -1,5 +1,0 @@
-{
-  if (!configurable) {
-    throw new IllegalStateException("Can't set property after connect has been called");
-  }
-}

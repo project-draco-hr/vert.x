@@ -1,0 +1,4 @@
+{
+  super.setTrustAll(trustAll);
+  return this;
+}

@@ -1,0 +1,5 @@
+{
+  super(other);
+  this.reconnectAttempts=other.reconnectAttempts;
+  this.reconnectInterval=other.reconnectInterval;
+}

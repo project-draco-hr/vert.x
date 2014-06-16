@@ -1,5 +1,0 @@
-{
-  if (ssl) {
-    sslContext=createContext(vertx,keyStorePath,keyStorePassword,trustStorePath,trustStorePassword,trustAll);
-  }
-}

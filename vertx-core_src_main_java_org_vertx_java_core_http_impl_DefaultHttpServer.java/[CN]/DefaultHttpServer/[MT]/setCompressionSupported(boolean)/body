@@ -1,5 +1,0 @@
-{
-  checkListening();
-  this.compressionSupported=compressionSupported;
-  return this;
-}

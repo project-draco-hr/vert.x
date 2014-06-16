@@ -1,0 +1,7 @@
+{
+  this.options=new HttpServerOptions(options);
+  this.vertx=vertx;
+  actualCtx=vertx.getOrCreateContext();
+  actualCtx.addCloseHook(this);
+  sslHelper=new SSLHelper(options);
+}

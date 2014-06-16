@@ -1,5 +1,0 @@
-{
-  checkConfigurable();
-  tcpHelper.setKeyStorePassword(pwd);
-  return this;
-}

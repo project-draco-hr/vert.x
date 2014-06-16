@@ -1,0 +1,4 @@
+{
+  super.setTrustStorePassword(trustStorePassword);
+  return this;
+}

@@ -1,5 +1,0 @@
-{
-  checkListening();
-  tcpHelper.setReuseAddress(reuse);
-  return this;
-}

@@ -1,5 +1,0 @@
-{
-  checkListening();
-  tcpHelper.setTrustStorePassword(pwd);
-  return this;
-}

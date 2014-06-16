@@ -1,5 +1,0 @@
-{
-  checkConfigurable();
-  tcpHelper.setTrustStorePath(path);
-  return this;
-}

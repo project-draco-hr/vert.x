@@ -1,0 +1,6 @@
+{
+  if (websocketSubProtocols != null) {
+    websocketSubProtocols.remove(subProtocol);
+  }
+  return this;
+}
