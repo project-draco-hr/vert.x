@@ -4,10 +4,10 @@
       URI uri=new URI(uri());
       String scheme=uri.getScheme();
       if (scheme != null && (scheme.equals("http") || scheme.equals("https"))) {
-        absoluteURI=uri;
+        absoluteURI=uri.toString();
       }
  else {
-        absoluteURI=new URI(conn.getServerOrigin() + uri);
+        absoluteURI=new URI(conn.getServerOrigin() + uri).toString();
       }
     }
  catch (    URISyntaxException e) {
