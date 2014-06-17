@@ -1,2 +1,0 @@
-InetSocketAddress local
-Handler<AsyncResult<DatagramSocket>> handler

@@ -1,0 +1,4 @@
+{
+  lookup(name,new HandlerAdapter<String>(handler),DnsEntry.TYPE_AAAA);
+  return this;
+}

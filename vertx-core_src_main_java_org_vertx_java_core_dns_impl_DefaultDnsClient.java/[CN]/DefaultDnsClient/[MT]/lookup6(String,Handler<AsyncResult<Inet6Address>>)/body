@@ -1,4 +1,0 @@
-{
-  lookup(name,new HandlerAdapter<Inet6Address>(handler),DnsEntry.TYPE_AAAA);
-  return this;
-}

@@ -1,0 +1,6 @@
+{
+  configurable=false;
+  ChannelFuture future=channel().bind(new InetSocketAddress(local.getHostAddress(),local.getPort()));
+  addListener(future,handler);
+  return this;
+}

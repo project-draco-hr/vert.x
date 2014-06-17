@@ -1,0 +1,23 @@
+{
+  if (addresses == null || addresses.length == 0) {
+    throw new IllegalArgumentException("Need at least one default DNS Server");
+  }
+  this.dnsServers=new LinkedList<>();
+  for (  SocketAddress addr : addresses) {
+    dnsServers.add(new InetSocketAddress(addr.getHostAddress(),addr.getPort()));
+  }
+  actualCtx=vertx.getOrCreateContext();
+  this.vertx=vertx;
+  bootstrap=new Bootstrap();
+  bootstrap.group(actualCtx.getEventLoop());
+  bootstrap.channel(NioDatagramChannel.class);
+  bootstrap.option(ChannelOption.ALLOCATOR,PartialPooledByteBufAllocator.INSTANCE);
+  bootstrap.handler(new ChannelInitializer<DatagramChannel>(){
+    @Override protected void initChannel(    DatagramChannel ch) throws Exception {
+      ChannelPipeline pipeline=ch.pipeline();
+      pipeline.addLast(new DnsQueryEncoder());
+      pipeline.addLast(new DnsResponseDecoder());
+    }
+  }
+);
+}

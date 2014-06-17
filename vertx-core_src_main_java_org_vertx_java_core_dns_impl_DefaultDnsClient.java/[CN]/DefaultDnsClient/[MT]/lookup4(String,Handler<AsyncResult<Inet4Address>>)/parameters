@@ -1,2 +1,0 @@
-String name
-Handler<AsyncResult<Inet4Address>> handler

@@ -1,6 +1,0 @@
-{
-  configurable=false;
-  ChannelFuture future=channel().bind(local);
-  addListener(future,handler);
-  return this;
-}

@@ -1,3 +1,4 @@
 {
-  return (InetSocketAddress)channel.remoteAddress();
+  InetSocketAddress addr=(InetSocketAddress)channel.remoteAddress();
+  return new SocketAddress(addr.getPort(),addr.getAddress().getHostAddress());
 }

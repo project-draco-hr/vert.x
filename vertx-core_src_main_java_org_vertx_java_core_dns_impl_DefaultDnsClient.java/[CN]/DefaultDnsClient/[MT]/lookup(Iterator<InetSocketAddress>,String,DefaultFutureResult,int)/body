@@ -15,6 +15,9 @@
                 List<Object> records=new ArrayList<>(resources.size());
                 for (                DnsResource resource : msg.getAnswers()) {
                   Object record=RecordDecoderFactory.getFactory().decode(resource.type(),msg,resource);
+                  if (record instanceof InetAddress) {
+                    record=((InetAddress)record).getHostAddress();
+                  }
                   records.add(record);
                 }
                 setResult(result,ctx.channel().eventLoop(),records);
