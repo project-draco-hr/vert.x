@@ -1,4 +1,0 @@
-{
-  sendOrPub(new CharacterMessage(false,address,message),null);
-  return this;
-}

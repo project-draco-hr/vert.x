@@ -1,4 +1,0 @@
-{
-  sendOrPub(new JsonArrayMessage(true,address,message),replyHandler);
-  return this;
-}

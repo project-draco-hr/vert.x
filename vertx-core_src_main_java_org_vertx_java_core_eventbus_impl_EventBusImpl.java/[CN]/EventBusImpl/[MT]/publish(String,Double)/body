@@ -1,4 +1,0 @@
-{
-  sendOrPub(new DoubleMessage(false,address,message),null);
-  return this;
-}

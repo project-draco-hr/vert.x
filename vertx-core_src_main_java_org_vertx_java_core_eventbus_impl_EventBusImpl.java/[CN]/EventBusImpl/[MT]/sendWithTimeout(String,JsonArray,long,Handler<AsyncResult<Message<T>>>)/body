@@ -1,4 +1,0 @@
-{
-  sendOrPubWithTimeout(createMessage(true,address,message),replyHandler,timeout);
-  return this;
-}

@@ -1,4 +1,0 @@
-{
-  sendOrPub(new LongMessage(false,address,message),null);
-  return this;
-}
