@@ -1,0 +1,9 @@
+{
+  ContextImpl ctx=getContext();
+  if (ctx != null) {
+    ctx.reportException(t);
+  }
+ else {
+    log.error("Unhandled exception ",t);
+  }
+}

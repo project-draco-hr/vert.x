@@ -1,0 +1,4 @@
+{
+  this.eventBus=new EventBusImpl(this);
+  this.clusterManager=null;
+}

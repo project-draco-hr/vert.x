@@ -1,7 +1,0 @@
-{
-  DefaultContext ctx=getContext();
-  if (ctx == null) {
-    ctx=createEventLoopContext();
-  }
-  return ctx;
-}

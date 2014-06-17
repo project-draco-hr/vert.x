@@ -1,0 +1,82 @@
+{
+  Channel ch=ctx.channel();
+  if (msg instanceof HttpRequest) {
+    final HttpRequest request=(HttpRequest)msg;
+    if (log.isTraceEnabled())     log.trace("Server received request: " + request.getUri());
+    if (HttpHeaders.is100ContinueExpected(request)) {
+      ch.writeAndFlush(new DefaultFullHttpResponse(HTTP_1_1,CONTINUE));
+    }
+    if (wsHandlerManager.hasHandlers() && request.headers().contains(org.vertx.java.core.http.HttpHeaders.UPGRADE,org.vertx.java.core.http.HttpHeaders.WEBSOCKET,true)) {
+      String connectionHeader=request.headers().get(org.vertx.java.core.http.HttpHeaders.CONNECTION);
+      if (connectionHeader == null || !connectionHeader.toLowerCase().contains("upgrade")) {
+        sendError("\"Connection\" must be \"Upgrade\".",BAD_REQUEST,ch);
+        return;
+      }
+      if (request.getMethod() != HttpMethod.GET) {
+        sendError(null,METHOD_NOT_ALLOWED,ch);
+        return;
+      }
+      if (wsRequest == null) {
+        if (request instanceof FullHttpRequest) {
+          handshake((FullHttpRequest)request,ch,ctx);
+        }
+ else {
+          wsRequest=new DefaultFullHttpRequest(request.getProtocolVersion(),request.getMethod(),request.getUri());
+          wsRequest.headers().set(request.headers());
+        }
+      }
+    }
+ else {
+      if (conn == null) {
+        HandlerHolder<HttpServerRequest> reqHandler=reqHandlerManager.chooseHandler(ch.eventLoop());
+        if (reqHandler != null) {
+          conn=new ServerConnection(vertx,HttpServerImpl.this,ch,reqHandler.context,serverOrigin);
+          conn.requestHandler(reqHandler.handler);
+          connectionMap.put(ch,conn);
+          conn.handleMessage(msg);
+        }
+      }
+ else {
+        conn.handleMessage(msg);
+      }
+    }
+  }
+ else   if (msg instanceof WebSocketFrameInternal) {
+    WebSocketFrameInternal wsFrame=(WebSocketFrameInternal)msg;
+switch (wsFrame.type()) {
+case BINARY:
+case CONTINUATION:
+case TEXT:
+      if (conn != null) {
+        conn.handleMessage(msg);
+      }
+    break;
+case PING:
+  ch.writeAndFlush(new WebSocketFrameImpl(WebSocketFrame.FrameType.PONG,wsFrame.getBinaryData()));
+break;
+case CLOSE:
+if (!closeFrameSent) {
+ch.writeAndFlush(wsFrame).addListener(ChannelFutureListener.CLOSE);
+closeFrameSent=true;
+}
+break;
+}
+}
+ else if (msg instanceof HttpContent) {
+if (wsRequest != null) {
+wsRequest.content().writeBytes(((HttpContent)msg).content());
+if (msg instanceof LastHttpContent) {
+FullHttpRequest req=wsRequest;
+wsRequest=null;
+handshake(req,ch,ctx);
+return;
+}
+}
+if (conn != null) {
+conn.handleMessage(msg);
+}
+}
+ else {
+throw new IllegalStateException("Invalid message " + msg);
+}
+}

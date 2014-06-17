@@ -1,0 +1,7 @@
+{
+  ContextImpl context=getContext();
+  if (context != null) {
+    return context instanceof WorkerContext;
+  }
+  return false;
+}

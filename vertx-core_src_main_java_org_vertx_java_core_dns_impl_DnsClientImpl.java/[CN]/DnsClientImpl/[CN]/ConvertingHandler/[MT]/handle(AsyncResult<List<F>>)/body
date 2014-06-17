@@ -1,0 +1,14 @@
+{
+  if (event.failed()) {
+    handler.handle(event);
+  }
+ else {
+    List records=(List)event.result();
+    for (int i=0; i < records.size(); i++) {
+      F record=(F)records.get(i);
+      records.set(i,convert(record));
+    }
+    Collections.sort(records,comparator);
+    handler.handle(new FutureResultImpl(records));
+  }
+}

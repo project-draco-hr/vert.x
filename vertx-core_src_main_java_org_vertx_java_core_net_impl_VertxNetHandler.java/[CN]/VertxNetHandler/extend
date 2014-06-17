@@ -1,1 +1,1 @@
-VertxHandler<DefaultNetSocket>
+VertxHandler<NetSocketImpl>

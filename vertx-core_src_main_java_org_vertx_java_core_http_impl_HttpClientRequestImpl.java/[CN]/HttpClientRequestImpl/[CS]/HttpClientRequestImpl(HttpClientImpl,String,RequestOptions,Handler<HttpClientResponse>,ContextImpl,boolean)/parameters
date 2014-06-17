@@ -1,0 +1,6 @@
+HttpClientImpl client
+String method
+RequestOptions options
+Handler<HttpClientResponse> respHandler
+ContextImpl context
+boolean raw

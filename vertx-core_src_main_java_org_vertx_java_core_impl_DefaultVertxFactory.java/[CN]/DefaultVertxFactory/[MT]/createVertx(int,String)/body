@@ -1,3 +1,0 @@
-{
-  return new DefaultVertx(port,hostname,null);
-}

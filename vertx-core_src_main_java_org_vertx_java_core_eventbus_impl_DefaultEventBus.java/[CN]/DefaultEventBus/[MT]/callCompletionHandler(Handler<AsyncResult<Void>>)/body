@@ -1,3 +1,0 @@
-{
-  completionHandler.handle(new DefaultFutureResult<>((Void)null));
-}

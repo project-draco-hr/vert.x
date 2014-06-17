@@ -1,0 +1,5 @@
+{
+  VertxImpl.this.timeouts.remove(timerID);
+  cancel();
+  doneHandler.handle(new FutureResultImpl<>((Void)null));
+}

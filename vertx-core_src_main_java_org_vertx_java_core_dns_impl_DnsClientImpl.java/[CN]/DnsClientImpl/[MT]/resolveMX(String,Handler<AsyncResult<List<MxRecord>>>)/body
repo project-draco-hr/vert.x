@@ -1,0 +1,9 @@
+{
+  lookup(name,new ConvertingHandler<MailExchangerRecord,MxRecord>(handler,MxRecordComparator.INSTANCE){
+    @Override protected MxRecord convert(    MailExchangerRecord entry){
+      return new MxRecordImpl(entry);
+    }
+  }
+,DnsEntry.TYPE_MX);
+  return this;
+}

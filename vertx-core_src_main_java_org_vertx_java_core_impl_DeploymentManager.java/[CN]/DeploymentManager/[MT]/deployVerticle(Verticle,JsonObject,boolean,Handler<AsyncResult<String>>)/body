@@ -1,4 +1,4 @@
 {
-  DefaultContext currentContext=vertx.getOrCreateContext();
+  ContextImpl currentContext=vertx.getOrCreateContext();
   doDeploy(verticle,config,worker,currentContext,doneHandler);
 }

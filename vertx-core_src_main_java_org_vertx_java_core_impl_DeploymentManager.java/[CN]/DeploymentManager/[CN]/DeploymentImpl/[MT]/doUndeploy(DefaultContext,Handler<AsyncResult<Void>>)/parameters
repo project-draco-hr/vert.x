@@ -1,2 +1,0 @@
-DefaultContext undeployingContext
-Handler<AsyncResult<Void>> doneHandler

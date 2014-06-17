@@ -1,6 +1,6 @@
 {
-  DefaultNetSocket socket=new DefaultNetSocket(vertx,channel,context,server.getSslHelper(),false);
-  Map<Channel,DefaultNetSocket> connectionMap=new HashMap<Channel,DefaultNetSocket>(1);
+  NetSocketImpl socket=new NetSocketImpl(vertx,channel,context,server.getSslHelper(),false);
+  Map<Channel,NetSocketImpl> connectionMap=new HashMap<Channel,NetSocketImpl>(1);
   connectionMap.put(channel,socket);
   endReadAndFlush();
   ChannelPipeline pipeline=channel.pipeline();

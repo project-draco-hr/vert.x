@@ -1,0 +1,4 @@
+long timerID
+Handler<Long> runnable
+boolean periodic
+ContextImpl context

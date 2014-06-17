@@ -1,0 +1,45 @@
+{
+  if (conn == null) {
+    return;
+  }
+  boolean valid=false;
+  if (msg instanceof HttpResponse) {
+    HttpResponse response=(HttpResponse)msg;
+    conn.handleResponse(response);
+    valid=true;
+  }
+  if (msg instanceof HttpContent) {
+    HttpContent chunk=(HttpContent)msg;
+    if (chunk.content().isReadable()) {
+      Buffer buff=new Buffer(chunk.content().slice());
+      conn.handleResponseChunk(buff);
+    }
+    if (chunk instanceof LastHttpContent) {
+      conn.handleResponseEnd((LastHttpContent)chunk);
+    }
+    valid=true;
+  }
+ else   if (msg instanceof WebSocketFrameInternal) {
+    WebSocketFrameInternal frame=(WebSocketFrameInternal)msg;
+switch (frame.type()) {
+case BINARY:
+case CONTINUATION:
+case TEXT:
+      conn.handleWsFrame(frame);
+    break;
+case PING:
+  ctx.writeAndFlush(new WebSocketFrameImpl(WebSocketFrame.FrameType.PONG,frame.getBinaryData()));
+break;
+case CLOSE:
+if (!closeFrameSent) {
+ctx.writeAndFlush(frame).addListener(ChannelFutureListener.CLOSE);
+closeFrameSent=true;
+}
+break;
+}
+valid=true;
+}
+if (!valid) {
+throw new IllegalStateException("Invalid object " + msg);
+}
+}

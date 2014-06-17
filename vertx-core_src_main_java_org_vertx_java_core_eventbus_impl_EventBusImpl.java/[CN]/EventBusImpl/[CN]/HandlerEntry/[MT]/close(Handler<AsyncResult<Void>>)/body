@@ -1,0 +1,4 @@
+{
+  unregisterHandler(this.address,this.handler);
+  doneHandler.handle(new FutureResultImpl<>((Void)null));
+}

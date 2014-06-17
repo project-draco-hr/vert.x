@@ -1,3 +1,0 @@
-{
-  return Windows.isWindows() ? new WindowsFileSystem(this) : new DefaultFileSystem(this);
-}

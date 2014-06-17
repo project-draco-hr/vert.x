@@ -1,0 +1,13 @@
+{
+  FutureResultImpl<Void> res=new FutureResultImpl<>();
+  try {
+    ch.close();
+    res.setResult(null);
+  }
+ catch (  IOException e) {
+    res.setFailure(e);
+  }
+  if (handler != null) {
+    handler.handle(res);
+  }
+}

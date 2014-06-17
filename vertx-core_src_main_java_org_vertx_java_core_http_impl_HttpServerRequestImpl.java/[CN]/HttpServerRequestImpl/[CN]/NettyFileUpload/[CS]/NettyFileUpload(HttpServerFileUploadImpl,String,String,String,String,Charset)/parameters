@@ -1,0 +1,6 @@
+HttpServerFileUploadImpl upload
+String name
+String filename
+String contentType
+String contentTransferEncoding
+Charset charset

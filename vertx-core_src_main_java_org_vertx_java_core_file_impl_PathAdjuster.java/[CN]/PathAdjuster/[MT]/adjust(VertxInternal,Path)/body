@@ -1,5 +1,5 @@
 {
-  DefaultContext context=vertx.getContext();
+  ContextImpl context=vertx.getContext();
   if (context != null) {
     PathResolver resolver=context.getPathResolver();
     if (resolver != null) {

@@ -1,7 +1,7 @@
 {
   final Object message=safeObject(msg,chctx.alloc());
   final C connection=connectionMap.get(chctx.channel());
-  DefaultContext context;
+  ContextImpl context;
   if (connection != null) {
     context=getContext(connection);
     if (context.isOnCorrectWorker(chctx.channel().eventLoop())) {

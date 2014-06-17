@@ -1,2 +1,0 @@
-DefaultContext closeContext
-Handler<AsyncResult<Void>> done

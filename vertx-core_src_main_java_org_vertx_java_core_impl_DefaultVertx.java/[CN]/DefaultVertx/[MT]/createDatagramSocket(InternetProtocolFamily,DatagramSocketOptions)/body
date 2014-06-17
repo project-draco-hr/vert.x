@@ -1,3 +1,0 @@
-{
-  return new DefaultDatagramSocket(this,family,options);
-}

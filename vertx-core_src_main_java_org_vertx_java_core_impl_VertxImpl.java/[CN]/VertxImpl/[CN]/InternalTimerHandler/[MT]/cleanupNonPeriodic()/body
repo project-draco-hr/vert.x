@@ -1,0 +1,5 @@
+{
+  VertxImpl.this.timeouts.remove(timerID);
+  ContextImpl context=getContext();
+  context.removeCloseHook(this);
+}

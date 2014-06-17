@@ -1,4 +1,0 @@
-Vertx vertx
-DefaultHttpClientRequest request
-ClientConnection conn
-HttpResponse response

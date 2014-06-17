@@ -1,8 +1,8 @@
 {
   if (msg instanceof HttpRequest) {
     HttpRequest request=(HttpRequest)msg;
-    DefaultHttpServerResponse resp=new DefaultHttpServerResponse(vertx,this,request);
-    DefaultHttpServerRequest req=new DefaultHttpServerRequest(this,request,resp);
+    HttpServerResponseImpl resp=new HttpServerResponseImpl(vertx,this,request);
+    HttpServerRequestImpl req=new HttpServerRequestImpl(this,request,resp);
     handleRequest(req,resp);
   }
   if (msg instanceof HttpContent) {

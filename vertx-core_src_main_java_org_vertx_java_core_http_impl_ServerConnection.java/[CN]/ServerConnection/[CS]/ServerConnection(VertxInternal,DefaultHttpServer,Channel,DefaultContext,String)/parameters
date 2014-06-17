@@ -1,5 +1,0 @@
-VertxInternal vertx
-DefaultHttpServer server
-Channel channel
-DefaultContext context
-String serverOrigin

@@ -38,7 +38,7 @@
  else {
       throw new IllegalStateException("Unsupported websocket msg " + msg);
     }
-    return new DefaultWebSocketFrame(frameType,payload,isFinal);
+    return new WebSocketFrameImpl(frameType,payload,isFinal);
   }
   return msg;
 }

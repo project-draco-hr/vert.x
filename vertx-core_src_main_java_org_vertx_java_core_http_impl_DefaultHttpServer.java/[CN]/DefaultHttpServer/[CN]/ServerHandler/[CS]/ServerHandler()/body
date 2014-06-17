@@ -1,3 +1,0 @@
-{
-  super(vertx,DefaultHttpServer.this.connectionMap);
-}

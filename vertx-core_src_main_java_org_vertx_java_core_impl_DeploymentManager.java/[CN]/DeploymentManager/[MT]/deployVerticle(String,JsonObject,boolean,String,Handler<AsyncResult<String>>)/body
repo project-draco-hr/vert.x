@@ -1,5 +1,5 @@
 {
-  DefaultContext currentContext=vertx.getOrCreateContext();
+  ContextImpl currentContext=vertx.getOrCreateContext();
   ClassLoader cl=getClassLoader(isolationGroup);
   Class clazz;
   Verticle verticle;

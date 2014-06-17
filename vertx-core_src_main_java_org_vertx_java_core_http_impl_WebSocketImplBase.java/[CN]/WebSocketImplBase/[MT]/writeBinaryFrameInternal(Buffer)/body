@@ -1,5 +1,5 @@
 {
   ByteBuf buf=data.getByteBuf();
-  WebSocketFrame frame=new DefaultWebSocketFrame(WebSocketFrame.FrameType.BINARY,buf);
+  WebSocketFrame frame=new WebSocketFrameImpl(WebSocketFrame.FrameType.BINARY,buf);
   writeFrame(frame);
 }

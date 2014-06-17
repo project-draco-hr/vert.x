@@ -1,4 +1,4 @@
 {
-  WebSocketFrame frame=new DefaultWebSocketFrame(str);
+  WebSocketFrame frame=new WebSocketFrameImpl(str);
   writeFrame(frame);
 }

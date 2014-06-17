@@ -1,0 +1,4 @@
+Iterator<InetSocketAddress> dns
+String name
+FutureResultImpl result
+int types

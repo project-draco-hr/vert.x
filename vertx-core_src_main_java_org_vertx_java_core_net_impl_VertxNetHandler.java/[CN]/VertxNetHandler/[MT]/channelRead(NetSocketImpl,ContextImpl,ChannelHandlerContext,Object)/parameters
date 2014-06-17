@@ -1,0 +1,4 @@
+NetSocketImpl sock
+ContextImpl context
+ChannelHandlerContext chctx
+Object msg

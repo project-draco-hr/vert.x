@@ -1,0 +1,2 @@
+VertxInternal vertx
+Map<Channel,NetSocketImpl> connectionMap

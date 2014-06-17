@@ -1,0 +1,18 @@
+{
+  pause();
+  vertx.fileSystem().open(filename,new AsyncResultHandler<AsyncFile>(){
+    public void handle(    final AsyncResult<AsyncFile> ar){
+      if (ar.succeeded()) {
+        file=ar.result();
+        Pump p=Pump.createPump(HttpServerFileUploadImpl.this,ar.result());
+        p.start();
+        resume();
+      }
+ else {
+        notifyExceptionHandler(ar.cause());
+      }
+    }
+  }
+);
+  return this;
+}

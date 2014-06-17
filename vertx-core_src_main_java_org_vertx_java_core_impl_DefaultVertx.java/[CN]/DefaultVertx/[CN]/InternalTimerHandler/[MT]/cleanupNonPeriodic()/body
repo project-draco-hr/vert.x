@@ -1,5 +1,0 @@
-{
-  DefaultVertx.this.timeouts.remove(timerID);
-  DefaultContext context=getContext();
-  context.removeCloseHook(this);
-}
