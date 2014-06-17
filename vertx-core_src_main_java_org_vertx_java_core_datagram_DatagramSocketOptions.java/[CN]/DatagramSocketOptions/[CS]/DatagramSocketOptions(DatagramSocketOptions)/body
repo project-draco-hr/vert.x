@@ -1,0 +1,7 @@
+{
+  super(other);
+  this.broadcast=other.broadcast;
+  this.loopbackModeDisabled=other.loopbackModeDisabled;
+  this.multicastTimeToLive=other.multicastTimeToLive;
+  this.multicastNetworkInterface=other.multicastNetworkInterface;
+}

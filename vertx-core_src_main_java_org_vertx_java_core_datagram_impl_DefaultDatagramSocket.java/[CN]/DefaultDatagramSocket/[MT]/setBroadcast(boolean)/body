@@ -1,5 +1,0 @@
-{
-  checkConfigurable();
-  channel().config().setBroadcast(broadcast);
-  return this;
-}

@@ -1,0 +1,6 @@
+{
+  this.sendBufferSize=other.sendBufferSize;
+  this.receiveBufferSize=other.receiveBufferSize;
+  this.reuseAddress=other.reuseAddress;
+  this.trafficClass=other.trafficClass;
+}

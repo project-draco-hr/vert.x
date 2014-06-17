@@ -1,5 +1,4 @@
 {
-  configurable=false;
   try {
     addListener(channel().joinGroup(InetAddress.getByName(multicastAddress)),handler);
   }

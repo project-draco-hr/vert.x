@@ -1,5 +1,0 @@
-{
-  checkConfigurable();
-  channel().config().setTrafficClass(trafficClass);
-  return this;
-}

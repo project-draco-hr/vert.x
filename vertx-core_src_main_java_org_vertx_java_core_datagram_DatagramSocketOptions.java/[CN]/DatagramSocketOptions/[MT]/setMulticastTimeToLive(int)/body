@@ -1,0 +1,4 @@
+{
+  this.multicastTimeToLive=multicastTimeToLive;
+  return this;
+}

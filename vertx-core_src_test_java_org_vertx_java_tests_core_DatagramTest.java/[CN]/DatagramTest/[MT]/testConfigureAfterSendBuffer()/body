@@ -1,5 +1,0 @@
-{
-  peer1=vertx.createDatagramSocket(null);
-  peer1.send(randomBuffer(64),"127.0.0.1",1234,null);
-  checkConfigure(peer1);
-}

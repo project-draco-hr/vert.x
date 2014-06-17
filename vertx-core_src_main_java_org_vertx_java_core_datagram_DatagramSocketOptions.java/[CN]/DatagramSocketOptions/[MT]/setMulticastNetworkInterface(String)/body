@@ -1,0 +1,4 @@
+{
+  this.multicastNetworkInterface=multicastNetworkInterface;
+  return this;
+}

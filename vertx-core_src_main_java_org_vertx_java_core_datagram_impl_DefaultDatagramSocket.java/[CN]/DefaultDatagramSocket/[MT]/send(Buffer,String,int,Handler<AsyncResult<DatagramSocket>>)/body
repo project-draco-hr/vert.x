@@ -1,6 +1,0 @@
-{
-  configurable=false;
-  ChannelFuture future=channel().writeAndFlush(new DatagramPacket(packet.getByteBuf(),new InetSocketAddress(host,port)));
-  addListener(future,handler);
-  return this;
-}

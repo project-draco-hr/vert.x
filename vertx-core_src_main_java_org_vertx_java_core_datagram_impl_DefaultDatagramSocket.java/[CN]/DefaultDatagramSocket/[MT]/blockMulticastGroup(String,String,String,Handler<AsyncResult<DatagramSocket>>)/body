@@ -1,5 +1,4 @@
 {
-  configurable=false;
   try {
     InetAddress sourceAddress;
     if (sourceToBlock == null) {

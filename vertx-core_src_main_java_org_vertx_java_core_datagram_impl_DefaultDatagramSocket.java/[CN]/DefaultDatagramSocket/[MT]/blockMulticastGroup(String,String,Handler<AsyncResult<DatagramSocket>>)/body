@@ -1,5 +1,4 @@
 {
-  configurable=false;
   try {
     addListener(channel().block(InetAddress.getByName(multicastAddress),InetAddress.getByName(sourceToBlock)),handler);
   }
