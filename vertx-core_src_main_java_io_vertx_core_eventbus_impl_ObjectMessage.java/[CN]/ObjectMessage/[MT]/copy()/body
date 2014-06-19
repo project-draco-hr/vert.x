@@ -1,0 +1,22 @@
+{
+  if (body instanceof Shareable) {
+    return this;
+  }
+ else   if (body instanceof Cloneable) {
+    Class<?> c=body.getClass();
+    try {
+      Method method=c.getMethod("clone");
+      @SuppressWarnings("unchecked") T clone=(T)method.invoke(body);
+      return new ObjectMessage<>(send,address,clone,decodedType,codec);
+    }
+ catch (    NoSuchMethodException e) {
+      throw new IllegalArgumentException("No public clone() method for cloneable class " + c);
+    }
+catch (    IllegalAccessException|InvocationTargetException e) {
+      throw new IllegalArgumentException("Could not invoke clone method for class " + c,e);
+    }
+  }
+ else {
+    throw new IllegalArgumentException(body.getClass() + " does not implement Cloneable or Shareable.");
+  }
+}

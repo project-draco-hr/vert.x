@@ -1,0 +1,3 @@
+{
+  throw new UnsupportedOperationException("ObjectMessage does not support reading of body w/out codec map");
+}

@@ -1,0 +1,7 @@
+{
+  if (!encoded) {
+    encodedData=codec.encode(body);
+    encoded=true;
+  }
+  return encodedData;
+}

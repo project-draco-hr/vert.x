@@ -1,0 +1,5 @@
+{
+  Objects.requireNonNull(type);
+  codecMap.remove(type.getName());
+  return this;
+}

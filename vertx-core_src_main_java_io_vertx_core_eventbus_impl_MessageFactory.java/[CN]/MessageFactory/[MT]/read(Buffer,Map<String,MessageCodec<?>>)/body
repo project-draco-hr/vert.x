@@ -29,6 +29,9 @@ case TYPE_JSON_OBJECT:
 return new JsonObjectMessage(buff);
 case TYPE_JSON_ARRAY:
 return new JsonArrayMessage(buff);
+case TYPE_OBJECT:
+@SuppressWarnings("unchecked") ObjectMessage<?> om=new ObjectMessage(buff,codecMap);
+return om;
 case TYPE_REPLY_FAILURE:
 return new ReplyFailureMessage(buff);
 default :

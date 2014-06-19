@@ -1,0 +1,6 @@
+{
+  Objects.requireNonNull(type);
+  Objects.requireNonNull(codec);
+  codecMap.put(type.getName(),codec);
+  return this;
+}

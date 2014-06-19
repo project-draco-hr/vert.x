@@ -1,0 +1,7 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  ShareablePojo that=(ShareablePojo)o;
+  if (!string.equals(that.string))   return false;
+  return true;
+}

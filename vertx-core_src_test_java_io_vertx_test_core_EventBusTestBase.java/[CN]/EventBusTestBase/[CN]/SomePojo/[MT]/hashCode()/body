@@ -1,0 +1,5 @@
+{
+  int result=string.hashCode();
+  result=31 * result + number;
+  return result;
+}
