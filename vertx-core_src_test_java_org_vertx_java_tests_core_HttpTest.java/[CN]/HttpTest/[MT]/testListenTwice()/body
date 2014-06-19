@@ -1,0 +1,10 @@
+{
+  server.requestHandler(noOpHandler());
+  server.listen();
+  try {
+    server.listen();
+    fail("Should throw exception");
+  }
+ catch (  IllegalStateException e) {
+  }
+}

@@ -1,0 +1,16 @@
+{
+  server.requestHandler(noOpHandler());
+  server.listen();
+  try {
+    server.requestHandler(noOpHandler());
+    fail("Should throw exception");
+  }
+ catch (  IllegalStateException e) {
+  }
+  try {
+    server.websocketHandler(noOpHandler());
+    fail("Should throw exception");
+  }
+ catch (  IllegalStateException e) {
+  }
+}
