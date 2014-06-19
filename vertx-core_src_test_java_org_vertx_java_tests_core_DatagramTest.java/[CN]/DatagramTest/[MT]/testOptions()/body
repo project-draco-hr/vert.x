@@ -1,0 +1,75 @@
+{
+  DatagramSocketOptions options=new DatagramSocketOptions();
+  assertEquals(-1,options.getSendBufferSize());
+  int rand=randomPositiveInt();
+  assertEquals(options,options.setSendBufferSize(rand));
+  assertEquals(rand,options.getSendBufferSize());
+  try {
+    options.setSendBufferSize(0);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  try {
+    options.setSendBufferSize(-123);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  assertEquals(-1,options.getReceiveBufferSize());
+  rand=randomPositiveInt();
+  assertEquals(options,options.setReceiveBufferSize(rand));
+  assertEquals(rand,options.getReceiveBufferSize());
+  try {
+    options.setReceiveBufferSize(0);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  try {
+    options.setReceiveBufferSize(-123);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  assertFalse(options.isReuseAddress());
+  assertEquals(options,options.setReuseAddress(true));
+  assertTrue(options.isReuseAddress());
+  assertEquals(-1,options.getTrafficClass());
+  rand=23;
+  assertEquals(options,options.setTrafficClass(rand));
+  assertEquals(rand,options.getTrafficClass());
+  try {
+    options.setTrafficClass(-1);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  try {
+    options.setTrafficClass(256);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  assertFalse(options.isBroadcast());
+  assertEquals(options,options.setBroadcast(true));
+  assertTrue(options.isBroadcast());
+  assertTrue(options.isLoopbackModeDisabled());
+  assertEquals(options,options.setLoopbackModeDisabled(false));
+  assertFalse(options.isLoopbackModeDisabled());
+  assertEquals(-1,options.getMulticastTimeToLive());
+  rand=randomPositiveInt();
+  assertEquals(options,options.setMulticastTimeToLive(rand));
+  assertEquals(rand,options.getMulticastTimeToLive());
+  try {
+    options.setMulticastTimeToLive(-1);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  assertNull(options.getMulticastNetworkInterface());
+  String randString=randomUnicodeString(100);
+  assertEquals(options,options.setMulticastNetworkInterface(randString));
+  assertEquals(randString,options.getMulticastNetworkInterface());
+  testComplete();
+}

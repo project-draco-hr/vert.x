@@ -4,4 +4,5 @@
   this.loopbackModeDisabled=other.loopbackModeDisabled;
   this.multicastTimeToLive=other.multicastTimeToLive;
   this.multicastNetworkInterface=other.multicastNetworkInterface;
+  this.reuseAddress=other.reuseAddress;
 }

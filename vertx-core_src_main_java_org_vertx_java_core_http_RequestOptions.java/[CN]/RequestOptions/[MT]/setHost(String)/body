@@ -1,8 +1,4 @@
 {
-  if (state == STATE_CONF_FROM_URI) {
-    throw new IllegalStateException("The host is determined from the URI you provided");
-  }
   this.host=host;
-  this.state=STATE_CONF_EXPL;
   return this;
 }

@@ -1,0 +1,4 @@
+boolean keepAlive
+int poolSize
+int numServers
+int expectedConnectedServers

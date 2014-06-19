@@ -1,8 +1,0 @@
-{
-  if (state == STATE_CONF_EXPL) {
-    throw new IllegalStateException("You have already configured host/port");
-  }
-  this.uri=uri;
-  state=STATE_CONF_FROM_URI;
-  return this;
-}

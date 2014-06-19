@@ -1,8 +1,7 @@
 {
-  if (state == STATE_CONF_FROM_URI) {
-    throw new IllegalStateException("The port is determined from the URI you provided");
+  if (port < 1 || port > 65535) {
+    throw new IllegalArgumentException("port p must be in range 1 <=p <= 65535");
   }
   this.port=port;
-  this.state=STATE_CONF_EXPL;
   return this;
 }
