@@ -1,7 +1,11 @@
 {
-  if (exceptionInStop) {
+switch (stopAction) {
+case THROW_EXCEPTION:
     throw new Exception("BooFar!");
-  }
-  stopCalled=true;
-  stopContext=vertx.currentContext();
+case THROW_ERROR:
+  throw new Error("BooFar!");
+default :
+stopCalled=true;
+stopContext=vertx.currentContext();
+}
 }
