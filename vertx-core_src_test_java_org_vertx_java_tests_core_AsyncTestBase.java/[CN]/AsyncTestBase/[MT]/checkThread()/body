@@ -1,0 +1,3 @@
+{
+  threadNames.put(Thread.currentThread().getName(),new Exception());
+}

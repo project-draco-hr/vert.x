@@ -1,3 +1,12 @@
 {
   checkTestCompleteCalled();
+  if (threadChecksEnabled) {
+    for (    Map.Entry<String,Exception> entry : threadNames.entrySet()) {
+      if (!entry.getKey().equals("main") && !entry.getKey().startsWith("vert.x-")) {
+        IllegalStateException is=new IllegalStateException("Non Vert.x thread! :" + entry.getKey());
+        is.setStackTrace(entry.getValue().getStackTrace());
+        throw is;
+      }
+    }
+  }
 }

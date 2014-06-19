@@ -1,4 +1,5 @@
 {
+  checkThread();
   try {
     Assert.assertArrayEquals(expecteds,actuals,delta);
   }

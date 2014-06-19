@@ -1,0 +1,11 @@
+{
+  File file=new File(testDir,fileName);
+  if (file.exists()) {
+    file.delete();
+  }
+  file.deleteOnExit();
+  BufferedWriter out=new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file),"UTF-8"));
+  out.write(content);
+  out.close();
+  return file;
+}

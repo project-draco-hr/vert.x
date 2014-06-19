@@ -1,5 +1,15 @@
 {
-  if (isOnCorrectWorker(worker)) {
+  boolean correctThread;
+  Thread thread=Thread.currentThread();
+  if (thread instanceof VertxThread) {
+    VertxThread vthread=(VertxThread)thread;
+    Context ctx=vthread.getContext();
+    correctThread=ctx == this;
+  }
+ else {
+    correctThread=false;
+  }
+  if (correctThread) {
     wrapTask(handler).run();
   }
  else {
