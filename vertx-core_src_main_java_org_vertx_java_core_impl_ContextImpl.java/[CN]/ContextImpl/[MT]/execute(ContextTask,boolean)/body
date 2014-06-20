@@ -1,0 +1,8 @@
+{
+  if (isOnCorrectContextThread(expectRightThread)) {
+    wrapTask(task,false,true).run();
+  }
+ else {
+    doExecute(task);
+  }
+}

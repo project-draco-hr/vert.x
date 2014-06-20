@@ -2,6 +2,8 @@
   this.vertx=vertx;
   this.options=new NetServerOptions(options);
   this.sslHelper=new SSLHelper(options);
-  actualCtx=vertx.getOrCreateContext();
-  actualCtx.addCloseHook(this);
+  this.creatingContext=vertx.getContext();
+  if (creatingContext != null) {
+    creatingContext.addCloseHook(this);
+  }
 }

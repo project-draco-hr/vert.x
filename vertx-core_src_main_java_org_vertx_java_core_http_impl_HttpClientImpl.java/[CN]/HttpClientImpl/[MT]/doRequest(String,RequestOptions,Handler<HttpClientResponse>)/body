@@ -1,6 +1,7 @@
 {
   checkClosed();
-  HttpClientRequest req=new HttpClientRequestImpl(this,method,options,responseHandler,actualCtx);
+  ContextImpl context=vertx.getOrCreateContext();
+  HttpClientRequest req=new HttpClientRequestImpl(this,method,options,responseHandler,context);
   if (options.getHeaders() != null) {
     req.headers().set(options.getHeaders());
   }

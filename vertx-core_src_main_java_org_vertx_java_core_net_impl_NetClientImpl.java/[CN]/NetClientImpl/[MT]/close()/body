@@ -2,5 +2,7 @@
   for (  NetSocket sock : socketMap.values()) {
     sock.close();
   }
-  actualCtx.removeCloseHook(closeHook);
+  if (creatingContext != null) {
+    creatingContext.removeCloseHook(closeHook);
+  }
 }

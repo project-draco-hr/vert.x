@@ -1,3 +1,0 @@
-{
-  bgExec.execute(wrapTask(task));
-}

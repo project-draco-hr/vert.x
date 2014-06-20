@@ -1,28 +1,31 @@
 {
+  ContextImpl context=vertx.getOrCreateContext();
   if (!listening) {
-    executeCloseDone(actualCtx,done,null);
+    executeCloseDone(context,done,null);
     return;
   }
   listening=false;
 synchronized (vertx.sharedHttpServers()) {
     if (actualServer != null) {
       if (requestHandler != null) {
-        actualServer.reqHandlerManager.removeHandler(requestHandler,actualCtx);
+        actualServer.reqHandlerManager.removeHandler(requestHandler,listenContext);
       }
       if (wsHandler != null) {
-        actualServer.wsHandlerManager.removeHandler(wsHandler,actualCtx);
+        actualServer.wsHandlerManager.removeHandler(wsHandler,listenContext);
       }
       if (actualServer.reqHandlerManager.hasHandlers() || actualServer.wsHandlerManager.hasHandlers()) {
         if (done != null) {
-          executeCloseDone(actualCtx,done,null);
+          executeCloseDone(context,done,null);
         }
       }
  else {
-        actualServer.actualClose(actualCtx,done);
+        actualServer.actualClose(context,done);
       }
     }
   }
   requestHandler=null;
   wsHandler=null;
-  actualCtx.removeCloseHook(this);
+  if (creatingContext != null) {
+    creatingContext.removeCloseHook(this);
+  }
 }

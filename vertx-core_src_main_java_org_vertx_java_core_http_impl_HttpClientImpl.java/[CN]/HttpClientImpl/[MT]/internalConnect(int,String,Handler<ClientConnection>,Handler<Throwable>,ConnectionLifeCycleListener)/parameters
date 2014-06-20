@@ -1,5 +1,0 @@
-int port
-String host
-Handler<ClientConnection> connectHandler
-Handler<Throwable> connectErrorHandler
-ConnectionLifeCycleListener listener

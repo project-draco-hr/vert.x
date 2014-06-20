@@ -1,5 +1,0 @@
-int port
-String host
-Channel ch
-Handler<ClientConnection> connectHandler
-ConnectionLifeCycleListener listener

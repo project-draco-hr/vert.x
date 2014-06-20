@@ -1,3 +1,0 @@
-{
-  getEventLoop().execute(wrapTask(task));
-}

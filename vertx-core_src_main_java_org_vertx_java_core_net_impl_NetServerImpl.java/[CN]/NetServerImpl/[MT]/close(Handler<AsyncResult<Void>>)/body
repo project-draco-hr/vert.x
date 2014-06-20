@@ -1,23 +1,26 @@
 {
+  ContextImpl context=vertx.getOrCreateContext();
   if (!listening) {
     if (done != null) {
-      executeCloseDone(actualCtx,done,null);
+      executeCloseDone(context,done,null);
     }
     return;
   }
   listening=false;
 synchronized (vertx.sharedNetServers()) {
     if (actualServer != null) {
-      actualServer.handlerManager.removeHandler(connectHandler,actualCtx);
+      actualServer.handlerManager.removeHandler(connectHandler,listenContext);
       if (actualServer.handlerManager.hasHandlers()) {
         if (done != null) {
-          executeCloseDone(actualCtx,done,null);
+          executeCloseDone(context,done,null);
         }
       }
  else {
-        actualServer.actualClose(actualCtx,done);
+        actualServer.actualClose(context,done);
       }
     }
   }
-  actualCtx.removeCloseHook(this);
+  if (creatingContext != null) {
+    creatingContext.removeCloseHook(this);
+  }
 }
