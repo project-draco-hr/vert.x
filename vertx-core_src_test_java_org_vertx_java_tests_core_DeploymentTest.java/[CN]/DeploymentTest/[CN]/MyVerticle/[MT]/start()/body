@@ -1,7 +1,11 @@
 {
-  if (exceptionInStart) {
+switch (startAction) {
+case THROW_EXCEPTION:
     throw new Exception("FooBar!");
-  }
-  startCalled=true;
-  startContext=vertx.currentContext();
+case THROW_ERROR:
+  throw new Error("FooBar!");
+default :
+startCalled=true;
+startContext=vertx.currentContext();
+}
 }

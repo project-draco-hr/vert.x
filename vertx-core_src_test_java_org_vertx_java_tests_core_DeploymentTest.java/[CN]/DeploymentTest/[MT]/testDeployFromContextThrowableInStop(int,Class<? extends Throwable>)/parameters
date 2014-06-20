@@ -1,0 +1,2 @@
+int stopAction
+Class<? extends Throwable> expectedThrowable

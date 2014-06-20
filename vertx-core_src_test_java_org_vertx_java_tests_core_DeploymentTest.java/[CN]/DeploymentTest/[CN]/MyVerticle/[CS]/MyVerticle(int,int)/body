@@ -1,0 +1,4 @@
+{
+  this.startAction=startAction;
+  this.stopAction=stopAction;
+}
