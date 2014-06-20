@@ -7,7 +7,6 @@
     dnsServers.add(new InetSocketAddress(addr.getHostAddress(),addr.getPort()));
   }
   actualCtx=vertx.getOrCreateContext();
-  this.vertx=vertx;
   bootstrap=new Bootstrap();
   bootstrap.group(actualCtx.getEventLoop());
   bootstrap.channel(NioDatagramChannel.class);

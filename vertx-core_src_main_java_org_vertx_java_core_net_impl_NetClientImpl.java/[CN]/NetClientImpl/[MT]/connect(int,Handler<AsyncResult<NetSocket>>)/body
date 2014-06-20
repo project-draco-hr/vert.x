@@ -1,4 +1,5 @@
 {
+  checkClosed();
   connect(port,"localhost",connectCallback);
   return this;
 }
