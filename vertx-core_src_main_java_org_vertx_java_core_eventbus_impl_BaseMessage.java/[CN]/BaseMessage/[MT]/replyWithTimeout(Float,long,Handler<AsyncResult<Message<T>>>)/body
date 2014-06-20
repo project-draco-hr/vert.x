@@ -1,3 +1,0 @@
-{
-  sendReplyWithTimeout(new FloatMessage(true,replyAddress,message),timeout,replyHandler);
-}

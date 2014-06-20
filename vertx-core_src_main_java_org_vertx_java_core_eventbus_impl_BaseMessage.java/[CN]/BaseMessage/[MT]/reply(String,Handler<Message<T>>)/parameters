@@ -1,2 +1,0 @@
-String message
-Handler<Message<T>> replyHandler

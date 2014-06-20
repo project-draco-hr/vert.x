@@ -1,3 +1,0 @@
-{
-  sendReply(new CharacterMessage(true,replyAddress,message),replyHandler);
-}

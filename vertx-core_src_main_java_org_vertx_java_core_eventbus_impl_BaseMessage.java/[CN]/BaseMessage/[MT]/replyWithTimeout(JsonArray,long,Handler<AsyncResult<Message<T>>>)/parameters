@@ -1,3 +1,0 @@
-JsonArray message
-long timeout
-Handler<AsyncResult<Message<T>>> replyHandler

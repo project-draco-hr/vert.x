@@ -1,2 +1,0 @@
-byte[] message
-Handler<Message<T>> replyHandler

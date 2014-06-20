@@ -1,2 +1,0 @@
-JsonObject message
-Handler<Message<T>> replyHandler

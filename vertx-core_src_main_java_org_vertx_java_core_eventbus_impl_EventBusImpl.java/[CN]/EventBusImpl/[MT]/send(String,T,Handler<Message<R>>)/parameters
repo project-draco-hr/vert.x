@@ -1,3 +1,0 @@
-String address
-T message
-Handler<Message<R>> replyHandler

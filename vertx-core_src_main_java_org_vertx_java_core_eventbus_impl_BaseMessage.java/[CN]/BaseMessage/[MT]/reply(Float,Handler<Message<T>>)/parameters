@@ -1,2 +1,0 @@
-Float message
-Handler<Message<T>> replyHandler

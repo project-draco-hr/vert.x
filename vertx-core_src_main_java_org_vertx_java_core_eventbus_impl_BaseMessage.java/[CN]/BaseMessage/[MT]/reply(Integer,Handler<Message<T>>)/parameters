@@ -1,2 +1,0 @@
-Integer message
-Handler<Message<T>> replyHandler

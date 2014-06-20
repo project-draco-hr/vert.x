@@ -1,3 +1,0 @@
-{
-  sendReplyWithTimeout(new DoubleMessage(true,replyAddress,message),timeout,replyHandler);
-}
