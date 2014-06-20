@@ -25,10 +25,9 @@ synchronized (handlers) {
             callCompletionHandler(completionHandler);
           }
           holder.context.removeCloseHook(new HandlerEntry(address,handler));
-          return this;
+          break;
         }
       }
     }
   }
-  return this;
 }

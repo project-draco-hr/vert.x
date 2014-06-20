@@ -1,13 +1,2 @@
 {
-  super(vertx,channel,context);
-  this.helper=helper;
-  this.client=client;
-  this.writeHandlerID=UUID.randomUUID().toString();
-  writeHandler=new Handler<Message<Buffer>>(){
-    public void handle(    Message<Buffer> msg){
-      write(msg.body());
-    }
-  }
-;
-  vertx.eventBus().registerLocalHandler(writeHandlerID,writeHandler);
 }

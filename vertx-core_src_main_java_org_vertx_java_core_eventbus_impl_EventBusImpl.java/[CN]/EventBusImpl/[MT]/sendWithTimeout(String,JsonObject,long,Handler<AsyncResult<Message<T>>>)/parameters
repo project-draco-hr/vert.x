@@ -1,4 +1,0 @@
-String address
-JsonObject message
-long timeout
-Handler<AsyncResult<Message<T>>> replyHandler

@@ -1,4 +1,0 @@
-SockJSSocket sock
-JsonObject message
-String address
-Map<String,Handler<Message>> handlers

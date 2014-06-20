@@ -1,4 +1,0 @@
-{
-  sendOrPub(new IntMessage(true,address,message),null);
-  return this;
-}

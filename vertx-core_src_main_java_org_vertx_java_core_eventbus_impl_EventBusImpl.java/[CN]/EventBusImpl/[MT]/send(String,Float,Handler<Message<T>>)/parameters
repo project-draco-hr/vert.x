@@ -1,3 +1,0 @@
-String address
-Float message
-Handler<Message<T>> replyHandler

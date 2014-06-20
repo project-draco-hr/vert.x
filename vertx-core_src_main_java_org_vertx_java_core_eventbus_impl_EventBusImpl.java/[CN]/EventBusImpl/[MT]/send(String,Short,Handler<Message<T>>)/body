@@ -1,4 +1,0 @@
-{
-  sendOrPub(new ShortMessage(true,address,message),replyHandler);
-  return this;
-}

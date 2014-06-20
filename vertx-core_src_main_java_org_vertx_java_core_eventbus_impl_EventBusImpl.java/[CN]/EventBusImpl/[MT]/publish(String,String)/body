@@ -1,4 +1,0 @@
-{
-  sendOrPub(new StringMessage(false,address,message),null);
-  return this;
-}

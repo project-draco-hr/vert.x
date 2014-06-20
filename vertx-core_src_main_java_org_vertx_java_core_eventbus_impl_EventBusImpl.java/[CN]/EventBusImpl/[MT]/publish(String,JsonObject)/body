@@ -1,4 +1,0 @@
-{
-  sendOrPub(new JsonObjectMessage(false,address,message),null);
-  return this;
-}

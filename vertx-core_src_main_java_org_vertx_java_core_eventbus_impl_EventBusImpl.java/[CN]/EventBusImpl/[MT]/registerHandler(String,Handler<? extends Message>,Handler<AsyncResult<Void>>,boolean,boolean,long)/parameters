@@ -1,6 +1,0 @@
-String address
-Handler<? extends Message> handler
-Handler<AsyncResult<Void>> completionHandler
-boolean replyHandler
-boolean localOnly
-long timeoutID

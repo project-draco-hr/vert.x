@@ -1,0 +1,10 @@
+{
+  if (handleUnregister(sock,address)) {
+    Registration reg=registrations.remove(address);
+    if (reg != null) {
+      reg.unregister();
+      SockInfo info=sockInfos.get(sock);
+      info.handlerCount--;
+    }
+  }
+}

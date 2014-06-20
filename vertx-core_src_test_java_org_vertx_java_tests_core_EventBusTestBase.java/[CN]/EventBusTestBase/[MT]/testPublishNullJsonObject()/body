@@ -1,3 +1,0 @@
-{
-  testPublishNull((JsonObject)null);
-}

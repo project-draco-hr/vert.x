@@ -1,4 +1,0 @@
-String address
-Byte message
-long timeout
-Handler<AsyncResult<Message<T>>> replyHandler

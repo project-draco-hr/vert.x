@@ -1,4 +1,0 @@
-{
-  sendOrPub(new BufferMessage(false,address,message),null);
-  return this;
-}

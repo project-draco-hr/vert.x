@@ -1,4 +1,0 @@
-{
-  sendOrPub(new BufferMessage(true,address,message),replyHandler);
-  return this;
-}

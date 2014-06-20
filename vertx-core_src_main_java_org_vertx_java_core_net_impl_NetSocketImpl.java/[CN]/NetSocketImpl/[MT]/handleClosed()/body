@@ -10,6 +10,6 @@
   }
   super.handleClosed();
   if (vertx.eventBus() != null) {
-    vertx.eventBus().unregisterHandler(writeHandlerID,writeHandler);
+    registration.unregister();
   }
 }

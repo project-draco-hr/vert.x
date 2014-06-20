@@ -1,4 +1,3 @@
 {
-  unregisterHandler(address,handler,null);
-  return this;
+  unregisterHandler(address,handler,emptyHandler());
 }
