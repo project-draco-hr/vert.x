@@ -1,0 +1,14 @@
+{
+  try {
+    eb.send(ADDRESS1,new Object());
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  try {
+    eb.send(ADDRESS1,new HashMap<>());
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+}
