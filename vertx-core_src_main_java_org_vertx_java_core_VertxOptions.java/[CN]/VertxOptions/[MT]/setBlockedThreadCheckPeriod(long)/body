@@ -1,0 +1,7 @@
+{
+  if (blockedThreadCheckPeriod < 1) {
+    throw new IllegalArgumentException("blockedThreadCheckPeriod must be > 0");
+  }
+  this.blockedThreadCheckPeriod=blockedThreadCheckPeriod;
+  return this;
+}

@@ -1,4 +1,4 @@
 {
   this.prefix=prefix;
-  this.checker=null;
+  this.checker=checker;
 }

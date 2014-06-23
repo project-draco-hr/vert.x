@@ -25,5 +25,6 @@
     eventLoopGroup.shutdownGracefully();
   }
   eventBus.close(doneHandler);
+  checker.close();
   setContext(null);
 }

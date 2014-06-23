@@ -1,0 +1,7 @@
+{
+  if (maxEventLoopExecuteTime < 1) {
+    throw new IllegalArgumentException("maxEventLoopExecuteTime must be > 0");
+  }
+  this.maxEventLoopExecuteTime=maxEventLoopExecuteTime;
+  return this;
+}
