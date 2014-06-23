@@ -1,3 +1,0 @@
-{
-  sendReplyWithTimeout(new ByteArrayMessage(true,replyAddress,message),timeout,replyHandler);
-}

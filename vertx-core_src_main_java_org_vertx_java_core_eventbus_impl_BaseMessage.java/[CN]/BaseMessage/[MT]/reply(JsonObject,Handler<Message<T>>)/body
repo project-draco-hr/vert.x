@@ -1,3 +1,0 @@
-{
-  sendReply(new JsonObjectMessage(true,replyAddress,message),replyHandler);
-}

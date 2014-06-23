@@ -1,3 +1,0 @@
-{
-  sendReply(new DoubleMessage(true,replyAddress,message),replyHandler);
-}

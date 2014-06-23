@@ -1,4 +1,0 @@
-String address
-T message
-long timeout
-Handler<AsyncResult<Message<R>>> replyHandler
