@@ -1,4 +1,3 @@
 {
-  this.eventBus=new EventBusImpl(this);
-  this.clusterManager=null;
+  this(new VertxOptions());
 }

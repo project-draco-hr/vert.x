@@ -1,0 +1,5 @@
+{
+  this.clusterManager=null;
+  this.eventBus=new EventBusImpl(this);
+  configurePools(options);
+}

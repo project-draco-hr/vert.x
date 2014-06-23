@@ -1,0 +1,7 @@
+{
+  if (eventLoopPoolSize < 1) {
+    throw new IllegalArgumentException("eventLoopPoolSize must be > 0");
+  }
+  this.eventLoopPoolSize=eventLoopPoolSize;
+  return this;
+}

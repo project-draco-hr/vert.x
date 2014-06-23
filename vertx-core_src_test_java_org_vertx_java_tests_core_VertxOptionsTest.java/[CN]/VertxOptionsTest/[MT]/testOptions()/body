@@ -1,0 +1,45 @@
+{
+  VertxOptions options=new VertxOptions();
+  assertEquals(2 * Runtime.getRuntime().availableProcessors(),options.getEventLoopPoolSize());
+  int rand=randomPositiveInt();
+  assertEquals(options,options.setEventLoopPoolSize(rand));
+  assertEquals(rand,options.getEventLoopPoolSize());
+  try {
+    options.setEventLoopPoolSize(0);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  assertEquals(20,options.getWorkerPoolSize());
+  rand=randomPositiveInt();
+  assertEquals(options,options.setWorkerPoolSize(rand));
+  assertEquals(rand,options.getWorkerPoolSize());
+  try {
+    options.setWorkerPoolSize(0);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  assertFalse(options.isClustered());
+  assertEquals(options,options.setClustered(true));
+  assertTrue(options.isClustered());
+  assertEquals(0,options.getClusterPort());
+  assertEquals(options,options.setClusterPort(1234));
+  assertEquals(1234,options.getClusterPort());
+  try {
+    options.setClusterPort(-1);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  try {
+    options.setClusterPort(65536);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  assertEquals("localhost",options.getClusterHost());
+  String randString=randomUnicodeString(100);
+  assertEquals(options,options.setClusterHost(randString));
+  assertEquals(randString,options.getClusterHost());
+}

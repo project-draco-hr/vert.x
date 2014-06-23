@@ -1,0 +1,5 @@
+{
+  ExecutorService exec=Executors.newFixedThreadPool(poolSize,new VertxThreadFactory(poolName));
+  ManagementRegistry.registerThreadPool("Worker",exec);
+  return exec;
+}

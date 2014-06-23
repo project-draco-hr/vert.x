@@ -1,3 +1,0 @@
-{
-  new VertxImpl(port,hostname,resultHandler);
-}

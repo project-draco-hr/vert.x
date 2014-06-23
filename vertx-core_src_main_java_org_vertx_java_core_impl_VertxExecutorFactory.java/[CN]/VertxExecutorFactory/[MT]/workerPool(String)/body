@@ -1,6 +1,0 @@
-{
-  int maxSize=Integer.getInteger("vertx.pool.worker.size",WORKER_POOL_MAX_SIZE);
-  ExecutorService exec=Executors.newFixedThreadPool(maxSize,new VertxThreadFactory(poolName));
-  ManagementRegistry.registerThreadPool("Worker",exec);
-  return exec;
-}

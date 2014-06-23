@@ -1,3 +1,0 @@
-int port
-String hostname
-Handler<AsyncResult<Vertx>> resultHandler

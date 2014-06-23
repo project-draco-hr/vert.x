@@ -1,0 +1,3 @@
+{
+  loadFactory().createVertx(options,resultHandler);
+}

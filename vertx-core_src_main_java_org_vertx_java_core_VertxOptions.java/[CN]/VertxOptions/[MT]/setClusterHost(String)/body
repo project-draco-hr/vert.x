@@ -1,0 +1,4 @@
+{
+  this.clusterHost=clusterHost;
+  return this;
+}

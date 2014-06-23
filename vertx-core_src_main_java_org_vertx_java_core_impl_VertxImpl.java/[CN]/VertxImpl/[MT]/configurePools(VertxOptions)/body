@@ -1,0 +1,5 @@
+{
+  backgroundPool=VertxExecutorFactory.workerPool("vert.x-worker-thread-",options.getWorkerPoolSize());
+  orderedFact=new OrderedExecutorFactory(backgroundPool);
+  eventLoopGroup=VertxExecutorFactory.eventLoopGroup("vert.x-eventloop-thread-",options.getEventLoopPoolSize());
+}

@@ -1,3 +1,0 @@
-{
-  loadFactory().createVertx(port,hostname,resultHandler);
-}
