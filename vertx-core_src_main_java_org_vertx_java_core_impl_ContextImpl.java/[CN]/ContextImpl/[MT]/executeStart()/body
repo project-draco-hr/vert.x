@@ -1,4 +1,5 @@
 {
+  Thread thread=Thread.currentThread();
   if (this.contextThread == null) {
     if (thread instanceof VertxThread) {
       this.contextThread=(VertxThread)thread;
@@ -7,8 +8,8 @@
       throw new IllegalStateException("Not a vert.x thread!");
     }
   }
- else   if (this.contextThread != thread) {
+ else   if (this.contextThread != thread && !this.contextThread.isWorker()) {
     throw new IllegalStateException("Uh oh! Event loop context executing with wrong thread! Expected " + this.contextThread + " got "+ thread);
   }
-  contextThread.executeStart();
+  this.contextThread.executeStart();
 }

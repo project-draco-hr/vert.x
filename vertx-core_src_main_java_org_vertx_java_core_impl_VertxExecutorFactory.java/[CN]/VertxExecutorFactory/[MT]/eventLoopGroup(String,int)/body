@@ -1,3 +1,0 @@
-{
-  return new NioEventLoopGroup(poolSize,new VertxThreadFactory(poolName));
-}

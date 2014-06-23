@@ -1,6 +1,6 @@
 {
-  backgroundPool=Executors.newFixedThreadPool(options.getWorkerPoolSize(),new VertxThreadFactory("vert.x-worker-thread-"));
+  checker=new BlockedThreadChecker(options.getBlockedThreadCheckPeriod(),options.getMaxEventLoopExecuteTime(),options.getMaxWorkerExecuteTime());
+  eventLoopGroup=new NioEventLoopGroup(options.getEventLoopPoolSize(),new VertxThreadFactory("vert.x-eventloop-thread-",checker,false));
+  backgroundPool=Executors.newFixedThreadPool(options.getWorkerPoolSize(),new VertxThreadFactory("vert.x-worker-thread-",checker,true));
   orderedFact=new OrderedExecutorFactory(backgroundPool);
-  checker=new BlockedThreadChecker(options.getBlockedThreadCheckPeriod(),options.getMaxEventLoopExecuteTime());
-  eventLoopGroup=new NioEventLoopGroup(options.getEventLoopPoolSize(),new VertxThreadFactory("vert.x-eventloop-thread-",checker));
 }

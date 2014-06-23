@@ -1,0 +1,10 @@
+{
+  this.eventLoopPoolSize=other.eventLoopPoolSize;
+  this.workerPoolSize=other.workerPoolSize;
+  this.clustered=other.clustered;
+  this.clusterHost=other.clusterHost;
+  this.clusterPort=other.clusterPort;
+  this.blockedThreadCheckPeriod=other.blockedThreadCheckPeriod;
+  this.maxEventLoopExecuteTime=other.maxEventLoopExecuteTime;
+  this.maxWorkerExecuteTime=other.maxWorkerExecuteTime;
+}

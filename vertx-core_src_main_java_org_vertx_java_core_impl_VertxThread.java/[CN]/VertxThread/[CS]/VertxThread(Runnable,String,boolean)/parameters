@@ -1,2 +1,3 @@
 Runnable target
 String name
+boolean worker
