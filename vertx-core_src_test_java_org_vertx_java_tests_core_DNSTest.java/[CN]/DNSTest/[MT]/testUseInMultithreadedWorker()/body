@@ -1,0 +1,16 @@
+{
+class MyVerticle extends AbstractVerticle {
+    @Override public void start(){
+      try {
+        vertx.createDnsClient(new SocketAddress(1234,"localhost"));
+        fail("Should throw exception");
+      }
+ catch (      IllegalStateException e) {
+      }
+      testComplete();
+    }
+  }
+  MyVerticle verticle=new MyVerticle();
+  vertx.deployVerticle(verticle,new DeploymentOptions().setWorker(true).setMultiThreaded(true));
+  await();
+}
