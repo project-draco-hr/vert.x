@@ -1,7 +1,7 @@
 {
   check();
   if (conn != null) {
-    return conn.doWriteQueueFull();
+    return conn.isNotWritable();
   }
  else {
     return false;

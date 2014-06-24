@@ -1,5 +1,5 @@
 {
-  setContext();
+  checkContext();
   if (endHandler != null) {
     try {
       endHandler.handle(null);

@@ -1,8 +1,7 @@
 {
   try {
-    if (!doWriteQueueFull()) {
+    if (!isNotWritable()) {
       if (currentRequest != null) {
-        setContext();
         currentRequest.handleDrained();
       }
  else       if (ws != null) {

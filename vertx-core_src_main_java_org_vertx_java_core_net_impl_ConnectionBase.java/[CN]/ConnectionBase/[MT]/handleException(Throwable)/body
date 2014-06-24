@@ -1,14 +1,2 @@
 {
-  if (exceptionHandler != null) {
-    setContext();
-    try {
-      exceptionHandler.handle(t);
-    }
- catch (    Throwable t2) {
-      handleHandlerException(t2);
-    }
-  }
- else {
-    context.reportException(t);
-  }
 }

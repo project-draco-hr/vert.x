@@ -1,5 +1,4 @@
 {
-  setContext();
   try {
     this.currentRequest=req;
     pendingResponse=resp;

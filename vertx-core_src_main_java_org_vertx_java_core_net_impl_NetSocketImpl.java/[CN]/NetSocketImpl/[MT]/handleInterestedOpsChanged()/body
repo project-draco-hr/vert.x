@@ -1,4 +1,4 @@
 {
-  setContext();
+  checkContext();
   callDrainHandler();
 }

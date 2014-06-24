@@ -8,7 +8,6 @@
   if (requestForResponse == null) {
     throw new IllegalStateException("No response handler");
   }
-  setContext();
   HttpClientResponseImpl nResp=new HttpClientResponseImpl(vertx,requestForResponse,this,resp);
   currentResponse=nResp;
   requestForResponse.handleResponse(nResp);

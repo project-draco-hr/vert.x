@@ -1,4 +1,4 @@
 {
   checkClosed();
-  return conn.doWriteQueueFull();
+  return conn.isNotWritable();
 }

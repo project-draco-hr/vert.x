@@ -1,6 +1,5 @@
 {
   try {
-    setContext();
     currentRequest.handleData(chunk);
   }
  catch (  Throwable t) {

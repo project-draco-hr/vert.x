@@ -1,0 +1,5 @@
+{
+  if (context != vertx.getContext()) {
+    throw new IllegalStateException("Wrong context!");
+  }
+}

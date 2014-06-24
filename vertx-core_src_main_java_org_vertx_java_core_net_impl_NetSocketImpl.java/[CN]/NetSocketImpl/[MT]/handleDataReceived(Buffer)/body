@@ -1,4 +1,5 @@
 {
+  checkContext();
   if (paused) {
     if (pendingData == null) {
       pendingData=new ArrayDeque<>();
@@ -7,7 +8,6 @@
     return;
   }
   if (dataHandler != null) {
-    setContext();
     try {
       dataHandler.handle(data);
     }

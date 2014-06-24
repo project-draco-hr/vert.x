@@ -1,6 +1,2 @@
 {
-  checkWritten();
-  this.drainHandler=handler;
-  conn.handleInterestedOpsChanged();
-  return this;
 }

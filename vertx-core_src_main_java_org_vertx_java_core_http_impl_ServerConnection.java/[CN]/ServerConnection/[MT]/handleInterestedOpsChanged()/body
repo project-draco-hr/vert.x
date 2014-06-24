@@ -1,7 +1,6 @@
 {
   try {
-    if (!doWriteQueueFull()) {
-      setContext();
+    if (!isNotWritable()) {
       if (pendingResponse != null) {
         pendingResponse.handleDrained();
       }
