@@ -2,7 +2,7 @@
 class MyVerticle extends AbstractVerticle {
     @Override public void start(){
       try {
-        vertx.createDnsClient(new SocketAddress(1234,"localhost"));
+        vertx.createDnsClient(1234,"localhost");
         fail("Should throw exception");
       }
  catch (      IllegalStateException e) {

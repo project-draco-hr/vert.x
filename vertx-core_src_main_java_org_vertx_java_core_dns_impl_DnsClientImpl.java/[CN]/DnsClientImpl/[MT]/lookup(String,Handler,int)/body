@@ -1,5 +1,5 @@
 {
-  final FutureResultImpl result=new FutureResultImpl<>();
+  FutureResultImpl result=new FutureResultImpl<>();
   result.setHandler(handler);
-  lookup(dnsServers.iterator(),name,result,types);
+  lookup(name,result,types);
 }

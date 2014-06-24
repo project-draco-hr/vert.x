@@ -1,0 +1,3 @@
+VertxInternal vertx
+int port
+String host
