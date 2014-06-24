@@ -7,7 +7,7 @@
  else   if (keepAlive) {
     checkReuseConnection(conn);
   }
- else   if (!keepAlive) {
+ else {
     conn.close();
   }
 }
