@@ -1,0 +1,4 @@
+{
+  this.isolationGroup=isolationGroup;
+  return this;
+}

@@ -1,3 +1,0 @@
-{
-  deploymentManager.deployVerticle(verticle,config,false,null);
-}

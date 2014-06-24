@@ -1,5 +1,0 @@
-Verticle verticle
-JsonObject config
-boolean worker
-ContextImpl currentContext
-Handler<AsyncResult<String>> doneHandler

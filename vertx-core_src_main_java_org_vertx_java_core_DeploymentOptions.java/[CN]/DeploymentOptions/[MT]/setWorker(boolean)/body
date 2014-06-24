@@ -1,0 +1,4 @@
+{
+  this.worker=worker;
+  return this;
+}

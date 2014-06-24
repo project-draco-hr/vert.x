@@ -1,0 +1,19 @@
+{
+  ContextImpl currentContext=vertx.getOrCreateContext();
+  ClassLoader cl=getClassLoader(options.getIsolationGroup());
+  Class clazz;
+  Verticle verticle;
+  try {
+    clazz=cl.loadClass(verticleClass);
+    try {
+      verticle=(Verticle)clazz.newInstance();
+      doDeploy(verticle,options,currentContext,doneHandler);
+    }
+ catch (    Exception e) {
+      reportFailure(e,currentContext,doneHandler);
+    }
+  }
+ catch (  ClassNotFoundException e) {
+    reportFailure(e,currentContext,doneHandler);
+  }
+}

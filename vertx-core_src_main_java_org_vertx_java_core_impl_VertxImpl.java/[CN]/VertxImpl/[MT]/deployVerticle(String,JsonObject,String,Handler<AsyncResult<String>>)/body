@@ -1,3 +1,0 @@
-{
-  deploymentManager.deployVerticle(verticleClass,config,false,isolationGroup,doneHandler);
-}

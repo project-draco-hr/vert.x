@@ -1,0 +1,4 @@
+{
+  this.multiThreaded=multiThreaded;
+  return this;
+}

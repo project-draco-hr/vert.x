@@ -1,3 +1,0 @@
-String verticleClass
-JsonObject config
-Handler<AsyncResult<String>> doneHandler

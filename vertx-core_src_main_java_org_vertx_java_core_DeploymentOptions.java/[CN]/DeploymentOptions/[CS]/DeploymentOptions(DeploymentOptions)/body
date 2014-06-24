@@ -1,0 +1,6 @@
+{
+  this.config=other.config;
+  this.worker=other.worker;
+  this.multiThreaded=other.multiThreaded;
+  this.isolationGroup=other.isolationGroup;
+}

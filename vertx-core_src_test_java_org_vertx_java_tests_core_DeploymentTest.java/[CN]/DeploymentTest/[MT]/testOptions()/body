@@ -1,0 +1,17 @@
+{
+  DeploymentOptions options=new DeploymentOptions();
+  assertNull(options.getConfig());
+  JsonObject config=new JsonObject().putString("foo","bar").putObject("obj",new JsonObject().putNumber("quux",123));
+  assertEquals(options,options.setConfig(config));
+  assertEquals(config,options.getConfig());
+  assertFalse(options.isWorker());
+  assertEquals(options,options.setWorker(true));
+  assertTrue(options.isWorker());
+  assertFalse(options.isMultiThreaded());
+  assertEquals(options,options.setMultiThreaded(true));
+  assertTrue(options.isMultiThreaded());
+  assertNull(options.getIsolationGroup());
+  String rand=TestUtils.randomUnicodeString(1000);
+  assertEquals(options,options.setIsolationGroup(rand));
+  assertEquals(rand,options.getIsolationGroup());
+}
