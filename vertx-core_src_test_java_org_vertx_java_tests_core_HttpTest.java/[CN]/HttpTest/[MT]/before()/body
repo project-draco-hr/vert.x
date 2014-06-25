@@ -3,5 +3,4 @@
   testDir.deleteOnExit();
   server=vertx.createHttpServer(new HttpServerOptions().setPort(DEFAULT_HTTP_PORT).setHost(DEFAULT_HTTP_HOST));
   client=vertx.createHttpClient(new HttpClientOptions());
-  System.out.println("====================================================");
 }
