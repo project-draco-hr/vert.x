@@ -55,14 +55,10 @@
   assertEquals(WebSocketVersion.RFC6455,options.getVersion());
   assertEquals(options,options.setVersion(WebSocketVersion.HYBI_00));
   assertEquals(WebSocketVersion.HYBI_00,options.getVersion());
-  Set<String> protocols=new HashSet<>();
   assertNull(options.getSubProtocols());
-  assertEquals(options,options.setSubProtocols(protocols));
-  assertSame(protocols,options.getSubProtocols());
-  options=new WebSocketConnectOptions();
-  options.addSubProtocol("foo");
+  assertEquals(options,options.addSubProtocol("foo"));
+  assertEquals(options,options.addSubProtocol("bar"));
   assertNotNull(options.getSubProtocols());
   assertTrue(options.getSubProtocols().contains("foo"));
-  assertEquals(options,options.removeSubProtocol("foo"));
-  assertFalse(options.getSubProtocols().contains("foo"));
+  assertTrue(options.getSubProtocols().contains("bar"));
 }

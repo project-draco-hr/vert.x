@@ -1,6 +1,0 @@
-{
-  if (subProtocols != null) {
-    subProtocols.remove(subProtocol);
-  }
-  return this;
-}

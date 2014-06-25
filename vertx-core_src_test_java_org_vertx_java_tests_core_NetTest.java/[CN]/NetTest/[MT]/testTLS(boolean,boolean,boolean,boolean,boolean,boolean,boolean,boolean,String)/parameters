@@ -6,3 +6,4 @@ boolean requireClientAuth
 boolean clientTrustAll
 boolean shouldPass
 boolean startTLS
+String enabledCipherSuites

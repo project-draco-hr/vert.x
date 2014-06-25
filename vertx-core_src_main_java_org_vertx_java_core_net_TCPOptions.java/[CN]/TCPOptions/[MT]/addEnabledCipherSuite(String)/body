@@ -1,0 +1,7 @@
+{
+  if (enabledCipherSuites == null) {
+    enabledCipherSuites=new HashSet<>();
+  }
+  enabledCipherSuites.add(suite);
+  return this;
+}

@@ -1,4 +1,0 @@
-{
-  this.websocketSubProtocols=websocketSubProtocols;
-  return this;
-}

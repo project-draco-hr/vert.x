@@ -9,4 +9,5 @@
   this.keyStorePassword=other.keyStorePassword;
   this.trustStorePath=other.trustStorePath;
   this.trustStorePassword=other.trustStorePassword;
+  this.enabledCipherSuites=other.enabledCipherSuites == null ? null : new HashSet<>(other.enabledCipherSuites);
 }

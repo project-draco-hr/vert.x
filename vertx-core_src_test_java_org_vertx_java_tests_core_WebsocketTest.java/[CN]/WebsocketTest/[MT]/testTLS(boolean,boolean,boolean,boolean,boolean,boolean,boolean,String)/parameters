@@ -5,3 +5,4 @@ boolean serverTrust
 boolean requireClientAuth
 boolean clientTrustAll
 boolean shouldPass
+String enabledCipherSuites
