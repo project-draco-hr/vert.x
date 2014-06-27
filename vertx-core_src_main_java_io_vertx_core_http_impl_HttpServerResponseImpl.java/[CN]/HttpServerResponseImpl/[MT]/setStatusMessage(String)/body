@@ -1,4 +1,5 @@
 {
+  this.statusMessage=statusMessage;
   this.response.setStatus(new HttpResponseStatus(response.getStatus().code(),statusMessage));
   return this;
 }

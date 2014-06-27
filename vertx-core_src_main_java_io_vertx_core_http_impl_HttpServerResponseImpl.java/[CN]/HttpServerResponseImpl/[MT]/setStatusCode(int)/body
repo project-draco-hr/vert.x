@@ -1,4 +1,5 @@
 {
-  this.response.setStatus(new HttpResponseStatus(statusCode,response.getStatus().reasonPhrase()));
+  HttpResponseStatus status=statusMessage != null ? new HttpResponseStatus(statusCode,statusMessage) : HttpResponseStatus.valueOf(statusCode);
+  this.response.setStatus(status);
   return this;
 }
