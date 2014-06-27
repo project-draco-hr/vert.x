@@ -1,0 +1,31 @@
+{
+  if (options.isClustered()) {
+    if (options.getClusterManager() != null) {
+      return options.getClusterManager();
+    }
+ else {
+      ClusterManager mgr;
+      String clusterManagerClassName=System.getProperty("vertx.clusterManager");
+      if (clusterManagerClassName != null) {
+        try {
+          Class<?> clazz=Class.forName(clusterManagerClassName);
+          mgr=(ClusterManager)clazz.newInstance();
+        }
+ catch (        Exception e) {
+          throw new IllegalStateException("Failed to instantiate " + clusterManagerClassName,e);
+        }
+      }
+ else {
+        ServiceLoader<ClusterManager> mgrs=ServiceLoader.load(ClusterManager.class);
+        if (!mgrs.iterator().hasNext()) {
+          throw new IllegalStateException("No ClusterManagerFactory instances found on classpath");
+        }
+        mgr=mgrs.iterator().next();
+      }
+      return mgr;
+    }
+  }
+ else {
+    return null;
+  }
+}

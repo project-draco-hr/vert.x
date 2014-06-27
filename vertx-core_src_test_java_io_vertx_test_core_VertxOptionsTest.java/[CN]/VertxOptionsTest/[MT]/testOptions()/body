@@ -72,4 +72,8 @@
   }
  catch (  IllegalArgumentException e) {
   }
+  ClusterManager mgr=new FakeClusterManager();
+  assertNull(options.getClusterManager());
+  assertEquals(options,options.setClusterManager(mgr));
+  assertSame(mgr,options.getClusterManager());
 }

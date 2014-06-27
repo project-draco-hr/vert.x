@@ -7,4 +7,5 @@
   this.blockedThreadCheckPeriod=other.blockedThreadCheckPeriod;
   this.maxEventLoopExecuteTime=other.maxEventLoopExecuteTime;
   this.maxWorkerExecuteTime=other.maxWorkerExecuteTime;
+  this.clusterManager=other.clusterManager;
 }

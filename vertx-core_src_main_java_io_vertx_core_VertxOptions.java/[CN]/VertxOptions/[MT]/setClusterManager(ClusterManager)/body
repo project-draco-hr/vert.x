@@ -1,0 +1,4 @@
+{
+  this.clusterManager=clusterManager;
+  return this;
+}
