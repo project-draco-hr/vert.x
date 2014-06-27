@@ -1,0 +1,8 @@
+{
+  int bytesLen=100;
+  byte[] bytes=TestUtils.randomByteArray(bytesLen);
+  Buffer b=new Buffer(bytes);
+  for (int i=0; i < bytesLen; i++) {
+    assertEquals(bytes[i],b.getByte(i));
+  }
+}

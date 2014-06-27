@@ -1,0 +1,7 @@
+{
+  this.vertx=vertx;
+  this.serverID=new ServerID(-1,"localhost");
+  this.server=null;
+  this.subs=null;
+  this.clusterMgr=null;
+}

@@ -1,5 +1,0 @@
-{
-  this.type=FrameType.TEXT;
-  this.isFinalFrame=isFinalFrame;
-  this.binaryData=Unpooled.copiedBuffer(textData,CharsetUtil.UTF_8);
-}

@@ -1,4 +1,0 @@
-{
-  String content=randomUnicodeString(10000);
-  sendFile("test-send-file.html",content,null,false);
-}

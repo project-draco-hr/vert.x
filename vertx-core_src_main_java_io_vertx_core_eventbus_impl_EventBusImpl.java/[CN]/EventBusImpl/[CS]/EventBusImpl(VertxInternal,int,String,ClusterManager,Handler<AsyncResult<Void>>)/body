@@ -1,0 +1,6 @@
+{
+  this.vertx=vertx;
+  this.clusterMgr=clusterManager;
+  this.subs=clusterMgr.getAsyncMultiMap("subs");
+  this.server=setServer(port,hostname,listenHandler);
+}

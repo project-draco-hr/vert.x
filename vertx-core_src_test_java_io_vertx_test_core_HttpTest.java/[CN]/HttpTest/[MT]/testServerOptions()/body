@@ -1,0 +1,137 @@
+{
+  HttpServerOptions options=new HttpServerOptions();
+  assertEquals(-1,options.getSendBufferSize());
+  int rand=TestUtils.randomPositiveInt();
+  assertEquals(options,options.setSendBufferSize(rand));
+  assertEquals(rand,options.getSendBufferSize());
+  try {
+    options.setSendBufferSize(0);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  try {
+    options.setSendBufferSize(-123);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  assertEquals(-1,options.getReceiveBufferSize());
+  rand=TestUtils.randomPositiveInt();
+  assertEquals(options,options.setReceiveBufferSize(rand));
+  assertEquals(rand,options.getReceiveBufferSize());
+  try {
+    options.setReceiveBufferSize(0);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  try {
+    options.setReceiveBufferSize(-123);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  assertTrue(options.isReuseAddress());
+  assertEquals(options,options.setReuseAddress(false));
+  assertFalse(options.isReuseAddress());
+  assertEquals(-1,options.getTrafficClass());
+  rand=23;
+  assertEquals(options,options.setTrafficClass(rand));
+  assertEquals(rand,options.getTrafficClass());
+  try {
+    options.setTrafficClass(-1);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  try {
+    options.setTrafficClass(256);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  assertTrue(options.isTcpNoDelay());
+  assertEquals(options,options.setTcpNoDelay(false));
+  assertFalse(options.isTcpNoDelay());
+  boolean tcpKeepAlive=SocketDefaults.instance.isTcpKeepAlive();
+  assertEquals(tcpKeepAlive,options.isTcpKeepAlive());
+  assertEquals(options,options.setTcpKeepAlive(!tcpKeepAlive));
+  assertEquals(!tcpKeepAlive,options.isTcpKeepAlive());
+  int soLinger=SocketDefaults.instance.getSoLinger();
+  assertEquals(soLinger,options.getSoLinger());
+  rand=TestUtils.randomPositiveInt();
+  assertEquals(options,options.setSoLinger(rand));
+  assertEquals(rand,options.getSoLinger());
+  try {
+    options.setSoLinger(-1);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  assertFalse(options.isUsePooledBuffers());
+  assertEquals(options,options.setUsePooledBuffers(true));
+  assertTrue(options.isUsePooledBuffers());
+  assertFalse(options.isSsl());
+  assertEquals(options,options.setSsl(true));
+  assertTrue(options.isSsl());
+  assertNull(options.getKeyStorePath());
+  String randString=TestUtils.randomAlphaString(100);
+  assertEquals(options,options.setKeyStorePath(randString));
+  assertEquals(randString,options.getKeyStorePath());
+  assertNull(options.getKeyStorePassword());
+  randString=TestUtils.randomAlphaString(100);
+  assertEquals(options,options.setKeyStorePassword(randString));
+  assertEquals(randString,options.getKeyStorePassword());
+  assertNull(options.getTrustStorePath());
+  randString=TestUtils.randomAlphaString(100);
+  assertEquals(options,options.setTrustStorePath(randString));
+  assertEquals(randString,options.getTrustStorePath());
+  assertNull(options.getTrustStorePassword());
+  randString=TestUtils.randomAlphaString(100);
+  assertEquals(options,options.setTrustStorePassword(randString));
+  assertEquals(randString,options.getTrustStorePassword());
+  assertEquals(1024,options.getAcceptBacklog());
+  rand=TestUtils.randomPositiveInt();
+  assertEquals(options,options.setAcceptBacklog(rand));
+  assertEquals(rand,options.getAcceptBacklog());
+  assertFalse(options.isCompressionSupported());
+  assertEquals(options,options.setCompressionSupported(true));
+  assertTrue(options.isCompressionSupported());
+  assertEquals(65536,options.getMaxWebsocketFrameSize());
+  rand=TestUtils.randomPositiveInt();
+  assertEquals(options,options.setMaxWebsocketFrameSize(rand));
+  assertEquals(rand,options.getMaxWebsocketFrameSize());
+  assertEquals(80,options.getPort());
+  assertEquals(options,options.setPort(1234));
+  assertEquals(1234,options.getPort());
+  try {
+    options.setPort(-1);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  try {
+    options.setPort(65536);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  assertEquals("0.0.0.0",options.getHost());
+  randString=TestUtils.randomUnicodeString(100);
+  assertEquals(options,options.setHost(randString));
+  assertEquals(randString,options.getHost());
+  assertNull(options.getWebsocketSubProtocols());
+  assertEquals(options,options.addWebsocketSubProtocol("foo"));
+  assertEquals(options,options.addWebsocketSubProtocol("bar"));
+  assertNotNull(options.getWebsocketSubProtocols());
+  assertTrue(options.getWebsocketSubProtocols().contains("foo"));
+  assertTrue(options.getWebsocketSubProtocols().contains("bar"));
+  assertNull(options.getEnabledCipherSuites());
+  assertEquals(options,options.addEnabledCipherSuite("foo"));
+  assertEquals(options,options.addEnabledCipherSuite("bar"));
+  assertNotNull(options.getEnabledCipherSuites());
+  assertTrue(options.getEnabledCipherSuites().contains("foo"));
+  assertTrue(options.getEnabledCipherSuites().contains("bar"));
+  testComplete();
+}

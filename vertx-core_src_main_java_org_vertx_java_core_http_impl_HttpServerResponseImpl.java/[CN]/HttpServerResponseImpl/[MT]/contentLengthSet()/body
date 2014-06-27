@@ -1,6 +1,0 @@
-{
-  if (headers == null) {
-    return false;
-  }
-  return response.headers().contains(org.vertx.java.core.http.HttpHeaders.CONTENT_LENGTH);
-}

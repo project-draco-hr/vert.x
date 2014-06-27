@@ -1,0 +1,14 @@
+{
+  FullHttpResponse resp=new DefaultFullHttpResponse(HTTP_1_1,status);
+  if (status.code() == METHOD_NOT_ALLOWED.code()) {
+    resp.headers().set(io.vertx.core.http.HttpHeaders.ALLOW,io.vertx.core.http.HttpHeaders.GET);
+  }
+  if (err != null) {
+    resp.content().writeBytes(err.toString().getBytes(CharsetUtil.UTF_8));
+    HttpHeaders.setContentLength(resp,err.length());
+  }
+ else {
+    HttpHeaders.setContentLength(resp,0);
+  }
+  ch.writeAndFlush(resp);
+}

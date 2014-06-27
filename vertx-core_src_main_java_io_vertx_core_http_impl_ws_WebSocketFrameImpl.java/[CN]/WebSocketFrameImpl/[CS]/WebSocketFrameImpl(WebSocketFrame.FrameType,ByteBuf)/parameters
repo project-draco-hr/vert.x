@@ -1,0 +1,2 @@
+WebSocketFrame.FrameType type
+ByteBuf binaryData

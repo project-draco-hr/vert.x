@@ -1,0 +1,15 @@
+{
+  if (version == null) {
+    io.netty.handler.codec.http.HttpVersion nettyVersion=request.getProtocolVersion();
+    if (nettyVersion == io.netty.handler.codec.http.HttpVersion.HTTP_1_0) {
+      version=io.vertx.core.http.HttpVersion.HTTP_1_0;
+    }
+ else     if (nettyVersion == io.netty.handler.codec.http.HttpVersion.HTTP_1_1) {
+      version=io.vertx.core.http.HttpVersion.HTTP_1_1;
+    }
+ else {
+      throw new IllegalStateException("Unsupported HTTP version: " + nettyVersion);
+    }
+  }
+  return version;
+}

@@ -1,0 +1,6 @@
+Vertx vertx
+Map<String,Session> sessions
+String id
+long timeout
+long heartbeatPeriod
+Handler<SockJSSocket> sockHandler

@@ -1,4 +1,0 @@
-{
-  String str=randomUnicodeString(100);
-  testReply(str);
-}

@@ -1,0 +1,5 @@
+{
+  String str=TestUtils.randomUnicodeString(100);
+  Buffer buff=new Buffer(str);
+  assertEquals(str,buff.toString());
+}

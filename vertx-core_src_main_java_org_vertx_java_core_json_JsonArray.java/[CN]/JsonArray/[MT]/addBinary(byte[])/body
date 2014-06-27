@@ -1,5 +1,0 @@
-{
-  String encoded=(value == null) ? null : org.vertx.java.core.json.impl.Base64.encodeBytes(value);
-  list.add(encoded);
-  return this;
-}

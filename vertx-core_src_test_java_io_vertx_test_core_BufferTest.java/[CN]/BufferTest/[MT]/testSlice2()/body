@@ -1,0 +1,12 @@
+{
+  Buffer buff=TestUtils.randomBuffer(100);
+  Buffer sliced=buff.slice(10,20);
+  for (int i=0; i < 10; i++) {
+    assertEquals(buff.getByte(10 + i),sliced.getByte(i));
+  }
+  long rand=TestUtils.randomLong();
+  sliced.setLong(0,rand);
+  assertEquals(rand,buff.getLong(10));
+  buff.appendString(TestUtils.randomUnicodeString(100));
+  assertEquals(10,sliced.length());
+}

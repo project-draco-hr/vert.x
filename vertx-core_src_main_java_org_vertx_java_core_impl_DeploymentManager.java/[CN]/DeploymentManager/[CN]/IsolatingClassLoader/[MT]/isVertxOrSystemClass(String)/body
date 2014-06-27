@@ -1,3 +1,0 @@
-{
-  return name.startsWith("java.") || name.startsWith("javax.") || name.startsWith("com.sun.")|| name.startsWith("org.vertx.java.core")|| name.startsWith("com.hazelcast")|| name.startsWith("io.netty.");
-}

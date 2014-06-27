@@ -1,0 +1,10 @@
+{
+  if (cookies == null) {
+    cookies=new ArrayList<>();
+    cookies.addAll(response.headers().getAll(HttpHeaders.SET_COOKIE));
+    if (trailer != null) {
+      cookies.addAll(trailer.trailingHeaders().getAll(HttpHeaders.SET_COOKIE));
+    }
+  }
+  return cookies;
+}

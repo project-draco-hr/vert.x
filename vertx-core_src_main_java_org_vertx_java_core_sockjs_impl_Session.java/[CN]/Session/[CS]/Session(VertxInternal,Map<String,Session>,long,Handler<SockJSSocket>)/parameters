@@ -1,4 +1,0 @@
-VertxInternal vertx
-Map<String,Session> sessions
-long heartbeatPeriod
-Handler<SockJSSocket> sockHandler

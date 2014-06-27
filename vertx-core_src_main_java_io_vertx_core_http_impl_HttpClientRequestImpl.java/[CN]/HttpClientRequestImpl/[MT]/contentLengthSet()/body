@@ -1,0 +1,8 @@
+{
+  if (headers != null) {
+    return request.headers().contains(io.vertx.core.http.HttpHeaders.CONTENT_LENGTH);
+  }
+ else {
+    return false;
+  }
+}
