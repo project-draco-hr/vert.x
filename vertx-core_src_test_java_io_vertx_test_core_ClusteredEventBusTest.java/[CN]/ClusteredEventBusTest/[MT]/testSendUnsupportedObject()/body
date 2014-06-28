@@ -1,4 +1,6 @@
 {
+  startNodes(1);
+  EventBus eb=vertices[0].eventBus();
   try {
     eb.send(ADDRESS1,new Object());
     fail("Should throw exception");
