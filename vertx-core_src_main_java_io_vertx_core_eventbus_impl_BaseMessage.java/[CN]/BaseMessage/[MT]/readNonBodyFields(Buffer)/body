@@ -26,5 +26,5 @@
  else {
     replyAddress=null;
   }
-  readBody(pos,readBuff,codecMap);
+  return pos;
 }

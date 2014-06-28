@@ -1,3 +1,4 @@
 {
-  this(readBuff,null);
+  int pos=readNonBodyFields(readBuff);
+  readBody(pos,readBuff);
 }
