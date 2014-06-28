@@ -1,0 +1,12 @@
+{
+  writeString(buff,decodedType);
+  encode();
+  if (encodedData == null) {
+    buff.appendByte((byte)0);
+  }
+ else {
+    buff.appendByte((byte)1);
+    buff.appendInt(encodedData.length());
+    buff.appendBuffer(encodedData);
+  }
+}

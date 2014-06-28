@@ -1,0 +1,4 @@
+{
+  encode();
+  return 1 + (encodedData == null ? 0 : 4 + encodedData.length());
+}

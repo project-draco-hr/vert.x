@@ -1,30 +1,3 @@
 {
-  int pos=1;
-  byte bsend=readBuff.getByte(pos);
-  send=bsend == 0;
-  pos+=1;
-  int addressLength=readBuff.getInt(pos);
-  pos+=4;
-  byte[] addressBytes=readBuff.getBytes(pos,pos + addressLength);
-  pos+=addressLength;
-  address=new String(addressBytes,CharsetUtil.UTF_8);
-  int port=readBuff.getInt(pos);
-  pos+=4;
-  int hostLength=readBuff.getInt(pos);
-  pos+=4;
-  byte[] hostBytes=readBuff.getBytes(pos,pos + hostLength);
-  pos+=hostLength;
-  String host=new String(hostBytes,CharsetUtil.UTF_8);
-  sender=new ServerID(port,host);
-  int replyAddressLength=readBuff.getInt(pos);
-  pos+=4;
-  if (replyAddressLength > 0) {
-    byte[] replyAddressBytes=readBuff.getBytes(pos,pos + replyAddressLength);
-    pos+=replyAddressLength;
-    replyAddress=new String(replyAddressBytes,CharsetUtil.UTF_8);
-  }
- else {
-    replyAddress=null;
-  }
-  readBody(pos,readBuff);
+  this(readBuff,null);
 }

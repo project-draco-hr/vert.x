@@ -1,0 +1,3 @@
+int pos
+Buffer readBuff
+Map<String,MessageCodec<T>> codecMap

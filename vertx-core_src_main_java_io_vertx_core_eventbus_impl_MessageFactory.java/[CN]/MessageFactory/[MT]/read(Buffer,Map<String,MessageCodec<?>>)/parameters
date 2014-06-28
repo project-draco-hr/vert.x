@@ -1,0 +1,2 @@
+Buffer buff
+Map<String,MessageCodec<?>> codecMap

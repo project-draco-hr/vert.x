@@ -1,0 +1,5 @@
+boolean send
+String address
+T object
+String decodedType
+MessageCodec<T> codec

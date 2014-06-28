@@ -43,7 +43,16 @@
     bm=new StringMessage(send,address,null);
   }
  else {
-    throw new IllegalArgumentException("Cannot send object of class " + message.getClass() + " on the event bus: "+ message);
+    String typeName=message.getClass().getName();
+    MessageCodec<?> codec=codecMap.get(typeName);
+    if (codec == null) {
+      throw new IllegalArgumentException("Cannot send object of class " + message.getClass() + " on the event bus: "+ message);
+    }
+ else {
+      @SuppressWarnings("unchecked") ObjectMessage<?> om=new ObjectMessage(send,address,message,typeName,codec);
+      bm=om;
+    }
   }
+  bm.bus=this;
   return bm;
 }
