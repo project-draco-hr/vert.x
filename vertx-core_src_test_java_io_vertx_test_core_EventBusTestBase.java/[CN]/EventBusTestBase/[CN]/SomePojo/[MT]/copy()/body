@@ -1,0 +1,8 @@
+{
+  if (badCopy) {
+    return this;
+  }
+ else {
+    return new SomePojo(this.string,this.number);
+  }
+}

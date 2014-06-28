@@ -48,10 +48,8 @@
     if (codec == null) {
       throw new IllegalArgumentException("No codec registered for " + message.getClass() + " on the event bus: "+ message);
     }
- else {
-      @SuppressWarnings("unchecked") ObjectMessage<?> om=new ObjectMessage(send,address,message,typeName,codec);
-      bm=om;
-    }
+    @SuppressWarnings("unchecked") ObjectMessage<?> om=new ObjectMessage(send,address,message,typeName,codec);
+    bm=om;
   }
   bm.bus=this;
   return bm;
