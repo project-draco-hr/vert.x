@@ -1,5 +1,2 @@
 {
-  if (drainHandler != null) {
-    drainHandler.handle(null);
-  }
 }

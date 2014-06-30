@@ -1,4 +1,0 @@
-{
-  drainHandler=handler;
-  return this;
-}

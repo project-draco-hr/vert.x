@@ -1,6 +1,6 @@
 {
   if (senderAddress == null) {
-    senderAddress=new SocketAddress(sender.getPort(),sender.getAddress().getHostAddress());
+    senderAddress=new SocketAddressImpl(sender.getPort(),sender.getAddress().getHostAddress());
   }
   return senderAddress;
 }

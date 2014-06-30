@@ -1,5 +1,0 @@
-{
-  if (dataHandler != null) {
-    dataHandler.handle(message);
-  }
-}

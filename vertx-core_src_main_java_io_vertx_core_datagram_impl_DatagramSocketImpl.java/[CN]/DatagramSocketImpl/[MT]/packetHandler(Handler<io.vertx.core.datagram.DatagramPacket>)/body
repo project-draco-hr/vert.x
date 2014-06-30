@@ -1,0 +1,4 @@
+{
+  this.packetHandler=handler;
+  return this;
+}

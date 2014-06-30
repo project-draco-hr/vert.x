@@ -1,0 +1,4 @@
+{
+  checkContext();
+  super.handleClosed();
+}

@@ -1,5 +1,5 @@
 {
-  InetSocketAddress is=new InetSocketAddress(local.getHostAddress(),local.getPort());
+  InetSocketAddress is=new InetSocketAddress(local.hostAddress(),local.hostPort());
   ChannelFuture future=channel().bind(is);
   addListener(future,handler);
   return this;
