@@ -1,0 +1,4 @@
+{
+  super.setIdleTimeout(idleTimeout);
+  return this;
+}

@@ -1,5 +1,6 @@
 {
   super(other);
+  this.idleTimeout=other.idleTimeout;
   this.tcpNoDelay=other.tcpNoDelay;
   this.tcpKeepAlive=other.tcpKeepAlive;
   this.soLinger=other.soLinger;

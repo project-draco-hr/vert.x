@@ -51,6 +51,9 @@
   }
  catch (  IllegalArgumentException e) {
   }
+  assertEquals(0,options.getIdleTimeout());
+  assertEquals(options,options.setIdleTimeout(10));
+  assertEquals(10,options.getIdleTimeout());
   assertTrue(options.isTcpNoDelay());
   assertEquals(options,options.setTcpNoDelay(false));
   assertFalse(options.isTcpNoDelay());
