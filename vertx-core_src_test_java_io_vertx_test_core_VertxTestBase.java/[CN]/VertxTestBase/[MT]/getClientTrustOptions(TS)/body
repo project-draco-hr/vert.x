@@ -1,0 +1,12 @@
+{
+switch (trust) {
+case JKS:
+    return new JKSOptions().setPath(findFileOnClasspath("tls/client-truststore.jks")).setPassword("wibble");
+case PKCS12:
+  return new PKCS12Options().setPath(findFileOnClasspath("tls/client-truststore.p12")).setPassword("wibble");
+case PEM:
+return new CaOptions().addCertPath(findFileOnClasspath("tls/server-cert.pem"));
+default :
+return null;
+}
+}

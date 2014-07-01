@@ -1,0 +1,7 @@
+{
+  this.ssl=options.isSsl();
+  this.keyStoreHelper=keyStoreHelper;
+  this.trustStoreHelper=trustStoreHelper;
+  this.clientAuth=options.isClientAuthRequired() ? ClientAuth.REQUIRED : ClientAuth.NONE;
+  this.enabledCipherSuites=options.getEnabledCipherSuites();
+}

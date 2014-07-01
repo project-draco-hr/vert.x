@@ -1,6 +1,6 @@
 {
   if (sslContext == null) {
-    sslContext=createContext(vertx,keyStorePath,keyStorePassword,trustStorePath,trustStorePassword,trustAll);
+    sslContext=createContext(vertx,keyStoreHelper,trustStoreHelper,trustAll);
   }
   SSLEngine engine=sslContext.createSSLEngine();
   String[] current=engine.getSupportedCipherSuites();

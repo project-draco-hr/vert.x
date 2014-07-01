@@ -1,0 +1,7 @@
+{
+  if (certPath == null) {
+    throw new NullPointerException("No null certificate accepted");
+  }
+  certPaths.add(certPath);
+  return this;
+}

@@ -1,0 +1,3 @@
+{
+  testInvalidKeyStore(((KeyCertOptions)getServerCertOptions(KS.PEM)).setCertPath(null),"Missing X.509 certificate path");
+}

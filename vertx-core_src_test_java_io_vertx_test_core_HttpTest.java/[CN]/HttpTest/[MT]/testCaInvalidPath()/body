@@ -1,0 +1,3 @@
+{
+  testInvalidTrustStore(new CaOptions().addCertPath("/invalid.pem"),"/invalid.pem");
+}

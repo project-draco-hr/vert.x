@@ -1,0 +1,3 @@
+{
+  testTLS(KS.PEM,TS.JKS,KS.JKS,TS.JKS,true,false,true);
+}

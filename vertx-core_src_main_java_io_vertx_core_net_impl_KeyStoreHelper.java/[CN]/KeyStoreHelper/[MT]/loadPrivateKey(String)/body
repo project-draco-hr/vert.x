@@ -1,0 +1,8 @@
+{
+  if (path == null) {
+    throw new RuntimeException("Missing private key path");
+  }
+  byte[] value=loadPem(path,"PRIVATE KEY");
+  KeyFactory rsaKeyFactory=KeyFactory.getInstance("RSA");
+  return rsaKeyFactory.generatePrivate(new PKCS8EncodedKeySpec(value));
+}

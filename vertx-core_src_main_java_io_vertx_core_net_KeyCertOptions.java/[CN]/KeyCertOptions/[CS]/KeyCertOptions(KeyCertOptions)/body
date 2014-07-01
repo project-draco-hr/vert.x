@@ -1,0 +1,5 @@
+{
+  super();
+  this.keyPath=other.keyPath;
+  this.certPath=other.certPath;
+}

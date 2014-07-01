@@ -1,4 +1,0 @@
-{
-  this.keyStorePath=keyStorePath;
-  return this;
-}

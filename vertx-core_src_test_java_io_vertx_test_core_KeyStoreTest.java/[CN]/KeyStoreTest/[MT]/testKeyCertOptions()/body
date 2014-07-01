@@ -1,0 +1,11 @@
+{
+  KeyCertOptions options=new KeyCertOptions();
+  assertNull(options.getKeyPath());
+  String randString=TestUtils.randomAlphaString(100);
+  assertEquals(options,options.setKeyPath(randString));
+  assertEquals(randString,options.getKeyPath());
+  assertNull(options.getCertPath());
+  randString=TestUtils.randomAlphaString(100);
+  assertEquals(options,options.setCertPath(randString));
+  assertEquals(randString,options.getCertPath());
+}

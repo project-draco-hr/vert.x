@@ -1,4 +1,0 @@
-{
-  super.setKeyStorePath(keyStorePath);
-  return this;
-}

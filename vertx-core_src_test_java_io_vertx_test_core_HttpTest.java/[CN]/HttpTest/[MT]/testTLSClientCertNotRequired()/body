@@ -1,3 +1,3 @@
 {
-  testTLS(true,true,true,true,false,false,true);
+  testTLS(KS.JKS,TS.JKS,KS.JKS,TS.JKS,false,false,true);
 }

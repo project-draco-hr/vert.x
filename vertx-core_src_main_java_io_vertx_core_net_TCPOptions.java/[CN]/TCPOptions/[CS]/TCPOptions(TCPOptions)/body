@@ -5,9 +5,7 @@
   this.soLinger=other.soLinger;
   this.usePooledBuffers=other.usePooledBuffers;
   this.ssl=other.ssl;
-  this.keyStorePath=other.keyStorePath;
-  this.keyStorePassword=other.keyStorePassword;
-  this.trustStorePath=other.trustStorePath;
-  this.trustStorePassword=other.trustStorePassword;
+  this.keyStore=other.keyStore != null ? other.keyStore.clone() : null;
+  this.trustStore=other.trustStore != null ? other.trustStore.clone() : null;
   this.enabledCipherSuites=other.enabledCipherSuites == null ? null : new HashSet<>(other.enabledCipherSuites);
 }

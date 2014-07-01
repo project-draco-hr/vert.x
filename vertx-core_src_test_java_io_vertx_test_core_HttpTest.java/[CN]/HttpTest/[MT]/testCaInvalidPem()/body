@@ -1,0 +1,11 @@
+{
+  String[] contents={"","-----BEGIN CERTIFICATE-----","-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----","-----BEGIN CERTIFICATE-----\n*\n-----END CERTIFICATE-----"};
+  String[] messages={"Missing -----BEGIN CERTIFICATE----- delimiter","Missing -----END CERTIFICATE----- delimiter","Empty pem file","Input byte[] should at least have 2 bytes for base64 bytes"};
+  for (int i=0; i < contents.length; i++) {
+    Path file=Files.createTempFile("vertx",".pem");
+    file.toFile().deleteOnExit();
+    Files.write(file,Collections.singleton(contents[i]));
+    String expectedMessage=messages[i];
+    testInvalidTrustStore(new CaOptions().addCertPath(file.toString()),expectedMessage);
+  }
+}

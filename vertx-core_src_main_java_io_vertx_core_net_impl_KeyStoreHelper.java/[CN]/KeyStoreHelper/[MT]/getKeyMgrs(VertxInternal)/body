@@ -1,0 +1,6 @@
+{
+  KeyManagerFactory fact=KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+  KeyStore ks=loadStore(vertx,password);
+  fact.init(ks,password != null ? password.toCharArray() : null);
+  return fact.getKeyManagers();
+}

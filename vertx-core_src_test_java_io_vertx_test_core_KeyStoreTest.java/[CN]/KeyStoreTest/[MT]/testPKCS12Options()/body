@@ -1,0 +1,11 @@
+{
+  PKCS12Options options=new PKCS12Options();
+  assertNull(options.getPath());
+  String randString=TestUtils.randomAlphaString(100);
+  assertEquals(options,options.setPath(randString));
+  assertEquals(randString,options.getPath());
+  assertNull(options.getPassword());
+  randString=TestUtils.randomAlphaString(100);
+  assertEquals(options,options.setPassword(randString));
+  assertEquals(randString,options.getPassword());
+}

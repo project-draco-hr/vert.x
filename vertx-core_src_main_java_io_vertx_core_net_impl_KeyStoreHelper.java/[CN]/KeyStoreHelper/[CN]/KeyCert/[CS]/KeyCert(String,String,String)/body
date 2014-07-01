@@ -1,0 +1,5 @@
+{
+  super(password);
+  this.keyPath=keyPath;
+  this.certPath=certPath;
+}
