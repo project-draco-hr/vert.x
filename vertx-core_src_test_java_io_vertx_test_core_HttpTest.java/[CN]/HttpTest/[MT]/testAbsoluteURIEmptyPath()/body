@@ -1,0 +1,3 @@
+{
+  testURIAndPath("http://localhost:" + DEFAULT_HTTP_PORT + "/","/");
+}
