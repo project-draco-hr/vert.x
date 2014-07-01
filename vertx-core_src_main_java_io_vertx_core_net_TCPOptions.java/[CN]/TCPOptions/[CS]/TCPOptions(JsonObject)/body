@@ -1,0 +1,14 @@
+{
+  super(json);
+  this.tcpNoDelay=json.getBoolean("tcpNoDelay",DEFAULT_TCPNODELAY);
+  this.tcpKeepAlive=json.getBoolean("tcpKeepAlive",DEFAULT_TCPKEEPALIVE);
+  this.soLinger=json.getInteger("soLinger",DEFAULT_SOLINGER);
+  this.usePooledBuffers=json.getBoolean("usePooledBuffers",false);
+  this.ssl=json.getBoolean("ssl",false);
+  this.keyStorePath=json.getString("keyStorePath",null);
+  this.keyStorePassword=json.getString("keyStorePassword",null);
+  this.trustStorePath=json.getString("trustStorePath",null);
+  this.trustStorePassword=json.getString("trustStorePassword",null);
+  JsonArray arr=json.getArray("enabledCipherSuites");
+  this.enabledCipherSuites=arr == null ? null : new HashSet<String>(arr.toList());
+}

@@ -3,7 +3,7 @@
     public void handle(    final SockJSSocket sock){
       sock.dataHandler(new Handler<Buffer>(){
         public void handle(        Buffer buff){
-          sock.write(buff);
+          sock.writeBuffer(buff);
         }
       }
 );
@@ -22,7 +22,7 @@
     public void handle(    final SockJSSocket sock){
       sock.dataHandler(new Handler<Buffer>(){
         public void handle(        Buffer buff){
-          sock.write(buff);
+          sock.writeBuffer(buff);
         }
       }
 );
@@ -33,7 +33,7 @@
     public void handle(    final SockJSSocket sock){
       final long timerID=vertx.setPeriodic(1000,new Handler<Long>(){
         public void handle(        Long id){
-          sock.write(new Buffer("tick!"));
+          sock.writeBuffer(new Buffer("tick!"));
         }
       }
 );
@@ -60,7 +60,7 @@
           for (int i=0; i < num; i++) {
             buff.appendByte((byte)'x');
           }
-          sock.write(buff);
+          sock.writeBuffer(buff);
         }
       }
 );
@@ -92,7 +92,7 @@
     public void handle(    final SockJSSocket sock){
       sock.dataHandler(new Handler<Buffer>(){
         public void handle(        Buffer buff){
-          sock.write(buff);
+          sock.writeBuffer(buff);
         }
       }
 );

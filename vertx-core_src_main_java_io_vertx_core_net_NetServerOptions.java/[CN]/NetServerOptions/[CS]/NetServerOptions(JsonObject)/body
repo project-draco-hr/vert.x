@@ -1,0 +1,6 @@
+{
+  super(json);
+  this.port=json.getInteger("port",DEFAULT_PORT);
+  this.host=json.getString("host",DEFAULT_HOST);
+  this.acceptBacklog=json.getInteger("acceptBacklog",DEFAULT_ACCEPT_BACKLOG);
+}

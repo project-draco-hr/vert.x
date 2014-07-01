@@ -20,7 +20,7 @@ class TimeoutInfo {
         final TimeoutInfo timeout=iter.next();
         vertx.setTimer(timeout.timeout,new Handler<Long>(){
           public void handle(          Long id){
-            response.write(timeout.buff);
+            response.writeBuffer(timeout.buff);
             nextTimeout(timeouts,iter,response);
           }
         }

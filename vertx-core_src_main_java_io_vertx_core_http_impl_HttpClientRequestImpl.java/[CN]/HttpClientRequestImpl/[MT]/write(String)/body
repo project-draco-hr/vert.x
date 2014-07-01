@@ -1,4 +1,4 @@
 {
   check();
-  return write(new Buffer(chunk));
+  return writeBuffer(new Buffer(chunk));
 }

@@ -3,5 +3,5 @@
   if (message.replyAddress() != null) {
     envelope.putString("replyAddress",message.replyAddress());
   }
-  sock.write(new Buffer(envelope.encode()));
+  sock.writeBuffer(new Buffer(envelope.encode()));
 }

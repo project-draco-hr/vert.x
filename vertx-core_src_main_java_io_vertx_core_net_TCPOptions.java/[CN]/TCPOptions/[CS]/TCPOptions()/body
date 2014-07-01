@@ -1,3 +1,6 @@
 {
   super();
+  tcpNoDelay=DEFAULT_TCPNODELAY;
+  tcpKeepAlive=DEFAULT_TCPKEEPALIVE;
+  soLinger=DEFAULT_SOLINGER;
 }
