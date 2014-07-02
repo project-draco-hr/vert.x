@@ -8,11 +8,6 @@
     return;
   }
   if (dataHandler != null) {
-    try {
-      dataHandler.handle(data);
-    }
- catch (    Throwable t) {
-      handleHandlerException(t);
-    }
+    dataHandler.handle(data);
   }
 }

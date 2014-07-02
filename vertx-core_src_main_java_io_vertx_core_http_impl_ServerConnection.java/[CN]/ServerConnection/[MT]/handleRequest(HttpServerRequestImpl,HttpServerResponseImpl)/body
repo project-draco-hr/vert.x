@@ -1,12 +1,7 @@
 {
-  try {
-    this.currentRequest=req;
-    pendingResponse=resp;
-    if (requestHandler != null) {
-      requestHandler.handle(req);
-    }
-  }
- catch (  Throwable t) {
-    handleHandlerException(t);
+  this.currentRequest=req;
+  pendingResponse=resp;
+  if (requestHandler != null) {
+    requestHandler.handle(req);
   }
 }

@@ -1,11 +1,6 @@
 {
-  try {
-    if (wsHandler != null) {
-      wsHandler.handle(ws);
-      this.ws=ws;
-    }
-  }
- catch (  Throwable t) {
-    handleHandlerException(t);
+  if (wsHandler != null) {
+    wsHandler.handle(ws);
+    this.ws=ws;
   }
 }

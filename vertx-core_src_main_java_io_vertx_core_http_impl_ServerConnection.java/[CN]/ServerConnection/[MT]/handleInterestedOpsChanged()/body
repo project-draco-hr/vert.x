@@ -1,15 +1,10 @@
 {
-  try {
-    if (!isNotWritable()) {
-      if (pendingResponse != null) {
-        pendingResponse.handleDrained();
-      }
- else       if (ws != null) {
-        ws.writable();
-      }
+  if (!isNotWritable()) {
+    if (pendingResponse != null) {
+      pendingResponse.handleDrained();
     }
-  }
- catch (  Throwable t) {
-    handleHandlerException(t);
+ else     if (ws != null) {
+      ws.writable();
+    }
   }
 }

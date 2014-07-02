@@ -1,12 +1,7 @@
 {
   checkContext();
   if (endHandler != null) {
-    try {
-      endHandler.handle(null);
-    }
- catch (    Throwable t) {
-      handleHandlerException(t);
-    }
+    endHandler.handle(null);
   }
   super.handleClosed();
   if (vertx.eventBus() != null) {

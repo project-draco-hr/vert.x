@@ -1,8 +1,3 @@
 {
-  try {
-    currentResponse.handleChunk(buff);
-  }
- catch (  Throwable t) {
-    handleHandlerException(t);
-  }
+  currentResponse.handleChunk(buff);
 }

@@ -1,9 +1,4 @@
 {
-  try {
-    currentRequest.handleEnd();
-    currentRequest=null;
-  }
- catch (  Throwable t) {
-    handleHandlerException(t);
-  }
+  currentRequest.handleEnd();
+  currentRequest=null;
 }

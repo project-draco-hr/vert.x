@@ -1,10 +1,5 @@
 {
-  try {
-    if (ws != null) {
-      ws.handleFrame(frame);
-    }
-  }
- catch (  Throwable t) {
-    handleHandlerException(t);
+  if (ws != null) {
+    ws.handleFrame(frame);
   }
 }

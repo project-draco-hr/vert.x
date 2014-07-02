@@ -1,10 +1,5 @@
 {
-  try {
-    currentResponse.handleEnd(trailer);
-  }
- catch (  Throwable t) {
-    handleHandlerException(t);
-  }
+  currentResponse.handleEnd(trailer);
   if (currentResponse.statusCode() != 100 && requestForResponse.getRequest().getMethod() != HttpMethod.CONNECT) {
     listener.responseEnded(this);
   }

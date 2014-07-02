@@ -1,12 +1,7 @@
 {
   if (drainHandler != null) {
     if (!writeQueueFull()) {
-      try {
-        drainHandler.handle(null);
-      }
- catch (      Throwable t) {
-        handleHandlerException(t);
-      }
+      drainHandler.handle(null);
     }
   }
 }

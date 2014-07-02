@@ -3,6 +3,6 @@
     exceptionHandler.handle(e);
   }
  else {
-    vertx.reportException(e);
+    log.error(e);
   }
 }
