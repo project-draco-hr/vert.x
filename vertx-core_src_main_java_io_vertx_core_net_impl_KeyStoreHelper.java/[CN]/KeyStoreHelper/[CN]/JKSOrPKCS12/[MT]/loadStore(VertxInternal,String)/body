@@ -1,9 +1,8 @@
 {
-  String ksPath=PathAdjuster.adjust(vertx,path);
   KeyStore ks=KeyStore.getInstance(type);
   InputStream in=null;
   try {
-    in=new FileInputStream(new File(ksPath));
+    in=new ByteArrayInputStream(value.call().getBytes());
     ks.load(in,ksPassword != null ? ksPassword.toCharArray() : null);
   }
   finally {

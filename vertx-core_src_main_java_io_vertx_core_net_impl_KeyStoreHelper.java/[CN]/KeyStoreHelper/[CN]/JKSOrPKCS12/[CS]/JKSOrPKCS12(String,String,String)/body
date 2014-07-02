@@ -1,5 +1,0 @@
-{
-  super(password);
-  this.type=type;
-  this.path=path;
-}

@@ -1,0 +1,5 @@
+{
+  super(password);
+  this.type=type;
+  this.value=value;
+}

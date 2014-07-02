@@ -2,4 +2,5 @@
   super();
   this.password=other.password;
   this.path=other.path;
+  this.value=other.value;
 }

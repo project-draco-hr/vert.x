@@ -1,8 +1,0 @@
-{
-  if (path == null) {
-    throw new RuntimeException("Missing X.509 certificate path");
-  }
-  byte[] value=loadPem(path,"CERTIFICATE");
-  CertificateFactory certFactory=CertificateFactory.getInstance("X.509");
-  return certFactory.generateCertificates(new ByteArrayInputStream(value)).toArray(new Certificate[0]);
-}

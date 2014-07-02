@@ -1,0 +1,6 @@
+{
+  JKSOptions options=(JKSOptions)getServerCertOptions(KS.JKS);
+  Buffer store=vertx.fileSystem().readFileSync(options.getPath());
+  options.setPath(null).setValue(store);
+  testKeyStore(options);
+}
