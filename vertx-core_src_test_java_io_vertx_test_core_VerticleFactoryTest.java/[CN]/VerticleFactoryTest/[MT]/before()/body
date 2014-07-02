@@ -1,0 +1,4 @@
+{
+  VerticleFactory factory=vertx.verticleFactories().get(0);
+  vertx.unregisterVerticleFactory(factory);
+}

@@ -1,0 +1,4 @@
+{
+  Class clazz=classLoader.loadClass(verticleName);
+  return (Verticle)clazz.newInstance();
+}

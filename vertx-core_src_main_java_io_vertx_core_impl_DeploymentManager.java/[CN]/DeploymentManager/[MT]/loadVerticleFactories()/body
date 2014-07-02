@@ -1,0 +1,9 @@
+{
+  ServiceLoader<VerticleFactory> factories=ServiceLoader.load(VerticleFactory.class);
+  Iterator<VerticleFactory> iter=factories.iterator();
+  while (iter.hasNext()) {
+    VerticleFactory factory=iter.next();
+    factory.init(vertx);
+    verticleFactories.add(factory);
+  }
+}

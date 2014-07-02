@@ -1,0 +1,6 @@
+{
+  if (verticleFactories.contains(factory)) {
+    throw new IllegalArgumentException("Factory " + factory + " is already registered");
+  }
+  verticleFactories.add(factory);
+}

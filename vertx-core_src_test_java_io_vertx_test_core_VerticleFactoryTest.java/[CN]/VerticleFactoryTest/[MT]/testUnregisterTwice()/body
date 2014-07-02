@@ -1,0 +1,11 @@
+{
+  VerticleFactory fact1=new TestVerticleFactory();
+  vertx.registerVerticleFactory(fact1);
+  vertx.unregisterVerticleFactory(fact1);
+  try {
+    vertx.unregisterVerticleFactory(fact1);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+}

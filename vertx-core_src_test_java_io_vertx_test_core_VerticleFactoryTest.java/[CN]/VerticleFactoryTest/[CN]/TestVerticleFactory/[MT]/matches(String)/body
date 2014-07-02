@@ -1,0 +1,3 @@
+{
+  return matcher == null ? false : matcher.apply(verticleName);
+}

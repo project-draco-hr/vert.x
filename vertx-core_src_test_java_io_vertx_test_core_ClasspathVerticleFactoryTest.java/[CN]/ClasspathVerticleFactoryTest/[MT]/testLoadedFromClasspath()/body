@@ -1,0 +1,5 @@
+{
+  assertEquals(1,vertx.verticleFactories().size());
+  VerticleFactory fact=vertx.verticleFactories().get(0);
+  assertTrue(fact instanceof ClasspathVerticleFactory);
+}

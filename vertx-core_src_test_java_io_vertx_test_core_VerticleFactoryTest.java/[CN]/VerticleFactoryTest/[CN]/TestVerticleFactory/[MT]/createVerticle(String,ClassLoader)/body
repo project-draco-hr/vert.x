@@ -1,0 +1,4 @@
+{
+  this.verticleName=verticleName;
+  return verticle;
+}
