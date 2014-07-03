@@ -1,3 +1,0 @@
-{
-  return new Buffer(getBytes(start,end));
-}

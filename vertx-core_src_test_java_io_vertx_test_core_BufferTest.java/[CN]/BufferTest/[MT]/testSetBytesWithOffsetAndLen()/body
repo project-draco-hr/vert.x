@@ -2,7 +2,7 @@
   int bytesLen=100;
   byte[] bytes=TestUtils.randomByteArray(bytesLen);
   int len=bytesLen - 2;
-  Buffer b=new Buffer();
+  Buffer b=Buffer.newBuffer();
   b.setByte(0,(byte)'0');
   b.setBytes(1,bytes,1,len);
   assertEquals(b.length(),len + 1);

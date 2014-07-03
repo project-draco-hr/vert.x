@@ -4,10 +4,10 @@
   List<Buffer> lineList=generateLines(lines,true,delim[0]);
   expected=lineList.toArray(expected);
   int totLength=lines * (lines - 1) / 2;
-  Buffer inp=new Buffer(totLength + lines * delim.length);
+  Buffer inp=Buffer.newBuffer(totLength + lines * delim.length);
   for (int i=0; i < lines; i++) {
     inp.appendBuffer(expected[i]);
-    inp.appendBuffer(new Buffer(delim));
+    inp.appendBuffer(Buffer.newBuffer(delim));
   }
   for (int i=1; i < inp.length() * 2; i++) {
     doTestDelimited(inp,delim,new Integer[]{i},expected);

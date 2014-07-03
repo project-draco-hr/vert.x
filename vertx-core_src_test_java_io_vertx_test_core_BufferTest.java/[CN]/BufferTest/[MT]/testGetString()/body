@@ -1,6 +1,6 @@
 {
   String str=TestUtils.randomAlphaString(100);
-  Buffer b=new Buffer(str,"UTF-8");
+  Buffer b=Buffer.newBuffer(str,"UTF-8");
   assertEquals(100,b.length());
   String substr=b.getString(10,20);
   assertEquals(str.substring(10,20),substr);

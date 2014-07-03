@@ -34,9 +34,9 @@ class TimeoutInfo {
       req.response().headers().set("Content-Type","application/javascript; charset=UTF-8");
       BaseTransport.setCORS(req);
       req.response().setChunked(true);
-      Buffer h=new Buffer(2);
+      Buffer h=Buffer.newBuffer(2);
       h.appendString("h\n");
-      Buffer hs=new Buffer(2050);
+      Buffer hs=Buffer.newBuffer(2050);
       for (int i=0; i < 2048; i++) {
         hs.appendByte((byte)' ');
       }

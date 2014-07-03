@@ -1,2 +1,0 @@
-VertxOptions options
-Handler<AsyncResult<Vertx>> resultHandler

@@ -1,5 +1,5 @@
 {
-  doTestDelimited(new Buffer("start-a-b-c-dddabc"),"abc".getBytes(),new Integer[]{18},new Buffer("start-a-b-c-ddd"));
-  doTestDelimited(new Buffer("start-abc-dddabc"),"abc".getBytes(),new Integer[]{18},new Buffer("start-"),new Buffer("-ddd"));
-  doTestDelimited(new Buffer("start-ab-c-dddabc"),"abc".getBytes(),new Integer[]{18},new Buffer("start-ab-c-ddd"));
+  doTestDelimited(Buffer.newBuffer("start-a-b-c-dddabc"),"abc".getBytes(),new Integer[]{18},Buffer.newBuffer("start-a-b-c-ddd"));
+  doTestDelimited(Buffer.newBuffer("start-abc-dddabc"),"abc".getBytes(),new Integer[]{18},Buffer.newBuffer("start-"),Buffer.newBuffer("-ddd"));
+  doTestDelimited(Buffer.newBuffer("start-ab-c-dddabc"),"abc".getBytes(),new Integer[]{18},Buffer.newBuffer("start-ab-c-ddd"));
 }

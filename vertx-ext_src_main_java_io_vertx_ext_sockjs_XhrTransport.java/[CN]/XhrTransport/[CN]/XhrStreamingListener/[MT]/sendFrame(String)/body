@@ -5,7 +5,7 @@
     req.response().writeBuffer(H_BLOCK);
   }
   String sbody=body + "\n";
-  Buffer buff=new Buffer(sbody);
+  Buffer buff=Buffer.newBuffer(sbody);
   req.response().writeBuffer(buff);
   bytesSent+=buff.length();
   if (bytesSent >= maxBytesStreaming) {

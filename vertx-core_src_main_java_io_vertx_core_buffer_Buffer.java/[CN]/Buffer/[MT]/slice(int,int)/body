@@ -1,3 +1,0 @@
-{
-  return new Buffer(buffer.slice(start,end - start));
-}

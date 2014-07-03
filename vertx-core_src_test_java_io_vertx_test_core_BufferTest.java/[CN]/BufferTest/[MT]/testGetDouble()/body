@@ -1,6 +1,6 @@
 {
   int numDoubles=100;
-  Buffer b=new Buffer(numDoubles * 8);
+  Buffer b=Buffer.newBuffer(numDoubles * 8);
   for (int i=0; i < numDoubles; i++) {
     b.setDouble(i * 8,i);
   }

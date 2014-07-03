@@ -2,9 +2,9 @@
   Buffer b=TestUtils.randomBuffer(100);
   buff.setBuffer(50,b);
   byte[] b2=buff.getBytes(50,150);
-  assertTrue(TestUtils.buffersEqual(b,new Buffer(b2)));
+  assertTrue(TestUtils.buffersEqual(b,Buffer.newBuffer(b2)));
   byte[] b3=TestUtils.randomByteArray(100);
   buff.setBytes(50,b3);
   byte[] b4=buff.getBytes(50,150);
-  assertTrue(TestUtils.buffersEqual(new Buffer(b3),new Buffer(b4)));
+  assertTrue(TestUtils.buffersEqual(Buffer.newBuffer(b3),Buffer.newBuffer(b4)));
 }

@@ -33,7 +33,7 @@
     public void handle(    final SockJSSocket sock){
       final long timerID=vertx.setPeriodic(1000,new Handler<Long>(){
         public void handle(        Long id){
-          sock.writeBuffer(new Buffer("tick!"));
+          sock.writeBuffer(Buffer.newBuffer("tick!"));
         }
       }
 );
@@ -56,7 +56,7 @@
             n=1;
           }
           int num=(int)Math.pow(2,n);
-          Buffer buff=new Buffer(num);
+          Buffer buff=Buffer.newBuffer(num);
           for (int i=0; i < num; i++) {
             buff.appendByte((byte)'x');
           }

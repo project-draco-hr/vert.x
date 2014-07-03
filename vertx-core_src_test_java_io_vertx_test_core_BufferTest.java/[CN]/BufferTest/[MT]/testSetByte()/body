@@ -1,3 +1,3 @@
 {
-  testSetByte(new Buffer(numSets));
+  testSetByte(Buffer.newBuffer(numSets));
 }

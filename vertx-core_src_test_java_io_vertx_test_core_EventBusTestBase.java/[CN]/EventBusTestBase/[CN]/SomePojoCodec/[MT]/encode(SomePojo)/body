@@ -1,3 +1,3 @@
 {
-  return new Buffer().appendInt(pojo.number).appendString(pojo.string);
+  return Buffer.newBuffer().appendInt(pojo.number).appendString(pojo.string);
 }

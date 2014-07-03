@@ -8,7 +8,7 @@
       for (      String msg : msgArr) {
         if (!paused) {
           try {
-            dataHandler.handle(new Buffer(msg));
+            dataHandler.handle(Buffer.newBuffer(msg));
           }
  catch (          Throwable t) {
             log.error("Unhandle exception",t);

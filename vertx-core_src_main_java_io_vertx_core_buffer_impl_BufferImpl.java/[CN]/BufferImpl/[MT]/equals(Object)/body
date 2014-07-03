@@ -1,0 +1,6 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  BufferImpl buffer1=(BufferImpl)o;
+  return buffer.equals(buffer1.buffer);
+}

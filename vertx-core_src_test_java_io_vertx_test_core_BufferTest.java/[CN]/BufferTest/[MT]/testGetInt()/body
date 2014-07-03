@@ -1,6 +1,6 @@
 {
   int numInts=100;
-  Buffer b=new Buffer(numInts * 4);
+  Buffer b=Buffer.newBuffer(numInts * 4);
   for (int i=0; i < numInts; i++) {
     b.setInt(i * 4,i);
   }
