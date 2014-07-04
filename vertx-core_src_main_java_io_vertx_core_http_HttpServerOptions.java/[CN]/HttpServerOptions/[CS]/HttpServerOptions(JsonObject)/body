@@ -1,0 +1,8 @@
+{
+  super(json);
+  this.compressionSupported=json.getBoolean("compressionSupported",false);
+  this.maxWebsocketFrameSize=json.getInteger("maxWebsocketFrameSize",DEFAULT_MAXWEBSOCKETFRAMESIZE);
+  JsonArray arr=json.getArray("websocketSubProtocols");
+  this.websocketSubProtocols=arr == null ? null : new HashSet<String>(arr.toList());
+  this.port=json.getInteger("port",DEFAULT_PORT);
+}

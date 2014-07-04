@@ -1,3 +1,3 @@
 {
-  return getClass().getSimpleName() + "(type: " + type()+ ", "+ "data: "+ getBinaryData()+ ')';
+  return getClass().getSimpleName() + "(type: " + type+ ", "+ "data: "+ getBinaryData()+ ')';
 }

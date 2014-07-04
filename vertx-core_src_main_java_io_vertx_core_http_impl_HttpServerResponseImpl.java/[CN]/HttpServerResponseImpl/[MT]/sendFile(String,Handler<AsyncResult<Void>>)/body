@@ -1,3 +1,0 @@
-{
-  return sendFile(filename,null,resultHandler);
-}

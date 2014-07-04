@@ -12,12 +12,12 @@
       }
  else {
         req.response().setStatusCode(500);
-        req.response().end("Invalid Content-Type");
+        req.response().writeStringAndEnd("Invalid Content-Type");
         return;
       }
       if (body.equals("") || urlEncoded && (!body.startsWith("d=") || body.length() <= 2)) {
         req.response().setStatusCode(500);
-        req.response().end("Payload expected.");
+        req.response().writeStringAndEnd("Payload expected.");
         return;
       }
       if (urlEncoded) {
@@ -36,7 +36,7 @@
         setJSESSIONID(config,req);
         req.response().headers().set("Content-Type","text/plain; charset=UTF-8");
         setNoCacheHeaders(req);
-        req.response().end("ok");
+        req.response().writeStringAndEnd("ok");
         if (log.isTraceEnabled())         log.trace("send handled ok");
       }
     }

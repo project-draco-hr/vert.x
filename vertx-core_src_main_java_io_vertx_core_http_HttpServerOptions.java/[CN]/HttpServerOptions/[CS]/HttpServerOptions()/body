@@ -1,3 +1,5 @@
 {
   super();
+  this.maxWebsocketFrameSize=DEFAULT_MAXWEBSOCKETFRAMESIZE;
+  this.port=DEFAULT_PORT;
 }

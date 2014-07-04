@@ -1,0 +1,3 @@
+FrameType type
+ByteBuf binaryData
+boolean isFinalFrame

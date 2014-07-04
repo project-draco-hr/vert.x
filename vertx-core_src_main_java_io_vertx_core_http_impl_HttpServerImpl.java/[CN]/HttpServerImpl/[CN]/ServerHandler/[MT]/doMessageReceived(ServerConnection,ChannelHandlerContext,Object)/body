@@ -53,7 +53,7 @@ case TEXT:
       }
     break;
 case PING:
-  ch.writeAndFlush(new WebSocketFrameImpl(WebSocketFrame.FrameType.PONG,wsFrame.getBinaryData()));
+  ch.writeAndFlush(new WebSocketFrameImpl(FrameType.PONG,wsFrame.getBinaryData()));
 break;
 case CLOSE:
 if (!closeFrameSent) {

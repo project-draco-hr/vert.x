@@ -11,7 +11,7 @@
       json.putArray("origins",new JsonArray().add("*:*"));
       json.putNumber("entropy",RAND_OFFSET + new Random().nextInt());
       setCORS(req);
-      req.response().end(json.encode());
+      req.response().writeStringAndEnd(json.encode());
     }
   }
 ;

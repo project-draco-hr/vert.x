@@ -1,3 +1,5 @@
 {
   super();
+  this.maxPoolSize=DEFAULT_MAXPOOLSIZE;
+  this.keepAlive=DEFAULT_KEEPALIVE;
 }

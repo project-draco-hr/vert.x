@@ -52,9 +52,9 @@
   }
  catch (  IllegalArgumentException e) {
   }
-  assertEquals(WebSocketVersion.RFC6455,options.getVersion());
-  assertEquals(options,options.setVersion(WebSocketVersion.HYBI_00));
-  assertEquals(WebSocketVersion.HYBI_00,options.getVersion());
+  assertEquals(13,options.getVersion());
+  assertEquals(options,options.setVersion(0));
+  assertEquals(0,options.getVersion());
   assertNull(options.getSubProtocols());
   assertEquals(options,options.addSubProtocol("foo"));
   assertEquals(options,options.addSubProtocol("bar"));

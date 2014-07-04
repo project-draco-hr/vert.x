@@ -28,7 +28,7 @@ case TEXT:
       conn.handleWsFrame(frame);
     break;
 case PING:
-  ctx.writeAndFlush(new WebSocketFrameImpl(WebSocketFrame.FrameType.PONG,frame.getBinaryData()));
+  ctx.writeAndFlush(new WebSocketFrameImpl(FrameType.PONG,frame.getBinaryData()));
 break;
 case CLOSE:
 if (!closeFrameSent) {

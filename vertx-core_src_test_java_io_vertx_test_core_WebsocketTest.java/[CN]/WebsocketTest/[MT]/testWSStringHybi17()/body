@@ -1,3 +1,3 @@
 {
-  testWS(false,WebSocketVersion.RFC6455);
+  testWS(false,13);
 }

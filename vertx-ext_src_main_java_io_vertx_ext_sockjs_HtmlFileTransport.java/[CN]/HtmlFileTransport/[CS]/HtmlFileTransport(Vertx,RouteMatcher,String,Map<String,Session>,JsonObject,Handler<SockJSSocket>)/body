@@ -9,7 +9,7 @@
         callback=req.params().get("c");
         if (callback == null) {
           req.response().setStatusCode(500);
-          req.response().end("\"callback\" parameter required\n");
+          req.response().writeStringAndEnd("\"callback\" parameter required\n");
           return;
         }
       }

@@ -6,7 +6,7 @@
     setNoCacheHeaders(req);
     req.response().setChunked(true);
     setJSESSIONID(config,req);
-    req.response().write(htmlFile);
+    req.response().writeString(htmlFile);
     headersWritten=true;
   }
   body=escapeForJavaScript(body);

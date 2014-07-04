@@ -12,6 +12,6 @@
   sb.append(callback).append("(\"");
   sb.append(body);
   sb.append("\");\r\n");
-  req.response().write(sb.toString());
+  req.response().writeString(sb.toString());
   close();
 }

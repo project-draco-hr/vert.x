@@ -1,0 +1,6 @@
+{
+  this.maxWebsocketFrameSize=json.getInteger("maxWebsocketFrameSize",DEFAULT_MAXWEBSOCKETFRAMESIZE);
+  this.version=json.getInteger("version",DEFAULT_WEBSOCKETVERSION);
+  JsonArray arr=json.getArray("subProtocols");
+  this.subProtocols=arr == null ? null : new HashSet<String>(arr.toList());
+}
