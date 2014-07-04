@@ -1,4 +1,6 @@
 {
   super();
   this.connectTimeout=DEFAULT_CONNECTTIMEOUT;
+  this.crlPaths=new ArrayList<>();
+  this.crlValues=new ArrayList<>();
 }

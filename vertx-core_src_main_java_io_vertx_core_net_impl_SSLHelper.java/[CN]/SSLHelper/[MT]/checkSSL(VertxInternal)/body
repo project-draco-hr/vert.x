@@ -1,5 +1,5 @@
 {
   if (ssl && sslContext == null) {
-    sslContext=createContext(vertx,keyStoreHelper,trustStoreHelper,trustAll);
+    sslContext=createContext(vertx);
   }
 }

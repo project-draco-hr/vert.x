@@ -3,6 +3,8 @@ TS clientTrust
 KS serverCert
 TS serverTrust
 boolean requireClientAuth
+boolean serverUsesCrl
 boolean clientTrustAll
+boolean clientUsesCrl
 boolean shouldPass
 String enabledCipherSuites

@@ -1,7 +1,3 @@
 {
-  this.ssl=options.isSsl();
-  this.keyStoreHelper=keyStoreHelper;
-  this.trustStoreHelper=trustStoreHelper;
-  this.trustAll=options.isTrustAll();
-  this.enabledCipherSuites=options.getEnabledCipherSuites();
+  this((ClientOptions)options,keyStoreHelper,trustStoreHelper);
 }

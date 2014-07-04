@@ -1,0 +1,2 @@
+TrustManager[] trustMgrs
+ArrayList<CRL> crls

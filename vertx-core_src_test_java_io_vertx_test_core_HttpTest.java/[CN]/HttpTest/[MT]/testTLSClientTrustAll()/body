@@ -1,3 +1,3 @@
 {
-  testTLS(KS.NONE,TS.NONE,KS.JKS,TS.NONE,false,true,true);
+  testTLS(KS.NONE,TS.NONE,KS.JKS,TS.NONE,false,false,true,false,true);
 }

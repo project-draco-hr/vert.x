@@ -1,4 +1,0 @@
-VertxInternal vertx
-KeyStoreHelper ksHelper
-KeyStoreHelper tsHelper
-boolean trustAll
