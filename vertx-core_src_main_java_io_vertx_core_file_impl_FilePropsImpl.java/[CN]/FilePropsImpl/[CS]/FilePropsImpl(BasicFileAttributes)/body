@@ -1,7 +1,7 @@
 {
-  creationTime=new Date(attrs.creationTime().toMillis());
-  lastModifiedTime=new Date(attrs.lastModifiedTime().toMillis());
-  lastAccessTime=new Date(attrs.lastAccessTime().toMillis());
+  creationTime=attrs.creationTime().toMillis();
+  lastModifiedTime=attrs.lastModifiedTime().toMillis();
+  lastAccessTime=attrs.lastAccessTime().toMillis();
   isDirectory=attrs.isDirectory();
   isOther=attrs.isOther();
   isRegularFile=attrs.isRegularFile();

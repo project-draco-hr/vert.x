@@ -1,3 +1,0 @@
-VertxInternal vertx
-io.vertx.core.datagram.InternetProtocolFamily family
-DatagramSocketOptions options

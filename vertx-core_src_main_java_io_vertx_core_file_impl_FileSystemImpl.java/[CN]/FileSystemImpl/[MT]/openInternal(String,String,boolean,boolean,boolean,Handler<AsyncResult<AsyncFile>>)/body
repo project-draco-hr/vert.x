@@ -1,3 +1,0 @@
-{
-  return openInternal(path,perms,read,write,createNew,false,handler);
-}

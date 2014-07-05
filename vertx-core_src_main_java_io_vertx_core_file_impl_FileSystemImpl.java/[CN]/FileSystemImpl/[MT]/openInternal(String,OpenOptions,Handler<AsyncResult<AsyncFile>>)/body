@@ -1,0 +1,9 @@
+{
+  final String path=PathAdjuster.adjust(vertx,p);
+  return new BlockingAction<AsyncFile>(vertx,handler){
+    public AsyncFile action(){
+      return doOpen(path,options,context);
+    }
+  }
+;
+}

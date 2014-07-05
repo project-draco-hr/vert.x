@@ -1,0 +1,4 @@
+{
+  logInternal(options.getPerms());
+  return new AsyncFileImpl(vertx,path,options,context);
+}

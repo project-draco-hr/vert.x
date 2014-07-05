@@ -1,0 +1,30 @@
+{
+  if (!options.isRead() && !options.isWrite()) {
+    throw new FileSystemException("Cannot open file for neither reading nor writing");
+  }
+  this.vertx=vertx;
+  Path file=Paths.get(path);
+  HashSet<OpenOption> opts=new HashSet<>();
+  if (options.isRead())   opts.add(StandardOpenOption.READ);
+  if (options.isWrite())   opts.add(StandardOpenOption.WRITE);
+  if (options.isCreate())   opts.add(StandardOpenOption.CREATE);
+  if (options.isCreateNew())   opts.add(StandardOpenOption.CREATE_NEW);
+  if (options.isSync())   opts.add(StandardOpenOption.SYNC);
+  if (options.isDSync())   opts.add(StandardOpenOption.DSYNC);
+  if (options.isDeleteOnClose())   opts.add(StandardOpenOption.DELETE_ON_CLOSE);
+  if (options.isSparse())   opts.add(StandardOpenOption.SPARSE);
+  if (options.isTruncateExisting())   opts.add(StandardOpenOption.TRUNCATE_EXISTING);
+  try {
+    if (options.getPerms() != null) {
+      FileAttribute<?> attrs=PosixFilePermissions.asFileAttribute(PosixFilePermissions.fromString(options.getPerms()));
+      ch=AsynchronousFileChannel.open(file,opts,vertx.getBackgroundPool(),attrs);
+    }
+ else {
+      ch=AsynchronousFileChannel.open(file,opts,vertx.getBackgroundPool());
+    }
+  }
+ catch (  IOException e) {
+    throw new FileSystemException(e);
+  }
+  this.context=context;
+}

@@ -1,4 +1,0 @@
-{
-  mkdirInternal(path,createParents,null).action();
-  return this;
-}

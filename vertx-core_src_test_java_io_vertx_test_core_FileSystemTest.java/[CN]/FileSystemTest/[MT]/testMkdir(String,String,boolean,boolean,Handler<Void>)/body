@@ -2,15 +2,15 @@
   AsyncResultHandler<Void> handler=createHandler(shouldPass,afterOK);
   if (createParents) {
     if (perms != null) {
-      vertx.fileSystem().mkdir(testDir + pathSep + dirName,perms,createParents,handler);
+      vertx.fileSystem().mkdirsWithPermissions(testDir + pathSep + dirName,perms,handler);
     }
  else {
-      vertx.fileSystem().mkdir(testDir + pathSep + dirName,createParents,handler);
+      vertx.fileSystem().mkdirs(testDir + pathSep + dirName,handler);
     }
   }
  else {
     if (perms != null) {
-      vertx.fileSystem().mkdir(testDir + pathSep + dirName,perms,handler);
+      vertx.fileSystem().mkdirWithPermissions(testDir + pathSep + dirName,perms,handler);
     }
  else {
       vertx.fileSystem().mkdir(testDir + pathSep + dirName,handler);

@@ -1,8 +1,0 @@
-VertxInternal vertx
-String path
-String perms
-boolean read
-boolean write
-boolean createNew
-boolean flush
-ContextImpl context

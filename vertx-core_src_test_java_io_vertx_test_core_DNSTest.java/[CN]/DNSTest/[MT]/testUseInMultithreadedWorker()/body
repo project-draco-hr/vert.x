@@ -11,6 +11,6 @@ class MyVerticle extends AbstractVerticle {
     }
   }
   MyVerticle verticle=new MyVerticle();
-  vertx.deployVerticle(verticle,new DeploymentOptions().setWorker(true).setMultiThreaded(true));
+  vertx.deployVerticleInstance(verticle,new DeploymentOptions().setWorker(true).setMultiThreaded(true));
   await();
 }

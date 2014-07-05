@@ -6,7 +6,7 @@
     azzertPerms(DEFAULT_FILE_PERMS,file);
   }
   if (dirPerms != null) {
-    vertx.fileSystem().chmod(testDir + pathSep + file,perms,dirPerms,createHandler(shouldPass,afterOK));
+    vertx.fileSystem().chmodRecursive(testDir + pathSep + file,perms,dirPerms,createHandler(shouldPass,afterOK));
   }
  else {
     vertx.fileSystem().chmod(testDir + pathSep + file,perms,createHandler(shouldPass,afterOK));

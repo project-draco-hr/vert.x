@@ -1,3 +1,0 @@
-{
-  return new AsyncFileImpl(vertx,path,perms,read,write,createNew,flush,context);
-}

@@ -1,3 +1,0 @@
-{
-  return new DatagramSocketImpl(this,family,options);
-}

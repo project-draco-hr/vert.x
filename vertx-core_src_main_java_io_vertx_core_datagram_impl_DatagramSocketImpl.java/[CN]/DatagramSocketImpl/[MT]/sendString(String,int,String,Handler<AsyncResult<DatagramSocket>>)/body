@@ -1,0 +1,3 @@
+{
+  return sendBuffer(Buffer.newBuffer(str),port,host,handler);
+}

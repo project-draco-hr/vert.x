@@ -1,5 +1,0 @@
-String path
-String perms
-boolean read
-boolean write
-boolean createNew

@@ -1,4 +1,0 @@
-{
-  logInternal(perms);
-  return new AsyncFileImpl(vertx,path,null,read,write,createNew,flush,context);
-}
