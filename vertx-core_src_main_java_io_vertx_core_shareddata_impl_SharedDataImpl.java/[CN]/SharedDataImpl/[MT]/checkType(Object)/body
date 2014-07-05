@@ -1,0 +1,18 @@
+{
+  if (obj == null) {
+    throw new IllegalArgumentException("Cannot put null in key or value of cluster wide map");
+  }
+  Class<?> clazz=obj.getClass();
+  if (clazz == Integer.class || clazz == int.class || clazz == Long.class || clazz == long.class || clazz == Short.class || clazz == short.class || clazz == Float.class || clazz == float.class || clazz == Double.class || clazz == double.class || clazz == Boolean.class || clazz == boolean.class || clazz == Byte.class || clazz == byte.class || clazz == String.class || clazz == byte[].class) {
+    return;
+  }
+ else   if (obj instanceof ClusterSerializable) {
+    return;
+  }
+ else   if (obj instanceof Serializable) {
+    return;
+  }
+ else {
+    throw new IllegalArgumentException("Invalid type: " + clazz + " to put in cluster wide map");
+  }
+}

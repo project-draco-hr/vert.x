@@ -1,0 +1,3 @@
+{
+  testMapRemove(new SomeSerializableObject("bar"),new SomeSerializableObject("bar"));
+}

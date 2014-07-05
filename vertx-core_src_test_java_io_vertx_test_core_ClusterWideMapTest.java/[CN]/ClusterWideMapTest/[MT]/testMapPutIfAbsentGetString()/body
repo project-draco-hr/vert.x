@@ -1,0 +1,3 @@
+{
+  testMapPutIfAbsentGet("foo","bar");
+}

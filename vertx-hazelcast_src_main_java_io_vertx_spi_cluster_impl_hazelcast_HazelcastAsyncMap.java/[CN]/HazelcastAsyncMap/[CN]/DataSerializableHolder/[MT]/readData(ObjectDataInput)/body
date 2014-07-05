@@ -1,0 +1,14 @@
+{
+  String className=objectDataInput.readUTF();
+  int length=objectDataInput.readInt();
+  byte[] bytes=new byte[length];
+  objectDataInput.readFully(bytes);
+  try {
+    Class<?> clazz=Thread.currentThread().getContextClassLoader().loadClass(className);
+    clusterSerializable=(ClusterSerializable)clazz.newInstance();
+    clusterSerializable.readFromBuffer(Buffer.newBuffer(bytes));
+  }
+ catch (  Exception e) {
+    throw new IllegalStateException("Failed to load class " + e.getMessage(),e);
+  }
+}

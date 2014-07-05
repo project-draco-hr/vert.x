@@ -1,0 +1,3 @@
+{
+  getLockWithTimeout(name,DEFAULT_LOCK_TIMEOUT,resultHandler);
+}

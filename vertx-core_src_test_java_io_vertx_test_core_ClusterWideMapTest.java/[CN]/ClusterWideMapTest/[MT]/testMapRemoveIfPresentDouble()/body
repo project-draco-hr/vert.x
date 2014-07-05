@@ -1,0 +1,3 @@
+{
+  testMapRemoveIfPresent(1.2d,2.2d,3.3d);
+}

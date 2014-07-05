@@ -1,0 +1,3 @@
+{
+  testMapPutGet(1,2);
+}

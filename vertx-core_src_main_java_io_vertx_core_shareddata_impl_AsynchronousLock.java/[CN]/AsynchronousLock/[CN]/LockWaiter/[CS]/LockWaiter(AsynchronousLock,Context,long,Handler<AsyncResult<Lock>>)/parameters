@@ -1,0 +1,4 @@
+AsynchronousLock lock
+Context context
+long timeout
+Handler<AsyncResult<Lock>> resultHandler

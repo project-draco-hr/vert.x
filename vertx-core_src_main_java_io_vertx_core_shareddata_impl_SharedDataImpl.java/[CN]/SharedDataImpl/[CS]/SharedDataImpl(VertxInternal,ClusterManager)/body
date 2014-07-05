@@ -1,0 +1,4 @@
+{
+  this.vertx=vertx;
+  this.clusterManager=clusterManager;
+}

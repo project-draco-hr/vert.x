@@ -1,0 +1,7 @@
+{
+  if (this == o)   return true;
+  if (!(o instanceof SomeSerializableObject))   return false;
+  SomeSerializableObject that=(SomeSerializableObject)o;
+  if (str != null ? !str.equals(that.str) : that.str != null)   return false;
+  return true;
+}

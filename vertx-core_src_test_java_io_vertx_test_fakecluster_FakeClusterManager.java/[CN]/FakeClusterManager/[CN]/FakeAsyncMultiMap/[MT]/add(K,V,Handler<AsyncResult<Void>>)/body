@@ -1,17 +1,2 @@
 {
-  vertx.executeBlocking(new Action<Void>(){
-    public Void perform(){
-      ChoosableSet<V> vals=map.get(k);
-      if (vals == null) {
-        vals=new ChoosableSet<>(1);
-        ChoosableSet<V> prevVals=map.putIfAbsent(k,vals);
-        if (prevVals != null) {
-          vals=prevVals;
-        }
-      }
-      vals.add(v);
-      return null;
-    }
-  }
-,completionHandler);
 }

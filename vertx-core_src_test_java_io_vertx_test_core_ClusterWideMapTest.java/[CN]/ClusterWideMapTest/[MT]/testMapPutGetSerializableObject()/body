@@ -1,0 +1,3 @@
+{
+  testMapPutGet(new SomeSerializableObject("bar"),new SomeSerializableObject("bar"));
+}

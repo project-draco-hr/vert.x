@@ -1,0 +1,8 @@
+{
+  if (clusterManager == null) {
+    getLocalCounter(name,resultHandler);
+  }
+ else {
+    clusterManager.getCounter(name,resultHandler);
+  }
+}

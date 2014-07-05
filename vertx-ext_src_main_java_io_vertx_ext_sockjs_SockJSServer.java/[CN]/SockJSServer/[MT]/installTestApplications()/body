@@ -68,7 +68,7 @@
   }
 );
   installApp(new JsonObject().putString("prefix","/broadcast").putNumber("max_bytes_streaming",4096),new Handler<SockJSSocket>(){
-    final Set<String> connections=vertx.sharedData().getSet("conns");
+    final Set<String> connections=vertx.sharedData().getLocalSet("conns");
     public void handle(    final SockJSSocket sock){
       connections.add(sock.writeHandlerID());
       sock.dataHandler(new Handler<Buffer>(){

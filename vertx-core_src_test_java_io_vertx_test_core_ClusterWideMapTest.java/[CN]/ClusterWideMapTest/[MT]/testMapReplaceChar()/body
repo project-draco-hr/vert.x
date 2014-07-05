@@ -1,0 +1,3 @@
+{
+  testMapReplace('X','Y','Z');
+}

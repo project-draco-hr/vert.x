@@ -1,0 +1,3 @@
+{
+  testMapRemove((byte)1,(byte)2);
+}

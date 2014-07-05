@@ -1,0 +1,3 @@
+{
+  testMapPutIfAbsentGet(new JsonObject().putString("foo","bar"),new JsonObject().putString("uihwqduh","qiwiojw"));
+}

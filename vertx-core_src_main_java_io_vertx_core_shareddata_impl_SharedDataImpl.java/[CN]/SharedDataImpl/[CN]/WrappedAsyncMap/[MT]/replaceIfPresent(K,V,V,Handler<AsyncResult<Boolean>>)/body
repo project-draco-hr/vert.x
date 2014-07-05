@@ -1,0 +1,3 @@
+{
+  delegate.replaceIfPresent(k,oldValue,newValue,resultHandler);
+}

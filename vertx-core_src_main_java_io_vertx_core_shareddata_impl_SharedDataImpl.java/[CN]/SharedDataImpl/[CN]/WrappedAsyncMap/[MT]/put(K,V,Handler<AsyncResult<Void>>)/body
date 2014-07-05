@@ -1,0 +1,5 @@
+{
+  checkType(k);
+  checkType(v);
+  delegate.put(k,v,completionHandler);
+}

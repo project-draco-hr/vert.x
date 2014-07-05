@@ -1,4 +1,0 @@
-{
-  com.hazelcast.core.MultiMap map=hazelcast.getMultiMap(name);
-  return new HazelcastAsyncMultiMap(vertx,map);
-}

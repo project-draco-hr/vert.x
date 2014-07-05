@@ -1,6 +1,6 @@
 {
   this.vertx=vertx;
-  this.sessions=vertx.sharedData().getMap("_vertx.sockjssessions");
+  this.sessions=vertx.sharedData().getLocalMap("_vertx.sockjssessions");
   rm.noMatch(httpServer.requestHandler());
   wsMatcher.noMatch(new Handler<WebSocketMatcher.Match>(){
     Handler<ServerWebSocket> wsHandler=httpServer.websocketHandler();
