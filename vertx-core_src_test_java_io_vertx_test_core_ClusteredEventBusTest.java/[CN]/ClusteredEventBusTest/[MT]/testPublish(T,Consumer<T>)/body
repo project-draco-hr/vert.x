@@ -26,9 +26,9 @@ class MyRegisterHandler implements Handler<AsyncResult<Void>> {
     }
   }
   Registration reg=vertices[2].eventBus().registerHandler(ADDRESS1,new MyHandler());
-  reg.doneHandler(new MyRegisterHandler());
+  reg.completionHandler(new MyRegisterHandler());
   reg=vertices[1].eventBus().registerHandler(ADDRESS1,new MyHandler());
-  reg.doneHandler(new MyRegisterHandler());
+  reg.completionHandler(new MyRegisterHandler());
   vertices[0].eventBus().publish(ADDRESS1,(T)val);
   await();
 }

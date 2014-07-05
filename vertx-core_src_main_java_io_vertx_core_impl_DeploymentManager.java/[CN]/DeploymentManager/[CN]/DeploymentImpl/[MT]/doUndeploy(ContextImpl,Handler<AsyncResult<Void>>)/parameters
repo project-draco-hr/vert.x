@@ -1,2 +1,2 @@
 ContextImpl undeployingContext
-Handler<AsyncResult<Void>> doneHandler
+Handler<AsyncResult<Void>> completionHandler

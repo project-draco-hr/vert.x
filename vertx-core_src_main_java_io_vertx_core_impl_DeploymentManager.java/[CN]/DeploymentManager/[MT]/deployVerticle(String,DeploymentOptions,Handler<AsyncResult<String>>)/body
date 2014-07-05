@@ -6,7 +6,7 @@
     for (    VerticleFactory factory : verticleFactories) {
       if (factory.matches(verticleName)) {
         if (verticleFactory != null) {
-          reportFailure(new VertxException("Multiple VerticleFactory matches for verticleName: " + verticleName),currentContext,doneHandler);
+          reportFailure(new VertxException("Multiple VerticleFactory matches for verticleName: " + verticleName),currentContext,completionHandler);
           return;
         }
         verticleFactory=factory;
@@ -17,13 +17,13 @@
     }
     Verticle verticle=verticleFactory.createVerticle(verticleName,cl);
     if (verticle == null) {
-      reportFailure(new NullPointerException("VerticleFactory::createVerticle returned null"),currentContext,doneHandler);
+      reportFailure(new NullPointerException("VerticleFactory::createVerticle returned null"),currentContext,completionHandler);
     }
  else {
-      doDeploy(verticle,options,currentContext,doneHandler);
+      doDeploy(verticle,options,currentContext,completionHandler);
     }
   }
  catch (  Exception e) {
-    reportFailure(e,currentContext,doneHandler);
+    reportFailure(e,currentContext,completionHandler);
   }
 }

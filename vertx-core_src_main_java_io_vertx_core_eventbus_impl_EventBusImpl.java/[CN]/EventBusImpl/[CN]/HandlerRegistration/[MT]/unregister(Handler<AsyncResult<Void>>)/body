@@ -1,4 +1,4 @@
 {
-  Objects.requireNonNull(doneHandler);
-  unregisterHandler(address,handler,doneHandler);
+  Objects.requireNonNull(completionHandler);
+  unregisterHandler(address,handler,completionHandler);
 }

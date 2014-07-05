@@ -2,9 +2,9 @@
   Deployment deployment=deployments.get(deploymentID);
   Context currentContext=vertx.getOrCreateContext();
   if (deployment == null) {
-    reportFailure(new IllegalStateException("Unknown deployment"),currentContext,doneHandler);
+    reportFailure(new IllegalStateException("Unknown deployment"),currentContext,completionHandler);
   }
  else {
-    deployment.undeploy(doneHandler);
+    deployment.undeploy(completionHandler);
   }
 }

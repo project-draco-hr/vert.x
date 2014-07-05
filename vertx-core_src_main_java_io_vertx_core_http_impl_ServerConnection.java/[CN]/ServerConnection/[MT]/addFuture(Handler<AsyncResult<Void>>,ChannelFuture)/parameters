@@ -1,2 +1,2 @@
-Handler<AsyncResult<Void>> doneHandler
+Handler<AsyncResult<Void>> completionHandler
 ChannelFuture future

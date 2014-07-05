@@ -1,6 +1,6 @@
 {
-  if (doneHandler != null) {
-    reportResult(context,doneHandler,new FutureResultImpl<>(t));
+  if (completionHandler != null) {
+    reportResult(context,completionHandler,new FutureResultImpl<>(t));
   }
  else {
     log.error(t.getMessage(),t);

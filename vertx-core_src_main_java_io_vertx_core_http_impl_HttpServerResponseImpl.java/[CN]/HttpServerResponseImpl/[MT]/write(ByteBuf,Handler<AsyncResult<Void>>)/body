@@ -11,6 +11,6 @@
  else {
     channelFuture=conn.write(new DefaultHttpContent(chunk));
   }
-  conn.addFuture(doneHandler,channelFuture);
+  conn.addFuture(completionHandler,channelFuture);
   return this;
 }

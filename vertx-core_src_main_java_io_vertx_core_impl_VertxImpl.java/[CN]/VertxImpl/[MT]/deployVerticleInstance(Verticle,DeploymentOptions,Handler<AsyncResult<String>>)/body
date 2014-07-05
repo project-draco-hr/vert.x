@@ -1,3 +1,3 @@
 {
-  deploymentManager.deployVerticle(verticle,options,doneHandler);
+  deploymentManager.deployVerticle(verticle,options,completionHandler);
 }

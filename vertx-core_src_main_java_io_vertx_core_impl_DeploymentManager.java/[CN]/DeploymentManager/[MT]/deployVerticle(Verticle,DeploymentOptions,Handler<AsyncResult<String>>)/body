@@ -1,4 +1,4 @@
 {
   ContextImpl currentContext=vertx.getOrCreateContext();
-  doDeploy(verticle,options,currentContext,doneHandler);
+  doDeploy(verticle,options,currentContext,completionHandler);
 }

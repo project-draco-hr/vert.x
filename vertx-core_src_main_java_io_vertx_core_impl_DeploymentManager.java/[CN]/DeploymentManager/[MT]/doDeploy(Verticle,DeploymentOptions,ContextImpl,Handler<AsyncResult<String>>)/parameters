@@ -1,4 +1,4 @@
 Verticle verticle
 DeploymentOptions options
 ContextImpl currentContext
-Handler<AsyncResult<String>> doneHandler
+Handler<AsyncResult<String>> completionHandler

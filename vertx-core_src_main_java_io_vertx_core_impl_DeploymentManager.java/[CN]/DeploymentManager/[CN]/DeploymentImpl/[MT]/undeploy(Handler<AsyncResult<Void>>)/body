@@ -1,9 +1,9 @@
 {
   ContextImpl currentContext=vertx.getOrCreateContext();
   if (!undeployed) {
-    doUndeploy(currentContext,doneHandler);
+    doUndeploy(currentContext,completionHandler);
   }
  else {
-    reportFailure(new IllegalStateException("Already undeployed"),currentContext,doneHandler);
+    reportFailure(new IllegalStateException("Already undeployed"),currentContext,completionHandler);
   }
 }
