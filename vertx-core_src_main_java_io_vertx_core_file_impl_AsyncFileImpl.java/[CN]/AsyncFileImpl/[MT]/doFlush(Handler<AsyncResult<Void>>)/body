@@ -1,16 +1,2 @@
 {
-  checkClosed();
-  checkContext();
-  new BlockingAction<Void>(vertx,handler){
-    public Void action(){
-      try {
-        ch.force(false);
-        return null;
-      }
- catch (      IOException e) {
-        throw new FileSystemException(e);
-      }
-    }
-  }
-.run();
 }

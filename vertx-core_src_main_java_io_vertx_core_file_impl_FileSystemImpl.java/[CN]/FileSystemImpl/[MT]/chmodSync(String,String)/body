@@ -1,4 +1,4 @@
 {
-  chmodInternal(path,perms,null).action();
+  chmodInternal(path,perms,null).perform();
   return this;
 }

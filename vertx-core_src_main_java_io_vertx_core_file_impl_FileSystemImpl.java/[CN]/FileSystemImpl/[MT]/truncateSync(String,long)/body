@@ -1,4 +1,4 @@
 {
-  truncateInternal(path,len,null).action();
+  truncateInternal(path,len,null).perform();
   return this;
 }

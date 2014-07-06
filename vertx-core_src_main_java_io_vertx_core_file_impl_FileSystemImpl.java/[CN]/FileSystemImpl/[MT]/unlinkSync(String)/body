@@ -1,4 +1,4 @@
 {
-  unlinkInternal(link,null).action();
+  unlinkInternal(link,null).perform();
   return this;
 }

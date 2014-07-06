@@ -1,3 +1,3 @@
 {
-  return existsInternal(path,null).action();
+  return existsInternal(path,null).perform();
 }

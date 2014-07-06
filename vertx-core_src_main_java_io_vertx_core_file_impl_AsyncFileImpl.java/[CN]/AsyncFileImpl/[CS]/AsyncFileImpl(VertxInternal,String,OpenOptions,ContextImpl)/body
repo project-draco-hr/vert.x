@@ -17,10 +17,10 @@
   try {
     if (options.getPerms() != null) {
       FileAttribute<?> attrs=PosixFilePermissions.asFileAttribute(PosixFilePermissions.fromString(options.getPerms()));
-      ch=AsynchronousFileChannel.open(file,opts,vertx.getBackgroundPool(),attrs);
+      ch=AsynchronousFileChannel.open(file,opts,vertx.getWorkerPool(),attrs);
     }
  else {
-      ch=AsynchronousFileChannel.open(file,opts,vertx.getBackgroundPool());
+      ch=AsynchronousFileChannel.open(file,opts,vertx.getWorkerPool());
     }
   }
  catch (  IOException e) {

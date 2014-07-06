@@ -1,4 +1,4 @@
 {
-  deleteInternal(path,recursive,null).action();
+  deleteInternal(path,recursive,null).perform();
   return this;
 }

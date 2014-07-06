@@ -1,4 +1,4 @@
 {
-  copyInternal(from,to,recursive,null).action();
+  copyInternal(from,to,recursive,null).perform();
   return this;
 }

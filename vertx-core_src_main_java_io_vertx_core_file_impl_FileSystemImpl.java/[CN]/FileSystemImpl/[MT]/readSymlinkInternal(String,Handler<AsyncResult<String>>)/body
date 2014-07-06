@@ -1,7 +1,7 @@
 {
   final Path source=PathAdjuster.adjust(vertx,Paths.get(link));
-  return new BlockingAction<String>(vertx,handler){
-    public String action(){
+  return new BlockingAction<String>(handler){
+    public String perform(){
       try {
         return Files.readSymbolicLink(source).toString();
       }

@@ -1,3 +1,3 @@
 {
-  return readDirInternal(path,null).action();
+  return readDirInternal(path,null).perform();
 }

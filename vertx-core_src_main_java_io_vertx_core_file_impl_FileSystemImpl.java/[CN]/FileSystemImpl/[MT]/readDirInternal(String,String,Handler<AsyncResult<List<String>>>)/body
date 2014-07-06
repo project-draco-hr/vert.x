@@ -1,7 +1,7 @@
 {
   final String path=PathAdjuster.adjust(vertx,p);
-  return new BlockingAction<List<String>>(vertx,handler){
-    public List<String> action(){
+  return new BlockingAction<List<String>>(handler){
+    public List<String> perform(){
       try {
         File file=new File(path);
         if (!file.exists()) {
@@ -31,7 +31,6 @@
             files=file.listFiles(fnFilter);
           }
           List<String> ret=new ArrayList<>(files.length);
-          int i=0;
           for (          File f : files) {
             ret.add(f.getCanonicalPath());
           }

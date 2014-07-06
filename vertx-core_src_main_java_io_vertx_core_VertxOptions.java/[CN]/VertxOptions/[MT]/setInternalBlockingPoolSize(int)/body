@@ -1,0 +1,7 @@
+{
+  if (internalBlockingPoolSize < 1) {
+    throw new IllegalArgumentException("internalBlockingPoolSize must be > 0");
+  }
+  this.internalBlockingPoolSize=internalBlockingPoolSize;
+  return this;
+}

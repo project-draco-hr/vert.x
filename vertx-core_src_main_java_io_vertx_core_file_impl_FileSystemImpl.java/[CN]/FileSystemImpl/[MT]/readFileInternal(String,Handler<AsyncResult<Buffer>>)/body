@@ -1,7 +1,7 @@
 {
   final Path target=PathAdjuster.adjust(vertx,Paths.get(path));
-  return new BlockingAction<Buffer>(vertx,handler){
-    public Buffer action(){
+  return new BlockingAction<Buffer>(handler){
+    public Buffer perform(){
       try {
         byte[] bytes=Files.readAllBytes(target);
         Buffer buff=Buffer.newBuffer(bytes);

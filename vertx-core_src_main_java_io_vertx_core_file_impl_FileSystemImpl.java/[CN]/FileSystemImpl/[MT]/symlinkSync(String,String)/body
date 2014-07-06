@@ -1,4 +1,4 @@
 {
-  symlinkInternal(link,existing,null).action();
+  symlinkInternal(link,existing,null).perform();
   return this;
 }

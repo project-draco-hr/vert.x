@@ -1,8 +1,8 @@
 {
   logInternal(perms);
   logInternal(dirPerms);
-  return new BlockingAction<Void>(vertx,handler){
-    @Override public Void action(){
+  return new BlockingAction<Void>(handler){
+    @Override public Void perform(){
       return null;
     }
   }

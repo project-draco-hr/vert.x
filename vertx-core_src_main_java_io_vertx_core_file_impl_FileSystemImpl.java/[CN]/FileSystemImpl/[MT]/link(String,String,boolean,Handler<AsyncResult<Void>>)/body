@@ -1,8 +1,8 @@
 {
   final Path source=PathAdjuster.adjust(vertx,Paths.get(link));
   final Path target=PathAdjuster.adjust(vertx,Paths.get(existing));
-  return new BlockingAction<Void>(vertx,handler){
-    public Void action(){
+  return new BlockingAction<Void>(handler){
+    public Void perform(){
       try {
         if (symbolic) {
           Files.createSymbolicLink(source,target);

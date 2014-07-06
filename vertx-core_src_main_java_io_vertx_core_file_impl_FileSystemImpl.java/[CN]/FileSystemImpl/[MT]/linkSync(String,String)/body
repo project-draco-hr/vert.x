@@ -1,4 +1,4 @@
 {
-  linkInternal(link,existing,null).action();
+  linkInternal(link,existing,null).perform();
   return this;
 }

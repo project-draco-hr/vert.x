@@ -1,4 +1,4 @@
 {
-  writeFileInternal(path,data,null).action();
+  writeFileInternal(path,data,null).perform();
   return this;
 }

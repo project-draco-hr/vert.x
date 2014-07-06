@@ -1,7 +1,7 @@
 {
   final Path target=PathAdjuster.adjust(vertx,Paths.get(path));
-  return new BlockingAction<FileProps>(vertx,handler){
-    public FileProps action(){
+  return new BlockingAction<FileProps>(handler){
+    public FileProps perform(){
       try {
         BasicFileAttributes attrs;
         if (followLinks) {

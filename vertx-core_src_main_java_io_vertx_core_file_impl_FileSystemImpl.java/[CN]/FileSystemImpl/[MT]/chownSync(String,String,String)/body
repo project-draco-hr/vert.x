@@ -1,4 +1,4 @@
 {
-  chownInternal(path,user,group,null).action();
+  chownInternal(path,user,group,null).perform();
   return this;
 }
