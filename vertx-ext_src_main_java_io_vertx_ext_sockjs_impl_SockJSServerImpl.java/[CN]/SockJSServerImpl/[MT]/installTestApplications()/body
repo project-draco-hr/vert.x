@@ -1,0 +1,102 @@
+{
+  installApp(new JsonObject().putString("prefix","/echo").putNumber("max_bytes_streaming",4096),new Handler<SockJSSocket>(){
+    public void handle(    SockJSSocket sock){
+      sock.dataHandler(new Handler<Buffer>(){
+        public void handle(        Buffer buff){
+          sock.writeBuffer(buff);
+        }
+      }
+);
+    }
+  }
+);
+  installApp(new JsonObject().putString("prefix","/close").putNumber("max_bytes_streaming",4096),new Handler<SockJSSocket>(){
+    public void handle(    SockJSSocket sock){
+      sock.close();
+    }
+  }
+);
+  JsonArray disabled=new JsonArray();
+  disabled.add(Transport.WEBSOCKET.toString());
+  installApp(new JsonObject().putString("prefix","/disabled_websocket_echo").putNumber("max_bytes_streaming",4096).putArray("disabled_transports",disabled),new Handler<SockJSSocket>(){
+    public void handle(    SockJSSocket sock){
+      sock.dataHandler(new Handler<Buffer>(){
+        public void handle(        Buffer buff){
+          sock.writeBuffer(buff);
+        }
+      }
+);
+    }
+  }
+);
+  installApp(new JsonObject().putString("prefix","/ticker").putNumber("max_bytes_streaming",4096),new Handler<SockJSSocket>(){
+    public void handle(    SockJSSocket sock){
+      long timerID=vertx.setPeriodic(1000,new Handler<Long>(){
+        public void handle(        Long id){
+          sock.writeBuffer(Buffer.newBuffer("tick!"));
+        }
+      }
+);
+      sock.endHandler(new VoidHandler(){
+        public void handle(){
+          vertx.cancelTimer(timerID);
+        }
+      }
+);
+    }
+  }
+);
+  installApp(new JsonObject().putString("prefix","/amplify").putNumber("max_bytes_streaming",4096),new Handler<SockJSSocket>(){
+    public void handle(    SockJSSocket sock){
+      sock.dataHandler(new Handler<Buffer>(){
+        public void handle(        Buffer data){
+          String str=data.toString();
+          int n=Integer.valueOf(str);
+          if (n < 0 || n > 19) {
+            n=1;
+          }
+          int num=(int)Math.pow(2,n);
+          Buffer buff=Buffer.newBuffer(num);
+          for (int i=0; i < num; i++) {
+            buff.appendByte((byte)'x');
+          }
+          sock.writeBuffer(buff);
+        }
+      }
+);
+    }
+  }
+);
+  installApp(new JsonObject().putString("prefix","/broadcast").putNumber("max_bytes_streaming",4096),new Handler<SockJSSocket>(){
+    Set<String> connections=vertx.sharedData().getSet("conns");
+    public void handle(    SockJSSocket sock){
+      connections.add(sock.writeHandlerID());
+      sock.dataHandler(new Handler<Buffer>(){
+        public void handle(        Buffer buffer){
+          for (          String actorID : connections) {
+            vertx.eventBus().publish(actorID,buffer);
+          }
+        }
+      }
+);
+      sock.endHandler(new VoidHandler(){
+        public void handle(){
+          connections.remove(sock.writeHandlerID());
+        }
+      }
+);
+    }
+  }
+);
+  installApp(new JsonObject().putString("prefix","/cookie_needed_echo").putNumber("max_bytes_streaming",4096).putBoolean("insert_JSESSIONID",true),new Handler<SockJSSocket>(){
+    public void handle(    SockJSSocket sock){
+      sock.dataHandler(new Handler<Buffer>(){
+        public void handle(        Buffer buff){
+          sock.writeBuffer(buff);
+        }
+      }
+);
+    }
+  }
+);
+}
