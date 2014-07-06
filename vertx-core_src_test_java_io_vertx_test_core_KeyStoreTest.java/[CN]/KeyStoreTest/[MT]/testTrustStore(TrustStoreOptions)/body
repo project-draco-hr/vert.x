@@ -1,0 +1,5 @@
+{
+  KeyStoreHelper helper=KeyStoreHelper.create((VertxInternal)vertx,options);
+  TrustManager[] keyManagers=helper.getTrustMgrs((VertxInternal)vertx);
+  assertTrue(keyManagers.length > 0);
+}

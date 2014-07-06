@@ -1,0 +1,3 @@
+{
+  testKeyStore(getServerCertOptions(KS.JKS));
+}

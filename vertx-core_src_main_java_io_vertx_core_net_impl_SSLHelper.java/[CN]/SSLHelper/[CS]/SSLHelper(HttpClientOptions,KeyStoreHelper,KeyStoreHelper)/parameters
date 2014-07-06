@@ -1,0 +1,3 @@
+HttpClientOptions options
+KeyStoreHelper keyStoreHelper
+KeyStoreHelper trustStoreHelper

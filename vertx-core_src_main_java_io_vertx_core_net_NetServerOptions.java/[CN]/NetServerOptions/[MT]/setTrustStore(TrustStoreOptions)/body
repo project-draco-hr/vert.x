@@ -1,0 +1,4 @@
+{
+  super.setTrustStore(trustStore);
+  return this;
+}

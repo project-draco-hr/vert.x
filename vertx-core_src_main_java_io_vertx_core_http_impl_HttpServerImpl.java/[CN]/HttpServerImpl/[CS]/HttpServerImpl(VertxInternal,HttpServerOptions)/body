@@ -8,5 +8,5 @@
     }
     creatingContext.addCloseHook(this);
   }
-  sslHelper=new SSLHelper(options);
+  this.sslHelper=new SSLHelper(options,KeyStoreHelper.create(vertx,options.getKeyStore()),KeyStoreHelper.create(vertx,options.getTrustStore()));
 }

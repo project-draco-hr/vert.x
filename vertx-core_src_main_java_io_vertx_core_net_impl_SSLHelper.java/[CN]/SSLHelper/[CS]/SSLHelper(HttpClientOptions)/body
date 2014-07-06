@@ -1,9 +1,0 @@
-{
-  this.ssl=options.isSsl();
-  this.keyStorePath=options.getKeyStorePath();
-  this.keyStorePassword=options.getKeyStorePassword();
-  this.trustStorePath=options.getTrustStorePath();
-  this.trustStorePassword=options.getTrustStorePassword();
-  this.trustAll=options.isTrustAll();
-  this.enabledCipherSuites=options.getEnabledCipherSuites();
-}

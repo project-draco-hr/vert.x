@@ -1,0 +1,9 @@
+{
+  this.ssl=options.isSsl();
+  this.keyStoreHelper=keyStoreHelper;
+  this.trustStoreHelper=trustStoreHelper;
+  this.trustAll=options.isTrustAll();
+  this.crlPaths=new ArrayList<>(options.getCrlPaths());
+  this.crlValues=new ArrayList<>(options.getCrlValues());
+  this.enabledCipherSuites=options.getEnabledCipherSuites();
+}

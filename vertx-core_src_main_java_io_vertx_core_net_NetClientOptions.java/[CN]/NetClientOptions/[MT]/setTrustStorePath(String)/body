@@ -1,4 +1,0 @@
-{
-  super.setTrustStorePath(trustStorePath);
-  return this;
-}

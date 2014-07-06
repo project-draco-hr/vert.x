@@ -75,22 +75,14 @@
   assertFalse(options.isSsl());
   assertEquals(options,options.setSsl(true));
   assertTrue(options.isSsl());
-  assertNull(options.getKeyStorePath());
-  String randString=TestUtils.randomAlphaString(100);
-  assertEquals(options,options.setKeyStorePath(randString));
-  assertEquals(randString,options.getKeyStorePath());
-  assertNull(options.getKeyStorePassword());
-  randString=TestUtils.randomAlphaString(100);
-  assertEquals(options,options.setKeyStorePassword(randString));
-  assertEquals(randString,options.getKeyStorePassword());
-  assertNull(options.getTrustStorePath());
-  randString=TestUtils.randomAlphaString(100);
-  assertEquals(options,options.setTrustStorePath(randString));
-  assertEquals(randString,options.getTrustStorePath());
-  assertNull(options.getTrustStorePassword());
-  randString=TestUtils.randomAlphaString(100);
-  assertEquals(options,options.setTrustStorePassword(randString));
-  assertEquals(randString,options.getTrustStorePassword());
+  assertNull(options.getKeyStore());
+  JKSOptions keyStoreOptions=new JKSOptions().setPath(TestUtils.randomAlphaString(100)).setPassword(TestUtils.randomAlphaString(100));
+  assertEquals(options,options.setKeyStore(keyStoreOptions));
+  assertEquals(keyStoreOptions,options.getKeyStore());
+  assertNull(options.getTrustStore());
+  JKSOptions trustStoreOptions=new JKSOptions().setPath(TestUtils.randomAlphaString(100)).setPassword(TestUtils.randomAlphaString(100));
+  assertEquals(options,options.setTrustStore(trustStoreOptions));
+  assertEquals(trustStoreOptions,options.getTrustStore());
   assertEquals(1024,options.getAcceptBacklog());
   rand=TestUtils.randomPositiveInt();
   assertEquals(options,options.setAcceptBacklog(rand));
@@ -118,7 +110,7 @@
  catch (  IllegalArgumentException e) {
   }
   assertEquals("0.0.0.0",options.getHost());
-  randString=TestUtils.randomUnicodeString(100);
+  String randString=TestUtils.randomUnicodeString(100);
   assertEquals(options,options.setHost(randString));
   assertEquals(randString,options.getHost());
   assertNull(options.getWebsocketSubProtocols());

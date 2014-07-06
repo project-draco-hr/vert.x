@@ -1,0 +1,18 @@
+{
+  KeyStore ks=KeyStore.getInstance(type);
+  InputStream in=null;
+  try {
+    in=new ByteArrayInputStream(value.call().getBytes());
+    ks.load(in,ksPassword != null ? ksPassword.toCharArray() : null);
+  }
+  finally {
+    if (in != null) {
+      try {
+        in.close();
+      }
+ catch (      IOException ignore) {
+      }
+    }
+  }
+  return ks;
+}

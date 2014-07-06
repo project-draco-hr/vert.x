@@ -1,0 +1,3 @@
+{
+  testInvalidKeyStore(((JKSOptions)getServerCertOptions(KS.JKS)).setPath("/invalid.jks"),"java.nio.file.NoSuchFileException: /invalid.jks");
+}

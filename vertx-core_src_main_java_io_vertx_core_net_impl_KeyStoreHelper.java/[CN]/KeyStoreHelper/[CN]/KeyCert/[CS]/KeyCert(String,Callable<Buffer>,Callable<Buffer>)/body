@@ -1,0 +1,5 @@
+{
+  super(password);
+  this.keyValue=keyValue;
+  this.certValue=certValue;
+}

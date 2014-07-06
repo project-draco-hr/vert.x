@@ -1,0 +1,6 @@
+{
+  PKCS12Options options=(PKCS12Options)getServerCertOptions(KS.PKCS12);
+  Buffer store=vertx.fileSystem().readFileSync(options.getPath());
+  options.setPath(null).setValue(store);
+  testKeyStore(options);
+}

@@ -1,0 +1,3 @@
+String password
+Callable<Buffer> keyValue
+Callable<Buffer> certValue

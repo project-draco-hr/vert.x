@@ -1,4 +1,0 @@
-{
-  this.trustStorePassword=trustStorePassword;
-  return this;
-}

@@ -1,0 +1,5 @@
+{
+  KeyStoreHelper helper=KeyStoreHelper.create((VertxInternal)vertx,options);
+  KeyManager[] keyManagers=helper.getKeyMgrs((VertxInternal)vertx);
+  assertTrue(keyManagers.length > 0);
+}

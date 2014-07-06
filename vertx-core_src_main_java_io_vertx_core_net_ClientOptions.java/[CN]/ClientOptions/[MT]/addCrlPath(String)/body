@@ -1,0 +1,7 @@
+{
+  if (crlPath == null) {
+    throw new NullPointerException("No null crl accepted");
+  }
+  crlPaths.add(crlPath);
+  return this;
+}

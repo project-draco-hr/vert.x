@@ -1,0 +1,4 @@
+{
+  this.keyPath=keyPath;
+  return this;
+}
