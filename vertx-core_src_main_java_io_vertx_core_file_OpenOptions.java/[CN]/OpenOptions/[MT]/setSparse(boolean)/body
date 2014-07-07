@@ -1,3 +1,4 @@
 {
   this.sparse=sparse;
+  return this;
 }

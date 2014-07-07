@@ -1,3 +1,4 @@
 {
   this.createNew=createNew;
+  return this;
 }

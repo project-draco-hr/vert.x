@@ -1,3 +1,4 @@
 {
   this.write=write;
+  return this;
 }

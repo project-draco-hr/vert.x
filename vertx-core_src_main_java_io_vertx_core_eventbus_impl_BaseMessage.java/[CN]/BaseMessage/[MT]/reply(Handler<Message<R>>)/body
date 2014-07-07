@@ -1,3 +1,0 @@
-{
-  sendReply(bus.createMessage(true,replyAddress,null),replyHandler);
-}

@@ -1,3 +1,4 @@
 {
   this.dsync=dsync;
+  return this;
 }

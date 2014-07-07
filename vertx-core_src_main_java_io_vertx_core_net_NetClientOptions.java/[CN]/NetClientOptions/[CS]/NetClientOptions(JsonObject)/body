@@ -1,0 +1,5 @@
+{
+  super(json);
+  this.reconnectAttempts=json.getInteger("reconnectAttempts",0);
+  this.reconnectInterval=json.getLong("reconnectInterval",DEFAULT_RECONNECTINTERVAL);
+}

@@ -1,3 +1,4 @@
 {
   this.read=read;
+  return this;
 }
