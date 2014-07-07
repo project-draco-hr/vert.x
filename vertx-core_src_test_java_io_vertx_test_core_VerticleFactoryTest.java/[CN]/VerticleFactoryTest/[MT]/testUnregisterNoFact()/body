@@ -1,5 +1,5 @@
 {
-  VerticleFactory fact1=new TestVerticleFactory();
+  VerticleFactory fact1=new TestVerticleFactory("foo");
   try {
     vertx.unregisterVerticleFactory(fact1);
     fail("Should throw exception");

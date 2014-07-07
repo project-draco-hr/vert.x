@@ -1,6 +1,6 @@
 {
   assertTrue(vertx.verticleFactories().isEmpty());
-  VerticleFactory fact1=new TestVerticleFactory();
+  VerticleFactory fact1=new TestVerticleFactory("foo");
   vertx.registerVerticleFactory(fact1);
   assertEquals(1,vertx.verticleFactories().size());
   assertTrue(vertx.verticleFactories().contains(fact1));

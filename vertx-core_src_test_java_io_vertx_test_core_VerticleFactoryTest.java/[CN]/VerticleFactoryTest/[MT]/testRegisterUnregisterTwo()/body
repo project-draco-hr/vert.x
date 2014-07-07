@@ -1,6 +1,6 @@
 {
-  VerticleFactory fact1=new TestVerticleFactory();
-  VerticleFactory fact2=new TestVerticleFactory();
+  VerticleFactory fact1=new TestVerticleFactory("foo");
+  VerticleFactory fact2=new TestVerticleFactory("bar");
   vertx.registerVerticleFactory(fact1);
   assertEquals(1,vertx.verticleFactories().size());
   vertx.registerVerticleFactory(fact2);

@@ -4,6 +4,12 @@
   while (iter.hasNext()) {
     VerticleFactory factory=iter.next();
     factory.init(vertx);
-    verticleFactories.add(factory);
+    String prefix=factory.prefix();
+    if (verticleFactories.containsKey(prefix)) {
+      log.warn("Not loading verticle factory: " + factory + " as prefix "+ prefix+ " is already in use");
+    }
+ else {
+      verticleFactories.put(prefix,factory);
+    }
   }
 }

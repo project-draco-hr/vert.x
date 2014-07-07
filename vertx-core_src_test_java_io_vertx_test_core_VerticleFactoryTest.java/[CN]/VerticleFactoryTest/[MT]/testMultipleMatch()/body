@@ -1,2 +1,13 @@
 {
+  TestVerticle verticle1=new TestVerticle();
+  TestVerticle verticle2=new TestVerticle();
+  TestVerticleFactory fact1=new TestVerticleFactory("aa",verticle1);
+  TestVerticleFactory fact2=new TestVerticleFactory("aa",verticle2);
+  vertx.registerVerticleFactory(fact1);
+  try {
+    vertx.registerVerticleFactory(fact2);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
 }

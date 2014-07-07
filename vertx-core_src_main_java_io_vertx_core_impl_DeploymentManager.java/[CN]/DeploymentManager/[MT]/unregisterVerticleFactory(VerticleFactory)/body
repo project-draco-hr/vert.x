@@ -1,5 +1,5 @@
 {
-  if (!verticleFactories.remove(factory)) {
+  if (verticleFactories.remove(factory.prefix()) == null) {
     throw new IllegalArgumentException("Factory " + factory + " is not registered");
   }
 }

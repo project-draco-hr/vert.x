@@ -1,21 +1,21 @@
 {
   ContextImpl currentContext=vertx.getOrCreateContext();
   ClassLoader cl=getClassLoader(options.getIsolationGroup());
+  int pos=verticleName.indexOf(':');
+  if (pos == -1) {
+    throw new IllegalArgumentException("verticleName must start with prefix");
+  }
+  String prefix=verticleName.substring(0,pos);
+  if (pos + 1 >= verticleName.length()) {
+    throw new IllegalArgumentException("Invalid name: " + verticleName);
+  }
+  String actualName=verticleName.substring(pos + 1);
+  VerticleFactory verticleFactory=verticleFactories.get(prefix);
+  if (verticleFactory == null) {
+    verticleFactory=DEFAULT_VERTICLE_FACTORY;
+  }
   try {
-    VerticleFactory verticleFactory=null;
-    for (    VerticleFactory factory : verticleFactories) {
-      if (factory.matches(verticleName)) {
-        if (verticleFactory != null) {
-          reportFailure(new VertxException("Multiple VerticleFactory matches for verticleName: " + verticleName),currentContext,completionHandler);
-          return;
-        }
-        verticleFactory=factory;
-      }
-    }
-    if (verticleFactory == null) {
-      verticleFactory=DEFAULT_VERTICLE_FACTORY;
-    }
-    Verticle verticle=verticleFactory.createVerticle(verticleName,cl);
+    Verticle verticle=verticleFactory.createVerticle(actualName,cl);
     if (verticle == null) {
       reportFailure(new NullPointerException("VerticleFactory::createVerticle returned null"),currentContext,completionHandler);
     }

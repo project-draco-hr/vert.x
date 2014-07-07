@@ -1,6 +1,9 @@
 {
-  if (verticleFactories.contains(factory)) {
-    throw new IllegalArgumentException("Factory " + factory + " is already registered");
+  if (factory.prefix() == null) {
+    throw new IllegalArgumentException("factory.prefix() cannot be null");
   }
-  verticleFactories.add(factory);
+  if (verticleFactories.containsKey(factory.prefix())) {
+    throw new IllegalArgumentException("There is already a registered verticle factory with prefix " + factory.prefix());
+  }
+  verticleFactories.put(factory.prefix(),factory);
 }
