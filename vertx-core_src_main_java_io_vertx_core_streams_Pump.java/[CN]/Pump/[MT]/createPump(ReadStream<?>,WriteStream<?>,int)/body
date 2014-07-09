@@ -1,3 +1,0 @@
-{
-  return new Pump(rs,ws,writeQueueMaxSize);
-}
