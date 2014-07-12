@@ -1,3 +1,0 @@
-{
-  this(out,Base64.ENCODE);
-}

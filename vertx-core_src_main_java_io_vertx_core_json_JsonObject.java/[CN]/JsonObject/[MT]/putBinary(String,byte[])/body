@@ -1,4 +1,4 @@
 {
-  map.put(fieldName,binary == null ? null : Base64.encodeBytes(binary));
+  map.put(fieldName,binary == null ? null : Base64.getEncoder().encodeToString(binary));
   return this;
 }

@@ -1,3 +1,0 @@
-{
-  return Base64.encodeBytes(source,0,source.length,options);
-}

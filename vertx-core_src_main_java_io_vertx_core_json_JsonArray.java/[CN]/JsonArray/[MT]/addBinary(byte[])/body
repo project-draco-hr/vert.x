@@ -1,5 +1,5 @@
 {
-  String encoded=(value == null) ? null : io.vertx.core.json.impl.Base64.encodeBytes(value);
+  String encoded=(value == null) ? null : Base64.getEncoder().encodeToString(value);
   list.add(encoded);
   return this;
 }

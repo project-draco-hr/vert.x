@@ -2,7 +2,7 @@
   try {
     MessageDigest md=MessageDigest.getInstance("SHA1");
     byte[] bytes=md.digest(s.getBytes("UTF-8"));
-    return Base64.encodeBytes(bytes);
+    return Base64.getEncoder().encodeToString(bytes);
   }
  catch (  Exception e) {
     throw new InternalError("Failed to compute sha-1");
