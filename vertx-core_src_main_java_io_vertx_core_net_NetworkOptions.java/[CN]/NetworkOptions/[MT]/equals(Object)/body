@@ -1,0 +1,10 @@
+{
+  if (this == o)   return true;
+  if (!(o instanceof NetworkOptions))   return false;
+  NetworkOptions that=(NetworkOptions)o;
+  if (receiveBufferSize != that.receiveBufferSize)   return false;
+  if (reuseAddress != that.reuseAddress)   return false;
+  if (sendBufferSize != that.sendBufferSize)   return false;
+  if (trafficClass != that.trafficClass)   return false;
+  return true;
+}

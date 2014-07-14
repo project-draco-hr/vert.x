@@ -1,0 +1,6 @@
+{
+  int result=super.hashCode();
+  result=31 * result + reconnectAttempts;
+  result=31 * result + (int)(reconnectInterval ^ (reconnectInterval >>> 32));
+  return result;
+}

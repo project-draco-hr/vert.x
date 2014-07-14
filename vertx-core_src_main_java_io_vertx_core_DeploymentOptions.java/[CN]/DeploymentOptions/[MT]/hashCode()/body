@@ -1,0 +1,7 @@
+{
+  int result=config != null ? config.hashCode() : 0;
+  result=31 * result + (worker ? 1 : 0);
+  result=31 * result + (multiThreaded ? 1 : 0);
+  result=31 * result + (isolationGroup != null ? isolationGroup.hashCode() : 0);
+  return result;
+}

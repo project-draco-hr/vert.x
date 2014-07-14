@@ -1,0 +1,7 @@
+{
+  int result=sendBufferSize;
+  result=31 * result + receiveBufferSize;
+  result=31 * result + (reuseAddress ? 1 : 0);
+  result=31 * result + trafficClass;
+  return result;
+}

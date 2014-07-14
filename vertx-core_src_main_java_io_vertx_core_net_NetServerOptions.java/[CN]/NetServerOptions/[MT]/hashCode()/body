@@ -1,0 +1,10 @@
+{
+  int result=super.hashCode();
+  result=31 * result + port;
+  result=31 * result + (host != null ? host.hashCode() : 0);
+  result=31 * result + acceptBacklog;
+  result=31 * result + (clientAuthRequired ? 1 : 0);
+  result=31 * result + (crlPaths != null ? crlPaths.hashCode() : 0);
+  result=31 * result + (crlValues != null ? crlValues.hashCode() : 0);
+  return result;
+}

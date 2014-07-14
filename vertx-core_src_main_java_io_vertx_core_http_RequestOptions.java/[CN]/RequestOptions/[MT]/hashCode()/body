@@ -1,0 +1,7 @@
+{
+  int result=port;
+  result=31 * result + (host != null ? host.hashCode() : 0);
+  result=31 * result + (headers != null ? headers.hashCode() : 0);
+  result=31 * result + (requestURI != null ? requestURI.hashCode() : 0);
+  return result;
+}

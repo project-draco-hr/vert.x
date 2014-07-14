@@ -1,0 +1,13 @@
+{
+  int result=eventLoopPoolSize;
+  result=31 * result + workerPoolSize;
+  result=31 * result + internalBlockingPoolSize;
+  result=31 * result + (clustered ? 1 : 0);
+  result=31 * result + (clusterHost != null ? clusterHost.hashCode() : 0);
+  result=31 * result + clusterPort;
+  result=31 * result + (int)(blockedThreadCheckPeriod ^ (blockedThreadCheckPeriod >>> 32));
+  result=31 * result + (int)(maxEventLoopExecuteTime ^ (maxEventLoopExecuteTime >>> 32));
+  result=31 * result + (int)(maxWorkerExecuteTime ^ (maxWorkerExecuteTime >>> 32));
+  result=31 * result + (clusterManager != null ? clusterManager.hashCode() : 0);
+  return result;
+}

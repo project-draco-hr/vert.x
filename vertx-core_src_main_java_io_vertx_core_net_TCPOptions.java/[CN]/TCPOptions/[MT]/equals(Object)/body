@@ -1,0 +1,15 @@
+{
+  if (this == o)   return true;
+  if (!(o instanceof TCPOptions))   return false;
+  if (!super.equals(o))   return false;
+  TCPOptions that=(TCPOptions)o;
+  if (soLinger != that.soLinger)   return false;
+  if (ssl != that.ssl)   return false;
+  if (tcpKeepAlive != that.tcpKeepAlive)   return false;
+  if (tcpNoDelay != that.tcpNoDelay)   return false;
+  if (usePooledBuffers != that.usePooledBuffers)   return false;
+  if (enabledCipherSuites != null ? !enabledCipherSuites.equals(that.enabledCipherSuites) : that.enabledCipherSuites != null)   return false;
+  if (keyStore != null ? !keyStore.equals(that.keyStore) : that.keyStore != null)   return false;
+  if (trustStore != null ? !trustStore.equals(that.trustStore) : that.trustStore != null)   return false;
+  return true;
+}

@@ -1,0 +1,8 @@
+{
+  int result=super.hashCode();
+  result=31 * result + connectTimeout;
+  result=31 * result + (trustAll ? 1 : 0);
+  result=31 * result + (crlPaths != null ? crlPaths.hashCode() : 0);
+  result=31 * result + (crlValues != null ? crlValues.hashCode() : 0);
+  return result;
+}
