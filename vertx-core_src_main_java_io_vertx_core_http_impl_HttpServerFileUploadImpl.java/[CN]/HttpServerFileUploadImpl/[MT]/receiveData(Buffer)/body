@@ -1,6 +1,8 @@
 {
-  if (!paused) {
+  if (lazyCalculateSize) {
     size+=data.length();
+  }
+  if (!paused) {
     if (dataHandler != null) {
       dataHandler.handle(data);
     }
