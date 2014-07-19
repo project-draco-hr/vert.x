@@ -1,0 +1,3 @@
+{
+  this(vertx,proxyOperationTimeout,port,hostname,clusterManager,null);
+}

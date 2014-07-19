@@ -1,0 +1,13 @@
+{
+  assertEquals((byte)123,b);
+  assertEquals((short)123456,s);
+  assertEquals(124351423,i);
+  assertEquals(125312653l,l);
+  assertEquals(1.23f,f,0);
+  assertEquals(34.45d,d,0);
+  assertTrue(bool);
+  assertEquals("foobar",str);
+  assertEquals("bar",object.getString("foo"));
+  assertEquals("socks",array.get(0));
+  called=true;
+}

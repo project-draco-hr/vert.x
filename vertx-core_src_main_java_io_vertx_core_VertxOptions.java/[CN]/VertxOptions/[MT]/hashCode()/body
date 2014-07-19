@@ -9,5 +9,6 @@
   result=31 * result + (int)(maxEventLoopExecuteTime ^ (maxEventLoopExecuteTime >>> 32));
   result=31 * result + (int)(maxWorkerExecuteTime ^ (maxWorkerExecuteTime >>> 32));
   result=31 * result + (clusterManager != null ? clusterManager.hashCode() : 0);
+  result=31 * result + (int)(proxyOperationTimeout ^ (proxyOperationTimeout >>> 32));
   return result;
 }

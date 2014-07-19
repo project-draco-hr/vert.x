@@ -1,0 +1,3 @@
+{
+  resultHandler.handle(new FutureResultImpl<>(34.45d));
+}

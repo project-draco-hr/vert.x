@@ -1,0 +1,5 @@
+{
+  InvocationHandler handler=new ProxyInvocationHandler(address);
+  T proxy=(T)Proxy.newProxyInstance(clazz.getClassLoader(),new Class[]{clazz},handler);
+  return proxy;
+}

@@ -1,0 +1,3 @@
+{
+  resultHandler.handle(new FutureResultImpl<>(new JsonArray().add("socks")));
+}

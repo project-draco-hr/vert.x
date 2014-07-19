@@ -1,0 +1,2 @@
+String str
+Handler<AsyncResult<Integer>> resultHandler

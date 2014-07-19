@@ -1,0 +1,7 @@
+{
+  if (proxyOperationTimeout < 1) {
+    throw new IllegalArgumentException("proxyOperationTimeout must be > 0");
+  }
+  this.proxyOperationTimeout=proxyOperationTimeout;
+  return this;
+}

@@ -12,5 +12,6 @@
   if (workerPoolSize != that.workerPoolSize)   return false;
   if (clusterHost != null ? !clusterHost.equals(that.clusterHost) : that.clusterHost != null)   return false;
   if (clusterManager != null ? !clusterManager.equals(that.clusterManager) : that.clusterManager != null)   return false;
+  if (proxyOperationTimeout != that.proxyOperationTimeout)   return false;
   return true;
 }

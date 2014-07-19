@@ -1,0 +1,5 @@
+VertxInternal vertx
+long proxyOperationTimeout
+int port
+String hostname
+ClusterManager clusterManager

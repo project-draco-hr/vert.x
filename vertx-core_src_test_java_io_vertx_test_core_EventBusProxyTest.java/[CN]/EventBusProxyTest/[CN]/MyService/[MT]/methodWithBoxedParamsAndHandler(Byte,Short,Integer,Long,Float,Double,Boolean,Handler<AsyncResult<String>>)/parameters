@@ -1,0 +1,8 @@
+Byte b
+Short s
+Integer i
+Long l
+Float f
+Double d
+Boolean bool
+Handler<AsyncResult<String>> resultHandler
