@@ -1,3 +1,3 @@
 {
-  logger.log(Level.WARNING,message == null ? "NULL" : message.toString());
+  log(Level.WARNING,message);
 }

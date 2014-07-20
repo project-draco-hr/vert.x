@@ -1,0 +1,24 @@
+{
+  if (!logger.isLoggable(level)) {
+    return;
+  }
+  String msg=(message == null) ? "NULL" : message.toString();
+  LogRecord record=new LogRecord(level,msg);
+  record.setLoggerName(logger.getName());
+  record.setThrown(t);
+  boolean found=false;
+  for (  StackTraceElement ste : new Throwable().getStackTrace()) {
+    if (FQCN.equals(ste.getClassName())) {
+      found=true;
+    }
+ else     if (found && !FQCN.equals(ste.getClassName())) {
+      record.setSourceClassName(ste.getClassName());
+      record.setSourceMethodName(ste.getMethodName());
+      break;
+    }
+  }
+  if (!found) {
+    record.setSourceClassName(null);
+  }
+  logger.log(record);
+}
