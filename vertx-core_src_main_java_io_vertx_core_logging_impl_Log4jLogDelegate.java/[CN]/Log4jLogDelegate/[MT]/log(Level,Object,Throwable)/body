@@ -1,0 +1,3 @@
+{
+  logger.log(FQCN,level,message,t);
+}
