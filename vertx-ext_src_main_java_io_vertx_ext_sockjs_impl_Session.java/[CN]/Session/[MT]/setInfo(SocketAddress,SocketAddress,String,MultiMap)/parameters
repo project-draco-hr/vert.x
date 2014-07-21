@@ -1,4 +1,0 @@
-SocketAddress localAddress
-SocketAddress remoteAddress
-String uri
-MultiMap headers

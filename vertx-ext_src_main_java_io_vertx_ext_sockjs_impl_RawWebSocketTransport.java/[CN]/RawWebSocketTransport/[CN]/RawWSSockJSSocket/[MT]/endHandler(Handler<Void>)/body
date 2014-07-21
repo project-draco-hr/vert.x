@@ -1,4 +1,0 @@
-{
-  ws.endHandler(endHandler);
-  return this;
-}

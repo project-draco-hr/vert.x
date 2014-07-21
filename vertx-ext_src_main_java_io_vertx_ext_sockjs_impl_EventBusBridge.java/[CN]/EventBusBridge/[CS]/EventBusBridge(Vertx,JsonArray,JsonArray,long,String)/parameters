@@ -1,5 +1,0 @@
-Vertx vertx
-JsonArray inboundPermitted
-JsonArray outboundPermitted
-long authTimeout
-String authAddress

@@ -1,4 +1,0 @@
-{
-  ws.writeBuffer(data);
-  return this;
-}

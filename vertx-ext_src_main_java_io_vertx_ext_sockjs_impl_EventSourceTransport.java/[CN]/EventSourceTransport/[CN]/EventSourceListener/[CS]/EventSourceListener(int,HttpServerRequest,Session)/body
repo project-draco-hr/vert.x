@@ -1,5 +1,0 @@
-{
-  super(req,session);
-  this.maxBytesStreaming=maxBytesStreaming;
-  addCloseHandler(req.response(),session);
-}

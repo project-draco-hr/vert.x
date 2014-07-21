@@ -1,4 +1,0 @@
-JsonObject sjsConfig
-JsonArray inboundPermitted
-JsonArray outboundPermitted
-JsonObject bridgeConfig

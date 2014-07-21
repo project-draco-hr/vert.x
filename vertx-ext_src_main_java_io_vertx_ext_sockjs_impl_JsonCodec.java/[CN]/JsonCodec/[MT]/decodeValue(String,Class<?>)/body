@@ -1,8 +1,0 @@
-{
-  try {
-    return mapper.readValue(str,clazz);
-  }
- catch (  Exception e) {
-    throw new DecodeException("Failed to decode");
-  }
-}

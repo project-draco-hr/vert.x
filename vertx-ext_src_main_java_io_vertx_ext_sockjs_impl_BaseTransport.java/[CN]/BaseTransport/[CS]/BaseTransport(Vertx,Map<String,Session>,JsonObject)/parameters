@@ -1,3 +1,0 @@
-Vertx vertx
-Map<String,Session> sessions
-JsonObject config

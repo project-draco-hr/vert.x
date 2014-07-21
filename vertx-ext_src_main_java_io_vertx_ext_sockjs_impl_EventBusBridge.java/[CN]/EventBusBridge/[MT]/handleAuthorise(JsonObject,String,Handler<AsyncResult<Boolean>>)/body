@@ -1,8 +1,0 @@
-{
-  if (hook != null) {
-    return hook.handleAuthorise(message,sessionID,handler);
-  }
- else {
-    return false;
-  }
-}

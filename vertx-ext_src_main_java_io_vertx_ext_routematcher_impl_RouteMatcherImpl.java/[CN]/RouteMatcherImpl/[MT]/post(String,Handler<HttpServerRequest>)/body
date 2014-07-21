@@ -1,4 +1,0 @@
-{
-  addPattern(pattern,handler,postBindings);
-  return this;
-}

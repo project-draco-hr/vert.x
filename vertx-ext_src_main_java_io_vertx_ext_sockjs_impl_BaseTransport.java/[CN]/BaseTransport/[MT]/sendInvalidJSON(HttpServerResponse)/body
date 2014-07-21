@@ -1,5 +1,0 @@
-{
-  if (log.isTraceEnabled())   log.trace("Broken JSON");
-  response.setStatusCode(500);
-  response.writeStringAndEnd("Broken JSON encoding.");
-}

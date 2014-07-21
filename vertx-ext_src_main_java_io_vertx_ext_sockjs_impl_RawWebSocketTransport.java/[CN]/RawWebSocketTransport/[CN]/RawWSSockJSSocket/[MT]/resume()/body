@@ -1,4 +1,0 @@
-{
-  ws.resume();
-  return this;
-}

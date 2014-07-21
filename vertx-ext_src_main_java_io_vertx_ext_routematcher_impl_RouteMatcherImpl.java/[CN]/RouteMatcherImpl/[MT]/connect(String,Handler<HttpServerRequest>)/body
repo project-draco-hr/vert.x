@@ -1,4 +1,0 @@
-{
-  addPattern(pattern,handler,connectBindings);
-  return this;
-}

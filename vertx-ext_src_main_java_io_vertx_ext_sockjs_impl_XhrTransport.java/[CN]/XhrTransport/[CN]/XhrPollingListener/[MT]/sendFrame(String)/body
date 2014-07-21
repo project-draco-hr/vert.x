@@ -1,5 +1,0 @@
-{
-  super.sendFrame(body);
-  req.response().writeString(body + "\n");
-  close();
-}

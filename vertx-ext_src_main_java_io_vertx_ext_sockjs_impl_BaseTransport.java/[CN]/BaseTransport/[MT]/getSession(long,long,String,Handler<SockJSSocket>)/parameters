@@ -1,4 +1,0 @@
-long timeout
-long heartbeatPeriod
-String sessionID
-Handler<SockJSSocket> sockHandler

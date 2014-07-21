@@ -1,3 +1,0 @@
-{
-  writeClosed(lst,3000,"Go away!");
-}

@@ -1,7 +1,0 @@
-{
-  server=vertx.createHttpServer(new HttpServerOptions().setPort(HttpTestBase.DEFAULT_HTTP_PORT));
-  JsonArray permitted=new JsonArray();
-  permitted.add(new JsonObject());
-  SockJSServer sockJSServer=SockJSServer.newSockJSServer(vertx,server);
-  sockJSServer.bridge(new JsonObject().putString("prefix","/eventbus"),permitted,permitted);
-}

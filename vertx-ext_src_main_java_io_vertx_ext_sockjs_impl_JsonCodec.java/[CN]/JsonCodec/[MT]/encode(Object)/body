@@ -1,8 +1,0 @@
-{
-  try {
-    return mapper.writeValueAsString(obj);
-  }
- catch (  Exception e) {
-    throw new EncodeException("Failed to encode as JSON");
-  }
-}

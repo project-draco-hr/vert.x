@@ -1,5 +1,0 @@
-RouteMatcher rm
-Handler<SockJSSocket> sockHandler
-String re
-boolean streaming
-JsonObject config

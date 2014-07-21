@@ -1,3 +1,0 @@
-{
-  super(req,session);
-}

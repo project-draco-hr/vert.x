@@ -1,6 +1,0 @@
-{
-  if (hook != null) {
-    return hook.handleSendOrPub(sock,send,msg,address);
-  }
-  return true;
-}

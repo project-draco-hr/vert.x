@@ -1,6 +1,0 @@
-{
-  this.localAddress=localAddress;
-  this.remoteAddress=remoteAddress;
-  this.uri=uri;
-  this.headers=BaseTransport.removeCookieHeaders(headers);
-}

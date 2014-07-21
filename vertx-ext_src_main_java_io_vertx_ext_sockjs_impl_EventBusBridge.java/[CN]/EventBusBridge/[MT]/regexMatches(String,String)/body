@@ -1,9 +1,0 @@
-{
-  Pattern pattern=compiledREs.get(matchRegex);
-  if (pattern == null) {
-    pattern=Pattern.compile(matchRegex);
-    compiledREs.put(matchRegex,pattern);
-  }
-  Matcher m=pattern.matcher(address);
-  return m.matches();
-}

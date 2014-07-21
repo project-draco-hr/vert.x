@@ -1,5 +1,0 @@
-{
-  session.writeClosed(this);
-  closed=true;
-  ws.close();
-}

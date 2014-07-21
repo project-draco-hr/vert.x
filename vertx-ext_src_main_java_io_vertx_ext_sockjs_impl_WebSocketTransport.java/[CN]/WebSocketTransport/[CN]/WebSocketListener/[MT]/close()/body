@@ -1,7 +1,0 @@
-{
-  if (!closed) {
-    ws.close();
-    session.shutdown();
-    closed=true;
-  }
-}

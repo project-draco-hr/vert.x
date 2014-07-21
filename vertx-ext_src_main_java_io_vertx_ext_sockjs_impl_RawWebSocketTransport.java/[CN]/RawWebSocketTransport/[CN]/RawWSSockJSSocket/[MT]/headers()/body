@@ -1,6 +1,0 @@
-{
-  if (headers == null) {
-    headers=BaseTransport.removeCookieHeaders(ws.headers());
-  }
-  return headers;
-}

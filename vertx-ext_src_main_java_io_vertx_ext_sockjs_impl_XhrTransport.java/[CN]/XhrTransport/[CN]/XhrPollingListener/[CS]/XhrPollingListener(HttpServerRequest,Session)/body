@@ -1,4 +1,0 @@
-{
-  super(req,session);
-  addCloseHandler(req.response(),session);
-}

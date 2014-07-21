@@ -1,3 +1,0 @@
-{
-  this(vertx,sessions,null,-1,heartbeatPeriod,sockHandler);
-}

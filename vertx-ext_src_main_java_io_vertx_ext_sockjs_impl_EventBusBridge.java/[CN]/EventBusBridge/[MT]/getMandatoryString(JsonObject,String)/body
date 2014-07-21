@@ -1,7 +1,0 @@
-{
-  String value=json.getString(field);
-  if (value == null) {
-    throw new IllegalStateException(field + " must be specified for message");
-  }
-  return value;
-}

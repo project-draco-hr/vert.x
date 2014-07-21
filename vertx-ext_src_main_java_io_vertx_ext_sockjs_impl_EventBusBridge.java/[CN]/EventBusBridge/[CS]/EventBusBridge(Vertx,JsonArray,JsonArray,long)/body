@@ -1,3 +1,0 @@
-{
-  this(vertx,inboundPermitted,outboundPermitted,authTimeout,null);
-}

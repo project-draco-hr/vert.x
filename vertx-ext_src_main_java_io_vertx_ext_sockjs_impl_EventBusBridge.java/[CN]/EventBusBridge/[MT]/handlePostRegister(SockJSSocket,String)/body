@@ -1,5 +1,0 @@
-{
-  if (hook != null) {
-    hook.handlePostRegister(sock,address);
-  }
-}

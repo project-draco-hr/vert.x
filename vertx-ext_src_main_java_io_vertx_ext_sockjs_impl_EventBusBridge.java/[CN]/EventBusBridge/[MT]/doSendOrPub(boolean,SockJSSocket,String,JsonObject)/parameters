@@ -1,4 +1,0 @@
-boolean send
-SockJSSocket sock
-String address
-JsonObject message

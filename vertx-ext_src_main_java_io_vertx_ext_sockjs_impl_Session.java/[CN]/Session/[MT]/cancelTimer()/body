@@ -1,5 +1,0 @@
-{
-  if (timeoutTimerID != -1) {
-    vertx.cancelTimer(timeoutTimerID);
-  }
-}

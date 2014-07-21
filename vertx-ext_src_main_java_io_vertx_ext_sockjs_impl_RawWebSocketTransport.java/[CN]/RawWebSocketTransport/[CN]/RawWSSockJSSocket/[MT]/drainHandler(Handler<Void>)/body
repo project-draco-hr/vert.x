@@ -1,4 +1,0 @@
-{
-  ws.drainHandler(handler);
-  return this;
-}

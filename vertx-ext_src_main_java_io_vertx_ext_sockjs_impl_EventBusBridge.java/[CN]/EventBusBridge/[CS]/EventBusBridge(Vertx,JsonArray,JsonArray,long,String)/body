@@ -1,3 +1,0 @@
-{
-  this(vertx,inboundPermitted,outboundPermitted,new JsonObject().putNumber("auth_timeout",authTimeout).putString("auth_address",authAddress));
-}

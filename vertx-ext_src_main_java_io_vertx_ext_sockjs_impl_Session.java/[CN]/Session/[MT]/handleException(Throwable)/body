@@ -1,8 +1,0 @@
-{
-  if (exceptionHandler != null) {
-    exceptionHandler.handle(t);
-  }
- else {
-    log.error("Unhandled exception",t);
-  }
-}

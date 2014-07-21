@@ -1,4 +1,0 @@
-{
-  addPattern(pattern,handler,traceBindings);
-  return this;
-}

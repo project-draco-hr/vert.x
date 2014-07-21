@@ -1,4 +1,0 @@
-{
-  this.dataHandler=handler;
-  return this;
-}

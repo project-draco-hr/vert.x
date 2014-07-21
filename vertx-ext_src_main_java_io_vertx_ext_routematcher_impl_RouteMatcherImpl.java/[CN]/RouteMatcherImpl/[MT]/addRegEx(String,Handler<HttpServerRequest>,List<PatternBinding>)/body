@@ -1,4 +1,0 @@
-{
-  PatternBinding binding=new PatternBinding(Pattern.compile(input),null,handler);
-  bindings.add(binding);
-}

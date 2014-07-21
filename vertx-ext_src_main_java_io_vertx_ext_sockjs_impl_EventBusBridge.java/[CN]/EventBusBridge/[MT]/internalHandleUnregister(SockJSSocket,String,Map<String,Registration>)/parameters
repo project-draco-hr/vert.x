@@ -1,3 +1,0 @@
-SockJSSocket sock
-String address
-Map<String,Registration> registrations

@@ -1,8 +1,0 @@
-{
-  Session session=sessions.get(sessionID);
-  if (session == null) {
-    session=new Session(vertx,sessions,sessionID,timeout,heartbeatPeriod,sockHandler);
-    sessions.put(sessionID,session);
-  }
-  return session;
-}

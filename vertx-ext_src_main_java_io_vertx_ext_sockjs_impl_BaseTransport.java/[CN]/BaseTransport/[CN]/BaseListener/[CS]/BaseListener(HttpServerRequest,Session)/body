@@ -1,4 +1,0 @@
-{
-  this.req=req;
-  this.session=session;
-}

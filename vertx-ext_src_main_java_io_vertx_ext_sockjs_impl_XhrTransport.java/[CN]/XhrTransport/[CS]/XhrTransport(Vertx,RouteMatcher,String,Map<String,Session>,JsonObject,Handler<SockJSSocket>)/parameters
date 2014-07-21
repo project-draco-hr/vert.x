@@ -1,6 +1,0 @@
-Vertx vertx
-RouteMatcher rm
-String basePath
-Map<String,Session> sessions
-JsonObject config
-Handler<SockJSSocket> sockHandler

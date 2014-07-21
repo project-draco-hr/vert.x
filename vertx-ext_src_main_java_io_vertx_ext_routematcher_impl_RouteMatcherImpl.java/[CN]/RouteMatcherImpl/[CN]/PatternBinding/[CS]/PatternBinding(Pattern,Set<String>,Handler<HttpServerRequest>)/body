@@ -1,5 +1,0 @@
-{
-  this.pattern=pattern;
-  this.paramNames=paramNames;
-  this.handler=handler;
-}
