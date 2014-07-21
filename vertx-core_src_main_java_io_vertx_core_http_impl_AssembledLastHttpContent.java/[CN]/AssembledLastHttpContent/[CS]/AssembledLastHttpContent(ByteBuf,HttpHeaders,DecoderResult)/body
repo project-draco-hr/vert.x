@@ -1,4 +1,5 @@
 {
   super(buf);
   this.trailingHeaders=trailingHeaders;
+  this.result=result;
 }
