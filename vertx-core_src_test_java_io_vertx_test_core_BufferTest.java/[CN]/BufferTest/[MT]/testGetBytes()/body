@@ -1,5 +1,5 @@
 {
   byte[] bytes=TestUtils.randomByteArray(100);
-  Buffer b=Buffer.newBuffer(bytes);
+  Buffer b=Buffer.buffer(bytes);
   assertTrue(TestUtils.byteArraysEqual(bytes,b.getBytes()));
 }

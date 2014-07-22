@@ -1,8 +1,8 @@
 {
   int bytesLen=100;
   byte[] bytes=TestUtils.randomByteArray(bytesLen);
-  Buffer toAppend=Buffer.newBuffer(bytes);
-  Buffer b=Buffer.newBuffer();
+  Buffer toAppend=Buffer.buffer(bytes);
+  Buffer b=Buffer.buffer();
   b.appendBuffer(toAppend);
   assertEquals(b.length(),bytes.length);
   assertTrue(TestUtils.byteArraysEqual(bytes,b.getBytes()));

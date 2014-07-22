@@ -94,7 +94,7 @@
   rand=TestUtils.randomPositiveInt();
   assertEquals(options,options.setReconnectInterval(rand));
   assertEquals(rand,options.getReconnectInterval());
-  assertNull(options.getEnabledCipherSuites());
+  assertTrue(options.getEnabledCipherSuites().isEmpty());
   assertEquals(options,options.addEnabledCipherSuite("foo"));
   assertEquals(options,options.addEnabledCipherSuite("bar"));
   assertNotNull(options.getEnabledCipherSuites());

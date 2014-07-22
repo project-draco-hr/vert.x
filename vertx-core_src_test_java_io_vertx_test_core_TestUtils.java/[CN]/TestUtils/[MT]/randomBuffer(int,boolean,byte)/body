@@ -1,4 +1,4 @@
 {
   byte[] line=randomByteArray(length,avoid,avoidByte);
-  return Buffer.newBuffer(line);
+  return Buffer.buffer(line);
 }

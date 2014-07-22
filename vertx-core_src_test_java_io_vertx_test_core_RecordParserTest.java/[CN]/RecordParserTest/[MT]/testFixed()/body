@@ -4,7 +4,7 @@
   List<Buffer> lineList=generateLines(lines,false,(byte)0);
   expected=lineList.toArray(expected);
   int totLength=lines * (lines - 1) / 2;
-  Buffer inp=Buffer.newBuffer(totLength);
+  Buffer inp=Buffer.buffer(totLength);
   for (int i=0; i < lines; i++) {
     inp.appendBuffer(expected[i]);
   }

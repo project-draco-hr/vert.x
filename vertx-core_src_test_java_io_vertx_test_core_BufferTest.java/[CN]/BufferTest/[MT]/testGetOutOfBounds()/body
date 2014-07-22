@@ -1,7 +1,7 @@
 {
   int bytesLen=100;
   byte[] bytes=TestUtils.randomByteArray(bytesLen);
-  Buffer b=Buffer.newBuffer(bytes);
+  Buffer b=Buffer.buffer(bytes);
   try {
     b.getByte(bytesLen);
     fail();

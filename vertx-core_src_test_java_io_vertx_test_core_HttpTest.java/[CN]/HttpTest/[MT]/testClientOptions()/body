@@ -124,7 +124,7 @@
   assertFalse(options.isTryUseCompression());
   assertEquals(options,options.setTryUseCompression(true));
   assertEquals(true,options.isTryUseCompression());
-  assertNull(options.getEnabledCipherSuites());
+  assertTrue(options.getEnabledCipherSuites().isEmpty());
   assertEquals(options,options.addEnabledCipherSuite("foo"));
   assertEquals(options,options.addEnabledCipherSuite("bar"));
   assertNotNull(options.getEnabledCipherSuites());

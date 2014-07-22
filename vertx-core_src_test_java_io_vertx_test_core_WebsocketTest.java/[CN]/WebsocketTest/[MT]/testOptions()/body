@@ -55,7 +55,7 @@
   assertEquals(13,options.getVersion());
   assertEquals(options,options.setVersion(0));
   assertEquals(0,options.getVersion());
-  assertNull(options.getSubProtocols());
+  assertTrue(options.getSubProtocols().isEmpty());
   assertEquals(options,options.addSubProtocol("foo"));
   assertEquals(options,options.addSubProtocol("bar"));
   assertNotNull(options.getSubProtocols());

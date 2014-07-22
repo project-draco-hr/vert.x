@@ -1,6 +1,6 @@
 {
   boolean callDrain=writeQueueFull();
-  received=Buffer.newBuffer();
+  received=Buffer.buffer();
   if (callDrain && drainHandler != null) {
     drainHandler.handle(null);
   }

@@ -20,7 +20,7 @@ class MyHandler implements Handler<Buffer> {
   }
   MyHandler out=new MyHandler();
   Buffer[] expected=new Buffer[lines];
-  Buffer input=Buffer.newBuffer(100);
+  Buffer input=Buffer.buffer(100);
   expected[0]=TestUtils.randomBuffer(10);
   input.appendBuffer(expected[0]);
   types.add(expected[0].length());
@@ -31,24 +31,24 @@ class MyHandler implements Handler<Buffer> {
   expected[2]=TestUtils.randomBuffer(50,true,delim[0]);
   input.appendBuffer(expected[2]);
   types.add(delim);
-  input.appendBuffer(Buffer.newBuffer(delim));
+  input.appendBuffer(Buffer.buffer(delim));
   expected[3]=TestUtils.randomBuffer(1000);
   input.appendBuffer(expected[3]);
   types.add(expected[3].length());
   expected[4]=TestUtils.randomBuffer(230,true,delim[0]);
   input.appendBuffer(expected[4]);
   types.add(delim);
-  input.appendBuffer(Buffer.newBuffer(delim));
+  input.appendBuffer(Buffer.buffer(delim));
   delim=new byte[]{17};
   expected[5]=TestUtils.randomBuffer(341,true,delim[0]);
   input.appendBuffer(expected[5]);
   types.add(delim);
-  input.appendBuffer(Buffer.newBuffer(delim));
+  input.appendBuffer(Buffer.buffer(delim));
   delim=new byte[]{54,-32,0};
   expected[6]=TestUtils.randomBuffer(1234,true,delim[0]);
   input.appendBuffer(expected[6]);
   types.add(delim);
-  input.appendBuffer(Buffer.newBuffer(delim));
+  input.appendBuffer(Buffer.buffer(delim));
   expected[7]=TestUtils.randomBuffer(100);
   input.appendBuffer(expected[7]);
   types.add(expected[7].length());

@@ -1,6 +1,6 @@
 {
   int numLongs=100;
-  Buffer b=Buffer.newBuffer(numLongs * 8);
+  Buffer b=Buffer.buffer(numLongs * 8);
   for (int i=0; i < numLongs; i++) {
     b.setLong(i * 8,i);
   }

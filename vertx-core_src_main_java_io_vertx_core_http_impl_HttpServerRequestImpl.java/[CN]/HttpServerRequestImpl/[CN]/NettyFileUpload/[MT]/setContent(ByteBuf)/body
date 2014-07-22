@@ -1,5 +1,5 @@
 {
   completed=true;
-  upload.receiveData(Buffer.newBuffer(channelBuffer));
+  upload.receiveData(Buffer.buffer(channelBuffer));
   upload.complete();
 }

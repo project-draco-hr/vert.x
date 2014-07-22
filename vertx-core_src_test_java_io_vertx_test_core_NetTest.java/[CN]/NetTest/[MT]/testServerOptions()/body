@@ -106,7 +106,7 @@
   String randString=TestUtils.randomUnicodeString(100);
   assertEquals(options,options.setHost(randString));
   assertEquals(randString,options.getHost());
-  assertNull(options.getEnabledCipherSuites());
+  assertTrue(options.getEnabledCipherSuites().isEmpty());
   assertEquals(options,options.addEnabledCipherSuite("foo"));
   assertEquals(options,options.addEnabledCipherSuite("bar"));
   assertNotNull(options.getEnabledCipherSuites());

@@ -1,3 +1,3 @@
 {
-  writeBufferAndEnd(Buffer.newBuffer(chunk));
+  writeBufferAndEnd(Buffer.buffer(chunk));
 }

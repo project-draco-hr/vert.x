@@ -1,7 +1,4 @@
 {
-  if (subProtocols == null) {
-    subProtocols=new HashSet<>();
-  }
   subProtocols.add(subProtocol);
   return this;
 }

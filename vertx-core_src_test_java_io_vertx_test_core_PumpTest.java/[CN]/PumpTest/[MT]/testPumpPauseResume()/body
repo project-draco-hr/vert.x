@@ -1,10 +1,10 @@
 {
   FakeReadStream rs=new FakeReadStream();
   FakeWriteStream ws=new FakeWriteStream();
-  Pump p=Pump.createPump(rs,ws,500);
+  Pump p=Pump.pump(rs,ws,500);
   p.start();
   for (int i=0; i < 10; i++) {
-    Buffer inp=Buffer.newBuffer();
+    Buffer inp=Buffer.buffer();
     for (int j=0; j < 4; j++) {
       Buffer b=TestUtils.randomBuffer(100);
       inp.appendBuffer(b);
@@ -21,7 +21,7 @@
     assertEquals(i,rs.resumeCount);
     TestUtils.buffersEqual(inp,ws.received);
     ws.clearReceived();
-    inp=Buffer.newBuffer();
+    inp=Buffer.buffer();
     assertFalse(rs.paused);
     assertEquals(i + 1,rs.pauseCount);
     assertEquals(i + 1,rs.resumeCount);

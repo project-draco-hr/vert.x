@@ -9,7 +9,7 @@
   }
  else {
     if (pauseBuff == null) {
-      pauseBuff=Buffer.newBuffer();
+      pauseBuff=Buffer.buffer();
     }
     pauseBuff.appendBuffer(data);
   }

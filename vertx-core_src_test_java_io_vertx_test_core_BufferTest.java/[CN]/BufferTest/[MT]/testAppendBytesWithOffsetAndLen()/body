@@ -2,7 +2,7 @@
   int bytesLen=100;
   byte[] bytes=TestUtils.randomByteArray(bytesLen);
   int len=bytesLen - 2;
-  Buffer b=Buffer.newBuffer();
+  Buffer b=Buffer.buffer();
   b.appendBytes(bytes,1,len);
   assertEquals(b.length(),len);
   byte[] copy=new byte[len];

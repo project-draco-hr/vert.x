@@ -1,9 +1,9 @@
 {
   int bytesLen=100;
   byte[] bytes=TestUtils.randomByteArray(bytesLen);
-  Buffer src=Buffer.newBuffer(bytes);
+  Buffer src=Buffer.buffer(bytes);
   int len=bytesLen - 2;
-  Buffer b=Buffer.newBuffer();
+  Buffer b=Buffer.buffer();
   b.appendBuffer(src,1,len);
   assertEquals(b.length(),len);
   byte[] copy=new byte[len];

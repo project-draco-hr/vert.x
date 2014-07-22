@@ -3,10 +3,10 @@
   boolean correct=current == contextThread;
   if (expectRightThread) {
     if (!(current instanceof VertxThread)) {
-      log.warn("Expected to be on Vert.x thread, but actually on: " + current);
+      log.warn(ANNOYING_MSG + " Expected to be on Vert.x thread, but actually on: " + current);
     }
  else     if (!correct && contextThread != null) {
-      log.warn("Event delivered on unexpected thread " + current + " expected: "+ contextThread);
+      log.warn(ANNOYING_MSG + " Event delivered on unexpected thread " + current+ " expected: "+ contextThread);
     }
   }
   return correct;

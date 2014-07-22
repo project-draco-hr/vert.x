@@ -1,3 +1,3 @@
 {
-  testSetShort(Buffer.newBuffer(numSets * 2));
+  testSetShort(Buffer.buffer(numSets * 2));
 }

@@ -113,13 +113,13 @@
   String randString=TestUtils.randomUnicodeString(100);
   assertEquals(options,options.setHost(randString));
   assertEquals(randString,options.getHost());
-  assertNull(options.getWebsocketSubProtocols());
+  assertTrue(options.getWebsocketSubProtocols().isEmpty());
   assertEquals(options,options.addWebsocketSubProtocol("foo"));
   assertEquals(options,options.addWebsocketSubProtocol("bar"));
   assertNotNull(options.getWebsocketSubProtocols());
   assertTrue(options.getWebsocketSubProtocols().contains("foo"));
   assertTrue(options.getWebsocketSubProtocols().contains("bar"));
-  assertNull(options.getEnabledCipherSuites());
+  assertTrue(options.getEnabledCipherSuites().isEmpty());
   assertEquals(options,options.addEnabledCipherSuite("foo"));
   assertEquals(options,options.addEnabledCipherSuite("bar"));
   assertNotNull(options.getEnabledCipherSuites());

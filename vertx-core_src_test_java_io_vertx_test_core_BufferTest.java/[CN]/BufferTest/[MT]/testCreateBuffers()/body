@@ -1,12 +1,12 @@
 {
-  Buffer buff=Buffer.newBuffer(1000);
+  Buffer buff=Buffer.buffer(1000);
   assertEquals(0,buff.length());
   String str=TestUtils.randomUnicodeString(100);
-  buff=Buffer.newBuffer(str);
+  buff=Buffer.buffer(str);
   assertEquals(buff.length(),str.getBytes("UTF-8").length);
   assertEquals(str,buff.toString());
   byte[] bytes=TestUtils.randomByteArray(100);
-  buff=Buffer.newBuffer(bytes);
+  buff=Buffer.buffer(bytes);
   assertEquals(buff.length(),bytes.length);
-  assertTrue(TestUtils.buffersEqual(Buffer.newBuffer(bytes),Buffer.newBuffer(buff.getBytes())));
+  assertTrue(TestUtils.buffersEqual(Buffer.buffer(bytes),Buffer.buffer(buff.getBytes())));
 }
