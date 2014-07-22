@@ -1,7 +1,4 @@
 {
-  if (websocketSubProtocols == null) {
-    websocketSubProtocols=new HashSet<>();
-  }
   websocketSubProtocols.add(subProtocol);
   return this;
 }
