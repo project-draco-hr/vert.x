@@ -1,4 +1,7 @@
 {
+  if (this.throwable != null) {
+    throw new IllegalStateException("Failure has already been set");
+  }
   this.throwable=throwable;
   failed=true;
   checkCallHandler();
