@@ -1,3 +1,4 @@
 HttpResponse response
 ByteBuf buf
 HttpHeaders trailingHeaders
+DecoderResult result
