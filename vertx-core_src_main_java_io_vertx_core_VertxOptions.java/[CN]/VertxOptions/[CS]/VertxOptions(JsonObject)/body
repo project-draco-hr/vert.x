@@ -1,0 +1,10 @@
+{
+  this.eventLoopPoolSize=json.getInteger("eventLoopPoolSize",DEFAULT_EVENTLOOPPOOLSIZE);
+  this.workerPoolSize=json.getInteger("workerPoolSize",DEFAULT_WORKERPOOLSIZE);
+  this.clustered=json.getBoolean("clustered",DEFAULT_CLUSTERED);
+  this.clusterHost=json.getString("clusterHost",DEFAULT_CLUSTERHOST);
+  this.clusterPort=json.getInteger("clusterPort",DEFAULT_CLUSTERPORT);
+  this.blockedThreadCheckPeriod=json.getLong("blockedThreadCheckPeriod",DEFAULT_BLOCKEDTHREADCHECKPERIOD);
+  this.maxEventLoopExecuteTime=json.getLong("maxEventLoopExecuteTime",DEFAULT_MAXEVENTLOOPEXECUTETIME);
+  this.maxWorkerExecuteTime=json.getLong("maxWorkerExecuteTime",DEFAULT_MAXWORKEREXECUTETIME);
+}
