@@ -1,0 +1,14 @@
+{
+  try {
+    new JsonObject(Collections.singletonMap("foo",invalid));
+    fail();
+  }
+ catch (  VertxException ignore) {
+  }
+  try {
+    new JsonArray(Collections.singletonList(invalid));
+    fail();
+  }
+ catch (  VertxException ignore) {
+  }
+}
