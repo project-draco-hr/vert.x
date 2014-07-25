@@ -13,6 +13,12 @@
  else     if (obj instanceof CharSequence) {
       converted.put(entry.getKey(),obj.toString());
     }
+ else     if (obj instanceof BigDecimal) {
+      converted.put(entry.getKey(),((BigDecimal)obj).doubleValue());
+    }
+ else     if (obj instanceof BigInteger) {
+      converted.put(entry.getKey(),((BigInteger)obj).longValue());
+    }
  else     if (obj == null || obj instanceof Number || obj instanceof Boolean) {
       converted.put(entry.getKey(),obj);
     }

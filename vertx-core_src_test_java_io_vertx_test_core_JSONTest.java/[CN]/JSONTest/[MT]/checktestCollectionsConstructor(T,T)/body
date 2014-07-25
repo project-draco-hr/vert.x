@@ -1,6 +1,7 @@
 {
   JsonObject obj=new JsonObject(Collections.singletonMap("foo",value));
-  assertEquals(expected,obj.toMap().get("foo"));
+  Object actual=obj.toMap().get("foo");
+  assertEquals(expected,actual);
   JsonArray array=new JsonArray(Collections.singletonList(value));
   assertEquals(Collections.singletonList(expected),array.toList());
 }
