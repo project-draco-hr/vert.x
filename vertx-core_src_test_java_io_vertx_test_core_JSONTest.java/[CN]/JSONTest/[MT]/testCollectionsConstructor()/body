@@ -1,0 +1,15 @@
+{
+  checktestCollectionsConstructor("bar","bar");
+  checktestCollectionsConstructor((byte)3,(byte)3);
+  checktestCollectionsConstructor((short)3,(short)3);
+  checktestCollectionsConstructor(3,3);
+  checktestCollectionsConstructor((long)3,(long)3);
+  checktestCollectionsConstructor(new BigInteger("3"),(long)3);
+  checktestCollectionsConstructor((double)3,(double)3);
+  checktestCollectionsConstructor((float)3,(float)3);
+  checktestCollectionsConstructor(new BigDecimal(3),(double)3);
+  checktestCollectionsConstructor(true,true);
+  checktestCollectionsConstructor(Collections.singletonMap("bar","juu"),Collections.singletonMap("bar","juu"));
+  checktestCollectionsConstructor(new StringBuilder("some").append("thing"),"something");
+  checkInvalid(Locale.CANADA);
+}

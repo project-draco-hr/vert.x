@@ -7,7 +7,16 @@
  else     if (obj instanceof List) {
       arr.add(convertList((List<?>)obj));
     }
- else     if (obj == null || obj instanceof String || obj instanceof Number || obj instanceof Boolean) {
+ else     if (obj instanceof CharSequence) {
+      arr.add(obj.toString());
+    }
+ else     if (obj instanceof BigDecimal) {
+      arr.add(((BigDecimal)obj).doubleValue());
+    }
+ else     if (obj instanceof BigInteger) {
+      arr.add(((BigInteger)obj).longValue());
+    }
+ else     if (obj == null || obj instanceof Number || obj instanceof Boolean) {
       arr.add(obj);
     }
  else {
