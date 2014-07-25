@@ -1,0 +1,16 @@
+{
+  KeyCertOptions options=new KeyCertOptions(new JsonObject());
+  String keyPath=TestUtils.randomAlphaString(100);
+  Buffer keyValue=Buffer.buffer(TestUtils.randomAlphaString(100));
+  String certPath=TestUtils.randomAlphaString(100);
+  Buffer certValue=Buffer.buffer(TestUtils.randomAlphaString(100));
+  options.setKeyPath(keyPath);
+  options.setKeyValue(keyValue);
+  options.setCertPath(certPath);
+  options.setCertValue(certValue);
+  options=new KeyCertOptions(options);
+  assertEquals(keyPath,options.getKeyPath());
+  assertEquals(keyValue,options.getKeyValue());
+  assertEquals(certPath,options.getCertPath());
+  assertEquals(certValue,options.getCertValue());
+}

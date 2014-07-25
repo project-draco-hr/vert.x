@@ -1,2 +1,40 @@
 {
+  super(json);
+  this.tcpNoDelay=json.getBoolean("tcpNoDelay",DEFAULT_TCPNODELAY);
+  this.tcpKeepAlive=json.getBoolean("tcpKeepAlive",DEFAULT_TCPKEEPALIVE);
+  this.soLinger=json.getInteger("soLinger",DEFAULT_SOLINGER);
+  this.usePooledBuffers=json.getBoolean("usePooledBuffers",false);
+  this.ssl=json.getBoolean("ssl",false);
+  JsonObject keyStoreJson=json.getObject("keyStore");
+  if (keyStoreJson != null) {
+    String type=keyStoreJson.getString("type",null);
+switch (type != null ? type.toLowerCase() : "jks") {
+case "jks":
+      keyStore=new JKSOptions(keyStoreJson);
+    break;
+case "pkcs12":
+  keyStore=new PKCS12Options(keyStoreJson);
+break;
+case "keycert":
+keyStore=new KeyCertOptions(keyStoreJson);
+break;
+}
+}
+JsonObject trustStoreJson=json.getObject("trustStore");
+if (trustStoreJson != null) {
+String type=trustStoreJson.getString("type",null);
+switch (type != null ? type.toLowerCase() : "jks") {
+case "jks":
+trustStore=new JKSOptions(json);
+break;
+case "pkcs12":
+trustStore=new PKCS12Options(json);
+break;
+case "ca":
+trustStore=new CaOptions(json);
+break;
+}
+}
+JsonArray arr=json.getArray("enabledCipherSuites");
+this.enabledCipherSuites=arr == null ? null : new HashSet<String>(arr.toList());
 }

@@ -1,0 +1,10 @@
+{
+  CaOptions options=new CaOptions(new JsonObject());
+  String certPath=TestUtils.randomAlphaString(100);
+  Buffer certValue=Buffer.buffer(TestUtils.randomAlphaString(100));
+  options.addCertPath(certPath);
+  options.addCertValue(certValue);
+  options=new CaOptions(options);
+  assertEquals(Collections.singletonList(certPath),options.getCertPaths());
+  assertEquals(Collections.singletonList(certValue),options.getCertValues());
+}

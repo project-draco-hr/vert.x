@@ -1,0 +1,13 @@
+{
+  JKSOptions options=new JKSOptions(new JsonObject());
+  assertEquals(null,options.getPassword());
+  assertEquals(null,options.getPath());
+  assertEquals(null,options.getValue());
+  String password=TestUtils.randomAlphaString(100);
+  String path=TestUtils.randomAlphaString(100);
+  String value=TestUtils.randomAlphaString(100);
+  options=new JKSOptions(new JsonObject().putString("password",password).putString("path",path).putBinary("value",value.getBytes()));
+  assertEquals(password,options.getPassword());
+  assertEquals(path,options.getPath());
+  assertEquals(Buffer.buffer(value),options.getValue());
+}
