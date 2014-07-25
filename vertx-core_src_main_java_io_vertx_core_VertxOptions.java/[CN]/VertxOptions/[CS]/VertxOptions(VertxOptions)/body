@@ -7,5 +7,7 @@
   this.blockedThreadCheckPeriod=other.blockedThreadCheckPeriod;
   this.maxEventLoopExecuteTime=other.maxEventLoopExecuteTime;
   this.maxWorkerExecuteTime=other.maxWorkerExecuteTime;
+  this.internalBlockingPoolSize=other.internalBlockingPoolSize;
+  this.proxyOperationTimeout=other.proxyOperationTimeout;
   this.clusterManager=other.clusterManager;
 }

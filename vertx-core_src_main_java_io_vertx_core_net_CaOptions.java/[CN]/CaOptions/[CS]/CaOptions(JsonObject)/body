@@ -6,6 +6,6 @@
     certPaths.add((String)certPath);
   }
   for (  Object certValue : json.getArray("certValues",new JsonArray())) {
-    certValues.add(Buffer.buffer((byte[])certValue));
+    certValues.add(Buffer.buffer(Base64.getDecoder().decode((String)certValue)));
   }
 }
