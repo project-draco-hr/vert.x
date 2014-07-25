@@ -1,0 +1,3 @@
+{
+  testMapRemoveIfPresent((short)1,(short)2,(short)3);
+}

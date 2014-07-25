@@ -1,0 +1,8 @@
+{
+  AsynchronousLock lock=new AsynchronousLock(vertx);
+  AsynchronousLock prev=locks.putIfAbsent(name,lock);
+  if (prev != null) {
+    lock=prev;
+  }
+  lock.acquire(timeout,resultHandler);
+}

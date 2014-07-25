@@ -1,0 +1,9 @@
+{
+  if (this == o)   return true;
+  if (!(o instanceof DataSerializableHolder))   return false;
+  DataSerializableHolder that=(DataSerializableHolder)o;
+  if (clusterSerializable != null ? !clusterSerializable.equals(that.clusterSerializable) : that.clusterSerializable != null) {
+    return false;
+  }
+  return true;
+}

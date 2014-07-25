@@ -1,0 +1,27 @@
+{
+  this.vertx=vertx;
+  this.sessions=vertx.sharedData().getLocalMap("_vertx.sockjssessions");
+  rm.noMatch(httpServer.requestHandler());
+  wsMatcher.noMatch(new Handler<WebSocketMatcher.Match>(){
+    Handler<ServerWebSocket> wsHandler=httpServer.websocketHandler();
+    public void handle(    WebSocketMatcher.Match match){
+      if (wsHandler != null) {
+        wsHandler.handle(match.ws);
+      }
+    }
+  }
+);
+  httpServer.requestHandler(this);
+  httpServer.websocketHandler(wsMatcher);
+  timerID=vertx.setPeriodic(5000,new Handler<Long>(){
+    @Override public void handle(    Long timerID){
+      if (httpServer.requestHandler() == null) {
+        vertx.cancelTimer(timerID);
+      }
+ else       if (httpServer.requestHandler() != SockJSServer.this) {
+        log.warn("You have overwritten the Http server request handler AFTER the SockJSServer has been created " + "which will stop the SockJSServer from functioning. Make sure you set http request handler BEFORE " + "you create the SockJSServer");
+      }
+    }
+  }
+);
+}

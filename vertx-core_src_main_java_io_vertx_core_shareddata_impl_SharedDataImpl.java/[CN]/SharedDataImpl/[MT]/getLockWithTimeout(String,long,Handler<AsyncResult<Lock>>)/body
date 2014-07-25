@@ -1,0 +1,8 @@
+{
+  if (clusterManager == null) {
+    getLocalLock(name,timeout,resultHandler);
+  }
+ else {
+    clusterManager.getLockWithTimeout(name,timeout,resultHandler);
+  }
+}

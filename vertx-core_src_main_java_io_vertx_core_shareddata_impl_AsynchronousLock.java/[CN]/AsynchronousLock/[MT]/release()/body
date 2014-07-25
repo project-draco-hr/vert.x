@@ -1,0 +1,9 @@
+{
+  LockWaiter waiter=pollWaiters();
+  if (waiter != null) {
+    waiter.acquire(this);
+  }
+ else {
+    owned=false;
+  }
+}

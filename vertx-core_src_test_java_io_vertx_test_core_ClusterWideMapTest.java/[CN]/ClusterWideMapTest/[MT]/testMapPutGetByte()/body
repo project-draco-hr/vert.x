@@ -1,0 +1,3 @@
+{
+  testMapPutGet((byte)1,(byte)2);
+}

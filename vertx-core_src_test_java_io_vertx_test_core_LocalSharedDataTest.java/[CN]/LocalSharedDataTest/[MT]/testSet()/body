@@ -1,0 +1,10 @@
+{
+  Set<String> set=sharedData.getLocalSet("foo");
+  Set<String> set2=sharedData.getLocalSet("foo");
+  assert(set == set2);
+  Set<String> set3=sharedData.getLocalSet("bar");
+  assert(set3 != set2);
+  assert(sharedData.removeLocalSet("foo"));
+  Set<String> set4=sharedData.getLocalSet("foo");
+  assert(set4 != set3);
+}

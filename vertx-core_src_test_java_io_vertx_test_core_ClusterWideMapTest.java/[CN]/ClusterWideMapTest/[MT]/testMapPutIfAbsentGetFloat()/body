@@ -1,0 +1,3 @@
+{
+  testMapPutIfAbsentGet(1.2f,2.2f);
+}

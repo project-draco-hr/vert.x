@@ -1,0 +1,11 @@
+{
+  while (true) {
+    LockWaiter waiter=waiters.poll();
+    if (waiter == null) {
+      return null;
+    }
+ else     if (!waiter.timedOut) {
+      return waiter;
+    }
+  }
+}

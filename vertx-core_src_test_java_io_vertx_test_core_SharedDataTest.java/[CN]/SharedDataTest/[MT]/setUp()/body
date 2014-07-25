@@ -1,4 +1,0 @@
-{
-  vertx=Vertx.vertx();
-  sharedData=vertx.sharedData();
-}

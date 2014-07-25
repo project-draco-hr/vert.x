@@ -1,0 +1,6 @@
+{
+  if (log.isTraceEnabled()) {
+    log.trace("Got request in sockjs server: " + req.uri());
+  }
+  rm.handle(req);
+}

@@ -1,0 +1,3 @@
+{
+  testMapReplace("foo",true,false);
+}

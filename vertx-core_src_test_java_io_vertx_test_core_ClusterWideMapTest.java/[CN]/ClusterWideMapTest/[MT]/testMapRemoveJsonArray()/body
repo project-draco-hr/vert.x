@@ -1,0 +1,3 @@
+{
+  testMapRemove(new JsonArray().add("foo").add(2),new JsonArray().add("uihwqduh").add(false));
+}

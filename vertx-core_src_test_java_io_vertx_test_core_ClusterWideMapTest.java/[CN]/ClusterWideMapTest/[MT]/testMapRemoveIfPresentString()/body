@@ -1,0 +1,3 @@
+{
+  testMapRemoveIfPresent("foo","bar","quux");
+}

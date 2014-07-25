@@ -1,0 +1,9 @@
+{
+  if (obj instanceof ClusterSerializable) {
+    ClusterSerializable cobj=(ClusterSerializable)obj;
+    return (T)(new DataSerializableHolder(cobj));
+  }
+ else {
+    return obj;
+  }
+}

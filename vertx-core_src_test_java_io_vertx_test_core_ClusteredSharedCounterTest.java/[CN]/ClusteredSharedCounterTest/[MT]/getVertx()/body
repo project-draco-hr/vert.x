@@ -1,0 +1,7 @@
+{
+  Vertx vertx=vertices[pos];
+  if (++pos == numNodes) {
+    pos=0;
+  }
+  return vertx;
+}

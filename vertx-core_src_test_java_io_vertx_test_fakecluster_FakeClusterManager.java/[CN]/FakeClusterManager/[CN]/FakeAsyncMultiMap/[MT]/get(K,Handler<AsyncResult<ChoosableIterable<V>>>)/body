@@ -1,8 +1,2 @@
 {
-  vertx.executeBlocking(new Action<ChoosableIterable<V>>(){
-    public ChoosableIterable<V> perform(){
-      return map.get(k);
-    }
-  }
-,asyncResultHandler);
 }

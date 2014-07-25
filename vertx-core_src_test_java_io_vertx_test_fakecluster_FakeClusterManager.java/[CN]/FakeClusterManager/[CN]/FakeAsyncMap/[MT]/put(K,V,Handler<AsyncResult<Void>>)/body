@@ -1,9 +1,2 @@
 {
-  vertx.executeBlocking(new Action<Void>(){
-    public Void perform(){
-      map.put(k,v);
-      return null;
-    }
-  }
-,completionHandler);
 }

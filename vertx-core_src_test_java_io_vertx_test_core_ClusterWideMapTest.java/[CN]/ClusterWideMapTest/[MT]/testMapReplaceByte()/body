@@ -1,0 +1,3 @@
+{
+  testMapReplace((byte)1,(byte)2,(byte)3);
+}

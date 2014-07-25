@@ -1,0 +1,3 @@
+{
+  testMapReplace(new SomeSerializableObject("foo"),new SomeSerializableObject("bar"),new SomeSerializableObject("quux"));
+}

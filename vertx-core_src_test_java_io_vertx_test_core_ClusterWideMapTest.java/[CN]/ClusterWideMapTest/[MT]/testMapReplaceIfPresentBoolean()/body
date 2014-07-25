@@ -1,0 +1,3 @@
+{
+  testMapReplaceIfPresent("foo",true,false);
+}
