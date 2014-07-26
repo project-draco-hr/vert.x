@@ -1,3 +1,0 @@
-{
-  return Checker.copyIfRequired(map.get(o));
-}

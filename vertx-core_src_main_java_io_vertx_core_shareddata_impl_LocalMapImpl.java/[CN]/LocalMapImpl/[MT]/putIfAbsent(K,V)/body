@@ -1,0 +1,5 @@
+{
+  checkType(key);
+  checkType(value);
+  return copyIfRequired(map.putIfAbsent(key,value));
+}

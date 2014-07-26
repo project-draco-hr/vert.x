@@ -1,3 +1,0 @@
-{
-  return maps.remove(name) != null;
-}

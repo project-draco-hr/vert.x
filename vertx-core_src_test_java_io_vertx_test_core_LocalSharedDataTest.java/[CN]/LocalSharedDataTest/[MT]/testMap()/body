@@ -1,10 +1,10 @@
 {
-  Map<String,String> map=sharedData.getLocalMap("foo");
-  Map<String,String> map2=sharedData.getLocalMap("foo");
+  LocalMap<String,String> map=sharedData.getLocalMap("foo");
+  LocalMap<String,String> map2=sharedData.getLocalMap("foo");
   assertTrue(map == map2);
-  Map<String,String> map3=sharedData.getLocalMap("bar");
+  LocalMap<String,String> map3=sharedData.getLocalMap("bar");
   assertFalse(map3 == map2);
-  assertTrue(sharedData.removeLocalMap("foo"));
-  Map<String,String> map4=sharedData.getLocalMap("foo");
+  map.close();
+  LocalMap<String,String> map4=sharedData.getLocalMap("foo");
   assertFalse(map4 == map3);
 }

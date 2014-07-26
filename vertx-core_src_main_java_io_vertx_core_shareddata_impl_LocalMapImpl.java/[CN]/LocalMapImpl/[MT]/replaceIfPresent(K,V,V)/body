@@ -1,0 +1,6 @@
+{
+  checkType(key);
+  checkType(oldValue);
+  checkType(newValue);
+  return map.replace(key,oldValue,newValue);
+}

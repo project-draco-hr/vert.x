@@ -1,0 +1,3 @@
+{
+  return copyIfRequired(map.get(key));
+}

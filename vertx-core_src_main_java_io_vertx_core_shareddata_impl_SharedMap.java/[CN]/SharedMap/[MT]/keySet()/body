@@ -1,7 +1,0 @@
-{
-  Set<K> copied=new HashSet<>();
-  for (  K k : map.keySet()) {
-    copied.add(Checker.copyIfRequired(k));
-  }
-  return copied;
-}

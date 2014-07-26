@@ -1,5 +1,5 @@
 {
-  Map map=sharedData.getLocalMap("foo");
+  LocalMap map=sharedData.getLocalMap("foo");
   String key="key";
   double d=new Random().nextDouble();
   map.put(key,d);

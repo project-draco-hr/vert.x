@@ -1,5 +1,0 @@
-{
-  Checker.checkType(k);
-  Checker.checkType(v);
-  return map.put(k,v);
-}

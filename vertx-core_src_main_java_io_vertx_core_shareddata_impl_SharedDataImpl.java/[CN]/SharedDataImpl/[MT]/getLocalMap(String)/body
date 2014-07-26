@@ -1,8 +1,8 @@
 {
-  SharedMap<K,V> map=(SharedMap<K,V>)maps.get(name);
+  LocalMap<K,V> map=(LocalMap<K,V>)localMaps.get(name);
   if (map == null) {
-    map=new SharedMap<>();
-    SharedMap prev=maps.putIfAbsent(name,map);
+    map=new LocalMapImpl<>(name,localMaps);
+    LocalMap prev=localMaps.putIfAbsent(name,map);
     if (prev != null) {
       map=prev;
     }

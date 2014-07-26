@@ -1,4 +1,0 @@
-{
-  Checker.checkType(v1);
-  return map.replace(k,v,v1);
-}
