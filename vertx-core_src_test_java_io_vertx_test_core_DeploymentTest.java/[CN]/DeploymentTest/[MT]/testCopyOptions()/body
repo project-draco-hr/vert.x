@@ -1,0 +1,18 @@
+{
+  DeploymentOptions options=new DeploymentOptions();
+  JsonObject config=new JsonObject().putString("foo","bar");
+  Random rand=new Random();
+  boolean worker=rand.nextBoolean();
+  boolean multiThreaded=rand.nextBoolean();
+  String isolationGroup=TestUtils.randomAlphaString(100);
+  options.setConfig(config);
+  options.setWorker(worker);
+  options.setMultiThreaded(multiThreaded);
+  options.setIsolationGroup(isolationGroup);
+  DeploymentOptions copy=new DeploymentOptions(options);
+  assertEquals(worker,copy.isWorker());
+  assertEquals(multiThreaded,copy.isMultiThreaded());
+  assertEquals(isolationGroup,copy.getIsolationGroup());
+  assertNotSame(config,copy.getConfig());
+  assertEquals("bar",copy.getConfig().getString("foo"));
+}

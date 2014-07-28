@@ -1,4 +1,5 @@
 {
+  super(json);
   this.maxWebsocketFrameSize=json.getInteger("maxWebsocketFrameSize",DEFAULT_MAXWEBSOCKETFRAMESIZE);
   this.version=json.getInteger("version",DEFAULT_WEBSOCKETVERSION);
   JsonArray arr=json.getArray("subProtocols");
