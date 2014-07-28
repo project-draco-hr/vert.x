@@ -1,0 +1,16 @@
+{
+  Random rand=new Random();
+  boolean broadcast=rand.nextBoolean();
+  boolean loopbackModeDisabled=rand.nextBoolean();
+  int multicastTimeToLive=TestUtils.randomPositiveInt();
+  String multicastNetworkInterface=TestUtils.randomAlphaString(100);
+  boolean reuseAddress=rand.nextBoolean();
+  JsonObject json=new JsonObject().putBoolean("broadcast",broadcast).putBoolean("loopbackModeDisabled",loopbackModeDisabled).putNumber("multicastTimeToLive",multicastTimeToLive).putString("multicastNetworkInterface",multicastNetworkInterface).putBoolean("reuseAddress",reuseAddress);
+  DatagramSocketOptions copy=new DatagramSocketOptions(json);
+  assertEquals(broadcast,copy.isBroadcast());
+  assertEquals(loopbackModeDisabled,copy.isLoopbackModeDisabled());
+  assertEquals(multicastTimeToLive,copy.getMulticastTimeToLive());
+  assertEquals(multicastNetworkInterface,copy.getMulticastNetworkInterface());
+  assertEquals(reuseAddress,copy.isReuseAddress());
+  testComplete();
+}
