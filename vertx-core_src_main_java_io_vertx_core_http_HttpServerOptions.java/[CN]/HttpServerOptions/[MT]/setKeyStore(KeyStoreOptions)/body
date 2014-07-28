@@ -1,4 +1,0 @@
-{
-  super.setKeyStore(keyStore);
-  return this;
-}

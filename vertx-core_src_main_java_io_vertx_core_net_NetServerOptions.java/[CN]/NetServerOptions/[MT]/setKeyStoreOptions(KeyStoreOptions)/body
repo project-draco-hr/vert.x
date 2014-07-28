@@ -1,0 +1,4 @@
+{
+  super.setKeyStoreOptions(keyStore);
+  return this;
+}

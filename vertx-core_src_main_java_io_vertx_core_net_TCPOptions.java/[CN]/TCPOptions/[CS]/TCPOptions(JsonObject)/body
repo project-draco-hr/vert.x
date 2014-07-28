@@ -5,7 +5,7 @@
   this.soLinger=json.getInteger("soLinger",DEFAULT_SOLINGER);
   this.usePooledBuffers=json.getBoolean("usePooledBuffers",false);
   this.ssl=json.getBoolean("ssl",false);
-  JsonObject keyStoreJson=json.getObject("keyStore");
+  JsonObject keyStoreJson=json.getObject("keyStoreOptions");
   if (keyStoreJson != null) {
     String type=keyStoreJson.getString("type",null);
 switch (type != null ? type.toLowerCase() : "jks") {
@@ -18,21 +18,25 @@ break;
 case "keycert":
 keyStore=new KeyCertOptions(keyStoreJson);
 break;
+default :
+throw new IllegalArgumentException("Invalid key store type: " + type);
 }
 }
-JsonObject trustStoreJson=json.getObject("trustStore");
+JsonObject trustStoreJson=json.getObject("trustStoreOptions");
 if (trustStoreJson != null) {
 String type=trustStoreJson.getString("type",null);
 switch (type != null ? type.toLowerCase() : "jks") {
 case "jks":
-trustStore=new JKSOptions(json);
+trustStore=new JKSOptions(trustStoreJson);
 break;
 case "pkcs12":
-trustStore=new PKCS12Options(json);
+trustStore=new PKCS12Options(trustStoreJson);
 break;
 case "ca":
-trustStore=new CaOptions(json);
+trustStore=new CaOptions(trustStoreJson);
 break;
+default :
+throw new IllegalArgumentException("Invalid trust store type: " + type);
 }
 }
 JsonArray arr=json.getArray("enabledCipherSuites");
