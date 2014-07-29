@@ -1,4 +1,0 @@
-{
-  super();
-  this.reconnectInterval=DEFAULT_RECONNECTINTERVAL;
-}

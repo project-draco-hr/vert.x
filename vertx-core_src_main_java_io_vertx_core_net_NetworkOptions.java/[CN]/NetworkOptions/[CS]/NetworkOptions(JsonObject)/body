@@ -1,6 +1,0 @@
-{
-  this.sendBufferSize=json.getInteger("sendBufferSize",DEFAULT_SENDBUFFERSIZE);
-  this.receiveBufferSize=json.getInteger("receiveBufferSize",DEFAULT_RECEIVEBUFFERSIZE);
-  this.reuseAddress=json.getBoolean("reuseAddress",DEFAULT_REUSEADDRESS);
-  this.trafficClass=json.getInteger("trafficClass",DEFAULT_TRAFFICCLASS);
-}

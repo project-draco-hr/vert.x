@@ -1,21 +1,24 @@
 {
-  DatagramSocketOptions options=new DatagramSocketOptions();
+  DatagramSocketOptions options=DatagramSocketOptions.options();
   Random rand=new Random();
   boolean broadcast=rand.nextBoolean();
   boolean loopbackModeDisabled=rand.nextBoolean();
   int multicastTimeToLive=TestUtils.randomPositiveInt();
   String multicastNetworkInterface=TestUtils.randomAlphaString(100);
   boolean reuseAddress=rand.nextBoolean();
+  boolean ipV6=rand.nextBoolean();
   options.setBroadcast(broadcast);
   options.setLoopbackModeDisabled(loopbackModeDisabled);
   options.setMulticastTimeToLive(multicastTimeToLive);
   options.setMulticastNetworkInterface(multicastNetworkInterface);
   options.setReuseAddress(reuseAddress);
-  DatagramSocketOptions copy=new DatagramSocketOptions(options);
+  options.setIpV6(ipV6);
+  DatagramSocketOptions copy=DatagramSocketOptions.copiedOptions(options);
   assertEquals(broadcast,copy.isBroadcast());
   assertEquals(loopbackModeDisabled,copy.isLoopbackModeDisabled());
   assertEquals(multicastTimeToLive,copy.getMulticastTimeToLive());
   assertEquals(multicastNetworkInterface,copy.getMulticastNetworkInterface());
   assertEquals(reuseAddress,copy.isReuseAddress());
+  assertEquals(ipV6,copy.isIpV6());
   testComplete();
 }

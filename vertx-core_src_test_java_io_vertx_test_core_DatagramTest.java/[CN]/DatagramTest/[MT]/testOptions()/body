@@ -1,5 +1,5 @@
 {
-  DatagramSocketOptions options=new DatagramSocketOptions();
+  DatagramSocketOptions options=DatagramSocketOptions.options();
   assertEquals(-1,options.getSendBufferSize());
   int rand=TestUtils.randomPositiveInt();
   assertEquals(options,options.setSendBufferSize(rand));
@@ -71,5 +71,8 @@
   String randString=TestUtils.randomUnicodeString(100);
   assertEquals(options,options.setMulticastNetworkInterface(randString));
   assertEquals(randString,options.getMulticastNetworkInterface());
+  assertFalse(options.isIpV6());
+  assertEquals(options,options.setIpV6(true));
+  assertTrue(options.isIpV6());
   testComplete();
 }

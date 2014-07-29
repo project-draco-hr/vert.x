@@ -1,4 +1,0 @@
-{
-  super.setConnectTimeout(connectTimeout);
-  return this;
-}

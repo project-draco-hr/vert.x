@@ -1,11 +1,11 @@
 {
-  CaOptions options=new CaOptions(new JsonObject());
+  CaOptions options=CaOptions.optionsFromJson(new JsonObject());
   assertEquals(Collections.emptyList(),options.getCertPaths());
   assertEquals(Collections.emptyList(),options.getCertValues());
   String certPath=TestUtils.randomAlphaString(100);
   String certValue=TestUtils.randomAlphaString(100);
   JsonObject json=new JsonObject().putArray("certPaths",new JsonArray().addString(certPath)).putArray("certValues",new JsonArray().addBinary(certValue.getBytes()));
-  options=new CaOptions(json);
+  options=CaOptions.optionsFromJson(json);
   assertEquals(Collections.singletonList(certPath),options.getCertPaths());
   assertEquals(Collections.singletonList(Buffer.buffer(certValue)),options.getCertValues());
 }

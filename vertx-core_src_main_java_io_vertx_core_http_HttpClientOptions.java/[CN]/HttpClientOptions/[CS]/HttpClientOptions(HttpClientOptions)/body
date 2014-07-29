@@ -1,8 +1,0 @@
-{
-  super(other);
-  this.verifyHost=other.verifyHost;
-  this.maxPoolSize=other.maxPoolSize;
-  this.keepAlive=other.keepAlive;
-  this.pipelining=other.pipelining;
-  this.tryUseCompression=other.tryUseCompression;
-}

@@ -1,5 +1,5 @@
 {
-  DeploymentOptions options=new DeploymentOptions();
+  DeploymentOptions options=DeploymentOptions.options();
   JsonObject config=new JsonObject().putString("foo","bar");
   Random rand=new Random();
   boolean worker=rand.nextBoolean();
@@ -9,7 +9,7 @@
   options.setWorker(worker);
   options.setMultiThreaded(multiThreaded);
   options.setIsolationGroup(isolationGroup);
-  DeploymentOptions copy=new DeploymentOptions(options);
+  DeploymentOptions copy=DeploymentOptions.copiedOptions(options);
   assertEquals(worker,copy.isWorker());
   assertEquals(multiThreaded,copy.isMultiThreaded());
   assertEquals(isolationGroup,copy.getIsolationGroup());

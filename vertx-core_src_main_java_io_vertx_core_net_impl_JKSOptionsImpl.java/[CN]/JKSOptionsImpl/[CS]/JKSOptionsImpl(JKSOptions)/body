@@ -1,0 +1,6 @@
+{
+  super();
+  this.password=other.getPassword();
+  this.path=other.getPath();
+  this.value=other.getValue();
+}

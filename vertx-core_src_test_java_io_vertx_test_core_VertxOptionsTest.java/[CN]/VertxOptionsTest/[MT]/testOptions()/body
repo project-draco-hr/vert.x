@@ -1,5 +1,5 @@
 {
-  VertxOptions options=new VertxOptions();
+  VertxOptions options=VertxOptions.options();
   assertEquals(2 * Runtime.getRuntime().availableProcessors(),options.getEventLoopPoolSize());
   int rand=TestUtils.randomPositiveInt();
   assertEquals(options,options.setEventLoopPoolSize(rand));

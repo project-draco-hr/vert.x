@@ -1,0 +1,7 @@
+{
+  super();
+  this.keyPath=other.getKeyPath();
+  this.keyValue=other.getKeyValue();
+  this.certPath=other.getCertPath();
+  this.certValue=other.getCertValue();
+}

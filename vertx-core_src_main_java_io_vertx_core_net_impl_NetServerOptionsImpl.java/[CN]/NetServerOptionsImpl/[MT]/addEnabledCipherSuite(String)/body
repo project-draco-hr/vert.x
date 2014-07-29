@@ -1,0 +1,4 @@
+{
+  enabledCipherSuites.add(suite);
+  return this;
+}

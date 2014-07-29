@@ -1,0 +1,13 @@
+{
+  sendBufferSize=DEFAULT_SENDBUFFERSIZE;
+  receiveBufferSize=DEFAULT_RECEIVEBUFFERSIZE;
+  reuseAddress=DEFAULT_REUSEADDRESS;
+  trafficClass=DEFAULT_TRAFFICCLASS;
+  tcpNoDelay=DEFAULT_TCPNODELAY;
+  tcpKeepAlive=DEFAULT_TCPKEEPALIVE;
+  soLinger=DEFAULT_SOLINGER;
+  this.connectTimeout=DEFAULT_CONNECTTIMEOUT;
+  this.crlPaths=new ArrayList<>();
+  this.crlValues=new ArrayList<>();
+  this.reconnectInterval=DEFAULT_RECONNECTINTERVAL;
+}

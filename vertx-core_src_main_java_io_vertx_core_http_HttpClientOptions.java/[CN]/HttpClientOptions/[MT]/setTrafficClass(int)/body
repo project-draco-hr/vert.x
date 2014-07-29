@@ -1,4 +1,0 @@
-{
-  super.setTrafficClass(trafficClass);
-  return this;
-}

@@ -1,5 +1,5 @@
 {
-  CaOptions options=new CaOptions();
+  CaOptions options=CaOptions.options();
   assertEquals(Collections.emptyList(),options.getCertPaths());
   String randString=TestUtils.randomAlphaString(100);
   options.addCertPath(randString);

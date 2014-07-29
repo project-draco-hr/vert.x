@@ -1,4 +1,0 @@
-{
-  super.setTcpKeepAlive(tcpKeepAlive);
-  return this;
-}

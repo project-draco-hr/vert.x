@@ -1,0 +1,13 @@
+{
+  this.eventLoopPoolSize=other.getEventLoopPoolSize();
+  this.workerPoolSize=other.getWorkerPoolSize();
+  this.clustered=other.isClustered();
+  this.clusterHost=other.getClusterHost();
+  this.clusterPort=other.getClusterPort();
+  this.blockedThreadCheckPeriod=other.getBlockedThreadCheckPeriod();
+  this.maxEventLoopExecuteTime=other.getMaxEventLoopExecuteTime();
+  this.maxWorkerExecuteTime=other.getMaxWorkerExecuteTime();
+  this.internalBlockingPoolSize=other.getInternalBlockingPoolSize();
+  this.proxyOperationTimeout=other.getProxyOperationTimeout();
+  this.clusterManager=other.getClusterManager();
+}

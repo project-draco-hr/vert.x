@@ -1,5 +1,5 @@
 {
-  OpenOptions opts=new OpenOptions();
+  OpenOptions opts=OpenOptions.options();
   assertNull(opts.getPerms());
   String perms="rwxrwxrwx";
   assertEquals(opts,opts.setPerms(perms));

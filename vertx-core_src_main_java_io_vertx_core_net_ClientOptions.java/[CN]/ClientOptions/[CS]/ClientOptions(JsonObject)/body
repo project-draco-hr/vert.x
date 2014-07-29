@@ -1,7 +1,0 @@
-{
-  super(json);
-  this.connectTimeout=json.getInteger("connectTimeout",DEFAULT_CONNECTTIMEOUT);
-  this.trustAll=json.getBoolean("trustAll",false);
-  JsonArray arr=json.getArray("crlPaths");
-  this.crlPaths=arr == null ? new ArrayList<>() : new ArrayList<String>(arr.toList());
-}

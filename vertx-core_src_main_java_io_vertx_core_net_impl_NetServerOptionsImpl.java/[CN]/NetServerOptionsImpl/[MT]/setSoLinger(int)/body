@@ -1,0 +1,7 @@
+{
+  if (soLinger < 0) {
+    throw new IllegalArgumentException("soLinger must be >= 0");
+  }
+  this.soLinger=soLinger;
+  return this;
+}

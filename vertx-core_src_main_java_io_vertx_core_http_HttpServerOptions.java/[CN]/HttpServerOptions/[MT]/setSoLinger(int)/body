@@ -1,4 +1,0 @@
-{
-  super.setSoLinger(soLinger);
-  return this;
-}

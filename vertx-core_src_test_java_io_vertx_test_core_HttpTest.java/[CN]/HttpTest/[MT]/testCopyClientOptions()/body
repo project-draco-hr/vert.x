@@ -1,5 +1,5 @@
 {
-  HttpClientOptions options=new HttpClientOptions();
+  HttpClientOptions options=HttpClientOptions.options();
   int sendBufferSize=TestUtils.randomPositiveInt();
   int receiverBufferSize=TestUtils.randomPortInt();
   Random rand=new Random();
@@ -10,10 +10,10 @@
   int soLinger=TestUtils.randomPositiveInt();
   boolean usePooledBuffers=rand.nextBoolean();
   boolean ssl=rand.nextBoolean();
-  JKSOptions keyStoreOptions=new JKSOptions();
+  JKSOptions keyStoreOptions=JKSOptions.options();
   String ksPassword=TestUtils.randomAlphaString(100);
   keyStoreOptions.setPassword(ksPassword);
-  JKSOptions trustStoreOptions=new JKSOptions();
+  JKSOptions trustStoreOptions=JKSOptions.options();
   String tsPassword=TestUtils.randomAlphaString(100);
   trustStoreOptions.setPassword(tsPassword);
   String enabledCipher=TestUtils.randomAlphaString(100);
@@ -47,7 +47,7 @@
   options.setKeepAlive(keepAlive);
   options.setPipelining(pipelining);
   options.setTryUseCompression(tryUseCompression);
-  HttpClientOptions copy=new HttpClientOptions(options);
+  HttpClientOptions copy=HttpClientOptions.copiedOptions(options);
   assertEquals(sendBufferSize,copy.getSendBufferSize());
   assertEquals(receiverBufferSize,copy.getReceiveBufferSize());
   assertEquals(reuseAddress,copy.isReuseAddress());

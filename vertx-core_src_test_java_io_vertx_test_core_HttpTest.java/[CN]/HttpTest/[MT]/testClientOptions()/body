@@ -1,5 +1,5 @@
 {
-  HttpClientOptions options=new HttpClientOptions();
+  HttpClientOptions options=HttpClientOptions.options();
   assertEquals(-1,options.getSendBufferSize());
   int rand=TestUtils.randomPositiveInt();
   assertEquals(options,options.setSendBufferSize(rand));
@@ -76,11 +76,11 @@
   assertEquals(options,options.setSsl(true));
   assertTrue(options.isSsl());
   assertNull(options.getKeyStoreOptions());
-  JKSOptions keyStoreOptions=new JKSOptions().setPath(TestUtils.randomAlphaString(100)).setPassword(TestUtils.randomAlphaString(100));
+  JKSOptions keyStoreOptions=JKSOptions.options().setPath(TestUtils.randomAlphaString(100)).setPassword(TestUtils.randomAlphaString(100));
   assertEquals(options,options.setKeyStoreOptions(keyStoreOptions));
   assertEquals(keyStoreOptions,options.getKeyStoreOptions());
   assertNull(options.getTrustStoreOptions());
-  JKSOptions trustStoreOptions=new JKSOptions().setPath(TestUtils.randomAlphaString(100)).setPassword(TestUtils.randomAlphaString(100));
+  JKSOptions trustStoreOptions=JKSOptions.options().setPath(TestUtils.randomAlphaString(100)).setPassword(TestUtils.randomAlphaString(100));
   assertEquals(options,options.setTrustStoreOptions(trustStoreOptions));
   assertEquals(trustStoreOptions,options.getTrustStoreOptions());
   assertFalse(options.isTrustAll());

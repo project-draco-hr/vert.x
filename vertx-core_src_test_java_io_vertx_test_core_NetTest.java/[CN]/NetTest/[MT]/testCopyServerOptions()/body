@@ -1,5 +1,5 @@
 {
-  NetServerOptions options=new NetServerOptions();
+  NetServerOptions options=NetServerOptions.options();
   int sendBufferSize=TestUtils.randomPositiveInt();
   int receiverBufferSize=TestUtils.randomPortInt();
   Random rand=new Random();
@@ -10,10 +10,10 @@
   int soLinger=TestUtils.randomPositiveInt();
   boolean usePooledBuffers=rand.nextBoolean();
   boolean ssl=rand.nextBoolean();
-  JKSOptions keyStoreOptions=new JKSOptions();
+  JKSOptions keyStoreOptions=JKSOptions.options();
   String ksPassword=TestUtils.randomAlphaString(100);
   keyStoreOptions.setPassword(ksPassword);
-  JKSOptions trustStoreOptions=new JKSOptions();
+  JKSOptions trustStoreOptions=JKSOptions.options();
   String tsPassword=TestUtils.randomAlphaString(100);
   trustStoreOptions.setPassword(tsPassword);
   String enabledCipher=TestUtils.randomAlphaString(100);
@@ -39,7 +39,7 @@
   options.setPort(port);
   options.setHost(host);
   options.setAcceptBacklog(acceptBacklog);
-  NetServerOptions copy=new NetServerOptions(options);
+  NetServerOptions copy=NetServerOptions.copiedOptions(options);
   assertEquals(sendBufferSize,copy.getSendBufferSize());
   assertEquals(receiverBufferSize,copy.getReceiveBufferSize());
   assertEquals(reuseAddress,copy.isReuseAddress());

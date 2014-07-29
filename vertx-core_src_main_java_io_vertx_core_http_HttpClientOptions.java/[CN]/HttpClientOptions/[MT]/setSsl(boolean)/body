@@ -1,4 +1,0 @@
-{
-  super.setSsl(ssl);
-  return this;
-}

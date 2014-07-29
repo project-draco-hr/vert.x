@@ -1,0 +1,10 @@
+{
+  if (this == o)   return true;
+  if (!(o instanceof DeploymentOptions))   return false;
+  DeploymentOptions that=(DeploymentOptions)o;
+  if (multiThreaded != that.isMultiThreaded())   return false;
+  if (worker != that.isWorker())   return false;
+  if (config != null ? !config.equals(that.getConfig()) : that.getConfig() != null)   return false;
+  if (isolationGroup != null ? !isolationGroup.equals(that.getIsolationGroup()) : that.getIsolationGroup() != null)   return false;
+  return true;
+}

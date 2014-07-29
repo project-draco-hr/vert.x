@@ -1,0 +1,7 @@
+{
+  if (trafficClass < 0 || trafficClass > 255) {
+    throw new IllegalArgumentException("trafficClass tc must be 0 <= tc <= 255");
+  }
+  this.trafficClass=trafficClass;
+  return this;
+}

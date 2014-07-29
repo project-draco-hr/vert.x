@@ -1,0 +1,12 @@
+{
+  int result=sendBufferSize;
+  result=31 * result + receiveBufferSize;
+  result=31 * result + trafficClass;
+  result=31 * result + (broadcast ? 1 : 0);
+  result=31 * result + (loopbackModeDisabled ? 1 : 0);
+  result=31 * result + multicastTimeToLive;
+  result=31 * result + (multicastNetworkInterface != null ? multicastNetworkInterface.hashCode() : 0);
+  result=31 * result + (reuseAddress ? 1 : 0);
+  result=31 * result + (ipV6 ? 1 : 0);
+  return result;
+}

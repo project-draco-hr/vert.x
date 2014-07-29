@@ -9,7 +9,7 @@
   json.putBoolean("worker",worker);
   json.putBoolean("multiThreaded",multiThreaded);
   json.putString("isolationGroup",isolationGroup);
-  DeploymentOptions copy=new DeploymentOptions(json);
+  DeploymentOptions copy=DeploymentOptions.optionsFromJson(json);
   assertEquals(worker,copy.isWorker());
   assertEquals(multiThreaded,copy.isMultiThreaded());
   assertEquals(isolationGroup,copy.getIsolationGroup());

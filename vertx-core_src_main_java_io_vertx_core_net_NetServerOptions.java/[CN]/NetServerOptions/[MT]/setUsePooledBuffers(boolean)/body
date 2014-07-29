@@ -1,4 +1,0 @@
-{
-  super.setUsePooledBuffers(usePooledBuffers);
-  return this;
-}

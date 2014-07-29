@@ -1,5 +1,5 @@
 {
-  HttpServerOptions serverOptions=new HttpServerOptions();
+  HttpServerOptions serverOptions=HttpServerOptions.options();
   serverOptions.setTrustStoreOptions(tsOptions);
   serverOptions.setSsl(true);
   serverOptions.setPort(4043);

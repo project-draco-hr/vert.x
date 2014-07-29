@@ -1,5 +1,0 @@
-{
-  super();
-  this.certPaths=new ArrayList<>(other.certPaths);
-  this.certValues=new ArrayList<>(other.certValues);
-}

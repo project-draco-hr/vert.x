@@ -1,7 +1,0 @@
-{
-  super(other);
-  this.connectTimeout=other.connectTimeout;
-  this.trustAll=other.trustAll;
-  this.crlPaths=new ArrayList<>(other.crlPaths);
-  this.crlValues=new ArrayList<>(other.crlValues);
-}

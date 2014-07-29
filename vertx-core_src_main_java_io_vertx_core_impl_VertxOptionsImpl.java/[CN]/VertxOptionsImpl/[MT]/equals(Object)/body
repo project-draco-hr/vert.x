@@ -1,0 +1,17 @@
+{
+  if (this == o)   return true;
+  if (!(o instanceof VertxOptions))   return false;
+  VertxOptions that=(VertxOptions)o;
+  if (blockedThreadCheckPeriod != that.getBlockedThreadCheckPeriod())   return false;
+  if (clusterPort != that.getClusterPort())   return false;
+  if (clustered != that.isClustered())   return false;
+  if (eventLoopPoolSize != that.getEventLoopPoolSize())   return false;
+  if (internalBlockingPoolSize != that.getInternalBlockingPoolSize())   return false;
+  if (maxEventLoopExecuteTime != that.getMaxEventLoopExecuteTime())   return false;
+  if (maxWorkerExecuteTime != that.getMaxWorkerExecuteTime())   return false;
+  if (workerPoolSize != that.getWorkerPoolSize())   return false;
+  if (clusterHost != null ? !clusterHost.equals(that.isClustered()) : that.getClusterHost() != null)   return false;
+  if (clusterManager != null ? !clusterManager.equals(that.getClusterManager()) : that.getClusterManager() != null)   return false;
+  if (proxyOperationTimeout != that.getProxyOperationTimeout())   return false;
+  return true;
+}

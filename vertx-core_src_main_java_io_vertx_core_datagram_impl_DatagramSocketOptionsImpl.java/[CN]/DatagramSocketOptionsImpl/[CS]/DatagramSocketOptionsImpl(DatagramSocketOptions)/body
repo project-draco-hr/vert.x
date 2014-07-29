@@ -1,0 +1,11 @@
+{
+  this.sendBufferSize=other.getSendBufferSize();
+  this.receiveBufferSize=other.getReceiveBufferSize();
+  this.reuseAddress=other.isReuseAddress();
+  this.trafficClass=other.getTrafficClass();
+  this.broadcast=other.isBroadcast();
+  this.loopbackModeDisabled=other.isLoopbackModeDisabled();
+  this.multicastTimeToLive=other.getMulticastTimeToLive();
+  this.multicastNetworkInterface=other.getMulticastNetworkInterface();
+  this.ipV6=other.isIpV6();
+}

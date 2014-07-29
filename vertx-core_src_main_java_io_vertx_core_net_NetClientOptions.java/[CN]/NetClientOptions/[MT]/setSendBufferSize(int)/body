@@ -1,4 +1,0 @@
-{
-  super.setSendBufferSize(sendBufferSize);
-  return this;
-}

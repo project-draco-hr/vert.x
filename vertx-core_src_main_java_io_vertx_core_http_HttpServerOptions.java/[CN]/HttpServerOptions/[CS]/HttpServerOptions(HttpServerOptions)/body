@@ -1,7 +1,0 @@
-{
-  super(other);
-  this.compressionSupported=other.compressionSupported;
-  this.maxWebsocketFrameSize=other.maxWebsocketFrameSize;
-  this.websocketSubProtocols=other.websocketSubProtocols != null ? new HashSet<>(other.websocketSubProtocols) : null;
-  this.port=other.port;
-}

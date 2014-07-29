@@ -1,0 +1,27 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  HttpClientOptionsImpl that=(HttpClientOptionsImpl)o;
+  if (connectTimeout != that.connectTimeout)   return false;
+  if (keepAlive != that.keepAlive)   return false;
+  if (maxPoolSize != that.maxPoolSize)   return false;
+  if (pipelining != that.pipelining)   return false;
+  if (receiveBufferSize != that.receiveBufferSize)   return false;
+  if (reuseAddress != that.reuseAddress)   return false;
+  if (sendBufferSize != that.sendBufferSize)   return false;
+  if (soLinger != that.soLinger)   return false;
+  if (ssl != that.ssl)   return false;
+  if (tcpKeepAlive != that.tcpKeepAlive)   return false;
+  if (tcpNoDelay != that.tcpNoDelay)   return false;
+  if (trafficClass != that.trafficClass)   return false;
+  if (trustAll != that.trustAll)   return false;
+  if (tryUseCompression != that.tryUseCompression)   return false;
+  if (usePooledBuffers != that.usePooledBuffers)   return false;
+  if (verifyHost != that.verifyHost)   return false;
+  if (crlPaths != null ? !crlPaths.equals(that.crlPaths) : that.crlPaths != null)   return false;
+  if (crlValues != null ? !crlValues.equals(that.crlValues) : that.crlValues != null)   return false;
+  if (enabledCipherSuites != null ? !enabledCipherSuites.equals(that.enabledCipherSuites) : that.enabledCipherSuites != null)   return false;
+  if (keyStore != null ? !keyStore.equals(that.keyStore) : that.keyStore != null)   return false;
+  if (trustStore != null ? !trustStore.equals(that.trustStore) : that.trustStore != null)   return false;
+  return true;
+}

@@ -1,4 +1,0 @@
-{
-  super.setTcpNoDelay(tcpNoDelay);
-  return this;
-}
