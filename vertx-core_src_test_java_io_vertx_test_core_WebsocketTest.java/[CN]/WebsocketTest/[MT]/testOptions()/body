@@ -1,5 +1,5 @@
 {
-  WebSocketConnectOptions options=new WebSocketConnectOptions();
+  WebSocketConnectOptions options=WebSocketConnectOptions.options();
   assertEquals(80,options.getPort());
   assertEquals(options,options.setPort(1234));
   assertEquals(1234,options.getPort());

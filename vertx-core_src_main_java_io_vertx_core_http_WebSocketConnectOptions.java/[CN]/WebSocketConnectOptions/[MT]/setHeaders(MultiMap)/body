@@ -1,4 +1,0 @@
-{
-  super.setHeaders(headers);
-  return this;
-}

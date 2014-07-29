@@ -7,8 +7,8 @@
   int websocketFrameSize=TestUtils.randomPositiveInt();
   int version=13;
   String subProtocol=TestUtils.randomAlphaString(100);
-  WebSocketConnectOptions options=new WebSocketConnectOptions().setPort(port).setHost(host).setHeaders(headers).setRequestURI(uri).setMaxWebsocketFrameSize(websocketFrameSize).setVersion(version).addSubProtocol(subProtocol);
-  WebSocketConnectOptions copy=new WebSocketConnectOptions(options);
+  WebSocketConnectOptions options=WebSocketConnectOptions.options().setPort(port).setHost(host).setHeaders(headers).setRequestURI(uri).setMaxWebsocketFrameSize(websocketFrameSize).setVersion(version).addSubProtocol(subProtocol);
+  WebSocketConnectOptions copy=WebSocketConnectOptions.copiedOptions(options);
   assertEquals(port,copy.getPort());
   assertEquals(host,copy.getHost());
   assertEquals(uri,copy.getRequestURI());

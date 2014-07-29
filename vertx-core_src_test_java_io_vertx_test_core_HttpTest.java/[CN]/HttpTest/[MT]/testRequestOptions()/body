@@ -1,5 +1,5 @@
 {
-  RequestOptions options=new RequestOptions();
+  RequestOptions options=RequestOptions.options();
   assertEquals(80,options.getPort());
   assertEquals(options,options.setPort(1234));
   assertEquals(1234,options.getPort());

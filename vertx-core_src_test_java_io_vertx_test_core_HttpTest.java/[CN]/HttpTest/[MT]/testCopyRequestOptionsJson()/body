@@ -11,7 +11,7 @@
   JsonObject jheaders=new JsonObject();
   jheaders.putString("foo","bar");
   json.putObject("headers",jheaders);
-  RequestOptions copy=new RequestOptions(json);
+  RequestOptions copy=RequestOptions.optionsFromJson(json);
   assertEquals(port,copy.getPort());
   assertEquals(host,copy.getHost());
   assertEquals(uri,copy.getRequestURI());

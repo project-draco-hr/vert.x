@@ -1,0 +1,10 @@
+{
+  if (this == o)   return true;
+  if (!(o instanceof RequestOptions))   return false;
+  RequestOptions that=(RequestOptions)o;
+  if (port != that.getPort())   return false;
+  if (headers != null ? !headers.equals(that.getHeaders()) : that.getHeaders() != null)   return false;
+  if (host != null ? !host.equals(that.getHost()) : that.getHost() != null)   return false;
+  if (requestURI != null ? !requestURI.equals(that.getRequestURI()) : that.getRequestURI() != null)   return false;
+  return true;
+}

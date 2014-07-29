@@ -1,0 +1,6 @@
+{
+  this.port=other.getPort();
+  this.host=other.getHost();
+  this.requestURI=other.getRequestURI();
+  this.headers=other.getHeaders();
+}

@@ -1,7 +1,0 @@
-{
-  int result=super.hashCode();
-  result=31 * result + maxWebsocketFrameSize;
-  result=31 * result + version;
-  result=31 * result + (subProtocols != null ? subProtocols.hashCode() : 0);
-  return result;
-}

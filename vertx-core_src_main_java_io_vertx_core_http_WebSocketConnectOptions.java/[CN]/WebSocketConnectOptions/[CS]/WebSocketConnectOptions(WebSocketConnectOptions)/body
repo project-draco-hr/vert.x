@@ -1,6 +1,0 @@
-{
-  super(other);
-  this.maxWebsocketFrameSize=other.maxWebsocketFrameSize;
-  this.version=other.version;
-  this.subProtocols=other.subProtocols != null ? new HashSet<>(other.subProtocols) : null;
-}

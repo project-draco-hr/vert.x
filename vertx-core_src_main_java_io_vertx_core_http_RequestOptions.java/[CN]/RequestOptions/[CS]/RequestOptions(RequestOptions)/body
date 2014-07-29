@@ -1,6 +1,0 @@
-{
-  this.port=other.port;
-  this.host=other.host;
-  this.requestURI=other.requestURI;
-  this.headers=other.headers;
-}

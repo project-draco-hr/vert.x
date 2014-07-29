@@ -1,4 +1,0 @@
-{
-  this.maxWebsocketFrameSize=DEFAULT_MAXWEBSOCKETFRAMESIZE;
-  this.version=DEFAULT_WEBSOCKETVERSION;
-}

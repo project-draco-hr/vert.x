@@ -1,4 +1,0 @@
-{
-  super.setHost(host);
-  return this;
-}
