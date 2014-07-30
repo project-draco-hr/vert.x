@@ -5,7 +5,11 @@
     if (supplier.getAsBoolean()) {
       break;
     }
-    Thread.sleep(10);
+    try {
+      Thread.sleep(10);
+    }
+ catch (    InterruptedException ignore) {
+    }
     long now=System.currentTimeMillis();
     if (now - start > timeout) {
       throw new IllegalStateException("Timed out");

@@ -5,4 +5,5 @@
   asyncMultiMaps.clear();
   locks.clear();
   counters.clear();
+  syncMaps.clear();
 }

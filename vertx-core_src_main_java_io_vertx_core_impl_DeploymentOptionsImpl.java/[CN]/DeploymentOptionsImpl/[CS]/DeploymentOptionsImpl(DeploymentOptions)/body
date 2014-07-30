@@ -3,4 +3,5 @@
   this.worker=other.isWorker();
   this.multiThreaded=other.isMultiThreaded();
   this.isolationGroup=other.getIsolationGroup();
+  this.ha=other.isHA();
 }

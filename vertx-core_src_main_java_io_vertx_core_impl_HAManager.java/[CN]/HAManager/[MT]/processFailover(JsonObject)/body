@@ -1,0 +1,37 @@
+{
+  if (failDuringFailover) {
+    throw new VertxException("Oops!");
+  }
+  final String verticleName=failedVerticle.getString("verticle_name");
+  final CountDownLatch latch=new CountDownLatch(1);
+  final AtomicReference<Throwable> err=new AtomicReference<>();
+  ContextImpl ctx=vertx.getContext();
+  vertx.setContext(null);
+  JsonObject options=failedVerticle.getObject("options");
+  doDeployVerticle(verticleName,DeploymentOptions.optionsFromJson(options),new Handler<AsyncResult<String>>(){
+    @Override public void handle(    AsyncResult<String> result){
+      if (result.succeeded()) {
+        log.info("Successfully redeployed verticle " + verticleName + " after failover");
+      }
+ else {
+        log.error("Failed to redeploy verticle after failover",result.cause());
+        err.set(result.cause());
+      }
+      latch.countDown();
+      Throwable t=err.get();
+      if (t != null) {
+        throw new VertxException(t);
+      }
+    }
+  }
+);
+  vertx.setContext(ctx);
+  try {
+    if (!latch.await(120,TimeUnit.SECONDS)) {
+      throw new VertxException("Timed out waiting for redeploy on failover");
+    }
+  }
+ catch (  InterruptedException e) {
+    throw new IllegalStateException(e);
+  }
+}

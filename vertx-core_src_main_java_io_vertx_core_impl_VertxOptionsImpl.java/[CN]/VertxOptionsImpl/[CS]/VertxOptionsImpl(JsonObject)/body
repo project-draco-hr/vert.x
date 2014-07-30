@@ -9,4 +9,7 @@
   this.blockedThreadCheckPeriod=json.getLong("blockedThreadCheckPeriod",DEFAULT_BLOCKEDTHREADCHECKPERIOD);
   this.maxEventLoopExecuteTime=json.getLong("maxEventLoopExecuteTime",DEFAULT_MAXEVENTLOOPEXECUTETIME);
   this.maxWorkerExecuteTime=json.getLong("maxWorkerExecuteTime",DEFAULT_MAXWORKEREXECUTETIME);
+  this.haEnabled=json.getBoolean("haEnabled",false);
+  this.quorumSize=json.getInteger("quorumSize",DEFAULT_QUORUMSIZE);
+  this.haGroup=json.getString("haGroup",null);
 }

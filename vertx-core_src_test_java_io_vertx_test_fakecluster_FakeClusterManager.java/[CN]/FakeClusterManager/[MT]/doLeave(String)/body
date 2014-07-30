@@ -3,7 +3,7 @@
     throw new IllegalStateException("Node hasn't joined!");
   }
   nodes.remove(nodeID);
-  for (  NodeListener listener : nodeListeners) {
+  for (  NodeListener listener : new ArrayList<>(nodeListeners)) {
     listener.nodeLeft(nodeID);
   }
 }

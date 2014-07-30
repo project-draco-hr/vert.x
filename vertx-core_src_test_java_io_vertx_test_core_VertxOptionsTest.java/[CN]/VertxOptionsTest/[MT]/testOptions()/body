@@ -96,4 +96,27 @@
   }
  catch (  IllegalArgumentException e) {
   }
+  assertFalse(options.isHAEnabled());
+  assertEquals(options,options.setHAEnabled(true));
+  assertTrue(options.isHAEnabled());
+  rand=TestUtils.randomPositiveInt();
+  assertEquals(1,options.getQuorumSize());
+  assertEquals(options,options.setQuorumSize(rand));
+  assertEquals(rand,options.getQuorumSize());
+  try {
+    options.setQuorumSize(0);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  try {
+    options.setQuorumSize(-1);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  assertNull(options.getHAGroup());
+  randString=TestUtils.randomUnicodeString(100);
+  assertEquals(options,options.setHAGroup(randString));
+  assertEquals(randString,options.getHAGroup());
 }

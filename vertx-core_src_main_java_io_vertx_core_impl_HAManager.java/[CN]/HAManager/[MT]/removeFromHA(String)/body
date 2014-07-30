@@ -1,0 +1,18 @@
+{
+  Deployment dep=deploymentManager.getDeployment(depID);
+  if (dep == null || !dep.deploymentOptions().isHA()) {
+    return;
+  }
+synchronized (haInfo) {
+    JsonArray haMods=haInfo.getArray("verticles");
+    Iterator<Object> iter=haMods.iterator();
+    while (iter.hasNext()) {
+      Object obj=iter.next();
+      JsonObject mod=(JsonObject)obj;
+      if (mod.getString("dep_id").equals(depID)) {
+        iter.remove();
+      }
+    }
+    clusterMap.put(nodeID,haInfo.encode());
+  }
+}

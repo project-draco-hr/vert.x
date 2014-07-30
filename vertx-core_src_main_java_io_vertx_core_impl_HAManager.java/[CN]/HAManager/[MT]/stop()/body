@@ -1,0 +1,9 @@
+{
+  if (!stopped) {
+    if (clusterManager.isActive()) {
+      clusterMap.remove(nodeID);
+    }
+    vertx.cancelTimer(quorumTimerID);
+    stopped=true;
+  }
+}

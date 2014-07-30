@@ -1,0 +1,17 @@
+{
+  final Handler<AsyncResult<String>> wrappedHandler=new Handler<AsyncResult<String>>(){
+    @Override public void handle(    AsyncResult<String> asyncResult){
+      if (asyncResult.succeeded()) {
+        addToHA(asyncResult.result(),verticleName,deploymentOptions);
+      }
+      if (doneHandler != null) {
+        doneHandler.handle(asyncResult);
+      }
+ else       if (asyncResult.failed()) {
+        log.error("Failed to deploy verticle",asyncResult.cause());
+      }
+    }
+  }
+;
+  deploymentManager.deployVerticle(verticleName,deploymentOptions,wrappedHandler);
+}

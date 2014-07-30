@@ -1,5 +1,0 @@
-{
-  this.id=id;
-  this.context=context;
-  this.verticle=verticle;
-}

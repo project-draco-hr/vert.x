@@ -1,0 +1,4 @@
+{
+  IMap<K,V> map=hazelcast.getMap(name);
+  return map;
+}

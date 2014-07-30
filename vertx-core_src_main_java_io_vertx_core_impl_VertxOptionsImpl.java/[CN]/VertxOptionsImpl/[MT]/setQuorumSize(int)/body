@@ -1,0 +1,7 @@
+{
+  if (quorumSize < 1) {
+    throw new IllegalArgumentException("quorumSize should be >= 1");
+  }
+  this.quorumSize=quorumSize;
+  return this;
+}

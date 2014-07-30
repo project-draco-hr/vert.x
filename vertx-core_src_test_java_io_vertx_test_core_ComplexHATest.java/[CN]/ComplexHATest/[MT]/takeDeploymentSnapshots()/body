@@ -1,0 +1,8 @@
+{
+  for (int i=0; i < vertices.length; i++) {
+    VertxInternal v=(VertxInternal)vertices[i];
+    if (!v.isKilled()) {
+      deploymentSnapshots[i]=takeDeploymentSnapshot(i);
+    }
+  }
+}

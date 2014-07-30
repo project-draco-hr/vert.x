@@ -10,5 +10,8 @@
   result=31 * result + (int)(maxWorkerExecuteTime ^ (maxWorkerExecuteTime >>> 32));
   result=31 * result + (clusterManager != null ? clusterManager.hashCode() : 0);
   result=31 * result + (int)(proxyOperationTimeout ^ (proxyOperationTimeout >>> 32));
+  result=31 * result + (haEnabled ? 1 : 0);
+  result=31 * result + quorumSize;
+  result=31 * result + (haGroup != null ? haGroup.hashCode() : 0);
   return result;
 }

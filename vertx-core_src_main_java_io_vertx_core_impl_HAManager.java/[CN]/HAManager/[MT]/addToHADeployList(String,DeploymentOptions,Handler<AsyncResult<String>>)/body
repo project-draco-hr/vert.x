@@ -1,0 +1,15 @@
+{
+  toDeployOnQuorum.add(new Runnable(){
+    public void run(){
+      ContextImpl ctx=vertx.getContext();
+      try {
+        vertx.setContext(null);
+        deployVerticle(verticleName,deploymentOptions,doneHandler);
+      }
+  finally {
+        vertx.setContext(ctx);
+      }
+    }
+  }
+);
+}

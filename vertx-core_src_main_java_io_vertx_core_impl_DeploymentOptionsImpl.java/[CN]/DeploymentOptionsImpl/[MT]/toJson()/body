@@ -1,0 +1,9 @@
+{
+  JsonObject json=new JsonObject();
+  if (worker)   json.putBoolean("worker",true);
+  if (multiThreaded)   json.putBoolean("multiThreaded",true);
+  if (isolationGroup != null)   json.putString("isolationGroup",isolationGroup);
+  if (ha)   json.putBoolean("ha",true);
+  if (config != null)   json.putObject("config",config);
+  return json;
+}

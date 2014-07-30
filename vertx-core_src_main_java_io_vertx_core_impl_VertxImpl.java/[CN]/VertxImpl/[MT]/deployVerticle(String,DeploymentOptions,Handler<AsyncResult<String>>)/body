@@ -1,3 +1,8 @@
 {
-  deploymentManager.deployVerticle(verticleClass,options,completionHandler);
+  if (options.isHA() && haManager != null) {
+    haManager.deployVerticle(verticleName,options,completionHandler);
+  }
+ else {
+    deploymentManager.deployVerticle(verticleName,options,completionHandler);
+  }
 }

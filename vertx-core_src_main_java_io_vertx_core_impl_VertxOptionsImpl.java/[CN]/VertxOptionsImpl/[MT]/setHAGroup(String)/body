@@ -1,0 +1,4 @@
+{
+  this.haGroup=haGroup;
+  return this;
+}

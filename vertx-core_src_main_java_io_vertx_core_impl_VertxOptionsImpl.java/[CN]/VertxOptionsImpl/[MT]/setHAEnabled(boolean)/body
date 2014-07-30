@@ -1,0 +1,4 @@
+{
+  this.haEnabled=haEnabled;
+  return this;
+}

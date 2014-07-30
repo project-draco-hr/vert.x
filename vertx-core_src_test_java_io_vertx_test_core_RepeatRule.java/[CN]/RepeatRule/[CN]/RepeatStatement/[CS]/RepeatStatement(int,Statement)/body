@@ -1,0 +1,4 @@
+{
+  this.times=times;
+  this.statement=statement;
+}

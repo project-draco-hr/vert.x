@@ -20,7 +20,7 @@
       reportFailure(new NullPointerException("VerticleFactory::createVerticle returned null"),currentContext,completionHandler);
     }
  else {
-      doDeploy(verticle,options,currentContext,completionHandler);
+      doDeploy(verticleName,verticle,options,currentContext,completionHandler);
     }
   }
  catch (  Exception e) {

@@ -1,0 +1,15 @@
+{
+  Set<Deployment> prevSet=deploymentSnapshots[prevPos];
+  Set<Deployment> currSet=takeDeploymentSnapshot(pos);
+  for (  Deployment prev : prevSet) {
+    boolean contains=false;
+    for (    Deployment curr : currSet) {
+      if (curr.verticleName().equals(prev.verticleName()) && curr.deploymentOptions().equals(prev.deploymentOptions())) {
+        contains=true;
+        break;
+      }
+    }
+    assertTrue(contains);
+  }
+  return currSet.size();
+}

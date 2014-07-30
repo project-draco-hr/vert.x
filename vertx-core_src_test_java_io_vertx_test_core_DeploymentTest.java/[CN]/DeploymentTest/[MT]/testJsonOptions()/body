@@ -4,15 +4,18 @@
   boolean worker=rand.nextBoolean();
   boolean multiThreaded=rand.nextBoolean();
   String isolationGroup=TestUtils.randomAlphaString(100);
+  boolean ha=rand.nextBoolean();
   JsonObject json=new JsonObject();
   json.putObject("config",config);
   json.putBoolean("worker",worker);
   json.putBoolean("multiThreaded",multiThreaded);
   json.putString("isolationGroup",isolationGroup);
+  json.putBoolean("ha",ha);
   DeploymentOptions copy=DeploymentOptions.optionsFromJson(json);
   assertEquals(worker,copy.isWorker());
   assertEquals(multiThreaded,copy.isMultiThreaded());
   assertEquals(isolationGroup,copy.getIsolationGroup());
   assertNotSame(config,copy.getConfig());
   assertEquals("bar",copy.getConfig().getString("foo"));
+  assertEquals(ha,copy.isHA());
 }

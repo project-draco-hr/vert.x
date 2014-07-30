@@ -1,0 +1,6 @@
+{
+  int i=random.nextInt(aliveNodes.size());
+  int pos=aliveNodes.get(i);
+  aliveNodes.remove(i);
+  kill(pos);
+}

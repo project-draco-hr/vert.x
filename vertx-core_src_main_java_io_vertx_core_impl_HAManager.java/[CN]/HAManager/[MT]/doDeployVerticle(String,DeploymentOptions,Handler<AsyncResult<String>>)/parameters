@@ -1,0 +1,3 @@
+String verticleName
+DeploymentOptions deploymentOptions
+Handler<AsyncResult<String>> doneHandler

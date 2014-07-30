@@ -1,0 +1,5 @@
+String id
+ContextImpl context
+String verticleName
+Verticle verticle
+DeploymentOptions options

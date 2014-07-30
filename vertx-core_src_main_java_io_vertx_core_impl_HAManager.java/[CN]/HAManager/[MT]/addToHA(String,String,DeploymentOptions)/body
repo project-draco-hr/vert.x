@@ -1,0 +1,12 @@
+{
+  String encoded;
+synchronized (haInfo) {
+    JsonObject verticleConf=new JsonObject().putString("dep_id",deploymentID);
+    verticleConf.putString("verticle_name",verticleName);
+    verticleConf.putObject("options",deploymentOptions.toJson());
+    JsonArray haMods=haInfo.getArray("verticles");
+    haMods.addObject(verticleConf);
+    encoded=haInfo.encode();
+    clusterMap.put(nodeID,encoded);
+  }
+}

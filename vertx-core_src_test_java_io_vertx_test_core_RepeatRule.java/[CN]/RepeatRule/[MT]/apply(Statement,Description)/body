@@ -1,0 +1,9 @@
+{
+  Statement result=statement;
+  Repeat repeat=description.getAnnotation(Repeat.class);
+  if (repeat != null) {
+    int times=repeat.times();
+    result=new RepeatStatement(times,statement);
+  }
+  return result;
+}

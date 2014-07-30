@@ -1,0 +1,13 @@
+{
+  try {
+    if (attainedQuorum) {
+      deployHADeployments();
+    }
+ else {
+      undeployHADeployments();
+    }
+  }
+ catch (  Throwable t) {
+    log.error("Failed when checking HA deployments",t);
+  }
+}

@@ -1,0 +1,9 @@
+{
+  if (attainedQuorum) {
+    doDeployVerticle(verticleName,deploymentOptions,doneHandler);
+  }
+ else {
+    log.info("Quorum not attained. Deployment of verticle will be delayed until there's a quorum.");
+    addToHADeployList(verticleName,deploymentOptions,doneHandler);
+  }
+}

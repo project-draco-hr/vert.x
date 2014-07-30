@@ -1,0 +1,3 @@
+{
+  return startVertx(null,quorumSize);
+}

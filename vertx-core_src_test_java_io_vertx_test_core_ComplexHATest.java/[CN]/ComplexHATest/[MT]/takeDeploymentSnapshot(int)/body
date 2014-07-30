@@ -1,0 +1,8 @@
+{
+  Set<Deployment> snapshot=new HashSet<>();
+  VertxInternal v=(VertxInternal)vertices[pos];
+  for (  String depID : v.deployments()) {
+    snapshot.add(v.getDeployment(depID));
+  }
+  return snapshot;
+}

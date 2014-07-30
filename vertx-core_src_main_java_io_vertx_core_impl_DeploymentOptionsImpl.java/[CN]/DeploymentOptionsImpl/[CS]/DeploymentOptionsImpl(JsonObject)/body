@@ -3,4 +3,5 @@
   this.worker=json.getBoolean("worker",false);
   this.multiThreaded=json.getBoolean("multiThreaded",false);
   this.isolationGroup=json.getString("isolationGroup",null);
+  this.ha=json.getBoolean("ha",false);
 }

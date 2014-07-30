@@ -3,7 +3,7 @@
     throw new IllegalStateException("Node has already joined!");
   }
   nodes.put(nodeID,node);
-  for (  NodeListener listener : nodeListeners) {
+  for (  NodeListener listener : new ArrayList<>(nodeListeners)) {
     listener.nodeAdded(nodeID);
   }
 }

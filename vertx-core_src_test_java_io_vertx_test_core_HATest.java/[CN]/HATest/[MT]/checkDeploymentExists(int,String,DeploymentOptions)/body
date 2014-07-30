@@ -1,0 +1,10 @@
+{
+  VertxInternal vi=(VertxInternal)vertices[pos];
+  for (  String deploymentID : vi.deployments()) {
+    Deployment dep=vi.getDeployment(deploymentID);
+    if (verticleName.equals(dep.verticleName()) && options.equals(dep.deploymentOptions())) {
+      return;
+    }
+  }
+  fail("Can't find deployment for verticleName: " + verticleName + " on node "+ pos);
+}

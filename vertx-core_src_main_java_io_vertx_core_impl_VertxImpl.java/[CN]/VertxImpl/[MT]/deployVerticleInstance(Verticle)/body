@@ -1,3 +1,3 @@
 {
-  deploymentManager.deployVerticle(verticle,DeploymentOptions.options(),null);
+  deployVerticleInstance(verticle,DeploymentOptions.options(),null);
 }

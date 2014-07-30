@@ -1,0 +1,8 @@
+{
+  latch=new CountDownLatch(1);
+  throwable=null;
+  testCompleteCalled=false;
+  awaitCalled=false;
+  timedOut=false;
+  threadNames.clear();
+}

@@ -14,4 +14,7 @@
   String rand=TestUtils.randomUnicodeString(1000);
   assertEquals(options,options.setIsolationGroup(rand));
   assertEquals(rand,options.getIsolationGroup());
+  assertFalse(options.isHA());
+  assertEquals(options,options.setHA(true));
+  assertTrue(options.isHA());
 }

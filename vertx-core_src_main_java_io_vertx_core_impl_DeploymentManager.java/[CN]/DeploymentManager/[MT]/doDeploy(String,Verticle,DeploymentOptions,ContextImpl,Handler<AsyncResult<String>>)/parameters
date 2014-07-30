@@ -1,0 +1,5 @@
+String verticleName
+Verticle verticle
+DeploymentOptions options
+ContextImpl currentContext
+Handler<AsyncResult<String>> completionHandler

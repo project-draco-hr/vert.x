@@ -5,14 +5,17 @@
   boolean worker=rand.nextBoolean();
   boolean multiThreaded=rand.nextBoolean();
   String isolationGroup=TestUtils.randomAlphaString(100);
+  boolean ha=rand.nextBoolean();
   options.setConfig(config);
   options.setWorker(worker);
   options.setMultiThreaded(multiThreaded);
   options.setIsolationGroup(isolationGroup);
+  options.setHA(ha);
   DeploymentOptions copy=DeploymentOptions.copiedOptions(options);
   assertEquals(worker,copy.isWorker());
   assertEquals(multiThreaded,copy.isMultiThreaded());
   assertEquals(isolationGroup,copy.getIsolationGroup());
   assertNotSame(config,copy.getConfig());
   assertEquals("bar",copy.getConfig().getString("foo"));
+  assertEquals(ha,copy.isHA());
 }

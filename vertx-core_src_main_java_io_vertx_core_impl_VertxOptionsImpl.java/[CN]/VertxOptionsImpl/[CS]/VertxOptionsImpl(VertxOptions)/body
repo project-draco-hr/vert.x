@@ -10,4 +10,7 @@
   this.internalBlockingPoolSize=other.getInternalBlockingPoolSize();
   this.proxyOperationTimeout=other.getProxyOperationTimeout();
   this.clusterManager=other.getClusterManager();
+  this.haEnabled=other.isHAEnabled();
+  this.quorumSize=other.getQuorumSize();
+  this.haGroup=other.getHAGroup();
 }

@@ -1,0 +1,3 @@
+String deploymentID
+String verticleName
+DeploymentOptions deploymentOptions
