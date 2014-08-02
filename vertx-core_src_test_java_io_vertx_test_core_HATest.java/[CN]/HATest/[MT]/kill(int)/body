@@ -1,4 +1,2 @@
 {
-  VertxInternal v=(VertxInternal)vertices[pos];
-  v.simulateKill();
 }

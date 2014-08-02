@@ -4,6 +4,8 @@
   }
   nodes.put(nodeID,node);
   for (  NodeListener listener : new ArrayList<>(nodeListeners)) {
-    listener.nodeAdded(nodeID);
+    if (listener != null) {
+      listener.nodeAdded(nodeID);
+    }
   }
 }
