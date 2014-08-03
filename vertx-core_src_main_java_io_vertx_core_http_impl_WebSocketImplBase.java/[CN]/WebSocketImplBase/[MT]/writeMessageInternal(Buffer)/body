@@ -1,0 +1,4 @@
+{
+  checkClosed();
+  writePartialMessage(data,0);
+}

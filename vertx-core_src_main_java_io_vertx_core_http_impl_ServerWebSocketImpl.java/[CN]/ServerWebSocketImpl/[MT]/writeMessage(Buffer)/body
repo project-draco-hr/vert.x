@@ -1,0 +1,5 @@
+{
+  checkClosed();
+  writeMessageInternal(data);
+  return this;
+}

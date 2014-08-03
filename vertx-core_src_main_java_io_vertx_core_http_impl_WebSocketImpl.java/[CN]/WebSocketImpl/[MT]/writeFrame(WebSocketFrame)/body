@@ -1,0 +1,4 @@
+{
+  writeFrameInternal(frame);
+  return this;
+}

@@ -1,4 +1,0 @@
-{
-  super.writeTextFrameInternal(str);
-  return this;
-}
