@@ -1,0 +1,4 @@
+{
+  String name=simpleName + kind.extension;
+  return (name.equals(toUri().getPath()) || toUri().getPath().endsWith('/' + name)) && kind.equals(getKind());
+}

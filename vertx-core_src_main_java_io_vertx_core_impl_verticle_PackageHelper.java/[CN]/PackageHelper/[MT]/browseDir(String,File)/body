@@ -1,0 +1,10 @@
+{
+  List<JavaFileObject> result=new ArrayList<JavaFileObject>();
+  for (  File childFile : directory.listFiles()) {
+    if (childFile.isFile() && childFile.getName().endsWith(CLASS_FILE)) {
+      String binaryName=packageName + "." + childFile.getName().replaceAll(CLASS_FILE + "$","");
+      result.add(new CustomJavaFileObject(childFile.toURI(),JavaFileObject.Kind.CLASS,binaryName));
+    }
+  }
+  return result;
+}

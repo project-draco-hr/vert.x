@@ -1,0 +1,15 @@
+{
+  try {
+    return new SimpleJavaFileObject(new URI(""),kind){
+      public OutputStream openOutputStream() throws IOException {
+        ByteArrayOutputStream outputStream=new ByteArrayOutputStream();
+        compiledClasses.put(className,outputStream);
+        return outputStream;
+      }
+    }
+;
+  }
+ catch (  URISyntaxException e) {
+    throw new RuntimeException(e);
+  }
+}
