@@ -61,6 +61,8 @@ ch.writeAndFlush(wsFrame).addListener(ChannelFutureListener.CLOSE);
 closeFrameSent=true;
 }
 break;
+default :
+throw new IllegalStateException("Invalid type: " + wsFrame.type());
 }
 }
  else if (msg instanceof HttpContent) {

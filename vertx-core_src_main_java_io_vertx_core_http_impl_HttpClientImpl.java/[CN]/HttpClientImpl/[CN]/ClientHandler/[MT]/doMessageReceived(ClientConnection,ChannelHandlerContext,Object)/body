@@ -36,6 +36,8 @@ ctx.writeAndFlush(frame).addListener(ChannelFutureListener.CLOSE);
 closeFrameSent=true;
 }
 break;
+default :
+throw new IllegalStateException("Invalid type: " + frame.type());
 }
 valid=true;
 }

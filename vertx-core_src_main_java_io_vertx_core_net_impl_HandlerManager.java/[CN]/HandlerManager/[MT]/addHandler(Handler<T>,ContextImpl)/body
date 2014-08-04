@@ -7,5 +7,5 @@
     handlers=prev;
   }
   handlers.addHandler(new HandlerHolder<>(context,handler));
-  handlerCount++;
+  hasHandlers=true;
 }
