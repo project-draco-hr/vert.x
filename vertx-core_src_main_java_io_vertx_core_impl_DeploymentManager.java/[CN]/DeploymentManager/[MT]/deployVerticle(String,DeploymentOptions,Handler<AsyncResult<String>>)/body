@@ -1,6 +1,6 @@
 {
   ContextImpl currentContext=vertx.getOrCreateContext();
-  ClassLoader cl=getClassLoader(options.getIsolationGroup());
+  ClassLoader cl=getClassLoader(options.getIsolationGroup(),options);
   int pos=verticleName.indexOf(':');
   if (pos == -1) {
     throw new IllegalArgumentException("verticleName must start with prefix");

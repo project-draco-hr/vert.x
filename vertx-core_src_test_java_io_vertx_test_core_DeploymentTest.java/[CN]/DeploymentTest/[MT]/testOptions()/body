@@ -17,4 +17,8 @@
   assertFalse(options.isHA());
   assertEquals(options,options.setHA(true));
   assertTrue(options.isHA());
+  assertNull(options.getExtraClasspath());
+  List<String> cp=Arrays.asList("foo","bar");
+  assertEquals(options,options.setExtraClasspath(cp));
+  assertSame(cp,options.getExtraClasspath());
 }

@@ -4,4 +4,8 @@
   this.multiThreaded=json.getBoolean("multiThreaded",false);
   this.isolationGroup=json.getString("isolationGroup",null);
   this.ha=json.getBoolean("ha",false);
+  JsonArray arr=json.getArray("extraClasspath",null);
+  if (arr != null) {
+    this.extraClasspath=arr.toList();
+  }
 }

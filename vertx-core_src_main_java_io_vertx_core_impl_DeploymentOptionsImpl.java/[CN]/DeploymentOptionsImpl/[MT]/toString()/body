@@ -1,9 +1,0 @@
-{
-  StringBuilder builder=new StringBuilder();
-  builder.append("worker: " + worker + "\n");
-  builder.append("multiThreaded: " + multiThreaded + "\n");
-  builder.append("isolationGroup: " + isolationGroup + "\n");
-  builder.append("ha: " + ha + "\n");
-  builder.append("config: " + config + "\n");
-  return builder.toString();
-}

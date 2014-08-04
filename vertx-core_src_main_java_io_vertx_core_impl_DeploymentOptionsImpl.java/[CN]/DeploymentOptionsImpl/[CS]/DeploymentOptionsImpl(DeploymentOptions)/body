@@ -4,4 +4,5 @@
   this.multiThreaded=other.isMultiThreaded();
   this.isolationGroup=other.getIsolationGroup();
   this.ha=other.isHA();
+  this.extraClasspath=other.getExtraClasspath() == null ? null : new ArrayList<>(other.getExtraClasspath());
 }
