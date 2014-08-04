@@ -18,6 +18,7 @@
       sb.append(sw.toString());
     }
  catch (    Exception ex) {
+      ex.printStackTrace();
     }
   }
   return sb.toString();
