@@ -3,7 +3,6 @@
     sslContext=createContext(vertx);
   }
   SSLEngine engine=sslContext.createSSLEngine();
-  String[] current=engine.getSupportedCipherSuites();
   if (enabledCipherSuites != null && !enabledCipherSuites.isEmpty()) {
     String[] toUse=enabledCipherSuites.toArray(new String[enabledCipherSuites.size()]);
     engine.setEnabledCipherSuites(toUse);
