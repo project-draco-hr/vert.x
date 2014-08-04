@@ -1,0 +1,9 @@
+{
+  if (handshaker == null) {
+    super.close();
+  }
+ else {
+    endReadAndFlush();
+    handshaker.close(channel,new CloseWebSocketFrame(1000,null));
+  }
+}
