@@ -1,5 +1,7 @@
 {
   if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
   HandlerHolder that=(HandlerHolder)o;
-  return handler.equals(that.handler);
+  if (handler != null ? !handler.equals(that.handler) : that.handler != null)   return false;
+  return true;
 }
