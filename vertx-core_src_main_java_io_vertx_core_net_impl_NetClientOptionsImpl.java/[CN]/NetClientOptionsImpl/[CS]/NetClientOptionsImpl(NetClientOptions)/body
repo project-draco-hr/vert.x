@@ -17,4 +17,5 @@
   this.crlValues=new ArrayList<>(other.getCrlValues());
   this.reconnectAttempts=other.getReconnectAttempts();
   this.reconnectInterval=other.getReconnectInterval();
+  this.idleTimeout=other.getIdleTimeout();
 }

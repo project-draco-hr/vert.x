@@ -8,6 +8,7 @@
   boolean tcpKeepAlive=rand.nextBoolean();
   int soLinger=TestUtils.randomPositiveInt();
   boolean usePooledBuffers=rand.nextBoolean();
+  int idleTimeout=TestUtils.randomPositiveInt();
   boolean ssl=rand.nextBoolean();
   JKSOptions keyStoreOptions=JKSOptions.options();
   String ksPassword=TestUtils.randomAlphaString(100);
@@ -29,7 +30,7 @@
   boolean pipelining=rand.nextBoolean();
   boolean tryUseCompression=rand.nextBoolean();
   JsonObject json=new JsonObject();
-  json.putNumber("sendBufferSize",sendBufferSize).putNumber("receiveBufferSize",receiverBufferSize).putBoolean("reuseAddress",reuseAddress).putNumber("trafficClass",trafficClass).putBoolean("tcpNoDelay",tcpNoDelay).putBoolean("tcpKeepAlive",tcpKeepAlive).putNumber("soLinger",soLinger).putBoolean("usePooledBuffers",usePooledBuffers).putBoolean("ssl",ssl).putArray("enabledCipherSuites",new JsonArray().addString(enabledCipher)).putNumber("connectTimeout",connectTimeout).putBoolean("trustAll",trustAll).putArray("crlPaths",new JsonArray().addString(crlPath)).putObject("keyStoreOptions",new JsonObject().putString("type","jks").putString("password",ksPassword).putString("path",ksPath)).putObject("trustStoreOptions",new JsonObject().putString("type","jks").putString("password",tsPassword).putString("path",tsPath)).putBoolean("verifyHost",verifyHost).putNumber("maxPoolSize",maxPoolSize).putBoolean("keepAlive",keepAlive).putBoolean("pipelining",pipelining).putBoolean("tryUseCompression",tryUseCompression);
+  json.putNumber("sendBufferSize",sendBufferSize).putNumber("receiveBufferSize",receiverBufferSize).putBoolean("reuseAddress",reuseAddress).putNumber("trafficClass",trafficClass).putBoolean("tcpNoDelay",tcpNoDelay).putBoolean("tcpKeepAlive",tcpKeepAlive).putNumber("soLinger",soLinger).putBoolean("usePooledBuffers",usePooledBuffers).putNumber("idleTimeout",idleTimeout).putBoolean("ssl",ssl).putArray("enabledCipherSuites",new JsonArray().addString(enabledCipher)).putNumber("connectTimeout",connectTimeout).putBoolean("trustAll",trustAll).putArray("crlPaths",new JsonArray().addString(crlPath)).putObject("keyStoreOptions",new JsonObject().putString("type","jks").putString("password",ksPassword).putString("path",ksPath)).putObject("trustStoreOptions",new JsonObject().putString("type","jks").putString("password",tsPassword).putString("path",tsPath)).putBoolean("verifyHost",verifyHost).putNumber("maxPoolSize",maxPoolSize).putBoolean("keepAlive",keepAlive).putBoolean("pipelining",pipelining).putBoolean("tryUseCompression",tryUseCompression);
   HttpClientOptions options=HttpClientOptions.optionsFromJson(json);
   assertEquals(sendBufferSize,options.getSendBufferSize());
   assertEquals(receiverBufferSize,options.getReceiveBufferSize());
@@ -39,6 +40,7 @@
   assertEquals(tcpNoDelay,options.isTcpNoDelay());
   assertEquals(soLinger,options.getSoLinger());
   assertEquals(usePooledBuffers,options.isUsePooledBuffers());
+  assertEquals(idleTimeout,options.getIdleTimeout());
   assertEquals(ssl,options.isSsl());
   assertNotSame(keyStoreOptions,options.getKeyStoreOptions());
   assertEquals(ksPassword,((JKSOptions)options.getKeyStoreOptions()).getPassword());

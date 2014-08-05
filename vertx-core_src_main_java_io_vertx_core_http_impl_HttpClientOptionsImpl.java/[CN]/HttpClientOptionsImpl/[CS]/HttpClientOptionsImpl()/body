@@ -6,9 +6,9 @@
   tcpNoDelay=DEFAULT_TCPNODELAY;
   tcpKeepAlive=DEFAULT_TCPKEEPALIVE;
   soLinger=DEFAULT_SOLINGER;
-  this.connectTimeout=DEFAULT_CONNECTTIMEOUT;
-  this.crlPaths=new ArrayList<>();
-  this.crlValues=new ArrayList<>();
-  this.maxPoolSize=DEFAULT_MAXPOOLSIZE;
-  this.keepAlive=DEFAULT_KEEPALIVE;
+  connectTimeout=DEFAULT_CONNECTTIMEOUT;
+  crlPaths=new ArrayList<>();
+  crlValues=new ArrayList<>();
+  maxPoolSize=DEFAULT_MAXPOOLSIZE;
+  keepAlive=DEFAULT_KEEPALIVE;
 }

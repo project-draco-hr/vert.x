@@ -6,11 +6,11 @@
   tcpNoDelay=DEFAULT_TCPNODELAY;
   tcpKeepAlive=DEFAULT_TCPKEEPALIVE;
   soLinger=DEFAULT_SOLINGER;
-  this.port=DEFAULT_PORT;
-  this.host=DEFAULT_HOST;
-  this.acceptBacklog=DEFAULT_ACCEPT_BACKLOG;
-  this.crlPaths=new ArrayList<>();
-  this.crlValues=new ArrayList<>();
-  this.maxWebsocketFrameSize=DEFAULT_MAXWEBSOCKETFRAMESIZE;
-  this.port=DEFAULT_PORT;
+  port=DEFAULT_PORT;
+  host=DEFAULT_HOST;
+  acceptBacklog=DEFAULT_ACCEPT_BACKLOG;
+  crlPaths=new ArrayList<>();
+  crlValues=new ArrayList<>();
+  maxWebsocketFrameSize=DEFAULT_MAXWEBSOCKETFRAMESIZE;
+  port=DEFAULT_PORT;
 }

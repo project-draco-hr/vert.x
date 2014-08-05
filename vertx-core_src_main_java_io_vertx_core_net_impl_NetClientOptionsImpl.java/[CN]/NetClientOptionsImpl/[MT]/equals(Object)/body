@@ -3,6 +3,7 @@
   if (o == null || getClass() != o.getClass())   return false;
   NetClientOptionsImpl that=(NetClientOptionsImpl)o;
   if (connectTimeout != that.connectTimeout)   return false;
+  if (idleTimeout != that.idleTimeout)   return false;
   if (receiveBufferSize != that.receiveBufferSize)   return false;
   if (reconnectAttempts != that.reconnectAttempts)   return false;
   if (reconnectInterval != that.reconnectInterval)   return false;

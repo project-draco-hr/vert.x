@@ -9,6 +9,7 @@
   boolean tcpKeepAlive=rand.nextBoolean();
   int soLinger=TestUtils.randomPositiveInt();
   boolean usePooledBuffers=rand.nextBoolean();
+  int idleTimeout=TestUtils.randomPositiveInt();
   boolean ssl=rand.nextBoolean();
   JKSOptions keyStoreOptions=JKSOptions.options();
   String ksPassword=TestUtils.randomAlphaString(100);
@@ -32,6 +33,7 @@
   options.setTcpKeepAlive(tcpKeepAlive);
   options.setSoLinger(soLinger);
   options.setUsePooledBuffers(usePooledBuffers);
+  options.setIdleTimeout(idleTimeout);
   options.setKeyStoreOptions(keyStoreOptions);
   options.setTrustStoreOptions(trustStoreOptions);
   options.addEnabledCipherSuite(enabledCipher);
@@ -50,6 +52,7 @@
   assertEquals(tcpKeepAlive,copy.isTcpKeepAlive());
   assertEquals(soLinger,copy.getSoLinger());
   assertEquals(usePooledBuffers,copy.isUsePooledBuffers());
+  assertEquals(idleTimeout,copy.getIdleTimeout());
   assertEquals(ssl,copy.isSsl());
   assertNotSame(keyStoreOptions,copy.getKeyStoreOptions());
   assertEquals(ksPassword,((JKSOptions)copy.getKeyStoreOptions()).getPassword());

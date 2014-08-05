@@ -72,6 +72,16 @@
   assertFalse(options.isUsePooledBuffers());
   assertEquals(options,options.setUsePooledBuffers(true));
   assertTrue(options.isUsePooledBuffers());
+  rand=TestUtils.randomPositiveInt();
+  assertEquals(0,options.getIdleTimeout());
+  assertEquals(options,options.setIdleTimeout(rand));
+  assertEquals(rand,options.getIdleTimeout());
+  try {
+    options.setIdleTimeout(-1);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
   assertFalse(options.isSsl());
   assertEquals(options,options.setSsl(true));
   assertTrue(options.isSsl());

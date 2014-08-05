@@ -7,6 +7,7 @@
   this.tcpKeepAlive=json.getBoolean("tcpKeepAlive",DEFAULT_TCPKEEPALIVE);
   this.soLinger=json.getInteger("soLinger",DEFAULT_SOLINGER);
   this.usePooledBuffers=json.getBoolean("usePooledBuffers",false);
+  this.idleTimeout=json.getInteger("idleTimeout",0);
   this.ssl=json.getBoolean("ssl",false);
   JsonObject keyStoreJson=json.getObject("keyStoreOptions");
   if (keyStoreJson != null) {

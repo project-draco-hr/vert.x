@@ -8,6 +8,7 @@
   boolean tcpKeepAlive=rand.nextBoolean();
   int soLinger=TestUtils.randomPositiveInt();
   boolean usePooledBuffers=rand.nextBoolean();
+  int idleTimeout=TestUtils.randomInt();
   boolean ssl=rand.nextBoolean();
   JKSOptions keyStoreOptions=JKSOptions.options();
   String ksPassword=TestUtils.randomAlphaString(100);
@@ -25,7 +26,7 @@
   String host=TestUtils.randomAlphaString(100);
   int acceptBacklog=TestUtils.randomPortInt();
   JsonObject json=new JsonObject();
-  json.putNumber("sendBufferSize",sendBufferSize).putNumber("receiveBufferSize",receiverBufferSize).putBoolean("reuseAddress",reuseAddress).putNumber("trafficClass",trafficClass).putBoolean("tcpNoDelay",tcpNoDelay).putBoolean("tcpKeepAlive",tcpKeepAlive).putNumber("soLinger",soLinger).putBoolean("usePooledBuffers",usePooledBuffers).putBoolean("ssl",ssl).putArray("enabledCipherSuites",new JsonArray().addString(enabledCipher)).putArray("crlPaths",new JsonArray().addString(crlPath)).putObject("keyStoreOptions",new JsonObject().putString("type","jks").putString("password",ksPassword).putString("path",ksPath)).putObject("trustStoreOptions",new JsonObject().putString("type","jks").putString("password",tsPassword).putString("path",tsPath)).putNumber("port",port).putString("host",host).putNumber("acceptBacklog",acceptBacklog);
+  json.putNumber("sendBufferSize",sendBufferSize).putNumber("receiveBufferSize",receiverBufferSize).putBoolean("reuseAddress",reuseAddress).putNumber("trafficClass",trafficClass).putBoolean("tcpNoDelay",tcpNoDelay).putBoolean("tcpKeepAlive",tcpKeepAlive).putNumber("soLinger",soLinger).putBoolean("usePooledBuffers",usePooledBuffers).putNumber("idleTimeout",idleTimeout).putBoolean("ssl",ssl).putArray("enabledCipherSuites",new JsonArray().addString(enabledCipher)).putArray("crlPaths",new JsonArray().addString(crlPath)).putObject("keyStoreOptions",new JsonObject().putString("type","jks").putString("password",ksPassword).putString("path",ksPath)).putObject("trustStoreOptions",new JsonObject().putString("type","jks").putString("password",tsPassword).putString("path",tsPath)).putNumber("port",port).putString("host",host).putNumber("acceptBacklog",acceptBacklog);
   NetServerOptions options=NetServerOptions.optionsFromJson(json);
   assertEquals(sendBufferSize,options.getSendBufferSize());
   assertEquals(receiverBufferSize,options.getReceiveBufferSize());
@@ -35,6 +36,7 @@
   assertEquals(tcpNoDelay,options.isTcpNoDelay());
   assertEquals(soLinger,options.getSoLinger());
   assertEquals(usePooledBuffers,options.isUsePooledBuffers());
+  assertEquals(idleTimeout,options.getIdleTimeout());
   assertEquals(ssl,options.isSsl());
   assertNotSame(keyStoreOptions,options.getKeyStoreOptions());
   assertEquals(ksPassword,((JKSOptions)options.getKeyStoreOptions()).getPassword());

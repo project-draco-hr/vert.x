@@ -1,0 +1,7 @@
+{
+  if (idleTimeout < 0) {
+    throw new IllegalArgumentException("idleTimeout must be >= 0");
+  }
+  this.idleTimeout=idleTimeout;
+  return this;
+}

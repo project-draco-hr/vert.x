@@ -5,6 +5,7 @@
   if (acceptBacklog != that.acceptBacklog)   return false;
   if (clientAuthRequired != that.clientAuthRequired)   return false;
   if (compressionSupported != that.compressionSupported)   return false;
+  if (idleTimeout != that.idleTimeout)   return false;
   if (maxWebsocketFrameSize != that.maxWebsocketFrameSize)   return false;
   if (port != that.port)   return false;
   if (receiveBufferSize != that.receiveBufferSize)   return false;
