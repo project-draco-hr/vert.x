@@ -2,4 +2,5 @@
   super(vertx,channel,context);
   this.serverOrigin=serverOrigin;
   this.server=server;
+  this.handshaker=handshaker;
 }

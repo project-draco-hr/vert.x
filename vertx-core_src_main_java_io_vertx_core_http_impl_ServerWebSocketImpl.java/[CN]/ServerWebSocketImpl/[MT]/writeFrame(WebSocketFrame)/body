@@ -7,5 +7,6 @@
       connect();
     }
   }
-  super.writeFrame(frame);
+  super.writeFrameInternal(frame);
+  return this;
 }

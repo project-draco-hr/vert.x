@@ -1,4 +1,4 @@
 {
-  writeBinaryFrame(data);
+  writeFrame(WebSocketFrame.binaryFrame(data,true));
   return this;
 }

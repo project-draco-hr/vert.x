@@ -1,0 +1,4 @@
+{
+  writeMessageInternal(data);
+  return this;
+}
