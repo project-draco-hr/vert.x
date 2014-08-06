@@ -9,6 +9,6 @@
       records.set(i,convert(record));
     }
     Collections.sort(records,comparator);
-    handler.handle(new FutureResultImpl(records));
+    handler.handle(Future.completedFuture(records));
   }
 }

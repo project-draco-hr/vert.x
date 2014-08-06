@@ -1,8 +1,8 @@
 {
   if (future.isSuccess()) {
-    handler.handle(new FutureResultImpl<>(result));
+    handler.handle(Future.completedFuture(result));
   }
  else {
-    handler.handle(new FutureResultImpl<>(future.cause()));
+    handler.handle(Future.completedFuture(future.cause()));
   }
 }

@@ -1,3 +1,3 @@
 {
-  resultHandler.handle(new FutureResultImpl<>((byte)123));
+  resultHandler.handle(Future.completedFuture((byte)123));
 }

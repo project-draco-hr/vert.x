@@ -10,7 +10,7 @@
         for (        List<String> txt : records) {
           txts.addAll(txt);
         }
-        handler.handle(new FutureResultImpl(txts));
+        handler.handle(Future.completedFuture(txts));
       }
     }
   }

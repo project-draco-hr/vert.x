@@ -7,9 +7,9 @@
   }
   if (sslHelper.isSSL()) {
     SslHandler sslHandler=ch.pipeline().get(SslHandler.class);
-    Future<Channel> fut=sslHandler.handshakeFuture();
-    fut.addListener(new GenericFutureListener<Future<Channel>>(){
-      @Override public void operationComplete(      Future<Channel> future) throws Exception {
+    io.netty.util.concurrent.Future<Channel> fut=sslHandler.handshakeFuture();
+    fut.addListener(new GenericFutureListener<io.netty.util.concurrent.Future<Channel>>(){
+      @Override public void operationComplete(      io.netty.util.concurrent.Future<Channel> future) throws Exception {
         if (future.isSuccess()) {
           connected(ch,handler);
         }

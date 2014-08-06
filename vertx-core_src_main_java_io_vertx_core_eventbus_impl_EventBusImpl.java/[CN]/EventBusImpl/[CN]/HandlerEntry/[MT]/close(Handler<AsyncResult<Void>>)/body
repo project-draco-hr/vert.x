@@ -1,4 +1,4 @@
 {
   unregisterHandler(this.address,this.handler,emptyHandler());
-  completionHandler.handle(new FutureResultImpl<>((Void)null));
+  completionHandler.handle(Future.completedFuture());
 }

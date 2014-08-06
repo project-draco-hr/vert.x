@@ -9,5 +9,5 @@
   assertEquals("foobar",str);
   assertEquals("bar",object.getString("foo"));
   assertEquals("socks",array.get(0));
-  resultHandler.handle(new FutureResultImpl<>("foobar"));
+  resultHandler.handle(Future.completedFuture("foobar"));
 }

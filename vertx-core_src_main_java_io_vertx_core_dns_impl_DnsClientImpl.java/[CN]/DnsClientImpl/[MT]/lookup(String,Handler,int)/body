@@ -1,5 +1,5 @@
 {
-  FutureResultImpl result=new FutureResultImpl<>();
+  Future result=Future.future();
   result.setHandler(handler);
   lookup(name,result,types);
 }

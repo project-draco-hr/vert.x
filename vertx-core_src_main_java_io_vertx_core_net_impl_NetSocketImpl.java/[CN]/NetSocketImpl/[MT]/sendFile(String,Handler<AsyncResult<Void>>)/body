@@ -9,10 +9,10 @@
       public void operationComplete(      ChannelFuture future) throws Exception {
         final AsyncResult<Void> res;
         if (future.isSuccess()) {
-          res=new FutureResultImpl<>((Void)null);
+          res=Future.completedFuture();
         }
  else {
-          res=new FutureResultImpl<>(future.cause());
+          res=Future.completedFuture(future.cause());
         }
         vertx.runOnContext(new Handler<Void>(){
           @Override public void handle(          Void v){

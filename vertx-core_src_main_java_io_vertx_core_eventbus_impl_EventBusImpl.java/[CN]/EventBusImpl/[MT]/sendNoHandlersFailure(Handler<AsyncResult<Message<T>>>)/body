@@ -1,7 +1,7 @@
 {
   vertx.runOnContext(new Handler<Void>(){
     @Override public void handle(    Void v){
-      handler.handle(new FutureResultImpl<>(new ReplyException(ReplyFailure.NO_HANDLERS)));
+      handler.handle(Future.completedFuture(new ReplyException(ReplyFailure.NO_HANDLERS)));
     }
   }
 );

@@ -1,5 +1,5 @@
 {
-  FutureResultImpl<Void> res=new FutureResultImpl<>();
+  Future<Void> res=Future.future();
   try {
     ch.close();
     res.setResult(null);

@@ -6,5 +6,5 @@
   assertEquals(Float.valueOf(1.23f),f,0);
   assertEquals(Double.valueOf(34.45d),d,0);
   assertTrue(bool);
-  resultHandler.handle(new FutureResultImpl<>("foobar"));
+  resultHandler.handle(Future.completedFuture("foobar"));
 }
