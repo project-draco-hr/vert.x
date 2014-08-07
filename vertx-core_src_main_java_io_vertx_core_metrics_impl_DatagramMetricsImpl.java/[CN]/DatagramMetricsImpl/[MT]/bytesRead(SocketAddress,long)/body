@@ -1,0 +1,6 @@
+{
+  if (!isEnabled())   return;
+  if (bytesRead != null) {
+    bytesRead.update(numberOfBytes);
+  }
+}

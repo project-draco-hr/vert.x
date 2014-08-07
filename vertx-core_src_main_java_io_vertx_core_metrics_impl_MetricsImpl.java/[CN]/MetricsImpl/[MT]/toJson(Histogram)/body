@@ -1,0 +1,7 @@
+{
+  Snapshot snapshot=histogram.getSnapshot();
+  JsonObject json=new JsonObject();
+  json.putNumber("count",histogram.getCount());
+  populateSnapshot(json,snapshot,1);
+  return json;
+}

@@ -1,0 +1,25 @@
+{
+  if (obj == null)   return 0;
+  if (obj instanceof Buffer) {
+    return ((Buffer)obj).length();
+  }
+ else   if (obj instanceof ByteBuf) {
+    return ((ByteBuf)obj).readableBytes();
+  }
+ else   if (obj instanceof HttpContent) {
+    return ((HttpContent)obj).content().readableBytes();
+  }
+ else   if (obj instanceof WebSocketFrame) {
+    return ((WebSocketFrame)obj).binaryData().length();
+  }
+ else   if (obj instanceof FileRegion) {
+    return ((FileRegion)obj).count();
+  }
+ else   if (obj instanceof ChunkedFile) {
+    ChunkedFile file=(ChunkedFile)obj;
+    return file.endOffset() - file.startOffset();
+  }
+ else {
+    return -1;
+  }
+}

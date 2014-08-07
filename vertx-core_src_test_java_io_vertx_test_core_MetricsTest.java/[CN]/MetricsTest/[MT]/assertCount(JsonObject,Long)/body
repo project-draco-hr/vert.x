@@ -1,0 +1,7 @@
+{
+  assertNotNull(metric);
+  Long actual=metric.getLong("count");
+  String name=metric.getString("name");
+  assertNotNull(actual);
+  assertEquals(name + " (count)",expected,actual);
+}

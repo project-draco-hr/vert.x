@@ -1,0 +1,20 @@
+{
+  if (metric instanceof Gauge) {
+    return toJson((Gauge)metric);
+  }
+ else   if (metric instanceof Counter) {
+    return toJson((Counter)metric);
+  }
+ else   if (metric instanceof Histogram) {
+    return toJson((Histogram)metric);
+  }
+ else   if (metric instanceof Meter) {
+    return toJson((Meter)metric,rateUnit);
+  }
+ else   if (metric instanceof Timer) {
+    return toJson((Timer)metric,rateUnit,durationUnit);
+  }
+ else {
+    throw new IllegalArgumentException("Unknown metric " + metric);
+  }
+}

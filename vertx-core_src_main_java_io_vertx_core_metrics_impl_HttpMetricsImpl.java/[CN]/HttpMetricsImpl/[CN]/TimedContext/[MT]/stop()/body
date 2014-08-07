@@ -1,0 +1,17 @@
+{
+  if (!isEnabled() || closed)   return;
+  long duration=System.nanoTime() - start;
+  requests.update(duration,TimeUnit.NANOSECONDS);
+  if (method != null) {
+    timer(method + "-requests").update(duration,TimeUnit.NANOSECONDS);
+    if (uri != null) {
+      timer(method + "-requests",uri).update(duration,TimeUnit.NANOSECONDS);
+    }
+  }
+ else   if (uri != null) {
+    timer("requests",uri).update(duration,TimeUnit.NANOSECONDS);
+  }
+  if (closed) {
+    removeAll();
+  }
+}

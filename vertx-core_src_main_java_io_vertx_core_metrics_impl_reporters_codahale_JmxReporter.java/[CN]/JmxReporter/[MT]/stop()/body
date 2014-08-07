@@ -1,0 +1,4 @@
+{
+  registry.removeListener(listener);
+  listener.unregisterAll();
+}

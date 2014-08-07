@@ -1,4 +1,5 @@
 {
+  metrics.disconnected(remoteAddress());
   if (closeHandler != null) {
     closeHandler.handle(null);
   }

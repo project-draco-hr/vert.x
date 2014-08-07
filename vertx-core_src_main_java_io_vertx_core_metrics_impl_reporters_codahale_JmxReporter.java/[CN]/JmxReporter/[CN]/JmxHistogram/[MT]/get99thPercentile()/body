@@ -1,0 +1,3 @@
+{
+  return metric.getSnapshot().get99thPercentile();
+}

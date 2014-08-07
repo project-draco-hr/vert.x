@@ -1,0 +1,4 @@
+{
+  this.mBeanServer=mBeanServer;
+  return this;
+}

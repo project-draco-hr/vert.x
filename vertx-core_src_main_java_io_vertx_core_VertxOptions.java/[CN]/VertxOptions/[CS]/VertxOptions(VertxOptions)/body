@@ -13,4 +13,7 @@
   this.haEnabled=other.isHAEnabled();
   this.quorumSize=other.getQuorumSize();
   this.haGroup=other.getHAGroup();
+  this.metricsEnabled=other.isMetricsEnabled();
+  this.jmxEnabled=other.isJmxEnabled();
+  this.jmxDomain=other.getJmxDomain();
 }

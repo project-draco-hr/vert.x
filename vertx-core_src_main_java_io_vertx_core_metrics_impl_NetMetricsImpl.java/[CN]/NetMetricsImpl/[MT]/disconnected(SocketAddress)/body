@@ -1,0 +1,16 @@
+{
+  if (!isEnabled() || closed)   return;
+  openConnections.dec();
+  Timer.Context ctx=connectionLifetimes.remove(remoteAddress);
+  if (ctx != null) {
+    ctx.stop();
+  }
+  Counter counter=counter("open-connections",remoteAddress.hostAddress());
+  counter.dec();
+  if (counter.getCount() == 0) {
+    remove("open-connections",remoteAddress.hostAddress());
+  }
+  if (closed) {
+    removeAll();
+  }
+}

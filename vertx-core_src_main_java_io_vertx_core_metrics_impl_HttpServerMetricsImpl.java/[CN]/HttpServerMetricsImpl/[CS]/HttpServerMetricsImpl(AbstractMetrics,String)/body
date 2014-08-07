@@ -1,0 +1,6 @@
+{
+  super(metrics,baseName,false);
+  if (isEnabled()) {
+    timings=new WeakHashMap<>();
+  }
+}

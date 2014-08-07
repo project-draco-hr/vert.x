@@ -1,0 +1,7 @@
+{
+  Map<String,JsonObject> metrics=vertx.metrics();
+  assertNotNull(metrics.get("vertx.event-loop-size"));
+  assertNotNull(metrics.get("vertx.worker-pool-size"));
+  assertNull(metrics.get("vertx.cluster-host"));
+  assertNull(metrics.get("vertx.cluster-port"));
+}

@@ -9,6 +9,7 @@
     pendingChunks=null;
     if (completed) {
       writeHeadWithContent(pending,true);
+      if (conn.metrics.isEnabled())       conn.metrics.bytesWritten(conn.remoteAddress(),written);
       conn.endRequest();
     }
  else {
@@ -18,6 +19,7 @@
  else {
     if (completed) {
       writeHeadWithContent(Unpooled.EMPTY_BUFFER,true);
+      if (conn.metrics.isEnabled())       conn.metrics.bytesWritten(conn.remoteAddress(),written);
       conn.endRequest();
     }
  else {

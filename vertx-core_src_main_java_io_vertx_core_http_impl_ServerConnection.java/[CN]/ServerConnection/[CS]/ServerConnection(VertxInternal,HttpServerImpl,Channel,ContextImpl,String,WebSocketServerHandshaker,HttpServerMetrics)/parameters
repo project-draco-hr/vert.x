@@ -1,0 +1,7 @@
+VertxInternal vertx
+HttpServerImpl server
+Channel channel
+ContextImpl context
+String serverOrigin
+WebSocketServerHandshaker handshaker
+HttpServerMetrics metrics

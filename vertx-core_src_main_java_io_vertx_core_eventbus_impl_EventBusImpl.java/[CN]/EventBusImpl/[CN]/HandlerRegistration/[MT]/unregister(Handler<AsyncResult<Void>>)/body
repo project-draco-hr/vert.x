@@ -1,4 +1,2 @@
 {
-  Objects.requireNonNull(completionHandler);
-  unregisterHandler(address,this,completionHandler);
 }

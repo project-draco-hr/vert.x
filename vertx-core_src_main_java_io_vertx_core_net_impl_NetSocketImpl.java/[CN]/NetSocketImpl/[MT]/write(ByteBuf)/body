@@ -1,3 +1,6 @@
 {
+  if (metrics.isEnabled()) {
+    metrics.bytesWritten(remoteAddress(),buff.readableBytes());
+  }
   writeFuture=super.writeToChannel(buff);
 }

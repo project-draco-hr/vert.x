@@ -1,0 +1,7 @@
+{
+  if (!isEnabled())   return;
+  socketsCounter.dec();
+  if (serverName != null) {
+    remove(serverName,"bytes-read");
+  }
+}

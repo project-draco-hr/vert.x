@@ -1,0 +1,3 @@
+{
+  return metric.getSnapshot().getMean() * durationFactor;
+}

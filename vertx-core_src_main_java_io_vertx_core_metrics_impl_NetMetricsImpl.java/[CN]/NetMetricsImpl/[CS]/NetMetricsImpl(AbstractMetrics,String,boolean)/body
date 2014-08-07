@@ -1,0 +1,6 @@
+{
+  super(metrics.registry(),baseName);
+  if (client) {
+    initialize();
+  }
+}

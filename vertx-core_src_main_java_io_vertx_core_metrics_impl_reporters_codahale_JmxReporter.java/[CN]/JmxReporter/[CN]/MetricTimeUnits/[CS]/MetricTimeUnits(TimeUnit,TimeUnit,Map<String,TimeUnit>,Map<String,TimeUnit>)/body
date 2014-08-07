@@ -1,0 +1,6 @@
+{
+  this.defaultRate=defaultRate;
+  this.defaultDuration=defaultDuration;
+  this.rateOverrides=rateOverrides;
+  this.durationOverrides=durationOverrides;
+}
