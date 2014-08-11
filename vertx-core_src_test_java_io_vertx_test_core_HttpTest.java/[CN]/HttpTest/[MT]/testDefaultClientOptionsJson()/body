@@ -1,0 +1,10 @@
+{
+  HttpClientOptions def=HttpClientOptions.options();
+  HttpClientOptions json=HttpClientOptions.optionsFromJson(new JsonObject());
+  assertEquals(def.getMaxPoolSize(),json.getMaxPoolSize());
+  assertEquals(def.isKeepAlive(),json.isKeepAlive());
+  assertEquals(def.isPipelining(),json.isPipelining());
+  assertEquals(def.isVerifyHost(),json.isVerifyHost());
+  assertEquals(def.isTryUseCompression(),json.isTryUseCompression());
+  testDefaultClientOptions(def,json);
+}

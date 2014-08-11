@@ -1,0 +1,7 @@
+{
+  NetClientOptions def=NetClientOptions.options();
+  NetClientOptions json=NetClientOptions.optionsFromJson(new JsonObject());
+  assertEquals(def.getReconnectAttempts(),json.getReconnectAttempts());
+  assertEquals(def.getReconnectInterval(),json.getReconnectInterval());
+  testDefaultClientOptions(def,json);
+}

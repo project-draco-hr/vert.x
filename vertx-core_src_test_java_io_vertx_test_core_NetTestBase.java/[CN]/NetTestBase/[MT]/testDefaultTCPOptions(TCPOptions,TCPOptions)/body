@@ -1,0 +1,7 @@
+{
+  assertEquals(def.isTcpNoDelay(),json.isTcpNoDelay());
+  assertEquals(def.isTcpKeepAlive(),json.isTcpKeepAlive());
+  assertEquals(def.getSoLinger(),json.getSoLinger());
+  assertEquals(def.isUsePooledBuffers(),json.isUsePooledBuffers());
+  assertEquals(def.isSsl(),json.isSsl());
+}
