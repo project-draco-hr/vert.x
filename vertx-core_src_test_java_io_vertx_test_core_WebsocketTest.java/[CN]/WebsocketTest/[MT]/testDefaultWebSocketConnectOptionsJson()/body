@@ -1,0 +1,8 @@
+{
+  WebSocketConnectOptions def=WebSocketConnectOptions.options();
+  WebSocketConnectOptions json=WebSocketConnectOptions.optionsFromJson(new JsonObject());
+  assertEquals(def.getMaxWebsocketFrameSize(),json.getMaxWebsocketFrameSize());
+  assertEquals(def.getVersion(),json.getVersion());
+  assertEquals(def.getSubProtocols(),json.getSubProtocols());
+  testDefaultRequestOptionsBaseJson(def,json);
+}

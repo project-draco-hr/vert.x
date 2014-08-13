@@ -1,0 +1,7 @@
+{
+  JKSOptions def=JKSOptions.options();
+  JKSOptions json=JKSOptions.optionsFromJson(new JsonObject());
+  assertEquals(def.getPassword(),json.getPassword());
+  assertEquals(def.getPath(),json.getPath());
+  assertEquals(def.getValue(),json.getValue());
+}

@@ -1,0 +1,6 @@
+{
+  CaOptions def=CaOptions.options();
+  CaOptions json=CaOptions.optionsFromJson(new JsonObject());
+  assertEquals(def.getCertPaths(),json.getCertPaths());
+  assertEquals(def.getCertValues(),json.getCertValues());
+}

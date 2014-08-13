@@ -1,0 +1,14 @@
+{
+  OpenOptions def=OpenOptions.options();
+  OpenOptions json=OpenOptions.optionsFromJson(new JsonObject());
+  assertEquals(def.getPerms(),json.getPerms());
+  assertEquals(def.isRead(),json.isRead());
+  assertEquals(def.isWrite(),json.isWrite());
+  assertEquals(def.isCreate(),json.isCreate());
+  assertEquals(def.isCreateNew(),json.isCreateNew());
+  assertEquals(def.isDeleteOnClose(),json.isDeleteOnClose());
+  assertEquals(def.isTruncateExisting(),json.isTruncateExisting());
+  assertEquals(def.isSparse(),json.isSparse());
+  assertEquals(def.isSync(),json.isSync());
+  assertEquals(def.isDSync(),json.isDSync());
+}

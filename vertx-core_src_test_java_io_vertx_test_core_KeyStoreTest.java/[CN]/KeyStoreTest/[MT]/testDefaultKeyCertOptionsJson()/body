@@ -1,0 +1,8 @@
+{
+  KeyCertOptions def=KeyCertOptions.options();
+  KeyCertOptions json=KeyCertOptions.optionsFromJson(new JsonObject());
+  assertEquals(def.getKeyPath(),json.getKeyPath());
+  assertEquals(def.getCertPath(),json.getCertPath());
+  assertEquals(def.getKeyValue(),json.getKeyValue());
+  assertEquals(def.getCertValue(),json.getCertValue());
+}

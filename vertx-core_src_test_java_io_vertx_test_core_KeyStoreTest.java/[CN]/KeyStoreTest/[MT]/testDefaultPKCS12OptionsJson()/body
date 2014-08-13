@@ -1,0 +1,7 @@
+{
+  PKCS12Options def=PKCS12Options.options();
+  PKCS12Options json=PKCS12Options.optionsFromJson(new JsonObject());
+  assertEquals(def.getPassword(),json.getPassword());
+  assertEquals(def.getPath(),json.getPath());
+  assertEquals(def.getValue(),json.getValue());
+}

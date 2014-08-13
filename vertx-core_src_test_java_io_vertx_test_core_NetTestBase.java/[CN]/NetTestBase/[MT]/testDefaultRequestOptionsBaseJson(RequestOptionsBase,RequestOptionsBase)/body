@@ -1,0 +1,6 @@
+{
+  assertEquals(def.getPort(),json.getPort());
+  assertEquals(def.getHost(),json.getHost());
+  assertEquals(def.getHeaders(),json.getHeaders());
+  assertEquals(def.getRequestURI(),json.getRequestURI());
+}

@@ -1,0 +1,5 @@
+{
+  RequestOptions def=RequestOptions.options();
+  RequestOptions json=RequestOptions.optionsFromJson(new JsonObject());
+  testDefaultRequestOptionsBaseJson(def,json);
+}
