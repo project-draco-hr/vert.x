@@ -1,1 +1,2 @@
 Handler<WebSocket> wsConnect
+boolean supportsContinuation

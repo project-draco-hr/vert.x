@@ -1,4 +1,5 @@
 {
+  this.supportsContinuation=supportsContinuation;
   this.wsConnect=wsConnect;
   this.context=vertx.getContext();
 }
