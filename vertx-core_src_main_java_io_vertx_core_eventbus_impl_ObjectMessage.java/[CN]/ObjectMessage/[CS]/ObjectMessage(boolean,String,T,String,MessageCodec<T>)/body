@@ -1,5 +1,0 @@
-{
-  super(send,address,object);
-  this.decodedType=decodedType;
-  this.codec=codec;
-}

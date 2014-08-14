@@ -1,0 +1,8 @@
+{
+  startNodes(2);
+  MessageCodec codec=new MyPOJOEncoder1();
+  vertices[0].eventBus().registerCodec(codec);
+  vertices[1].eventBus().registerCodec(codec);
+  String str=TestUtils.randomAlphaString(100);
+  testReply(new MyPOJO(str),str,null,DeliveryOptions.options().setCodecName(codec.name()));
+}

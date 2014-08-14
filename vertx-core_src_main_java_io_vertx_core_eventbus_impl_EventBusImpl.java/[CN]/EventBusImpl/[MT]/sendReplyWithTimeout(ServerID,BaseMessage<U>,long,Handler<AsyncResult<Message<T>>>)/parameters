@@ -1,4 +1,0 @@
-ServerID dest
-BaseMessage<U> message
-long timeout
-Handler<AsyncResult<Message<T>>> replyHandler

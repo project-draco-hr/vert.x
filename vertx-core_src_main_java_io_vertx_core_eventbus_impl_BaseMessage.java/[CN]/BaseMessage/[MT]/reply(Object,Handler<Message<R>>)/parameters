@@ -1,2 +1,0 @@
-Object message
-Handler<Message<R>> replyHandler

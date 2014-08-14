@@ -1,0 +1,6 @@
+{
+  int length=buffer.getInt(pos);
+  pos+=4;
+  byte[] bytes=buffer.getBytes(pos,pos + length);
+  return new String(bytes,CharsetUtil.UTF_8);
+}

@@ -1,0 +1,5 @@
+boolean send
+String address
+Headers headers
+Object body
+String codecName

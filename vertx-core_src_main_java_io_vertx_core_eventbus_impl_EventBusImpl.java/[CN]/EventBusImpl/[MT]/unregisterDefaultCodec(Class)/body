@@ -1,0 +1,8 @@
+{
+  Objects.requireNonNull(clazz);
+  MessageCodec codec=defaultCodecMap.remove(clazz);
+  if (codec != null) {
+    userCodecMap.remove(codec.name());
+  }
+  return this;
+}

@@ -1,5 +1,0 @@
-{
-  if (bus != null && replyAddress != null) {
-    bus.sendReply(sender,msg,replyHandler);
-  }
-}

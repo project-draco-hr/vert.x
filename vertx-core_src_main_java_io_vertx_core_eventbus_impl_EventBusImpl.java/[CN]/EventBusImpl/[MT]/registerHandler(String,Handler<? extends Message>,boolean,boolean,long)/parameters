@@ -1,5 +1,0 @@
-String address
-Handler<? extends Message> handler
-boolean replyHandler
-boolean localOnly
-long timeoutID

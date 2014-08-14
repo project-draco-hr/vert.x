@@ -1,0 +1,5 @@
+{
+  this.timeout=other.getSendTimeout();
+  this.codecName=other.getCodecName();
+  this.headers=other.getHeaders();
+}

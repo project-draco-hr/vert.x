@@ -1,3 +1,0 @@
-{
-  return new ShareablePojo(buffer.getString(0,buffer.length()));
-}

@@ -1,0 +1,11 @@
+{
+  MessageCodec codec=new MyPOJOEncoder1();
+  vertx.eventBus().registerCodec(codec);
+  vertx.eventBus().unregisterCodec(codec.name());
+  try {
+    vertx.eventBus().sendWithOptions(ADDRESS1,new MyPOJO("foo"),DeliveryOptions.options().setCodecName(codec.name()));
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+}

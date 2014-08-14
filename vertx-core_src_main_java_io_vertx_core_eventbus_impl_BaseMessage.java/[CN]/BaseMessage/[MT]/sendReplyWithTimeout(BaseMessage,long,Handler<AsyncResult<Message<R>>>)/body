@@ -1,5 +1,0 @@
-{
-  if (bus != null) {
-    bus.sendReplyWithTimeout(sender,msg,timeout,replyHandler);
-  }
-}

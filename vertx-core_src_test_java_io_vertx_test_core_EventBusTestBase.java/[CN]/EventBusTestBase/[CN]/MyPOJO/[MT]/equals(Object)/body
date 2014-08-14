@@ -1,0 +1,7 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  MyPOJO myPOJO=(MyPOJO)o;
+  if (str != null ? !str.equals(myPOJO.str) : myPOJO.str != null)   return false;
+  return true;
+}

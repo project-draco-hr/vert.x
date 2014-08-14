@@ -1,4 +1,0 @@
-{
-  sendOrPub(createMessage(true,address,message),replyHandler);
-  return this;
-}

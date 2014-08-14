@@ -1,3 +1,0 @@
-{
-  sendReply(new ReplyFailureMessage(replyAddress,new ReplyException(ReplyFailure.RECIPIENT_FAILURE,failureCode,message)),null);
-}

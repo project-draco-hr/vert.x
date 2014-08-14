@@ -1,0 +1,4 @@
+{
+  buffer.appendInt(b.length());
+  buffer.appendBuffer(b);
+}

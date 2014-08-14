@@ -1,0 +1,4 @@
+{
+  buffer.appendInt(byteArray.length);
+  buffer.appendBytes(byteArray);
+}

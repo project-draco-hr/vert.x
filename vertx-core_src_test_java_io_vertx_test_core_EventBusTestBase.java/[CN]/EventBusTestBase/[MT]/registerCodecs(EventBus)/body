@@ -1,4 +1,0 @@
-{
-  bus.registerCodec(SomePojo.class,new SomePojoCodec());
-  bus.registerCodec(ShareablePojo.class,new ShareablePojoCodec());
-}

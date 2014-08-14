@@ -1,6 +1,6 @@
 {
   if (headers == null) {
-    headers=new HttpHeadersAdapter(request.headers());
+    headers=new HeadersAdaptor(request.headers());
   }
   return headers;
 }

@@ -1,2 +1,0 @@
-BaseMessage<T> msg
-HandlerHolder<T> holder

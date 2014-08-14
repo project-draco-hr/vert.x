@@ -1,0 +1,28 @@
+{
+  int length=1024;
+  Buffer buffer=Buffer.buffer(length);
+  buffer.appendInt(0);
+  buffer.appendByte(WIRE_PROTOCOL_VERSION);
+  byte systemCodecID=messageCodec.systemCodecID();
+  buffer.appendByte(systemCodecID);
+  if (systemCodecID == -1) {
+    writeString(buffer,messageCodec.name());
+  }
+  buffer.appendByte(send ? (byte)0 : (byte)1);
+  writeString(buffer,address);
+  if (replyAddress != null) {
+    writeString(buffer,replyAddress);
+  }
+ else {
+    buffer.appendInt(0);
+  }
+  buffer.appendInt(sender.port);
+  writeString(buffer,sender.host);
+  encodeHeaders(buffer);
+  writeBody(buffer);
+  buffer.setInt(0,buffer.length() - 4);
+  if (buffer.length() > length) {
+    log.warn("Overshot length " + length + " actual "+ buffer.length());
+  }
+  return buffer;
+}

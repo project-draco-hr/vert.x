@@ -1,8 +1,0 @@
-{
-  if (this == o)   return true;
-  if (o == null || getClass() != o.getClass())   return false;
-  SomePojo pojo=(SomePojo)o;
-  if (number != pojo.number)   return false;
-  if (!string.equals(pojo.string))   return false;
-  return true;
-}

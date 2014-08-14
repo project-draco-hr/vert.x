@@ -1,0 +1,3 @@
+{
+  deployVerticleWithOptions(verticle,options,null);
+}

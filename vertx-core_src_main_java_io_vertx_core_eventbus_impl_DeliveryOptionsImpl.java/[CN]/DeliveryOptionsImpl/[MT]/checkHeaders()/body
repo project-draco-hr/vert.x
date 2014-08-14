@@ -1,0 +1,5 @@
+{
+  if (headers == null) {
+    headers=new CaseInsensitiveHeaders();
+  }
+}

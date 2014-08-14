@@ -1,4 +1,0 @@
-{
-  super(true,"ping","ping");
-  this.sender=sender;
-}

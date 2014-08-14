@@ -1,0 +1,2 @@
+Object message
+Handler<AsyncResult<Message<R>>> replyHandler

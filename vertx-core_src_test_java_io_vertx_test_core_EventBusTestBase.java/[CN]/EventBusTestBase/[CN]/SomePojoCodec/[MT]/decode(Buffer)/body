@@ -1,3 +1,0 @@
-{
-  return new SomePojo(buffer.getString(4,buffer.length()),buffer.getInt(0));
-}

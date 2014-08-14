@@ -1,0 +1,7 @@
+{
+  int length=buffer.getInt(pos);
+  pos+=4;
+  byte[] encoded=buffer.getBytes(pos,pos + length);
+  String str=new String(encoded,CharsetUtil.UTF_8);
+  return new JsonArray(str);
+}

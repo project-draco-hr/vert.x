@@ -1,4 +1,0 @@
-{
-  this.defaultReplyTimeout=timeoutMs;
-  return this;
-}

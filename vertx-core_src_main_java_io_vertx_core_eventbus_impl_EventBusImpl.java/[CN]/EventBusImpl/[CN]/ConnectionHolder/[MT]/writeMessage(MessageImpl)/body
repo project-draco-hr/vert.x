@@ -1,0 +1,15 @@
+{
+  if (connected) {
+    socket.writeBuffer(message.encodeToWire());
+  }
+ else {
+synchronized (this) {
+      if (connected) {
+        socket.writeBuffer(message.encodeToWire());
+      }
+ else {
+        pending.add(message);
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  int pos=0;
+  byte protocolVersion=buffer.getByte(pos);
+  if (protocolVersion > WIRE_PROTOCOL_VERSION) {
+    throw new IllegalStateException("Invalid wire protocol version " + protocolVersion + " should be <= "+ WIRE_PROTOCOL_VERSION);
+  }
+  pos++;
+  byte systemCodecCode=buffer.getByte(pos);
+  pos++;
+  if (systemCodecCode == -1) {
+    int length=buffer.getInt(pos);
+    pos+=4;
+    byte[] bytes=buffer.getBytes(pos,pos + length);
+    String codecName=new String(bytes,CharsetUtil.UTF_8);
+    messageCodec=codecMap.get(codecName);
+    if (messageCodec == null) {
+      throw new IllegalStateException("No message codec registered with name " + codecName);
+    }
+    pos+=length;
+  }
+ else {
+    messageCodec=systemCodecs[systemCodecCode];
+  }
+  byte bsend=buffer.getByte(pos);
+  send=bsend == 0;
+  pos++;
+  int length=buffer.getInt(pos);
+  pos+=4;
+  byte[] bytes=buffer.getBytes(pos,pos + length);
+  address=new String(bytes,CharsetUtil.UTF_8);
+  pos+=length;
+  length=buffer.getInt(pos);
+  pos+=4;
+  if (length != 0) {
+    bytes=buffer.getBytes(pos,pos + length);
+    replyAddress=new String(bytes,CharsetUtil.UTF_8);
+    pos+=length;
+  }
+  int senderPort=buffer.getInt(pos);
+  pos+=4;
+  length=buffer.getInt(pos);
+  pos+=4;
+  bytes=buffer.getBytes(pos,pos + length);
+  String senderHost=new String(bytes,CharsetUtil.UTF_8);
+  pos+=length;
+  headersPos=pos;
+  int headersLength=buffer.getInt(pos);
+  pos+=headersLength;
+  bodyPos=pos;
+  sender=new ServerID(senderPort,senderHost);
+  wireBuffer=buffer;
+}

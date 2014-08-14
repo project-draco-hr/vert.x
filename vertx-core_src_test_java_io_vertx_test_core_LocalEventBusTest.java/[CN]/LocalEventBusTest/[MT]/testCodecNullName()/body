@@ -1,0 +1,8 @@
+{
+  try {
+    vertx.eventBus().registerCodec(new NullNameCodec());
+    fail("Should throw exception");
+  }
+ catch (  NullPointerException e) {
+  }
+}

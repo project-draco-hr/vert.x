@@ -1,0 +1,7 @@
+ServerID sender
+String address
+String replyAddress
+Headers headers
+U sentBody
+MessageCodec<U,V> messageCodec
+boolean send

@@ -1,5 +1,0 @@
-{
-  this.string=string;
-  this.number=number;
-  this.badCopy=badCopy;
-}

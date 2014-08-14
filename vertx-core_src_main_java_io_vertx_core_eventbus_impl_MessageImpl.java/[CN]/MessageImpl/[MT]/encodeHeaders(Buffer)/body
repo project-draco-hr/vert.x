@@ -1,0 +1,17 @@
+{
+  if (headers != null && !headers.isEmpty()) {
+    int headersLengthPos=buffer.getByteBuf().writerIndex();
+    buffer.appendInt(0);
+    buffer.appendInt(headers.size());
+    List<Map.Entry<String,String>> entries=headers.entries();
+    for (    Map.Entry<String,String> entry : entries) {
+      writeString(buffer,entry.getKey());
+      writeString(buffer,entry.getValue());
+    }
+    int headersEndPos=buffer.getByteBuf().writerIndex();
+    buffer.setInt(headersLengthPos,headersEndPos - headersLengthPos);
+  }
+ else {
+    buffer.appendInt(4);
+  }
+}

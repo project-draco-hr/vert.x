@@ -1,3 +1,0 @@
-{
-  sendReplyWithTimeout(bus.createMessage(true,replyAddress,message),timeout,replyHandler);
-}
