@@ -1,5 +1,5 @@
 {
-  super(vertx,conn);
+  super(vertx,conn,supportsContinuation);
   this.uri=uri;
   this.path=path;
   this.query=query;

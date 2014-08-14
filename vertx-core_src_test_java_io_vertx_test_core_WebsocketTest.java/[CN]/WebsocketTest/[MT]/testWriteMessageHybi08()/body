@@ -1,0 +1,3 @@
+{
+  testWriteMessage(256,8);
+}
