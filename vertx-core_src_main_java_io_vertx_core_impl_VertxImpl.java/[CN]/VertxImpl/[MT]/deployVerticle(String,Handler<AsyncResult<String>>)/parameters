@@ -1,0 +1,2 @@
+String verticleName
+Handler<AsyncResult<String>> completionHandler

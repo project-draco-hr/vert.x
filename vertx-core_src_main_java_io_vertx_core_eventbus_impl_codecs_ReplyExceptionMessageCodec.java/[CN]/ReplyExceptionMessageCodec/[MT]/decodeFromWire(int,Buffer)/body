@@ -1,0 +1,20 @@
+{
+  int i=(int)buffer.getByte(pos);
+  ReplyFailure rf=ReplyFailure.fromInt(i);
+  pos++;
+  int failureCode=buffer.getInt(pos);
+  pos+=4;
+  boolean isNull=buffer.getByte(pos) == (byte)0;
+  String message;
+  if (!isNull) {
+    pos++;
+    int strLength=buffer.getInt(pos);
+    pos+=4;
+    byte[] bytes=buffer.getBytes(pos,pos + strLength);
+    message=new String(bytes,CharsetUtil.UTF_8);
+  }
+ else {
+    message=null;
+  }
+  return new ReplyException(rf,failureCode,message);
+}

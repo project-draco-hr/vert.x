@@ -1,0 +1,5 @@
+String address
+Handler<Message<T>> handler
+boolean replyHandler
+boolean localOnly
+long timeoutID

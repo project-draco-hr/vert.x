@@ -1,3 +1,3 @@
 {
-  return send(address,message,null);
+  return sendWithOptions(address,message,DeliveryOptions.options(),null);
 }

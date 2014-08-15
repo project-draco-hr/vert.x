@@ -1,5 +1,0 @@
-{
-  for (  Vertx vertx : vertices) {
-    registerCodecs(vertx.eventBus());
-  }
-}

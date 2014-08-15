@@ -1,6 +1,6 @@
 {
   if (trailers == null) {
-    trailers=new HttpHeadersAdapter(new DefaultHttpHeaders());
+    trailers=new HeadersAdaptor(new DefaultHttpHeaders());
   }
   return trailers;
 }

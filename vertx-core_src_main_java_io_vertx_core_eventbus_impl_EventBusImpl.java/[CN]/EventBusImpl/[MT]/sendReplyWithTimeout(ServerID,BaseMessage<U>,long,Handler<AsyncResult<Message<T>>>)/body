@@ -1,9 +1,0 @@
-{
-  if (message.address == null) {
-    sendNoHandlersFailure(replyHandler);
-  }
- else {
-    Handler<Message<T>> handler=convertHandler(replyHandler);
-    sendOrPub(dest,message,handler,replyHandler,timeout);
-  }
-}

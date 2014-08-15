@@ -1,0 +1,3 @@
+{
+  sendReply(bus.createMessage(true,replyAddress,options.getHeaders(),message,options.getCodecName()),options,replyHandler);
+}

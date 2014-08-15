@@ -1,0 +1,8 @@
+{
+  if (message.address() == null) {
+    sendNoHandlersFailure(replyHandler);
+  }
+ else {
+    sendOrPub(dest,message,options,replyHandler);
+  }
+}

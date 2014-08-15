@@ -1,0 +1,5 @@
+{
+  if (codec.systemCodecID() != -1) {
+    throw new IllegalArgumentException("Can't register a system codec");
+  }
+}

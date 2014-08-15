@@ -1,7 +1,7 @@
 {
   int port=4523;
   String host=TestUtils.randomAlphaString(100);
-  MultiMap headers=new CaseInsensitiveMultiMap();
+  Headers headers=new CaseInsensitiveHeaders();
   headers.add("foo","bar");
   String uri=TestUtils.randomAlphaString(100);
   JsonObject json=new JsonObject();

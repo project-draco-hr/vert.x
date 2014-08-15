@@ -1,3 +1,0 @@
-{
-  sendOrPub(dest,message,replyHandler,-1);
-}

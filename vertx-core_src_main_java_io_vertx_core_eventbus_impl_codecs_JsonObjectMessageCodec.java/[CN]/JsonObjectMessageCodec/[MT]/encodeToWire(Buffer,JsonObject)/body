@@ -1,0 +1,7 @@
+{
+  String strJson=jsonObject.encode();
+  byte[] encoded=strJson.getBytes(CharsetUtil.UTF_8);
+  buffer.appendInt(encoded.length);
+  Buffer buff=Buffer.buffer(encoded);
+  buffer.appendBuffer(buff);
+}

@@ -1,0 +1,5 @@
+{
+  int length=buffer.getInt(pos);
+  pos+=4;
+  return buffer.getBuffer(pos,pos + length);
+}

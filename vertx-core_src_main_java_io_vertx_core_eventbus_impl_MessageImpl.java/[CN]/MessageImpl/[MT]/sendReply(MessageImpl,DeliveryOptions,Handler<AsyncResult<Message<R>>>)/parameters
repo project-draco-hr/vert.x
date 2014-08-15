@@ -1,0 +1,3 @@
+MessageImpl msg
+DeliveryOptions options
+Handler<AsyncResult<Message<R>>> replyHandler

@@ -1,5 +1,4 @@
 {
-  registerCodecs(eb);
   AtomicInteger count=new AtomicInteger();
 class MyHandler implements Handler<Message<T>> {
     @Override public void handle(    Message<T> msg){

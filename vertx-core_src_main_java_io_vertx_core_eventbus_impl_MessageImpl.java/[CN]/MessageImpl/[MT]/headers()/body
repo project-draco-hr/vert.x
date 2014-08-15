@@ -1,0 +1,11 @@
+{
+  if (headers == null) {
+    if (headersPos != 0) {
+      decodeHeaders();
+    }
+    if (headers == null) {
+      headers=new CaseInsensitiveHeaders();
+    }
+  }
+  return headers;
+}

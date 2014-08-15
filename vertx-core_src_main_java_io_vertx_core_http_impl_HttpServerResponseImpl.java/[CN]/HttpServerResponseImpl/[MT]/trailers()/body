@@ -3,7 +3,7 @@
     if (trailing == null) {
       trailing=new DefaultLastHttpContent(Unpooled.EMPTY_BUFFER,false);
     }
-    trailers=new HttpHeadersAdapter(trailing.trailingHeaders());
+    trailers=new HeadersAdaptor(trailing.trailingHeaders());
   }
   return trailers;
 }

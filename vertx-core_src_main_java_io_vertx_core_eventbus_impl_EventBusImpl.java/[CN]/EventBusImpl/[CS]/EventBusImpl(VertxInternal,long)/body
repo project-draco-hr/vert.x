@@ -5,4 +5,6 @@
   this.subs=null;
   this.clusterMgr=null;
   this.proxyFactory=new ProxyFactory(this,proxyOperationTimeout);
+  setPingHandler();
+  putStandardCodecs();
 }

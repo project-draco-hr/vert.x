@@ -1,0 +1,8 @@
+VertxInternal vertx
+String uri
+String path
+String query
+Headers headers
+ConnectionBase conn
+boolean supportsContinuation
+Runnable connectRunnable

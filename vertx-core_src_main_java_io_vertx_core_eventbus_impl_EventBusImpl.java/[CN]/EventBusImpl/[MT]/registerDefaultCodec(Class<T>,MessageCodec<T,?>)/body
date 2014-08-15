@@ -1,0 +1,15 @@
+{
+  Objects.requireNonNull(clazz);
+  Objects.requireNonNull(codec,"codec");
+  Objects.requireNonNull(codec.name(),"code.name()");
+  checkSystemCodec(codec);
+  if (defaultCodecMap.containsKey(clazz)) {
+    throw new IllegalStateException("Already a default codec registered for class " + clazz);
+  }
+  if (userCodecMap.containsKey(codec.name())) {
+    throw new IllegalStateException("Already a codec registered with name " + codec.name());
+  }
+  defaultCodecMap.put(clazz,codec);
+  userCodecMap.put(codec.name(),codec);
+  return this;
+}

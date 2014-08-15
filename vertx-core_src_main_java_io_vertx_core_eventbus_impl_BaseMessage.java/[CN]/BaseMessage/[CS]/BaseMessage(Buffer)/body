@@ -1,4 +1,0 @@
-{
-  int pos=readNonBodyFields(readBuff);
-  readBody(pos,readBuff);
-}

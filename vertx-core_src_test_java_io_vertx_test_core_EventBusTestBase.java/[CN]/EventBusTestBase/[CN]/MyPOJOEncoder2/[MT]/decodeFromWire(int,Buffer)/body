@@ -1,0 +1,7 @@
+{
+  int length=buffer.getInt(pos);
+  pos+=4;
+  byte[] bytes=buffer.getBytes(pos,pos + length);
+  String str=new String(bytes,CharsetUtil.UTF_8);
+  return new MyPOJO(str);
+}

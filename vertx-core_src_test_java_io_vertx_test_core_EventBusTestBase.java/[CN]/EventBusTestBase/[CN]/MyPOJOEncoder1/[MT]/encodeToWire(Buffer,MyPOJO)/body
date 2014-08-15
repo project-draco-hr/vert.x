@@ -1,0 +1,5 @@
+{
+  byte[] bytes=myPOJO.getStr().getBytes(CharsetUtil.UTF_8);
+  buffer.appendInt(bytes.length);
+  buffer.appendBytes(bytes);
+}

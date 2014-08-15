@@ -1,2 +1,3 @@
 {
+  testReply(val,val,consumer,null);
 }

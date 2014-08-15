@@ -1,0 +1,5 @@
+{
+  byte[] strBytes=s.getBytes(CharsetUtil.UTF_8);
+  buffer.appendInt(strBytes.length);
+  buffer.appendBytes(strBytes);
+}

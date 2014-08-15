@@ -1,0 +1,13 @@
+{
+  if (name == null) {
+    throw new NullPointerException("name");
+  }
+  if (value == null) {
+    throw new NullPointerException("value");
+  }
+  if (headers == null) {
+    headers=new CaseInsensitiveHeaders();
+  }
+  headers.add(name,value);
+  return this;
+}

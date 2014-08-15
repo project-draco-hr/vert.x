@@ -1,0 +1,3 @@
+{
+  buffer.appendByte((byte)(b ? 0 : 1));
+}

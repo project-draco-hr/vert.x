@@ -1,0 +1,8 @@
+{
+  try {
+    vertx.eventBus().registerCodec(new MySystemDecoder());
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+}

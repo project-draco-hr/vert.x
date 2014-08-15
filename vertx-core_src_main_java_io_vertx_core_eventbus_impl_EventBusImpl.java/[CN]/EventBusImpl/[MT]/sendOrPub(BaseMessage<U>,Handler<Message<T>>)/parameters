@@ -1,2 +1,0 @@
-BaseMessage<U> message
-Handler<Message<T>> replyHandler

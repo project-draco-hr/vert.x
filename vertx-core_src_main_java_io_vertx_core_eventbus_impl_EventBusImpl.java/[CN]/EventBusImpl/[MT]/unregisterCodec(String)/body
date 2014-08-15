@@ -1,0 +1,5 @@
+{
+  Objects.requireNonNull(name);
+  userCodecMap.remove(name);
+  return this;
+}

@@ -1,4 +1,3 @@
 {
-  sendOrPub(createMessage(false,address,message),null);
-  return this;
+  return publishWithOptions(address,message,DeliveryOptions.options());
 }

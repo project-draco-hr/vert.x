@@ -1,0 +1,3 @@
+{
+  deployVerticleWithOptions(verticleName,DeploymentOptions.options(),completionHandler);
+}

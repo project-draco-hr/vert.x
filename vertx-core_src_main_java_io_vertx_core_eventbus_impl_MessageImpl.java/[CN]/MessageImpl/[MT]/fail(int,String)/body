@@ -1,0 +1,3 @@
+{
+  sendReply(bus.createMessage(true,replyAddress,null,new ReplyException(ReplyFailure.RECIPIENT_FAILURE,failureCode,message),null),null,null);
+}

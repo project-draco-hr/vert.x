@@ -1,7 +1,0 @@
-{
-  BufferMessage copied=new BufferMessage(send,address,body == null ? null : body.copy());
-  copied.replyAddress=this.replyAddress;
-  copied.bus=this.bus;
-  copied.sender=this.sender;
-  return copied;
-}

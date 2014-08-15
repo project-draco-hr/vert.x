@@ -1,3 +1,0 @@
-{
-  return Buffer.buffer().appendString(object.string);
-}

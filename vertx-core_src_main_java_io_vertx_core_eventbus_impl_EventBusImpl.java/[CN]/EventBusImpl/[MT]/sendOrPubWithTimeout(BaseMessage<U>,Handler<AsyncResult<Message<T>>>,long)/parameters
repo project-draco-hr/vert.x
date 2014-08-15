@@ -1,3 +1,0 @@
-BaseMessage<U> message
-Handler<AsyncResult<Message<T>>> asyncResultHandler
-long timeout

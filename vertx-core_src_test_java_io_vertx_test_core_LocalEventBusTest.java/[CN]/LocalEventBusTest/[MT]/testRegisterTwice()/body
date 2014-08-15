@@ -1,0 +1,10 @@
+{
+  MessageCodec codec=new MyPOJOEncoder1();
+  vertx.eventBus().registerCodec(codec);
+  try {
+    vertx.eventBus().registerCodec(codec);
+    fail("Should throw exception");
+  }
+ catch (  IllegalStateException e) {
+  }
+}

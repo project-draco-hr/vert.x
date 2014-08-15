@@ -5,7 +5,7 @@
   }
  else {
     this.trailer=trailer;
-    trailers=new HttpHeadersAdapter(trailer.trailingHeaders());
+    trailers=new HeadersAdaptor(trailer.trailingHeaders());
     if (endHandler != null) {
       endHandler.handle(null);
     }
