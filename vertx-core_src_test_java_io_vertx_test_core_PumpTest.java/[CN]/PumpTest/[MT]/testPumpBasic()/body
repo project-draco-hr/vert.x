@@ -10,7 +10,7 @@
       inp.appendBuffer(b);
       rs.addData(b);
     }
-    TestUtils.buffersEqual(inp,ws.received);
+    assertEquals(inp,ws.received);
     assertFalse(rs.paused);
     assertEquals(0,rs.pauseCount);
     assertEquals(0,rs.resumeCount);

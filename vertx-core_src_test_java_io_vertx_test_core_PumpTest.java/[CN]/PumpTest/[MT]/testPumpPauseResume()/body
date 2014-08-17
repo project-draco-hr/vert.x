@@ -19,7 +19,7 @@
     assertTrue(rs.paused);
     assertEquals(i + 1,rs.pauseCount);
     assertEquals(i,rs.resumeCount);
-    TestUtils.buffersEqual(inp,ws.received);
+    assertEquals(inp,ws.received);
     ws.clearReceived();
     inp=Buffer.buffer();
     assertFalse(rs.paused);

@@ -8,5 +8,5 @@
   byte[] bytes=TestUtils.randomByteArray(100);
   buff=Buffer.buffer(bytes);
   assertEquals(buff.length(),bytes.length);
-  assertTrue(TestUtils.buffersEqual(Buffer.buffer(bytes),Buffer.buffer(buff.getBytes())));
+  assertEquals(Buffer.buffer(bytes),Buffer.buffer(buff.getBytes()));
 }
