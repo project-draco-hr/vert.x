@@ -1,5 +1,5 @@
 {
-  if (this.throwable != null) {
+  if (this.succeeded || this.failed) {
     throw new IllegalStateException("Failure has already been set");
   }
   this.throwable=throwable;
