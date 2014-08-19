@@ -1,0 +1,9 @@
+{
+  if (client != null) {
+    client.close();
+  }
+  if (server != null) {
+    awaitClose(server);
+  }
+  super.tearDown();
+}

@@ -1,3 +1,0 @@
-{
-  sharedData=vertx.sharedData();
-}

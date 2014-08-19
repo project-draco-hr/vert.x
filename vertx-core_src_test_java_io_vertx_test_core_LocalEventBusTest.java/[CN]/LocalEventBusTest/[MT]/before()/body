@@ -1,4 +1,0 @@
-{
-  vertx=Vertx.vertx();
-  eb=vertx.eventBus();
-}

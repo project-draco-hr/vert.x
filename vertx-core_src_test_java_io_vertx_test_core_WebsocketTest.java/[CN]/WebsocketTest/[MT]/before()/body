@@ -1,3 +1,0 @@
-{
-  client=vertx.createHttpClient(HttpClientOptions.options());
-}

@@ -1,0 +1,4 @@
+{
+  executor.shutdownNow();
+  super.tearDown();
+}

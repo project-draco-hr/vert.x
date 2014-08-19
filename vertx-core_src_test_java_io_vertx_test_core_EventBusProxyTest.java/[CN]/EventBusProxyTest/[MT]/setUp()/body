@@ -1,0 +1,7 @@
+{
+  super.setUp();
+  eb=vertx.eventBus();
+  impl=new MyServiceImpl();
+  eb.registerService(impl,"service_address");
+  proxy=eb.createProxy(MyService.class,"service_address");
+}

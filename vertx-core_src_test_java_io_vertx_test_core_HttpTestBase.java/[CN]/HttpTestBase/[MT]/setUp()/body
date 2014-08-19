@@ -1,0 +1,4 @@
+{
+  super.setUp();
+  server=vertx.createHttpServer(HttpServerOptions.options().setPort(DEFAULT_HTTP_PORT).setHost(DEFAULT_HTTP_HOST));
+}

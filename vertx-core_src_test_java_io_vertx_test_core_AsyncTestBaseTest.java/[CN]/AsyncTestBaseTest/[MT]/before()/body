@@ -1,4 +1,0 @@
-{
-  disableThreadChecks();
-  executor=Executors.newFixedThreadPool(10);
-}

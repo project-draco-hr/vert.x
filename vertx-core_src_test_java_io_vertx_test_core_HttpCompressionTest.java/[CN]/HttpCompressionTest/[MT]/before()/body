@@ -1,4 +1,0 @@
-{
-  client=vertx.createHttpClient(HttpClientOptions.options().setTryUseCompression(true));
-  server=vertx.createHttpServer(HttpServerOptions.options().setPort(DEFAULT_HTTP_PORT).setCompressionSupported(true));
-}

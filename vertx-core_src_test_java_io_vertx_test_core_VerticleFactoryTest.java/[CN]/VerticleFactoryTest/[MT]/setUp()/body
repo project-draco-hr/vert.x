@@ -1,0 +1,5 @@
+{
+  super.setUp();
+  VerticleFactory factory=vertx.verticleFactories().iterator().next();
+  vertx.unregisterVerticleFactory(factory);
+}

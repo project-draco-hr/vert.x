@@ -1,0 +1,5 @@
+{
+  super.setUp();
+  vinit();
+  vertx=Vertx.vertx();
+}

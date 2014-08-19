@@ -1,0 +1,7 @@
+{
+  super.setUp();
+  deploymentSnapshots=null;
+  totDeployed=0;
+  killedNode=0;
+  aliveNodes=null;
+}
