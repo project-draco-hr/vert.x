@@ -1,0 +1,3 @@
+{
+  testWriteMessage(65536 + 256,0);
+}
