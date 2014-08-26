@@ -1,4 +1,5 @@
 {
+  Objects.requireNonNull(options,"no null options accepted");
   final String path=PathAdjuster.adjust(vertx,p);
   return new BlockingAction<AsyncFile>(handler){
     public AsyncFile perform(){

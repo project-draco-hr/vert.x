@@ -1,8 +1,6 @@
 {
   Objects.requireNonNull(version);
-  if (version != 0 && version != 8 && version != 13) {
-    throw new IllegalArgumentException("version must be 0 or 8 or 13");
-  }
+  Arguments.require(0 == version || 8 == version || 13 == version,"version must be 0 or 8 or 13");
   this.version=version;
   return this;
 }

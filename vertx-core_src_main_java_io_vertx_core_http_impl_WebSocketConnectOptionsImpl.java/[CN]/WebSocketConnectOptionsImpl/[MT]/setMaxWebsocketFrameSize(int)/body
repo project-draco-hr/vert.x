@@ -1,7 +1,5 @@
 {
-  if (maxWebsocketFrameSize < 1) {
-    throw new IllegalArgumentException("maxWebsocketFrameSize must be > 0");
-  }
+  Arguments.require(maxWebsocketFrameSize > 0,"maxWebsocketFrameSize must be > 0");
   this.maxWebsocketFrameSize=maxWebsocketFrameSize;
   return this;
 }

@@ -1,6 +1,4 @@
 {
-  if (factory == null) {
-    throw new NullPointerException("Cannot set record decoder factory to null.");
-  }
+  Objects.requireNonNull(factory,"Cannot set record decoder factory to null.");
   RecordDecoderFactory.factory=factory;
 }

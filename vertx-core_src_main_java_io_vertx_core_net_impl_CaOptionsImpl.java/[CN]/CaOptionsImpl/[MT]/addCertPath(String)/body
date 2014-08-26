@@ -1,7 +1,6 @@
 {
-  if (certPath == null) {
-    throw new NullPointerException("No null certificate accepted");
-  }
+  Objects.requireNonNull(certPath,"No null certificate accepted");
+  Arguments.require(!certPath.isEmpty(),"No empty certificate path accepted");
   certPaths.add(certPath);
   return this;
 }

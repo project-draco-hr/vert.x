@@ -1,7 +1,5 @@
 {
-  if (certValue == null) {
-    throw new NullPointerException("No null certificate accepted");
-  }
+  Objects.requireNonNull(certValue,"No null certificate accepted");
   certValues.add(certValue);
   return this;
 }
