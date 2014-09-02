@@ -1,0 +1,8 @@
+{
+  if (multiThreaded) {
+    return new MultiThreadedWorkerContext(this,internalOrderedFact.getExecutor(),workerPool,deploymentID,config);
+  }
+ else {
+    return new WorkerContext(this,internalOrderedFact.getExecutor(),workerOrderedFact.getExecutor(),deploymentID,config);
+  }
+}

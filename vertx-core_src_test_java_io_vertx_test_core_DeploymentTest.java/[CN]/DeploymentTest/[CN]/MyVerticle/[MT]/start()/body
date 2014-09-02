@@ -8,4 +8,6 @@ default :
 startCalled=true;
 startContext=vertx.currentContext();
 }
+deploymentID=vertx.currentContext().deploymentID();
+config=vertx.currentContext().config();
 }

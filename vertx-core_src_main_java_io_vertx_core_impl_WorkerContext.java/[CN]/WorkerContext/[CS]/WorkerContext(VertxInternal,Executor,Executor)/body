@@ -1,4 +1,0 @@
-{
-  super(vertx,orderedInternalPoolExec);
-  this.workerExec=workerExec;
-}

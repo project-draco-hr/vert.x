@@ -1,4 +1,5 @@
 {
+  PROCESS_ARGS=Collections.unmodifiableList(Arrays.asList(sargs));
   Args args=new Args(sargs);
   if (sargs.length > 0) {
     String first=sargs[0];

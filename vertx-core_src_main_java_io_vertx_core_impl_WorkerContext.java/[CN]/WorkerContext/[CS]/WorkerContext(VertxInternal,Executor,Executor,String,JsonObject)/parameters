@@ -1,3 +1,5 @@
 VertxInternal vertx
 Executor orderedInternalPoolExec
 Executor workerExec
+String deploymentID
+JsonObject config

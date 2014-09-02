@@ -1,8 +1,0 @@
-{
-  if (multiThreaded) {
-    return new MultiThreadedWorkerContext(this,internalOrderedFact.getExecutor(),workerPool);
-  }
- else {
-    return new WorkerContext(this,internalOrderedFact.getExecutor(),workerOrderedFact.getExecutor());
-  }
-}

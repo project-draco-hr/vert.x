@@ -1,0 +1,4 @@
+VertxInternal vertx
+Executor bgExec
+String deploymentID
+JsonObject config

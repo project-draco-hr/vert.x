@@ -3,12 +3,12 @@
   assertEquals(vertx,verticle.getVertx());
   String deploymentID=ar.result();
   assertNotNull(ar.result());
-  assertEquals(deploymentID,verticle.getDeploymentID());
+  assertEquals(deploymentID,verticle.deploymentID);
   if (config == null) {
-    assertEquals(0,verticle.getConfig().size());
+    assertEquals(0,verticle.config.size());
   }
  else {
-    assertEquals(config,verticle.getConfig());
+    assertEquals(config,verticle.config);
   }
   assertTrue(verticle.startCalled);
   assertFalse(verticle.stopCalled);
