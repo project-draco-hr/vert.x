@@ -1,28 +1,28 @@
 {
   Args args=new Args(sargs);
-  sargs=removeOptions(sargs);
-  if (sargs.length == 0) {
-    displaySyntax();
-  }
- else {
-    String command=sargs[0].toLowerCase();
-    if ("version".equals(command)) {
+  if (sargs.length > 0) {
+    String first=sargs[0];
+    if (first.equals("-version")) {
       log.info(getVersion());
+      return;
     }
- else {
+ else     if (first.equals("run")) {
       if (sargs.length < 2) {
         displaySyntax();
+        return;
       }
  else {
         String main=sargs[1];
-switch (command) {
-case "run":
-          runVerticle(main,args);
-        break;
-default :
-      displaySyntax();
+        runVerticle(main,args);
+        return;
+      }
+    }
   }
-}
-}
-}
+  String main=readMainVerticleFromManifest();
+  if (main != null) {
+    runVerticle(main,args);
+  }
+ else {
+    displaySyntax();
+  }
 }

@@ -1,0 +1,19 @@
+{
+  try {
+    Enumeration<URL> resources=getClass().getClassLoader().getResources("META-INF/MANIFEST.MF");
+    while (resources.hasMoreElements()) {
+      Manifest manifest=new Manifest(resources.nextElement().openStream());
+      Attributes attributes=manifest.getMainAttributes();
+      if (Starter.class.getName().equals(attributes.getValue("Main-Class"))) {
+        String theMainVerticle=attributes.getValue("Main-Verticle");
+        if (theMainVerticle != null) {
+          return theMainVerticle;
+        }
+      }
+    }
+  }
+ catch (  IOException e) {
+    throw new IllegalStateException(e.getMessage());
+  }
+  return null;
+}
