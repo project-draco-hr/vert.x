@@ -1,0 +1,5 @@
+{
+  VertxOptions options=VertxOptions.options();
+  Vertx vertx=Vertx.vertx(options);
+  assertNotNull(vertx);
+}

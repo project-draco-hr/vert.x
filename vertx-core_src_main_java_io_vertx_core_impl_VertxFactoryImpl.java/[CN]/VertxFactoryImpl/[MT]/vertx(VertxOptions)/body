@@ -1,3 +1,6 @@
 {
+  if (options.isClustered()) {
+    throw new IllegalArgumentException("Please use the asynchronous method to create a clustered Vertx");
+  }
   return new VertxImpl(options);
 }

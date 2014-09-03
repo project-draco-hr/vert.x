@@ -1,0 +1,10 @@
+{
+  VertxOptions options=VertxOptions.options();
+  options.setClustered(true);
+  try {
+    Vertx.vertx(options);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+}
