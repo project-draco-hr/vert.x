@@ -33,7 +33,7 @@
     prepareHeaders();
     conn.queueForWrite(response);
     conn.sendFile(file);
-    channelFuture=conn.write(LastHttpContent.EMPTY_LAST_CONTENT);
+    channelFuture=conn.writeToChannel(LastHttpContent.EMPTY_LAST_CONTENT);
     headWritten=written=true;
     if (resultHandler != null) {
       channelFuture.addListener(new ChannelFutureListener(){

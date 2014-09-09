@@ -1,5 +1,5 @@
 {
   Buffer buff=TestUtils.randomBuffer(chunkSize);
   sent.appendBuffer(buff);
-  socket.writeBuffer(buff);
+  socket.write(buff);
 }

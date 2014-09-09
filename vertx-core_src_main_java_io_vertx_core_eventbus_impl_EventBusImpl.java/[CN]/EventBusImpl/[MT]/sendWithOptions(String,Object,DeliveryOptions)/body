@@ -1,3 +1,0 @@
-{
-  return sendWithOptions(address,message,options,null);
-}

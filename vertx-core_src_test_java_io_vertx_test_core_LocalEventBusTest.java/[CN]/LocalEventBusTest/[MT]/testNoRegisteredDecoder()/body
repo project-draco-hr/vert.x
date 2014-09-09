@@ -1,6 +1,6 @@
 {
   try {
-    vertx.eventBus().sendWithOptions(ADDRESS1,"foo",DeliveryOptions.options().setCodecName("iqwjdoqiwd"));
+    vertx.eventBus().send(ADDRESS1,"foo",DeliveryOptions.options().setCodecName("iqwjdoqiwd"));
     fail("Should throw exception");
   }
  catch (  IllegalArgumentException e) {

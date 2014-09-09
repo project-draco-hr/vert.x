@@ -1,0 +1,3 @@
+{
+  return lastWriteFuture=super.writeToChannel(obj);
+}

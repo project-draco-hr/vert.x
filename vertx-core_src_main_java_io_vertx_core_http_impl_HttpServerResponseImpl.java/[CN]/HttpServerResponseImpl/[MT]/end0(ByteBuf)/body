@@ -9,16 +9,16 @@
  else {
       resp=new AssembledFullHttpResponse(response,data);
     }
-    channelFuture=conn.write(resp);
+    channelFuture=conn.writeToChannel(resp);
     headWritten=true;
   }
  else {
     if (!data.isReadable()) {
       if (trailing == null) {
-        channelFuture=conn.write(LastHttpContent.EMPTY_LAST_CONTENT);
+        channelFuture=conn.writeToChannel(LastHttpContent.EMPTY_LAST_CONTENT);
       }
  else {
-        channelFuture=conn.write(trailing);
+        channelFuture=conn.writeToChannel(trailing);
       }
     }
  else {
@@ -29,7 +29,7 @@
  else {
         content=new DefaultLastHttpContent(data,false);
       }
-      channelFuture=conn.write(content);
+      channelFuture=conn.writeToChannel(content);
     }
   }
   if (!keepAlive) {

@@ -5,6 +5,6 @@
   String secHeader=req.headers().get("Sec-WebSocket-Key");
   String tmp=secHeader + "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
   String encoded=sha1(tmp);
-  sock.writeString("HTTP/1.1 101 Web Socket Protocol Handshake\r\n" + "Upgrade: WebSocket\r\n" + "Connection: Upgrade\r\n"+ "Sec-WebSocket-Accept: " + encoded + "\r\n"+ "\r\n");
+  sock.write("HTTP/1.1 101 Web Socket Protocol Handshake\r\n" + "Upgrade: WebSocket\r\n" + "Connection: Upgrade\r\n"+ "Sec-WebSocket-Accept: " + encoded + "\r\n"+ "\r\n");
   return sock;
 }

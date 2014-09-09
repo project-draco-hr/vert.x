@@ -5,11 +5,11 @@
   }
   if (!headWritten) {
     prepareHeaders();
-    channelFuture=conn.write(new AssembledHttpResponse(response,chunk));
+    channelFuture=conn.writeToChannel(new AssembledHttpResponse(response,chunk));
     headWritten=true;
   }
  else {
-    channelFuture=conn.write(new DefaultHttpContent(chunk));
+    channelFuture=conn.writeToChannel(new DefaultHttpContent(chunk));
   }
   conn.addFuture(completionHandler,channelFuture);
   return this;

@@ -1,6 +1,6 @@
 {
   if (enc == null) {
-    writeString(str);
+    write(str);
   }
  else {
     write(Unpooled.copiedBuffer(str,Charset.forName(enc)));

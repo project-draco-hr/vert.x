@@ -1,10 +1,10 @@
 {
   prepareHeaders();
   if (end) {
-    conn.write(new AssembledFullHttpRequest(request,buf));
+    conn.writeToChannel(new AssembledFullHttpRequest(request,buf));
   }
  else {
-    conn.write(new AssembledHttpRequest(request,buf));
+    conn.writeToChannel(new AssembledHttpRequest(request,buf));
   }
   headWritten=true;
 }

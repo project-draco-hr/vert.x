@@ -1,4 +1,4 @@
 {
   checkClosed();
-  conn.write(frame);
+  conn.writeToChannel(frame);
 }

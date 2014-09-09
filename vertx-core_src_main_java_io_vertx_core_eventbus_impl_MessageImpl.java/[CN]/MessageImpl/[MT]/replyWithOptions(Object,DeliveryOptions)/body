@@ -1,3 +1,0 @@
-{
-  replyWithOptions(message,options,null);
-}
