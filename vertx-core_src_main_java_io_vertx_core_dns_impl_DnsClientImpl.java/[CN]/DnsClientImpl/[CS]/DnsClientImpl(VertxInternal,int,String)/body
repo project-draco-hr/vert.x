@@ -1,6 +1,6 @@
 {
   ContextImpl creatingContext=vertx.getContext();
-  if (creatingContext != null && creatingContext.isMultithreaded()) {
+  if (creatingContext != null && creatingContext.isMultiThreaded()) {
     throw new IllegalStateException("Cannot use DnsClient in a multi-threaded worker verticle");
   }
   this.dnsServer=new InetSocketAddress(host,port);
