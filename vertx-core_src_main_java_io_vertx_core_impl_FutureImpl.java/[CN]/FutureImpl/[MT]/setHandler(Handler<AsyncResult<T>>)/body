@@ -1,5 +1,4 @@
 {
   this.handler=handler;
   checkCallHandler();
-  return this;
 }

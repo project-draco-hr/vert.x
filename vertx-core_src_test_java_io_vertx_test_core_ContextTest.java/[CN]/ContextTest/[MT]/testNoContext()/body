@@ -1,7 +1,7 @@
 {
   Set<Context> ctxts=new HashSet<>();
   for (int i=0; i < 10; i++) {
-    Context ctx=vertx.currentContext();
+    Context ctx=vertx.context();
     assertFalse(ctxts.contains(ctx));
     ctxts.add(ctx);
   }

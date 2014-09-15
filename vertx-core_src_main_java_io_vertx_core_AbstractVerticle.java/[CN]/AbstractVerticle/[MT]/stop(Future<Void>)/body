@@ -1,4 +1,4 @@
 {
   stop();
-  stopFuture.setResult(null);
+  stopFuture.complete();
 }

@@ -1,7 +1,7 @@
 {
   if (!future.isSuccess()) {
-    if (!result.complete()) {
-      result.setFailure(future.cause());
+    if (!result.isComplete()) {
+      result.fail(future.cause());
     }
   }
  else {

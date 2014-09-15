@@ -6,8 +6,8 @@ case THROW_ERROR:
   throw new Error("FooBar!");
 default :
 startCalled=true;
-startContext=vertx.currentContext();
+startContext=vertx.context();
 }
-deploymentID=vertx.currentContext().deploymentID();
-config=vertx.currentContext().config();
+deploymentID=vertx.context().deploymentID();
+config=vertx.context().config();
 }

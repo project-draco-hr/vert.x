@@ -2,10 +2,10 @@
   Future<Void> res=Future.future();
   try {
     ch.close();
-    res.setResult(null);
+    res.complete(null);
   }
  catch (  IOException e) {
-    res.setFailure(e);
+    res.fail(e);
   }
   if (handler != null) {
     handler.handle(res);

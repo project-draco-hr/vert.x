@@ -1,8 +1,8 @@
 {
   if (t == null) {
-    setResult(null);
+    complete(null);
   }
  else {
-    setFailure(t);
+    fail(t);
   }
 }

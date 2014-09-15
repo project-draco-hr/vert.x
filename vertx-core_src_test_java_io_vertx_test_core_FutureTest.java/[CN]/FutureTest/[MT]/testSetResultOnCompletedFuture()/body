@@ -1,26 +1,26 @@
 {
   ArrayList<Future<Object>> futures=new ArrayList<>();
   futures.add(Future.completedFuture());
-  futures.add(Future.future().setResult(null));
+  futures.add(Future.completedFuture());
   futures.add(Future.completedFuture(new Object()));
-  futures.add(Future.future().setResult(new Object()));
+  futures.add(Future.completedFuture(new Object()));
   futures.add(Future.completedFuture(new Exception()));
-  futures.add(Future.future().setFailure(new Exception()));
+  futures.add(Future.completedFuture(new Exception()));
   for (  Future<Object> future : futures) {
     try {
-      future.setResult(new Object());
+      future.complete(new Object());
       fail();
     }
  catch (    IllegalStateException ignore) {
     }
     try {
-      future.setResult(null);
+      future.complete(null);
       fail();
     }
  catch (    IllegalStateException ignore) {
     }
     try {
-      future.setFailure(new Exception());
+      future.fail(new Exception());
       fail();
     }
  catch (    IllegalStateException ignore) {

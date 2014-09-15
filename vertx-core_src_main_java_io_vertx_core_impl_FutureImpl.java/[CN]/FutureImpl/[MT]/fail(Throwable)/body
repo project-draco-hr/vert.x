@@ -5,5 +5,4 @@
   this.throwable=throwable;
   failed=true;
   checkCallHandler();
-  return this;
 }

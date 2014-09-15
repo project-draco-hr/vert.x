@@ -1,8 +1,4 @@
 {
-  Context ctx=vertx.currentContext();
-  config=ctx.config();
-  deploymentID=ctx.deploymentID();
-  processArgs=ctx.processArgs();
   start();
-  startFuture.setResult(null);
+  startFuture.complete();
 }
