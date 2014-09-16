@@ -1,6 +1,6 @@
 {
   Map<String,String> map=genMap(num);
-  Headers headers=new HeadersAdaptor(new DefaultHttpHeaders());
+  MultiMap headers=new HeadersAdaptor(new DefaultHttpHeaders());
   for (  Map.Entry<String,String> entry : map.entrySet()) {
     headers.add(entry.getKey(),entry.getValue());
   }

@@ -1,5 +1,5 @@
 boolean send
 String address
-Headers headers
+MultiMap headers
 Object body
 String codecName
