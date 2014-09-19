@@ -1,6 +1,6 @@
 {
   final BodyHandler handler=new BodyHandler();
-  dataHandler(handler);
+  handler(handler);
   endHandler(new VoidHandler(){
     public void handle(){
       handler.notifyHandler(bodyHandler);

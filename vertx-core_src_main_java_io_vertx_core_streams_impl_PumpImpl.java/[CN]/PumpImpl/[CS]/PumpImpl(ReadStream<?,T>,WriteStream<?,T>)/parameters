@@ -1,0 +1,2 @@
+ReadStream<?,T> rs
+WriteStream<?,T> ws

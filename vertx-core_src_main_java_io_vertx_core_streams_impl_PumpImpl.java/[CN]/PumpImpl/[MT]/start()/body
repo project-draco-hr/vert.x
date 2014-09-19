@@ -1,4 +1,4 @@
 {
-  readStream.dataHandler(dataHandler);
+  readStream.handler(dataHandler);
   return this;
 }

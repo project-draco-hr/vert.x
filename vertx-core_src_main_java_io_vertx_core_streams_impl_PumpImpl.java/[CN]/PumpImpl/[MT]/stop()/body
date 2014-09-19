@@ -1,5 +1,5 @@
 {
   writeStream.drainHandler(null);
-  readStream.dataHandler(null);
+  readStream.handler(null);
   return this;
 }

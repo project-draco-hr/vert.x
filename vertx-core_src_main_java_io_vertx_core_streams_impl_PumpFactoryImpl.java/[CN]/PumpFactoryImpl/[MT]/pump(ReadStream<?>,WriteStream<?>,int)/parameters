@@ -1,3 +1,0 @@
-ReadStream<?> rs
-WriteStream<?> ws
-int writeQueueMaxSize

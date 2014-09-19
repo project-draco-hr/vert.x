@@ -1,4 +1,0 @@
-{
-  received.appendBuffer(data);
-  return this;
-}

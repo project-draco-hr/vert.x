@@ -1,0 +1,4 @@
+{
+  received.add(data);
+  return this;
+}
