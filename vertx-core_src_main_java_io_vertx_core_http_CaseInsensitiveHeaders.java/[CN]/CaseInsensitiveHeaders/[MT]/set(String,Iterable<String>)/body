@@ -1,7 +1,5 @@
 {
-  if (values == null) {
-    throw new NullPointerException("values");
-  }
+  Objects.requireNonNull(values,"values");
   int h=hash(name);
   int i=index(h);
   remove0(h,i,name);

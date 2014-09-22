@@ -1,7 +1,5 @@
 {
-  if (value == null) {
-    throw new NullPointerException("value");
-  }
+  Objects.requireNonNull(value,"value");
   String oldValue=this.value;
   this.value=value;
   return oldValue;

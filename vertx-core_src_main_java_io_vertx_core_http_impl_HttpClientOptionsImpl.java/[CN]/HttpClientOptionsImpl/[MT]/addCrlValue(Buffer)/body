@@ -1,7 +1,5 @@
 {
-  if (crlValue == null) {
-    throw new NullPointerException("No null crl accepted");
-  }
+  Objects.requireNonNull(crlValue,"No null crl accepted");
   crlValues.add(crlValue);
   return this;
 }

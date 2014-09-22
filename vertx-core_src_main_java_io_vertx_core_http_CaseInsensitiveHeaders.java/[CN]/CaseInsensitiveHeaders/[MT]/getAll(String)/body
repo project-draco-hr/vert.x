@@ -1,7 +1,5 @@
 {
-  if (name == null) {
-    throw new NullPointerException("name");
-  }
+  Objects.requireNonNull(name,"name");
   LinkedList<String> values=new LinkedList<>();
   int h=hash(name);
   int i=index(h);

@@ -1,0 +1,5 @@
+{
+  if (number < min || number > max) {
+    throw new IllegalArgumentException(message);
+  }
+}
