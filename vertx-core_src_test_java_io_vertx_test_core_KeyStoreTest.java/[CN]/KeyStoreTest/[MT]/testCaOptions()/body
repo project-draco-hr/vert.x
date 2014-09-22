@@ -1,11 +1,2 @@
 {
-  CaOptions options=CaOptions.options();
-  assertEquals(Collections.emptyList(),options.getCertPaths());
-  String randString=TestUtils.randomAlphaString(100);
-  options.addCertPath(randString);
-  assertEquals(Collections.singletonList(randString),options.getCertPaths());
-  assertEquals(Collections.emptyList(),options.getCertValues());
-  randString=TestUtils.randomAlphaString(100);
-  options.addCertValue(Buffer.buffer(randString));
-  assertEquals(Collections.singletonList(Buffer.buffer(randString)),options.getCertValues());
 }

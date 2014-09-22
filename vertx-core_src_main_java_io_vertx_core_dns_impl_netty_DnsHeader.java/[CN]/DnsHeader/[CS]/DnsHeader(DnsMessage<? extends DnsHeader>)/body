@@ -1,6 +1,4 @@
 {
-  if (parent == null) {
-    throw new NullPointerException("the parent field cannot be null and must point to a valid DnsMessage.");
-  }
+  Objects.requireNonNull(parent,"the parent field cannot be null and must point to a valid DnsMessage.");
   this.parent=parent;
 }

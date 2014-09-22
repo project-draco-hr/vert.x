@@ -1,4 +1,5 @@
 {
+  Objects.requireNonNull(data,"no null data accepted");
   final Path target=PathAdjuster.adjust(vertx,Paths.get(path));
   return new BlockingAction<Void>(handler){
     public Void perform(){

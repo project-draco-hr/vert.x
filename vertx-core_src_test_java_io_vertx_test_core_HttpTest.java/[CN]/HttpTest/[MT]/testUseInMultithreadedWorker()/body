@@ -1,22 +1,2 @@
 {
-class MyVerticle extends AbstractVerticle {
-    @Override public void start(){
-      try {
-        server=vertx.createHttpServer(HttpServerOptions.options());
-        fail("Should throw exception");
-      }
- catch (      IllegalStateException e) {
-      }
-      try {
-        client=vertx.createHttpClient(HttpClientOptions.options());
-        fail("Should throw exception");
-      }
- catch (      IllegalStateException e) {
-      }
-      testComplete();
-    }
-  }
-  MyVerticle verticle=new MyVerticle();
-  vertx.deployVerticle(verticle,DeploymentOptions.options().setWorker(true).setMultiThreaded(true));
-  await();
 }

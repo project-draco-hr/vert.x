@@ -1,4 +1,6 @@
 {
+  Objects.requireNonNull(options,"no null options accepted");
+  Objects.requireNonNull(responseHandler,"no null responseHandler accepted");
   checkClosed();
   HttpClientRequest req=new HttpClientRequestImpl(this,method,options,responseHandler,vertx);
   if (options.getHeaders() != null) {

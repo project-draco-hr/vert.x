@@ -1,4 +1,5 @@
 {
+  Objects.requireNonNull(host);
   this.host=host;
   return this;
 }

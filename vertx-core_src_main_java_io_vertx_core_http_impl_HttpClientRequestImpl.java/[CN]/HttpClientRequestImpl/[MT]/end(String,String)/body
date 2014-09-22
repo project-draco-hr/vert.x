@@ -1,3 +1,4 @@
 {
+  Objects.requireNonNull(enc,"no null encoding accepted");
   end(Buffer.buffer(chunk,enc));
 }

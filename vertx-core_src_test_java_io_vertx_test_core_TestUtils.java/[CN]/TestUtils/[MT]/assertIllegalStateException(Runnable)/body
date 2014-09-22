@@ -1,0 +1,8 @@
+{
+  try {
+    runnable.run();
+    fail("Should throw IllegalStateException");
+  }
+ catch (  IllegalStateException e) {
+  }
+}
