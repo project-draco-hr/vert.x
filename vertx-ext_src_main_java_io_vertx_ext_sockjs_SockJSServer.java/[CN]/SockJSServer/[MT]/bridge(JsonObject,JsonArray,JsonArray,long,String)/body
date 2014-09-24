@@ -1,8 +1,0 @@
-{
-  EventBusBridge busBridge=new EventBusBridge(vertx,inboundPermitted,outboundPermitted,authTimeout,authAddress);
-  if (hook != null) {
-    busBridge.setHook(hook);
-  }
-  installApp(sjsConfig,busBridge);
-  return this;
-}
