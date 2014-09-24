@@ -1,2 +1,3 @@
 boolean clustered
+boolean ha
 Args args
