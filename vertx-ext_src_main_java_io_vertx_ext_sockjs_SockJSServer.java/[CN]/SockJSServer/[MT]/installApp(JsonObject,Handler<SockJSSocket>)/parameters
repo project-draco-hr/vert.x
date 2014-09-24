@@ -1,2 +1,0 @@
-JsonObject config
-Handler<SockJSSocket> sockHandler
