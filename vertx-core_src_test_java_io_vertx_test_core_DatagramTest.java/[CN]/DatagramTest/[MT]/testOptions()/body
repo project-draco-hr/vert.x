@@ -1,5 +1,5 @@
 {
-  DatagramSocketOptions options=DatagramSocketOptions.options();
+  DatagramSocketOptions options=new DatagramSocketOptions();
   assertEquals(-1,options.getSendBufferSize());
   int rand=TestUtils.randomPositiveInt();
   assertEquals(options,options.setSendBufferSize(rand));

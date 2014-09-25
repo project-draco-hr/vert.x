@@ -13,7 +13,7 @@
   json.putString("isolationGroup",isolationGroup);
   json.putBoolean("ha",ha);
   json.putArray("extraClasspath",new JsonArray(cp));
-  DeploymentOptions copy=DeploymentOptions.optionsFromJson(json);
+  DeploymentOptions copy=new DeploymentOptions(json);
   assertEquals(worker,copy.isWorker());
   assertEquals(multiThreaded,copy.isMultiThreaded());
   assertEquals(isolationGroup,copy.getIsolationGroup());

@@ -1,6 +1,6 @@
 {
-  KeyCertOptions def=KeyCertOptions.options();
-  KeyCertOptions json=KeyCertOptions.optionsFromJson(new JsonObject());
+  KeyCertOptions def=new KeyCertOptions();
+  KeyCertOptions json=new KeyCertOptions(new JsonObject());
   assertEquals(def.getKeyPath(),json.getKeyPath());
   assertEquals(def.getCertPath(),json.getCertPath());
   assertEquals(def.getKeyValue(),json.getKeyValue());

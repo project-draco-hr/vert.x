@@ -1,5 +1,5 @@
 {
-  VertxOptions options=VertxOptions.options();
+  VertxOptions options=new VertxOptions();
   options.setClustered(true);
   try {
     Vertx.vertx(options);

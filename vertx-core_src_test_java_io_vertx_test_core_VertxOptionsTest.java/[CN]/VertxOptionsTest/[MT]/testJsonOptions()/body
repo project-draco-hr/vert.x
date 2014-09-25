@@ -1,5 +1,5 @@
 {
-  VertxOptions options=VertxOptions.optionsFromJson(new JsonObject());
+  VertxOptions options=new VertxOptions(new JsonObject());
   assertEquals(0,options.getClusterPort());
   assertEquals(2 * Runtime.getRuntime().availableProcessors(),options.getEventLoopPoolSize());
   assertEquals(20,options.getInternalBlockingPoolSize());
@@ -26,7 +26,7 @@
   boolean haEnabled=rand.nextBoolean();
   int quorumSize=TestUtils.randomShort() + 1;
   String haGroup=TestUtils.randomAlphaString(100);
-  options=VertxOptions.optionsFromJson(new JsonObject().putNumber("clusterPort",clusterPort).putNumber("eventLoopPoolSize",eventLoopPoolSize).putNumber("internalBlockingPoolSize",internalBlockingPoolSize).putNumber("workerPoolSize",workerPoolSize).putNumber("blockedThreadCheckPeriod",blockedThreadCheckPeriod).putString("clusterHost",clusterHost).putNumber("maxEventLoopExecuteTime",maxEventLoopExecuteTime).putNumber("maxWorkerExecuteTime",maxWorkerExecuteTime).putNumber("proxyOperationTimeout",proxyOperationTimeout).putBoolean("haEnabled",haEnabled).putNumber("quorumSize",quorumSize).putString("haGroup",haGroup));
+  options=new VertxOptions(new JsonObject().putNumber("clusterPort",clusterPort).putNumber("eventLoopPoolSize",eventLoopPoolSize).putNumber("internalBlockingPoolSize",internalBlockingPoolSize).putNumber("workerPoolSize",workerPoolSize).putNumber("blockedThreadCheckPeriod",blockedThreadCheckPeriod).putString("clusterHost",clusterHost).putNumber("maxEventLoopExecuteTime",maxEventLoopExecuteTime).putNumber("maxWorkerExecuteTime",maxWorkerExecuteTime).putNumber("proxyOperationTimeout",proxyOperationTimeout).putBoolean("haEnabled",haEnabled).putNumber("quorumSize",quorumSize).putString("haGroup",haGroup));
   assertEquals(clusterPort,options.getClusterPort());
   assertEquals(eventLoopPoolSize,options.getEventLoopPoolSize());
   assertEquals(internalBlockingPoolSize,options.getInternalBlockingPoolSize());

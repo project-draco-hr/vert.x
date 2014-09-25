@@ -1,5 +1,5 @@
 {
-  PKCS12Options options=PKCS12Options.options();
+  PKCS12Options options=new PKCS12Options();
   assertNull(options.getPath());
   String randString=TestUtils.randomAlphaString(100);
   assertEquals(options,options.setPath(randString));

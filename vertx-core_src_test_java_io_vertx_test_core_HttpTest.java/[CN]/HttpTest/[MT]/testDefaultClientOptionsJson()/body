@@ -1,6 +1,6 @@
 {
-  HttpClientOptions def=HttpClientOptions.options();
-  HttpClientOptions json=HttpClientOptions.optionsFromJson(new JsonObject());
+  HttpClientOptions def=new HttpClientOptions();
+  HttpClientOptions json=new HttpClientOptions(new JsonObject());
   assertEquals(def.getMaxPoolSize(),json.getMaxPoolSize());
   assertEquals(def.isKeepAlive(),json.isKeepAlive());
   assertEquals(def.isPipelining(),json.isPipelining());

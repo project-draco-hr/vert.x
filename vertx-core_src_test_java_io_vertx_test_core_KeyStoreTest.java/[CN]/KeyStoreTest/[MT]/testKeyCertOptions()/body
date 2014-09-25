@@ -1,5 +1,5 @@
 {
-  KeyCertOptions options=KeyCertOptions.options();
+  KeyCertOptions options=new KeyCertOptions();
   assertNull(options.getKeyPath());
   String randString=TestUtils.randomAlphaString(100);
   assertEquals(options,options.setKeyPath(randString));

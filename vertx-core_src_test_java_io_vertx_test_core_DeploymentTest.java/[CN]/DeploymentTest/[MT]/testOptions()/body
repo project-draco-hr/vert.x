@@ -1,5 +1,5 @@
 {
-  DeploymentOptions options=DeploymentOptions.options();
+  DeploymentOptions options=new DeploymentOptions();
   assertNull(options.getConfig());
   JsonObject config=new JsonObject().putString("foo","bar").putObject("obj",new JsonObject().putNumber("quux",123));
   assertEquals(options,options.setConfig(config));

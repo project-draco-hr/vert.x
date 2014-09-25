@@ -4,8 +4,8 @@
   Headers headers=new CaseInsensitiveHeaders();
   headers.add("foo","bar");
   String uri=TestUtils.randomAlphaString(100);
-  RequestOptions options=RequestOptions.options().setPort(port).setHost(host).setHeaders(headers).setRequestURI(uri);
-  RequestOptions copy=RequestOptions.copiedOptions(options);
+  RequestOptions options=new RequestOptions().setPort(port).setHost(host).setHeaders(headers).setRequestURI(uri);
+  RequestOptions copy=new RequestOptions(options);
   assertEquals(port,copy.getPort());
   assertEquals(host,copy.getHost());
   assertEquals(uri,copy.getRequestURI());

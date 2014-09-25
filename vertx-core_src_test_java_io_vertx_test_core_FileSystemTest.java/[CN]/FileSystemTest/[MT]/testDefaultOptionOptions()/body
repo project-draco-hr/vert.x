@@ -1,6 +1,6 @@
 {
-  OpenOptions def=OpenOptions.options();
-  OpenOptions json=OpenOptions.optionsFromJson(new JsonObject());
+  OpenOptions def=new OpenOptions();
+  OpenOptions json=new OpenOptions(new JsonObject());
   assertEquals(def.getPerms(),json.getPerms());
   assertEquals(def.isRead(),json.isRead());
   assertEquals(def.isWrite(),json.isWrite());

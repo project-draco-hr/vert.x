@@ -1,6 +1,6 @@
 {
-  VertxOptions def=VertxOptions.options();
-  VertxOptions json=VertxOptions.optionsFromJson(new JsonObject());
+  VertxOptions def=new VertxOptions();
+  VertxOptions json=new VertxOptions(new JsonObject());
   assertEquals(def.getEventLoopPoolSize(),json.getEventLoopPoolSize());
   assertEquals(def.getWorkerPoolSize(),json.getWorkerPoolSize());
   assertEquals(def.isClustered(),json.isClustered());

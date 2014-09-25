@@ -1,6 +1,6 @@
 {
-  NetServerOptions def=NetServerOptions.options();
-  NetServerOptions json=NetServerOptions.optionsFromJson(new JsonObject());
+  NetServerOptions def=new NetServerOptions();
+  NetServerOptions json=new NetServerOptions(new JsonObject());
   assertEquals(def.isClientAuthRequired(),json.isClientAuthRequired());
   assertEquals(def.getCrlPaths(),json.getCrlPaths());
   assertEquals(def.getCrlValues(),json.getCrlValues());

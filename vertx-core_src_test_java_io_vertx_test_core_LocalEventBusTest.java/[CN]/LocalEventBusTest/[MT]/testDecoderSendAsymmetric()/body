@@ -2,5 +2,5 @@
   MessageCodec codec=new MyPOJOEncoder1();
   vertx.eventBus().registerCodec(codec);
   String str=TestUtils.randomAlphaString(100);
-  testSend(new MyPOJO(str),str,null,DeliveryOptions.options().setCodecName(codec.name()));
+  testSend(new MyPOJO(str),str,null,new DeliveryOptions().setCodecName(codec.name()));
 }

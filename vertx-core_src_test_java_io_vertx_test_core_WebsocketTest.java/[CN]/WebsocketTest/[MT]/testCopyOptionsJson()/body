@@ -17,7 +17,7 @@
   JsonObject jheaders=new JsonObject();
   jheaders.putString("foo","bar");
   json.putObject("headers",jheaders);
-  WebSocketConnectOptions copy=WebSocketConnectOptions.optionsFromJson(json);
+  WebSocketConnectOptions copy=new WebSocketConnectOptions(json);
   assertEquals(port,copy.getPort());
   assertEquals(host,copy.getHost());
   assertEquals(uri,copy.getRequestURI());

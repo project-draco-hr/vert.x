@@ -7,7 +7,7 @@
   boolean reuseAddress=rand.nextBoolean();
   boolean ipV6=rand.nextBoolean();
   JsonObject json=new JsonObject().putBoolean("broadcast",broadcast).putBoolean("loopbackModeDisabled",loopbackModeDisabled).putNumber("multicastTimeToLive",multicastTimeToLive).putString("multicastNetworkInterface",multicastNetworkInterface).putBoolean("reuseAddress",reuseAddress).putBoolean("ipV6",ipV6);
-  DatagramSocketOptions copy=DatagramSocketOptions.optionsFromJson(json);
+  DatagramSocketOptions copy=new DatagramSocketOptions(json);
   assertEquals(broadcast,copy.isBroadcast());
   assertEquals(loopbackModeDisabled,copy.isLoopbackModeDisabled());
   assertEquals(multicastTimeToLive,copy.getMulticastTimeToLive());

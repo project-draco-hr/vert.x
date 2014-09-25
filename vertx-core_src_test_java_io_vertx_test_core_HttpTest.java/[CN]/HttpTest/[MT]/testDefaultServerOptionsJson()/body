@@ -1,6 +1,6 @@
 {
-  HttpServerOptions def=HttpServerOptions.options();
-  HttpServerOptions json=HttpServerOptions.optionsFromJson(new JsonObject());
+  HttpServerOptions def=new HttpServerOptions();
+  HttpServerOptions json=new HttpServerOptions(new JsonObject());
   assertEquals(def.getMaxWebsocketFrameSize(),json.getMaxWebsocketFrameSize());
   assertEquals(def.getWebsocketSubProtocols(),json.getWebsocketSubProtocols());
   assertEquals(def.isCompressionSupported(),json.isCompressionSupported());

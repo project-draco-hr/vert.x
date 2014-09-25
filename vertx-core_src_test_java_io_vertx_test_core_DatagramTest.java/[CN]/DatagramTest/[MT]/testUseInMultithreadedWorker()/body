@@ -2,7 +2,7 @@
 class MyVerticle extends AbstractVerticle {
     @Override public void start(){
       try {
-        peer1=vertx.createDatagramSocket(DatagramSocketOptions.options());
+        peer1=vertx.createDatagramSocket(new DatagramSocketOptions());
         fail("Should throw exception");
       }
  catch (      IllegalStateException e) {
@@ -11,6 +11,6 @@ class MyVerticle extends AbstractVerticle {
     }
   }
   MyVerticle verticle=new MyVerticle();
-  vertx.deployVerticle(verticle,DeploymentOptions.options().setWorker(true).setMultiThreaded(true));
+  vertx.deployVerticle(verticle,new DeploymentOptions().setWorker(true).setMultiThreaded(true));
   await();
 }

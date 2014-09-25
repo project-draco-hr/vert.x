@@ -1,0 +1,12 @@
+{
+  this.perms=other.perms;
+  this.read=other.read;
+  this.write=other.write;
+  this.create=other.create;
+  this.createNew=other.createNew;
+  this.dsync=other.dsync;
+  this.sync=other.sync;
+  this.deleteOnClose=other.deleteOnClose;
+  this.truncateExisting=other.truncateExisting;
+  this.sparse=other.sparse;
+}

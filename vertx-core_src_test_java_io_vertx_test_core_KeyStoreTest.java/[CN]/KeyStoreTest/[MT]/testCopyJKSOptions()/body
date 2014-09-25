@@ -1,12 +1,12 @@
 {
-  JKSOptions options=JKSOptions.options();
+  JKSOptions options=new JKSOptions();
   String password=TestUtils.randomAlphaString(100);
   String path=TestUtils.randomAlphaString(100);
   Buffer value=Buffer.buffer(TestUtils.randomAlphaString(100));
   options.setPassword(password);
   options.setPath(path);
   options.setValue(value);
-  options=JKSOptions.copiedOptions(options);
+  options=new JKSOptions(options);
   assertEquals(password,options.getPassword());
   assertEquals(path,options.getPath());
   assertEquals(value,options.getValue());

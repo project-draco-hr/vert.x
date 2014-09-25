@@ -1,6 +1,6 @@
 {
-  DatagramSocketOptions def=DatagramSocketOptions.options();
-  DatagramSocketOptions json=DatagramSocketOptions.optionsFromJson(new JsonObject());
+  DatagramSocketOptions def=new DatagramSocketOptions();
+  DatagramSocketOptions json=new DatagramSocketOptions(new JsonObject());
   assertEquals(def.isBroadcast(),json.isBroadcast());
   assertEquals(def.isLoopbackModeDisabled(),json.isLoopbackModeDisabled());
   assertEquals(def.getMulticastTimeToLive(),json.getMulticastTimeToLive());

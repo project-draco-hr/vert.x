@@ -6,6 +6,6 @@
     file.toFile().deleteOnExit();
     Files.write(file,Collections.singleton(contents[i]));
     String expectedMessage=messages[i];
-    testInvalidTrustStore(CaOptions.options().addCertPath(file.toString()),expectedMessage);
+    testInvalidTrustStore(new CaOptions().addCertPath(file.toString()),expectedMessage);
   }
 }

@@ -1,5 +1,5 @@
 {
-  DatagramSocketOptions options=DatagramSocketOptions.options();
+  DatagramSocketOptions options=new DatagramSocketOptions();
   Random rand=new Random();
   boolean broadcast=rand.nextBoolean();
   boolean loopbackModeDisabled=rand.nextBoolean();
@@ -13,7 +13,7 @@
   options.setMulticastNetworkInterface(multicastNetworkInterface);
   options.setReuseAddress(reuseAddress);
   options.setIpV6(ipV6);
-  DatagramSocketOptions copy=DatagramSocketOptions.copiedOptions(options);
+  DatagramSocketOptions copy=new DatagramSocketOptions(options);
   assertEquals(broadcast,copy.isBroadcast());
   assertEquals(loopbackModeDisabled,copy.isLoopbackModeDisabled());
   assertEquals(multicastTimeToLive,copy.getMulticastTimeToLive());

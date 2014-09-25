@@ -3,7 +3,7 @@
   vertx.eventBus().registerCodec(codec);
   vertx.eventBus().unregisterCodec(codec.name());
   try {
-    vertx.eventBus().send(ADDRESS1,new MyPOJO("foo"),DeliveryOptions.options().setCodecName(codec.name()));
+    vertx.eventBus().send(ADDRESS1,new MyPOJO("foo"),new DeliveryOptions().setCodecName(codec.name()));
     fail("Should throw exception");
   }
  catch (  IllegalArgumentException e) {

@@ -1,5 +1,5 @@
 {
-  KeyCertOptions options=KeyCertOptions.optionsFromJson(new JsonObject());
+  KeyCertOptions options=new KeyCertOptions(new JsonObject());
   String keyPath=TestUtils.randomAlphaString(100);
   Buffer keyValue=Buffer.buffer(TestUtils.randomAlphaString(100));
   String certPath=TestUtils.randomAlphaString(100);
@@ -8,7 +8,7 @@
   options.setKeyValue(keyValue);
   options.setCertPath(certPath);
   options.setCertValue(certValue);
-  options=KeyCertOptions.copiedOptions(options);
+  options=new KeyCertOptions(options);
   assertEquals(keyPath,options.getKeyPath());
   assertEquals(keyValue,options.getKeyValue());
   assertEquals(certPath,options.getCertPath());

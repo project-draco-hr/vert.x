@@ -1,5 +1,5 @@
 {
-  VertxOptions options=VertxOptions.options();
+  VertxOptions options=new VertxOptions();
   int clusterPort=TestUtils.randomPortInt();
   int eventLoopPoolSize=TestUtils.randomPositiveInt();
   int internalBlockingPoolSize=TestUtils.randomPositiveInt();
@@ -25,7 +25,7 @@
   options.setHAEnabled(haEnabled);
   options.setQuorumSize(quorumSize);
   options.setHAGroup(haGroup);
-  options=VertxOptions.copiedOptions(options);
+  options=new VertxOptions(options);
   assertEquals(clusterPort,options.getClusterPort());
   assertEquals(eventLoopPoolSize,options.getEventLoopPoolSize());
   assertEquals(internalBlockingPoolSize,options.getInternalBlockingPoolSize());

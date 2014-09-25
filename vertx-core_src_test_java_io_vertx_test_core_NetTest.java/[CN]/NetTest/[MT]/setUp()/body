@@ -1,5 +1,5 @@
 {
   super.setUp();
-  client=vertx.createNetClient(NetClientOptions.options().setConnectTimeout(1000));
-  server=vertx.createNetServer(NetServerOptions.options().setPort(1234).setHost("localhost"));
+  client=vertx.createNetClient(new NetClientOptions().setConnectTimeout(1000));
+  server=vertx.createNetServer(new NetServerOptions().setPort(1234).setHost("localhost"));
 }

@@ -1,0 +1,12 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  DeploymentOptions that=(DeploymentOptions)o;
+  if (ha != that.ha)   return false;
+  if (multiThreaded != that.multiThreaded)   return false;
+  if (worker != that.worker)   return false;
+  if (config != null ? !config.equals(that.config) : that.config != null)   return false;
+  if (extraClasspath != null ? !extraClasspath.equals(that.extraClasspath) : that.extraClasspath != null)   return false;
+  if (isolationGroup != null ? !isolationGroup.equals(that.isolationGroup) : that.isolationGroup != null)   return false;
+  return true;
+}

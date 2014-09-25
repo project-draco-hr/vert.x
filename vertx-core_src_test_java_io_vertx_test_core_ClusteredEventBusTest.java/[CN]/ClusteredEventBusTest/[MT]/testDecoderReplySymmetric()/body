@@ -5,5 +5,5 @@
   vertices[1].eventBus().registerCodec(codec);
   String str=TestUtils.randomAlphaString(100);
   MyPOJO pojo=new MyPOJO(str);
-  testReply(pojo,pojo,null,DeliveryOptions.options().setCodecName(codec.name()));
+  testReply(pojo,pojo,null,new DeliveryOptions().setCodecName(codec.name()));
 }

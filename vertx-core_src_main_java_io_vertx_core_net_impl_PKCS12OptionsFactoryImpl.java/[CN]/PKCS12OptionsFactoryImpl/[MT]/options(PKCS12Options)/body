@@ -1,3 +1,0 @@
-{
-  return new PCKS12OptionsImpl(other);
-}
