@@ -2,4 +2,5 @@
   super.setUp();
   TestVerticle.instanceCount.set(0);
   TestVerticle.processArgs=null;
+  TestVerticle.conf=null;
 }
