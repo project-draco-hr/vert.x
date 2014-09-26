@@ -1,0 +1,7 @@
+{
+  if (!paused) {
+    NetServerImpl.this.bindFuture.channel().config().setAutoRead(false);
+    paused=true;
+  }
+  return this;
+}

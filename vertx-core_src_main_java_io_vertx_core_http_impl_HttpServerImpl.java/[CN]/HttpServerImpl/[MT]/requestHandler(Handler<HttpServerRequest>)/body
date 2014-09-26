@@ -1,7 +1,4 @@
 {
-  if (listening) {
-    throw new IllegalStateException("Please set handler before server is listening");
-  }
-  this.requestHandler=requestHandler;
+  requestStream.handler(handler);
   return this;
 }

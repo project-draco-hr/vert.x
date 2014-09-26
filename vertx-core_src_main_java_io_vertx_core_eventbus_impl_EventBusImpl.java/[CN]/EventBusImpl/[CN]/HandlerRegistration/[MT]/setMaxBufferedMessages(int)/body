@@ -1,0 +1,10 @@
+{
+  if (maxBufferedMessages < 0) {
+    throw new IllegalArgumentException("Max buffered messages cannot be negative");
+  }
+  while (pending.size() > maxBufferedMessages) {
+    pending.poll();
+  }
+  this.maxBufferedMessages=maxBufferedMessages;
+  return this;
+}

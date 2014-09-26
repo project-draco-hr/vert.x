@@ -1,4 +1,18 @@
 {
+  if (connectStream.endHandler != null) {
+    Handler<AsyncResult<Void>> next=done;
+    done=new AsyncResultHandler<Void>(){
+      @Override public void handle(      AsyncResult<Void> event){
+        if (event.succeeded()) {
+          connectStream.endHandler.handle(event.result());
+        }
+        if (next != null) {
+          next.handle(event);
+        }
+      }
+    }
+;
+  }
   ContextImpl context=vertx.getOrCreateContext();
   if (!listening) {
     if (done != null) {
@@ -9,7 +23,7 @@
   listening=false;
 synchronized (vertx.sharedNetServers()) {
     if (actualServer != null) {
-      actualServer.handlerManager.removeHandler(connectHandler,listenContext);
+      actualServer.handlerManager.removeHandler(connectStream,listenContext);
       if (actualServer.handlerManager.hasHandlers()) {
         if (done != null) {
           executeCloseDone(context,done,null);

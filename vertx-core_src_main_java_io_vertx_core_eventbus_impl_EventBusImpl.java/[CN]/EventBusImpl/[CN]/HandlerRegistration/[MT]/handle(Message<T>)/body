@@ -1,0 +1,16 @@
+{
+  if (paused) {
+    if (pending.size() < maxBufferedMessages) {
+      pending.add(event);
+    }
+ else {
+      if (discardHandler != null) {
+        discardHandler.handle(event);
+      }
+    }
+  }
+ else {
+    checkNextTick();
+    handler.handle(event);
+  }
+}

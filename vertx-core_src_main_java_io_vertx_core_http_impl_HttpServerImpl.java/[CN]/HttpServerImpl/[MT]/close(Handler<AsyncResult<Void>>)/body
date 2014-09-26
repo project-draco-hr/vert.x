@@ -1,4 +1,23 @@
 {
+  if (wsStream.endHandler != null || requestStream.endHandler != null) {
+    Handler<AsyncResult<Void>> next=done;
+    done=new AsyncResultHandler<Void>(){
+      @Override public void handle(      AsyncResult<Void> event){
+        if (event.succeeded()) {
+          if (wsStream.endHandler != null) {
+            wsStream.endHandler.handle(event.result());
+          }
+          if (requestStream.endHandler != null) {
+            requestStream.endHandler.handle(event.result());
+          }
+        }
+        if (next != null) {
+          next.handle(event);
+        }
+      }
+    }
+;
+  }
   ContextImpl context=vertx.getOrCreateContext();
   if (!listening) {
     executeCloseDone(context,done,null);
@@ -7,11 +26,11 @@
   listening=false;
 synchronized (vertx.sharedHttpServers()) {
     if (actualServer != null) {
-      if (requestHandler != null) {
-        actualServer.reqHandlerManager.removeHandler(requestHandler,listenContext);
+      if (requestStream.handler != null) {
+        actualServer.reqHandlerManager.removeHandler(requestStream,listenContext);
       }
-      if (wsHandler != null) {
-        actualServer.wsHandlerManager.removeHandler(wsHandler,listenContext);
+      if (wsStream.handler != null) {
+        actualServer.wsHandlerManager.removeHandler(wsStream,listenContext);
       }
       if (actualServer.reqHandlerManager.hasHandlers() || actualServer.wsHandlerManager.hasHandlers()) {
         if (done != null) {
@@ -23,8 +42,8 @@ synchronized (vertx.sharedHttpServers()) {
       }
     }
   }
-  requestHandler=null;
-  wsHandler=null;
+  requestStream.handler=null;
+  wsStream.handler=null;
   if (creatingContext != null) {
     creatingContext.removeCloseHook(this);
   }

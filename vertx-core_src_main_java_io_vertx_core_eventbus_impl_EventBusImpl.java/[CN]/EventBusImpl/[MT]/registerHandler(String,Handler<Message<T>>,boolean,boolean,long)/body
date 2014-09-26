@@ -1,2 +1,5 @@
 {
+  HandlerRegistration<T> registration=new HandlerRegistration<>(address,replyHandler,localOnly,timeoutID);
+  registration.handler(handler);
+  return registration;
 }

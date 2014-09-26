@@ -1,0 +1,5 @@
+{
+  resume();
+  doneHandler.handle(null);
+  return this;
+}

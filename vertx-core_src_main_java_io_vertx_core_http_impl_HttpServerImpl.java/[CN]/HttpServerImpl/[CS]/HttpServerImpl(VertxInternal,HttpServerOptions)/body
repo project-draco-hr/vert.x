@@ -9,4 +9,24 @@
     creatingContext.addCloseHook(this);
   }
   this.sslHelper=new SSLHelper(options,KeyStoreHelper.create(vertx,options.getKeyStoreOptions()),KeyStoreHelper.create(vertx,options.getTrustStoreOptions()));
+  this.wsStream=new HttpStreamHandler<ServerWebSocket>(){
+    @Override public HttpStream<ServerWebSocket> handler(    Handler<ServerWebSocket> handler){
+      if (listening) {
+        throw new IllegalStateException("Please set handler before server is listening");
+      }
+      this.handler=handler;
+      return this;
+    }
+  }
+;
+  this.requestStream=new HttpStreamHandler<HttpServerRequest>(){
+    @Override public HttpStream<HttpServerRequest> handler(    Handler<HttpServerRequest> handler){
+      if (listening) {
+        throw new IllegalStateException("Please set handler before server is listening");
+      }
+      this.handler=handler;
+      return this;
+    }
+  }
+;
 }

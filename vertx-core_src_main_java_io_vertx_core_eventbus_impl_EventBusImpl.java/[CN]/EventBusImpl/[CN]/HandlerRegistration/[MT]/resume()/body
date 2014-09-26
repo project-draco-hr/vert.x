@@ -1,0 +1,7 @@
+{
+  if (paused) {
+    paused=false;
+    checkNextTick();
+  }
+  return this;
+}

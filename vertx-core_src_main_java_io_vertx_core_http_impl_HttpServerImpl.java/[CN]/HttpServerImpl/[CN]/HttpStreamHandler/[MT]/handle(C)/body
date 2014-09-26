@@ -1,0 +1,10 @@
+{
+  if (paused) {
+    event.pause();
+    pending.add(event);
+  }
+ else {
+    checkNextTick();
+    handler.handle(event);
+  }
+}

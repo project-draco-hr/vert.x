@@ -1,1 +1,1 @@
-Handler<ServerWebSocket> wsHandler
+Handler<ServerWebSocket> handler

@@ -1,0 +1,6 @@
+{
+  if (this.handler != null) {
+    throw new UnsupportedOperationException();
+  }
+  this.discardHandler=handler;
+}

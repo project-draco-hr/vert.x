@@ -1,3 +1,0 @@
-{
-  return registerHandler(address,handler,false,false,-1);
-}

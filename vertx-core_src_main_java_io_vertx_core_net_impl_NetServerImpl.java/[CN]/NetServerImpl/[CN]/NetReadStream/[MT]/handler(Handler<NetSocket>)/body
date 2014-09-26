@@ -1,0 +1,7 @@
+{
+  if (listening) {
+    throw new IllegalStateException("Cannot set connectHandler when server is listening");
+  }
+  this.handler=handler;
+  return this;
+}
