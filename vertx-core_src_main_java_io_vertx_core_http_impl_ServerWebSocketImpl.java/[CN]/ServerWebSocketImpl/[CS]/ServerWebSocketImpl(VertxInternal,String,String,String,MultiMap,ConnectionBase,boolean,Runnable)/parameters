@@ -2,7 +2,7 @@ VertxInternal vertx
 String uri
 String path
 String query
-Headers headers
+MultiMap headers
 ConnectionBase conn
 boolean supportsContinuation
 Runnable connectRunnable

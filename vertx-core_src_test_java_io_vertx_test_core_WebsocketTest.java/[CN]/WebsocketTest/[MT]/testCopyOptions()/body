@@ -1,7 +1,7 @@
 {
   int port=4523;
   String host=TestUtils.randomAlphaString(100);
-  Headers headers=new CaseInsensitiveHeaders();
+  MultiMap headers=new CaseInsensitiveHeaders();
   headers.add("foo","bar");
   String uri=TestUtils.randomAlphaString(100);
   int websocketFrameSize=TestUtils.randomPositiveInt();
