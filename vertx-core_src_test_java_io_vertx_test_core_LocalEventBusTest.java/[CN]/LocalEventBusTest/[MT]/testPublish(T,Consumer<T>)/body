@@ -13,8 +13,8 @@ class MyHandler implements Handler<Message<T>> {
       }
     }
   }
-  eb.<T>registerHandler(ADDRESS1).handler(new MyHandler());
-  eb.<T>registerHandler(ADDRESS1).handler(new MyHandler());
+  eb.<T>consumer(ADDRESS1).handler(new MyHandler());
+  eb.<T>consumer(ADDRESS1).handler(new MyHandler());
   eb.publish(ADDRESS1,val);
   await();
 }
