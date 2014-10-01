@@ -1,8 +1,7 @@
 {
-  if (this.handler != null) {
-    throw new UnsupportedOperationException();
-  }
   this.handler=handler;
-  registerHandler(address,this,replyHandler,localOnly,timeoutID);
+  if (this.handler != null && !registered) {
+    registerHandler(address,this,replyHandler,localOnly,timeoutID);
+  }
   return this;
 }
