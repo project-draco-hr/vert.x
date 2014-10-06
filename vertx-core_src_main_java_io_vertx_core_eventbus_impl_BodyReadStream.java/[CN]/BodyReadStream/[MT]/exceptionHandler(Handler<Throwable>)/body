@@ -1,0 +1,4 @@
+{
+  delegate.exceptionHandler(handler);
+  return null;
+}

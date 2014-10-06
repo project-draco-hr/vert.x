@@ -1,0 +1,1 @@
+ReadStream<Message<T>> delegate
