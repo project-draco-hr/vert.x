@@ -1,3 +1,0 @@
-{
-  return doRequest("DELETE",options,responseHandler);
-}

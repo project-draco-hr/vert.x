@@ -1,0 +1,10 @@
+{
+  HttpClientRequest req;
+  if (absolute) {
+    req=client.request(method,"http://" + DEFAULT_HTTP_HOST + ":"+ DEFAULT_HTTP_PORT+ uri,handler);
+  }
+ else {
+    req=client.request(method,new RequestOptions().setPort(DEFAULT_HTTP_PORT).setRequestURI(uri),handler);
+  }
+  testSimpleRequest(uri,method,req);
+}

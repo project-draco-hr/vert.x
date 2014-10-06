@@ -1,3 +1,0 @@
-{
-  return doRequest("GET",options,responseHandler);
-}

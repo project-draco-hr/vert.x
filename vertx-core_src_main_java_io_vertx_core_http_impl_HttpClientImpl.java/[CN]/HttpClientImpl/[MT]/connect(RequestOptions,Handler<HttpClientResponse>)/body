@@ -1,3 +1,0 @@
-{
-  return doRequest("CONNECT",options,connectHandler(responseHandler));
-}

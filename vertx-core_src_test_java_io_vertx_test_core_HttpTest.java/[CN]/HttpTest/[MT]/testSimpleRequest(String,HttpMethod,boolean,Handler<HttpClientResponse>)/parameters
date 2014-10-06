@@ -1,0 +1,4 @@
+String uri
+HttpMethod method
+boolean absolute
+Handler<HttpClientResponse> handler

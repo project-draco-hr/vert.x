@@ -1,3 +1,0 @@
-{
-  return doRequest("POST",options,responseHandler);
-}

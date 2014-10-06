@@ -1,0 +1,3 @@
+HttpMethod method
+String absoluteURI
+Handler<HttpClientResponse> responseHandler

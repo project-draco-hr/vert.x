@@ -1,0 +1,4 @@
+HttpMethod method
+String absoluteURI
+MultiMap headers
+Handler<HttpClientResponse> responseHandler

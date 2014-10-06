@@ -1,0 +1,4 @@
+{
+  checkConnect(method,responseHandler);
+  return doRequest(method,host,port,path,headers,responseHandler);
+}

@@ -1,0 +1,6 @@
+HttpMethod method
+String host
+int port
+String relativeURI
+MultiMap headers
+Handler<HttpClientResponse> responseHandler

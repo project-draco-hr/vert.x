@@ -1,0 +1,9 @@
+{
+  URL url;
+  try {
+    return new URL(surl);
+  }
+ catch (  MalformedURLException e) {
+    throw new VertxException("Invalid url: " + surl);
+  }
+}

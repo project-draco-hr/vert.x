@@ -1,5 +1,0 @@
-HttpClientImpl client
-String method
-RequestOptions options
-Handler<HttpClientResponse> respHandler
-VertxInternal vertx

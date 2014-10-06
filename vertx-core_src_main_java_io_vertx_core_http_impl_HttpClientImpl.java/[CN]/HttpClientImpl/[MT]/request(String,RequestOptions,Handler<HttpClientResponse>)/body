@@ -1,7 +1,0 @@
-{
-  checkClosed();
-  if (method.equalsIgnoreCase("CONNECT")) {
-    responseHandler=connectHandler(responseHandler);
-  }
-  return doRequest(method,options,responseHandler);
-}

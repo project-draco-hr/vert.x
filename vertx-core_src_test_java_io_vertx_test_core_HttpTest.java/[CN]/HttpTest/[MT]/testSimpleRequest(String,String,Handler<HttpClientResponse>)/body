@@ -1,3 +1,0 @@
-{
-  testSimpleRequest(uri,method,client.request(method,new RequestOptions().setPort(DEFAULT_HTTP_PORT).setRequestURI(uri),handler));
-}

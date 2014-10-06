@@ -1,3 +1,0 @@
-String method
-RequestOptions options
-Handler<HttpClientResponse> responseHandler

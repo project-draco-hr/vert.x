@@ -1,0 +1,5 @@
+HttpMethod method
+int port
+String host
+String path
+Handler<HttpClientResponse> responseHandler
