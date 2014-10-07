@@ -1,0 +1,14 @@
+{
+  super(other);
+  this.tcpNoDelay=other.isTcpNoDelay();
+  this.tcpKeepAlive=other.isTcpKeepAlive();
+  this.soLinger=other.getSoLinger();
+  this.usePooledBuffers=other.isUsePooledBuffers();
+  this.idleTimeout=other.getIdleTimeout();
+  this.ssl=other.isSsl();
+  this.keyStore=other.getKeyStoreOptions() != null ? other.getKeyStoreOptions().clone() : null;
+  this.trustStore=other.getTrustStoreOptions() != null ? other.getTrustStoreOptions().clone() : null;
+  this.enabledCipherSuites=other.getEnabledCipherSuites() == null ? null : new HashSet<>(other.getEnabledCipherSuites());
+  this.crlPaths=new ArrayList<>(other.getCrlPaths());
+  this.crlValues=new ArrayList<>(other.getCrlValues());
+}

@@ -1,4 +1,4 @@
 {
-  this.clientAuthRequired=clientAuthRequired;
+  super.setClientAuthRequired(clientAuthRequired);
   return this;
 }

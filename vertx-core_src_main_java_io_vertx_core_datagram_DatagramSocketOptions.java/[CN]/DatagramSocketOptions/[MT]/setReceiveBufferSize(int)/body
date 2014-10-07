@@ -1,7 +1,4 @@
 {
-  if (receiveBufferSize < 1) {
-    throw new IllegalArgumentException("receiveBufferSize must be > 0");
-  }
-  this.receiveBufferSize=receiveBufferSize;
+  super.setReceiveBufferSize(receiveBufferSize);
   return this;
 }

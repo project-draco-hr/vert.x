@@ -1,0 +1,9 @@
+{
+  if (this == o)   return true;
+  if (!(o instanceof ClientOptionsBase))   return false;
+  if (!super.equals(o))   return false;
+  ClientOptionsBase that=(ClientOptionsBase)o;
+  if (connectTimeout != that.connectTimeout)   return false;
+  if (trustAll != that.trustAll)   return false;
+  return true;
+}

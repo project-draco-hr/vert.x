@@ -1,7 +1,4 @@
 {
-  if (soLinger < 0) {
-    throw new IllegalArgumentException("soLinger must be >= 0");
-  }
-  this.soLinger=soLinger;
+  super.setSoLinger(soLinger);
   return this;
 }

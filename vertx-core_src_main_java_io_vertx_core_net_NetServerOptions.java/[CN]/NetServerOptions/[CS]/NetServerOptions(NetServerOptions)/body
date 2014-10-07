@@ -1,20 +1,7 @@
 {
-  this.sendBufferSize=other.getSendBufferSize();
-  this.receiveBufferSize=other.getReceiveBufferSize();
-  this.reuseAddress=other.isReuseAddress();
-  this.trafficClass=other.getTrafficClass();
-  this.tcpNoDelay=other.isTcpNoDelay();
-  this.tcpKeepAlive=other.isTcpKeepAlive();
-  this.soLinger=other.getSoLinger();
-  this.usePooledBuffers=other.isUsePooledBuffers();
-  this.idleTimeout=other.getIdleTimeout();
-  this.ssl=other.isSsl();
-  this.keyStore=other.getKeyStoreOptions() != null ? other.getKeyStoreOptions().clone() : null;
-  this.trustStore=other.getTrustStoreOptions() != null ? other.getTrustStoreOptions().clone() : null;
-  this.enabledCipherSuites=other.getEnabledCipherSuites() == null ? null : new HashSet<String>(other.getEnabledCipherSuites());
+  super(other);
   this.port=other.getPort();
   this.host=other.getHost();
   this.acceptBacklog=other.getAcceptBacklog();
-  this.crlPaths=other.getCrlPaths() != null ? new ArrayList<>(other.getCrlPaths()) : null;
-  this.crlValues=other.getCrlValues() != null ? new ArrayList<>(other.getCrlValues()) : null;
+  this.clientAuthRequired=other.isClientAuthRequired();
 }

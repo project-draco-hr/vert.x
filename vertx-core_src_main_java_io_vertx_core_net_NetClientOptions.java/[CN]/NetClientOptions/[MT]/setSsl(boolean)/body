@@ -1,4 +1,4 @@
 {
-  this.ssl=ssl;
+  super.setSsl(ssl);
   return this;
 }

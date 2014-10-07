@@ -1,4 +1,4 @@
 {
-  this.keyStore=keyStore;
+  super.setKeyStoreOptions(keyStore);
   return this;
 }

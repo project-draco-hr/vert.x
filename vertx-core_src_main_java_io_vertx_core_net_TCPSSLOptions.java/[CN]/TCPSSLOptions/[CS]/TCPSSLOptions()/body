@@ -1,0 +1,11 @@
+{
+  super();
+  tcpNoDelay=DEFAULT_TCP_NO_DELAY;
+  tcpKeepAlive=DEFAULT_TCP_KEEP_ALIVE;
+  soLinger=DEFAULT_SO_LINGER;
+  usePooledBuffers=DEFAULT_USE_POOLED_BUFFERS;
+  idleTimeout=DEFAULT_IDLE_TIMEOUT;
+  ssl=DEFAULT_SSL;
+  crlPaths=new ArrayList<>();
+  crlValues=new ArrayList<>();
+}

@@ -1,0 +1,6 @@
+{
+  this.sendBufferSize=other.getSendBufferSize();
+  this.receiveBufferSize=other.getReceiveBufferSize();
+  this.reuseAddress=other.isReuseAddress();
+  this.trafficClass=other.getTrafficClass();
+}

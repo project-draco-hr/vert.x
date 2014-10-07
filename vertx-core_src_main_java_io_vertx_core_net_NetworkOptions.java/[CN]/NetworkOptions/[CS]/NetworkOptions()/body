@@ -1,0 +1,6 @@
+{
+  sendBufferSize=DEFAULT_SEND_BUFFER_SIZE;
+  receiveBufferSize=DEFAULT_RECEIVE_BUFFER_SIZE;
+  reuseAddress=DEFAULT_REUSE_ADDRESS;
+  trafficClass=DEFAULT_TRAFFIC_CLASS;
+}

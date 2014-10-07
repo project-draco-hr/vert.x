@@ -1,7 +1,4 @@
 {
-  if (idleTimeout < 0) {
-    throw new IllegalArgumentException("idleTimeout must be >= 0");
-  }
-  this.idleTimeout=idleTimeout;
+  super.setIdleTimeout(idleTimeout);
   return this;
 }

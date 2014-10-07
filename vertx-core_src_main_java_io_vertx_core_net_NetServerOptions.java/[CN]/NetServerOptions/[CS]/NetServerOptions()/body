@@ -1,14 +1,7 @@
 {
-  sendBufferSize=DEFAULT_SENDBUFFERSIZE;
-  receiveBufferSize=DEFAULT_RECEIVEBUFFERSIZE;
-  reuseAddress=DEFAULT_REUSEADDRESS;
-  trafficClass=DEFAULT_TRAFFICCLASS;
-  tcpNoDelay=DEFAULT_TCPNODELAY;
-  tcpKeepAlive=DEFAULT_TCPKEEPALIVE;
-  soLinger=DEFAULT_SOLINGER;
+  super();
   this.port=DEFAULT_PORT;
   this.host=DEFAULT_HOST;
   this.acceptBacklog=DEFAULT_ACCEPT_BACKLOG;
-  this.crlPaths=new ArrayList<>();
-  this.crlValues=new ArrayList<>();
+  this.clientAuthRequired=DEFAULT_CLIENT_AUTH_REQUIRED;
 }

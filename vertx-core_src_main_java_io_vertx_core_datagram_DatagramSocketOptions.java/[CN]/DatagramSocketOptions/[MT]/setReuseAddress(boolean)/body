@@ -1,4 +1,4 @@
 {
-  this.reuseAddress=reuseAddress;
+  super.setReuseAddress(reuseAddress);
   return this;
 }

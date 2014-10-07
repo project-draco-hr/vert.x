@@ -1,12 +1,9 @@
 {
-  this.sendBufferSize=json.getInteger("sendBufferSize",DEFAULT_SENDBUFFERSIZE);
-  this.receiveBufferSize=json.getInteger("receiveBufferSize",DEFAULT_RECEIVEBUFFERSIZE);
-  this.reuseAddress=json.getBoolean("reuseAddress",DEFAULT_REUSEADDRESS);
-  this.trafficClass=json.getInteger("trafficClass",DEFAULT_TRAFFICCLASS);
+  super(json);
   this.broadcast=json.getBoolean("broadcast",DEFAULT_BROADCAST);
   this.loopbackModeDisabled=json.getBoolean("loopbackModeDisabled",DEFAULT_LOOPBACK_MODE_DISABLED);
-  this.multicastTimeToLive=json.getInteger("multicastTimeToLive",DEFAULT_MULTICASTTIMETOLIVE);
-  this.multicastNetworkInterface=json.getString("multicastNetworkInterface",DEFAULT_MULTICASTNETWORKINTERFACE);
-  this.reuseAddress=json.getBoolean("reuseAddress",DEFAULT_REUSEADDRESS);
+  this.multicastTimeToLive=json.getInteger("multicastTimeToLive",DEFAULT_MULTICAST_TIME_TO_LIVE);
+  this.multicastNetworkInterface=json.getString("multicastNetworkInterface",DEFAULT_MULTICAST_NETWORK_INTERFACE);
   this.ipV6=json.getBoolean("ipV6",DEFAULT_IPV6);
+  setReuseAddress(json.getBoolean("reuseAddress",DEFAULT_REUSE_ADDRESS));
 }

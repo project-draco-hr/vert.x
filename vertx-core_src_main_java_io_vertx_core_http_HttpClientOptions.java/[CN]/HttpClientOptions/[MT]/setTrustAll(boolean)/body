@@ -1,4 +1,4 @@
 {
-  this.trustAll=trustAll;
+  super.setTrustAll(trustAll);
   return this;
 }

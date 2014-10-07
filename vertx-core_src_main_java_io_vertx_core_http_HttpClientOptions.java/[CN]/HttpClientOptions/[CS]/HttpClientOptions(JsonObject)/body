@@ -1,2 +1,8 @@
 {
+  super(json);
+  this.verifyHost=json.getBoolean("verifyHost",DEFAULT_VERIFY_HOST);
+  this.maxPoolSize=json.getInteger("maxPoolSize",DEFAULT_MAX_POOL_SIZE);
+  this.keepAlive=json.getBoolean("keepAlive",DEFAULT_KEEP_ALIVE);
+  this.pipelining=json.getBoolean("pipelining",DEFAULT_PIPELINING);
+  this.tryUseCompression=json.getBoolean("tryUseCompression",DEFAULT_TRY_USE_COMPRESSION);
 }
