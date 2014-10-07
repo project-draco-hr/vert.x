@@ -6,5 +6,13 @@
   assertEquals(def.isPipelining(),json.isPipelining());
   assertEquals(def.isVerifyHost(),json.isVerifyHost());
   assertEquals(def.isTryUseCompression(),json.isTryUseCompression());
-  testDefaultClientOptions(def,json);
+  assertEquals(def.isTrustAll(),json.isTrustAll());
+  assertEquals(def.getCrlPaths(),json.getCrlPaths());
+  assertEquals(def.getCrlValues(),json.getCrlValues());
+  assertEquals(def.getConnectTimeout(),json.getConnectTimeout());
+  assertEquals(def.isTcpNoDelay(),json.isTcpNoDelay());
+  assertEquals(def.isTcpKeepAlive(),json.isTcpKeepAlive());
+  assertEquals(def.getSoLinger(),json.getSoLinger());
+  assertEquals(def.isUsePooledBuffers(),json.isUsePooledBuffers());
+  assertEquals(def.isSsl(),json.isSsl());
 }

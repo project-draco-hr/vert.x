@@ -3,7 +3,7 @@
   this.keyStoreHelper=keyStoreHelper;
   this.trustStoreHelper=trustStoreHelper;
   this.clientAuth=options.isClientAuthRequired() ? ClientAuth.REQUIRED : ClientAuth.NONE;
-  this.crlPaths=options.getCrlPaths() != null ? new ArrayList<String>(options.getCrlPaths()) : null;
-  this.crlValues=options.getCrlValues() != null ? new ArrayList<Buffer>(options.getCrlValues()) : null;
+  this.crlPaths=options.getCrlPaths() != null ? new ArrayList<>(options.getCrlPaths()) : null;
+  this.crlValues=options.getCrlValues() != null ? new ArrayList<>(options.getCrlValues()) : null;
   this.enabledCipherSuites=options.getEnabledCipherSuites();
 }

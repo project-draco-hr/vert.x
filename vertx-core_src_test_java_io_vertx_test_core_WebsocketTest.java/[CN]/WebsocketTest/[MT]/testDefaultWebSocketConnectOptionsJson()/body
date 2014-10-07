@@ -4,5 +4,8 @@
   assertEquals(def.getMaxWebsocketFrameSize(),json.getMaxWebsocketFrameSize());
   assertEquals(def.getVersion(),json.getVersion());
   assertEquals(def.getSubProtocols(),json.getSubProtocols());
-  testDefaultRequestOptionsBaseJson(def,json);
+  assertEquals(def.getPort(),json.getPort());
+  assertEquals(def.getHost(),json.getHost());
+  assertEquals(def.getHeaders(),json.getHeaders());
+  assertEquals(def.getRequestURI(),json.getRequestURI());
 }
