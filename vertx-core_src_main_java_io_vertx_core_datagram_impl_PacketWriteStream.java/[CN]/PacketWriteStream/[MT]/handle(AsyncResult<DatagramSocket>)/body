@@ -1,0 +1,5 @@
+{
+  if (event.failed() && exceptionHandler != null) {
+    exceptionHandler.handle(event.cause());
+  }
+}
