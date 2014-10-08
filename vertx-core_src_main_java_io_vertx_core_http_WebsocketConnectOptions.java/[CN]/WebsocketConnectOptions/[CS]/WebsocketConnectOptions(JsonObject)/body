@@ -1,8 +1,0 @@
-{
-  this.version=WebsocketVersion.valueOf(json.getString("version",DEFAULT_WEBSOCKET_VERSION.toString()));
-  JsonArray arr=json.getArray("subProtocols");
-  this.subProtocols=new HashSet<>();
-  if (arr != null) {
-    subProtocols.addAll(arr.toList());
-  }
-}

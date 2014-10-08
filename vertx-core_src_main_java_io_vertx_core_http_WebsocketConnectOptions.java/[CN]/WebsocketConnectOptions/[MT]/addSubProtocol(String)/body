@@ -1,4 +1,0 @@
-{
-  subProtocols.add(subProtocol);
-  return this;
-}

@@ -1,4 +1,0 @@
-{
-  websocketSubProtocols.add(subProtocol);
-  return this;
-}

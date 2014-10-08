@@ -2,5 +2,6 @@ int port
 String host
 String requestURI
 MultiMap headers
-WebsocketConnectOptions wsOptions
+WebsocketVersion version
+String subProtocols
 Handler<WebSocket> wsConnect

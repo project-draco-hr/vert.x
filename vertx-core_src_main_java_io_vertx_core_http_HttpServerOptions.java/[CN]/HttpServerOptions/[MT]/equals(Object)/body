@@ -5,6 +5,6 @@
   HttpServerOptions that=(HttpServerOptions)o;
   if (compressionSupported != that.compressionSupported)   return false;
   if (maxWebsocketFrameSize != that.maxWebsocketFrameSize)   return false;
-  if (websocketSubProtocols != null ? !websocketSubProtocols.equals(that.websocketSubProtocols) : that.websocketSubProtocols != null)   return false;
+  if (websocketSubProtocols != that.websocketSubProtocols)   return false;
   return true;
 }

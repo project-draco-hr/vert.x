@@ -1,5 +1,6 @@
 String requestURI
 MultiMap headers
-WebsocketConnectOptions options
+WebsocketVersion vers
+String subProtocols
 int maxWebSocketFrameSize
 Handler<WebSocket> wsConnect

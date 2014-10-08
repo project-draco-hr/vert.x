@@ -1,5 +1,0 @@
-{
-  int result=version.hashCode();
-  result=31 * result + (subProtocols != null ? subProtocols.hashCode() : 0);
-  return result;
-}

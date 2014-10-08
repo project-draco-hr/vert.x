@@ -46,7 +46,7 @@
   options.setAcceptBacklog(acceptBacklog);
   options.setCompressionSupported(compressionSupported);
   options.setMaxWebsocketFrameSize(maxWebsocketFrameSize);
-  options.addWebsocketSubProtocol(wsSubProtocol);
+  options.setWebsocketSubProtocol(wsSubProtocol);
   HttpServerOptions copy=new HttpServerOptions(options);
   assertEquals(sendBufferSize,copy.getSendBufferSize());
   assertEquals(receiverBufferSize,copy.getReceiveBufferSize());
@@ -73,5 +73,5 @@
   assertEquals(acceptBacklog,copy.getAcceptBacklog());
   assertEquals(compressionSupported,copy.isCompressionSupported());
   assertEquals(maxWebsocketFrameSize,options.getMaxWebsocketFrameSize());
-  assertTrue(options.getWebsocketSubProtocols().contains(wsSubProtocol));
+  assertEquals(wsSubProtocol,options.getWebsocketSubProtocols());
 }

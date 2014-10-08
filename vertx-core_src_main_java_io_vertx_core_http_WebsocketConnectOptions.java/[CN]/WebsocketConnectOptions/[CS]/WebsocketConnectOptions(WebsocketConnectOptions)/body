@@ -1,4 +1,0 @@
-{
-  this.version=other.getVersion();
-  this.subProtocols=other.getSubProtocols() != null ? new HashSet<>(other.getSubProtocols()) : null;
-}
