@@ -1,3 +1,0 @@
-WebSocketConnectOptions options
-int maxWebSocketFrameSize
-Handler<WebSocket> wsConnect

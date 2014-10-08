@@ -1,3 +1,0 @@
-String absoluteURI
-MultiMap headers
-Handler<HttpClientResponse> responseHandler

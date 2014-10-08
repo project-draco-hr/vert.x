@@ -1,3 +1,5 @@
 {
-  return request(method,absoluteURI,null,responseHandler);
+  checkConnect(method,responseHandler);
+  URL url=parseUrl(absoluteURI);
+  return doRequest(method,url.getHost(),url.getPort(),url.getPath(),null,responseHandler);
 }

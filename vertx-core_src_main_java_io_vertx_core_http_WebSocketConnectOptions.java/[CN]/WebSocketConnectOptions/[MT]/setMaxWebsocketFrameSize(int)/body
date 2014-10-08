@@ -1,5 +1,0 @@
-{
-  Arguments.require(maxWebsocketFrameSize > 0,"maxWebsocketFrameSize must be > 0");
-  this.maxWebsocketFrameSize=maxWebsocketFrameSize;
-  return this;
-}

@@ -1,0 +1,4 @@
+int port
+String host
+String requestURI
+Handler<WebSocket> wsConnect

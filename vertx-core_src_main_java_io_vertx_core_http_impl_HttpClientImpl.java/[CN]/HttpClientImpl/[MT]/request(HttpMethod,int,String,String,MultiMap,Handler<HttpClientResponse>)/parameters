@@ -1,6 +1,0 @@
-HttpMethod method
-int port
-String host
-String path
-MultiMap headers
-Handler<HttpClientResponse> responseHandler

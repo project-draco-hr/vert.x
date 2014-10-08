@@ -1,8 +1,0 @@
-{
-  RequestOptions def=new RequestOptions();
-  RequestOptions json=new RequestOptions(new JsonObject());
-  assertEquals(def.getPort(),json.getPort());
-  assertEquals(def.getHost(),json.getHost());
-  assertEquals(def.getHeaders(),json.getHeaders());
-  assertEquals(def.getRequestURI(),json.getRequestURI());
-}

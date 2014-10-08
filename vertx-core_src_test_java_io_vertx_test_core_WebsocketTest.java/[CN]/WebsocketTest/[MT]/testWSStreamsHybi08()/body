@@ -1,3 +1,3 @@
 {
-  testWSWriteStream(8);
+  testWSWriteStream(WebsocketVersion.V08);
 }

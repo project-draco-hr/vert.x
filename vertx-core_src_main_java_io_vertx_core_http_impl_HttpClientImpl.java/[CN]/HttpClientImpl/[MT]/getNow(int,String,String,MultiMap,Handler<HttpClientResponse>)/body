@@ -1,4 +1,0 @@
-{
-  doRequest(HttpMethod.GET,host,port,requestURI,headers,responseHandler).end();
-  return this;
-}

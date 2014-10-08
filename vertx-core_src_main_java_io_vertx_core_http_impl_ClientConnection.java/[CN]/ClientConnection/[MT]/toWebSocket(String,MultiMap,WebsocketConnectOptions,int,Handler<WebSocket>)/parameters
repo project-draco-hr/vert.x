@@ -1,0 +1,5 @@
+String requestURI
+MultiMap headers
+WebsocketConnectOptions options
+int maxWebSocketFrameSize
+Handler<WebSocket> wsConnect

@@ -1,0 +1,3 @@
+{
+  return connectWebsocket(port,host,requestURI,null,options,wsConnect);
+}

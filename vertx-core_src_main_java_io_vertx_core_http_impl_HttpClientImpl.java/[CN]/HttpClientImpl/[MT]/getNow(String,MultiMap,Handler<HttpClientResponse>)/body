@@ -1,4 +1,0 @@
-{
-  URL url=parseUrl(absoluteURI);
-  return getNow(url.getPort(),url.getHost(),url.getPath(),headers,responseHandler);
-}

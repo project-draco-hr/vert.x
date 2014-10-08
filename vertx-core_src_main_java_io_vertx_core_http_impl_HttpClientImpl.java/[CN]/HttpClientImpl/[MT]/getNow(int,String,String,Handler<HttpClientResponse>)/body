@@ -1,3 +1,0 @@
-{
-  return getNow(port,host,requestURI,null,responseHandler);
-}

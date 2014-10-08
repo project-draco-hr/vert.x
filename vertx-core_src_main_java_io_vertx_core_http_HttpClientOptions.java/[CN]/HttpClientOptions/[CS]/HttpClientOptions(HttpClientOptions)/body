@@ -5,4 +5,5 @@
   this.keepAlive=other.isKeepAlive();
   this.pipelining=other.isPipelining();
   this.tryUseCompression=other.isTryUseCompression();
+  this.maxWebsocketFrameSize=other.maxWebsocketFrameSize;
 }

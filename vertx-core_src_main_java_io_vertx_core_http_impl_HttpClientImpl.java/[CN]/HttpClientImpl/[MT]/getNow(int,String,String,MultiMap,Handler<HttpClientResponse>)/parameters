@@ -1,5 +1,0 @@
-int port
-String host
-String requestURI
-MultiMap headers
-Handler<HttpClientResponse> responseHandler

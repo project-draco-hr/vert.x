@@ -8,5 +8,6 @@
   if (pipelining != that.pipelining)   return false;
   if (tryUseCompression != that.tryUseCompression)   return false;
   if (verifyHost != that.verifyHost)   return false;
+  if (maxWebsocketFrameSize != that.maxWebsocketFrameSize)   return false;
   return true;
 }

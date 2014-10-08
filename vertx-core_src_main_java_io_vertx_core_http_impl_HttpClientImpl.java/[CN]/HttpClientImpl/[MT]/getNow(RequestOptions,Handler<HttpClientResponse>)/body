@@ -1,4 +1,0 @@
-{
-  doRequest(HttpMethod.GET,options,responseHandler).end();
-  return this;
-}

@@ -5,4 +5,5 @@
   keepAlive=DEFAULT_KEEP_ALIVE;
   pipelining=DEFAULT_PIPELINING;
   tryUseCompression=DEFAULT_TRY_USE_COMPRESSION;
+  maxWebsocketFrameSize=DEFAULT_MAX_WEBSOCKET_FRAME_SIZE;
 }

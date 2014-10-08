@@ -1,3 +1,3 @@
 {
-  testInvalidSubProtocol(0);
+  testInvalidSubProtocol(WebsocketVersion.V00);
 }

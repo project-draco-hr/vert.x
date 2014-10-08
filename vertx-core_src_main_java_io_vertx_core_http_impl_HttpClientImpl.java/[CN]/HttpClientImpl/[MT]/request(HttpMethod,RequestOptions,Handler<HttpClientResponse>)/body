@@ -1,4 +1,0 @@
-{
-  checkConnect(method,responseHandler);
-  return doRequest(method,options,responseHandler);
-}

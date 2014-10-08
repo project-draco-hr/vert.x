@@ -1,4 +1,0 @@
-{
-  this.requestURI=requestURI;
-  return this;
-}

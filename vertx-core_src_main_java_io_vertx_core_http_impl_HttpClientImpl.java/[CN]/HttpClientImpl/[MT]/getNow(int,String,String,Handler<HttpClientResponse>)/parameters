@@ -1,4 +1,0 @@
-int port
-String host
-String requestURI
-Handler<HttpClientResponse> responseHandler

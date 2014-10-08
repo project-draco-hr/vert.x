@@ -1,0 +1,8 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  WebsocketConnectOptions that=(WebsocketConnectOptions)o;
+  if (version != that.version)   return false;
+  if (subProtocols != null ? !subProtocols.equals(that.subProtocols) : that.subProtocols != null)   return false;
+  return true;
+}
