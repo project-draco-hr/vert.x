@@ -1,6 +1,6 @@
 {
   if (method == null) {
-    method=request.getMethod().toString();
+    method=io.vertx.core.http.HttpMethod.valueOf(request.getMethod().toString());
   }
   return method;
 }
