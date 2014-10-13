@@ -6,10 +6,9 @@
   EventLoopGroup group=vertx.getEventLoopGroup();
   if (group != null) {
     this.eventLoop=group.next();
-    this.tccl=Thread.currentThread().getContextClassLoader();
   }
  else {
     this.eventLoop=null;
-    this.tccl=null;
   }
+  this.tccl=tccl;
 }

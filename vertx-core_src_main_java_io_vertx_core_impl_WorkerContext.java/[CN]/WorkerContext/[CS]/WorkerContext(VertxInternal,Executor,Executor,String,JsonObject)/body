@@ -1,4 +1,0 @@
-{
-  super(vertx,orderedInternalPoolExec,deploymentID,config);
-  this.workerExec=workerExec;
-}

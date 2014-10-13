@@ -1,7 +1,7 @@
 {
   ContextImpl ctx=getContext();
   if (ctx == null) {
-    ctx=createEventLoopContext(null,new JsonObject());
+    ctx=createEventLoopContext(null,new JsonObject(),Thread.currentThread().getContextClassLoader());
   }
   return ctx;
 }

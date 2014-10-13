@@ -1,3 +1,0 @@
-{
-  super(vertx,orderedInternalExec,workerExec,deploymentID,config);
-}

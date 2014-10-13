@@ -1,3 +1,0 @@
-{
-  return new EventLoopContext(this,workerOrderedFact.getExecutor(),deploymentID,config);
-}

@@ -1,3 +1,0 @@
-{
-  super(vertx,bgExec,deploymentID,config);
-}
