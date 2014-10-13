@@ -1,0 +1,6 @@
+{
+  if (pos + 1 >= str.length()) {
+    throw new IllegalArgumentException("Invalid name: " + str);
+  }
+  return str.substring(pos + 1);
+}
