@@ -1,3 +1,4 @@
 {
-  throw new UnsupportedOperationException();
+  this.exceptionHandler=handler;
+  return this;
 }

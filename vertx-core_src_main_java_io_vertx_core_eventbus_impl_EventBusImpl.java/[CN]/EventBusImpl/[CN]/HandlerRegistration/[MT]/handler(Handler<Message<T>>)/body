@@ -1,6 +1,7 @@
 {
   this.handler=handler;
   if (this.handler != null && !registered) {
+    registered=true;
     registerHandler(address,this,replyHandler,localOnly,timeoutID);
   }
   return this;
