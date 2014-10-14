@@ -1,4 +1,5 @@
 {
+  Objects.requireNonNull(name,"no null name accepted");
   bootstrap.connect(dnsServer).addListener(new RetryChannelFutureListener(result){
     @Override public void onSuccess(    ChannelFuture future) throws Exception {
       DnsQuery query=new DnsQuery(ThreadLocalRandom.current().nextInt());

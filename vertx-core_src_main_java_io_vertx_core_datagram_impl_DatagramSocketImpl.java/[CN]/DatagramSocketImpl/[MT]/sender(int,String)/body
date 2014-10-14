@@ -1,3 +1,5 @@
 {
+  Arguments.requireInRange(port,0,65535,"port p must be in range 0 <= p <= 65535");
+  Objects.requireNonNull(host,"no null host accepted");
   return new PacketWriteStreamImpl(this,port,host);
 }

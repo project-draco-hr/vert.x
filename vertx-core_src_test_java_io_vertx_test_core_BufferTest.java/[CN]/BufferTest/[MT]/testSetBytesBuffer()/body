@@ -1,3 +1,2 @@
 {
-  testSetBytesBuffer(Buffer.buffer(150));
 }

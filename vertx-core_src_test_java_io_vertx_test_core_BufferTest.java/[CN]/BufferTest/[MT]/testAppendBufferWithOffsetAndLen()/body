@@ -1,14 +1,2 @@
 {
-  int bytesLen=100;
-  byte[] bytes=TestUtils.randomByteArray(bytesLen);
-  Buffer src=Buffer.buffer(bytes);
-  int len=bytesLen - 2;
-  Buffer b=Buffer.buffer();
-  b.appendBuffer(src,1,len);
-  assertEquals(b.length(),len);
-  byte[] copy=new byte[len];
-  System.arraycopy(bytes,1,copy,0,len);
-  assertTrue(TestUtils.byteArraysEqual(copy,b.getBytes()));
-  b.appendBuffer(src,1,len);
-  assertEquals(b.length(),2 * len);
 }

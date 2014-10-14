@@ -1,4 +1,5 @@
 {
+  Arguments.require(maxSize >= 2,"maxSize must be >= 2");
   check();
   this.maxWrites=maxSize;
   this.lwm=maxWrites / 2;

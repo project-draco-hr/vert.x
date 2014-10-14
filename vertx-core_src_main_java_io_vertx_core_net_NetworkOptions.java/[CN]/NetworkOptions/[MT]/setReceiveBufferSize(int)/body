@@ -1,7 +1,5 @@
 {
-  if (receiveBufferSize < 1) {
-    throw new IllegalArgumentException("receiveBufferSize must be > 0");
-  }
+  Arguments.require(receiveBufferSize > 0,"receiveBufferSize must be > 0");
   this.receiveBufferSize=receiveBufferSize;
   return this;
 }

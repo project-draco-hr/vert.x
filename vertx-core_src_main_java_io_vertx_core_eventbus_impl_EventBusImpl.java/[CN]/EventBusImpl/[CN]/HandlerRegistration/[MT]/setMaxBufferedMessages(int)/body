@@ -1,7 +1,5 @@
 {
-  if (maxBufferedMessages < 0) {
-    throw new IllegalArgumentException("Max buffered messages cannot be negative");
-  }
+  Arguments.require(maxBufferedMessages >= 0,"Max buffered messages cannot be negative");
   while (pending.size() > maxBufferedMessages) {
     pending.poll();
   }

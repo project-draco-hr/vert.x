@@ -1,8 +1,2 @@
 {
-  try {
-    vertx.eventBus().registerDefaultCodec(MyPOJO.class,new MySystemDecoder());
-    fail("Should throw exception");
-  }
- catch (  IllegalArgumentException e) {
-  }
 }

@@ -1,4 +1,5 @@
 {
+  Objects.requireNonNull(address,"no null address accepted");
   MessageCodec codec;
   if (codecName != null) {
     codec=userCodecMap.get(codecName);

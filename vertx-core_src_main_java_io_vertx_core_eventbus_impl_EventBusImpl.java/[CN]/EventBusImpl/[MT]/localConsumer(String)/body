@@ -1,3 +1,4 @@
 {
+  Objects.requireNonNull(address,"address");
   return new HandlerRegistration<>(address,false,true,-1);
 }

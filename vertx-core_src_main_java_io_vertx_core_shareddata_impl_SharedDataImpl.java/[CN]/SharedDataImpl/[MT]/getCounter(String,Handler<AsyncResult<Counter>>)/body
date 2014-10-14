@@ -1,4 +1,6 @@
 {
+  Objects.requireNonNull(name,"name");
+  Objects.requireNonNull(resultHandler,"resultHandler");
   if (clusterManager == null) {
     getLocalCounter(name,resultHandler);
   }

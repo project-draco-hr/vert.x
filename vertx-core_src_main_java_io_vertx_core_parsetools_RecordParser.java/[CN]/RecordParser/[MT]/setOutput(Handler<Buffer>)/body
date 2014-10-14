@@ -1,3 +1,4 @@
 {
+  Objects.requireNonNull(output,"output");
   this.output=output;
 }

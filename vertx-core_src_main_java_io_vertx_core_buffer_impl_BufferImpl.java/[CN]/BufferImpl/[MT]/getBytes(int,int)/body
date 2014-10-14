@@ -1,4 +1,5 @@
 {
+  Arguments.require(end >= start,"end must be greater or equal than start");
   byte[] arr=new byte[end - start];
   buffer.getBytes(start,arr,0,end - start);
   return arr;

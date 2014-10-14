@@ -1,5 +1,7 @@
 {
   checkHeaders();
+  Objects.requireNonNull(key,"no null key accepted");
+  Objects.requireNonNull(value,"no null value accepted");
   headers.add(key,value);
   return this;
 }

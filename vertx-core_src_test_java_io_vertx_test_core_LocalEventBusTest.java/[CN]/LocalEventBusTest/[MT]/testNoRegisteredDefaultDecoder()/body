@@ -1,8 +1,2 @@
 {
-  try {
-    vertx.eventBus().send(ADDRESS1,new MyPOJO("foo"));
-    fail("Should throw exception");
-  }
- catch (  IllegalArgumentException e) {
-  }
 }

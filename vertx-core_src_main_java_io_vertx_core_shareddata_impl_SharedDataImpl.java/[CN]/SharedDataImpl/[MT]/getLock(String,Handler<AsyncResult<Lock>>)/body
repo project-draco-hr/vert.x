@@ -1,3 +1,5 @@
 {
+  Objects.requireNonNull(name,"name");
+  Objects.requireNonNull(resultHandler,"resultHandler");
   getLockWithTimeout(name,DEFAULT_LOCK_TIMEOUT,resultHandler);
 }

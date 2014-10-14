@@ -1,7 +1,5 @@
 {
-  if (timeout < 1) {
-    throw new IllegalArgumentException("sendTimeout must be >= 1");
-  }
+  Arguments.require(timeout >= 1,"sendTimeout must be >= 1");
   this.timeout=timeout;
   return this;
 }

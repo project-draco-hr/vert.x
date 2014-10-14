@@ -1,7 +1,5 @@
 {
-  if (sendBufferSize < 1) {
-    throw new IllegalArgumentException("sendBufferSize must be > 0");
-  }
+  Arguments.require(sendBufferSize > 0,"sendBufferSize must be > 0");
   this.sendBufferSize=sendBufferSize;
   return this;
 }

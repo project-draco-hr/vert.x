@@ -1,7 +1,5 @@
 {
-  if (multicastTimeToLive < 0) {
-    throw new IllegalArgumentException("multicastTimeToLive must be >= 0");
-  }
+  Arguments.require(multicastTimeToLive >= 0,"multicastTimeToLive must be >= 0");
   this.multicastTimeToLive=multicastTimeToLive;
   return this;
 }

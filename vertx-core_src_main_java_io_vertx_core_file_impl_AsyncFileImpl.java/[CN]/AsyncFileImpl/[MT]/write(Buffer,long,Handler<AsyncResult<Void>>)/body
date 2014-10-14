@@ -1,4 +1,7 @@
 {
+  Objects.requireNonNull(buffer,"buffer");
+  Objects.requireNonNull(handler,"handler");
+  Arguments.require(position >= 0,"position must be >= 0");
   check();
   ByteBuf buf=buffer.getByteBuf();
   if (buf.nioBufferCount() > 1) {

@@ -1,4 +1,7 @@
 {
+  Objects.requireNonNull(name,"name");
+  Objects.requireNonNull(resultHandler,"resultHandler");
+  Arguments.require(timeout >= 0,"timeout must be >= 0");
   if (clusterManager == null) {
     getLocalLock(name,timeout,resultHandler);
   }

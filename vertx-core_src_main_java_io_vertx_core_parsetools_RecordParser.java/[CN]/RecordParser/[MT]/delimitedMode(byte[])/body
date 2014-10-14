@@ -1,4 +1,5 @@
 {
+  Objects.requireNonNull(delim,"delim");
   delimited=true;
   this.delim=delim;
   delimPos=0;
