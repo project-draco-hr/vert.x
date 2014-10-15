@@ -1,0 +1,24 @@
+{
+  List<VerticleFactory> factoryList=null;
+  int pos=identifier.indexOf(':');
+  String lookup=null;
+  if (pos != -1) {
+    lookup=identifier.substring(0,pos);
+  }
+ else {
+    pos=identifier.lastIndexOf('.');
+    if (pos != -1) {
+      lookup=getSuffix(pos,identifier);
+    }
+ else {
+      factoryList=defaultFactories;
+    }
+  }
+  if (factoryList == null) {
+    factoryList=verticleFactories.get(lookup);
+    if (factoryList == null) {
+      factoryList=defaultFactories;
+    }
+  }
+  return factoryList;
+}

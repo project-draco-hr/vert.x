@@ -1,5 +1,19 @@
 {
-  if (verticleFactories.remove(factory.prefix()) == null) {
-    throw new IllegalArgumentException("Factory " + factory + " is not registered");
+  String prefix=factory.prefix();
+  if (prefix == null) {
+    throw new IllegalArgumentException("factory.prefix() cannot be null");
+  }
+  List<VerticleFactory> facts=verticleFactories.get(prefix);
+  boolean removed=false;
+  if (facts != null) {
+    if (facts.remove(factory)) {
+      removed=true;
+    }
+    if (facts.isEmpty()) {
+      verticleFactories.remove(prefix);
+    }
+  }
+  if (!removed) {
+    throw new IllegalArgumentException("factory isn't registered");
   }
 }

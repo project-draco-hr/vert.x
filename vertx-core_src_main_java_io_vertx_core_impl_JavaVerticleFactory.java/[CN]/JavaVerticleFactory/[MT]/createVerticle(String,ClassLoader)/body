@@ -1,4 +1,5 @@
 {
+  verticleName=VerticleFactory.removePrefix(verticleName);
   Class clazz;
   if (verticleName.endsWith(".java")) {
     CompilingClassLoader compilingLoader=new CompilingClassLoader(classLoader,verticleName);

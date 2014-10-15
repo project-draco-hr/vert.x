@@ -1,3 +1,3 @@
 {
-  deployVerticle(verticleName,new DeploymentOptions(),completionHandler);
+  deployVerticle(identifier,new DeploymentOptions(),completionHandler);
 }

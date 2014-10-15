@@ -1,7 +1,7 @@
 {
   this.id=id;
   this.context=context;
-  this.verticleName=verticleName;
+  this.identifier=identifier;
   this.verticle=verticle;
   this.options=options;
 }

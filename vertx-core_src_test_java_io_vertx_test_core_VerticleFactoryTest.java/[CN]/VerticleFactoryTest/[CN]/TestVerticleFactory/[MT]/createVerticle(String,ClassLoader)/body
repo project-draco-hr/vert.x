@@ -1,4 +1,7 @@
 {
-  this.verticleName=verticleName;
+  if (failInCreate) {
+    throw new ClassNotFoundException("whatever");
+  }
+  this.identifier=verticleName;
   return verticle;
 }

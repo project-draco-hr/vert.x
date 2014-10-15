@@ -1,0 +1,4 @@
+String prefix
+Verticle verticle
+int order
+boolean failInCreate

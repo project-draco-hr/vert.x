@@ -1,4 +1,5 @@
 {
+  String isolationGroup=options.getIsolationGroup();
   ClassLoader cl;
   if (isolationGroup == null) {
     cl=getCurrentClassLoader();

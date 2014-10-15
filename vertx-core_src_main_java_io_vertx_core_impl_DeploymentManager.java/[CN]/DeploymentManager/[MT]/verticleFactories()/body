@@ -1,3 +1,7 @@
 {
-  return new HashSet<>(verticleFactories.values());
+  Set<VerticleFactory> facts=new HashSet<>();
+  for (  List<VerticleFactory> list : verticleFactories.values()) {
+    facts.addAll(list);
+  }
+  return facts;
 }

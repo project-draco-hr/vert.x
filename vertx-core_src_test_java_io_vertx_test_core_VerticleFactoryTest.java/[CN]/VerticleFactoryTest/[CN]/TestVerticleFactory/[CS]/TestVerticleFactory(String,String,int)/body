@@ -1,0 +1,5 @@
+{
+  this.prefix=prefix;
+  this.resolvedIdentifier=resolvedIdentifier;
+  this.order=order;
+}

@@ -1,4 +1,4 @@
-String verticleName
+String identifier
 Verticle verticle
 DeploymentOptions options
 ContextImpl currentContext

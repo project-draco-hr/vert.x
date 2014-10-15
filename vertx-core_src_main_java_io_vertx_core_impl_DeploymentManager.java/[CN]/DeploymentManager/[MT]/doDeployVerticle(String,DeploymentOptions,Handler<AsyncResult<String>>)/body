@@ -1,0 +1,31 @@
+{
+  ContextImpl currentContext=vertx.getOrCreateContext();
+  ClassLoader cl=getClassLoader(options);
+  List<VerticleFactory> verticleFactories=resolveFactories(identifier);
+  Iterator<VerticleFactory> iter=verticleFactories.iterator();
+  while (iter.hasNext()) {
+    try {
+      VerticleFactory verticleFactory=iter.next();
+      if (verticleFactory.requiresResolve()) {
+        String resolvedName=verticleFactory.resolve(identifier,options);
+        if (!resolvedName.equals(identifier)) {
+          deployVerticle(resolvedName,options,completionHandler);
+          return;
+        }
+      }
+      Verticle verticle=verticleFactory.createVerticle(identifier,cl);
+      if (verticle == null) {
+        throw new NullPointerException("VerticleFactory::createVerticle returned null");
+      }
+ else {
+        doDeploy(identifier,verticle,options,currentContext,completionHandler,cl);
+        return;
+      }
+    }
+ catch (    Exception e) {
+      if (!iter.hasNext()) {
+        reportFailure(e,currentContext,completionHandler);
+      }
+    }
+  }
+}
