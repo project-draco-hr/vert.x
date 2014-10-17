@@ -5,6 +5,7 @@
   this.subs=null;
   this.clusterMgr=null;
   this.proxyFactory=new ProxyFactory(this,proxyOperationTimeout);
+  this.metrics=vertx.metricsSPI().createMetrics(this);
   setPingHandler();
   putStandardCodecs();
 }

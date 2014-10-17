@@ -1,0 +1,8 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  SocketAddressImpl that=(SocketAddressImpl)o;
+  if (port != that.port)   return false;
+  if (hostAddress != null ? !hostAddress.equals(that.hostAddress) : that.hostAddress != null)   return false;
+  return true;
+}

@@ -1,5 +1,5 @@
 {
-  NetSocketImpl sock=new NetSocketImpl(vertx,ch,context,sslHelper,true);
+  NetSocketImpl sock=new NetSocketImpl(vertx,ch,context,sslHelper,true,metrics);
   socketMap.put(ch,sock);
   connectHandler.handle(Future.completedFuture(sock));
 }

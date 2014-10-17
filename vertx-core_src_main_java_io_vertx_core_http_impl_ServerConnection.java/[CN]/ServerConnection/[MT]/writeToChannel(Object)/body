@@ -1,3 +1,12 @@
 {
+  if (metrics.isEnabled()) {
+    long bytes=getBytes(obj);
+    if (bytes == -1) {
+      log.warn("Metrics could not be updated to include bytes written because of unknown object " + obj.getClass() + " being written.");
+    }
+ else {
+      bytesWritten+=bytes;
+    }
+  }
   return lastWriteFuture=super.writeToChannel(obj);
 }

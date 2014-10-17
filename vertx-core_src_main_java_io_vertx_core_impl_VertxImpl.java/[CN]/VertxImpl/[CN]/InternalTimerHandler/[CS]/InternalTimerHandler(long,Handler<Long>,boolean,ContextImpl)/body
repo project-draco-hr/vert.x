@@ -3,4 +3,5 @@
   this.timerID=timerID;
   this.handler=runnable;
   this.periodic=periodic;
+  metrics.timerCreated(timerID);
 }

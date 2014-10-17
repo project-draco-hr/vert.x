@@ -1,0 +1,5 @@
+{
+  HttpServer server=vertx.createHttpServer(new HttpServerOptions());
+  assertNull(server.metricBaseName());
+  assertTrue(server.metrics().isEmpty());
+}

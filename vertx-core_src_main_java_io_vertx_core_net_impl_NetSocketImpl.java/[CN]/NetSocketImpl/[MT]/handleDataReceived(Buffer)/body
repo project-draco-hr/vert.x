@@ -7,6 +7,9 @@
     pendingData.add(data);
     return;
   }
+  if (metrics.isEnabled()) {
+    metrics.bytesRead(remoteAddress(),data.length());
+  }
   if (dataHandler != null) {
     dataHandler.handle(data);
   }

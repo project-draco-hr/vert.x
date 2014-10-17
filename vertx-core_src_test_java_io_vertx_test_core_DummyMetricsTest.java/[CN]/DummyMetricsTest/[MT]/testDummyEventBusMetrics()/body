@@ -1,0 +1,4 @@
+{
+  assertNull(vertx.eventBus().metricBaseName());
+  assertTrue(vertx.eventBus().metrics().isEmpty());
+}

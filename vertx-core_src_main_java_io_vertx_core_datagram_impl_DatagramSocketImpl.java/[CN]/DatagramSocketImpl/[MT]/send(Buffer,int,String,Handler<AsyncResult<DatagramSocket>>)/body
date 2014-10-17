@@ -1,5 +1,6 @@
 {
   ChannelFuture future=channel().writeAndFlush(new DatagramPacket(packet.getByteBuf(),new InetSocketAddress(host,port)));
   addListener(future,handler);
+  if (metrics.isEnabled())   metrics.bytesWritten(new SocketAddressImpl(port,host),packet.length());
   return this;
 }

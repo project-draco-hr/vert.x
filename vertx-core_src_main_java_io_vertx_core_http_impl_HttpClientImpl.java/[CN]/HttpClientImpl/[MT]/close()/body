@@ -8,4 +8,5 @@
     creatingContext.removeCloseHook(closeHook);
   }
   closed=true;
+  metrics.close();
 }

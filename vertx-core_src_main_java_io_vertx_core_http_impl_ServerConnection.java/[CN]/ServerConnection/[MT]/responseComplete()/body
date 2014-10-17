@@ -1,4 +1,9 @@
 {
+  if (metrics.isEnabled()) {
+    metrics.bytesWritten(remoteAddress(),bytesWritten);
+    bytesWritten=0;
+    metrics.responseEnd(pendingResponse);
+  }
   pendingResponse=null;
   checkNextTick();
 }

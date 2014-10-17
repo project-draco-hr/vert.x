@@ -11,8 +11,11 @@
   int proxyOperationTimeout=TestUtils.randomPositiveInt();
   Random rand=new Random();
   boolean haEnabled=rand.nextBoolean();
+  boolean metricsEnabled=rand.nextBoolean();
+  boolean jmxEnabled=rand.nextBoolean();
   int quorumSize=51214;
   String haGroup=TestUtils.randomAlphaString(100);
+  String jmxDomain=TestUtils.randomAlphaString(100);
   options.setClusterPort(clusterPort);
   options.setEventLoopPoolSize(eventLoopPoolSize);
   options.setInternalBlockingPoolSize(internalBlockingPoolSize);
@@ -25,6 +28,9 @@
   options.setHAEnabled(haEnabled);
   options.setQuorumSize(quorumSize);
   options.setHAGroup(haGroup);
+  options.setMetricsEnabled(metricsEnabled);
+  options.setJmxEnabled(jmxEnabled);
+  options.setJmxDomain(jmxDomain);
   options=new VertxOptions(options);
   assertEquals(clusterPort,options.getClusterPort());
   assertEquals(eventLoopPoolSize,options.getEventLoopPoolSize());
@@ -38,4 +44,7 @@
   assertEquals(haEnabled,options.isHAEnabled());
   assertEquals(quorumSize,options.getQuorumSize());
   assertEquals(haGroup,options.getHAGroup());
+  assertEquals(metricsEnabled || jmxEnabled,options.isMetricsEnabled());
+  assertEquals(jmxEnabled,options.isJmxEnabled());
+  assertEquals(jmxDomain,options.getJmxDomain());
 }
