@@ -1,0 +1,4 @@
+{
+  MessageConsumer<String> consumer=eb.consumer(ADDRESS1);
+  testCompletingUnregistrationOfRegisteredConsumerCallsEndHandler(consumer,consumer.bodyStream());
+}

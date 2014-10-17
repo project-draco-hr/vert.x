@@ -4,5 +4,9 @@
     registered=true;
     registerHandler(address,this,replyHandler,localOnly,timeoutID);
   }
+ else   if (this.handler == null && registered) {
+    registered=false;
+    unregister();
+  }
   return this;
 }
