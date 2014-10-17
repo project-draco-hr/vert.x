@@ -1,0 +1,12 @@
+{
+  try {
+    if (!paused) {
+      handler.handle(event);
+    }
+  }
+  finally {
+    if (!periodic && endHandler != null) {
+      endHandler.handle(null);
+    }
+  }
+}

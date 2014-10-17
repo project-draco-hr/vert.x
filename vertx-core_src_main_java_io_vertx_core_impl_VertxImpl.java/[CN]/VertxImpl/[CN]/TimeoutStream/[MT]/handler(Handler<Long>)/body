@@ -1,0 +1,18 @@
+{
+  if (handler != null) {
+    if (id != null) {
+      throw new IllegalStateException();
+    }
+    this.handler=handler;
+    id=scheduleTimeout(getOrCreateContext(),this,delay,periodic);
+  }
+ else {
+    if (id != null) {
+      VertxImpl.this.cancelTimer(id);
+      if (endHandler != null) {
+        endHandler.handle(null);
+      }
+    }
+  }
+  return this;
+}
