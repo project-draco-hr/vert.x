@@ -1,8 +1,0 @@
-VertxInternal vertx
-HttpClientImpl client
-Channel channel
-boolean ssl
-String host
-int port
-ContextImpl context
-ConnectionLifeCycleListener listener

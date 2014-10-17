@@ -1,0 +1,5 @@
+{
+  if (!isEnabled())   return;
+  verticles.inc();
+  counter("verticles",verticleName(verticle)).inc();
+}

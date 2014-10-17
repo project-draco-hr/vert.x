@@ -1,0 +1,13 @@
+{
+  try {
+    final ObjectName objectName=createName("counters",name);
+    mBeanServer.unregisterMBean(objectName);
+    registered.remove(objectName);
+  }
+ catch (  InstanceNotFoundException e) {
+    LOGGER.debug("Unable to unregister counter",e);
+  }
+catch (  MBeanRegistrationException e) {
+    LOGGER.warn("Unable to unregister counter",e);
+  }
+}

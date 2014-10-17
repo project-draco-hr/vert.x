@@ -1,4 +1,7 @@
 {
+  if (conn.metrics.isEnabled()) {
+    this.bytesRead+=data.length();
+  }
   if (paused) {
     if (pausedChunks == null) {
       pausedChunks=new ArrayDeque<>();

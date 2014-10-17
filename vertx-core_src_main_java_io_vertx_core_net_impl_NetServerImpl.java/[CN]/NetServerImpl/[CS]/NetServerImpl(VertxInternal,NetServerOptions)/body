@@ -9,4 +9,5 @@
     }
     creatingContext.addCloseHook(this);
   }
+  this.metrics=vertx.metricsSPI().register(this,options);
 }

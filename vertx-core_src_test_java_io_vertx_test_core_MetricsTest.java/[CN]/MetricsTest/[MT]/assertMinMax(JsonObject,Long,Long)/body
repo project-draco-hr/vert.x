@@ -1,0 +1,10 @@
+{
+  assertNotNull(metric);
+  String name=metric.getString("name");
+  if (min != null) {
+    assertEquals(name + " (min)",min,metric.getLong("min"));
+  }
+  if (max != null) {
+    assertEquals(name + " (max)",max,metric.getLong("max"));
+  }
+}

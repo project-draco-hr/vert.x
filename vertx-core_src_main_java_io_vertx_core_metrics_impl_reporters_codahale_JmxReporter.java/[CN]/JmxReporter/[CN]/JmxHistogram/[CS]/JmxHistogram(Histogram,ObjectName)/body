@@ -1,0 +1,4 @@
+{
+  this.metric=metric;
+  this.objectName=objectName;
+}

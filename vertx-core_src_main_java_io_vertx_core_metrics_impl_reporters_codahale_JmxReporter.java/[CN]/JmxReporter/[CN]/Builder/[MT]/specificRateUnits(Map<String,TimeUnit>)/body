@@ -1,0 +1,4 @@
+{
+  this.specificRateUnits=Collections.unmodifiableMap(specificRateUnits);
+  return this;
+}

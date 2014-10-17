@@ -1,0 +1,4 @@
+{
+  this.specificDurationUnits=Collections.unmodifiableMap(specificDurationUnits);
+  return this;
+}

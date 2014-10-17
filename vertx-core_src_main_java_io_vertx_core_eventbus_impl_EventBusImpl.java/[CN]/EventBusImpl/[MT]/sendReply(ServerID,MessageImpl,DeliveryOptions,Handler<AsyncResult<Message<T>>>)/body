@@ -1,6 +1,6 @@
 {
   if (message.address() == null) {
-    sendNoHandlersFailure(replyHandler);
+    sendNoHandlersFailure(null,replyHandler);
   }
  else {
     sendOrPub(dest,message,options,replyHandler);

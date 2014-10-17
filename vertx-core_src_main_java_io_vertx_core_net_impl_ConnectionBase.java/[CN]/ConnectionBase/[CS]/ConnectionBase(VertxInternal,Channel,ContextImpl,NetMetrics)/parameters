@@ -1,0 +1,4 @@
+VertxInternal vertx
+Channel channel
+ContextImpl context
+NetMetrics metrics

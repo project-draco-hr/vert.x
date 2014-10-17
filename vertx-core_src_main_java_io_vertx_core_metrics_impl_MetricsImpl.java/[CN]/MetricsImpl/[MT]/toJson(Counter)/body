@@ -1,0 +1,3 @@
+{
+  return new JsonObject().putValue("count",counter.getCount());
+}

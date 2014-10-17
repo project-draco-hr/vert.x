@@ -1,0 +1,4 @@
+{
+  if (!enabled)   return noOpCounter;
+  return super.counter(name);
+}

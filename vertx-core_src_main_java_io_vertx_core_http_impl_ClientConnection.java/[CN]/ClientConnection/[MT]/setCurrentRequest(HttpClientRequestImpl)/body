@@ -4,4 +4,5 @@
   }
   this.currentRequest=req;
   this.requests.add(req);
+  client.httpClientMetrics().requestBegin(req);
 }

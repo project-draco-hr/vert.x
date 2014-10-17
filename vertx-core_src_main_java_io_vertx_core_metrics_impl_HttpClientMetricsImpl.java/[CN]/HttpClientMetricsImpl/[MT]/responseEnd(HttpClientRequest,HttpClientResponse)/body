@@ -1,0 +1,7 @@
+{
+  if (!isEnabled())   return;
+  TimedContext ctx=timings.remove(request);
+  if (ctx != null) {
+    ctx.stop();
+  }
+}

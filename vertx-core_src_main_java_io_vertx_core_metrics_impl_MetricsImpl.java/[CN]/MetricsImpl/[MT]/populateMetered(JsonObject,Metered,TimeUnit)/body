@@ -1,0 +1,10 @@
+{
+  double factor=rateUnit.toSeconds(1);
+  json.putNumber("count",meter.getCount());
+  json.putNumber("meanRate",meter.getMeanRate() * factor);
+  json.putNumber("oneMinuteRate",meter.getOneMinuteRate() * factor);
+  json.putNumber("fiveMinuteRate",meter.getFiveMinuteRate() * factor);
+  json.putNumber("fifteenMinuteRate",meter.getFifteenMinuteRate() * factor);
+  String rate="events/" + rateUnit.toString().toLowerCase();
+  json.putString("rate",rate);
+}

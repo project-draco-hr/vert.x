@@ -1,0 +1,6 @@
+{
+  registry().shutdown();
+  if (doneHandler != null) {
+    doneHandler.handle(null);
+  }
+}

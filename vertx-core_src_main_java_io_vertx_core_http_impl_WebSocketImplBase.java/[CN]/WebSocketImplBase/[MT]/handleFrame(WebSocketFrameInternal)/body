@@ -1,4 +1,7 @@
 {
+  if (conn.netMetrics().isEnabled()) {
+    conn.netMetrics().bytesRead(remoteAddress(),frame.binaryData().length());
+  }
   if (dataHandler != null) {
     Buffer buff=Buffer.buffer(frame.getBinaryData());
     dataHandler.handle(buff);

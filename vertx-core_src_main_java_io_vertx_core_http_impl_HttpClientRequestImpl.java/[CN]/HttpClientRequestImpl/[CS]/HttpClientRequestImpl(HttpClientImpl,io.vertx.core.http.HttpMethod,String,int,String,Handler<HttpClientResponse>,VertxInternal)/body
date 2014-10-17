@@ -4,6 +4,8 @@
   this.client=client;
   this.request=new DefaultHttpRequest(HttpVersion.HTTP_1_1,HttpMethod.valueOf(method.toString()),relativeURI,false);
   this.chunked=false;
+  this.method=request.getMethod().toString();
+  this.uri=request.getUri();
   this.respHandler=respHandler;
   this.vertx=vertx;
 }

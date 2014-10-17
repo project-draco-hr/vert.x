@@ -1,0 +1,4 @@
+{
+  this.jmxDomain=jmxDomain;
+  return this;
+}

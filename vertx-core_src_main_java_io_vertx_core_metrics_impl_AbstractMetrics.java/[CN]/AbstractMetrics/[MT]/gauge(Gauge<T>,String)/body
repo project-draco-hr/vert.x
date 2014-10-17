@@ -1,0 +1,3 @@
+{
+  return registry.register(name(baseName,names),gauge);
+}

@@ -1,0 +1,8 @@
+{
+  this.registry=registry;
+  this.rateUnit=TimeUnit.SECONDS;
+  this.durationUnit=TimeUnit.MILLISECONDS;
+  this.domain="metrics";
+  this.specificDurationUnits=Collections.emptyMap();
+  this.specificRateUnits=Collections.emptyMap();
+}

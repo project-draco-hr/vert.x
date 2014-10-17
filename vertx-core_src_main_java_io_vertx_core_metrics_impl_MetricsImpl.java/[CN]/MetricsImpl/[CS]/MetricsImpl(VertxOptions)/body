@@ -1,0 +1,4 @@
+{
+  super(new Registry(vertxOptions),BASE_NAME);
+  initialize(vertxOptions);
+}

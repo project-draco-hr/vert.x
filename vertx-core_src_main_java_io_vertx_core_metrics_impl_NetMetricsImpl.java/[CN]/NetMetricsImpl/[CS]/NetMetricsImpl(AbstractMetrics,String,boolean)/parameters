@@ -1,0 +1,3 @@
+AbstractMetrics metrics
+String baseName
+boolean client

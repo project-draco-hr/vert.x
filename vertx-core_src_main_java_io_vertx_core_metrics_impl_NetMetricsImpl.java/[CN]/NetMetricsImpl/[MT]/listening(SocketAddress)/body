@@ -1,0 +1,5 @@
+{
+  if (!isEnabled())   return;
+  setBaseName(name(baseName(),addressName(localAddress)));
+  initialize();
+}

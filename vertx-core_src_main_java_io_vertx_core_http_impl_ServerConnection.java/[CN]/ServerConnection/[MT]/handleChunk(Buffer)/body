@@ -1,3 +1,6 @@
 {
+  if (metrics.isEnabled()) {
+    bytesRead+=chunk.length();
+  }
   currentRequest.handleData(chunk);
 }
