@@ -1,4 +1,0 @@
-{
-  final MetricTimeUnits timeUnits=new MetricTimeUnits(rateUnit,durationUnit,specificRateUnits,specificDurationUnits);
-  return new JmxReporter(mBeanServer,domain,registry,filter,timeUnits);
-}

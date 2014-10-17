@@ -1,4 +1,0 @@
-{
-  vertx.cancelTimer(timerId);
-  timerId=-1;
-}

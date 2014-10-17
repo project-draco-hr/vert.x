@@ -1,4 +1,0 @@
-{
-  this.domain=domain;
-  return this;
-}

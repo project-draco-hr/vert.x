@@ -1,8 +1,0 @@
-{
-  if (!isEnabled())   return;
-  this.handlerCount=counter("handlers");
-  this.receivedMessages=meter("messages","received");
-  this.sentMessages=meter("messages","sent");
-  this.publishedMessages=meter("messages","published");
-  this.replyFailures=meter("messages","reply-failures");
-}

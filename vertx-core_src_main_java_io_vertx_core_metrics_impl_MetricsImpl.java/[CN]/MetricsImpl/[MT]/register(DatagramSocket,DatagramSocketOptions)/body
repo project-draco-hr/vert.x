@@ -1,3 +1,0 @@
-{
-  return new DatagramMetricsImpl(this,name(baseName(),"datagram"));
-}

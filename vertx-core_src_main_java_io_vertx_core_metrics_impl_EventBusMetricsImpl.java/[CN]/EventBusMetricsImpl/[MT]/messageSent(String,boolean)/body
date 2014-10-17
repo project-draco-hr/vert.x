@@ -1,9 +1,0 @@
-{
-  if (!isEnabled())   return;
-  if (publish) {
-    publishedMessages.mark();
-  }
- else {
-    sentMessages.mark();
-  }
-}

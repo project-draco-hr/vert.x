@@ -1,4 +1,0 @@
-{
-  if (!enabled)   return noOpTimer;
-  return super.timer(name);
-}

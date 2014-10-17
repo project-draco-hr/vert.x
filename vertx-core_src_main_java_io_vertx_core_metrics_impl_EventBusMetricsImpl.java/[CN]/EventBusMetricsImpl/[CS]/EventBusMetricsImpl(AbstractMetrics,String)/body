@@ -1,4 +1,0 @@
-{
-  super(metrics.registry(),baseName);
-  initialize();
-}

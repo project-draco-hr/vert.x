@@ -1,6 +1,0 @@
-{
-  super(metric,objectName,rateUnit);
-  this.metric=metric;
-  this.durationFactor=1.0 / durationUnit.toNanos(1);
-  this.durationUnit=durationUnit.toString().toLowerCase(Locale.US);
-}

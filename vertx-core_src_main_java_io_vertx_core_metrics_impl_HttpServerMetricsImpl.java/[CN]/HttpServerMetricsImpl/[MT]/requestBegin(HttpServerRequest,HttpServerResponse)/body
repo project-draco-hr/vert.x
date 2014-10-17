@@ -1,4 +1,0 @@
-{
-  if (!isEnabled())   return;
-  timings.put(response,time(request.method().name(),request.uri()));
-}

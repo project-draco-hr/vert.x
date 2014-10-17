@@ -1,9 +1,0 @@
-{
-  if (!isEnabled())   return;
-  this.openConnections=counter("open-connections");
-  this.connections=timer("connections");
-  this.exceptions=counter("exceptions");
-  this.bytesRead=histogram("bytes-read");
-  this.bytesWritten=histogram("bytes-written");
-  this.connectionLifetimes=new ConcurrentHashMap<>();
-}

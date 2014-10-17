@@ -1,6 +1,0 @@
-{
-  super.setUp();
-  vertx=Vertx.vertx(new VertxOptions().setMetricsEnabled(true));
-  testDir=Files.createTempDirectory("vertx-test").toFile();
-  testDir.deleteOnExit();
-}

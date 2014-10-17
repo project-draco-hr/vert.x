@@ -1,4 +1,0 @@
-{
-  this.registry=registry;
-  this.listener=new JmxListener(mBeanServer,domain,filter,timeUnits);
-}

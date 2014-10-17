@@ -1,4 +1,0 @@
-{
-  if (!isEnabled())   return;
-  bytesWritten.update(numberOfBytes);
-}

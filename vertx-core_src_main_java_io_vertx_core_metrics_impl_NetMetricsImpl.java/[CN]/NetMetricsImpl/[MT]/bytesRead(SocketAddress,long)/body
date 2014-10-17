@@ -1,4 +1,0 @@
-{
-  if (!isEnabled())   return;
-  bytesRead.update(numberOfBytes);
-}

@@ -1,5 +1,0 @@
-{
-  if (!isEnabled())   return;
-  verticles.dec();
-  counter("verticles",verticleName(verticle)).dec();
-}

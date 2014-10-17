@@ -1,3 +1,0 @@
-{
-  return verticle.getClass().getName();
-}

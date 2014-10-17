@@ -1,3 +1,0 @@
-{
-  return durationOverrides.containsKey(name) ? durationOverrides.get(name) : defaultDuration;
-}

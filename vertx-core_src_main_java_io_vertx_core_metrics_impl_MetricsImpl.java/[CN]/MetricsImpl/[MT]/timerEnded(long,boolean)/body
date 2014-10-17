@@ -1,4 +1,0 @@
-{
-  if (!isEnabled())   return;
-  timers.dec();
-}

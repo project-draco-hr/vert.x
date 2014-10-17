@@ -30,5 +30,5 @@
   }
 ;
   this.subProtocols=options.getWebsocketSubProtocols();
-  this.metrics=vertx.metricsSPI().register(this,options);
+  this.metrics=vertx.metricsSPI().createMetrics(this,options);
 }

@@ -1,4 +1,0 @@
-{
-  if (openConnections == null)   return 0;
-  return openConnections.getCount();
-}

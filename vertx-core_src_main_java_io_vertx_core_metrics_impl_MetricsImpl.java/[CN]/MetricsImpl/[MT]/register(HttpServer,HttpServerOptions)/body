@@ -1,3 +1,0 @@
-{
-  return new HttpServerMetricsImpl(this,name(baseName(),"http.servers"));
-}

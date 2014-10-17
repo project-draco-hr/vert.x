@@ -1,5 +1,0 @@
-{
-  if (!isEnabled())   return;
-  replyFailures.mark();
-  meter("messages","reply-failures",failure.name()).mark();
-}

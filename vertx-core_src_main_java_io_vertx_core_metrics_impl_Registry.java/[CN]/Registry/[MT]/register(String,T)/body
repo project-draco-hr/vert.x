@@ -1,4 +1,0 @@
-{
-  if (!enabled)   return metric;
-  return super.register(name,metric);
-}

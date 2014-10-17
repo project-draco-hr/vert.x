@@ -1,8 +1,0 @@
-{
-  super(metrics.registry(),baseName);
-  if (isEnabled()) {
-    socketsCounter=counter("sockets");
-    exceptions=counter("exceptions");
-    bytesWritten=histogram("bytes-written");
-  }
-}

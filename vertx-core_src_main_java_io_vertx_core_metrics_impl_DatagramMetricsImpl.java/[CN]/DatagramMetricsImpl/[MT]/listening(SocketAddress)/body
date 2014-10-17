@@ -1,5 +1,0 @@
-{
-  if (!isEnabled())   return;
-  serverName=addressName(localAddress);
-  bytesRead=histogram(serverName,"bytes-read");
-}

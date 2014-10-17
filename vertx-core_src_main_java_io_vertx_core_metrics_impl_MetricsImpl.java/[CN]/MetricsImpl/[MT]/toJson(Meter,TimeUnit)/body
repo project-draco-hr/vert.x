@@ -1,5 +1,0 @@
-{
-  JsonObject json=new JsonObject();
-  populateMetered(json,meter,rateUnit);
-  return json;
-}

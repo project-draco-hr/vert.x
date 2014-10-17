@@ -1,4 +1,0 @@
-{
-  if (!enabled)   return noOpMeter;
-  return super.meter(name);
-}

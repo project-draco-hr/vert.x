@@ -1,4 +1,0 @@
-{
-  if (!isEnabled())   return;
-  receivedMessages.mark();
-}

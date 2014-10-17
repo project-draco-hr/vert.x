@@ -7,6 +7,6 @@
       creatingContext.removeCloseHook(closeHook);
     }
     closed=true;
-    metrics.closed();
+    metrics.close();
   }
 }

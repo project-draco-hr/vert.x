@@ -1,7 +1,0 @@
-{
-  if (isEnabled()) {
-    this.method=(method == null) ? null : method.toLowerCase();
-    this.uri=uri;
-    start=System.nanoTime();
-  }
-}

@@ -1,3 +1,0 @@
-{
-  return new NetMetricsImpl(this,name(baseName(),"net.servers"),false);
-}

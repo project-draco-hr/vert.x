@@ -1,5 +1,5 @@
 {
   super.setUp();
   vinit();
-  vertx=Vertx.vertx();
+  vertx=Vertx.vertx(getOptions());
 }

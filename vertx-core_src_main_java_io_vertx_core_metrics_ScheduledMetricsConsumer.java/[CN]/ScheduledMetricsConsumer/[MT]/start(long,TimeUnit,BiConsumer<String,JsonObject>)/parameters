@@ -1,3 +1,0 @@
-long delay
-TimeUnit unit
-BiConsumer<String,JsonObject> consumer

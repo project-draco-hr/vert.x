@@ -1,3 +1,0 @@
-{
-  return new NetMetricsImpl(this,instanceName(name(baseName(),"net.clients"),client),true);
-}

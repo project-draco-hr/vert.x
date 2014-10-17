@@ -1,3 +1,0 @@
-{
-  return registry.histogram(name(baseName,names));
-}

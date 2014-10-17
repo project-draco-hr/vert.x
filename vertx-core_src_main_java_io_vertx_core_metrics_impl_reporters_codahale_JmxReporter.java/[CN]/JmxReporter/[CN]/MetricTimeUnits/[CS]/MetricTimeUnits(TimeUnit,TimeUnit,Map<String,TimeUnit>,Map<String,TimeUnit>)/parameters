@@ -1,4 +1,0 @@
-TimeUnit defaultRate
-TimeUnit defaultDuration
-Map<String,TimeUnit> rateOverrides
-Map<String,TimeUnit> durationOverrides

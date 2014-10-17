@@ -1,5 +1,0 @@
-{
-  if (timerId != -1)   throw new IllegalStateException("Cannot set filter while metrics consumer is running.");
-  this.filter=filter;
-  return this;
-}

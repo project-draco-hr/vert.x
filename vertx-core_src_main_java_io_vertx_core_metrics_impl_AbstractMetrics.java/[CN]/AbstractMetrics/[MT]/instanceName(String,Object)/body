@@ -1,3 +1,0 @@
-{
-  return name(baseName,"@" + Integer.toHexString(instance.hashCode()));
-}

@@ -1,9 +1,0 @@
-{
-  if (!isEnabled() || closed)   return;
-  openConnections.inc();
-  connectionLifetimes.put(remoteAddress,connections.time());
-  counter("open-connections",remoteAddress.hostAddress()).inc();
-  if (closed) {
-    removeAll();
-  }
-}

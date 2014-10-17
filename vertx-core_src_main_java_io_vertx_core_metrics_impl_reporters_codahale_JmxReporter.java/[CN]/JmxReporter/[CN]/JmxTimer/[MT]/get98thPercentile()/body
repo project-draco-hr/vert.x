@@ -1,3 +1,0 @@
-{
-  return metric.getSnapshot().get98thPercentile() * durationFactor;
-}

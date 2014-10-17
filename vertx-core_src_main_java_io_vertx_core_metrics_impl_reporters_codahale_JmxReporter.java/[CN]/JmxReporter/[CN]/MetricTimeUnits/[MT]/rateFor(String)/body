@@ -1,3 +1,0 @@
-{
-  return rateOverrides.containsKey(name) ? rateOverrides.get(name) : defaultRate;
-}

@@ -1,4 +1,0 @@
-{
-  this.rateUnit=rateUnit;
-  return this;
-}
