@@ -1,0 +1,13 @@
+{
+  Set<String> toClear=new HashSet<>();
+  Enumeration e=System.getProperties().propertyNames();
+  while (e.hasMoreElements()) {
+    String propName=(String)e.nextElement();
+    if (propName.startsWith("vertx.options")) {
+      toClear.add(propName);
+    }
+  }
+  for (  String propName : toClear) {
+    System.clearProperty(propName);
+  }
+}

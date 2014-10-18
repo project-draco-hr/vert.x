@@ -5,7 +5,7 @@
     }
  else {
       ClusterManager mgr;
-      String clusterManagerClassName=System.getProperty("vertx.clusterManager");
+      String clusterManagerClassName=System.getProperty("vertx.cluster.managerClass");
       if (clusterManagerClassName != null) {
         try {
           Class<?> clazz=Class.forName(clusterManagerClassName);

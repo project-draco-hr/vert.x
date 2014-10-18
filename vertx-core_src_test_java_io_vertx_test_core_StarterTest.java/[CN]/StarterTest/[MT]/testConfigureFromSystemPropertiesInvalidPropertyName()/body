@@ -1,0 +1,6 @@
+{
+  VertxOptions opts=new VertxOptions();
+  System.setProperty("vertx.options.nosuchproperty","123");
+  Starter.configureFromSystemProperties(opts,"vertx.options.");
+  assertEquals(new VertxOptions(),opts);
+}

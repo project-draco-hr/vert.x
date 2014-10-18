@@ -1,9 +1,0 @@
-{
-  List<String> munged=new ArrayList<>();
-  for (  String arg : args) {
-    if (!arg.startsWith("-")) {
-      munged.add(arg);
-    }
-  }
-  return munged.toArray(new String[munged.size()]);
-}
