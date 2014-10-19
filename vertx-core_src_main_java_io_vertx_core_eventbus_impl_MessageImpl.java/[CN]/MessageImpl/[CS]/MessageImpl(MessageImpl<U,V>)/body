@@ -19,6 +19,10 @@
     this.wireBuffer=other.wireBuffer;
     this.bodyPos=other.bodyPos;
     this.headersPos=other.headersPos;
+    this.headersPos=other.headersPos;
+    this.absoluteBodyPos=other.absoluteBodyPos;
+    this.absoluteHeaderPos=other.absoluteHeaderPos;
   }
   this.send=other.send;
+  this.isForwarded=other.isForwarded;
 }

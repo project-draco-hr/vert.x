@@ -1,0 +1,4 @@
+{
+  sendOrPub(null,(MessageImpl)message,options,null);
+  return this;
+}

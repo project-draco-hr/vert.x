@@ -43,10 +43,12 @@
   bytes=buffer.getBytes(pos,pos + length);
   String senderHost=new String(bytes,CharsetUtil.UTF_8);
   pos+=length;
-  headersPos=pos;
+  isForwarded=(buffer.getByte(pos) == 0);
+  pos++;
+  headersPos=absoluteHeaderPos=pos;
   int headersLength=buffer.getInt(pos);
   pos+=headersLength;
-  bodyPos=pos;
+  bodyPos=absoluteBodyPos=pos;
   sender=new ServerID(senderPort,senderHost);
   wireBuffer=buffer;
 }

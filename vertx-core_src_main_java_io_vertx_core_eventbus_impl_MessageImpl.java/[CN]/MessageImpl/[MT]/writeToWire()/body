@@ -18,7 +18,8 @@
   }
   buffer.appendInt(sender.port);
   writeString(buffer,sender.host);
-  encodeHeaders(buffer);
+  buffer.appendByte(isForwarded ? (byte)0 : (byte)1);
+  writeHeaders(buffer);
   writeBody(buffer);
   buffer.setInt(0,buffer.length() - 4);
   return buffer;

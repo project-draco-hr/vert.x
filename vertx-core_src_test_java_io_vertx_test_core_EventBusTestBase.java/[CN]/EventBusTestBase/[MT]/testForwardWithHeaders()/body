@@ -1,0 +1,6 @@
+{
+  DeliveryOptions options=new DeliveryOptions();
+  options.addHeader("first","first");
+  options.addHeader("second","second");
+  testForward("Test body",options);
+}
