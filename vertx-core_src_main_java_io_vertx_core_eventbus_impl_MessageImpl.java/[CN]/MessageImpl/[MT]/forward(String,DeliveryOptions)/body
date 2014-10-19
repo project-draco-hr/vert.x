@@ -1,2 +1,5 @@
 {
+  this.address=address;
+  this.isForwarded=true;
+  bus.forward(address,this,options);
 }

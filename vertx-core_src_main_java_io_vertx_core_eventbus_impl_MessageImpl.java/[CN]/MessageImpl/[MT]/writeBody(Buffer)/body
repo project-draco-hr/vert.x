@@ -1,3 +1,11 @@
 {
-  messageCodec.encodeToWire(buff,sentBody);
+  if (sentBody != null) {
+    messageCodec.encodeToWire(buff,sentBody);
+  }
+ else   if ((receivedBody == null && bodyPos != 0) || (receivedBody != null && bodyPos == 0)) {
+    int length=wireBuffer.getInt(absoluteBodyPos);
+    byte[] bytes=wireBuffer.getBytes(absoluteBodyPos + 4,absoluteBodyPos + 4 + length);
+    buff.appendInt(bytes.length);
+    buff.appendBytes(bytes);
+  }
 }

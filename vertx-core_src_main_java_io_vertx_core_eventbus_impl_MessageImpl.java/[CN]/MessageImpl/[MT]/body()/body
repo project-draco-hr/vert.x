@@ -1,6 +1,6 @@
 {
   if (receivedBody == null && bodyPos != 0) {
-    decodeBody();
+    readBody();
   }
   return receivedBody;
 }
