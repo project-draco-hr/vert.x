@@ -1,5 +1,5 @@
 {
-  if (receivedBody == null && bodyPos != 0) {
+  if (receivedBody == null && bodyPos != 0 && !readBody) {
     readBody();
   }
   return receivedBody;

@@ -2,9 +2,9 @@
   if (sentBody != null) {
     messageCodec.encodeToWire(buff,sentBody);
   }
- else   if ((receivedBody == null && bodyPos != 0) || (receivedBody != null && bodyPos == 0)) {
-    int length=wireBuffer.getInt(absoluteBodyPos);
-    byte[] bytes=wireBuffer.getBytes(absoluteBodyPos + 4,absoluteBodyPos + 4 + length);
+ else   if (bodyPos != 0) {
+    int length=wireBuffer.getInt(bodyPos);
+    byte[] bytes=wireBuffer.getBytes(bodyPos + 4,bodyPos + 4 + length);
     buff.appendInt(bytes.length);
     buff.appendBytes(bytes);
   }

@@ -19,5 +19,4 @@
       headers.add(key,val);
     }
   }
-  headersPos=0;
 }

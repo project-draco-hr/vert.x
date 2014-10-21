@@ -45,10 +45,10 @@
   pos+=length;
   isForwarded=(buffer.getByte(pos) == 0);
   pos++;
-  headersPos=absoluteHeaderPos=pos;
+  headersPos=pos;
   int headersLength=buffer.getInt(pos);
   pos+=headersLength;
-  bodyPos=absoluteBodyPos=pos;
+  bodyPos=pos;
   sender=new ServerID(senderPort,senderHost);
   wireBuffer=buffer;
 }

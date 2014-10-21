@@ -3,7 +3,7 @@
     if (headersPos != 0) {
       readHeaders();
     }
-    if (headers == null) {
+ else {
       headers=new CaseInsensitiveHeaders();
     }
   }
