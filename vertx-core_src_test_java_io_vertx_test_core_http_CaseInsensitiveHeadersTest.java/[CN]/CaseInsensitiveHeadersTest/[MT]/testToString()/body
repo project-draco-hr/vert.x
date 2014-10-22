@@ -1,0 +1,14 @@
+{
+  MultiMap mm=new CaseInsensitiveHeaders();
+  assertEquals("",mm.toString());
+  mm.add("Header1","Value1");
+  assertEquals("Header1: Value1\n",sortByLine(mm.toString()));
+  mm.add("Header2","Value2");
+  assertEquals("Header1: Value1\n" + "Header2: Value2\n",sortByLine(mm.toString()));
+  mm.add("Header1","Value3");
+  assertEquals("Header1: Value1\n" + "Header1: Value3\n" + "Header2: Value2\n",sortByLine(mm.toString()));
+  mm.remove("Header1");
+  assertEquals("Header2: Value2\n",sortByLine(mm.toString()));
+  mm.set("Header2","Value4");
+  assertEquals("Header2: Value4\n",sortByLine(mm.toString()));
+}

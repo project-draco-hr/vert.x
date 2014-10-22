@@ -1,0 +1,7 @@
+{
+  CaseInsensitiveHeaders cimap=new CaseInsensitiveHeaders();
+  cimap.add("Header","oldvalue");
+  for (  Map.Entry<String,String> me : cimap) {
+    me.setValue(null);
+  }
+}

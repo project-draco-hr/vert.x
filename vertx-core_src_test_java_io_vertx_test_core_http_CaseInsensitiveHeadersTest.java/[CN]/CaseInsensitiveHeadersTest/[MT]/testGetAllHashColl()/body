@@ -1,0 +1,20 @@
+{
+  CaseInsensitiveHeaders mm=new CaseInsensitiveHeaders();
+  String name1="AZ";
+  String name2="\u0080Y";
+  assertTrue("hash error",hash(name1) == hash(name2));
+  mm.add(name1,"value1");
+  mm.add(name2,"value2");
+  assertEquals(2,mm.size());
+  assertEquals("[value1]",mm.getAll(name1).toString());
+  assertEquals("[value2]",mm.getAll(name2).toString());
+  mm=new CaseInsensitiveHeaders();
+  name1="A";
+  name2="R";
+  assertTrue("hash error",index(hash(name1)) == index(hash(name2)));
+  mm.add(name1,"value1");
+  mm.add(name2,"value2");
+  assertEquals(2,mm.size());
+  assertEquals("[value1]",mm.getAll(name1).toString());
+  assertEquals("[value2]",mm.getAll(name2).toString());
+}

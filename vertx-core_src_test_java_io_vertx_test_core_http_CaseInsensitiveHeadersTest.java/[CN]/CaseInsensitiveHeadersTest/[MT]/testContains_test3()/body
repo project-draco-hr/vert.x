@@ -1,0 +1,9 @@
+{
+  CaseInsensitiveHeaders cimap=new CaseInsensitiveHeaders();
+  String name="0123456789";
+  boolean result=cimap.contains(name);
+  assertFalse(result);
+  cimap.add(name,"");
+  result=cimap.contains(name);
+  assertTrue(result);
+}

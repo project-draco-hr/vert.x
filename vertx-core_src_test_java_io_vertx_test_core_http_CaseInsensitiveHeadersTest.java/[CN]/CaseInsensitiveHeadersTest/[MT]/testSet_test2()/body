@@ -1,0 +1,11 @@
+{
+  CaseInsensitiveHeaders cimap=new CaseInsensitiveHeaders();
+  HashMap<String,String> headers=new HashMap<String,String>();
+  headers.put("","");
+  headers.put("aaa","bbb");
+  MultiMap result=cimap.setAll(headers);
+  assertNotNull(result);
+  assertFalse(result.isEmpty());
+  assertEquals(2,result.size());
+  assertEquals(": \naaa: bbb\n",result.toString());
+}

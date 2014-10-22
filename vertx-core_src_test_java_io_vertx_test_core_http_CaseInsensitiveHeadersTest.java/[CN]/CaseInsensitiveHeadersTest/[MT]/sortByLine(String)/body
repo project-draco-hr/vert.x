@@ -1,0 +1,10 @@
+{
+  String lines[]=str.split("\n");
+  Arrays.sort(lines);
+  StringBuilder sb=new StringBuilder();
+  for (  String s : lines) {
+    sb.append(s);
+    sb.append("\n");
+  }
+  return sb.toString();
+}

@@ -1,0 +1,6 @@
+{
+  CaseInsensitiveHeaders cimap=new CaseInsensitiveHeaders();
+  String name="a";
+  String strVal="b";
+  assertEquals("a: b\n",cimap.add(name,strVal).toString());
+}

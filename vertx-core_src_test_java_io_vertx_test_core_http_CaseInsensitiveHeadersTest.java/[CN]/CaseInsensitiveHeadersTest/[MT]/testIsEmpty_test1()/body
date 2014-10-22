@@ -1,0 +1,4 @@
+{
+  CaseInsensitiveHeaders cimap=new CaseInsensitiveHeaders();
+  assertTrue(cimap.isEmpty());
+}

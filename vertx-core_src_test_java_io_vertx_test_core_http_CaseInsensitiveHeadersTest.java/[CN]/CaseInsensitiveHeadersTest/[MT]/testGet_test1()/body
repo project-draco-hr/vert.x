@@ -1,0 +1,5 @@
+{
+  CaseInsensitiveHeaders cimap=new CaseInsensitiveHeaders();
+  CharSequence name=String.valueOf(new Object());
+  assertNull(cimap.get(name));
+}

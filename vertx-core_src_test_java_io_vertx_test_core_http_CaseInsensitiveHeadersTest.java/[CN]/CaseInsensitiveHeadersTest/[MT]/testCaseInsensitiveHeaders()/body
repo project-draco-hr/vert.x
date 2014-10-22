@@ -1,0 +1,7 @@
+{
+  CaseInsensitiveHeaders result=new CaseInsensitiveHeaders();
+  assertNotNull(result);
+  assertTrue(result.isEmpty());
+  assertEquals(0,result.size());
+  assertEquals("",result.toString());
+}

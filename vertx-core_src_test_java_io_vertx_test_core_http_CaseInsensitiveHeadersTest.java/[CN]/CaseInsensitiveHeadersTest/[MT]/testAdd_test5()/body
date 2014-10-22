@@ -1,0 +1,5 @@
+{
+  CaseInsensitiveHeaders cimap=new CaseInsensitiveHeaders();
+  MultiMap headers=new CaseInsensitiveHeaders();
+  assertEquals("",cimap.addAll(headers).toString());
+}

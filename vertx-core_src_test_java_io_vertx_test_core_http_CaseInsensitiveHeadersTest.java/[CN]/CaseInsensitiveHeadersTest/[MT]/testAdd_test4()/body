@@ -1,0 +1,5 @@
+{
+  CaseInsensitiveHeaders cimap=new CaseInsensitiveHeaders();
+  Map<String,String> map=new HashMap<String,String>();
+  assertEquals("",cimap.addAll(map).toString());
+}

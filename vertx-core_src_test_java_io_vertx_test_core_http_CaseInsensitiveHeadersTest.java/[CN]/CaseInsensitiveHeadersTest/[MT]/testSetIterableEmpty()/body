@@ -1,0 +1,10 @@
+{
+  CaseInsensitiveHeaders cimap=new CaseInsensitiveHeaders();
+  String name="name";
+  List<String> values=new ArrayList<String>();
+  MultiMap result=cimap.set(name,values);
+  assertNotNull(result);
+  assertTrue(result.isEmpty());
+  assertEquals(0,result.size());
+  assertEquals("",result.toString());
+}

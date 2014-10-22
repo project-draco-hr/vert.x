@@ -1,0 +1,7 @@
+{
+  CaseInsensitiveHeaders cimap=new CaseInsensitiveHeaders();
+  String name="aaa";
+  ArrayList<CharSequence> values=new ArrayList<CharSequence>();
+  values.add("somevalue");
+  assertEquals("aaa: somevalue\n",cimap.set(name,values).toString());
+}

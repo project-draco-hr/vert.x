@@ -1,0 +1,9 @@
+{
+  CaseInsensitiveHeaders cimap=new CaseInsensitiveHeaders();
+  MultiMap mm=new CaseInsensitiveHeaders();
+  mm.add("Header1","value1");
+  mm.add("Header2","value2");
+  MultiMap result=cimap.addAll(mm);
+  assertEquals(2,result.size());
+  assertEquals("Header1: value1\nHeader2: value2\n",result.toString());
+}

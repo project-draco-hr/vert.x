@@ -1,0 +1,7 @@
+{
+  CaseInsensitiveHeaders cimap=new CaseInsensitiveHeaders();
+  cimap.add("a","b");
+  Iterator<Map.Entry<String,String>> result=cimap.iterator();
+  assertNotNull(result);
+  assertTrue(result.hasNext());
+}

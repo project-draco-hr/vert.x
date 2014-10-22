@@ -1,0 +1,10 @@
+{
+  CaseInsensitiveHeaders cimap=new CaseInsensitiveHeaders();
+  assertEquals(0,cimap.size());
+  cimap.add("header","value");
+  assertEquals(1,cimap.size());
+  cimap.add("header2","value2");
+  assertEquals(2,cimap.size());
+  cimap.add("header","value3");
+  assertEquals(2,cimap.size());
+}

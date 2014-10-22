@@ -1,0 +1,8 @@
+{
+  CaseInsensitiveHeaders cimap=new CaseInsensitiveHeaders();
+  cimap.add("Header","oldvalue");
+  for (  Map.Entry<String,String> me : cimap) {
+    me.setValue("newvalue");
+  }
+  assertEquals("newvalue",cimap.get("Header"));
+}
