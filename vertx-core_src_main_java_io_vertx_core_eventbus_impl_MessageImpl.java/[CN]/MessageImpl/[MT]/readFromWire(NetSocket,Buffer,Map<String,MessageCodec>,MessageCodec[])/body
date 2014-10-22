@@ -51,4 +51,5 @@
   bodyPos=pos;
   sender=new ServerID(senderPort,senderHost);
   wireBuffer=buffer;
+  this.socket=socket;
 }

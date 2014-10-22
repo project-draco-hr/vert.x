@@ -1,0 +1,7 @@
+{
+  if (clusterPingInterval < 1) {
+    throw new IllegalArgumentException("clusterPingInterval must be greater than 0");
+  }
+  this.clusterPingInterval=clusterPingInterval;
+  return this;
+}

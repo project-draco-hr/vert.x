@@ -4,6 +4,8 @@
   this.clustered=other.isClustered();
   this.clusterHost=other.getClusterHost();
   this.clusterPort=other.getClusterPort();
+  this.clusterPingInterval=other.getClusterPingInterval();
+  this.clusterPingReplyInterval=other.getClusterPingReplyInterval();
   this.blockedThreadCheckPeriod=other.getBlockedThreadCheckPeriod();
   this.maxEventLoopExecuteTime=other.getMaxEventLoopExecuteTime();
   this.maxWorkerExecuteTime=other.getMaxWorkerExecuteTime();
