@@ -1,0 +1,33 @@
+{
+  if (enabledCipherSuites != null && !enabledCipherSuites.isEmpty()) {
+    String[] toUse=enabledCipherSuites.toArray(new String[enabledCipherSuites.size()]);
+    engine.setEnabledCipherSuites(toUse);
+  }
+  engine.setEnabledProtocols(ENABLED_PROTOCOLS);
+  engine.setUseClientMode(client);
+  if (!client) {
+switch (getClientAuth()) {
+case REQUEST:
+{
+        engine.setWantClientAuth(true);
+        break;
+      }
+case REQUIRED:
+{
+      engine.setNeedClientAuth(true);
+      break;
+    }
+case NONE:
+{
+    engine.setNeedClientAuth(false);
+    break;
+  }
+}
+}
+ else if (verifyHost) {
+SSLParameters sslParameters=engine.getSSLParameters();
+sslParameters.setEndpointIdentificationAlgorithm("HTTPS");
+engine.setSSLParameters(sslParameters);
+}
+return new SslHandler(engine);
+}

@@ -1,0 +1,6 @@
+{
+  if (sslContext == null) {
+    sslContext=createContext(vertx);
+  }
+  return sslContext;
+}
