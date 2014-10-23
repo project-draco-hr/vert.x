@@ -9,7 +9,6 @@
   assertEquals(def.getMaxEventLoopExecuteTime(),json.getMaxEventLoopExecuteTime());
   assertEquals(def.getMaxWorkerExecuteTime(),json.getMaxWorkerExecuteTime());
   assertEquals(def.getInternalBlockingPoolSize(),json.getInternalBlockingPoolSize());
-  assertEquals(def.getProxyOperationTimeout(),json.getProxyOperationTimeout());
   assertEquals(def.isHAEnabled(),json.isHAEnabled());
   assertEquals(def.getQuorumSize(),json.getQuorumSize());
   assertEquals(def.getHAGroup(),json.getHAGroup());

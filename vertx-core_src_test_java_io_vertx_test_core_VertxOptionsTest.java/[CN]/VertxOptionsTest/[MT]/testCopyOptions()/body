@@ -24,7 +24,6 @@
   options.setClusterHost(clusterHost);
   options.setMaxEventLoopExecuteTime(maxEventLoopExecuteTime);
   options.setMaxWorkerExecuteTime(maxWorkerExecuteTime);
-  options.setProxyOperationTimeout(proxyOperationTimeout);
   options.setHAEnabled(haEnabled);
   options.setQuorumSize(quorumSize);
   options.setHAGroup(haGroup);
@@ -40,7 +39,6 @@
   assertEquals(clusterHost,options.getClusterHost());
   assertEquals(maxEventLoopExecuteTime,options.getMaxEventLoopExecuteTime());
   assertEquals(maxWorkerExecuteTime,options.getMaxWorkerExecuteTime());
-  assertEquals(proxyOperationTimeout,options.getProxyOperationTimeout());
   assertEquals(haEnabled,options.isHAEnabled());
   assertEquals(quorumSize,options.getQuorumSize());
   assertEquals(haGroup,options.getHAGroup());

@@ -1,8 +1,0 @@
-{
-  try {
-    proxy.methodWithNonVoidReturn("foo");
-    fail("Should throw exception");
-  }
- catch (  VertxException e) {
-  }
-}

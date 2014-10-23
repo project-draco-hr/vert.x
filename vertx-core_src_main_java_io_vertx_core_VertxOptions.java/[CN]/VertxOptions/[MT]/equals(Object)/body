@@ -10,7 +10,6 @@
   if (internalBlockingPoolSize != that.internalBlockingPoolSize)   return false;
   if (maxEventLoopExecuteTime != that.maxEventLoopExecuteTime)   return false;
   if (maxWorkerExecuteTime != that.maxWorkerExecuteTime)   return false;
-  if (proxyOperationTimeout != that.proxyOperationTimeout)   return false;
   if (quorumSize != that.quorumSize)   return false;
   if (workerPoolSize != that.workerPoolSize)   return false;
   if (clusterHost != null ? !clusterHost.equals(that.clusterHost) : that.clusterHost != null)   return false;

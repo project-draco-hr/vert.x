@@ -1,3 +1,0 @@
-{
-  resultHandler.handle(Future.completedFuture(125312653l));
-}

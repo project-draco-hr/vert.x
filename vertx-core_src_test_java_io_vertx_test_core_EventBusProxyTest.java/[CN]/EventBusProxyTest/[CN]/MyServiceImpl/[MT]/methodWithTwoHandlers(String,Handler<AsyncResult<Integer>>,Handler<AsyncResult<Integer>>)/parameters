@@ -1,3 +1,0 @@
-String str
-Handler<AsyncResult<Integer>> resultHandler1
-Handler<AsyncResult<Integer>> resultHandler2

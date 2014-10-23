@@ -9,7 +9,6 @@
   assertEquals(null,options.getClusterManager());
   assertEquals(2000l * 1000000,options.getMaxEventLoopExecuteTime());
   assertEquals(1l * 60 * 1000* 1000000,options.getMaxWorkerExecuteTime());
-  assertEquals(10 * 1000,options.getProxyOperationTimeout());
   assertFalse(options.isHAEnabled());
   assertEquals(1,options.getQuorumSize());
   assertNull(options.getHAGroup());
@@ -42,7 +41,6 @@
   assertEquals(null,options.getClusterManager());
   assertEquals(maxEventLoopExecuteTime,options.getMaxEventLoopExecuteTime());
   assertEquals(maxWorkerExecuteTime,options.getMaxWorkerExecuteTime());
-  assertEquals(proxyOperationTimeout,options.getProxyOperationTimeout());
   assertEquals(haEnabled,options.isHAEnabled());
   assertEquals(quorumSize,options.getQuorumSize());
   assertEquals(haGroup,options.getHAGroup());

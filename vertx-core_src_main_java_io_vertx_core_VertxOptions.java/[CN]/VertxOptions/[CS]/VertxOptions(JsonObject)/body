@@ -1,5 +1,4 @@
 {
-  this.proxyOperationTimeout=json.getInteger("proxyOperationTimeout",DEFAULT_PROXY_OPERATION_TIMEOUT);
   this.eventLoopPoolSize=json.getInteger("eventLoopPoolSize",DEFAULT_EVENT_LOOP_POOL_SIZE);
   this.workerPoolSize=json.getInteger("workerPoolSize",DEFAULT_WORKER_POOL_SIZE);
   this.clustered=json.getBoolean("clustered",DEFAULT_CLUSTERED);

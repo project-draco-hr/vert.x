@@ -1,8 +1,0 @@
-{
-  try {
-    proxy.methodWithUnsupportedParam(new Foo());
-    fail("Should throw exception");
-  }
- catch (  VertxException e) {
-  }
-}

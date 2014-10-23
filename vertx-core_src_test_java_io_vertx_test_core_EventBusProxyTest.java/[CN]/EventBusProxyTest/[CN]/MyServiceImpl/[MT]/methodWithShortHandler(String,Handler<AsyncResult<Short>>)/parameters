@@ -1,2 +1,0 @@
-String str
-Handler<AsyncResult<Short>> resultHandler

@@ -1,5 +1,0 @@
-{
-  assertNull(str);
-  assertNull(l);
-  called=true;
-}
