@@ -1,0 +1,40 @@
+{
+  jsonObject.put("str",(Object)"bar");
+  jsonObject.put("int",(Object)(Integer.valueOf(123)));
+  jsonObject.put("long",(Object)(Long.valueOf(123l)));
+  jsonObject.put("float",(Object)(Float.valueOf(1.23f)));
+  jsonObject.put("double",(Object)(Double.valueOf(1.23d)));
+  jsonObject.put("boolean",(Object)true);
+  byte[] bytes=TestUtils.randomByteArray(10);
+  jsonObject.put("binary",(Object)(bytes));
+  JsonObject obj=new JsonObject().put("foo","blah");
+  JsonArray arr=new JsonArray().add("quux");
+  jsonObject.put("obj",(Object)obj);
+  jsonObject.put("arr",(Object)arr);
+  assertEquals("bar",jsonObject.getString("str"));
+  assertEquals(Integer.valueOf(123),jsonObject.getInteger("int"));
+  assertEquals(Long.valueOf(123l),jsonObject.getLong("long"));
+  assertEquals(Float.valueOf(1.23f),jsonObject.getFloat("float"));
+  assertEquals(Double.valueOf(1.23d),jsonObject.getDouble("double"));
+  assertTrue(TestUtils.byteArraysEqual(bytes,jsonObject.getBinary("binary")));
+  assertEquals(obj,jsonObject.getJsonObject("obj"));
+  assertEquals(arr,jsonObject.getJsonArray("arr"));
+  try {
+    jsonObject.put("inv",new SomeClass());
+    fail();
+  }
+ catch (  IllegalStateException e) {
+  }
+  try {
+    jsonObject.put("inv",new BigDecimal(123));
+    fail();
+  }
+ catch (  IllegalStateException e) {
+  }
+  try {
+    jsonObject.put("inv",new Date());
+    fail();
+  }
+ catch (  IllegalStateException e) {
+  }
+}

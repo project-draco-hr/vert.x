@@ -1,0 +1,31 @@
+{
+  jsonObject.put("foo",123);
+  assertEquals(Integer.valueOf(123),jsonObject.getInteger("foo",321));
+  assertEquals(Integer.valueOf(123),jsonObject.getInteger("foo",null));
+  jsonObject.put("bar","hello");
+  try {
+    jsonObject.getInteger("bar",123);
+    fail();
+  }
+ catch (  ClassCastException e) {
+  }
+  jsonObject.put("foo",123l);
+  assertEquals(Integer.valueOf(123),jsonObject.getInteger("foo",321));
+  jsonObject.put("foo",123d);
+  assertEquals(Integer.valueOf(123),jsonObject.getInteger("foo",321));
+  jsonObject.put("foo",123f);
+  assertEquals(Integer.valueOf(123),jsonObject.getInteger("foo",321));
+  jsonObject.put("foo",Long.MAX_VALUE);
+  assertEquals(Integer.valueOf(-1),jsonObject.getInteger("foo",321));
+  jsonObject.putNull("foo");
+  assertNull(jsonObject.getInteger("foo",321));
+  assertEquals(Integer.valueOf(321),jsonObject.getInteger("absent",321));
+  assertNull(jsonObject.getInteger("foo",null));
+  assertNull(jsonObject.getInteger("absent",null));
+  try {
+    jsonObject.getInteger(null,null);
+    fail();
+  }
+ catch (  NullPointerException e) {
+  }
+}

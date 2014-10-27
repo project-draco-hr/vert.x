@@ -1,4 +1,0 @@
-{
-  map.put(fieldName,value);
-  return this;
-}

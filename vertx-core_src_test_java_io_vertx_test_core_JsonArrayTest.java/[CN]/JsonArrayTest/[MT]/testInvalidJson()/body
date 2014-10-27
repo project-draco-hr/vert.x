@@ -1,0 +1,9 @@
+{
+  String invalid="qiwjdoiqwjdiqwjd";
+  try {
+    new JsonArray(invalid);
+    fail();
+  }
+ catch (  DecodeException e) {
+  }
+}

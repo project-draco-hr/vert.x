@@ -1,3 +1,4 @@
 {
-  return (Boolean)map.get(fieldName);
+  Objects.requireNonNull(key);
+  return (Boolean)map.get(key);
 }

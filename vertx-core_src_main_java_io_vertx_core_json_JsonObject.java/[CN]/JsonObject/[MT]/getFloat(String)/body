@@ -1,0 +1,13 @@
+{
+  Objects.requireNonNull(key);
+  Number number=(Number)map.get(key);
+  if (number == null) {
+    return null;
+  }
+ else   if (number instanceof Float) {
+    return (Float)number;
+  }
+ else {
+    return number.floatValue();
+  }
+}

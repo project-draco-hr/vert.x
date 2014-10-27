@@ -1,6 +1,6 @@
 {
   DeploymentOptions options=new DeploymentOptions();
-  JsonObject config=new JsonObject().putString("foo","bar");
+  JsonObject config=new JsonObject().put("foo","bar");
   Random rand=new Random();
   boolean worker=rand.nextBoolean();
   boolean multiThreaded=rand.nextBoolean();

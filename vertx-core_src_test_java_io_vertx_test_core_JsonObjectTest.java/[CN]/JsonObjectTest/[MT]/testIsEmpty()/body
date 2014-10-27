@@ -1,0 +1,8 @@
+{
+  assertTrue(jsonObject.isEmpty());
+  jsonObject.put("foo","bar");
+  jsonObject.put("quux",123);
+  assertFalse(jsonObject.isEmpty());
+  jsonObject.clear();
+  assertTrue(jsonObject.isEmpty());
+}

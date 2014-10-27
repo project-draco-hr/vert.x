@@ -1,4 +1,5 @@
 {
-  String str=getString(fieldName);
-  return str == null ? def : str;
+  Objects.requireNonNull(key);
+  CharSequence cs=(CharSequence)map.get(key);
+  return cs != null || map.containsKey(key) ? cs == null ? null : cs.toString() : def;
 }

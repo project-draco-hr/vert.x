@@ -1,0 +1,12 @@
+{
+  assertSame(jsonArray,jsonArray.add(true));
+  assertEquals(true,jsonArray.getBoolean(0));
+  jsonArray.add(false);
+  assertEquals(false,jsonArray.getBoolean(1));
+  try {
+    jsonArray.add((Boolean)null);
+    fail();
+  }
+ catch (  NullPointerException e) {
+  }
+}

@@ -1,0 +1,9 @@
+{
+  jsonObject.put("foo","bar");
+  jsonObject.put("quux",123);
+  assertEquals(2,jsonObject.size());
+  jsonObject.clear();
+  assertEquals(0,jsonObject.size());
+  assertNull(jsonObject.getValue("foo"));
+  assertNull(jsonObject.getValue("quux"));
+}

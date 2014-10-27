@@ -1,6 +1,6 @@
 {
   try {
-    JsonArray deployments=theHAInfo.getArray("verticles");
+    JsonArray deployments=theHAInfo.getJsonArray("verticles");
     String group=theHAInfo.getString("group");
     String chosen=chooseHashedNode(group,failedNodeID.hashCode());
     if (chosen != null && chosen.equals(this.nodeID)) {

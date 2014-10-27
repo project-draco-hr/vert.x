@@ -1,9 +1,0 @@
-{
-  JsonArray array=new JsonArray();
-  array.add("test");
-  JsonObject object=new JsonObject();
-  object.putArray("array",array);
-  JsonObject object2=object.copy();
-  JsonArray array2=object2.getArray("array");
-  assertNotSame(array,array2);
-}

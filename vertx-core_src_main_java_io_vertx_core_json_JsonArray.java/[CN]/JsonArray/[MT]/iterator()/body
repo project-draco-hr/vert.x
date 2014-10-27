@@ -1,15 +1,3 @@
 {
-  return new Iterator<Object>(){
-    Iterator<Object> iter=list.iterator();
-    @Override public boolean hasNext(){
-      return iter.hasNext();
-    }
-    @Override public Object next(){
-      return convertObject(iter.next());
-    }
-    @Override public void remove(){
-      iter.remove();
-    }
-  }
-;
+  return new Iter(list.iterator());
 }

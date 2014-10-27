@@ -1,0 +1,27 @@
+{
+  byte[] bytes=TestUtils.randomByteArray(10);
+  jsonArray.add(bytes);
+  assertTrue(TestUtils.byteArraysEqual(bytes,jsonArray.getBinary(0)));
+  assertTrue(TestUtils.byteArraysEqual(bytes,Base64.getDecoder().decode(jsonArray.getString(0))));
+  try {
+    jsonArray.getBinary(-1);
+    fail();
+  }
+ catch (  IndexOutOfBoundsException e) {
+  }
+  try {
+    jsonArray.getBinary(1);
+    fail();
+  }
+ catch (  IndexOutOfBoundsException e) {
+  }
+  jsonArray.add(123);
+  try {
+    jsonArray.getBinary(1);
+    fail();
+  }
+ catch (  ClassCastException e) {
+  }
+  jsonArray.addNull();
+  assertNull(jsonArray.getBinary(2));
+}

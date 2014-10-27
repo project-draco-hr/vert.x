@@ -1,0 +1,7 @@
+{
+  Object val=list.get(pos);
+  if (val instanceof Map) {
+    val=new JsonObject((Map)val);
+  }
+  return (JsonObject)val;
+}

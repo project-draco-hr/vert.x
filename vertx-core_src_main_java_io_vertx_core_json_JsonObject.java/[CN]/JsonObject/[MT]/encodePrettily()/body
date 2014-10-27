@@ -1,3 +1,3 @@
 {
-  return Json.encodePrettily(this.map);
+  return Json.encodePrettily(map);
 }

@@ -1,4 +1,13 @@
 {
-  Number num=(Number)map.get(fieldName);
-  return num == null ? null : num.intValue();
+  Objects.requireNonNull(key);
+  Number number=(Number)map.get(key);
+  if (number == null) {
+    return null;
+  }
+ else   if (number instanceof Integer) {
+    return (Integer)number;
+  }
+ else {
+    return number.intValue();
+  }
 }

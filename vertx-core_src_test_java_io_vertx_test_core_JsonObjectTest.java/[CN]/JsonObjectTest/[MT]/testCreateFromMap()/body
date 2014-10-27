@@ -1,0 +1,9 @@
+{
+  Map<String,Object> map=new HashMap<>();
+  map.put("foo","bar");
+  map.put("quux",123);
+  JsonObject obj=new JsonObject(map);
+  assertEquals("bar",obj.getString("foo"));
+  assertEquals(Integer.valueOf(123),obj.getInteger("quux"));
+  assertSame(map,obj.getMap());
+}

@@ -1,0 +1,7 @@
+{
+  jsonObject.put("foo","bar");
+  assertTrue(jsonObject.containsKey("foo"));
+  jsonObject.putNull("foo");
+  assertTrue(jsonObject.containsKey("foo"));
+  assertFalse(jsonObject.containsKey("absent"));
+}

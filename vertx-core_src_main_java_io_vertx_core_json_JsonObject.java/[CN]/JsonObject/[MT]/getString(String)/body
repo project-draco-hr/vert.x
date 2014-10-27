@@ -1,3 +1,5 @@
 {
-  return (String)map.get(fieldName);
+  Objects.requireNonNull(key);
+  CharSequence cs=(CharSequence)map.get(key);
+  return cs == null ? null : cs.toString();
 }

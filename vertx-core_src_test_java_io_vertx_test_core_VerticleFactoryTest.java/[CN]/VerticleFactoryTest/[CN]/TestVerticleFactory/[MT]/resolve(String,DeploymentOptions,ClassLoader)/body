@@ -4,7 +4,7 @@
   }
   identifierToResolve=identifier;
   deploymentOptionsToResolve=deploymentOptions;
-  deploymentOptions.setConfig(new JsonObject().putString("wibble","quux"));
+  deploymentOptions.setConfig(new JsonObject().put("wibble","quux"));
   deploymentOptions.setWorker(true);
   deploymentOptions.setIsolationGroup("othergroup");
   return resolvedIdentifier;

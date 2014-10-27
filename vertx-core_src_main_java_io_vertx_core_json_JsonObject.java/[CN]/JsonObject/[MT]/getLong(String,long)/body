@@ -1,4 +1,0 @@
-{
-  Number num=(Number)map.get(fieldName);
-  return num == null ? def : num.longValue();
-}

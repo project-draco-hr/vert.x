@@ -1,0 +1,25 @@
+{
+  byte[] bytes=TestUtils.randomByteArray(100);
+  byte[] defBytes=TestUtils.randomByteArray(100);
+  jsonObject.put("foo",bytes);
+  assertTrue(TestUtils.byteArraysEqual(bytes,jsonObject.getBinary("foo",defBytes)));
+  assertTrue(TestUtils.byteArraysEqual(bytes,jsonObject.getBinary("foo",null)));
+  jsonObject.put("foo",123);
+  try {
+    jsonObject.getBinary("foo",defBytes);
+    fail();
+  }
+ catch (  ClassCastException e) {
+  }
+  jsonObject.putNull("foo");
+  assertNull(jsonObject.getBinary("foo",defBytes));
+  assertTrue(TestUtils.byteArraysEqual(defBytes,jsonObject.getBinary("absent",defBytes)));
+  assertNull(jsonObject.getBinary("foo",null));
+  assertNull(jsonObject.getBinary("absent",null));
+  try {
+    jsonObject.getBinary(null,null);
+    fail();
+  }
+ catch (  NullPointerException e) {
+  }
+}

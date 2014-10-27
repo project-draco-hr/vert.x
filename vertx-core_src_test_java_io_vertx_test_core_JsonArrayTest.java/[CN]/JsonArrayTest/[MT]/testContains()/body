@@ -1,0 +1,19 @@
+{
+  jsonArray.add("wibble");
+  jsonArray.add(true);
+  jsonArray.add(123);
+  JsonObject obj=new JsonObject();
+  JsonArray arr=new JsonArray();
+  jsonArray.add(obj);
+  jsonArray.add(arr);
+  assertFalse(jsonArray.contains("eek"));
+  assertFalse(jsonArray.contains(false));
+  assertFalse(jsonArray.contains(321));
+  assertFalse(jsonArray.contains(new JsonObject().put("blah","flib")));
+  assertFalse(jsonArray.contains(new JsonArray().add("oob")));
+  assertTrue(jsonArray.contains("wibble"));
+  assertTrue(jsonArray.contains(true));
+  assertTrue(jsonArray.contains(123));
+  assertTrue(jsonArray.contains(obj));
+  assertTrue(jsonArray.contains(arr));
+}

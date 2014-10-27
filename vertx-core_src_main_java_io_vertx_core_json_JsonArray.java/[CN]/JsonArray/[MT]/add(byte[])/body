@@ -1,0 +1,5 @@
+{
+  Objects.requireNonNull(value);
+  list.add(Base64.getEncoder().encodeToString(value));
+  return this;
+}

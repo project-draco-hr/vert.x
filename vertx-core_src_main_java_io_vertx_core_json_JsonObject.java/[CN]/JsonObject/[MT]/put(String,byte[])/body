@@ -1,0 +1,5 @@
+{
+  Objects.requireNonNull(key);
+  map.put(key,value == null ? null : Base64.getEncoder().encodeToString(value));
+  return this;
+}

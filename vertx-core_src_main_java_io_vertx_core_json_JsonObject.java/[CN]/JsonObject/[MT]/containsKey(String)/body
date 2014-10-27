@@ -1,0 +1,4 @@
+{
+  Objects.requireNonNull(key);
+  return map.containsKey(key);
+}

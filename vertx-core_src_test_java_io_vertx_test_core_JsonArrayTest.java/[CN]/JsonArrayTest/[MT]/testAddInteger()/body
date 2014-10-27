@@ -1,0 +1,10 @@
+{
+  assertSame(jsonArray,jsonArray.add(123));
+  assertEquals(Integer.valueOf(123),jsonArray.getInteger(0));
+  try {
+    jsonArray.add((Integer)null);
+    fail();
+  }
+ catch (  NullPointerException e) {
+  }
+}

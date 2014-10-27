@@ -1,0 +1,17 @@
+{
+  assertSame(jsonObject,jsonObject.put("foo",123f));
+  assertEquals(Float.valueOf(123f),jsonObject.getFloat("foo"));
+  jsonObject.put("quux",321f);
+  assertEquals(Float.valueOf(321f),jsonObject.getFloat("quux"));
+  assertEquals(Float.valueOf(123f),jsonObject.getFloat("foo"));
+  jsonObject.put("foo",456f);
+  assertEquals(Float.valueOf(456f),jsonObject.getFloat("foo"));
+  jsonObject.put("foo",(Float)null);
+  assertTrue(jsonObject.containsKey("foo"));
+  try {
+    jsonObject.put(null,1.2f);
+    fail();
+  }
+ catch (  NullPointerException e) {
+  }
+}

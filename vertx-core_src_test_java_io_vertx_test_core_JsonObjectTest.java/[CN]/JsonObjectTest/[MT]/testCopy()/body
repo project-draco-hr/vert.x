@@ -1,0 +1,25 @@
+{
+  jsonObject.put("foo","bar");
+  jsonObject.put("quux",123);
+  JsonObject obj=createJsonObject();
+  jsonObject.put("wibble",obj);
+  jsonObject.put("eek",new StringBuilder("blah"));
+  JsonObject copy=jsonObject.copy();
+  assertNotSame(jsonObject,copy);
+  assertEquals(jsonObject,copy);
+  copy.put("blah","flib");
+  assertFalse(jsonObject.containsKey("blah"));
+  copy.remove("foo");
+  assertFalse(copy.containsKey("foo"));
+  assertTrue(jsonObject.containsKey("foo"));
+  jsonObject.put("oob","flarb");
+  assertFalse(copy.containsKey("oob"));
+  jsonObject.remove("quux");
+  assertFalse(jsonObject.containsKey("quux"));
+  assertTrue(copy.containsKey("quux"));
+  JsonObject nested=jsonObject.getJsonObject("wibble");
+  JsonObject nestedCopied=copy.getJsonObject("wibble");
+  assertNotSame(nested,nestedCopied);
+  assertEquals(nested,nestedCopied);
+  assertEquals("blah",copy.getString("eek"));
+}

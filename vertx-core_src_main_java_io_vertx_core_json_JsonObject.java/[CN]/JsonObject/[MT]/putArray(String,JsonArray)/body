@@ -1,4 +1,0 @@
-{
-  map.put(fieldName,value == null ? null : value.list);
-  return this;
-}

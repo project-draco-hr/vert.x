@@ -1,0 +1,7 @@
+{
+  jsonArray.add("foo").add(123);
+  Buffer buff=jsonArray.writeToBuffer();
+  JsonArray deserialized=new JsonArray();
+  deserialized.readFromBuffer(buff);
+  assertEquals(jsonArray,deserialized);
+}

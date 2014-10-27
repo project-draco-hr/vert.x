@@ -1,0 +1,25 @@
+{
+  JsonObject obj=new JsonObject().put("blah","wibble");
+  JsonObject def=new JsonObject().put("eek","quuz");
+  jsonObject.put("foo",obj);
+  assertEquals(obj,jsonObject.getJsonObject("foo",def));
+  assertEquals(obj,jsonObject.getJsonObject("foo",null));
+  jsonObject.put("foo","hello");
+  try {
+    jsonObject.getJsonObject("foo",def);
+    fail();
+  }
+ catch (  ClassCastException e) {
+  }
+  jsonObject.putNull("foo");
+  assertNull(jsonObject.getJsonObject("foo",def));
+  assertEquals(def,jsonObject.getJsonObject("absent",def));
+  assertNull(jsonObject.getJsonObject("foo",null));
+  assertNull(jsonObject.getJsonObject("absent",null));
+  try {
+    jsonObject.getJsonObject(null,null);
+    fail();
+  }
+ catch (  NullPointerException e) {
+  }
+}

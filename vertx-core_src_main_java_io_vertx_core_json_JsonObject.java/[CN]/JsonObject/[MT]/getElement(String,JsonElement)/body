@@ -1,4 +1,0 @@
-{
-  JsonElement elem=getElement(fieldName);
-  return elem == null ? def : elem;
-}

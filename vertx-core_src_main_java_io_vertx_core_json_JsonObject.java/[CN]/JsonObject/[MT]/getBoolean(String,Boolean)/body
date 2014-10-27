@@ -1,0 +1,5 @@
+{
+  Objects.requireNonNull(key);
+  Object val=map.get(key);
+  return val != null || map.containsKey(key) ? (Boolean)val : def;
+}

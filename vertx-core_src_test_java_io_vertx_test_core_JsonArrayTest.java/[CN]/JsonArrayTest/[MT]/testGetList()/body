@@ -1,0 +1,11 @@
+{
+  JsonObject obj=new JsonObject().put("quux","wibble");
+  jsonArray.add("foo").add(123).add(obj);
+  List<Object> list=jsonArray.getList();
+  list.remove("foo");
+  assertFalse(jsonArray.contains("foo"));
+  list.add("floob");
+  assertTrue(jsonArray.contains("floob"));
+  assertSame(obj,list.get(1));
+  obj.remove("quux");
+}

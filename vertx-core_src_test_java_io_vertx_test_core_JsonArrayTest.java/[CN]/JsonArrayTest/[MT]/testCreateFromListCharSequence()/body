@@ -1,0 +1,11 @@
+{
+  List<Object> list=new ArrayList<>();
+  list.add("foo");
+  list.add(123);
+  list.add(new StringBuilder("eek"));
+  JsonArray arr=new JsonArray(list);
+  assertEquals("foo",arr.getString(0));
+  assertEquals(Integer.valueOf(123),arr.getInteger(1));
+  assertEquals("eek",arr.getString(2));
+  assertSame(list,arr.getList());
+}

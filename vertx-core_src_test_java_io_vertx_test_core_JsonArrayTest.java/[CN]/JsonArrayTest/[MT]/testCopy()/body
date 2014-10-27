@@ -1,0 +1,20 @@
+{
+  jsonArray.add("foo");
+  jsonArray.add(123);
+  JsonObject obj=new JsonObject().put("foo","bar");
+  jsonArray.add(obj);
+  jsonArray.add(new StringBuilder("eeek"));
+  JsonArray copy=jsonArray.copy();
+  assertEquals("eeek",copy.getString(3));
+  assertNotSame(jsonArray,copy);
+  assertEquals(jsonArray,copy);
+  assertEquals(4,copy.size());
+  assertEquals("foo",copy.getString(0));
+  assertEquals(Integer.valueOf(123),copy.getInteger(1));
+  assertEquals(obj,copy.getJsonObject(2));
+  assertNotSame(obj,copy.getJsonObject(2));
+  copy.add("foo");
+  assertEquals(4,jsonArray.size());
+  jsonArray.add("bar");
+  assertEquals(5,copy.size());
+}

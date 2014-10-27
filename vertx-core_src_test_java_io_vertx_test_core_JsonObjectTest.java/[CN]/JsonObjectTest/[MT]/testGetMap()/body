@@ -1,0 +1,16 @@
+{
+  jsonObject.put("foo","bar");
+  jsonObject.put("quux",123);
+  JsonObject obj=createJsonObject();
+  jsonObject.put("wibble",obj);
+  Map<String,Object> map=jsonObject.getMap();
+  map.remove("foo");
+  assertFalse(jsonObject.containsKey("foo"));
+  map.put("bleep","flarp");
+  assertTrue(jsonObject.containsKey("bleep"));
+  jsonObject.remove("quux");
+  assertFalse(map.containsKey("quux"));
+  jsonObject.put("wooble","plink");
+  assertTrue(map.containsKey("wooble"));
+  assertSame(obj,map.get("wibble"));
+}

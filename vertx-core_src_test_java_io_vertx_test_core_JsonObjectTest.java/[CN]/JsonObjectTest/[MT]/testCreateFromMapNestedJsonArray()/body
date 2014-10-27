@@ -1,0 +1,8 @@
+{
+  Map<String,Object> map=new HashMap<>();
+  JsonArray nestedArr=new JsonArray().add("foo");
+  map.put("nested",nestedArr);
+  JsonObject obj=new JsonObject(map);
+  JsonArray nestedRetrieved=obj.getJsonArray("nested");
+  assertEquals("foo",nestedRetrieved.getString(0));
+}

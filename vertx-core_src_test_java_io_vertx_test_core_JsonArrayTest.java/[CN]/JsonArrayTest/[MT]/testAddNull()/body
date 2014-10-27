@@ -1,0 +1,5 @@
+{
+  assertSame(jsonArray,jsonArray.addNull());
+  assertEquals(null,jsonArray.getString(0));
+  assertTrue(jsonArray.hasNull(0));
+}

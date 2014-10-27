@@ -1,0 +1,4 @@
+{
+  jsonArray.add("foo").add(123);
+  assertEquals(jsonArray.encode(),jsonArray.toString());
+}

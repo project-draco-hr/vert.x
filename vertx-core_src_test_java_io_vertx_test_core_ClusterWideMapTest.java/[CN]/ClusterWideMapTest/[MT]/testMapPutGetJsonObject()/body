@@ -1,3 +1,3 @@
 {
-  testMapPutGet(new JsonObject().putString("foo","bar"),new JsonObject().putString("uihwqduh","qiwiojw"));
+  testMapPutGet(new JsonObject().put("foo","bar"),new JsonObject().put("uihwqduh","qiwiojw"));
 }

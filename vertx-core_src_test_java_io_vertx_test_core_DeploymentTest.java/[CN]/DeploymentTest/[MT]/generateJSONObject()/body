@@ -1,3 +1,3 @@
 {
-  return new JsonObject().putString("foo","bar").putNumber("blah",123).putObject("obj",new JsonObject().putString("quux","flip"));
+  return new JsonObject().put("foo","bar").put("blah",123).put("obj",new JsonObject().put("quux","flip"));
 }

@@ -4,7 +4,7 @@
     return;
   }
 synchronized (haInfo) {
-    JsonArray haMods=haInfo.getArray("verticles");
+    JsonArray haMods=haInfo.getJsonArray("verticles");
     Iterator<Object> iter=haMods.iterator();
     while (iter.hasNext()) {
       Object obj=iter.next();

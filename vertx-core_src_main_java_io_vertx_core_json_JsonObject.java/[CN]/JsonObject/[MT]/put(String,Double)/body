@@ -1,0 +1,5 @@
+{
+  Objects.requireNonNull(key);
+  map.put(key,value);
+  return this;
+}

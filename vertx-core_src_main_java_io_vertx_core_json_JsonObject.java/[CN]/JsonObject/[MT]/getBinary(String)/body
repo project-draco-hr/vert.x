@@ -1,4 +1,5 @@
 {
-  String encoded=(String)map.get(fieldName);
+  Objects.requireNonNull(key);
+  String encoded=(String)map.get(key);
   return encoded == null ? null : Base64.getDecoder().decode(encoded);
 }

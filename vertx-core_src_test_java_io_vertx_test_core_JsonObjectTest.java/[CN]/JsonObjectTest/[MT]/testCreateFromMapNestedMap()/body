@@ -1,0 +1,9 @@
+{
+  Map<String,Object> map=new HashMap<>();
+  Map<String,Object> nestedMap=new HashMap<>();
+  nestedMap.put("foo","bar");
+  map.put("nested",nestedMap);
+  JsonObject obj=new JsonObject(map);
+  JsonObject nestedRetrieved=obj.getJsonObject("nested");
+  assertEquals("bar",nestedRetrieved.getString("foo"));
+}

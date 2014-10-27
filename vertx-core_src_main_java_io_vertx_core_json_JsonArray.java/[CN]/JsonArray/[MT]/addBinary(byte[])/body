@@ -1,5 +1,0 @@
-{
-  String encoded=(value == null) ? null : Base64.getEncoder().encodeToString(value);
-  list.add(encoded);
-  return this;
-}

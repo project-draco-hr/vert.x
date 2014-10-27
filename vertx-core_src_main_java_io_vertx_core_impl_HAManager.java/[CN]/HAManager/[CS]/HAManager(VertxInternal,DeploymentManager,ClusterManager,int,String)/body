@@ -5,8 +5,8 @@
   this.quorumSize=quorumSize;
   this.group=group == null ? "__DEFAULT__" : group;
   this.haInfo=new JsonObject();
-  haInfo.putArray("verticles",new JsonArray());
-  haInfo.putString("group",this.group);
+  haInfo.put("verticles",new JsonArray());
+  haInfo.put("group",this.group);
   this.clusterMap=clusterManager.getSyncMap(CLUSTER_MAP_NAME);
   this.nodeID=clusterManager.getNodeID();
   clusterManager.nodeListener(new NodeListener(){

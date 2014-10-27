@@ -1,0 +1,12 @@
+{
+  Number number=(Number)list.get(pos);
+  if (number == null) {
+    return null;
+  }
+ else   if (number instanceof Double) {
+    return (Double)number;
+  }
+ else {
+    return number.doubleValue();
+  }
+}

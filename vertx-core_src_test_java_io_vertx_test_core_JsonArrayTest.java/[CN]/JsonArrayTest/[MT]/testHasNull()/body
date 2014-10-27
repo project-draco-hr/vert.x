@@ -1,0 +1,7 @@
+{
+  jsonArray.addNull();
+  jsonArray.add("foo");
+  assertEquals(null,jsonArray.getString(0));
+  assertTrue(jsonArray.hasNull(0));
+  assertFalse(jsonArray.hasNull(1));
+}

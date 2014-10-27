@@ -1,6 +1,0 @@
-{
-  JsonArray arrayElement=new JsonArray().addString("foo");
-  JsonArray tester=new JsonArray().addElement(arrayElement);
-  JsonElement testElement=tester.get(0);
-  assertEquals((String)arrayElement.get(0),(String)testElement.asArray().get(0));
-}

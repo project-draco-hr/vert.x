@@ -1,0 +1,8 @@
+{
+  Objects.requireNonNull(key);
+  Object val=map.get(key);
+  if (val instanceof List) {
+    val=new JsonArray((List)val);
+  }
+  return (JsonArray)val;
+}

@@ -1,0 +1,20 @@
+{
+  JsonArray obj1=new JsonArray().add("parp");
+  JsonArray obj2=new JsonArray().add("fleep");
+  JsonArray obj3=new JsonArray().add("woob");
+  assertSame(jsonObject,jsonObject.put("foo",obj1));
+  assertEquals(obj1,jsonObject.getJsonArray("foo"));
+  jsonObject.put("quux",obj2);
+  assertEquals(obj2,jsonObject.getJsonArray("quux"));
+  assertEquals(obj1,jsonObject.getJsonArray("foo"));
+  jsonObject.put("foo",obj3);
+  assertEquals(obj3,jsonObject.getJsonArray("foo"));
+  jsonObject.put("foo",(JsonArray)null);
+  assertTrue(jsonObject.containsKey("foo"));
+  try {
+    jsonObject.put(null,new JsonArray());
+    fail();
+  }
+ catch (  NullPointerException e) {
+  }
+}

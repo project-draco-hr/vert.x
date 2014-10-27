@@ -1,0 +1,20 @@
+{
+  byte[] bin1=TestUtils.randomByteArray(100);
+  byte[] bin2=TestUtils.randomByteArray(100);
+  byte[] bin3=TestUtils.randomByteArray(100);
+  assertSame(jsonObject,jsonObject.put("foo",bin1));
+  assertTrue(TestUtils.byteArraysEqual(bin1,jsonObject.getBinary("foo")));
+  jsonObject.put("quux",bin2);
+  assertTrue(TestUtils.byteArraysEqual(bin2,jsonObject.getBinary("quux")));
+  assertTrue(TestUtils.byteArraysEqual(bin1,jsonObject.getBinary("foo")));
+  jsonObject.put("foo",bin3);
+  assertTrue(TestUtils.byteArraysEqual(bin3,jsonObject.getBinary("foo")));
+  jsonObject.put("foo",(byte[])null);
+  assertTrue(jsonObject.containsKey("foo"));
+  try {
+    jsonObject.put(null,bin1);
+    fail();
+  }
+ catch (  NullPointerException e) {
+  }
+}

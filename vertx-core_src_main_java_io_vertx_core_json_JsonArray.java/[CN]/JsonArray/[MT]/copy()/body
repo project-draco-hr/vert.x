@@ -1,3 +1,8 @@
 {
-  return new JsonArray(list,true);
+  List<Object> copiedList=new ArrayList<>(list.size());
+  for (  Object val : list) {
+    val=Json.checkAndCopy(val,true);
+    copiedList.add(val);
+  }
+  return new JsonArray(copiedList);
 }

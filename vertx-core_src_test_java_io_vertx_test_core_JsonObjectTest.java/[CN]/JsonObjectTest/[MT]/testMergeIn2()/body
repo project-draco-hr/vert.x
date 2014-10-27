@@ -1,0 +1,9 @@
+{
+  JsonObject obj1=new JsonObject().put("foo","bar");
+  JsonObject obj2=new JsonObject().put("foo","flurb");
+  obj1.mergeIn(obj2);
+  assertEquals(1,obj1.size());
+  assertEquals("flurb",obj1.getString("foo"));
+  assertEquals(1,obj2.size());
+  assertEquals("flurb",obj2.getString("foo"));
+}

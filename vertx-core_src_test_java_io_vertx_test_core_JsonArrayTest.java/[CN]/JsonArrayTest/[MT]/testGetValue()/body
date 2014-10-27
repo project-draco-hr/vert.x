@@ -1,0 +1,39 @@
+{
+  jsonArray.add(123);
+  assertEquals(123,jsonArray.getValue(0));
+  jsonArray.add(123l);
+  assertEquals(123l,jsonArray.getValue(1));
+  jsonArray.add(123f);
+  assertEquals(123f,jsonArray.getValue(2));
+  jsonArray.add(123d);
+  assertEquals(123d,jsonArray.getValue(3));
+  jsonArray.add(false);
+  assertEquals(false,jsonArray.getValue(4));
+  jsonArray.add(true);
+  assertEquals(true,jsonArray.getValue(5));
+  jsonArray.add("bar");
+  assertEquals("bar",jsonArray.getValue(6));
+  JsonObject obj=new JsonObject().put("blah","wibble");
+  jsonArray.add(obj);
+  assertEquals(obj,jsonArray.getValue(7));
+  JsonArray arr=new JsonArray().add("blah").add("wibble");
+  jsonArray.add(arr);
+  assertEquals(arr,jsonArray.getValue(8));
+  byte[] bytes=TestUtils.randomByteArray(100);
+  jsonArray.add(bytes);
+  assertTrue(TestUtils.byteArraysEqual(bytes,Base64.getDecoder().decode((String)jsonArray.getValue(9))));
+  jsonArray.addNull();
+  assertNull(jsonArray.getValue(10));
+  try {
+    jsonArray.getValue(-1);
+    fail();
+  }
+ catch (  IndexOutOfBoundsException e) {
+  }
+  try {
+    jsonArray.getValue(11);
+    fail();
+  }
+ catch (  IndexOutOfBoundsException e) {
+  }
+}

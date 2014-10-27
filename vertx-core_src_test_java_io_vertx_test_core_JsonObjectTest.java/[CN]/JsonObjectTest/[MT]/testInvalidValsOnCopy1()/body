@@ -1,0 +1,11 @@
+{
+  Map<String,Object> invalid=new HashMap<>();
+  invalid.put("foo",new SomeClass());
+  JsonObject object=new JsonObject(invalid);
+  try {
+    object.copy();
+    fail();
+  }
+ catch (  IllegalStateException e) {
+  }
+}

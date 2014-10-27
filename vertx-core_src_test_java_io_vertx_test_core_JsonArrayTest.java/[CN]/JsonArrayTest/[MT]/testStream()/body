@@ -1,0 +1,18 @@
+{
+  jsonArray.add("foo");
+  jsonArray.add(123);
+  JsonObject obj=new JsonObject().put("foo","bar");
+  jsonArray.add(obj);
+  List<Object> list=jsonArray.stream().collect(Collectors.toList());
+  Iterator<Object> iter=list.iterator();
+  assertTrue(iter.hasNext());
+  Object entry=iter.next();
+  assertEquals("foo",entry);
+  assertTrue(iter.hasNext());
+  entry=iter.next();
+  assertEquals(123,entry);
+  assertTrue(iter.hasNext());
+  entry=iter.next();
+  assertEquals(obj,entry);
+  assertFalse(iter.hasNext());
+}

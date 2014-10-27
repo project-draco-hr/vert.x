@@ -1,0 +1,26 @@
+{
+  jsonObject.put("foo",true);
+  assertEquals(true,jsonObject.getBoolean("foo",false));
+  assertEquals(true,jsonObject.getBoolean("foo",null));
+  jsonObject.put("foo",false);
+  assertEquals(false,jsonObject.getBoolean("foo",true));
+  assertEquals(false,jsonObject.getBoolean("foo",null));
+  jsonObject.put("bar",123);
+  try {
+    jsonObject.getBoolean("bar",true);
+    fail();
+  }
+ catch (  ClassCastException e) {
+  }
+  jsonObject.putNull("foo");
+  assertNull(jsonObject.getBoolean("foo",true));
+  assertNull(jsonObject.getBoolean("foo",false));
+  assertEquals(true,jsonObject.getBoolean("absent",true));
+  assertEquals(false,jsonObject.getBoolean("absent",false));
+  try {
+    jsonObject.getBoolean(null,null);
+    fail();
+  }
+ catch (  NullPointerException e) {
+  }
+}

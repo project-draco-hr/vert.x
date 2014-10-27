@@ -1,0 +1,13 @@
+{
+  jsonObject.put("foo","bar");
+  jsonObject.put("eek",123);
+  jsonObject.put("flib",new JsonObject());
+  Set<String> fieldNames=jsonObject.fieldNames();
+  assertEquals(3,fieldNames.size());
+  assertTrue(fieldNames.contains("foo"));
+  assertTrue(fieldNames.contains("eek"));
+  assertTrue(fieldNames.contains("flib"));
+  jsonObject.remove("foo");
+  assertEquals(2,fieldNames.size());
+  assertFalse(fieldNames.contains("foo"));
+}

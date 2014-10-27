@@ -1,0 +1,4 @@
+{
+  JsonObject val=getJsonObject(key);
+  return val != null || map.containsKey(key) ? val : def;
+}

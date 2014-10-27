@@ -1,0 +1,12 @@
+{
+  jsonArray.add("wibble");
+  jsonArray.add(true);
+  jsonArray.add(123);
+  assertEquals(3,jsonArray.size());
+  assertEquals("wibble",jsonArray.remove(0));
+  assertEquals(2,jsonArray.size());
+  assertEquals(123,jsonArray.remove(1));
+  assertEquals(1,jsonArray.size());
+  assertEquals(true,jsonArray.remove(0));
+  assertTrue(jsonArray.isEmpty());
+}

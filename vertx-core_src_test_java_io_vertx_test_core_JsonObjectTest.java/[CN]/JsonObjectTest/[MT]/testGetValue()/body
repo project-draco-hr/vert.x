@@ -1,0 +1,28 @@
+{
+  jsonObject.put("foo",123);
+  assertEquals(123,jsonObject.getValue("foo"));
+  jsonObject.put("foo",123l);
+  assertEquals(123l,jsonObject.getValue("foo"));
+  jsonObject.put("foo",123f);
+  assertEquals(123f,jsonObject.getValue("foo"));
+  jsonObject.put("foo",123d);
+  assertEquals(123d,jsonObject.getValue("foo"));
+  jsonObject.put("foo",false);
+  assertEquals(false,jsonObject.getValue("foo"));
+  jsonObject.put("foo",true);
+  assertEquals(true,jsonObject.getValue("foo"));
+  jsonObject.put("foo","bar");
+  assertEquals("bar",jsonObject.getValue("foo"));
+  JsonObject obj=new JsonObject().put("blah","wibble");
+  jsonObject.put("foo",obj);
+  assertEquals(obj,jsonObject.getValue("foo"));
+  JsonArray arr=new JsonArray().add("blah").add("wibble");
+  jsonObject.put("foo",arr);
+  assertEquals(arr,jsonObject.getValue("foo"));
+  byte[] bytes=TestUtils.randomByteArray(100);
+  jsonObject.put("foo",bytes);
+  assertTrue(TestUtils.byteArraysEqual(bytes,Base64.getDecoder().decode((String)jsonObject.getValue("foo"))));
+  jsonObject.putNull("foo");
+  assertNull(jsonObject.getValue("foo"));
+  assertNull(jsonObject.getValue("absent"));
+}

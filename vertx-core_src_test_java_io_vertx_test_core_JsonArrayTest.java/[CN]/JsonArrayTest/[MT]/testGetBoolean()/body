@@ -1,0 +1,27 @@
+{
+  jsonArray.add(true);
+  assertEquals(true,jsonArray.getBoolean(0));
+  jsonArray.add(false);
+  assertEquals(false,jsonArray.getBoolean(1));
+  try {
+    jsonArray.getBoolean(-1);
+    fail();
+  }
+ catch (  IndexOutOfBoundsException e) {
+  }
+  try {
+    jsonArray.getBoolean(2);
+    fail();
+  }
+ catch (  IndexOutOfBoundsException e) {
+  }
+  jsonArray.add(123);
+  try {
+    jsonArray.getBoolean(2);
+    fail();
+  }
+ catch (  ClassCastException e) {
+  }
+  jsonArray.addNull();
+  assertNull(jsonArray.getBoolean(3));
+}

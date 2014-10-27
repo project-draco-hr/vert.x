@@ -1,5 +1,0 @@
-{
-  JsonObject obj=new JsonObject().putString("s","bar");
-  assertTrue(obj.containsField("s"));
-  assertFalse(obj.containsField("t"));
-}

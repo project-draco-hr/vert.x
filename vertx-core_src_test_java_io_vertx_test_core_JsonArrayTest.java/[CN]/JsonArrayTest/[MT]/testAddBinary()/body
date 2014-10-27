@@ -1,0 +1,11 @@
+{
+  byte[] bytes=TestUtils.randomByteArray(10);
+  assertSame(jsonArray,jsonArray.add(bytes));
+  assertTrue(TestUtils.byteArraysEqual(bytes,jsonArray.getBinary(0)));
+  try {
+    jsonArray.add((byte[])null);
+    fail();
+  }
+ catch (  NullPointerException e) {
+  }
+}

@@ -1,0 +1,7 @@
+{
+  jsonObject.put("foo","bar").put("blah",123);
+  Buffer buff=jsonObject.writeToBuffer();
+  JsonObject deserialized=new JsonObject();
+  deserialized.readFromBuffer(buff);
+  assertEquals(jsonObject,deserialized);
+}

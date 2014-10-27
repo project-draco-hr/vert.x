@@ -1,0 +1,7 @@
+{
+  Object val=list.get(pos);
+  if (val instanceof List) {
+    val=new JsonArray((List)val);
+  }
+  return (JsonArray)val;
+}

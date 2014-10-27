@@ -1,0 +1,20 @@
+{
+  jsonObject.put("foo","bar");
+  assertEquals("bar",jsonObject.getString("foo"));
+  jsonObject.put("bar",123);
+  try {
+    jsonObject.getString("bar");
+    fail();
+  }
+ catch (  ClassCastException e) {
+  }
+  jsonObject.putNull("foo");
+  assertNull(jsonObject.getString("foo"));
+  assertNull(jsonObject.getString("absent"));
+  try {
+    jsonObject.getString(null);
+    fail();
+  }
+ catch (  NullPointerException e) {
+  }
+}

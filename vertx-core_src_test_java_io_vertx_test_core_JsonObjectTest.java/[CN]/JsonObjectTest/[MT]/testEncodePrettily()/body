@@ -1,0 +1,16 @@
+{
+  jsonObject.put("mystr","foo");
+  jsonObject.put("myint",123);
+  jsonObject.put("mylong",1234l);
+  jsonObject.put("myfloat",1.23f);
+  jsonObject.put("mydouble",2.34d);
+  jsonObject.put("myboolean",true);
+  byte[] bytes=TestUtils.randomByteArray(10);
+  jsonObject.put("mybinary",bytes);
+  jsonObject.put("myobj",new JsonObject().put("foo","bar"));
+  jsonObject.put("myarr",new JsonArray().add("foo").add(123));
+  String strBytes=Base64.getEncoder().encodeToString(bytes);
+  String expected="{\n" + "  \"mystr\" : \"foo\",\n" + "  \"myint\" : 123,\n"+ "  \"mylong\" : 1234,\n"+ "  \"myfloat\" : 1.23,\n"+ "  \"mydouble\" : 2.34,\n"+ "  \"myboolean\" : true,\n"+ "  \"mybinary\" : \"" + strBytes + "\",\n"+ "  \"myobj\" : {\n"+ "    \"foo\" : \"bar\"\n"+ "  },\n"+ "  \"myarr\" : [ \"foo\", 123 ]\n"+ "}";
+  String json=jsonObject.encodePrettily();
+  assertEquals(expected,json);
+}

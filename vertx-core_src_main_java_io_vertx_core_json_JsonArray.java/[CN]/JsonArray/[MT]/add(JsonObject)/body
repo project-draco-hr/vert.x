@@ -1,0 +1,5 @@
+{
+  Objects.requireNonNull(value);
+  list.add(value);
+  return this;
+}

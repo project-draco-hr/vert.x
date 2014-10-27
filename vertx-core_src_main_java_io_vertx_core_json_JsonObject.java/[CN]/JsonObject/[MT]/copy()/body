@@ -1,3 +1,9 @@
 {
-  return new JsonObject(map,true);
+  Map<String,Object> copiedMap=new HashMap<>(map.size());
+  for (  Map.Entry<String,Object> entry : map.entrySet()) {
+    Object val=entry.getValue();
+    val=Json.checkAndCopy(val,true);
+    copiedMap.put(entry.getKey(),val);
+  }
+  return new JsonObject(copiedMap);
 }

@@ -1,4 +1,0 @@
-{
-  list.add(value);
-  return this;
-}

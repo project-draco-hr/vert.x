@@ -1,0 +1,12 @@
+{
+  assertSame(jsonObject,jsonObject.putNull("foo"));
+  assertTrue(jsonObject.containsKey("foo"));
+  assertSame(jsonObject,jsonObject.putNull("bar"));
+  assertTrue(jsonObject.containsKey("bar"));
+  try {
+    jsonObject.putNull(null);
+    fail();
+  }
+ catch (  NullPointerException e) {
+  }
+}

@@ -1,0 +1,11 @@
+{
+  JsonObject obj=new JsonObject();
+  obj.put("mystr","bar");
+  obj.put("myint",Integer.MAX_VALUE);
+  obj.put("mylong",Long.MAX_VALUE);
+  obj.put("myfloat",Float.MAX_VALUE);
+  obj.put("mydouble",Double.MAX_VALUE);
+  obj.put("myboolean",true);
+  obj.put("mybinary",TestUtils.randomByteArray(100));
+  return obj;
+}

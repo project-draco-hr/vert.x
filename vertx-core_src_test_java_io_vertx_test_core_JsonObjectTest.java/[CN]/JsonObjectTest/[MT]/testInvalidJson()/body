@@ -1,0 +1,9 @@
+{
+  String invalid="qiwjdoiqwjdiqwjd";
+  try {
+    new JsonObject(invalid);
+    fail();
+  }
+ catch (  DecodeException e) {
+  }
+}

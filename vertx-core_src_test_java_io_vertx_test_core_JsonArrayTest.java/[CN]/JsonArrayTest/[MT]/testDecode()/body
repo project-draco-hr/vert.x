@@ -1,0 +1,19 @@
+{
+  byte[] bytes=TestUtils.randomByteArray(10);
+  String strBytes=Base64.getEncoder().encodeToString(bytes);
+  String json="[\"foo\",123,1234,1.23,2.34,true,\"" + strBytes + "\",null,{\"foo\":\"bar\"},[\"foo\",123]]";
+  JsonArray arr=new JsonArray(json);
+  assertEquals("foo",arr.getString(0));
+  assertEquals(Integer.valueOf(123),arr.getInteger(1));
+  assertEquals(Long.valueOf(1234l),arr.getLong(2));
+  assertEquals(Float.valueOf(1.23f),arr.getFloat(3));
+  assertEquals(Double.valueOf(2.34d),arr.getDouble(4));
+  assertEquals(true,arr.getBoolean(5));
+  assertTrue(TestUtils.byteArraysEqual(bytes,arr.getBinary(6)));
+  assertTrue(arr.hasNull(7));
+  JsonObject obj=arr.getJsonObject(8);
+  assertEquals("bar",obj.getString("foo"));
+  JsonArray arr2=arr.getJsonArray(9);
+  assertEquals("foo",arr2.getString(0));
+  assertEquals(Integer.valueOf(123),arr2.getInteger(1));
+}

@@ -1,3 +1,0 @@
-{
-  return convertObject(list.get(index));
-}

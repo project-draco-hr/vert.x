@@ -1,0 +1,13 @@
+{
+  List<Object> invalid=new ArrayList<>();
+  List<Object> invalid2=new ArrayList<>();
+  invalid2.add(new SomeClass());
+  invalid.add(invalid2);
+  JsonArray arr=new JsonArray(invalid);
+  try {
+    arr.copy();
+    fail();
+  }
+ catch (  IllegalStateException e) {
+  }
+}

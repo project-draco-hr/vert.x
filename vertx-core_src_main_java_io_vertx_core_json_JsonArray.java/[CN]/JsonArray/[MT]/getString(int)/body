@@ -1,0 +1,4 @@
+{
+  CharSequence cs=(CharSequence)list.get(pos);
+  return cs == null ? null : cs.toString();
+}

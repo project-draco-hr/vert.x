@@ -1,0 +1,31 @@
+{
+  jsonArray.add(123);
+  assertEquals(Integer.valueOf(123),jsonArray.getInteger(0));
+  try {
+    jsonArray.getInteger(-1);
+    fail();
+  }
+ catch (  IndexOutOfBoundsException e) {
+  }
+  try {
+    jsonArray.getInteger(1);
+    fail();
+  }
+ catch (  IndexOutOfBoundsException e) {
+  }
+  jsonArray.add(123l);
+  assertEquals(Integer.valueOf(123),jsonArray.getInteger(1));
+  jsonArray.add(123f);
+  assertEquals(Integer.valueOf(123),jsonArray.getInteger(2));
+  jsonArray.add(123d);
+  assertEquals(Integer.valueOf(123),jsonArray.getInteger(3));
+  jsonArray.add("foo");
+  try {
+    jsonArray.getInteger(4);
+    fail();
+  }
+ catch (  ClassCastException e) {
+  }
+  jsonArray.addNull();
+  assertNull(jsonArray.getInteger(5));
+}

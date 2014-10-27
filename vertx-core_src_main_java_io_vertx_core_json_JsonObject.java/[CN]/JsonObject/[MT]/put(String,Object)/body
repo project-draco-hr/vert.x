@@ -1,0 +1,6 @@
+{
+  Objects.requireNonNull(key);
+  value=Json.checkAndCopy(value,false);
+  map.put(key,value);
+  return this;
+}

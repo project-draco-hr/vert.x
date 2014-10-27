@@ -1,0 +1,3 @@
+{
+  jgen.writeObject(value.getList());
+}

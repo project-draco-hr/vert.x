@@ -1,0 +1,21 @@
+{
+  jsonObject.put("foo","bar");
+  jsonObject.put("quux",123);
+  JsonObject obj=createJsonObject();
+  jsonObject.put("wibble",obj);
+  List<Map.Entry<String,Object>> list=jsonObject.stream().collect(Collectors.toList());
+  Iterator<Map.Entry<String,Object>> iter=list.iterator();
+  assertTrue(iter.hasNext());
+  Map.Entry<String,Object> entry=iter.next();
+  assertEquals("foo",entry.getKey());
+  assertEquals("bar",entry.getValue());
+  assertTrue(iter.hasNext());
+  entry=iter.next();
+  assertEquals("quux",entry.getKey());
+  assertEquals(123,entry.getValue());
+  assertTrue(iter.hasNext());
+  entry=iter.next();
+  assertEquals("wibble",entry.getKey());
+  assertEquals(obj,entry.getValue());
+  assertFalse(iter.hasNext());
+}

@@ -1,0 +1,29 @@
+{
+  jsonObject.put("foo",123d);
+  assertEquals(Double.valueOf(123d),jsonObject.getDouble("foo",321d));
+  assertEquals(Double.valueOf(123),jsonObject.getDouble("foo",null));
+  jsonObject.put("bar","hello");
+  try {
+    jsonObject.getDouble("bar",123d);
+    fail();
+  }
+ catch (  ClassCastException e) {
+  }
+  jsonObject.put("foo",123);
+  assertEquals(Double.valueOf(123d),jsonObject.getDouble("foo",321d));
+  jsonObject.put("foo",123f);
+  assertEquals(Double.valueOf(123d),jsonObject.getDouble("foo",321d));
+  jsonObject.put("foo",123l);
+  assertEquals(Double.valueOf(123d),jsonObject.getDouble("foo",321d));
+  jsonObject.putNull("foo");
+  assertNull(jsonObject.getDouble("foo",321d));
+  assertEquals(Double.valueOf(321d),jsonObject.getDouble("absent",321d));
+  assertNull(jsonObject.getDouble("foo",null));
+  assertNull(jsonObject.getDouble("absent",null));
+  try {
+    jsonObject.getDouble(null,null);
+    fail();
+  }
+ catch (  NullPointerException e) {
+  }
+}

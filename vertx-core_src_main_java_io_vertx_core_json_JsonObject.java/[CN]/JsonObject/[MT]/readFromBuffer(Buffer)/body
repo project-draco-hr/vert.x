@@ -1,0 +1,5 @@
+{
+  int length=buffer.getInt(0);
+  String encoded=buffer.getString(4,4 + length);
+  fromJson(encoded);
+}

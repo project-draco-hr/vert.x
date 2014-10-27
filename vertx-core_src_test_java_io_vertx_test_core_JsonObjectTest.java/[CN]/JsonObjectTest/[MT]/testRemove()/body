@@ -1,0 +1,9 @@
+{
+  jsonObject.put("mystr","bar");
+  jsonObject.put("myint",123);
+  assertEquals("bar",jsonObject.remove("mystr"));
+  assertNull(jsonObject.getValue("mystr"));
+  assertEquals(123,jsonObject.remove("myint"));
+  assertNull(jsonObject.getValue("myint"));
+  assertTrue(jsonObject.isEmpty());
+}

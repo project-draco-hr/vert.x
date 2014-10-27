@@ -1,4 +1,0 @@
-{
-  list.add(value == null ? null : value.map);
-  return this;
-}

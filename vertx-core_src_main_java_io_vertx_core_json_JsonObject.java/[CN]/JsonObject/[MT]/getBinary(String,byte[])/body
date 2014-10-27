@@ -1,4 +1,5 @@
 {
-  byte[] b=getBinary(fieldName);
-  return b == null ? def : b;
+  Objects.requireNonNull(key);
+  Object val=map.get(key);
+  return val != null || map.containsKey(key) ? (val == null ? null : Base64.getDecoder().decode((String)val)) : def;
 }

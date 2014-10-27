@@ -1,4 +1,0 @@
-{
-  Map<String,Object> m=(Map<String,Object>)map.get(fieldName);
-  return m == null ? null : new JsonObject(m,false);
-}

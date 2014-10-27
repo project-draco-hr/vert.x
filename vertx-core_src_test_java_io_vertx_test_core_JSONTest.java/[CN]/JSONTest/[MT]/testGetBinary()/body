@@ -1,4 +1,0 @@
-{
-  JsonObject json=new JsonObject();
-  assertNull(json.getBinary("binary"));
-}

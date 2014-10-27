@@ -1,6 +1,0 @@
-{
-  Object[] numbers=new Integer[]{1,2,3};
-  JsonArray json=new JsonArray(numbers);
-  json.add(4);
-  assertEquals(4,json.size());
-}

@@ -1,4 +1,0 @@
-{
-  Boolean b=getBoolean(fieldName);
-  return b == null ? def : b;
-}

@@ -1,0 +1,26 @@
+{
+  JsonObject obj=new JsonObject().put("foo","bar");
+  jsonArray.add(obj);
+  assertEquals(obj,jsonArray.getJsonObject(0));
+  try {
+    jsonArray.getJsonObject(-1);
+    fail();
+  }
+ catch (  IndexOutOfBoundsException e) {
+  }
+  try {
+    jsonArray.getJsonObject(1);
+    fail();
+  }
+ catch (  IndexOutOfBoundsException e) {
+  }
+  jsonArray.add(123);
+  try {
+    jsonArray.getJsonObject(1);
+    fail();
+  }
+ catch (  ClassCastException e) {
+  }
+  jsonArray.addNull();
+  assertNull(jsonArray.getJsonObject(2));
+}

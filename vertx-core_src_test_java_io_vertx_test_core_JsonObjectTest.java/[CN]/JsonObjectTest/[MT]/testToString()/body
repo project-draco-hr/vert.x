@@ -1,0 +1,4 @@
+{
+  jsonObject.put("foo","bar");
+  assertEquals(jsonObject.encode(),jsonObject.toString());
+}

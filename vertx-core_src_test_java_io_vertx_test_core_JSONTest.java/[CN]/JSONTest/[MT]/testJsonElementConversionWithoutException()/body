@@ -1,8 +1,0 @@
-{
-  JsonElement objElement=new JsonObject().putString("foo","bar");
-  JsonElement arrayElement=new JsonArray().addString("foo");
-  JsonObject retrievedObject=objElement.asObject();
-  JsonArray retrievedArray=arrayElement.asArray();
-  assertEquals("{\"foo\":\"bar\"}",retrievedObject.encode());
-  assertEquals("[\"foo\"]",retrievedArray.encode());
-}
