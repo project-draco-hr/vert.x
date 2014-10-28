@@ -1,0 +1,6 @@
+{
+  Objects.requireNonNull(value);
+  value=Json.checkAndCopy(value,false);
+  list.add(value);
+  return this;
+}
