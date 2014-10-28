@@ -1,5 +1,5 @@
 {
-  if (options.isHA() && haManager != null) {
+  if (options.isHa() && haManager != null) {
     haManager.deployVerticle(identifier,options,completionHandler);
   }
  else {

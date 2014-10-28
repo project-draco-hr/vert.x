@@ -14,9 +14,9 @@
   String rand=TestUtils.randomUnicodeString(1000);
   assertEquals(options,options.setIsolationGroup(rand));
   assertEquals(rand,options.getIsolationGroup());
-  assertFalse(options.isHA());
-  assertEquals(options,options.setHA(true));
-  assertTrue(options.isHA());
+  assertFalse(options.isHa());
+  assertEquals(options,options.setHa(true));
+  assertTrue(options.isHa());
   assertNull(options.getExtraClasspath());
   List<String> cp=Arrays.asList("foo","bar");
   assertEquals(options,options.setExtraClasspath(cp));

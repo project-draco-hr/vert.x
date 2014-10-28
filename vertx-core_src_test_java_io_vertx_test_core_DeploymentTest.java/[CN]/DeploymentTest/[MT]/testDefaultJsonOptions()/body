@@ -5,6 +5,6 @@
   assertEquals(def.isWorker(),json.isWorker());
   assertEquals(def.isMultiThreaded(),json.isMultiThreaded());
   assertEquals(def.getIsolationGroup(),json.getIsolationGroup());
-  assertEquals(def.isHA(),json.isHA());
+  assertEquals(def.isHa(),json.isHa());
   assertEquals(def.getExtraClasspath(),json.getExtraClasspath());
 }

@@ -1,0 +1,11 @@
+{
+synchronized (contexts) {
+    if (contexts.contains(vertx.context())) {
+      throw new IllegalStateException("Same context!");
+    }
+ else {
+      contexts.add(vertx.context());
+      vertx.eventBus().send("tvstarted","started");
+    }
+  }
+}

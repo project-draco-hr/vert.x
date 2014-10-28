@@ -1,0 +1,4 @@
+{
+  this.verticle=verticle;
+  this.context=context;
+}

@@ -1,0 +1,7 @@
+{
+  Set<Verticle> verts=new HashSet<>();
+  for (  VerticleHolder holder : verticles) {
+    verts.add(holder.verticle);
+  }
+  return verts;
+}

@@ -1,7 +1,5 @@
 {
   this.id=id;
-  this.context=context;
   this.identifier=identifier;
-  this.verticle=verticle;
   this.options=options;
 }

@@ -8,5 +8,6 @@
   if (config != null ? !config.equals(that.config) : that.config != null)   return false;
   if (extraClasspath != null ? !extraClasspath.equals(that.extraClasspath) : that.extraClasspath != null)   return false;
   if (isolationGroup != null ? !isolationGroup.equals(that.isolationGroup) : that.isolationGroup != null)   return false;
+  if (instances != that.instances)   return false;
   return true;
 }

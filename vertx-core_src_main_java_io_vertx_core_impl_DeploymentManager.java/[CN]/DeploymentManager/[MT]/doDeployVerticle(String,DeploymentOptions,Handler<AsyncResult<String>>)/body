@@ -13,14 +13,15 @@
           return;
         }
       }
-      Verticle verticle=verticleFactory.createVerticle(identifier,cl);
-      if (verticle == null) {
-        throw new NullPointerException("VerticleFactory::createVerticle returned null");
+      Verticle[] verticles=new Verticle[options.getInstances()];
+      for (int i=0; i < options.getInstances(); i++) {
+        verticles[i]=verticleFactory.createVerticle(identifier,cl);
+        if (verticles[i] == null) {
+          throw new NullPointerException("VerticleFactory::createVerticle returned null");
+        }
       }
- else {
-        doDeploy(identifier,verticle,options,currentContext,completionHandler,cl);
-        return;
-      }
+      doDeploy(identifier,options,currentContext,completionHandler,cl,verticles);
+      return;
     }
  catch (    Exception e) {
       if (!iter.hasNext()) {

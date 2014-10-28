@@ -6,5 +6,8 @@
   if (ha)   json.put("ha",true);
   if (config != null)   json.put("config",config);
   if (extraClasspath != null)   json.put("extraClasspath",new JsonArray(extraClasspath));
+  if (instances != DEFAULT_INSTANCES) {
+    json.put("instances",instances);
+  }
   return json;
 }

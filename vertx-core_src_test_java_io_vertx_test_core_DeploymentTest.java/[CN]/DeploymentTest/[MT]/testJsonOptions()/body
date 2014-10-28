@@ -18,6 +18,6 @@
   assertEquals(multiThreaded,options.isMultiThreaded());
   assertEquals(isolationGroup,options.getIsolationGroup());
   assertEquals("bar",options.getConfig().getString("foo"));
-  assertEquals(ha,options.isHA());
+  assertEquals(ha,options.isHa());
   assertEquals(cp,options.getExtraClasspath());
 }

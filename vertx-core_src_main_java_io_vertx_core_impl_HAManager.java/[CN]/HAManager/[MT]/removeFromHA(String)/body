@@ -1,6 +1,6 @@
 {
   Deployment dep=deploymentManager.getDeployment(depID);
-  if (dep == null || !dep.deploymentOptions().isHA()) {
+  if (dep == null || !dep.deploymentOptions().isHa()) {
     return;
   }
 synchronized (haInfo) {

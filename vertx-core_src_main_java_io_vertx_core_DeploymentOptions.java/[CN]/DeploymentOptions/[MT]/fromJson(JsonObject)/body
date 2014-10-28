@@ -1,11 +1,12 @@
 {
   this.config=json.getJsonObject("config");
-  this.worker=json.getBoolean("worker",false);
-  this.multiThreaded=json.getBoolean("multiThreaded",false);
-  this.isolationGroup=json.getString("isolationGroup",null);
-  this.ha=json.getBoolean("ha",false);
+  this.worker=json.getBoolean("worker",DEFAULT_WORKER);
+  this.multiThreaded=json.getBoolean("multiThreaded",DEFAULT_MULTI_THREADED);
+  this.isolationGroup=json.getString("isolationGroup",DEFAULT_ISOLATION_GROUP);
+  this.ha=json.getBoolean("ha",DEFAULT_HA);
   JsonArray arr=json.getJsonArray("extraClasspath",null);
   if (arr != null) {
     this.extraClasspath=arr.getList();
   }
+  this.instances=json.getInteger("instances",DEFAULT_INSTANCES);
 }

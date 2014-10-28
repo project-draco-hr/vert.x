@@ -4,4 +4,5 @@
   this.multiThreaded=DEFAULT_MULTI_THREADED;
   this.isolationGroup=DEFAULT_ISOLATION_GROUP;
   this.ha=DEFAULT_HA;
+  this.instances=DEFAULT_INSTANCES;
 }

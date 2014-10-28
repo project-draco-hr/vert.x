@@ -1,6 +1,6 @@
 String identifier
-Verticle verticle
 DeploymentOptions options
 ContextImpl currentContext
 Handler<AsyncResult<String>> completionHandler
 ClassLoader tccl
+Verticle verticles

@@ -2,7 +2,7 @@
   for (  String deploymentID : deploymentManager.deployments()) {
     Deployment dep=deploymentManager.getDeployment(deploymentID);
     if (dep != null) {
-      if (dep.deploymentOptions().isHA()) {
+      if (dep.deploymentOptions().isHa()) {
         ContextImpl ctx=vertx.getContext();
         try {
           vertx.setContext(null);

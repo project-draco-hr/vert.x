@@ -1,5 +1,3 @@
 String id
-ContextImpl context
 String identifier
-Verticle verticle
 DeploymentOptions options
