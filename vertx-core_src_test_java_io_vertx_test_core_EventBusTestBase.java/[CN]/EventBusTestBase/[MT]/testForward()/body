@@ -1,3 +1,0 @@
-{
-  testForward(TestUtils.randomUnicodeString(100));
-}

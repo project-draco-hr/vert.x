@@ -1,4 +1,4 @@
 {
   receivedBody=messageCodec.decodeFromWire(bodyPos,wireBuffer);
-  readBody=true;
+  bodyPos=0;
 }

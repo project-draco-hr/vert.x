@@ -43,8 +43,6 @@
   bytes=buffer.getBytes(pos,pos + length);
   String senderHost=new String(bytes,CharsetUtil.UTF_8);
   pos+=length;
-  isForwarded=(buffer.getByte(pos) == 0);
-  pos++;
   headersPos=pos;
   int headersLength=buffer.getInt(pos);
   pos+=headersLength;

@@ -11,11 +11,6 @@
     int headersEndPos=buffer.getByteBuf().writerIndex();
     buffer.setInt(headersLengthPos,headersEndPos - headersLengthPos);
   }
- else   if (headers == null && headersPos != 0) {
-    int length=wireBuffer.getInt(headersPos);
-    Buffer sliced=wireBuffer.slice(headersPos,headersPos + length);
-    buffer.appendBuffer(sliced);
-  }
  else {
     buffer.appendInt(4);
   }

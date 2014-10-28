@@ -1,11 +1,11 @@
 {
   if (connected) {
-    socket.write(message.writeToWire());
+    socket.write(message.encodeToWire());
   }
  else {
 synchronized (this) {
       if (connected) {
-        socket.write(message.writeToWire());
+        socket.write(message.encodeToWire());
       }
  else {
         pending.add(message);

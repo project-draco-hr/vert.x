@@ -1,9 +1,9 @@
 {
   if (headers == null) {
     if (headersPos != 0) {
-      readHeaders();
+      decodeHeaders();
     }
- else {
+    if (headers == null) {
       headers=new CaseInsensitiveHeaders();
     }
   }
