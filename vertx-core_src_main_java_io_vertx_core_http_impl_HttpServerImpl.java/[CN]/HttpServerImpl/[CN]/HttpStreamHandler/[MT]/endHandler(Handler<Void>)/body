@@ -1,4 +1,4 @@
 {
   this.endHandler=endHandler;
-  return this;
+  return (R)this;
 }

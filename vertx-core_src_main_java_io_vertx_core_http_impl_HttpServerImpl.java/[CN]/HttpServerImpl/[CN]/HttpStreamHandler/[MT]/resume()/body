@@ -4,5 +4,5 @@
     HttpServerImpl.this.bindFuture.channel().config().setAutoRead(true);
     checkNextTick();
   }
-  return this;
+  return (R)this;
 }
