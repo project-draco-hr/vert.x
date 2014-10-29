@@ -1,4 +1,5 @@
 {
+  this.socket=other.socket;
   this.bus=other.bus;
   this.sender=other.sender;
   this.address=other.address;

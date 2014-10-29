@@ -1,4 +1,6 @@
 VertxInternal vertx
+long pingInterval
+long pingReplyInterval
 int port
 String hostname
 ClusterManager clusterManager

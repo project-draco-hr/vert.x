@@ -52,6 +52,28 @@
   String randString=TestUtils.randomUnicodeString(100);
   assertEquals(options,options.setClusterHost(randString));
   assertEquals(randString,options.getClusterHost());
+  assertEquals(20000,options.getClusterPingInterval());
+  long randomLong=TestUtils.randomPositiveLong();
+  assertEquals(options,options.setClusterPingInterval(randomLong));
+  assertEquals(randomLong,options.getClusterPingInterval());
+  try {
+    options.setClusterPingInterval(-1);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+    assertEquals(randomLong,options.getClusterPingInterval());
+  }
+  assertEquals(20000,options.getClusterPingReplyInterval());
+  randomLong=TestUtils.randomPositiveLong();
+  assertEquals(options,options.setClusterPingReplyInterval(randomLong));
+  assertEquals(randomLong,options.getClusterPingReplyInterval());
+  try {
+    options.setClusterPingReplyInterval(-1);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+    assertEquals(randomLong,options.getClusterPingReplyInterval());
+  }
   assertEquals(1000,options.getBlockedThreadCheckPeriod());
   rand=TestUtils.randomPositiveInt();
   assertEquals(options,options.setBlockedThreadCheckPeriod(rand));

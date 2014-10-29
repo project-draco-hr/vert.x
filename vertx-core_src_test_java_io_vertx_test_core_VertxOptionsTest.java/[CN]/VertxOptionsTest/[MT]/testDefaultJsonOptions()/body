@@ -5,6 +5,8 @@
   assertEquals(def.getWorkerPoolSize(),json.getWorkerPoolSize());
   assertEquals(def.isClustered(),json.isClustered());
   assertEquals(def.getClusterHost(),json.getClusterHost());
+  assertEquals(def.getClusterPingInterval(),json.getClusterPingInterval());
+  assertEquals(def.getClusterPingReplyInterval(),json.getClusterPingReplyInterval());
   assertEquals(def.getBlockedThreadCheckPeriod(),json.getBlockedThreadCheckPeriod());
   assertEquals(def.getMaxEventLoopExecuteTime(),json.getMaxEventLoopExecuteTime());
   assertEquals(def.getMaxWorkerExecuteTime(),json.getMaxWorkerExecuteTime());
