@@ -1,0 +1,7 @@
+String identifier
+String deploymentID
+DeploymentOptions options
+ContextImpl parentContext
+ContextImpl callingContext
+Redeployer redeployer
+Handler<AsyncResult<String>> completionHandler

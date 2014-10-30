@@ -1,0 +1,40 @@
+{
+  if (shouldEnableRedployment(options,parentContext)) {
+    setRedeployIsolationGroup(options);
+  }
+  String isolationGroup=options.getIsolationGroup();
+  ClassLoader cl;
+  if (isolationGroup == null) {
+    cl=getCurrentClassLoader();
+  }
+ else {
+synchronized (this) {
+      cl=classloaders.get(isolationGroup);
+      if (cl == null) {
+        ClassLoader current=getCurrentClassLoader();
+        if (!(current instanceof URLClassLoader)) {
+          throw new IllegalStateException("Current classloader must be URLClassLoader");
+        }
+        URLClassLoader urlc=(URLClassLoader)current;
+        List<URL> urls=new ArrayList<>();
+        List<String> extraClasspath=options.getExtraClasspath();
+        if (extraClasspath != null) {
+          for (          String pathElement : extraClasspath) {
+            File file=new File(pathElement);
+            try {
+              URL url=file.toURI().toURL();
+              urls.add(url);
+            }
+ catch (            MalformedURLException e) {
+              throw new IllegalStateException(e);
+            }
+          }
+        }
+        urls.addAll(Arrays.asList(urlc.getURLs()));
+        cl=new IsolatingClassLoader(urls.toArray(new URL[urls.size()]),getCurrentClassLoader());
+        classloaders.put(isolationGroup,cl);
+      }
+    }
+  }
+  return cl;
+}

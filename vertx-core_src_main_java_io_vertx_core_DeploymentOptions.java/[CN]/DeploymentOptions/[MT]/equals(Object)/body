@@ -9,5 +9,8 @@
   if (extraClasspath != null ? !extraClasspath.equals(that.extraClasspath) : that.extraClasspath != null)   return false;
   if (isolationGroup != null ? !isolationGroup.equals(that.isolationGroup) : that.isolationGroup != null)   return false;
   if (instances != that.instances)   return false;
+  if (redeploy != that.redeploy)   return false;
+  if (redeployScanPeriod != that.redeployScanPeriod)   return false;
+  if (redeployGracePeriod != that.redeployGracePeriod)   return false;
   return true;
 }

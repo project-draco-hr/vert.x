@@ -1,0 +1,5 @@
+{
+  System.out.println("in source verticle");
+  vertx.eventBus().publish("vertstarted",vertx.context().deploymentID());
+  System.out.println(vertx.context().deploymentID() + ": started");
+}

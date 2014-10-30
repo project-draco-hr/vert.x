@@ -9,4 +9,7 @@
     this.extraClasspath=arr.getList();
   }
   this.instances=json.getInteger("instances",DEFAULT_INSTANCES);
+  this.redeploy=json.getBoolean("redeploy",DEFAULT_REDEPLOY);
+  this.redeployScanPeriod=json.getLong("redeployScanPeriod",DEFAULT_REDEPLOY_SCAN_PERIOD);
+  this.redeployGracePeriod=json.getLong("redeployGracePeriod",DEFAULT_REDEPLOY_GRACE_PERIOD);
 }

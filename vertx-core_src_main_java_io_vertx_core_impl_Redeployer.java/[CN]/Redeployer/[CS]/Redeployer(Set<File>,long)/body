@@ -1,0 +1,6 @@
+{
+  this.gracePeriod=gracePeriod;
+  for (  File file : files) {
+    addFileToWatch(file);
+  }
+}

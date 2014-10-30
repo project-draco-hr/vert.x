@@ -1,0 +1,3 @@
+{
+  options.setIsolationGroup("redeploy-" + UUID.randomUUID().toString());
+}

@@ -1,0 +1,31 @@
+{
+  super.setUp();
+  Path path=Files.createTempDirectory("vertx-redeploytest");
+  tempDir=path.toFile();
+  cpDir=new File(tempDir,"cpDir");
+  assertTrue(cpDir.mkdir());
+  URLClassLoader urlc=(URLClassLoader)getClass().getClassLoader();
+  int count=0;
+  for (  URL url : urlc.getURLs()) {
+    String surl=url.toString();
+    if (surl.endsWith(".jar") && surl.startsWith("file:")) {
+      File file=new File(url.toURI());
+      File dest=new File(tempDir.getAbsoluteFile(),file.getName());
+      jarFile=dest;
+      Files.copy(file.toPath(),dest.toPath());
+      assertTrue(dest.exists());
+      if (++count == 2) {
+        break;
+      }
+    }
+  }
+  assertNotNull(jarFile);
+  options=new DeploymentOptions().setRedeploy(true);
+  List<String> extraCP=new ArrayList<>();
+  extraCP.add(jarFile.getAbsolutePath());
+  extraCP.add(cpDir.getAbsolutePath());
+  options.setExtraClasspath(extraCP);
+  String baseDir=System.getProperty("project.basedir");
+  if (baseDir == null) {
+  }
+}

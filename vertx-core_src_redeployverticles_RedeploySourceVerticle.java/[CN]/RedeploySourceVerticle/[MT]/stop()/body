@@ -1,0 +1,4 @@
+{
+  vertx.eventBus().publish("vertstopped",vertx.context().deploymentID());
+  System.out.println(vertx.context().deploymentID() + ": stopped");
+}

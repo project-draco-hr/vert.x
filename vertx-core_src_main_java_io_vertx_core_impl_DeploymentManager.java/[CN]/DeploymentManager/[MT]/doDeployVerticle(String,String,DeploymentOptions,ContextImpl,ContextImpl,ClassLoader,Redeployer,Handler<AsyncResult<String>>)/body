@@ -1,0 +1,30 @@
+{
+  List<VerticleFactory> verticleFactories=resolveFactories(identifier);
+  Iterator<VerticleFactory> iter=verticleFactories.iterator();
+  while (iter.hasNext()) {
+    try {
+      VerticleFactory verticleFactory=iter.next();
+      if (verticleFactory.requiresResolve()) {
+        String resolvedName=verticleFactory.resolve(identifier,options,cl);
+        if (!resolvedName.equals(identifier)) {
+          deployVerticle(resolvedName,options,completionHandler);
+          return;
+        }
+      }
+      Verticle[] verticles=new Verticle[options.getInstances()];
+      for (int i=0; i < options.getInstances(); i++) {
+        verticles[i]=verticleFactory.createVerticle(identifier,cl);
+        if (verticles[i] == null) {
+          throw new NullPointerException("VerticleFactory::createVerticle returned null");
+        }
+      }
+      doDeploy(identifier,deploymentID,options,parentContext,callingContext,completionHandler,cl,redeployer,verticles);
+      return;
+    }
+ catch (    Exception e) {
+      if (!iter.hasNext()) {
+        reportFailure(e,callingContext,completionHandler);
+      }
+    }
+  }
+}

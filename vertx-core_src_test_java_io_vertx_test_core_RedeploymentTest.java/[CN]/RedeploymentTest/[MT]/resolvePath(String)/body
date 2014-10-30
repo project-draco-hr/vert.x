@@ -1,0 +1,5 @@
+{
+  String buildDir=System.getProperty("buildDirectory");
+  String prefix=buildDir != null ? buildDir + "/../" : "";
+  return prefix + path;
+}

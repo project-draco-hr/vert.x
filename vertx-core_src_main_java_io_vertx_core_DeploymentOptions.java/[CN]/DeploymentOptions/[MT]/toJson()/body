@@ -9,5 +9,14 @@
   if (instances != DEFAULT_INSTANCES) {
     json.put("instances",instances);
   }
+  if (redeploy != DEFAULT_REDEPLOY) {
+    json.put("redeploy",redeploy);
+  }
+  if (redeployScanPeriod != DEFAULT_REDEPLOY_SCAN_PERIOD) {
+    json.put("redeployScanPeriod",redeployScanPeriod);
+  }
+  if (redeployGracePeriod != DEFAULT_REDEPLOY_GRACE_PERIOD) {
+    json.put("redeployGracePeriod",redeployGracePeriod);
+  }
   return json;
 }

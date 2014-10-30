@@ -1,4 +1,4 @@
 {
   ContextImpl currentContext=vertx.getOrCreateContext();
-  doDeploy("java:" + verticle.getClass().getName(),options,currentContext,completionHandler,getCurrentClassLoader(),verticle);
+  doDeploy("java:" + verticle.getClass().getName(),generateDeploymentID(),options,currentContext,currentContext,completionHandler,getCurrentClassLoader(),null,verticle);
 }

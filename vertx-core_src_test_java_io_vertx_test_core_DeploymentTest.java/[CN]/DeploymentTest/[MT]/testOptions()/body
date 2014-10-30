@@ -21,4 +21,38 @@
   List<String> cp=Arrays.asList("foo","bar");
   assertEquals(options,options.setExtraClasspath(cp));
   assertSame(cp,options.getExtraClasspath());
+  assertFalse(options.isRedeploy());
+  assertSame(options,options.setRedeploy(true));
+  assertTrue(options.isRedeploy());
+  assertEquals(DeploymentOptions.DEFAULT_REDEPLOY_GRACE_PERIOD,options.getRedeployGracePeriod());
+  int randInt=TestUtils.randomPositiveInt();
+  assertEquals(options,options.setRedeployGracePeriod(randInt));
+  assertEquals(randInt,options.getRedeployGracePeriod());
+  randInt=TestUtils.randomPositiveInt();
+  assertEquals(options,options.setRedeployScanPeriod(randInt));
+  assertEquals(randInt,options.getRedeployScanPeriod());
+  try {
+    options.setRedeployGracePeriod(-1);
+    fail();
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  try {
+    options.setRedeployScanPeriod(-1);
+    fail();
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  try {
+    options.setRedeployGracePeriod(0);
+    fail();
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  try {
+    options.setRedeployScanPeriod(0);
+    fail();
+  }
+ catch (  IllegalArgumentException e) {
+  }
 }

@@ -1,3 +1,6 @@
 {
-  doDeployVerticle(identifier,options,completionHandler);
+  ContextImpl callingContext=vertx.getOrCreateContext();
+  ClassLoader cl=getClassLoader(options,callingContext);
+  Redeployer redeployer=getRedeployer(options,cl,callingContext);
+  doDeployVerticle(identifier,generateDeploymentID(),options,callingContext,callingContext,cl,redeployer,completionHandler);
 }

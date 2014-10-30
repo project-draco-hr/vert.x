@@ -13,6 +13,9 @@
   json.put("isolationGroup",isolationGroup);
   json.put("ha",ha);
   json.put("extraClasspath",new JsonArray(cp));
+  json.put("redeploy",true);
+  json.put("redeployGracePeriod",1234);
+  json.put("redeployScanPeriod",4567);
   DeploymentOptions options=new DeploymentOptions(json);
   assertEquals(worker,options.isWorker());
   assertEquals(multiThreaded,options.isMultiThreaded());
@@ -20,4 +23,7 @@
   assertEquals("bar",options.getConfig().getString("foo"));
   assertEquals(ha,options.isHa());
   assertEquals(cp,options.getExtraClasspath());
+  assertTrue(options.isRedeploy());
+  assertEquals(1234,options.getRedeployGracePeriod());
+  assertEquals(4567,options.getRedeployScanPeriod());
 }

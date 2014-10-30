@@ -1,0 +1,4 @@
+{
+  File f=new File(dir,fileName);
+  vertx.fileSystem().writeFileSync(f.getAbsolutePath(),Buffer.buffer(content));
+}

@@ -6,5 +6,8 @@
   result=31 * result + (ha ? 1 : 0);
   result=31 * result + (extraClasspath != null ? extraClasspath.hashCode() : 0);
   result=31 * result + instances;
+  result=31 * result + (redeploy ? 1 : 0);
+  result=31 * result + (int)(redeployScanPeriod ^ (redeployScanPeriod >>> 32));
+  result=31 * result + (int)(redeployGracePeriod ^ (redeployGracePeriod >>> 32));
   return result;
 }

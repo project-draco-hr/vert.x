@@ -1,0 +1,7 @@
+{
+  if (redeployScanPeriod < 1) {
+    throw new IllegalArgumentException("redeployScanPeriod must be > 0");
+  }
+  this.redeployScanPeriod=redeployScanPeriod;
+  return this;
+}

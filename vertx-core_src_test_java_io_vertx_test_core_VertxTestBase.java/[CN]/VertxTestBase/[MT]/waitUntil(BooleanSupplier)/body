@@ -1,18 +1,3 @@
 {
-  long start=System.currentTimeMillis();
-  long timeout=10000;
-  while (true) {
-    if (supplier.getAsBoolean()) {
-      break;
-    }
-    try {
-      Thread.sleep(10);
-    }
- catch (    InterruptedException ignore) {
-    }
-    long now=System.currentTimeMillis();
-    if (now - start > timeout) {
-      throw new IllegalStateException("Timed out");
-    }
-  }
+  waitUntil(supplier,10000);
 }

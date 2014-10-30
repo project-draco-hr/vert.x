@@ -1,0 +1,5 @@
+String verticleID
+Runnable runner
+int times
+long delay
+int expectedRedeploys
