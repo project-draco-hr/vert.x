@@ -1,0 +1,10 @@
+{
+  MultiMap mmap=new CaseInsensitiveHeaders();
+  HashMap<String,String> map=new HashMap<String,String>();
+  map.put("a","b");
+  MultiMap result=mmap.addAll(map);
+  assertNotNull(result);
+  assertFalse(result.isEmpty());
+  assertEquals(1,result.size());
+  assertEquals("a: b\n",result.toString());
+}

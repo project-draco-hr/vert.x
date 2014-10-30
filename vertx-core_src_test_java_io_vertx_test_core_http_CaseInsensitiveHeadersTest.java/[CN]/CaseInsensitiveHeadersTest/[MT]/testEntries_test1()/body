@@ -1,6 +1,0 @@
-{
-  CaseInsensitiveHeaders cimap=new CaseInsensitiveHeaders();
-  List<Map.Entry<String,String>> result=cimap.entries();
-  assertNotNull(result);
-  assertEquals(0,result.size());
-}

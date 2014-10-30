@@ -1,5 +1,0 @@
-{
-  CaseInsensitiveHeaders cimap=new CaseInsensitiveHeaders();
-  CharSequence name=String.valueOf(new Object());
-  assertFalse(cimap.contains(name));
-}

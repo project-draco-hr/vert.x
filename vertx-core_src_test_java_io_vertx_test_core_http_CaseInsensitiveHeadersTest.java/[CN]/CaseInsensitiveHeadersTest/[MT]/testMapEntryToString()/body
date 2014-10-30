@@ -1,5 +1,5 @@
 {
-  CaseInsensitiveHeaders cimap=new CaseInsensitiveHeaders();
-  cimap.add("Header","value");
-  assertEquals("Header=value",cimap.iterator().next().toString());
+  MultiMap mmap=new CaseInsensitiveHeaders();
+  mmap.add("Header","value");
+  assertEquals("Header: value",mmap.iterator().next().toString());
 }

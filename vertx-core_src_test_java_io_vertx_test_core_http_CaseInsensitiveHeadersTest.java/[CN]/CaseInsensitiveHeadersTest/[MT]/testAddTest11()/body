@@ -1,0 +1,6 @@
+{
+  MultiMap mmap=new CaseInsensitiveHeaders();
+  String name="";
+  String strVal="";
+  assertEquals(": \n",mmap.add(name,strVal).toString());
+}

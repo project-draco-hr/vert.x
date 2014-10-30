@@ -1,8 +1,7 @@
 {
   MultiMap mmap=new CaseInsensitiveHeaders();
-  String name="name";
-  List<String> values=new ArrayList<String>();
-  MultiMap result=mmap.set(name,values);
+  MultiMap headers=new CaseInsensitiveHeaders();
+  MultiMap result=mmap.setAll(headers);
   assertNotNull(result);
   assertTrue(result.isEmpty());
   assertEquals(0,result.size());

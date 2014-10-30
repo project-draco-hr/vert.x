@@ -1,5 +1,0 @@
-{
-  CaseInsensitiveHeaders cimap=new CaseInsensitiveHeaders();
-  cimap.add("a","b");
-  assertFalse(cimap.isEmpty());
-}

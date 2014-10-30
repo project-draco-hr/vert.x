@@ -1,0 +1,5 @@
+{
+  MultiMap mmap=new CaseInsensitiveHeaders();
+  CharSequence name=String.valueOf(new Object());
+  assertFalse(mmap.contains(name));
+}

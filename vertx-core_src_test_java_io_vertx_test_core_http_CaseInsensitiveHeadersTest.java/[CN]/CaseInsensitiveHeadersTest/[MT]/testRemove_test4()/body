@@ -1,9 +1,0 @@
-{
-  CaseInsensitiveHeaders cimap=new CaseInsensitiveHeaders();
-  String name="name";
-  String value="value";
-  cimap.add(name,value);
-  assertTrue(cimap.contains(name));
-  MultiMap result=cimap.remove(name);
-  assertFalse(result.contains(name));
-}

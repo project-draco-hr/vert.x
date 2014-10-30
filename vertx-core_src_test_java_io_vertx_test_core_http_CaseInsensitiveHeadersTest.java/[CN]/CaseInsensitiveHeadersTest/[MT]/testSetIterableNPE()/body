@@ -1,4 +1,3 @@
 {
-  CaseInsensitiveHeaders cimap=new CaseInsensitiveHeaders();
-  cimap.set("name",(Iterable<String>)null);
+  new CaseInsensitiveHeaders().set("name",(Iterable<String>)null);
 }

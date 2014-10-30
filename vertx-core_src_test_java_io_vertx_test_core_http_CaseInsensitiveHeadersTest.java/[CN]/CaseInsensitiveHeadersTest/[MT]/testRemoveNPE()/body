@@ -1,4 +1,3 @@
 {
-  CaseInsensitiveHeaders cimap=new CaseInsensitiveHeaders();
-  cimap.remove(null);
+  new CaseInsensitiveHeaders().remove(null);
 }

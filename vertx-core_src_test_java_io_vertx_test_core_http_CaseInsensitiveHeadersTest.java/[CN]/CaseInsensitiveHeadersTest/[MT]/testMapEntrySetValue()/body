@@ -1,8 +1,8 @@
 {
-  CaseInsensitiveHeaders cimap=new CaseInsensitiveHeaders();
-  cimap.add("Header","oldvalue");
-  for (  Map.Entry<String,String> me : cimap) {
+  MultiMap mmap=new CaseInsensitiveHeaders();
+  mmap.add("Header","oldvalue");
+  for (  Map.Entry<String,String> me : mmap) {
     me.setValue("newvalue");
   }
-  assertEquals("newvalue",cimap.get("Header"));
+  assertEquals("newvalue",mmap.get("Header"));
 }

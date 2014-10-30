@@ -1,5 +1,0 @@
-{
-  CaseInsensitiveHeaders cimap=new CaseInsensitiveHeaders();
-  String name="1";
-  assertNull(cimap.get(name));
-}

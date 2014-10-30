@@ -1,5 +1,5 @@
 {
-  CaseInsensitiveHeaders mm=new CaseInsensitiveHeaders();
+  MultiMap mm=new CaseInsensitiveHeaders();
   String name1="AZ";
   String name2="\u0080Y";
   assertTrue("hash error",hash(name1) == hash(name2));
