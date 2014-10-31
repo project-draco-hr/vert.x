@@ -40,7 +40,7 @@
     val=Base64.getEncoder().encodeToString((byte[])val);
   }
  else {
-    throw new IllegalStateException("Illegal value in JsonObject: " + val);
+    throw new IllegalStateException("Illegal type in JsonObject: " + val.getClass());
   }
   return val;
 }
