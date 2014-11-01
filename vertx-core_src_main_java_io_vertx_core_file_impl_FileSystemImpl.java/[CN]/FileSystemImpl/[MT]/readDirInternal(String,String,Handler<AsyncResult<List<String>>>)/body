@@ -1,14 +1,13 @@
 {
-  final String path=PathAdjuster.adjust(vertx,p);
+  File file=vertx.resolveFile(p);
   return new BlockingAction<List<String>>(handler){
     public List<String> perform(){
       try {
-        File file=new File(path);
         if (!file.exists()) {
-          throw new FileSystemException("Cannot read directory " + path + ". Does not exist");
+          throw new FileSystemException("Cannot read directory " + file + ". Does not exist");
         }
         if (!file.isDirectory()) {
-          throw new FileSystemException("Cannot read directory " + path + ". It's not a directory");
+          throw new FileSystemException("Cannot read directory " + file + ". It's not a directory");
         }
  else {
           FilenameFilter fnFilter;

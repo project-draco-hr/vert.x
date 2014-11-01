@@ -1,6 +1,6 @@
 {
   Objects.requireNonNull(options,"no null options accepted");
-  final String path=PathAdjuster.adjust(vertx,p);
+  String path=vertx.resolveFile(p).getAbsolutePath();
   return new BlockingAction<AsyncFile>(handler){
     public AsyncFile perform(){
       return doOpen(path,options,context);

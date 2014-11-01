@@ -1,10 +1,9 @@
 {
-  final String path=PathAdjuster.adjust(vertx,p);
-  final FileAttribute<?> attrs=perms == null ? null : PosixFilePermissions.asFileAttribute(PosixFilePermissions.fromString(perms));
+  Path target=vertx.resolveFile(p).toPath();
+  FileAttribute<?> attrs=perms == null ? null : PosixFilePermissions.asFileAttribute(PosixFilePermissions.fromString(perms));
   return new BlockingAction<Void>(handler){
     public Void perform(){
       try {
-        Path target=Paths.get(path);
         if (attrs != null) {
           Files.createFile(target,attrs);
         }

@@ -1,5 +1,5 @@
 {
-  final File file=new File(PathAdjuster.adjust(vertx,path));
+  File file=vertx.resolveFile(path);
   return new BlockingAction<Boolean>(handler){
     public Boolean perform(){
       return file.exists();

@@ -1,5 +1,5 @@
 {
-  final Path target=PathAdjuster.adjust(vertx,Paths.get(path));
+  Path target=vertx.resolveFile(path).toPath();
   return new BlockingAction<FileProps>(handler){
     public FileProps perform(){
       try {

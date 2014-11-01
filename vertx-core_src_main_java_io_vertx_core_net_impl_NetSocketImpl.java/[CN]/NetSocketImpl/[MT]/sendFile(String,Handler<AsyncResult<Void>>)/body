@@ -1,5 +1,5 @@
 {
-  File f=new File(PathAdjuster.adjust(vertx,filename));
+  File f=vertx.resolveFile(filename);
   if (f.isDirectory()) {
     throw new IllegalArgumentException("filename must point to a file and not to a directory");
   }

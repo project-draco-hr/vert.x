@@ -1,4 +1,0 @@
-{
-  Path adjustment=adjust(vertx,Paths.get(path));
-  return adjustment.toString();
-}

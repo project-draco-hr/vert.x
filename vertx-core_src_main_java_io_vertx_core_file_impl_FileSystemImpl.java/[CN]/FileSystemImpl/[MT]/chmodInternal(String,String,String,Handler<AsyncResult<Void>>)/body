@@ -1,7 +1,7 @@
 {
-  final Path target=PathAdjuster.adjust(vertx,Paths.get(path));
-  final Set<PosixFilePermission> permissions=PosixFilePermissions.fromString(perms);
-  final Set<PosixFilePermission> dirPermissions=dirPerms == null ? null : PosixFilePermissions.fromString(dirPerms);
+  Path target=vertx.resolveFile(path).toPath();
+  Set<PosixFilePermission> permissions=PosixFilePermissions.fromString(perms);
+  Set<PosixFilePermission> dirPermissions=dirPerms == null ? null : PosixFilePermissions.fromString(dirPerms);
   return new BlockingAction<Void>(handler){
     public Void perform(){
       try {

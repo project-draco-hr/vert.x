@@ -1,0 +1,5 @@
+{
+  File file=resolver.resolveFile("doesnotexist.txt");
+  assertFalse(file.exists());
+  assertEquals("doesnotexist.txt",file.getPath());
+}

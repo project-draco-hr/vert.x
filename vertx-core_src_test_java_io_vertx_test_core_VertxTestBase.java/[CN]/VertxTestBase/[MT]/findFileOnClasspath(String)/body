@@ -3,6 +3,11 @@
   if (url == null) {
     throw new IllegalArgumentException("Cannot find file " + fileName + " on classpath");
   }
-  Path path=ClasspathPathResolver.urlToPath(url).toAbsolutePath();
-  return path.toString();
+  try {
+    File file=new File(url.toURI());
+    return file.getAbsolutePath();
+  }
+ catch (  URISyntaxException e) {
+    throw new VertxException(e);
+  }
 }

@@ -1,6 +1,6 @@
 {
-  final Path target=PathAdjuster.adjust(vertx,Paths.get(path));
-  final UserPrincipalLookupService service=target.getFileSystem().getUserPrincipalLookupService();
+  Path target=vertx.resolveFile(path).toPath();
+  UserPrincipalLookupService service=target.getFileSystem().getUserPrincipalLookupService();
   return new BlockingAction<Void>(handler){
     public Void perform(){
       try {

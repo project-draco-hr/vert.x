@@ -1,0 +1,29 @@
+{
+  File file=new File(fileName);
+  if (!file.exists()) {
+    File cacheFile=null;
+    if (cacheDir != null) {
+      cacheFile=new File(cacheDir,fileName);
+      if (cacheFile.exists()) {
+        return cacheFile;
+      }
+    }
+    ClassLoader cl=getClassLoader();
+    InputStream is=cl.getResourceAsStream(fileName);
+    if (is != null) {
+      if (cacheFile == null) {
+        setupCacheDir();
+        cacheFile=new File(cacheDir,fileName);
+        cacheFile.getParentFile().mkdirs();
+      }
+      try {
+        Files.copy(is,cacheFile.toPath());
+      }
+ catch (      IOException e) {
+        throw new VertxException("Failed to copy file",e);
+      }
+      return cacheFile;
+    }
+  }
+  return file;
+}

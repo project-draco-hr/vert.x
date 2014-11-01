@@ -1,5 +1,5 @@
 {
-  final String path=PathAdjuster.adjust(vertx,p);
+  String path=vertx.resolveFile(p).getAbsolutePath();
   return new BlockingAction<Void>(handler){
     public Void perform(){
       if (len < 0) {
