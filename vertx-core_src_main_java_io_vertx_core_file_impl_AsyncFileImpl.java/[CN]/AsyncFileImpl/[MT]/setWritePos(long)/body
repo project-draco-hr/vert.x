@@ -1,0 +1,4 @@
+{
+  this.writePos=writePos;
+  return this;
+}

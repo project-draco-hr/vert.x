@@ -1,0 +1,4 @@
+{
+  this.readPos=readPos;
+  return this;
+}
