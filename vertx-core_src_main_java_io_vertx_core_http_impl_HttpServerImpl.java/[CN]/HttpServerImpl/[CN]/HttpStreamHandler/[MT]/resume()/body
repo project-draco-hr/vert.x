@@ -1,8 +1,6 @@
 {
   if (paused) {
     paused=false;
-    HttpServerImpl.this.bindFuture.channel().config().setAutoRead(true);
-    checkNextTick();
   }
   return (R)this;
 }

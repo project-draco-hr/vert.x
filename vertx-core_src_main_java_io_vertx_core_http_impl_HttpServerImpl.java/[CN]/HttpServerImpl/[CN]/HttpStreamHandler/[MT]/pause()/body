@@ -1,6 +1,5 @@
 {
   if (!paused) {
-    HttpServerImpl.this.bindFuture.channel().config().setAutoRead(false);
     paused=true;
   }
   return (R)this;

@@ -1,7 +1,0 @@
-{
-  if (listening) {
-    throw new IllegalStateException("Please set handler before server is listening");
-  }
-  this.handler=handler;
-  return this;
-}
