@@ -1,8 +1,6 @@
 {
   if (paused) {
-    NetServerImpl.this.bindFuture.channel().config().setAutoRead(true);
     paused=false;
-    checkNextTick();
   }
   return this;
 }
