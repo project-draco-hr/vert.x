@@ -1,4 +1,4 @@
 {
-  check();
+  checkComplete();
   write(Unpooled.EMPTY_BUFFER,true);
 }

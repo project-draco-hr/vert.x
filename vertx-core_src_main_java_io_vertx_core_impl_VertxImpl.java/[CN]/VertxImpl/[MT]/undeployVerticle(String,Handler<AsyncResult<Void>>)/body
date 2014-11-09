@@ -1,6 +1,6 @@
 {
-  if (haManager != null) {
-    haManager.removeFromHA(deploymentID);
+  if (haManager() != null) {
+    haManager().removeFromHA(deploymentID);
   }
   deploymentManager.undeployVerticle(deploymentID,completionHandler);
 }

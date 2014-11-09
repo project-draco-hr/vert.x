@@ -1,5 +1,4 @@
 {
-  URL url;
   try {
     return new URL(surl);
   }

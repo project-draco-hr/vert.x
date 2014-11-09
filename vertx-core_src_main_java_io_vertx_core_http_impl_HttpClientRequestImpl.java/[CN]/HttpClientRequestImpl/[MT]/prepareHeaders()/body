@@ -2,7 +2,7 @@
   HttpHeaders headers=request.headers();
   headers.remove(io.vertx.core.http.HttpHeaders.TRANSFER_ENCODING);
   if (!headers.contains(io.vertx.core.http.HttpHeaders.HOST)) {
-    request.headers().set(io.vertx.core.http.HttpHeaders.HOST,conn.hostHeader);
+    request.headers().set(io.vertx.core.http.HttpHeaders.HOST,conn.hostHeader());
   }
   if (chunked) {
     HttpHeaders.setTransferEncodingChunked(request);

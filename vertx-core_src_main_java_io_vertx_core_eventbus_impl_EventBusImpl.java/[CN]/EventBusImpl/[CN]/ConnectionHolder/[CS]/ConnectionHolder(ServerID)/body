@@ -1,0 +1,4 @@
+{
+  this.theServerID=serverID;
+  client=vertx.createNetClient(new NetClientOptions().setConnectTimeout(60 * 1000));
+}

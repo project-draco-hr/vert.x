@@ -4,7 +4,7 @@
   if (handler != null) {
     ctx.pipeline().remove(handler);
   }
-  ws=new WebSocketImpl(vertx,ClientConnection.this,supportsContinuation);
+  ws=new WebSocketImpl(vertx,ClientConnection.this,supportsContinuation,client.getOptions().getMaxWebsocketFrameSize());
   handshaker.finishHandshake(channel,response);
   log.debug("WebSocket handshake complete");
   wsConnect.handle(ws);

@@ -1,4 +1,6 @@
 {
-  this.endHandler=endHandler;
-  return this;
+synchronized (NetServerImpl.this) {
+    this.endHandler=endHandler;
+    return this;
+  }
 }

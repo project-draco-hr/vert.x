@@ -2,10 +2,9 @@
   this.host=host;
   this.port=port;
   this.client=client;
-  this.request=new DefaultHttpRequest(HttpVersion.HTTP_1_1,HttpMethod.valueOf(method.toString()),relativeURI,false);
+  this.request=new DefaultHttpRequest(HttpVersion.HTTP_1_1,toNettyHttpMethod(method),relativeURI,false);
   this.chunked=false;
-  this.method=request.getMethod().toString();
-  this.uri=request.getUri();
+  this.method=method;
   this.respHandler=respHandler;
   this.vertx=vertx;
 }

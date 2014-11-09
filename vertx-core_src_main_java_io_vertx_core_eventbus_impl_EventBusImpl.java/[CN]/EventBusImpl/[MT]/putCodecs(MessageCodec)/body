@@ -1,6 +1,0 @@
-{
-  systemCodecs=new MessageCodec[codecs.length];
-  for (  MessageCodec codec : codecs) {
-    systemCodecs[codec.systemCodecID()]=codec;
-  }
-}

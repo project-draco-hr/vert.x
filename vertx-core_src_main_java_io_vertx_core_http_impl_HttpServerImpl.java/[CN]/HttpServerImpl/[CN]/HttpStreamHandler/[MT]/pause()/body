@@ -1,6 +1,8 @@
 {
-  if (!paused) {
-    paused=true;
+synchronized (HttpServerImpl.this) {
+    if (!paused) {
+      paused=true;
+    }
+    return (R)this;
   }
-  return (R)this;
 }

@@ -11,7 +11,7 @@ synchronized (handlers) {
             vertx.cancelTimer(holder.timeoutID);
           }
           handlers.list.remove(i);
-          holder.removed=true;
+          holder.setRemoved();
           if (handlers.list.isEmpty()) {
             handlerMap.remove(address);
             if (subs != null && !holder.localOnly) {

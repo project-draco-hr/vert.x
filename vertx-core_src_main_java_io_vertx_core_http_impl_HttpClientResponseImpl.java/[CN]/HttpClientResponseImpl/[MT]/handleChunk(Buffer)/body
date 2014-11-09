@@ -1,5 +1,5 @@
 {
-  if (conn.metrics.isEnabled()) {
+  if (conn.metrics().isEnabled()) {
     this.bytesRead+=data.length();
   }
   if (paused) {

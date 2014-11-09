@@ -1,8 +1,0 @@
-{
-  if (buf.isReadable()) {
-    conn.writeToChannel(new DefaultLastHttpContent(buf,false));
-  }
- else {
-    conn.writeToChannel(LastHttpContent.EMPTY_LAST_CONTENT);
-  }
-}

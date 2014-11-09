@@ -1,0 +1,7 @@
+{
+  MessageCodec[] arr=new MessageCodec[codecs.length];
+  for (  MessageCodec codec : codecs) {
+    arr[codec.systemCodecID()]=codec;
+  }
+  return arr;
+}

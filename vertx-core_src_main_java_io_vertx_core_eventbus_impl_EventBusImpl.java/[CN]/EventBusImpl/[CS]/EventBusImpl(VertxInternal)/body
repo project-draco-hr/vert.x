@@ -7,5 +7,5 @@
   this.subs=null;
   this.clusterMgr=null;
   this.metrics=vertx.metricsSPI().createMetrics(this);
-  putSystemCodecs();
+  this.systemCodecs=systemCodecs();
 }

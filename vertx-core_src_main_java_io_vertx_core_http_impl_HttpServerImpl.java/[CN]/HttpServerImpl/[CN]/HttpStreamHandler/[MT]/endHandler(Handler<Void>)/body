@@ -1,4 +1,6 @@
 {
-  this.endHandler=endHandler;
-  return (R)this;
+synchronized (HttpServerImpl.this) {
+    this.endHandler=endHandler;
+    return (R)this;
+  }
 }

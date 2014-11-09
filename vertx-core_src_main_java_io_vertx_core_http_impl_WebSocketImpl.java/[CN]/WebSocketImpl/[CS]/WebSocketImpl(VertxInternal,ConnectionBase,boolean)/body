@@ -1,3 +1,0 @@
-{
-  super(vertx,conn,supportsContinuation);
-}

@@ -1,8 +1,8 @@
 {
-  if (requestStream.handler != null) {
-    server.reqHandlerManager.addHandler(requestStream,context);
+  if (requestStream.handler() != null) {
+    server.reqHandlerManager.addHandler(requestStream.handler(),context);
   }
-  if (wsStream.handler != null) {
-    server.wsHandlerManager.addHandler(wsStream,context);
+  if (wsStream.handler() != null) {
+    server.wsHandlerManager.addHandler(wsStream.handler(),context);
   }
 }

@@ -1,7 +1,9 @@
 {
-  if (listening) {
-    throw new IllegalStateException("Please set handler before server is listening");
+synchronized (HttpServerImpl.this) {
+    if (listening) {
+      throw new IllegalStateException("Please set handler before server is listening");
+    }
+    this.handler=handler;
+    return (R)this;
   }
-  this.handler=handler;
-  return (R)this;
 }

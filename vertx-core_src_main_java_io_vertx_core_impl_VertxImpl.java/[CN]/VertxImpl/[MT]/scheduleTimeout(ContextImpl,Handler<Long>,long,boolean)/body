@@ -1,2 +1,10 @@
 {
+  if (delay < 1) {
+    throw new IllegalArgumentException("Cannot schedule a timer with delay < 1 ms");
+  }
+  long timerId=timeoutCounter.getAndIncrement();
+  InternalTimerHandler task=new InternalTimerHandler(timerId,handler,periodic,delay,context);
+  timeouts.put(timerId,task);
+  context.addCloseHook(task);
+  return timerId;
 }

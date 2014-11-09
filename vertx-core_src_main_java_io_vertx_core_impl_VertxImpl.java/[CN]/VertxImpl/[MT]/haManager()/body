@@ -1,0 +1,10 @@
+{
+  if (haManager == null && haEnabled) {
+synchronized (this) {
+      return haManager;
+    }
+  }
+ else {
+    return haManager;
+  }
+}

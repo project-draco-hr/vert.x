@@ -1,0 +1,5 @@
+{
+synchronized (HttpServerImpl.this) {
+    return endHandler;
+  }
+}

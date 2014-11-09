@@ -1,0 +1,4 @@
+VertxInternal vertx
+ConnectionBase conn
+boolean supportsContinuation
+int maxWebSocketFrameSize

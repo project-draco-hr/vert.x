@@ -1,5 +1,10 @@
 {
-  for (  ClientConnection conn : new HashSet<>(allConnections)) {
+  Set<ClientConnection> copy;
+synchronized (this) {
+    copy=new HashSet<>(allConnections);
+    allConnections.clear();
+  }
+  for (  ClientConnection conn : copy) {
     try {
       conn.close();
     }
@@ -7,5 +12,4 @@
       log.error("Failed to close connection",t);
     }
   }
-  allConnections.clear();
 }

@@ -1,5 +1,5 @@
 {
   Objects.requireNonNull(enc,"no null encoding accepted");
-  check();
+  checkComplete();
   return write(Buffer.buffer(chunk,enc));
 }

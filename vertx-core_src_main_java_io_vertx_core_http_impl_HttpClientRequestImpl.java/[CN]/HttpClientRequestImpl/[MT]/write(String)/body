@@ -1,4 +1,4 @@
 {
-  check();
+  checkComplete();
   return write(Buffer.buffer(chunk));
 }

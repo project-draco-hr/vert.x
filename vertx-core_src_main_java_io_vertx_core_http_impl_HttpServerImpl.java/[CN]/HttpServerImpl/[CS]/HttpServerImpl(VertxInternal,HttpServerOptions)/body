@@ -3,14 +3,13 @@
   this.vertx=vertx;
   this.creatingContext=vertx.getContext();
   if (creatingContext != null) {
-    if (creatingContext.isMultiThreaded()) {
-      throw new IllegalStateException("Cannot use HttpServer in a multi-threaded worker verticle");
+    if (creatingContext.isWorker()) {
+      throw new IllegalStateException("Cannot use HttpServer in a worker verticle");
     }
     creatingContext.addCloseHook(this);
   }
   this.sslHelper=new SSLHelper(options,KeyStoreHelper.create(vertx,options.getKeyStoreOptions()),KeyStoreHelper.create(vertx,options.getTrustStoreOptions()));
-  this.wsStream=new ServerWebSocketStreamImpl();
-  this.requestStream=new HttpServerRequestStreamImpl();
   this.subProtocols=options.getWebsocketSubProtocols();
   this.metrics=vertx.metricsSPI().createMetrics(this,options);
+  this.serverOrigin=(options.isSsl() ? "https" : "http") + "://" + options.getHost()+ ":"+ options.getPort();
 }

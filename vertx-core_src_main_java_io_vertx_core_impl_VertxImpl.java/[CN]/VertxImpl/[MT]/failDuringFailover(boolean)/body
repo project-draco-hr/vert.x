@@ -1,5 +1,5 @@
 {
-  if (haManager != null) {
-    haManager.failDuringFailover(fail);
+  if (haManager() != null) {
+    haManager().failDuringFailover(fail);
   }
 }

@@ -1,3 +1,8 @@
 {
+  if (eventBus == null) {
+synchronized (this) {
+      return eventBus;
+    }
+  }
   return eventBus;
 }

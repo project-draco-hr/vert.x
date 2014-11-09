@@ -34,14 +34,19 @@
     }
  else {
       if (end) {
-        writeEndChunk(buff);
+        if (buff.isReadable()) {
+          conn.writeToChannel(new DefaultLastHttpContent(buff,false));
+        }
+ else {
+          conn.writeToChannel(LastHttpContent.EMPTY_LAST_CONTENT);
+        }
       }
  else {
-        sendChunk(buff);
+        conn.writeToChannel(new DefaultHttpContent(buff));
       }
     }
     if (end) {
-      if (conn.metrics.isEnabled())       conn.metrics.bytesWritten(conn.remoteAddress(),written);
+      if (conn.metrics().isEnabled())       conn.metrics().bytesWritten(conn.remoteAddress(),written);
       conn.endRequest();
     }
   }

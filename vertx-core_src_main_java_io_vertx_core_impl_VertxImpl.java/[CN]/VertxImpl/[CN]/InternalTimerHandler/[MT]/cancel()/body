@@ -1,5 +1,4 @@
 {
-  cancelled=true;
   metrics.timerEnded(timerID,true);
   return future.cancel(false);
 }

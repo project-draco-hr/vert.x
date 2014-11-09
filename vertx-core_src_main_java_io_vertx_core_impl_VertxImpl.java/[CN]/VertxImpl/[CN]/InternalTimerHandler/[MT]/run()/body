@@ -1,12 +1,10 @@
 {
-  if (!cancelled) {
-    try {
-      handler.handle(timerID);
-    }
+  try {
+    handler.handle(timerID);
+  }
   finally {
-      if (!periodic) {
-        cleanupNonPeriodic();
-      }
+    if (!periodic) {
+      cleanupNonPeriodic();
     }
   }
 }

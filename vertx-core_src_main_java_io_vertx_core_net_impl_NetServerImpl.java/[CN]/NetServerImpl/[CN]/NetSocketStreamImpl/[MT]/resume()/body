@@ -1,6 +1,8 @@
 {
-  if (paused) {
-    paused=false;
+synchronized (NetServerImpl.this) {
+    if (paused) {
+      paused=false;
+    }
+    return this;
   }
-  return this;
 }

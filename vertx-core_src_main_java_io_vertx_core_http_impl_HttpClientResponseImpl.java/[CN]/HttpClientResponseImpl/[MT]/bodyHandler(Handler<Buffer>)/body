@@ -1,5 +1,5 @@
 {
-  final BodyHandler handler=new BodyHandler();
+  BodyHandler handler=new BodyHandler();
   handler(handler);
   endHandler(new VoidHandler(){
     public void handle(){
