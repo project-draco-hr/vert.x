@@ -1,0 +1,6 @@
+{
+  MultiMap mmap=new CaseInsensitiveHeaders();
+  Iterator<Map.Entry<String,String>> result=mmap.iterator();
+  assertNotNull(result);
+  assertFalse(result.hasNext());
+}

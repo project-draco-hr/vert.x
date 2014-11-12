@@ -1,0 +1,6 @@
+{
+  MultiMap mmap=new CaseInsensitiveHeaders();
+  List<Map.Entry<String,String>> result=mmap.entries();
+  assertNotNull(result);
+  assertEquals(0,result.size());
+}

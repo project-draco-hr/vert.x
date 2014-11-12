@@ -1,0 +1,3 @@
+{
+  new CaseInsensitiveHeaders().set("name",(Iterable<String>)null);
+}

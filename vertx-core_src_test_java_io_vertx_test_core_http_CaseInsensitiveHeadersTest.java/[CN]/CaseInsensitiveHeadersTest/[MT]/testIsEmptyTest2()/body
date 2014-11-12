@@ -1,0 +1,5 @@
+{
+  MultiMap mmap=new CaseInsensitiveHeaders();
+  mmap.add("a","b");
+  assertFalse(mmap.isEmpty());
+}

@@ -1,0 +1,27 @@
+{
+  MultiMap mm=new CaseInsensitiveHeaders();
+  String name1="AZ";
+  String name2="\u0080Y";
+  String name3="RZ";
+  assertTrue("hash error",hash(name1) == hash(name2));
+  mm.add(name1,"value1");
+  mm.add(name2,"value2");
+  mm.add(name3,"value3");
+  mm.add(name1,"value4");
+  mm.add(name2,"value5");
+  mm.add(name3,"value6");
+  assertEquals(3,mm.size());
+  mm.remove(name1);
+  mm.remove(name2);
+  assertEquals(1,mm.size());
+  mm=new CaseInsensitiveHeaders();
+  name1="A";
+  name2="R";
+  assertTrue("hash error",index(hash(name1)) == index(hash(name2)));
+  mm.add(name1,"value1");
+  mm.add(name2,"value2");
+  assertEquals(2,mm.size());
+  mm.remove(name1);
+  mm.remove(name2);
+  assertTrue("not empty",mm.isEmpty());
+}
