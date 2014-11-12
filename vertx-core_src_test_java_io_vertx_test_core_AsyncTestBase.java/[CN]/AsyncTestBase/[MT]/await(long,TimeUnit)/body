@@ -6,7 +6,6 @@
   try {
     boolean ok=latch.await(delay,timeUnit);
     if (!ok) {
-      timedOut=true;
       throw new IllegalStateException("Timed out in waiting for test complete");
     }
  else {

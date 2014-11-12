@@ -1,3 +1,4 @@
 {
+  tearingDown=true;
   afterAsyncTestBase();
 }

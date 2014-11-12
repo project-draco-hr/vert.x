@@ -3,6 +3,5 @@
   throwable=null;
   testCompleteCalled=false;
   awaitCalled=false;
-  timedOut=false;
   threadNames.clear();
 }
