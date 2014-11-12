@@ -1,16 +1,3 @@
 {
-  VertxOptions opts=new VertxOptions();
-  System.setProperty("vertx.options.eventLoopPoolSize","123");
-  System.setProperty("vertx.options.maxEventLoopExecuteTime","123767667");
-  System.setProperty("vertx.options.clustered","true");
-  System.setProperty("vertx.options.clusterHost","foohost");
-  Starter.configureFromSystemProperties(opts,"vertx.options.");
-  assertEquals(123,opts.getEventLoopPoolSize(),0);
-  assertEquals(123767667l,opts.getMaxEventLoopExecuteTime());
-  assertEquals(true,opts.isClustered());
-  assertEquals("foohost",opts.getClusterHost());
-  DeploymentOptions depOptions=new DeploymentOptions();
-  System.setProperty("vertx.deployment.options.redeployScanPeriod","612536253");
-  Starter.configureFromSystemProperties(depOptions,"vertx.deployment.options.");
-  assertEquals(612536253,depOptions.getRedeployScanPeriod());
+  testConfigureFromSystemProperties(false);
 }

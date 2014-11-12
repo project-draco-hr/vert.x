@@ -1,6 +1,2 @@
 {
-  VertxOptions opts=new VertxOptions();
-  System.setProperty("vertx.options.eventLoopPoolSize","sausages");
-  Starter.configureFromSystemProperties(opts,"vertx.options.");
-  assertEquals(new VertxOptions(),opts);
 }
