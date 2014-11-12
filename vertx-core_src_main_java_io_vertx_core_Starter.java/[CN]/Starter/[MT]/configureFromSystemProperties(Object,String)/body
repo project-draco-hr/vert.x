@@ -6,7 +6,7 @@
     String propVal=props.getProperty(propName);
     if (propName.startsWith(prefix)) {
       String fieldName=propName.substring(prefix.length());
-      Method setter=getSetter(fieldName,VertxOptions.class);
+      Method setter=getSetter(fieldName,options.getClass());
       if (setter == null) {
         log.warn("No such property to configure on options: " + options.getClass().getName() + "."+ fieldName);
         continue;
