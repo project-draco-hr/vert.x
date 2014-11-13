@@ -1,0 +1,6 @@
+{
+  Config config=new Config();
+  HazelcastClusterManager mgr=new HazelcastClusterManager();
+  mgr.setConfig(config);
+  testProgrammatic(mgr,config);
+}
