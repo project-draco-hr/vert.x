@@ -1,0 +1,16 @@
+{
+  JsonObject obj=new JsonObject(Collections.singletonMap("abc",Collections.singletonMap("def",3)));
+  assertEquals(obj,new JsonObject(Collections.singletonMap("abc",Collections.singletonMap("def",3))));
+  assertEquals(obj,new JsonObject(Collections.singletonMap("abc",Collections.singletonMap("def",3L))));
+  assertEquals(obj,new JsonObject(Collections.singletonMap("abc",new JsonObject().put("def",3))));
+  assertEquals(obj,new JsonObject(Collections.singletonMap("abc",new JsonObject().put("def",3L))));
+  assertNotEquals(obj,new JsonObject(Collections.singletonMap("abc",Collections.singletonMap("def",4))));
+  assertNotEquals(obj,new JsonObject(Collections.singletonMap("abc",new JsonObject().put("def",4))));
+  JsonArray array=new JsonArray(Collections.singletonList(Collections.singletonMap("def",3)));
+  assertEquals(array,new JsonArray(Collections.singletonList(Collections.singletonMap("def",3))));
+  assertEquals(array,new JsonArray(Collections.singletonList(Collections.singletonMap("def",3L))));
+  assertEquals(array,new JsonArray(Collections.singletonList(new JsonObject().put("def",3))));
+  assertEquals(array,new JsonArray(Collections.singletonList(new JsonObject().put("def",3L))));
+  assertNotEquals(array,new JsonArray(Collections.singletonList(Collections.singletonMap("def",4))));
+  assertNotEquals(array,new JsonArray(Collections.singletonList(new JsonObject().put("def",4))));
+}

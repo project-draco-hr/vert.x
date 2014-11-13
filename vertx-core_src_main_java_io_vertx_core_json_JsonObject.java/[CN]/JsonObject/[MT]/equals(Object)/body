@@ -1,20 +1,5 @@
 {
   if (this == o)   return true;
   if (o == null || getClass() != o.getClass())   return false;
-  JsonObject that=(JsonObject)o;
-  if (this.map.size() != that.map.size())   return false;
-  for (  Map.Entry<String,Object> entry : this.map.entrySet()) {
-    Object val=entry.getValue();
-    if (val == null) {
-      if (that.map.get(entry.getKey()) != null) {
-        return false;
-      }
-    }
- else {
-      if (!equals(entry.getValue(),that.map.get(entry.getKey()))) {
-        return false;
-      }
-    }
-  }
-  return true;
+  return objectEquals(map,o);
 }
