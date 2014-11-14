@@ -1,0 +1,27 @@
+{
+  Map<?,?> m2;
+  if (o2 instanceof JsonObject) {
+    m2=((JsonObject)o2).map;
+  }
+ else   if (o2 instanceof Map<?,?>) {
+    m2=(Map<?,?>)o2;
+  }
+ else {
+    return false;
+  }
+  if (m1.size() != m2.size())   return false;
+  for (  Map.Entry<?,?> entry : m1.entrySet()) {
+    Object val=entry.getValue();
+    if (val == null) {
+      if (m2.get(entry.getKey()) != null) {
+        return false;
+      }
+    }
+ else {
+      if (!equals(entry.getValue(),m2.get(entry.getKey()))) {
+        return false;
+      }
+    }
+  }
+  return true;
+}

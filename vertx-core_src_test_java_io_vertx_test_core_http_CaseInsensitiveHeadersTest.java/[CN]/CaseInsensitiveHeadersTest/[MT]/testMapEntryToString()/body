@@ -1,0 +1,5 @@
+{
+  MultiMap mmap=new CaseInsensitiveHeaders();
+  mmap.add("Header","value");
+  assertEquals("Header: value",mmap.iterator().next().toString());
+}

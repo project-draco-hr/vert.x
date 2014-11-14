@@ -1,0 +1,3 @@
+{
+  new CaseInsensitiveHeaders().get(null);
+}

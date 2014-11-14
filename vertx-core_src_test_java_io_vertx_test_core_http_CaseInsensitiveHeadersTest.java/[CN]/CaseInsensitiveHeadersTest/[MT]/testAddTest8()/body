@@ -1,0 +1,7 @@
+{
+  MultiMap mmap=new CaseInsensitiveHeaders();
+  CharSequence name="name";
+  ArrayList<CharSequence> values=new ArrayList<CharSequence>();
+  values.add("somevalue");
+  assertEquals("name: somevalue\n",mmap.add(name,values).toString());
+}

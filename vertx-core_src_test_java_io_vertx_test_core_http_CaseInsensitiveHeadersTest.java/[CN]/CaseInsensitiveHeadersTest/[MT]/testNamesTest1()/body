@@ -1,0 +1,6 @@
+{
+  MultiMap mmap=new CaseInsensitiveHeaders();
+  Set<String> result=mmap.names();
+  assertNotNull(result);
+  assertEquals(0,result.size());
+}

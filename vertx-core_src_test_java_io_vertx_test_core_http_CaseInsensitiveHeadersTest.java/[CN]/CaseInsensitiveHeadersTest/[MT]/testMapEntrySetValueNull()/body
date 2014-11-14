@@ -1,0 +1,7 @@
+{
+  MultiMap mmap=new CaseInsensitiveHeaders();
+  mmap.add("Header","oldvalue");
+  for (  Map.Entry<String,String> me : mmap) {
+    me.setValue(null);
+  }
+}

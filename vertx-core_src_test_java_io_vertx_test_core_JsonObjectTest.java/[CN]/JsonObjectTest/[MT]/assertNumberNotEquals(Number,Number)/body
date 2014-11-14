@@ -1,0 +1,7 @@
+{
+  JsonObject o1=new JsonObject().put("key",value1);
+  JsonObject o2=new JsonObject().put("key",value2);
+  if (o1.equals(o2)) {
+    fail("Was expecting " + value1.getClass().getSimpleName() + ":"+ value1+ " != "+ value2.getClass().getSimpleName()+ ":"+ value2);
+  }
+}

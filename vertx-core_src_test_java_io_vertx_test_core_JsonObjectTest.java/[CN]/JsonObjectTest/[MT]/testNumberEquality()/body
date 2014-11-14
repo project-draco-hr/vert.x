@@ -1,0 +1,28 @@
+{
+  assertNumberEquals(4,4);
+  assertNumberEquals(4,(long)4);
+  assertNumberEquals(4,4f);
+  assertNumberEquals(4,4D);
+  assertNumberEquals((long)4,(long)4);
+  assertNumberEquals((long)4,4f);
+  assertNumberEquals((long)4,4D);
+  assertNumberEquals(4f,4f);
+  assertNumberEquals(4f,4D);
+  assertNumberEquals(4D,4D);
+  assertNumberEquals(4.1D,4.1D);
+  assertNumberEquals(4.1f,4.1f);
+  assertNumberNotEquals(4.1f,4.1D);
+  assertNumberEquals(4.5D,4.5D);
+  assertNumberEquals(4.5f,4.5f);
+  assertNumberEquals(4.5f,4.5D);
+  assertNumberNotEquals(4,5);
+  assertNumberNotEquals(4,(long)5);
+  assertNumberNotEquals(4,5D);
+  assertNumberNotEquals(4,5f);
+  assertNumberNotEquals((long)4,(long)5);
+  assertNumberNotEquals((long)4,5D);
+  assertNumberNotEquals((long)4,5f);
+  assertNumberNotEquals(4f,5f);
+  assertNumberNotEquals(4f,5D);
+  assertNumberNotEquals(4D,5D);
+}
