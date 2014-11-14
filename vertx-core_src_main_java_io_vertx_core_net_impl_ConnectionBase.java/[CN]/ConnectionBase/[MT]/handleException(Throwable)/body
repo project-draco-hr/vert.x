@@ -1,2 +1,9 @@
 {
+  metrics.exceptionOccurred(remoteAddress(),t);
+  if (exceptionHandler != null) {
+    exceptionHandler.handle(t);
+  }
+ else {
+    log.error(t);
+  }
 }

@@ -2,5 +2,4 @@
   this.handler=handler;
   this.result=result;
   this.context=context;
-  this.vertx=vertx;
 }

@@ -1,2 +1,24 @@
 {
+  int end=offset + maxWebSocketFrameSize;
+  boolean isFinal;
+  if (end >= data.length()) {
+    end=data.length();
+    isFinal=true;
+  }
+ else {
+    isFinal=false;
+  }
+  Buffer slice=data.slice(offset,end);
+  WebSocketFrame frame;
+  if (offset == 0 || !supportsContinuation) {
+    frame=WebSocketFrame.binaryFrame(slice,isFinal);
+  }
+ else {
+    frame=WebSocketFrame.continuationFrame(slice,isFinal);
+  }
+  writeFrame(frame);
+  int newOffset=offset + maxWebSocketFrameSize;
+  if (!isFinal) {
+    writePartialMessage(data,newOffset);
+  }
 }

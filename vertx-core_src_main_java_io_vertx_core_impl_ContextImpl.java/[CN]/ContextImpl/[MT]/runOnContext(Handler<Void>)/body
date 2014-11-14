@@ -1,2 +1,7 @@
 {
+  try {
+    executeAsync(task);
+  }
+ catch (  RejectedExecutionException ignore) {
+  }
 }
