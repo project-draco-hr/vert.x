@@ -1,7 +1,6 @@
 {
   super.setUp();
-  Path path=Files.createTempDirectory("vertx-redeploytest");
-  tempDir=path.toFile();
+  tempDir=testFolder.newFolder();
   cpDir=new File(tempDir,"cpDir");
   assertTrue(cpDir.mkdir());
   URLClassLoader urlc=(URLClassLoader)getClass().getClassLoader();
