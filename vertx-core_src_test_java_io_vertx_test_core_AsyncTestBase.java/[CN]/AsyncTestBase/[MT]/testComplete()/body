@@ -1,6 +1,6 @@
 {
   if (tearingDown) {
-    throw new IllegalStateException("testComplete called after test has completed");
+    log.warn("testComplete called after test has completed");
   }
   checkThread();
   if (testCompleteCalled) {
