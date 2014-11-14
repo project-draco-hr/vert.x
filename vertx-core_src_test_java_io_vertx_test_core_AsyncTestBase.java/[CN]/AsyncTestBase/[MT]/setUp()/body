@@ -1,4 +1,5 @@
 {
+  tearingDown=false;
   latch=new CountDownLatch(1);
   throwable=null;
   testCompleteCalled=false;
