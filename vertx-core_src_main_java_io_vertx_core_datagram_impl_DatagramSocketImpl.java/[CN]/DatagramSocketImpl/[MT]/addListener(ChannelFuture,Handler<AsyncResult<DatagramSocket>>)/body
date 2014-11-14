@@ -1,5 +1,5 @@
 {
   if (handler != null) {
-    future.addListener(new DatagramChannelFutureListener<>(this,handler,vertx,context));
+    future.addListener(new DatagramChannelFutureListener<>(this,handler,context));
   }
 }

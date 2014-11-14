@@ -1,4 +1,3 @@
 T result
 Handler<AsyncResult<T>> handler
-VertxInternal vertx
 ContextImpl context

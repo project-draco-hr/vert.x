@@ -1,3 +1,0 @@
-{
-  workerExec.execute(wrapTask(task,true));
-}
