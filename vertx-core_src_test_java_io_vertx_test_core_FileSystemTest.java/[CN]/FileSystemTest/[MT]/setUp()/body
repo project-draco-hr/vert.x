@@ -2,7 +2,6 @@
   super.setUp();
   java.nio.file.FileSystem fs=FileSystems.getDefault();
   pathSep=fs.getSeparator();
-  File ftestDir=Files.createTempDirectory("vertx-test").toFile();
-  ftestDir.deleteOnExit();
+  File ftestDir=testFolder.newFolder();
   testDir=ftestDir.toString();
 }
