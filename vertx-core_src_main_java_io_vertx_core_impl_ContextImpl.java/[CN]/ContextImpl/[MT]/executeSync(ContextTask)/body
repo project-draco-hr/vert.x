@@ -1,0 +1,4 @@
+{
+  checkCorrectThread();
+  wrapTask(task,null,true).run();
+}

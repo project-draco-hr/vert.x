@@ -21,15 +21,15 @@
                   }
                   records.add(record);
                 }
-                setResult(result,ctx.channel().eventLoop(),records);
+                setResult(result,records);
               }
  else {
-                setResult(result,ctx.channel().eventLoop(),new DnsException(code));
+                setResult(result,new DnsException(code));
               }
               ctx.close();
             }
             @Override public void exceptionCaught(            ChannelHandlerContext ctx,            Throwable cause) throws Exception {
-              setResult(result,ctx.channel().eventLoop(),cause);
+              setResult(result,cause);
               ctx.close();
             }
           }

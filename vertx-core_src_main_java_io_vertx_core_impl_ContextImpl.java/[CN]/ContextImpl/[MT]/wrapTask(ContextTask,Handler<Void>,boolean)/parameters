@@ -1,0 +1,3 @@
+ContextTask cTask
+Handler<Void> hTask
+boolean checkThread
