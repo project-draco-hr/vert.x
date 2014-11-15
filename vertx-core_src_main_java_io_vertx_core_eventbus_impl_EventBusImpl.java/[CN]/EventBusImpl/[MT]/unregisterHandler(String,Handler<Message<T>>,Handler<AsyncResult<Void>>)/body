@@ -17,11 +17,11 @@ synchronized (handlers) {
             if (subs != null && !holder.localOnly) {
               removeSub(address,serverID,completionHandler);
             }
- else             if (completionHandler != null) {
+ else {
               callCompletionHandlerAsync(completionHandler);
             }
           }
- else           if (completionHandler != null) {
+ else {
             callCompletionHandlerAsync(completionHandler);
           }
           holder.context.removeCloseHook(new HandlerEntry<T>(address,handler));
