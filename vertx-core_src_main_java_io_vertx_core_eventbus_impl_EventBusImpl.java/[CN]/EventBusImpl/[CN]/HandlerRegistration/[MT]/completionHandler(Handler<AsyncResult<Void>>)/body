@@ -1,9 +1,2 @@
 {
-  Objects.requireNonNull(completionHandler);
-  if (result != null) {
-    completionHandler.handle(result);
-  }
- else {
-    this.completionHandler=completionHandler;
-  }
 }

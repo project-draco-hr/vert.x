@@ -1,3 +1,0 @@
-{
-  completionHandler.handle(Future.completedFuture());
-}
