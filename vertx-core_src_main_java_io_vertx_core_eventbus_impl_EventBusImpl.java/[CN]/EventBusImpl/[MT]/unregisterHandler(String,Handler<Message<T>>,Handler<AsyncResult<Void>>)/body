@@ -22,7 +22,7 @@ synchronized (handlers) {
             }
           }
  else           if (completionHandler != null) {
-            callCompletionHandler(completionHandler);
+            callCompletionHandlerAsync(completionHandler);
           }
           holder.context.removeCloseHook(new HandlerEntry<T>(address,handler));
           break;
