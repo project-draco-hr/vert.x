@@ -1,6 +1,0 @@
-{
-  objectDataOutput.writeUTF(clusterSerializable.getClass().getName());
-  byte[] bytes=clusterSerializable.writeToBuffer().getBytes();
-  objectDataOutput.writeInt(bytes.length);
-  objectDataOutput.write(bytes);
-}

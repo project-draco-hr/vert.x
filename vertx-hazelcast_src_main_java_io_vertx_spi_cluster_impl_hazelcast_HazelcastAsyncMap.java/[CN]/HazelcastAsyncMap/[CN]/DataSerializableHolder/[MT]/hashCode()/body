@@ -1,3 +1,0 @@
-{
-  return clusterSerializable != null ? clusterSerializable.hashCode() : 0;
-}

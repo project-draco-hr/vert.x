@@ -1,4 +1,0 @@
-{
-  dataOutput.writeInt(port);
-  dataOutput.writeUTF(host);
-}
