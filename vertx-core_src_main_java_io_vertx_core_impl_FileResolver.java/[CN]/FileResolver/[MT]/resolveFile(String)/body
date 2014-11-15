@@ -2,7 +2,7 @@
   File file=new File(fileName);
   if (!file.exists()) {
     File cacheFile=null;
-    if (cacheDir != null) {
+    if (enableCaching && cacheDir != null) {
       cacheFile=new File(cacheDir,fileName);
       if (cacheFile.exists()) {
         return cacheFile;
@@ -14,6 +14,9 @@
       if (cacheFile == null) {
         setupCacheDir();
         cacheFile=new File(cacheDir,fileName);
+        if (!enableCaching && cacheFile.exists()) {
+          cacheFile.delete();
+        }
         cacheFile.getParentFile().mkdirs();
       }
       try {
