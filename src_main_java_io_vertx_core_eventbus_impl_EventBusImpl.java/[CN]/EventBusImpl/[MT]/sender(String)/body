@@ -1,2 +1,4 @@
 {
+  Objects.requireNonNull(address,"address");
+  return new MessageProducerImpl<>(this,address,true,new DeliveryOptions());
 }

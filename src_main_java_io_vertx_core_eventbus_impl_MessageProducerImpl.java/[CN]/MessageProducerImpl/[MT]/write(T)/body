@@ -1,0 +1,9 @@
+{
+  if (send) {
+    bus.send(address,data,options);
+  }
+ else {
+    bus.publish(address,data,options);
+  }
+  return this;
+}
