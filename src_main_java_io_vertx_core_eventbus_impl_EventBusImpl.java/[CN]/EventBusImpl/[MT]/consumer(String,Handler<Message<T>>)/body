@@ -1,0 +1,6 @@
+{
+  Objects.requireNonNull(handler,"handler");
+  MessageConsumer<T> consumer=consumer(address);
+  consumer.handler(handler);
+  return consumer;
+}
