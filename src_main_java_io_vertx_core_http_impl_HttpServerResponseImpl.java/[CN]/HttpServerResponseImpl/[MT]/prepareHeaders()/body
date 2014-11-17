@@ -8,4 +8,7 @@
  else   if (version != HttpVersion.HTTP_1_0 && !contentLengthSet()) {
     response.headers().set(HttpHeaders.CONTENT_LENGTH,"0");
   }
+  if (headersEndHandler != null) {
+    headersEndHandler.handle(null);
+  }
 }

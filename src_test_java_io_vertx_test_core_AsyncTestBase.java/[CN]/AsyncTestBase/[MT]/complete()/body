@@ -1,0 +1,13 @@
+{
+  if (tearingDown) {
+    throw new IllegalStateException("testComplete called after test has completed");
+  }
+  checkThread();
+  if (testCompleteCalled) {
+    throw new IllegalStateException("already complete");
+  }
+  latch.countDown();
+  if (latch.getCount() == 0) {
+    testCompleteCalled=true;
+  }
+}

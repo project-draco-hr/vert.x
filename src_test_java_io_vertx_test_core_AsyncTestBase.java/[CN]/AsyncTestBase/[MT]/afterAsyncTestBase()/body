@@ -2,9 +2,9 @@
   if (throwable != null && thrownThread != Thread.currentThread() && !awaitCalled) {
     throw new IllegalStateException("Assert or failure from non main thread but no await() on main thread");
   }
-  if (threadChecksEnabled) {
-    for (    Map.Entry<String,Exception> entry : threadNames.entrySet()) {
-      if (!entry.getKey().equals("main") && !entry.getKey().startsWith("vert.x-")) {
+  for (  Map.Entry<String,Exception> entry : threadNames.entrySet()) {
+    if (!entry.getKey().equals("main")) {
+      if (threadChecksEnabled && !entry.getKey().startsWith("vert.x-")) {
         IllegalStateException is=new IllegalStateException("Non Vert.x thread! :" + entry.getKey());
         is.setStackTrace(entry.getValue().getStackTrace());
         throw is;

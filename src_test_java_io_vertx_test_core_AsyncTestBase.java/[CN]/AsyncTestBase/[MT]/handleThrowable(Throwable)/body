@@ -3,6 +3,7 @@
     throw new IllegalStateException("assert or failure occurred after test has completed");
   }
   throwable=t;
+  t.printStackTrace();
   thrownThread=Thread.currentThread();
   latch.countDown();
   if (t instanceof AssertionError) {

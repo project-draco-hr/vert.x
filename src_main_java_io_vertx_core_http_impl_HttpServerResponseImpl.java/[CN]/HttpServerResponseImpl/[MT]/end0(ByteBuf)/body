@@ -37,4 +37,7 @@
   }
   written=true;
   conn.responseComplete();
+  if (bodyEndHandler != null) {
+    bodyEndHandler.handle(null);
+  }
 }

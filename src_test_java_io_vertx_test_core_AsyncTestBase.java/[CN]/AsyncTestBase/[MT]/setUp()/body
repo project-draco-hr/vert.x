@@ -1,6 +1,7 @@
 {
+  log.info("Starting test: " + this.getClass().getSimpleName() + "#"+ name.getMethodName());
   tearingDown=false;
-  latch=new CountDownLatch(1);
+  waitFor(1);
   throwable=null;
   testCompleteCalled=false;
   awaitCalled=false;
