@@ -14,6 +14,6 @@
   assertFalse(verticle.stopCalled);
   assertTrue(vertx.deployments().contains(deploymentID));
   assertEquals(instances,vertx.deployments().size());
-  Context currentContext=vertx.context();
+  Context currentContext=Vertx.currentContext();
   assertNotSame(currentContext,verticle.startContext);
 }

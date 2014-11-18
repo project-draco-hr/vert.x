@@ -1,0 +1,3 @@
+{
+  return (T)contextData().get(key);
+}
