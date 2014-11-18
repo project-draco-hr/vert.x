@@ -1,3 +1,7 @@
 {
-  return getOrCreateContext();
+  Thread current=Thread.currentThread();
+  if (current instanceof VertxThread) {
+    return ((VertxThread)current).getContext();
+  }
+  return null;
 }

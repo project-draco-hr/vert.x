@@ -5,7 +5,7 @@
       if (dep.deploymentOptions().isHa()) {
         ContextImpl ctx=vertx.getContext();
         try {
-          vertx.setContext(null);
+          ContextImpl.setContext(null);
           deploymentManager.undeployVerticle(deploymentID,new AsyncResultHandler<Void>(){
             @Override public void handle(            AsyncResult<Void> result){
               if (result.succeeded()) {
@@ -30,7 +30,7 @@
 );
         }
   finally {
-          vertx.setContext(ctx);
+          ContextImpl.setContext(ctx);
         }
       }
     }

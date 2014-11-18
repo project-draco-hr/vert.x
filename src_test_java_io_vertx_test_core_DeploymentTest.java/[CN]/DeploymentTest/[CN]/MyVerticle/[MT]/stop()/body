@@ -6,6 +6,6 @@ case THROW_ERROR:
   throw new Error("BooFar!");
 default :
 stopCalled=true;
-stopContext=vertx.context();
+stopContext=Vertx.currentContext();
 }
 }

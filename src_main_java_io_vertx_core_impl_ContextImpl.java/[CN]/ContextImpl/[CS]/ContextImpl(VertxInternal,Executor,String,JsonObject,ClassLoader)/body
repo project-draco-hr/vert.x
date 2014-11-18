@@ -1,5 +1,4 @@
 {
-  this.vertx=vertx;
   this.orderedInternalPoolExec=orderedInternalPoolExec;
   this.deploymentID=deploymentID;
   this.config=config;
