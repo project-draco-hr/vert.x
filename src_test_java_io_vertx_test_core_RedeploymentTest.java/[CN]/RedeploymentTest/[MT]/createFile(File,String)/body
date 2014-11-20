@@ -1,4 +1,4 @@
 {
   File f=new File(dir,fileName);
-  vertx.fileSystem().writeFileSync(f.getAbsolutePath(),Buffer.buffer(TestUtils.randomAlphaString(1000)));
+  vertx.fileSystem().writeFileBlocking(f.getAbsolutePath(),Buffer.buffer(TestUtils.randomAlphaString(1000)));
 }

@@ -1,8 +1,8 @@
 {
   KeyCertOptions options=(KeyCertOptions)getServerCertOptions(KS.PEM);
-  Buffer key=vertx.fileSystem().readFileSync(options.getKeyPath());
+  Buffer key=vertx.fileSystem().readFileBlocking(options.getKeyPath());
   options.setKeyValue(null).setKeyValue(key);
-  Buffer cert=vertx.fileSystem().readFileSync(options.getCertPath());
+  Buffer cert=vertx.fileSystem().readFileBlocking(options.getCertPath());
   options.setCertValue(null).setCertValue(cert);
   testKeyStore(options);
 }
