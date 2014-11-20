@@ -3,5 +3,4 @@ io.vertx.core.http.HttpMethod method
 String host
 int port
 String relativeURI
-Handler<HttpClientResponse> respHandler
 VertxInternal vertx

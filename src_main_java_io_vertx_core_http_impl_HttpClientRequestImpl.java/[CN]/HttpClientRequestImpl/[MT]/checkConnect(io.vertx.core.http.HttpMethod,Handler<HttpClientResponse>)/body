@@ -1,5 +1,5 @@
 {
-  if (method == HttpMethod.CONNECT) {
+  if (method == io.vertx.core.http.HttpMethod.CONNECT) {
     handler=connectHandler(handler);
   }
   return handler;

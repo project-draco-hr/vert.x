@@ -1,0 +1,5 @@
+{
+  if (respHandler == null) {
+    throw new IllegalStateException("You must set an handler for the HttpClientResponse before connecting");
+  }
+}

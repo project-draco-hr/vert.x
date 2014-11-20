@@ -1,2 +1,1 @@
-HttpMethod method
 Handler<HttpClientResponse> handler

@@ -8,7 +8,12 @@
         }
       }
  else {
-        respHandler.handle(resp);
+        if (respHandler != null) {
+          respHandler.handle(resp);
+        }
+        if (endHandler != null) {
+          endHandler.handle(null);
+        }
       }
     }
  catch (    Throwable t) {

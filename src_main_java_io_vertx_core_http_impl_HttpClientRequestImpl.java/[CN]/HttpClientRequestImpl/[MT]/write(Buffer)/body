@@ -1,5 +1,6 @@
 {
   checkComplete();
+  checkResponseHandler();
   ByteBuf buf=chunk.getByteBuf();
   write(buf,false);
   return this;

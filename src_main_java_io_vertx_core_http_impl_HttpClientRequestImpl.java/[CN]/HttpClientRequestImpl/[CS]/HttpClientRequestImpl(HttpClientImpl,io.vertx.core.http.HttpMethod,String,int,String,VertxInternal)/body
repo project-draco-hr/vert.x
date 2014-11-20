@@ -5,6 +5,5 @@
   this.request=new DefaultHttpRequest(HttpVersion.HTTP_1_1,toNettyHttpMethod(method),relativeURI,false);
   this.chunked=false;
   this.method=method;
-  this.respHandler=respHandler;
   this.vertx=vertx;
 }
