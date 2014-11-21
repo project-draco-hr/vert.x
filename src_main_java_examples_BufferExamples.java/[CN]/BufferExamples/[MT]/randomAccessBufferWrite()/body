@@ -1,0 +1,5 @@
+{
+  Buffer buff=Buffer.buffer();
+  buff.setInt(1000,123);
+  buff.setString(0,"hello");
+}
