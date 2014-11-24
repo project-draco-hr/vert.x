@@ -1,13 +1,13 @@
 {
   Object foo=new Object();
-  Future<Object> future=Future.completedFuture(foo);
+  Future<Object> future=Future.succeededFuture(foo);
   assertTrue(future.succeeded());
   assertFalse(future.failed());
   assertTrue(future.isComplete());
   assertEquals(foo,future.result());
   assertNull(future.cause());
   Exception cause=new Exception();
-  future=Future.completedFuture(cause);
+  future=Future.failedFuture(cause);
   assertFalse(future.succeeded());
   assertTrue(future.failed());
   assertTrue(future.isComplete());

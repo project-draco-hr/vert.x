@@ -2,7 +2,7 @@
   vertx.runOnContext(new Handler<Void>(){
     @Override public void handle(    Void v){
       metrics.replyFailure(address,ReplyFailure.NO_HANDLERS);
-      handler.handle(Future.completedFuture(new ReplyException(ReplyFailure.NO_HANDLERS)));
+      handler.handle(Future.failedFuture(new ReplyException(ReplyFailure.NO_HANDLERS)));
     }
   }
 );

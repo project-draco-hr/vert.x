@@ -5,10 +5,10 @@
  else {
     List<T> result=event.result();
     if (result.isEmpty()) {
-      handler.handle(Future.completedFuture());
+      handler.handle(Future.succeededFuture());
     }
  else {
-      handler.handle(Future.completedFuture(result.get(0)));
+      handler.handle(Future.succeededFuture(result.get(0)));
     }
   }
 }

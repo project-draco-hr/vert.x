@@ -1,2 +1,3 @@
 {
+  executeBlocking(action,null,resultHandler);
 }

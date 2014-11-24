@@ -1,5 +1,5 @@
 {
   if (completionHandler != null) {
-    reportResult(context,completionHandler,Future.completedFuture(result));
+    reportResult(context,completionHandler,Future.succeededFuture(result));
   }
 }

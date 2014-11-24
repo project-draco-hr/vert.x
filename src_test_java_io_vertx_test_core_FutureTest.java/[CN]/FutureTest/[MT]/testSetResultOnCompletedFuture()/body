@@ -1,11 +1,11 @@
 {
   ArrayList<Future<Object>> futures=new ArrayList<>();
-  futures.add(Future.completedFuture());
-  futures.add(Future.completedFuture());
-  futures.add(Future.completedFuture(new Object()));
-  futures.add(Future.completedFuture(new Object()));
-  futures.add(Future.completedFuture(new Exception()));
-  futures.add(Future.completedFuture(new Exception()));
+  futures.add(Future.succeededFuture());
+  futures.add(Future.succeededFuture());
+  futures.add(Future.succeededFuture(new Object()));
+  futures.add(Future.succeededFuture(new Object()));
+  futures.add(Future.failedFuture(new Exception()));
+  futures.add(Future.failedFuture(new Exception()));
   for (  Future<Object> future : futures) {
     try {
       future.complete(new Object());
