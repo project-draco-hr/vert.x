@@ -1,0 +1,4 @@
+{
+  assertTrue(vertx.fileSystem().existsBlocking("webroot"));
+  assertTrue(vertx.fileSystem().propsBlocking("webroot").isDirectory());
+}

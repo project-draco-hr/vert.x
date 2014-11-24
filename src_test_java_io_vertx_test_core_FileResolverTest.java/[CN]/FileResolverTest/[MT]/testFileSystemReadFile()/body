@@ -1,0 +1,7 @@
+{
+  assertTrue(vertx.fileSystem().existsBlocking("afile.html"));
+  assertFalse(vertx.fileSystem().propsBlocking("afile.html").isDirectory());
+  Buffer buffer=vertx.fileSystem().readFileBlocking("afile.html");
+  assertNotNull(buffer);
+  assertTrue(buffer.toString().startsWith("<html><body>afile</body></html>"));
+}

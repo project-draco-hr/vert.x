@@ -14,19 +14,24 @@
     ClassLoader cl=getClassLoader();
     InputStream is=cl.getResourceAsStream(fileName);
     if (is != null) {
+      boolean isDirectory=new File(fileName).getName().indexOf('.') == -1;
       if (cacheFile == null) {
         setupCacheDir();
         cacheFile=new File(cacheDir,fileName);
-        if (!enableCaching && cacheFile.exists()) {
-          cacheFile.delete();
+        if (isDirectory) {
+          cacheFile.mkdirs();
         }
-        cacheFile.getParentFile().mkdirs();
+ else {
+          cacheFile.getParentFile().mkdirs();
+        }
       }
-      try {
-        Files.copy(is,cacheFile.toPath());
-      }
- catch (      IOException e) {
-        throw new VertxException("Failed to copy file",e);
+      if (!isDirectory) {
+        try {
+          Files.copy(is,cacheFile.toPath());
+        }
+ catch (        IOException e) {
+          throw new VertxException("Failed to copy file",e);
+        }
       }
       return cacheFile;
     }
