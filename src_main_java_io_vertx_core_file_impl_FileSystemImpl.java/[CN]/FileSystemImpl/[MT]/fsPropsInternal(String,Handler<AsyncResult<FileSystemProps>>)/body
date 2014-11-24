@@ -1,8 +1,9 @@
 {
-  Path target=vertx.resolveFile(path).toPath();
+  Objects.requireNonNull(path);
   return new BlockingAction<FileSystemProps>(handler){
     public FileSystemProps perform(){
       try {
+        Path target=vertx.resolveFile(path).toPath();
         FileStore fs=Files.getFileStore(target);
         return new FileSystemPropsImpl(fs.getTotalSpace(),fs.getUnallocatedSpace(),fs.getUsableSpace());
       }

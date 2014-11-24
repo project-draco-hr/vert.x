@@ -1,7 +1,8 @@
 {
-  Objects.requireNonNull(options,"no null options accepted");
-  String path=vertx.resolveFile(p).getAbsolutePath();
+  Objects.requireNonNull(p);
+  Objects.requireNonNull(options);
   return new BlockingAction<AsyncFile>(handler){
+    String path=vertx.resolveFile(p).getAbsolutePath();
     public AsyncFile perform(){
       return doOpen(path,options,context);
     }

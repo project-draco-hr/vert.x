@@ -1,11 +1,12 @@
 {
-  Path target=vertx.resolveFile(path).toPath();
-  UserPrincipalLookupService service=target.getFileSystem().getUserPrincipalLookupService();
+  Objects.requireNonNull(path);
   return new BlockingAction<Void>(handler){
     public Void perform(){
       try {
-        final UserPrincipal userPrincipal=user == null ? null : service.lookupPrincipalByName(user);
-        final GroupPrincipal groupPrincipal=group == null ? null : service.lookupPrincipalByGroupName(group);
+        Path target=vertx.resolveFile(path).toPath();
+        UserPrincipalLookupService service=target.getFileSystem().getUserPrincipalLookupService();
+        UserPrincipal userPrincipal=user == null ? null : service.lookupPrincipalByName(user);
+        GroupPrincipal groupPrincipal=group == null ? null : service.lookupPrincipalByGroupName(group);
         if (groupPrincipal != null) {
           PosixFileAttributeView view=Files.getFileAttributeView(target,PosixFileAttributeView.class,LinkOption.NOFOLLOW_LINKS);
           if (view == null) {
@@ -18,7 +19,7 @@
         }
       }
  catch (      SecurityException e) {
-        throw new FileSystemException("Accessed denied for chown on " + target);
+        throw new FileSystemException("Accessed denied for chown on " + path);
       }
 catch (      IOException e) {
         throw new FileSystemException(e);

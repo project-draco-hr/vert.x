@@ -1,3 +1,4 @@
 {
-  return sendFile(filename,(String)null);
+  doSendFile(filename,null);
+  return this;
 }

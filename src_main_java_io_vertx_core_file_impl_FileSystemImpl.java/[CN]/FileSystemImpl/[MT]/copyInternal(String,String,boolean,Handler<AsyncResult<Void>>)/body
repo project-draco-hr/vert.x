@@ -1,9 +1,11 @@
 {
-  Path source=vertx.resolveFile(from).toPath();
-  Path target=vertx.resolveFile(to).toPath();
+  Objects.requireNonNull(from);
+  Objects.requireNonNull(to);
   return new BlockingAction<Void>(handler){
     public Void perform(){
       try {
+        Path source=vertx.resolveFile(from).toPath();
+        Path target=vertx.resolveFile(to).toPath();
         if (recursive) {
           Files.walkFileTree(source,EnumSet.of(FileVisitOption.FOLLOW_LINKS),Integer.MAX_VALUE,new SimpleFileVisitor<Path>(){
             public FileVisitResult preVisitDirectory(            Path dir,            BasicFileAttributes attrs) throws IOException {

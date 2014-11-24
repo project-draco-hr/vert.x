@@ -1,5 +1,8 @@
 {
   File file=new File(fileName);
+  if (!enableCPResolving) {
+    return file;
+  }
   if (!file.exists()) {
     File cacheFile=null;
     if (enableCaching && cacheDir != null) {

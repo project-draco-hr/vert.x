@@ -1,6 +1,7 @@
 {
-  File file=vertx.resolveFile(path);
+  Objects.requireNonNull(path);
   return new BlockingAction<Boolean>(handler){
+    File file=vertx.resolveFile(path);
     public Boolean perform(){
       return file.exists();
     }

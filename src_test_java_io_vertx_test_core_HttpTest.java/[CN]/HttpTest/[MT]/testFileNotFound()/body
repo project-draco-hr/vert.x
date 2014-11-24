@@ -1,3 +1,0 @@
-{
-  sendFile(null,"<html><body>Resource not found</body><html>",null,false);
-}

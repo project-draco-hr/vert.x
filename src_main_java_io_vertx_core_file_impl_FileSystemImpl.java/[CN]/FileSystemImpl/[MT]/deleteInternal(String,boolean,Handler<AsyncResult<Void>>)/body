@@ -1,8 +1,9 @@
 {
-  Path source=vertx.resolveFile(path).toPath();
+  Objects.requireNonNull(path);
   return new BlockingAction<Void>(handler){
     public Void perform(){
       try {
+        Path source=vertx.resolveFile(path).toPath();
         if (recursive) {
           Files.walkFileTree(source,new SimpleFileVisitor<Path>(){
             public FileVisitResult visitFile(            Path file,            BasicFileAttributes attrs) throws IOException {

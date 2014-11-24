@@ -1,4 +1,3 @@
-String sendFile
+String fileName
 String contentExpected
-String notFoundFile
 boolean handler

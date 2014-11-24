@@ -1,5 +1,0 @@
-{
-  setStatusCode(HttpResponseStatus.FORBIDDEN.code());
-  putHeader(HttpHeaders.CONTENT_TYPE,HttpHeaders.TEXT_HTML);
-  end(FORBIDDEN);
-}

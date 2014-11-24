@@ -1,8 +1,9 @@
 {
-  Path target=vertx.resolveFile(path).toPath();
+  Objects.requireNonNull(path);
   return new BlockingAction<Buffer>(handler){
     public Buffer perform(){
       try {
+        Path target=vertx.resolveFile(path).toPath();
         byte[] bytes=Files.readAllBytes(target);
         Buffer buff=Buffer.buffer(bytes);
         return buff;

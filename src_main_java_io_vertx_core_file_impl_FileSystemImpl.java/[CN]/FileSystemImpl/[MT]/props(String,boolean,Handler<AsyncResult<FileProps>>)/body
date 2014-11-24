@@ -1,8 +1,9 @@
 {
-  Path target=vertx.resolveFile(path).toPath();
+  Objects.requireNonNull(path);
   return new BlockingAction<FileProps>(handler){
     public FileProps perform(){
       try {
+        Path target=vertx.resolveFile(path).toPath();
         BasicFileAttributes attrs;
         if (followLinks) {
           attrs=Files.readAttributes(target,BasicFileAttributes.class);

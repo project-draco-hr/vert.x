@@ -1,15 +1,16 @@
 {
-  String path=vertx.resolveFile(p).getAbsolutePath();
+  Objects.requireNonNull(p);
   return new BlockingAction<Void>(handler){
     public Void perform(){
-      if (len < 0) {
-        throw new FileSystemException("Cannot truncate file to size < 0");
-      }
-      if (!Files.exists(Paths.get(path))) {
-        throw new FileSystemException("Cannot truncate file " + path + ". Does not exist");
-      }
       RandomAccessFile raf=null;
       try {
+        String path=vertx.resolveFile(p).getAbsolutePath();
+        if (len < 0) {
+          throw new FileSystemException("Cannot truncate file to size < 0");
+        }
+        if (!Files.exists(Paths.get(path))) {
+          throw new FileSystemException("Cannot truncate file " + path + ". Does not exist");
+        }
         try {
           raf=new RandomAccessFile(path,"rw");
           raf.setLength(len);

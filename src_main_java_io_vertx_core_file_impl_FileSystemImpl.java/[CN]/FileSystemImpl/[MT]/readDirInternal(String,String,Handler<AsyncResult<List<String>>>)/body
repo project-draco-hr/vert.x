@@ -1,8 +1,9 @@
 {
-  File file=vertx.resolveFile(p);
+  Objects.requireNonNull(p);
   return new BlockingAction<List<String>>(handler){
     public List<String> perform(){
       try {
+        File file=vertx.resolveFile(p);
         if (!file.exists()) {
           throw new FileSystemException("Cannot read directory " + file + ". Does not exist");
         }
