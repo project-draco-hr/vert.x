@@ -1,9 +1,10 @@
 {
-  Objects.requireNonNull(data,"no null data accepted");
-  Path target=vertx.resolveFile(path).toPath();
+  Objects.requireNonNull(path);
+  Objects.requireNonNull(data);
   return new BlockingAction<Void>(handler){
     public Void perform(){
       try {
+        Path target=vertx.resolveFile(path).toPath();
         Files.write(target,data.getBytes());
         return null;
       }

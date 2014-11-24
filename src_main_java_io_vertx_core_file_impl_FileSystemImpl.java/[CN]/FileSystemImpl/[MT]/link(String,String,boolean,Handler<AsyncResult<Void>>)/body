@@ -1,9 +1,11 @@
 {
-  Path source=vertx.resolveFile(link).toPath();
-  Path target=vertx.resolveFile(existing).toPath();
+  Objects.requireNonNull(link);
+  Objects.requireNonNull(existing);
   return new BlockingAction<Void>(handler){
     public Void perform(){
       try {
+        Path source=vertx.resolveFile(link).toPath();
+        Path target=vertx.resolveFile(existing).toPath();
         if (symbolic) {
           Files.createSymbolicLink(source,target);
         }

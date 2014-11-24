@@ -1,5 +1,0 @@
-{
-  setStatusCode(HttpResponseStatus.NOT_FOUND.code());
-  putHeader(HttpHeaders.CONTENT_TYPE,HttpHeaders.TEXT_HTML);
-  end(NOT_FOUND);
-}

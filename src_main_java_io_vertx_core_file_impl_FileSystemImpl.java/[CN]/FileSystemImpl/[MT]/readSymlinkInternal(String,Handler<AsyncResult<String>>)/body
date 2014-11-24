@@ -1,8 +1,9 @@
 {
-  Path source=vertx.resolveFile(link).toPath();
+  Objects.requireNonNull(link);
   return new BlockingAction<String>(handler){
     public String perform(){
       try {
+        Path source=vertx.resolveFile(link).toPath();
         return Files.readSymbolicLink(source).toString();
       }
  catch (      IOException e) {

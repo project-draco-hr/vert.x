@@ -1,4 +1,0 @@
-{
-  doSendFile(filename,notFoundResource,null);
-  return this;
-}

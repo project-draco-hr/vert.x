@@ -1,10 +1,11 @@
 {
-  Path target=vertx.resolveFile(path).toPath();
+  Objects.requireNonNull(path);
   Set<PosixFilePermission> permissions=PosixFilePermissions.fromString(perms);
   Set<PosixFilePermission> dirPermissions=dirPerms == null ? null : PosixFilePermissions.fromString(dirPerms);
   return new BlockingAction<Void>(handler){
     public Void perform(){
       try {
+        Path target=vertx.resolveFile(path).toPath();
         if (dirPermissions != null) {
           Files.walkFileTree(target,new SimpleFileVisitor<Path>(){
             public FileVisitResult preVisitDirectory(            Path dir,            BasicFileAttributes attrs) throws IOException {
@@ -23,7 +24,7 @@
         }
       }
  catch (      SecurityException e) {
-        throw new FileSystemException("Accessed denied for chmod on " + target);
+        throw new FileSystemException("Accessed denied for chmod on " + path);
       }
 catch (      IOException e) {
         throw new FileSystemException(e);

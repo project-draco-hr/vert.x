@@ -1,9 +1,11 @@
 {
-  Path source=vertx.resolveFile(from).toPath();
-  Path target=vertx.resolveFile(to).toPath();
+  Objects.requireNonNull(from);
+  Objects.requireNonNull(to);
   return new BlockingAction<Void>(handler){
     public Void perform(){
       try {
+        Path source=vertx.resolveFile(from).toPath();
+        Path target=vertx.resolveFile(to).toPath();
         Files.move(source,target);
       }
  catch (      IOException e) {
