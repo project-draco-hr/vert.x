@@ -2,4 +2,5 @@
   if (endHandler != null) {
     endHandler.handle(null);
   }
+  req.callEndHandler(this);
 }

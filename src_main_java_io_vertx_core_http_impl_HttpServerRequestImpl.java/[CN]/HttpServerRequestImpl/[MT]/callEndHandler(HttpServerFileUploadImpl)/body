@@ -1,0 +1,5 @@
+{
+  if (endHandler != null && upload == lastUpload) {
+    endHandler.handle(null);
+  }
+}
