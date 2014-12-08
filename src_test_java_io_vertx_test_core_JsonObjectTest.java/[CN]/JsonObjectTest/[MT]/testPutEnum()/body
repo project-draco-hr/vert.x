@@ -1,0 +1,11 @@
+{
+  assertSame(jsonObject,jsonObject.put("foo",SomeEnum.FOO));
+  assertEquals(SomeEnum.FOO.toString(),jsonObject.getString("foo"));
+  assertTrue(jsonObject.containsKey("foo"));
+  try {
+    jsonObject.put(null,SomeEnum.FOO);
+    fail();
+  }
+ catch (  NullPointerException e) {
+  }
+}
