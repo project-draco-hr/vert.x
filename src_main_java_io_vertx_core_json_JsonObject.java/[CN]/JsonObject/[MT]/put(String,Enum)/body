@@ -1,5 +1,5 @@
 {
   Objects.requireNonNull(key);
-  map.put(key,value == null ? null : value.toString());
+  map.put(key,value == null ? null : value.name());
   return this;
 }
