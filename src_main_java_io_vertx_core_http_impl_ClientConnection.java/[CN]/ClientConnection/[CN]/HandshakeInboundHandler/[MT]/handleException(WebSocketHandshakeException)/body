@@ -1,5 +1,7 @@
 {
   handshaking=false;
   buffered.clear();
-  client.handleException(e);
+  if (exceptionHandler != null) {
+    exceptionHandler.handle(e);
+  }
 }

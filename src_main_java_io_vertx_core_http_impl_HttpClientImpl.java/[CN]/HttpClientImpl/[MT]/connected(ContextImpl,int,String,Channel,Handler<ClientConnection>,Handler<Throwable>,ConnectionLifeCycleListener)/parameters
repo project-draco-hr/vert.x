@@ -3,4 +3,5 @@ int port
 String host
 Channel ch
 Handler<ClientConnection> connectHandler
+Handler<Throwable> exceptionHandler
 ConnectionLifeCycleListener listener
