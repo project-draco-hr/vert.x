@@ -1,5 +1,7 @@
 {
-  checkClosed();
+  if (handler != null) {
+    checkClosed();
+  }
   this.endHandler=handler;
   return this;
 }
