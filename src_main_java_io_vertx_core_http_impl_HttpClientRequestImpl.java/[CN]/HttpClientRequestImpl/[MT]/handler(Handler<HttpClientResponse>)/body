@@ -1,9 +1,9 @@
 {
   if (handler != null) {
+    checkComplete();
     respHandler=checkConnect(method,handler);
   }
  else {
-    checkComplete();
     respHandler=null;
   }
   return this;

@@ -1,4 +1,7 @@
 {
+  if (endHandler != null) {
+    checkComplete();
+  }
   this.endHandler=endHandler;
   return this;
 }
