@@ -1,4 +1,5 @@
 {
   checkComplete();
+  checkResponseHandler();
   write(Unpooled.EMPTY_BUFFER,true);
 }

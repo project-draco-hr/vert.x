@@ -1,3 +1,4 @@
 {
-  return connectWebsocket(port,host,requestURI,headers,null,wsConnect);
+  websocket(port,host,requestURI,headers,null).handler(wsConnect);
+  return this;
 }

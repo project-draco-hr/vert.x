@@ -10,7 +10,9 @@
     if (completed) {
       writeHeadWithContent(pending,true);
       if (conn.metrics().isEnabled())       conn.metrics().bytesWritten(conn.remoteAddress(),written);
-      conn.endRequest();
+      if (respHandler != null) {
+        conn.endRequest();
+      }
     }
  else {
       writeHeadWithContent(pending,false);
@@ -20,7 +22,9 @@
     if (completed) {
       writeHeadWithContent(Unpooled.EMPTY_BUFFER,true);
       if (conn.metrics().isEnabled())       conn.metrics().bytesWritten(conn.remoteAddress(),written);
-      conn.endRequest();
+      if (respHandler != null) {
+        conn.endRequest();
+      }
     }
  else {
       if (writeHead) {

@@ -1,6 +1,0 @@
-{
-  if (method == HttpMethod.CONNECT) {
-    handler=connectHandler(handler);
-  }
-  return handler;
-}

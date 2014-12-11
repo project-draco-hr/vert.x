@@ -1,0 +1,9 @@
+{
+  this.host=host;
+  this.port=port;
+  this.client=client;
+  this.request=new DefaultHttpRequest(HttpVersion.HTTP_1_1,toNettyHttpMethod(method),relativeURI,false);
+  this.chunked=false;
+  this.method=method;
+  this.vertx=vertx;
+}

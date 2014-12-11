@@ -1,0 +1,4 @@
+HttpMethod method
+int port
+String host
+String requestURI

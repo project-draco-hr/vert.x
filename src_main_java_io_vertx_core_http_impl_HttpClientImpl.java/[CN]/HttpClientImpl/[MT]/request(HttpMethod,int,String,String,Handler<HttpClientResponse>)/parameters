@@ -1,5 +1,5 @@
 HttpMethod method
 int port
 String host
-String path
+String requestURI
 Handler<HttpClientResponse> responseHandler

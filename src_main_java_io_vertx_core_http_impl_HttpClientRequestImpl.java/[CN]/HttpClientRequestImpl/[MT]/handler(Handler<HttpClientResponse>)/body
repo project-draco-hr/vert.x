@@ -1,0 +1,10 @@
+{
+  if (handler != null) {
+    checkComplete();
+    respHandler=checkConnect(method,handler);
+  }
+ else {
+    respHandler=null;
+  }
+  return this;
+}

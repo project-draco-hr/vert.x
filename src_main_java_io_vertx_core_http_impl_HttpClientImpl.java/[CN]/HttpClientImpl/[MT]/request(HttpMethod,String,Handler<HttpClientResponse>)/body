@@ -1,5 +1,4 @@
 {
-  checkConnect(method,responseHandler);
-  URL url=parseUrl(absoluteURI);
-  return doRequest(method,url.getHost(),url.getPort(),url.getPath(),null,responseHandler);
+  Objects.requireNonNull(responseHandler,"no null responseHandler accepted");
+  return request(method,absoluteURI).handler(responseHandler);
 }

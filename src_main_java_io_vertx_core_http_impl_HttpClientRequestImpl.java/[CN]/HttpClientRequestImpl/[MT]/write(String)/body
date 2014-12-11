@@ -1,4 +1,5 @@
 {
   checkComplete();
+  checkResponseHandler();
   return write(Buffer.buffer(chunk));
 }

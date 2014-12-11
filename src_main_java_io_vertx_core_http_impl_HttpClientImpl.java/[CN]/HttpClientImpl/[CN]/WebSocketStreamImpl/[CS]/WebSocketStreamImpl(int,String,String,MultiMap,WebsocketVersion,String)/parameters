@@ -1,0 +1,6 @@
+int port
+String host
+String requestURI
+MultiMap headers
+WebsocketVersion version
+String subProtocols

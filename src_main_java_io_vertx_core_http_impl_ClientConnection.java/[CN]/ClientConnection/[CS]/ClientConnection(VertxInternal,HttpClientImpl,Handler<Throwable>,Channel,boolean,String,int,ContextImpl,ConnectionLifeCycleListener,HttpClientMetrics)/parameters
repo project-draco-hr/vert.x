@@ -1,0 +1,10 @@
+VertxInternal vertx
+HttpClientImpl client
+Handler<Throwable> exceptionHandler
+Channel channel
+boolean ssl
+String host
+int port
+ContextImpl context
+ConnectionLifeCycleListener listener
+HttpClientMetrics metrics

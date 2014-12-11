@@ -1,2 +1,4 @@
 {
+  websocket(port,host,requestURI,headers,version,subProtocols).handler(wsConnect);
+  return this;
 }

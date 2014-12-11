@@ -1,0 +1,11 @@
+{
+  Objects.requireNonNull(method,"no null method accepted");
+  Objects.requireNonNull(host,"no null host accepted");
+  Objects.requireNonNull(relativeURI,"no null relativeURI accepted");
+  checkClosed();
+  HttpClientRequest req=new HttpClientRequestImpl(this,method,host,port,relativeURI,vertx);
+  if (headers != null) {
+    req.headers().setAll(headers);
+  }
+  return req;
+}

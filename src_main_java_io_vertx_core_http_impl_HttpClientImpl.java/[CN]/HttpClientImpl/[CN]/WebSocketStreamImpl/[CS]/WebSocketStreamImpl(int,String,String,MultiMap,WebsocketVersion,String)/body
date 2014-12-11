@@ -1,0 +1,8 @@
+{
+  this.port=port;
+  this.host=host;
+  this.requestURI=requestURI;
+  this.headers=headers;
+  this.version=version;
+  this.subProtocols=subProtocols;
+}

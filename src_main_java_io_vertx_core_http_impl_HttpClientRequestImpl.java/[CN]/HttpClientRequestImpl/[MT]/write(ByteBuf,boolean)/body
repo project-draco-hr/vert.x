@@ -47,7 +47,9 @@
     }
     if (end) {
       if (conn.metrics().isEnabled())       conn.metrics().bytesWritten(conn.remoteAddress(),written);
-      conn.endRequest();
+      if (respHandler != null) {
+        conn.endRequest();
+      }
     }
   }
 }

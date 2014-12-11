@@ -1,4 +1,4 @@
 {
-  checkConnect(method,responseHandler);
-  return doRequest(method,host,port,path,null,responseHandler);
+  Objects.requireNonNull(responseHandler,"no null responseHandler accepted");
+  return request(method,port,host,requestURI).handler(responseHandler);
 }
