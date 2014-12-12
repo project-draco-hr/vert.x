@@ -1,3 +1,0 @@
-{
-  Buffer buff=Buffer.buffer("some-string");
-}
