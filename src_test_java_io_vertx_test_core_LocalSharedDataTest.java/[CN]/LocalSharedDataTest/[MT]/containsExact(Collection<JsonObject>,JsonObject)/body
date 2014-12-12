@@ -1,0 +1,8 @@
+{
+  for (  JsonObject j : coll) {
+    if (j == obj) {
+      return true;
+    }
+  }
+  return false;
+}

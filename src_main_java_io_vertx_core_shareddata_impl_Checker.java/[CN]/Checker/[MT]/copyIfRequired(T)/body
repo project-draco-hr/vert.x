@@ -1,5 +1,11 @@
 {
-  if (obj instanceof byte[]) {
+  if (obj instanceof JsonObject) {
+    return (T)((JsonObject)obj).copy();
+  }
+ else   if (obj instanceof JsonArray) {
+    return (T)((JsonArray)obj).copy();
+  }
+ else   if (obj instanceof byte[]) {
     byte[] bytes=(byte[])obj;
     byte[] copy=new byte[bytes.length];
     System.arraycopy(bytes,0,copy,0,bytes.length);

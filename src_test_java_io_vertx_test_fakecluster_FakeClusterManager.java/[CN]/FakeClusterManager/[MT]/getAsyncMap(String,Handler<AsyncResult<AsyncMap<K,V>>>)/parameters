@@ -1,3 +1,2 @@
 String name
-MapOptions options
 Handler<AsyncResult<AsyncMap<K,V>>> resultHandler

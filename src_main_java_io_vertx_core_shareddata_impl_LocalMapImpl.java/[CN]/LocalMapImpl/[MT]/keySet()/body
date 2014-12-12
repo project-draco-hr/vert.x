@@ -1,0 +1,7 @@
+{
+  Set<K> keys=new HashSet<>(map.size());
+  for (  K k : map.keySet()) {
+    keys.add(copyIfRequired(k));
+  }
+  return keys;
+}
