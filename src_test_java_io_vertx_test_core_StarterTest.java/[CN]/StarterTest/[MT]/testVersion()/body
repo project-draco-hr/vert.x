@@ -2,5 +2,5 @@
   String[] args=new String[]{"-version"};
   Starter starter=new Starter();
   starter.run(args);
-  assertEquals("3.0.0-SNAPSHOT",starter.getVersion());
+  assertEquals(System.getProperty("vertxVersion"),starter.getVersion());
 }
