@@ -1,0 +1,7 @@
+{
+  List<V> values=new ArrayList<>(map.size());
+  for (  V v : map.values()) {
+    values.add(copyIfRequired(v));
+  }
+  return values;
+}
