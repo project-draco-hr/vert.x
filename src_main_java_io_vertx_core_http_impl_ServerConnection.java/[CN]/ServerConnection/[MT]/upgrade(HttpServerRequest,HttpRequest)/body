@@ -1,0 +1,16 @@
+{
+  if (handshaker == null || !(nettyReq instanceof FullHttpRequest)) {
+    throw new IllegalStateException("Can't upgrade this request");
+  }
+  ServerWebSocketImpl ws=new ServerWebSocketImpl(vertx,request.uri(),request.path(),request.query(),request.headers(),this,handshaker.version() != WebSocketVersion.V00,null,server.options().getMaxWebsocketFrameSize());
+  try {
+    handshaker.handshake(channel,(FullHttpRequest)nettyReq);
+  }
+ catch (  WebSocketHandshakeException e) {
+    handleException(e);
+  }
+catch (  Exception e) {
+    log.error("Failed to generate shake response",e);
+  }
+  return ws;
+}

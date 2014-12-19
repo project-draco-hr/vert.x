@@ -1,0 +1,7 @@
+{
+  ContextImpl.setContext(reqHandler.context);
+  ServerConnection conn=new ServerConnection(vertx,HttpServerImpl.this,ch,reqHandler.context,serverOrigin,shake,metrics);
+  conn.requestHandler(reqHandler.handler);
+  connectionMap.put(ch,conn);
+  conn.handleMessage(request);
+}
