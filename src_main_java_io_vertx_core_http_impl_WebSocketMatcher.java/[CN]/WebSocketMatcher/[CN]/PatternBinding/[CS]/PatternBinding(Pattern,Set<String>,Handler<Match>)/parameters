@@ -1,3 +1,0 @@
-Pattern pattern
-Set<String> paramNames
-Handler<Match> handler
