@@ -6,7 +6,7 @@
     if (HttpHeaders.is100ContinueExpected(request)) {
       ch.writeAndFlush(new DefaultFullHttpResponse(HTTP_1_1,CONTINUE));
     }
-    if (wsHandlerManager.hasHandlers() && request.headers().contains(io.vertx.core.http.HttpHeaders.UPGRADE,io.vertx.core.http.HttpHeaders.WEBSOCKET,true)) {
+    if (request.headers().contains(io.vertx.core.http.HttpHeaders.UPGRADE,io.vertx.core.http.HttpHeaders.WEBSOCKET,true)) {
       String connectionHeader=request.headers().get(io.vertx.core.http.HttpHeaders.CONNECTION);
       if (connectionHeader == null || !connectionHeader.toLowerCase().contains("upgrade")) {
         sendError("\"Connection\" must be \"Upgrade\".",BAD_REQUEST,ch);
@@ -30,11 +30,7 @@
       if (conn == null) {
         HandlerHolder<HttpServerRequest> reqHandler=reqHandlerManager.chooseHandler(ch.eventLoop());
         if (reqHandler != null) {
-          ContextImpl.setContext(reqHandler.context);
-          conn=new ServerConnection(vertx,HttpServerImpl.this,ch,reqHandler.context,serverOrigin,null,metrics);
-          conn.requestHandler(reqHandler.handler);
-          connectionMap.put(ch,conn);
-          conn.handleMessage(msg);
+          createConnAndHandle(reqHandler,ch,(HttpRequest)msg,null);
         }
       }
  else {
