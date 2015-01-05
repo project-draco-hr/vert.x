@@ -14,14 +14,10 @@
         }
  else {
           file.getParentFile().mkdirs();
-          InputStream is=zip.getInputStream(entry);
-          try {
+          try (InputStream is=zip.getInputStream(entry)){
             Files.copy(is,file.toPath());
           }
-  finally {
-            is.close();
-          }
-        }
+         }
       }
     }
   }

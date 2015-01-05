@@ -1,3 +1,2 @@
 URL url
 String fileName
-ClassLoader cl
