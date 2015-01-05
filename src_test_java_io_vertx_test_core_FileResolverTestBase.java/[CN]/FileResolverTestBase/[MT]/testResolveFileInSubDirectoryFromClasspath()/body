@@ -1,6 +1,6 @@
 {
   for (int i=0; i < 2; i++) {
-    File file=resolver.resolveFile("webroot/subdir/subfile.html");
+    File file=resolver.resolveFile(webRoot + "/subdir/subfile.html");
     assertTrue(file.exists());
     assertTrue(file.getPath().startsWith(".vertx/file-cache-"));
     assertFalse(file.isDirectory());

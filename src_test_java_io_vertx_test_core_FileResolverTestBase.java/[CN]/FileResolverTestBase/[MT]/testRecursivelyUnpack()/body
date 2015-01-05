@@ -1,0 +1,7 @@
+{
+  File file=resolver.resolveFile(webRoot + "/subdir");
+  assertTrue(file.exists());
+  File sub=new File(new File(file,"subdir2"),"subfile2.html");
+  assertTrue(sub.exists());
+  assertEquals("<html><body>subfile2</body></html>",readFile(sub));
+}

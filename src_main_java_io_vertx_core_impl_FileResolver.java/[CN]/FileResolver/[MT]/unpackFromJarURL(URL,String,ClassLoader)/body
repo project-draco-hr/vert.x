@@ -1,0 +1,32 @@
+{
+  String path=url.getPath();
+  String jarFile=path.substring(5,path.lastIndexOf(".jar!") + 4);
+  try {
+    ZipFile zip=new ZipFile(jarFile);
+    Enumeration<? extends ZipEntry> entries=zip.entries();
+    while (entries.hasMoreElements()) {
+      ZipEntry entry=entries.nextElement();
+      String name=entry.getName();
+      if (name.startsWith(fileName)) {
+        File file=new File(cacheDir,name);
+        if (name.endsWith("/")) {
+          file.mkdirs();
+        }
+ else {
+          file.getParentFile().mkdirs();
+          InputStream is=zip.getInputStream(entry);
+          try {
+            Files.copy(is,file.toPath());
+          }
+  finally {
+            is.close();
+          }
+        }
+      }
+    }
+  }
+ catch (  IOException e) {
+    throw new VertxException(e);
+  }
+  return new File(cacheDir,fileName);
+}
