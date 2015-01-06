@@ -4,37 +4,24 @@
     return file;
   }
   if (!file.exists()) {
-    File cacheFile=null;
-    if (enableCaching && cacheDir != null) {
-      cacheFile=new File(cacheDir,fileName);
-      if (cacheFile.exists()) {
-        return cacheFile;
-      }
-    }
-    ClassLoader cl=getClassLoader();
-    InputStream is=cl.getResourceAsStream(fileName);
-    if (is != null) {
-      boolean isDirectory=new File(fileName).getName().indexOf('.') == -1;
-      if (cacheFile == null) {
-        setupCacheDir();
-        cacheFile=new File(cacheDir,fileName);
-        if (isDirectory) {
-          cacheFile.mkdirs();
-        }
- else {
-          cacheFile.getParentFile().mkdirs();
-        }
-      }
-      if (!isDirectory) {
-        try {
-          Files.copy(is,cacheFile.toPath());
-        }
- catch (        IOException e) {
-          throw new VertxException("Failed to copy file",e);
-        }
-      }
+    setupCacheDir();
+    File cacheFile=new File(cacheDir,fileName);
+    if (enableCaching && cacheFile.exists()) {
       return cacheFile;
     }
-  }
-  return file;
+    ClassLoader cl=getClassLoader();
+    URL url=cl.getResource(fileName);
+    if (url != null) {
+      String prot=url.getProtocol();
+switch (prot) {
+case "file":
+        return unpackFromFileURL(url,fileName,cl);
+case "jar":
+      return unpackFromJarURL(url,fileName);
+default :
+    throw new IllegalStateException("Invalid url protocol: " + prot);
+}
+}
+}
+return file;
 }

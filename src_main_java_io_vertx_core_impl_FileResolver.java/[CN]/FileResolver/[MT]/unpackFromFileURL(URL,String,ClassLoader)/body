@@ -1,0 +1,26 @@
+{
+  File resource=new File(url.getPath());
+  boolean isDirectory=resource.isDirectory();
+  File cacheFile=new File(cacheDir,fileName);
+  if (!isDirectory) {
+    cacheFile.getParentFile().mkdirs();
+    try {
+      Files.copy(resource.toPath(),cacheFile.toPath());
+    }
+ catch (    FileAlreadyExistsException e) {
+    }
+catch (    IOException e) {
+      throw new VertxException(e);
+    }
+  }
+ else {
+    cacheFile.mkdirs();
+    String[] listing=resource.list();
+    for (    String file : listing) {
+      String subResource=fileName + "/" + file;
+      URL url2=cl.getResource(subResource);
+      unpackFromFileURL(url2,subResource,cl);
+    }
+  }
+  return cacheFile;
+}
