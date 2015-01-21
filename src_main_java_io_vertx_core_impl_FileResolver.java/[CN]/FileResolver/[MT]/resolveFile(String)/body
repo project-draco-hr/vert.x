@@ -10,6 +10,9 @@
       return cacheFile;
     }
     ClassLoader cl=getClassLoader();
+    if (NON_UNIX_FILE_SEP) {
+      fileName=fileName.replace(FILE_SEP,"/");
+    }
     URL url=cl.getResource(fileName);
     if (url != null) {
       String prot=url.getProtocol();
