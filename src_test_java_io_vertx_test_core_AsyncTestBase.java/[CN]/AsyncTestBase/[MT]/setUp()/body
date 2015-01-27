@@ -1,5 +1,6 @@
 {
   log.info("Starting test: " + this.getClass().getSimpleName() + "#"+ name.getMethodName());
+  mainThreadName=Thread.currentThread().getName();
   tearingDown=false;
   waitFor(1);
   throwable=null;
