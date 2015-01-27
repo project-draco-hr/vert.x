@@ -1,4 +1,0 @@
-{
-  websocket(port,host,requestURI,headers,version,null).handler(wsConnect);
-  return this;
-}

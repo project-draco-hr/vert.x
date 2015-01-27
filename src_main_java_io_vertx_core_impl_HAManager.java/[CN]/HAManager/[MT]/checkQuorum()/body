@@ -13,11 +13,11 @@
   }
   boolean attained=count >= quorumSize;
   if (!attainedQuorum && attained) {
-    log.info("A quorum has been obtained. Any deployments waiting on a quorum will now be deployed");
+    log.info("A quorum has been obtained. Any deploymentIDs waiting on a quorum will now be deployed");
     this.attainedQuorum=true;
   }
  else   if (attainedQuorum && !attained) {
-    log.info("There is no longer a quorum. Any HA deployments will be undeployed until a quorum is re-attained");
+    log.info("There is no longer a quorum. Any HA deploymentIDs will be undeployed until a quorum is re-attained");
     this.attainedQuorum=false;
   }
 }

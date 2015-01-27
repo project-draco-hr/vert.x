@@ -1,0 +1,5 @@
+{
+  Buffer buff=Buffer.buffer();
+  buff.appendInt(123).appendString("hello\n");
+  socket.write(buff);
+}

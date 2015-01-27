@@ -1,0 +1,4 @@
+{
+  JsonObject object=new JsonObject();
+  object.put("foo","bar").put("num",123).put("mybool",true);
+}

@@ -1,3 +1,0 @@
-{
-  return websocket(port,host,requestURI,headers,version,null);
-}

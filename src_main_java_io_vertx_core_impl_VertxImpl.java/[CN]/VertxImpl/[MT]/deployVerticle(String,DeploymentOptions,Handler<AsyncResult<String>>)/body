@@ -1,8 +1,8 @@
 {
   if (options.isHa() && haManager() != null) {
-    haManager().deployVerticle(identifier,options,completionHandler);
+    haManager().deployVerticle(name,options,completionHandler);
   }
  else {
-    deploymentManager.deployVerticle(identifier,options,completionHandler);
+    deploymentManager.deployVerticle(name,options,completionHandler);
   }
 }

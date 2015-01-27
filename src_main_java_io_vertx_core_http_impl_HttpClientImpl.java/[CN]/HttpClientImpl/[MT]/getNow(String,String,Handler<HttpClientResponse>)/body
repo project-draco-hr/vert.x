@@ -1,0 +1,3 @@
+{
+  return getNow(options.getDefaultPort(),host,requestURI,responseHandler);
+}

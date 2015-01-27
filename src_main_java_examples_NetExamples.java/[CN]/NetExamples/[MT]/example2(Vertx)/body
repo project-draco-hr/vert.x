@@ -1,0 +1,4 @@
+{
+  NetServerOptions options=new NetServerOptions().setPort(4321);
+  NetServer server=vertx.createNetServer(options);
+}

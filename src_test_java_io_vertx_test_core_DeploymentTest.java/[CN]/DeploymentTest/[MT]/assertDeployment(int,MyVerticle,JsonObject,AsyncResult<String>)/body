@@ -12,8 +12,8 @@
   }
   assertTrue(verticle.startCalled);
   assertFalse(verticle.stopCalled);
-  assertTrue(vertx.deployments().contains(deploymentID));
-  assertEquals(instances,vertx.deployments().size());
+  assertTrue(vertx.deploymentIDs().contains(deploymentID));
+  assertEquals(instances,vertx.deploymentIDs().size());
   Context currentContext=Vertx.currentContext();
   assertNotSame(currentContext,verticle.startContext);
 }

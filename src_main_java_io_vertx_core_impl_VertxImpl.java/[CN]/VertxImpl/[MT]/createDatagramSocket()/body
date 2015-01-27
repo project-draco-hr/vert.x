@@ -1,0 +1,3 @@
+{
+  return createDatagramSocket(new DatagramSocketOptions());
+}

@@ -1,0 +1,6 @@
+{
+  HttpServerResponse response=request.response();
+  response.putHeader("Content-Type","text/plain");
+  response.write("some text");
+  response.end();
+}

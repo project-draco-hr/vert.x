@@ -1,0 +1,7 @@
+{
+  request.setChunked(true);
+  for (int i=0; i < 10; i++) {
+    request.write("this-is-chunk-" + i);
+  }
+  request.end();
+}

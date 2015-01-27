@@ -7,5 +7,4 @@
     throw new IllegalStateException("Cannot reject websocket, it has already been written to");
   }
   rejected=true;
-  return this;
 }

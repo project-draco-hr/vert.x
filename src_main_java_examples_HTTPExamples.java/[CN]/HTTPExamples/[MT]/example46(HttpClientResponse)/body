@@ -1,0 +1,4 @@
+{
+  String contentType=response.headers().get("content-type");
+  String contentLength=response.headers().get("content-lengh");
+}

@@ -1,0 +1,4 @@
+{
+  HttpServer server=vertx.createHttpServer();
+  server.listen(8080,"myhost.com");
+}

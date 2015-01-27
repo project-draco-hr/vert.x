@@ -1,0 +1,4 @@
+{
+  DeploymentOptions options=new DeploymentOptions().setInstances(10);
+  vertx.deployVerticle("com.mycompany.MyVerticle",options);
+}

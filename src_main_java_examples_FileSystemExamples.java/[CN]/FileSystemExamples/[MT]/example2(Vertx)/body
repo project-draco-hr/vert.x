@@ -1,0 +1,4 @@
+{
+  FileSystem fs=vertx.fileSystem();
+  fs.copyBlocking("foo.txt","bar.txt");
+}

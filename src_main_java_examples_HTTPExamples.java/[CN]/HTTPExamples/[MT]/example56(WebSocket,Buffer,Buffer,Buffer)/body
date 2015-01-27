@@ -1,0 +1,8 @@
+{
+  WebSocketFrame frame1=WebSocketFrame.binaryFrame(buffer1,false);
+  websocket.writeFrame(frame1);
+  WebSocketFrame frame2=WebSocketFrame.continuationFrame(buffer2,false);
+  websocket.writeFrame(frame2);
+  WebSocketFrame frame3=WebSocketFrame.continuationFrame(buffer2,true);
+  websocket.writeFrame(frame3);
+}

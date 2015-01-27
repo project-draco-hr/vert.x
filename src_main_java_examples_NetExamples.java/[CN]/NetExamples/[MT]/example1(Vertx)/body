@@ -1,0 +1,3 @@
+{
+  NetServer server=vertx.createNetServer();
+}

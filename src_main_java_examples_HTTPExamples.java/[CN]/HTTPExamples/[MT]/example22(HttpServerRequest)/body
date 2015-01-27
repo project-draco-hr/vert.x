@@ -1,0 +1,4 @@
+{
+  HttpServerResponse response=request.response();
+  response.putHeader("content-type","text/html").putHeader("other-header","wibble");
+}

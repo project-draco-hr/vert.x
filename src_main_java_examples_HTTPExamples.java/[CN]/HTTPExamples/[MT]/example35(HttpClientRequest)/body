@@ -1,0 +1,7 @@
+{
+  request.write("some data");
+  request.write("some other data","UTF-16");
+  Buffer buffer=Buffer.buffer();
+  buffer.appendInt(123).appendLong(245l);
+  request.write(buffer);
+}

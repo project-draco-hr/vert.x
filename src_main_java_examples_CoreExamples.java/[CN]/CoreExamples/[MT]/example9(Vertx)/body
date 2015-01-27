@@ -1,0 +1,5 @@
+{
+  vertx.deployVerticle("com.mycompany.MyOrderProcessorVerticle");
+  vertx.deployVerticle("verticles/myverticle.js");
+  vertx.deployVerticle("verticles/my_verticle.rb");
+}

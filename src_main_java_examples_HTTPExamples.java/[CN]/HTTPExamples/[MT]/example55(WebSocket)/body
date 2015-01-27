@@ -1,0 +1,4 @@
+{
+  Buffer buffer=Buffer.buffer().appendInt(123).appendFloat(1.23f);
+  websocket.writeMessage(buffer);
+}

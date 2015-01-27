@@ -1,0 +1,4 @@
+{
+  Verticle myVerticle=new MyVerticle();
+  vertx.deployVerticle(myVerticle);
+}

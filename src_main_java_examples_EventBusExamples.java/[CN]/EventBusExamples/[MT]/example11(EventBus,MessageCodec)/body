@@ -1,0 +1,4 @@
+{
+  eventBus.registerDefaultCodec(MyPOJO.class,myCodec);
+  eventBus.send("orders",new MyPOJO());
+}

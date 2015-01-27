@@ -1,0 +1,6 @@
+{
+  Buffer buffer=Buffer.buffer().appendFloat(12.34f).appendInt(123);
+  socket.write(buffer);
+  socket.write("some data");
+  socket.write("some data","UTF-16");
+}

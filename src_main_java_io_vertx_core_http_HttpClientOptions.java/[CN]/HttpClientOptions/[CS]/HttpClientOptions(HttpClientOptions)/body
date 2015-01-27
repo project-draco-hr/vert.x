@@ -6,4 +6,6 @@
   this.pipelining=other.isPipelining();
   this.tryUseCompression=other.isTryUseCompression();
   this.maxWebsocketFrameSize=other.maxWebsocketFrameSize;
+  this.defaultHost=other.defaultHost;
+  this.defaultPort=other.defaultPort;
 }

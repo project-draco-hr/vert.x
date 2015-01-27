@@ -6,4 +6,6 @@
   pipelining=DEFAULT_PIPELINING;
   tryUseCompression=DEFAULT_TRY_USE_COMPRESSION;
   maxWebsocketFrameSize=DEFAULT_MAX_WEBSOCKET_FRAME_SIZE;
+  defaultHost=DEFAULT_DEFAULT_HOST;
+  defaultPort=DEFAULT_DEFAULT_PORT;
 }

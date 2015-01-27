@@ -1,7 +1,7 @@
 {
   int size=toDeployOnQuorum.size();
   if (size != 0) {
-    log.info("There are " + size + " HA deployments waiting on a quorum. These will now be deployed");
+    log.info("There are " + size + " HA deploymentIDs waiting on a quorum. These will now be deployed");
     Runnable task;
     while ((task=toDeployOnQuorum.poll()) != null) {
       try {

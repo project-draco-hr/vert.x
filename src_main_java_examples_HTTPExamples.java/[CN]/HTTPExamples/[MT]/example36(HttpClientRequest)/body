@@ -1,0 +1,5 @@
+{
+  request.end("some simple data");
+  Buffer buffer=Buffer.buffer().appendDouble(12.34d).appendLong(432l);
+  request.end(buffer);
+}

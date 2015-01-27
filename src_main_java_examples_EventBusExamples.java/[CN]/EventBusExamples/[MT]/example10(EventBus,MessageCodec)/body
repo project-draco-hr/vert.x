@@ -1,0 +1,5 @@
+{
+  eventBus.registerCodec(myCodec);
+  DeliveryOptions options=new DeliveryOptions().setCodecName(myCodec.name());
+  eventBus.send("orders",new MyPOJO(),options);
+}

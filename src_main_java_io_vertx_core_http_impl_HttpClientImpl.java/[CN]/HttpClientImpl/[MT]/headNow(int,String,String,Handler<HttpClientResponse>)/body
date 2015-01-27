@@ -1,0 +1,4 @@
+{
+  head(port,host,requestURI,responseHandler).end();
+  return this;
+}

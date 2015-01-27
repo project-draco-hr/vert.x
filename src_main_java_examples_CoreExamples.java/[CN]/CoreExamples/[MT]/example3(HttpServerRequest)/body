@@ -1,0 +1,3 @@
+{
+  request.response().putHeader("Content-Type","text/plain").write("some text").end();
+}

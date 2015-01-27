@@ -1,0 +1,4 @@
+{
+  JsonArray array=new JsonArray();
+  array.add("foo").add(123).add(false);
+}

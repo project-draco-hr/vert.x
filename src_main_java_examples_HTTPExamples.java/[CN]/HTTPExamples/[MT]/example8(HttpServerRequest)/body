@@ -1,0 +1,5 @@
+{
+  MultiMap headers=request.headers();
+  System.out.println("User agent is " + headers.get("user-agent"));
+  System.out.println("User agent is " + headers.get("User-Agent"));
+}

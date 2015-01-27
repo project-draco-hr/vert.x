@@ -1,7 +1,7 @@
 {
   Set<Deployment> snapshot=new ConcurrentHashSet<>();
   VertxInternal v=(VertxInternal)vertices[pos];
-  for (  String depID : v.deployments()) {
+  for (  String depID : v.deploymentIDs()) {
     snapshot.add(v.getDeployment(depID));
   }
   return snapshot;

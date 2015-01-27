@@ -1,4 +1,3 @@
 {
-  Objects.requireNonNull(responseHandler,"no null responseHandler accepted");
-  return request(method,absoluteURI).handler(responseHandler);
+  return request(method,options.getDefaultPort(),options.getDefaultHost(),requestURI,responseHandler);
 }

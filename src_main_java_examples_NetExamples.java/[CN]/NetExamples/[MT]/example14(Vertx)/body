@@ -1,0 +1,4 @@
+{
+  NetClientOptions options=new NetClientOptions().setConnectTimeout(10000);
+  NetClient client=vertx.createNetClient(options);
+}

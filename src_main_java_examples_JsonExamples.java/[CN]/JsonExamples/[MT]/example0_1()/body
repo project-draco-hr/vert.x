@@ -1,0 +1,4 @@
+{
+  String jsonString="{\"foo\":\"bar\"}";
+  JsonObject object=new JsonObject(jsonString);
+}

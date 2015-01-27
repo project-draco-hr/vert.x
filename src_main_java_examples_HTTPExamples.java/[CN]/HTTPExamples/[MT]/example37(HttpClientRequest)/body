@@ -1,0 +1,4 @@
+{
+  MultiMap headers=request.headers();
+  headers.set("content-type","application/json").set("other-header","foo");
+}

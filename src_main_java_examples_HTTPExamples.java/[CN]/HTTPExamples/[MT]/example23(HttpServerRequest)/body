@@ -1,0 +1,4 @@
+{
+  HttpServerResponse response=request.response();
+  response.setChunked(true);
+}

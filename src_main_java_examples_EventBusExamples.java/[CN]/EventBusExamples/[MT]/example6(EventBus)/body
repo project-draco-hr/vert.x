@@ -1,0 +1,3 @@
+{
+  eventBus.send("news.uk.sport","Yay! Someone kicked a ball");
+}

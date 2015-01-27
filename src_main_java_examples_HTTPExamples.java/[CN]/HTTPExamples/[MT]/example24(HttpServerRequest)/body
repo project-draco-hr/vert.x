@@ -1,0 +1,6 @@
+{
+  HttpServerResponse response=request.response();
+  response.setChunked(true);
+  MultiMap trailers=response.trailers();
+  trailers.set("X-wibble","woobble").set("X-quux","flooble");
+}

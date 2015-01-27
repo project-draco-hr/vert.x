@@ -1,0 +1,6 @@
+{
+  HttpServerResponse response=request.response();
+  MultiMap headers=response.headers();
+  headers.set("content-type","text/html");
+  headers.set("other-header","wibble");
+}

@@ -1,0 +1,4 @@
+{
+  DeploymentOptions options=new DeploymentOptions().setInstances(16);
+  vertx.deployVerticle("com.mycompany.MyOrderProcessorVerticle",options);
+}

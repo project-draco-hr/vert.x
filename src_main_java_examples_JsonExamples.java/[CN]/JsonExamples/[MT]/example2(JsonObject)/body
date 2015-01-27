@@ -1,0 +1,4 @@
+{
+  String val=jsonObject.getString("some-key");
+  int intVal=jsonObject.getInteger("some-other-key");
+}

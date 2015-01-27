@@ -1,0 +1,11 @@
+{
+  SharedData sd=vertx.sharedData();
+  LocalMap<String,String> map1=sd.getLocalMap("mymap1");
+  map1.put("foo","bar");
+  LocalMap<String,Buffer> map2=sd.getLocalMap("mymap2");
+  map2.put("eek",Buffer.buffer().appendInt(123));
+  map1=sd.getLocalMap("mymap1");
+  String val=map1.get("foo");
+  map2=sd.getLocalMap("mymap2");
+  Buffer buff=map2.get("eek");
+}

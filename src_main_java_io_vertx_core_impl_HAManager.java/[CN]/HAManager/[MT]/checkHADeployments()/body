@@ -8,6 +8,6 @@
     }
   }
  catch (  Throwable t) {
-    log.error("Failed when checking HA deployments",t);
+    log.error("Failed when checking HA deploymentIDs",t);
   }
 }

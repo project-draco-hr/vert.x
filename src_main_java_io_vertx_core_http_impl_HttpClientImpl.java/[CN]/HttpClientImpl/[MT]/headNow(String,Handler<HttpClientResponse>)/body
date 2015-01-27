@@ -1,0 +1,4 @@
+{
+  head(requestURI,responseHandler).end();
+  return this;
+}

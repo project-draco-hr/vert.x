@@ -1,6 +1,6 @@
 {
   VertxInternal vi=(VertxInternal)vertices[pos];
-  for (  String deploymentID : vi.deployments()) {
+  for (  String deploymentID : vi.deploymentIDs()) {
     Deployment dep=vi.getDeployment(deploymentID);
     if (verticleName.equals(dep.verticleIdentifier()) && options.equals(dep.deploymentOptions())) {
       return;

@@ -1,0 +1,9 @@
+{
+  NetServerOptions options=new NetServerOptions();
+  options.setSsl(true);
+  JKSOptions jksOptions=new JKSOptions();
+  jksOptions.setPath("/path/to/your/keystore.jks");
+  jksOptions.setPassword("password-of-your-keystore");
+  options.setKeyStoreOptions(jksOptions);
+  NetServer server=vertx.createNetServer(options);
+}

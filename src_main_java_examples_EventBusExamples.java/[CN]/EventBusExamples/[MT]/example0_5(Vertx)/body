@@ -1,0 +1,3 @@
+{
+  EventBus eb=vertx.eventBus();
+}

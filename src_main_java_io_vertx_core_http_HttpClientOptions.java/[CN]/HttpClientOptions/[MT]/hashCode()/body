@@ -6,5 +6,7 @@
   result=31 * result + (pipelining ? 1 : 0);
   result=31 * result + (tryUseCompression ? 1 : 0);
   result=31 * result + maxWebsocketFrameSize;
+  result=31 * result + defaultHost.hashCode();
+  result=31 * result + defaultPort;
   return result;
 }

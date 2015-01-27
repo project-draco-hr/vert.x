@@ -1,0 +1,5 @@
+{
+  String val=array.getString(0);
+  Integer intVal=array.getInteger(1);
+  Boolean boolVal=array.getBoolean(2);
+}

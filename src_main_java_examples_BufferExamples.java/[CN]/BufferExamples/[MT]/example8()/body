@@ -1,0 +1,6 @@
+{
+  Buffer buff=Buffer.buffer();
+  for (int i=0; i < buff.length(); i+=4) {
+    System.out.println("int value at " + i + " is "+ buff.getInt(i));
+  }
+}

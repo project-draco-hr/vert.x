@@ -1,0 +1,5 @@
+{
+  request.end("some-data");
+  Buffer buffer=Buffer.buffer().appendFloat(12.3f).appendInt(321);
+  request.end(buffer);
+}

@@ -1,0 +1,4 @@
+{
+  String jsonString="[\"foo\",\"bar\"]";
+  JsonArray array=new JsonArray(jsonString);
+}

@@ -1,7 +1,7 @@
 {
   HttpClientRequest req;
   if (absolute) {
-    req=client.request(method,"http://" + DEFAULT_HTTP_HOST + ":"+ DEFAULT_HTTP_PORT+ uri,handler);
+    req=client.requestAbs(method,"http://" + DEFAULT_HTTP_HOST + ":"+ DEFAULT_HTTP_PORT+ uri,handler);
   }
  else {
     req=client.request(method,DEFAULT_HTTP_PORT,DEFAULT_HTTP_HOST,uri,handler);

@@ -1,0 +1,3 @@
+{
+  return request(HttpMethod.DELETE,port,host,requestURI);
+}

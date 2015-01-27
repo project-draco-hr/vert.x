@@ -1,0 +1,4 @@
+{
+  HttpServerOptions options=new HttpServerOptions().setMaxWebsocketFrameSize(1000000);
+  HttpServer server=vertx.createHttpServer(options);
+}

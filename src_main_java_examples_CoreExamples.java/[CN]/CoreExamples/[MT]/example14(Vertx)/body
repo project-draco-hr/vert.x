@@ -1,0 +1,5 @@
+{
+  DeploymentOptions options=new DeploymentOptions().setIsolationGroup("mygroup");
+  options.setExtraClasspath(Arrays.asList("lib/jars/some-library.jar"));
+  vertx.deployVerticle("com.mycompany.MyIsolatedVerticle",options);
+}

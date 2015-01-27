@@ -1,0 +1,3 @@
+{
+  return head(options.getDefaultPort(),host,requestURI);
+}

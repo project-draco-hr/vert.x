@@ -6,4 +6,6 @@
   this.pipelining=json.getBoolean("pipelining",DEFAULT_PIPELINING);
   this.tryUseCompression=json.getBoolean("tryUseCompression",DEFAULT_TRY_USE_COMPRESSION);
   this.maxWebsocketFrameSize=json.getInteger("maxWebsocketFrameSize",DEFAULT_MAX_WEBSOCKET_FRAME_SIZE);
+  this.defaultHost=json.getString("defaultHost",DEFAULT_DEFAULT_HOST);
+  this.defaultPort=json.getInteger("defaultPort",DEFAULT_DEFAULT_PORT);
 }

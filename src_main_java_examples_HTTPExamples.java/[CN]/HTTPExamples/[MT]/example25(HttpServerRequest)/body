@@ -1,0 +1,5 @@
+{
+  HttpServerResponse response=request.response();
+  response.setChunked(true);
+  response.putTrailer("X-wibble","woobble").putTrailer("X-quux","flooble");
+}

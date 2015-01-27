@@ -1,0 +1,4 @@
+String requestURI
+MultiMap headers
+WebsocketVersion version
+Handler<WebSocket> wsConnect

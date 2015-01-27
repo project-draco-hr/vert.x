@@ -1,4 +1,3 @@
 {
-  URL url=parseUrl(absoluteURI);
-  return doRequest(method,url.getHost(),url.getPort(),url.getPath(),null);
+  return request(method,options.getDefaultPort(),options.getDefaultHost(),requestURI);
 }

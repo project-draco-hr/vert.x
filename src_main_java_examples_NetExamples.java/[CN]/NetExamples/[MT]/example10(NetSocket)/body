@@ -1,0 +1,3 @@
+{
+  socket.sendFile("myfile.dat");
+}

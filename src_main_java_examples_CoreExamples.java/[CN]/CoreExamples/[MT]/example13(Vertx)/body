@@ -1,0 +1,5 @@
+{
+  JsonObject config=new JsonObject().put("name","tim").put("directory","/blah");
+  DeploymentOptions options=new DeploymentOptions().setConfig(config);
+  vertx.deployVerticle("com.mycompany.MyOrderProcessorVerticle",options);
+}
