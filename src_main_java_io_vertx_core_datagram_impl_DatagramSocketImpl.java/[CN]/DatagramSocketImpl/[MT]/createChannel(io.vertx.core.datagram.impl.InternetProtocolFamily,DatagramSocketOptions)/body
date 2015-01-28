@@ -20,6 +20,7 @@ channel.config().setSendBufferSize(options.getSendBufferSize());
 }
 if (options.getReceiveBufferSize() != -1) {
 channel.config().setReceiveBufferSize(options.getReceiveBufferSize());
+channel.config().setRecvByteBufAllocator(new FixedRecvByteBufAllocator(options.getReceiveBufferSize()));
 }
 channel.config().setReuseAddress(options.isReuseAddress());
 if (options.getTrafficClass() != -1) {
