@@ -1,5 +1,11 @@
 {
-  File resource=new File(url.getPath());
+  File resource;
+  try {
+    resource=new File(URLDecoder.decode(url.getPath(),"UTF-8"));
+  }
+ catch (  UnsupportedEncodingException e) {
+    throw new VertxException(e);
+  }
   boolean isDirectory=resource.isDirectory();
   File cacheFile=new File(cacheDir,fileName);
   if (!isDirectory) {
