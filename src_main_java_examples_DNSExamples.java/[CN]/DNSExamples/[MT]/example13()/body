@@ -1,0 +1,10 @@
+{
+  SrvRecord record=getSrvRecord();
+  record.priority();
+  record.name();
+  record.weight();
+  record.port();
+  record.protocol();
+  record.service();
+  record.target();
+}

@@ -1,0 +1,5 @@
+{
+  MxRecord record=getMxRecord();
+  record.priority();
+  record.name();
+}
