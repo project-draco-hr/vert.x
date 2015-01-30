@@ -131,14 +131,5 @@
   randString=TestUtils.randomUnicodeString(100);
   assertEquals(options,options.setHAGroup(randString));
   assertEquals(randString,options.getHAGroup());
-  assertFalse(options.isMetricsEnabled());
-  assertEquals(options,options.setMetricsEnabled(true));
-  assertTrue(options.isMetricsEnabled());
-  options.setMetricsEnabled(false);
-  assertFalse(options.isJmxEnabled());
-  assertEquals(options,options.setJmxEnabled(true));
-  assertTrue(options.isJmxEnabled());
-  assertTrue(options.isMetricsEnabled());
-  assertNull(options.getJmxDomain());
-  assertEquals("foo",options.setJmxDomain("foo").getJmxDomain());
+  assertNull(options.getMetricsOptions());
 }

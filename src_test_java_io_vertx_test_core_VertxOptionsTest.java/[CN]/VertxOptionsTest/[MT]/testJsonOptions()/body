@@ -14,9 +14,7 @@
   assertFalse(options.isHAEnabled());
   assertEquals(1,options.getQuorumSize());
   assertNull(options.getHAGroup());
-  assertFalse(options.isMetricsEnabled());
-  assertFalse(options.isJmxEnabled());
-  assertNull(options.getJmxDomain());
+  assertNull(options.getMetricsOptions());
   int clusterPort=TestUtils.randomPortInt();
   int eventLoopPoolSize=TestUtils.randomPositiveInt();
   int internalBlockingPoolSize=TestUtils.randomPositiveInt();
@@ -35,7 +33,7 @@
   boolean metricsEnabled=rand.nextBoolean();
   boolean jmxEnabled=rand.nextBoolean();
   String jmxDomain=TestUtils.randomAlphaString(100);
-  options=new VertxOptions(new JsonObject().put("clusterPort",clusterPort).put("eventLoopPoolSize",eventLoopPoolSize).put("internalBlockingPoolSize",internalBlockingPoolSize).put("workerPoolSize",workerPoolSize).put("blockedThreadCheckPeriod",blockedThreadCheckPeriod).put("clusterHost",clusterHost).put("clusterPingInterval",clusterPingInterval).put("clusterPingReplyInterval",clusterPingReplyInterval).put("maxEventLoopExecuteTime",maxEventLoopExecuteTime).put("maxWorkerExecuteTime",maxWorkerExecuteTime).put("proxyOperationTimeout",proxyOperationTimeout).put("haEnabled",haEnabled).put("quorumSize",quorumSize).put("haGroup",haGroup).put("metricsEnabled",metricsEnabled).put("jmxEnabled",jmxEnabled).put("jmxDomain",jmxDomain));
+  options=new VertxOptions(new JsonObject().put("clusterPort",clusterPort).put("eventLoopPoolSize",eventLoopPoolSize).put("internalBlockingPoolSize",internalBlockingPoolSize).put("workerPoolSize",workerPoolSize).put("blockedThreadCheckPeriod",blockedThreadCheckPeriod).put("clusterHost",clusterHost).put("clusterPingInterval",clusterPingInterval).put("clusterPingReplyInterval",clusterPingReplyInterval).put("maxEventLoopExecuteTime",maxEventLoopExecuteTime).put("maxWorkerExecuteTime",maxWorkerExecuteTime).put("proxyOperationTimeout",proxyOperationTimeout).put("haEnabled",haEnabled).put("quorumSize",quorumSize).put("haGroup",haGroup).put("metricsOptions",new JsonObject().put("enabled",metricsEnabled).put("jmxEnabled",jmxEnabled).put("jmxDomain",jmxDomain)));
   assertEquals(clusterPort,options.getClusterPort());
   assertEquals(clusterPingInterval,options.getClusterPingInterval());
   assertEquals(clusterPingReplyInterval,options.getClusterPingReplyInterval());
@@ -50,7 +48,8 @@
   assertEquals(haEnabled,options.isHAEnabled());
   assertEquals(quorumSize,options.getQuorumSize());
   assertEquals(haGroup,options.getHAGroup());
-  assertEquals(metricsEnabled,options.isMetricsEnabled());
-  assertEquals(jmxEnabled,options.isJmxEnabled());
-  assertEquals(jmxDomain,options.getJmxDomain());
+  MetricsOptions metricsOptions=options.getMetricsOptions();
+  assertEquals(metricsEnabled,metricsOptions.isEnabled());
+  assertEquals(jmxEnabled,metricsOptions.isJmxEnabled());
+  assertEquals(jmxDomain,metricsOptions.getJmxDomain());
 }

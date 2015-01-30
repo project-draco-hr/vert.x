@@ -1,0 +1,4 @@
+{
+  enabled=DEFAULT_METRICS_ENABLED;
+  jmxEnabled=DEFAULT_JMX_ENABLED;
+}

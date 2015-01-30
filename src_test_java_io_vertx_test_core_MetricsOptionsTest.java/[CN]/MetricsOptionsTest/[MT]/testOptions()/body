@@ -1,0 +1,13 @@
+{
+  MetricsOptions options=new MetricsOptions();
+  assertFalse(options.isEnabled());
+  assertEquals(options,options.setEnabled(true));
+  assertTrue(options.isEnabled());
+  options.setEnabled(false);
+  assertFalse(options.isJmxEnabled());
+  assertEquals(options,options.setJmxEnabled(true));
+  assertTrue(options.isJmxEnabled());
+  assertTrue(options.isEnabled());
+  assertNull(options.getJmxDomain());
+  assertEquals("foo",options.setJmxDomain("foo").getJmxDomain());
+}

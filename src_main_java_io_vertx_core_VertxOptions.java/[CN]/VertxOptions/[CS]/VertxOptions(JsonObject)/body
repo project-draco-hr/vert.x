@@ -13,7 +13,6 @@
   this.haEnabled=json.getBoolean("haEnabled",false);
   this.quorumSize=json.getInteger("quorumSize",DEFAULT_QUORUM_SIZE);
   this.haGroup=json.getString("haGroup",null);
-  this.metricsEnabled=json.getBoolean("metricsEnabled",DEFAULT_METRICS_ENABLED);
-  this.jmxEnabled=json.getBoolean("jmxEnabled",DEFAULT_JMX_ENABLED);
-  this.jmxDomain=json.getString("jmxDomain");
+  JsonObject metricsJson=json.getJsonObject("metricsOptions");
+  this.metrics=metricsJson != null ? new MetricsOptions(metricsJson) : null;
 }
