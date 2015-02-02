@@ -1,5 +1,5 @@
 {
-  KeyCertOptions options=new KeyCertOptions();
+  PemKeyCertOptions options=new PemKeyCertOptions();
   assertNull(options.getKeyPath());
   String randString=TestUtils.randomAlphaString(100);
   assertEquals(options,options.setKeyPath(randString));

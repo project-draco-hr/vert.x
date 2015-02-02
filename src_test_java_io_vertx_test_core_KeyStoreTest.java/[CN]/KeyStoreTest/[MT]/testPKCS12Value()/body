@@ -1,5 +1,5 @@
 {
-  PKCS12Options options=(PKCS12Options)getServerCertOptions(KS.PKCS12);
+  PfxOptions options=(PfxOptions)getServerCertOptions(KS.PKCS12);
   Buffer store=vertx.fileSystem().readFileBlocking(options.getPath());
   options.setPath(null).setValue(store);
   testKeyStore(options);

@@ -1,3 +1,3 @@
 {
-  testInvalidKeyStore(((JKSOptions)getServerCertOptions(KS.JKS)).setPassword("wrongpassword"),"Keystore was tampered with, or password was incorrect");
+  testInvalidKeyStore(((JksOptions)getServerCertOptions(KS.JKS)).setPassword("wrongpassword"),"Keystore was tampered with, or password was incorrect");
 }

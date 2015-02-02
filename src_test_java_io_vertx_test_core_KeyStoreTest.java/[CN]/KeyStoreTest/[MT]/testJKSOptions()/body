@@ -1,5 +1,5 @@
 {
-  JKSOptions options=new JKSOptions();
+  JksOptions options=new JksOptions();
   assertNull(options.getPath());
   String randString=TestUtils.randomAlphaString(100);
   assertEquals(options,options.setPath(randString));

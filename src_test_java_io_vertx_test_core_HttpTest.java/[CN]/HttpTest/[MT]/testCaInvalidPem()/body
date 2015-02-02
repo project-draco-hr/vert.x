@@ -5,6 +5,6 @@
     Path file=testFolder.newFile("vertx" + UUID.randomUUID().toString() + ".pem").toPath();
     Files.write(file,Collections.singleton(contents[i]));
     String expectedMessage=messages[i];
-    testInvalidTrustStore(new CaOptions().addCertPath(file.toString()),expectedMessage);
+    testInvalidTrustStore(new PemCaOptions().addCertPath(file.toString()),expectedMessage);
   }
 }

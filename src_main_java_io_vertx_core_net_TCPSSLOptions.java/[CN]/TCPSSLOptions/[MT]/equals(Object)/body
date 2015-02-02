@@ -12,7 +12,7 @@
   if (crlPaths != null ? !crlPaths.equals(that.crlPaths) : that.crlPaths != null)   return false;
   if (crlValues != null ? !crlValues.equals(that.crlValues) : that.crlValues != null)   return false;
   if (enabledCipherSuites != null ? !enabledCipherSuites.equals(that.enabledCipherSuites) : that.enabledCipherSuites != null)   return false;
-  if (keyStore != null ? !keyStore.equals(that.keyStore) : that.keyStore != null)   return false;
-  if (trustStore != null ? !trustStore.equals(that.trustStore) : that.trustStore != null)   return false;
+  if (keyCertOptions != null ? !keyCertOptions.equals(that.keyCertOptions) : that.keyCertOptions != null)   return false;
+  if (caOptions != null ? !caOptions.equals(that.caOptions) : that.caOptions != null)   return false;
   return true;
 }

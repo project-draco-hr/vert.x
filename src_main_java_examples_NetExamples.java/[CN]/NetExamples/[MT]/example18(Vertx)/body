@@ -1,6 +1,6 @@
 {
   Buffer myKeyStoreAsABuffer=readKeyStore();
-  JKSOptions jksOptions=new JKSOptions().setValue(myKeyStoreAsABuffer).setPassword("password-of-your-keystore");
+  JksOptions jksOptions=new JksOptions().setValue(myKeyStoreAsABuffer).setPassword("password-of-your-keystore");
   NetServerOptions options=new NetServerOptions().setSsl(true).setKeyStoreOptions(jksOptions);
   NetServer server=vertx.createNetServer(options);
 }

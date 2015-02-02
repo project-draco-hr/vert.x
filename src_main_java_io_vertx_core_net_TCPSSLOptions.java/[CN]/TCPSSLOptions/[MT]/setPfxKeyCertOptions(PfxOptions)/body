@@ -1,0 +1,4 @@
+{
+  this.keyCertOptions=options;
+  return this;
+}

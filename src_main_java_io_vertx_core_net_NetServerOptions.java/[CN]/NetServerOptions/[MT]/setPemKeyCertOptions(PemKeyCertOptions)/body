@@ -1,0 +1,3 @@
+{
+  return (NetServerOptions)super.setPemKeyCertOptions(options);
+}

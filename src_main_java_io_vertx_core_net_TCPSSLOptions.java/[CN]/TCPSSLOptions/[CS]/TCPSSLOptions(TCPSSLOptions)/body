@@ -6,8 +6,8 @@
   this.usePooledBuffers=other.isUsePooledBuffers();
   this.idleTimeout=other.getIdleTimeout();
   this.ssl=other.isSsl();
-  this.keyStore=other.getKeyStoreOptions() != null ? other.getKeyStoreOptions().clone() : null;
-  this.trustStore=other.getTrustStoreOptions() != null ? other.getTrustStoreOptions().clone() : null;
+  this.keyCertOptions=other.getKeyCertOptions() != null ? other.getKeyCertOptions().clone() : null;
+  this.caOptions=other.getCaOptions() != null ? other.getCaOptions().clone() : null;
   this.enabledCipherSuites=other.getEnabledCipherSuites() == null ? null : new HashSet<>(other.getEnabledCipherSuites());
   this.crlPaths=new ArrayList<>(other.getCrlPaths());
   this.crlValues=new ArrayList<>(other.getCrlValues());

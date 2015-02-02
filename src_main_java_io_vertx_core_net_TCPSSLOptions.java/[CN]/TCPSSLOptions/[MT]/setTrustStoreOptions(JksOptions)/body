@@ -1,0 +1,4 @@
+{
+  this.caOptions=options;
+  return this;
+}

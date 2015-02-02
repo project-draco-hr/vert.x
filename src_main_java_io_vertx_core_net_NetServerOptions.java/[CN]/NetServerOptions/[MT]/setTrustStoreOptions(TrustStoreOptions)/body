@@ -1,4 +1,0 @@
-{
-  super.setTrustStoreOptions(trustStore);
-  return this;
-}
