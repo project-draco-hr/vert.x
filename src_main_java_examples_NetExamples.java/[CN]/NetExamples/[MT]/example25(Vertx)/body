@@ -1,0 +1,4 @@
+{
+  NetServerOptions options=new NetServerOptions().setSsl(true).setClientAuthRequired(true).setPfxCaOptions(new PfxOptions().setPath("/path/to/your/truststore.pfx").setPassword("password-of-your-truststore"));
+  NetServer server=vertx.createNetServer(options);
+}

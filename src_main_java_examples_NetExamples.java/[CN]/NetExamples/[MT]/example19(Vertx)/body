@@ -1,0 +1,4 @@
+{
+  NetServerOptions options=new NetServerOptions().setSsl(true).setPfxKeyCertOptions(new PfxOptions().setPath("/path/to/your/server-keystore.pfx").setPassword("password-of-your-keystore"));
+  NetServer server=vertx.createNetServer(options);
+}
