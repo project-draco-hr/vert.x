@@ -1,4 +1,0 @@
-{
-  this.metricsEnabled=enable;
-  return this;
-}

@@ -1,5 +1,5 @@
 {
-  if (options.isMetricsEnabled()) {
+  if (options.getMetricsOptions() != null && options.getMetricsOptions().isEnabled()) {
     ServiceLoader<VertxMetricsFactory> factories=ServiceLoader.load(VertxMetricsFactory.class);
     if (factories.iterator().hasNext()) {
       VertxMetricsFactory factory=factories.iterator().next();
@@ -7,10 +7,7 @@
     }
  else {
       log.warn("Metrics has been set to enabled but no VertxMetricsFactory found on classpath");
-      return new DummyVertxMetrics();
     }
   }
- else {
-    return new DummyVertxMetrics();
-  }
+  return new DummyVertxMetrics();
 }

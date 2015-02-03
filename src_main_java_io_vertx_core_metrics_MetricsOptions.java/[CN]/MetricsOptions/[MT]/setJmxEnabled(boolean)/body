@@ -1,0 +1,5 @@
+{
+  this.jmxEnabled=jmxEnabled;
+  if (jmxEnabled)   enabled=true;
+  return this;
+}

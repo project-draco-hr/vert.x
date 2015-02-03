@@ -1,0 +1,6 @@
+{
+  this.enabled=other.isEnabled();
+  this.name=other.getName();
+  this.jmxEnabled=other.isJmxEnabled();
+  this.jmxDomain=other.getJmxDomain();
+}

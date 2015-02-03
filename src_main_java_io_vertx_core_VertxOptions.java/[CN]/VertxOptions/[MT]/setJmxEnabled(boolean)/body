@@ -1,5 +1,0 @@
-{
-  this.jmxEnabled=jmxEnabled;
-  if (jmxEnabled)   metricsEnabled=true;
-  return this;
-}
