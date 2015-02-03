@@ -1,0 +1,7 @@
+{
+  Buffer myKeyAsABuffer=vertx.fileSystem().readFileBlocking("/path/to/your/client-key.pem");
+  Buffer myCertAsABuffer=vertx.fileSystem().readFileBlocking("/path/to/your/client-cert.pem");
+  PemKeyCertOptions pemOptions=new PemKeyCertOptions().setKeyValue(myKeyAsABuffer).setCertValue(myCertAsABuffer);
+  NetClientOptions options=new NetClientOptions().setSsl(true).setPemKeyCertOptions(pemOptions);
+  NetClient client=vertx.createNetClient(options);
+}

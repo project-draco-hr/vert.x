@@ -1,0 +1,6 @@
+{
+  Buffer myKeyStoreAsABuffer=vertx.fileSystem().readFileBlocking("/path/to/your/client-keystore.pfx");
+  PfxOptions pfxOptions=new PfxOptions().setValue(myKeyStoreAsABuffer).setPassword("password-of-your-keystore");
+  NetClientOptions options=new NetClientOptions().setSsl(true).setPfxKeyCertOptions(pfxOptions);
+  NetClient client=vertx.createNetClient(options);
+}

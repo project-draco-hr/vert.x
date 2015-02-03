@@ -1,0 +1,5 @@
+{
+  Buffer myTrustStoreAsABuffer=vertx.fileSystem().readFileBlocking("/path/to/your/ca-cert.pem");
+  NetClientOptions options=new NetClientOptions().setSsl(true).setPemTrustOptions(new PemTrustOptions().addCertValue(myTrustStoreAsABuffer));
+  NetClient client=vertx.createNetClient(options);
+}

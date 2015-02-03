@@ -1,0 +1,6 @@
+{
+  Buffer myKeyStoreAsABuffer=vertx.fileSystem().readFileBlocking("/path/to/your/client-keystore.jks");
+  JksOptions jksOptions=new JksOptions().setValue(myKeyStoreAsABuffer).setPassword("password-of-your-keystore");
+  NetClientOptions options=new NetClientOptions().setSsl(true).setKeyStoreOptions(jksOptions);
+  NetClient client=vertx.createNetClient(options);
+}

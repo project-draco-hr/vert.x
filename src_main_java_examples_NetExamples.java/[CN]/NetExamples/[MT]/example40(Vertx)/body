@@ -1,0 +1,4 @@
+{
+  NetClientOptions options=new NetClientOptions().setSsl(true).setPemKeyCertOptions(new PemKeyCertOptions().setKeyPath("/path/to/your/client-key.pem").setCertPath("/path/to/your/client-cert.pem"));
+  NetClient client=vertx.createNetClient(options);
+}

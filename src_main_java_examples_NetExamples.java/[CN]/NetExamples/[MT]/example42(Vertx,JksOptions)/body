@@ -1,0 +1,4 @@
+{
+  NetClientOptions options=new NetClientOptions().setSsl(true).setTrustStoreOptions(trustOptions).addCrlPath("/path/to/your/crl.pem");
+  NetClient client=vertx.createNetClient(options);
+}

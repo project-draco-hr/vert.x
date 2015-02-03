@@ -1,0 +1,3 @@
+{
+  return (NetClientOptions)super.addCrlPath(crlPath);
+}

@@ -1,0 +1,4 @@
+{
+  NetClientOptions options=new NetClientOptions().setSsl(true).setTrustStoreOptions(new JksOptions().setPath("/path/to/your/truststore.jks").setPassword("password-of-your-truststore"));
+  NetClient client=vertx.createNetClient(options);
+}
