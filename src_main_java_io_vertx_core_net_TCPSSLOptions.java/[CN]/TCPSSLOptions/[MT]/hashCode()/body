@@ -7,7 +7,7 @@
   result=31 * result + idleTimeout;
   result=31 * result + (ssl ? 1 : 0);
   result=31 * result + (keyCertOptions != null ? keyCertOptions.hashCode() : 0);
-  result=31 * result + (caOptions != null ? caOptions.hashCode() : 0);
+  result=31 * result + (trustOptions != null ? trustOptions.hashCode() : 0);
   result=31 * result + (enabledCipherSuites != null ? enabledCipherSuites.hashCode() : 0);
   result=31 * result + (crlPaths != null ? crlPaths.hashCode() : 0);
   result=31 * result + (crlValues != null ? crlValues.hashCode() : 0);

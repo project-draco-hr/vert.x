@@ -1,5 +1,5 @@
 {
-  PemKeyCertOptions options=(PemKeyCertOptions)getServerCertOptions(KS.PEM);
+  PemKeyCertOptions options=(PemKeyCertOptions)getServerCertOptions(KeyCert.PEM);
   Buffer key=vertx.fileSystem().readFileBlocking(options.getKeyPath());
   options.setKeyValue(null).setKeyValue(key);
   Buffer cert=vertx.fileSystem().readFileBlocking(options.getCertPath());

@@ -42,9 +42,9 @@
   assertNotSame(keyStoreOptions,options.getKeyCertOptions());
   assertEquals(ksPassword,((JksOptions)options.getKeyCertOptions()).getPassword());
   assertEquals(ksPath,((JksOptions)options.getKeyCertOptions()).getPath());
-  assertNotSame(trustStoreOptions,options.getCaOptions());
-  assertEquals(tsPassword,((JksOptions)options.getCaOptions()).getPassword());
-  assertEquals(tsPath,((JksOptions)options.getCaOptions()).getPath());
+  assertNotSame(trustStoreOptions,options.getTrustOptions());
+  assertEquals(tsPassword,((JksOptions)options.getTrustOptions()).getPassword());
+  assertEquals(tsPath,((JksOptions)options.getTrustOptions()).getPath());
   assertEquals(1,options.getEnabledCipherSuites().size());
   assertTrue(options.getEnabledCipherSuites().contains(enabledCipher));
   assertEquals(connectTimeout,options.getConnectTimeout());
@@ -55,14 +55,14 @@
   assertEquals(reconnectInterval,options.getReconnectInterval());
   json.remove("keyStoreOptions");
   json.remove("trustStoreOptions");
-  json.put("pfxKeyCertOptions",new JsonObject().put("password",ksPassword)).put("pfxCaOptions",new JsonObject().put("password",tsPassword));
+  json.put("pfxKeyCertOptions",new JsonObject().put("password",ksPassword)).put("pfxTrustOptions",new JsonObject().put("password",tsPassword));
   options=new NetClientOptions(json);
-  assertTrue(options.getCaOptions() instanceof PfxOptions);
+  assertTrue(options.getTrustOptions() instanceof PfxOptions);
   assertTrue(options.getKeyCertOptions() instanceof PfxOptions);
   json.remove("pfxKeyCertOptions");
-  json.remove("pfxCaOptions");
-  json.put("pemKeyCertOptions",new JsonObject()).put("pemCaOptions",new JsonObject());
+  json.remove("pfxTrustOptions");
+  json.put("pemKeyCertOptions",new JsonObject()).put("pemTrustOptions",new JsonObject());
   options=new NetClientOptions(json);
-  assertTrue(options.getCaOptions() instanceof PemCaOptions);
+  assertTrue(options.getTrustOptions() instanceof PemTrustOptions);
   assertTrue(options.getKeyCertOptions() instanceof PemKeyCertOptions);
 }

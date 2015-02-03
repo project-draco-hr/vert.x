@@ -1,3 +1,0 @@
-{
-  return (HttpClientOptions)super.setPemCaOptions(options);
-}

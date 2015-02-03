@@ -62,8 +62,8 @@
   assertEquals(ssl,copy.isSsl());
   assertNotSame(keyStoreOptions,copy.getKeyCertOptions());
   assertEquals(ksPassword,((JksOptions)copy.getKeyCertOptions()).getPassword());
-  assertNotSame(trustStoreOptions,copy.getCaOptions());
-  assertEquals(tsPassword,((JksOptions)copy.getCaOptions()).getPassword());
+  assertNotSame(trustStoreOptions,copy.getTrustOptions());
+  assertEquals(tsPassword,((JksOptions)copy.getTrustOptions()).getPassword());
   assertEquals(1,copy.getEnabledCipherSuites().size());
   assertTrue(copy.getEnabledCipherSuites().contains(enabledCipher));
   assertEquals(connectTimeout,copy.getConnectTimeout());

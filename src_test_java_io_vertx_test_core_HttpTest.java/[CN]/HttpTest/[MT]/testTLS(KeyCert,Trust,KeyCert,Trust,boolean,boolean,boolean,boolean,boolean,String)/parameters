@@ -1,0 +1,10 @@
+KeyCert clientCert
+Trust clientTrust
+KeyCert serverCert
+Trust serverTrust
+boolean requireClientAuth
+boolean serverUsesCrl
+boolean clientTrustAll
+boolean clientUsesCrl
+boolean shouldPass
+String enabledCipherSuites

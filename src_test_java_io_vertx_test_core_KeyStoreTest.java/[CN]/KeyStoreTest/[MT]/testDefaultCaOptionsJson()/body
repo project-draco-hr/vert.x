@@ -1,6 +1,0 @@
-{
-  PemCaOptions def=new PemCaOptions();
-  PemCaOptions json=new PemCaOptions(new JsonObject());
-  assertEquals(def.getCertPaths(),json.getCertPaths());
-  assertEquals(def.getCertValues(),json.getCertValues());
-}

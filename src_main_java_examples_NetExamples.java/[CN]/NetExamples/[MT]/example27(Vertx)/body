@@ -1,4 +1,4 @@
 {
-  NetServerOptions options=new NetServerOptions().setSsl(true).setClientAuthRequired(true).setPemCaOptions(new PemCaOptions().addCertPath("/path/to/your/server-ca.pem"));
+  NetServerOptions options=new NetServerOptions().setSsl(true).setClientAuthRequired(true).setPemTrustOptions(new PemTrustOptions().addCertPath("/path/to/your/server-ca.pem"));
   NetServer server=vertx.createNetServer(options);
 }
