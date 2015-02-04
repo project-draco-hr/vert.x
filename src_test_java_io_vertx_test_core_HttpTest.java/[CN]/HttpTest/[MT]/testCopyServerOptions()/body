@@ -11,10 +11,10 @@
   boolean usePooledBuffers=rand.nextBoolean();
   int idleTimeout=TestUtils.randomPositiveInt();
   boolean ssl=rand.nextBoolean();
-  JKSOptions keyStoreOptions=new JKSOptions();
+  JksOptions keyStoreOptions=new JksOptions();
   String ksPassword=TestUtils.randomAlphaString(100);
   keyStoreOptions.setPassword(ksPassword);
-  JKSOptions trustStoreOptions=new JKSOptions();
+  JksOptions trustStoreOptions=new JksOptions();
   String tsPassword=TestUtils.randomAlphaString(100);
   trustStoreOptions.setPassword(tsPassword);
   String enabledCipher=TestUtils.randomAlphaString(100);
@@ -58,10 +58,10 @@
   assertEquals(usePooledBuffers,copy.isUsePooledBuffers());
   assertEquals(idleTimeout,copy.getIdleTimeout());
   assertEquals(ssl,copy.isSsl());
-  assertNotSame(keyStoreOptions,copy.getKeyStoreOptions());
-  assertEquals(ksPassword,((JKSOptions)copy.getKeyStoreOptions()).getPassword());
-  assertNotSame(trustStoreOptions,copy.getTrustStoreOptions());
-  assertEquals(tsPassword,((JKSOptions)copy.getTrustStoreOptions()).getPassword());
+  assertNotSame(keyStoreOptions,copy.getKeyCertOptions());
+  assertEquals(ksPassword,((JksOptions)copy.getKeyCertOptions()).getPassword());
+  assertNotSame(trustStoreOptions,copy.getTrustOptions());
+  assertEquals(tsPassword,((JksOptions)copy.getTrustOptions()).getPassword());
   assertEquals(1,copy.getEnabledCipherSuites().size());
   assertTrue(copy.getEnabledCipherSuites().contains(enabledCipher));
   assertEquals(1,copy.getCrlPaths().size());

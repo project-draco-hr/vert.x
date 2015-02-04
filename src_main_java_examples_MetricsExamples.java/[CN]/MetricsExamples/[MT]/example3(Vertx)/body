@@ -1,0 +1,4 @@
+{
+  HttpServer server=vertx.createHttpServer();
+  Map<String,JsonObject> metrics=server.metrics();
+}

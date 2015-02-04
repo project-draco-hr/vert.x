@@ -1,3 +1,3 @@
 {
-  testTrustStore(getServerTrustOptions(TS.PEM));
+  testTrustStore(getServerTrustOptions(Trust.PEM));
 }

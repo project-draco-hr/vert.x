@@ -1,3 +1,0 @@
-{
-  testTLS(KS.NONE,TS.PEM_CA,KS.PEM_CA,TS.NONE,false,false,false,false,true);
-}

@@ -1,0 +1,5 @@
+{
+  Buffer myCrlAsABuffer=vertx.fileSystem().readFileBlocking("/path/to/your/crl.pem");
+  NetClientOptions options=new NetClientOptions().setSsl(true).setTrustStoreOptions(trustOptions).addCrlValue(myCrlAsABuffer);
+  NetClient client=vertx.createNetClient(options);
+}

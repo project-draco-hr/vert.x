@@ -1,6 +1,6 @@
 {
-  KeyCertOptions def=new KeyCertOptions();
-  KeyCertOptions json=new KeyCertOptions(new JsonObject());
+  PemKeyCertOptions def=new PemKeyCertOptions();
+  PemKeyCertOptions json=new PemKeyCertOptions(new JsonObject());
   assertEquals(def.getKeyPath(),json.getKeyPath());
   assertEquals(def.getCertPath(),json.getCertPath());
   assertEquals(def.getKeyValue(),json.getKeyValue());

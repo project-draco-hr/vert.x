@@ -1,0 +1,11 @@
+{
+  if (options instanceof JksOptions) {
+    sslOptions.setKeyStoreOptions((JksOptions)options);
+  }
+ else   if (options instanceof PfxOptions) {
+    sslOptions.setPfxKeyCertOptions((PfxOptions)options);
+  }
+ else {
+    sslOptions.setPemKeyCertOptions((PemKeyCertOptions)options);
+  }
+}

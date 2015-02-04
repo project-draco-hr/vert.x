@@ -1,5 +1,5 @@
 {
-  KeyCertOptions options=new KeyCertOptions(new JsonObject());
+  PemKeyCertOptions options=new PemKeyCertOptions(new JsonObject());
   assertEquals(null,options.getKeyPath());
   assertEquals(null,options.getKeyValue());
   assertEquals(null,options.getCertPath());
@@ -8,7 +8,7 @@
   String keyValue=TestUtils.randomAlphaString(100);
   String certPath=TestUtils.randomAlphaString(100);
   String certValue=TestUtils.randomAlphaString(100);
-  options=new KeyCertOptions(new JsonObject().put("keyPath",keyPath).put("keyValue",keyValue.getBytes()).put("certPath",certPath).put("certValue",certValue.getBytes()));
+  options=new PemKeyCertOptions(new JsonObject().put("keyPath",keyPath).put("keyValue",keyValue.getBytes()).put("certPath",certPath).put("certValue",certValue.getBytes()));
   assertEquals(keyPath,options.getKeyPath());
   assertEquals(Buffer.buffer(keyValue),options.getKeyValue());
   assertEquals(certPath,options.getCertPath());

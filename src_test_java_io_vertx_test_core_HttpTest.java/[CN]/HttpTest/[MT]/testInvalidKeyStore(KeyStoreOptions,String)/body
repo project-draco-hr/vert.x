@@ -1,7 +1,0 @@
-{
-  HttpServerOptions serverOptions=new HttpServerOptions();
-  serverOptions.setKeyStoreOptions(ksOptions);
-  serverOptions.setSsl(true);
-  serverOptions.setPort(4043);
-  testStore(serverOptions,expectedMessage);
-}

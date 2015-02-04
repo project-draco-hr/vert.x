@@ -1,0 +1,11 @@
+{
+  if (options instanceof JksOptions) {
+    sslOptions.setTrustStoreOptions((JksOptions)options);
+  }
+ else   if (options instanceof PfxOptions) {
+    sslOptions.setPfxTrustOptions((PfxOptions)options);
+  }
+ else {
+    sslOptions.setPemTrustOptions((PemTrustOptions)options);
+  }
+}

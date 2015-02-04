@@ -1,0 +1,4 @@
+{
+  this.trustOptions=options;
+  return this;
+}

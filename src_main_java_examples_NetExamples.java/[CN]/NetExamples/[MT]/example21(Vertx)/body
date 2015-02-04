@@ -1,0 +1,4 @@
+{
+  NetServerOptions options=new NetServerOptions().setSsl(true).setPemKeyCertOptions(new PemKeyCertOptions().setKeyPath("/path/to/your/server-key.pem").setCertPath("/path/to/your/server-cert.pem"));
+  NetServer server=vertx.createNetServer(options);
+}

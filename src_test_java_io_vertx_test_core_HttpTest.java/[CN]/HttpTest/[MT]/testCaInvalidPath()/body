@@ -1,3 +1,3 @@
 {
-  testInvalidTrustStore(new CaOptions().addCertPath("/invalid.pem"),"java.nio.file.NoSuchFileException: /invalid.pem");
+  testInvalidTrustStore(new PemTrustOptions().addCertPath("/invalid.pem"),"java.nio.file.NoSuchFileException: /invalid.pem");
 }

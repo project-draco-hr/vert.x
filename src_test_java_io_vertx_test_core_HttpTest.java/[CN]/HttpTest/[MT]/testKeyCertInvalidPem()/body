@@ -5,6 +5,6 @@
     Path file=testFolder.newFile("vertx" + UUID.randomUUID().toString() + ".pem").toPath();
     Files.write(file,Collections.singleton(contents[i]));
     String expectedMessage=messages[i];
-    testInvalidKeyStore(((KeyCertOptions)getServerCertOptions(KS.PEM)).setKeyPath(file.toString()),expectedMessage);
+    testInvalidKeyStore(((PemKeyCertOptions)getServerCertOptions(KeyCert.PEM)).setKeyPath(file.toString()),expectedMessage);
   }
 }

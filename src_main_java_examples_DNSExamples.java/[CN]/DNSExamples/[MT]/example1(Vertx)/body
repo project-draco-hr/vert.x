@@ -1,0 +1,3 @@
+{
+  DnsClient client=vertx.createDnsClient(53,"10.0.0.1");
+}

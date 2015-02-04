@@ -1,0 +1,6 @@
+{
+  PemTrustOptions def=new PemTrustOptions();
+  PemTrustOptions json=new PemTrustOptions(new JsonObject());
+  assertEquals(def.getCertPaths(),json.getCertPaths());
+  assertEquals(def.getCertValues(),json.getCertValues());
+}

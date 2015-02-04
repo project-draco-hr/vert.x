@@ -1,0 +1,3 @@
+{
+  testTLS(KeyCert.NONE,Trust.JKS_CA,KeyCert.JKS_CA,Trust.NONE,false,false,false,false,true);
+}
