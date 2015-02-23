@@ -3,11 +3,11 @@
     req.resume();
     paused=false;
     if (pauseBuff != null) {
-      receiveData(pauseBuff);
+      doReceiveData(pauseBuff);
       pauseBuff=null;
     }
-    if (complete && endHandler != null) {
-      endHandler.handle(null);
+    if (complete) {
+      handleComplete();
     }
   }
   return this;

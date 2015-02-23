@@ -2,15 +2,5 @@
   if (lazyCalculateSize) {
     size+=data.length();
   }
-  if (!paused) {
-    if (dataHandler != null) {
-      dataHandler.handle(data);
-    }
-  }
- else {
-    if (pauseBuff == null) {
-      pauseBuff=Buffer.buffer();
-    }
-    pauseBuff.appendBuffer(data);
-  }
+  doReceiveData(data);
 }

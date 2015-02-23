@@ -1,2 +1,9 @@
 {
+  req.uploadComplete(this);
+  if (paused) {
+    complete=true;
+  }
+ else {
+    handleComplete();
+  }
 }
