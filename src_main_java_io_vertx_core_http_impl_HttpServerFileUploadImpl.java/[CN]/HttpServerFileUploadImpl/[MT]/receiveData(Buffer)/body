@@ -1,6 +1,8 @@
 {
-  if (lazyCalculateSize) {
-    size+=data.length();
+  if (data.length() != 0) {
+    if (lazyCalculateSize) {
+      size+=data.length();
+    }
+    doReceiveData(data);
   }
-  doReceiveData(data);
 }

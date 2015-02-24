@@ -1,3 +1,3 @@
-Iterator<ByteBuffer> buffers
+Buffer buffer
 long position
 Handler<AsyncResult<Void>> handler

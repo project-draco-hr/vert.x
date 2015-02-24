@@ -1,4 +1,7 @@
 {
+  if (toWrite == 0) {
+    throw new IllegalStateException("Cannot save zero bytes");
+  }
   writesOutstanding+=toWrite;
   writeInternal(buff,position,handler);
 }
