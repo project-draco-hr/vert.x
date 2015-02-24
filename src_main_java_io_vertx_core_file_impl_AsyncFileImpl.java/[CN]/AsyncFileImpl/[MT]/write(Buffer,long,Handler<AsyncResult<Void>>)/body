@@ -1,16 +1,4 @@
 {
-  Objects.requireNonNull(buffer,"buffer");
   Objects.requireNonNull(handler,"handler");
-  Arguments.require(position >= 0,"position must be >= 0");
-  check();
-  ByteBuf buf=buffer.getByteBuf();
-  if (buf.nioBufferCount() > 1) {
-    Iterator<ByteBuffer> buffers=Arrays.asList(buf.nioBuffers()).iterator();
-    doWrite(buffers,position,handler);
-  }
- else {
-    ByteBuffer bb=buf.nioBuffer();
-    doWrite(bb,position,bb.limit(),handler);
-  }
-  return this;
+  return doWrite(buffer,position,handler);
 }
