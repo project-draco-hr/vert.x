@@ -1,3 +1,10 @@
 {
   this.vertx=vertx;
+  String cwdOverride=System.getProperty("vertx.cwd");
+  if (cwdOverride != null) {
+    cwd=new File(cwdOverride).getAbsoluteFile();
+  }
+ else {
+    cwd=null;
+  }
 }

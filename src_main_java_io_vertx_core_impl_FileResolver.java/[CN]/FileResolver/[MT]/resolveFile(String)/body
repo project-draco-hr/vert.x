@@ -1,5 +1,8 @@
 {
   File file=new File(fileName);
+  if (cwd != null && !file.isAbsolute()) {
+    file=new File(cwd,fileName);
+  }
   if (!enableCPResolving) {
     return file;
   }
