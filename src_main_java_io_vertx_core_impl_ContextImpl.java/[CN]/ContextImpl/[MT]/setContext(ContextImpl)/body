@@ -2,11 +2,14 @@
   Thread current=Thread.currentThread();
   if (current instanceof VertxThread) {
     ((VertxThread)current).setContext(context);
-  }
-  if (context != null) {
-    context.setTCCL();
+    if (context != null) {
+      context.setTCCL();
+    }
+ else {
+      Thread.currentThread().setContextClassLoader(null);
+    }
   }
  else {
-    Thread.currentThread().setContextClassLoader(null);
+    log.warn("Attempt to setContext on non Vert.x thread " + Thread.currentThread());
   }
 }
