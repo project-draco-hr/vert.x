@@ -1,0 +1,3 @@
+TrustOptions options
+String expectedPrefix
+String expectedSuffix

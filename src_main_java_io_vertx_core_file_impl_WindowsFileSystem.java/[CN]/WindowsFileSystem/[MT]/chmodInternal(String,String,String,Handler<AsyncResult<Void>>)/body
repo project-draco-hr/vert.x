@@ -1,6 +1,11 @@
 {
+  Objects.requireNonNull(path);
+  Objects.requireNonNull(perms);
   logInternal(perms);
   logInternal(dirPerms);
+  if (log.isDebugEnabled()) {
+    log.debug("You are running on Windows and POSIX style file permissions are not supported!");
+  }
   return new BlockingAction<Void>(handler){
     @Override public Void perform(){
       return null;

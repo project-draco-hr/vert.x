@@ -2,7 +2,7 @@
   for (int i=0; i < 2; i++) {
     File file=resolver.resolveFile("afile with spaces.html");
     assertTrue(file.exists());
-    assertTrue(file.getPath().startsWith(".vertx/file-cache-"));
+    assertTrue(file.getPath().startsWith(".vertx" + File.separator + "file-cache-"));
     assertFalse(file.isDirectory());
     assertEquals("<html><body>afile with spaces</body></html>",readFile(file));
   }

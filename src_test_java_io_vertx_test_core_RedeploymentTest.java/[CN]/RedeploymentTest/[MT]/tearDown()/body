@@ -1,3 +1,3 @@
 {
-  vertx.fileSystem().deleteRecursiveBlocking(tempDir.getPath(),true);
+  if (!System.getProperty("os.name").startsWith("Windows"))   vertx.fileSystem().deleteRecursiveBlocking(tempDir.getPath(),true);
 }
