@@ -6,7 +6,7 @@
   sb.append(record.getLevel()).append(" [");
   sb.append(record.getLoggerName()).append("]").append("  ");
   sb.append(record.getMessage());
-  sb.append(VertxLoggerFormatter.LINE_SEPARATOR);
+  sb.append(Utils.LINE_SEPARATOR);
   if (record.getThrown() != null) {
     try {
       StringWriter sw=new StringWriter();
