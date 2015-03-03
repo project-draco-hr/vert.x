@@ -2,7 +2,7 @@
   for (int i=0; i < 2; i++) {
     File file=resolver.resolveFile(webRoot + "/somefile.html");
     assertTrue(file.exists());
-    assertTrue(file.getPath().startsWith(".vertx/file-cache-"));
+    assertTrue(file.getPath().startsWith(".vertx" + File.separator + "file-cache-"));
     assertFalse(file.isDirectory());
     assertEquals("<html><body>blah</body></html>",readFile(file));
   }

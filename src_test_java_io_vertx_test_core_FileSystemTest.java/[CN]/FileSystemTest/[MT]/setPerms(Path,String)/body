@@ -1,5 +1,5 @@
 {
-  if (Windows.isWindows() == false) {
+  if (Utils.isWindows() == false) {
     try {
       Files.setPosixFilePermissions(path,PosixFilePermissions.fromString(perms));
     }
