@@ -1,5 +1,4 @@
 {
   NetClient client=vertx.createNetClient(new NetClientOptions());
   assertNull(client.metricBaseName());
-  assertTrue(client.metrics().isEmpty());
 }

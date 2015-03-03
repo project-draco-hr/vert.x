@@ -1,5 +1,4 @@
 {
   NetServer server=vertx.createNetServer(new NetServerOptions());
   assertNull(server.metricBaseName());
-  assertTrue(server.metrics().isEmpty());
 }
