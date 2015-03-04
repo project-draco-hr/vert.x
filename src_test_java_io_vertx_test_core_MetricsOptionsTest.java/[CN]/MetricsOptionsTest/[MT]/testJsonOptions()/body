@@ -1,9 +1,6 @@
 {
   MetricsOptions options=new MetricsOptions(new JsonObject());
   assertFalse(options.isEnabled());
-  assertFalse(options.isJmxEnabled());
-  assertNull(options.getJmxDomain());
-  assertNull(options.getName());
   Random rand=new Random();
   boolean metricsEnabled=rand.nextBoolean();
   boolean jmxEnabled=rand.nextBoolean();
@@ -11,7 +8,4 @@
   String metricsName=TestUtils.randomAlphaString(100);
   options=new MetricsOptions(new JsonObject().put("enabled",metricsEnabled).put("name",metricsName).put("jmxEnabled",jmxEnabled).put("jmxDomain",jmxDomain));
   assertEquals(metricsEnabled,options.isEnabled());
-  assertEquals(metricsName,options.getName());
-  assertEquals(jmxEnabled,options.isJmxEnabled());
-  assertEquals(jmxDomain,options.getJmxDomain());
 }

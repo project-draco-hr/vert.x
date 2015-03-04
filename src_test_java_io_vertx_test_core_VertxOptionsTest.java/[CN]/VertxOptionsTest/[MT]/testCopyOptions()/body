@@ -31,7 +31,7 @@
   options.setHAEnabled(haEnabled);
   options.setQuorumSize(quorumSize);
   options.setHAGroup(haGroup);
-  options.setMetricsOptions(new MetricsOptions().setEnabled(metricsEnabled).setJmxEnabled(jmxEnabled).setJmxDomain(jmxDomain));
+  options.setMetricsOptions(new MetricsOptions().setEnabled(metricsEnabled));
   options=new VertxOptions(options);
   assertEquals(clusterPort,options.getClusterPort());
   assertEquals(clusterPingInterval,options.getClusterPingInterval());
@@ -49,6 +49,4 @@
   MetricsOptions metricsOptions=options.getMetricsOptions();
   assertNotNull(metricsOptions);
   assertEquals(metricsEnabled || jmxEnabled,metricsOptions.isEnabled());
-  assertEquals(jmxEnabled,metricsOptions.isJmxEnabled());
-  assertEquals(jmxDomain,metricsOptions.getJmxDomain());
 }

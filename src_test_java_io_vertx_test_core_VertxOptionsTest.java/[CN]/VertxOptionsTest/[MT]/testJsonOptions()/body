@@ -50,6 +50,4 @@
   assertEquals(haGroup,options.getHAGroup());
   MetricsOptions metricsOptions=options.getMetricsOptions();
   assertEquals(metricsEnabled,metricsOptions.isEnabled());
-  assertEquals(jmxEnabled,metricsOptions.isJmxEnabled());
-  assertEquals(jmxDomain,metricsOptions.getJmxDomain());
 }
