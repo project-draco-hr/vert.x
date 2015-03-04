@@ -3,9 +3,6 @@
   assertFalse(options.isEnabled());
   Random rand=new Random();
   boolean metricsEnabled=rand.nextBoolean();
-  boolean jmxEnabled=rand.nextBoolean();
-  String jmxDomain=TestUtils.randomAlphaString(100);
-  String metricsName=TestUtils.randomAlphaString(100);
-  options=new MetricsOptions(new JsonObject().put("enabled",metricsEnabled).put("name",metricsName).put("jmxEnabled",jmxEnabled).put("jmxDomain",jmxDomain));
+  options=new MetricsOptions(new JsonObject().put("enabled",metricsEnabled));
   assertEquals(metricsEnabled,options.isEnabled());
 }

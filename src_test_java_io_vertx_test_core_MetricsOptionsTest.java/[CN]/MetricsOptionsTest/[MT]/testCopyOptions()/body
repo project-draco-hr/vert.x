@@ -2,8 +2,7 @@
   MetricsOptions options=new MetricsOptions();
   Random rand=new Random();
   boolean metricsEnabled=rand.nextBoolean();
-  boolean jmxEnabled=rand.nextBoolean();
   options.setEnabled(metricsEnabled);
   options=new MetricsOptions(options);
-  assertEquals(metricsEnabled || jmxEnabled,options.isEnabled());
+  assertEquals(metricsEnabled,options.isEnabled());
 }
