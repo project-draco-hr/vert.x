@@ -1,4 +1,3 @@
 {
   assertNull(vertx.metricBaseName());
-  assertTrue(vertx.metrics().isEmpty());
 }
