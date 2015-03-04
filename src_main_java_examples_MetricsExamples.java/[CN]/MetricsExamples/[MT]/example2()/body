@@ -1,3 +1,0 @@
-{
-  Vertx vertx=Vertx.vertx(new VertxOptions().setMetricsOptions(new MetricsOptions().setEnabled(true)));
-}
