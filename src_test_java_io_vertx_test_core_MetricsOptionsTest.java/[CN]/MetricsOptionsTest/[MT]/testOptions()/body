@@ -3,6 +3,4 @@
   assertFalse(options.isEnabled());
   assertEquals(options,options.setEnabled(true));
   assertTrue(options.isEnabled());
-  options.setEnabled(false);
-  assertTrue(options.isEnabled());
 }
