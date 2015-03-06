@@ -1,0 +1,3 @@
+{
+  assertEquals(expected.toString() + resourceName,resource.toString());
+}

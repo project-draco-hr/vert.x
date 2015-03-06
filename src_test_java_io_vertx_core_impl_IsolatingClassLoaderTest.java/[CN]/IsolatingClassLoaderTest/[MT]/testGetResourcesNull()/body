@@ -1,0 +1,9 @@
+{
+  resourceName="null_resource";
+  Enumeration<URL> resources=ucl.getResources(resourceName);
+  List<URL> list=Collections.list(resources);
+  assertEquals(0,list.size());
+  resources=icl.getResources(resourceName);
+  list=Collections.list(resources);
+  assertEquals(0,list.size());
+}

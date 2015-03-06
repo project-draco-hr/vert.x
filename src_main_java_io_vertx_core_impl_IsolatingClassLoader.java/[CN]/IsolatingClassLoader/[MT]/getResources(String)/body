@@ -1,0 +1,10 @@
+{
+  List<URL> resources=Collections.list(findResources(name));
+  if (getParent() != null) {
+    Enumeration<URL> parentResources=getParent().getResources(name);
+    if (parentResources.hasMoreElements()) {
+      resources.addAll(Collections.list(parentResources));
+    }
+  }
+  return Collections.enumeration(resources);
+}

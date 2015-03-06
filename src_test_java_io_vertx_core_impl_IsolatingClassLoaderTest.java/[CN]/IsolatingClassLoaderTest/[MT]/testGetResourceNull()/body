@@ -1,0 +1,7 @@
+{
+  resourceName="null_resource";
+  URL resource=ucl.getResource(resourceName);
+  assertNull(resource);
+  resource=icl.getResource(resourceName);
+  assertNull(resource);
+}
