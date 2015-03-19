@@ -1,0 +1,6 @@
+VertxInternal vertx
+Channel channel
+ContextImpl context
+SSLHelper helper
+boolean client
+TCPMetrics metrics

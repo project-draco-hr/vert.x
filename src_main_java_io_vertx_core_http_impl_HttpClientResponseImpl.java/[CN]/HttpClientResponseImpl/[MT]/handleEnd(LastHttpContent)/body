@@ -1,7 +1,7 @@
 {
-  if (conn.metrics().isEnabled())   conn.metrics().bytesRead(conn.remoteAddress(),bytesRead);
+  conn.reportBytesRead(bytesRead);
   bytesRead=0;
-  conn.metrics().responseEnd(request,this);
+  request.reportResponseEnd(this);
   if (paused) {
     hasPausedEnd=true;
     pausedTrailer=trailer;

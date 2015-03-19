@@ -1,0 +1,5 @@
+{
+  if (metrics.isEnabled()) {
+    metrics.bytesWritten(metric(),remoteAddress(),numberOfBytes);
+  }
+}

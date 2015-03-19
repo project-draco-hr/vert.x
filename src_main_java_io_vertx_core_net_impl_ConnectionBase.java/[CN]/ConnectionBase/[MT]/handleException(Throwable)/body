@@ -1,5 +1,5 @@
 {
-  metrics.exceptionOccurred(remoteAddress(),t);
+  metrics.exceptionOccurred(metric(),remoteAddress(),t);
   if (exceptionHandler != null) {
     exceptionHandler.handle(t);
   }

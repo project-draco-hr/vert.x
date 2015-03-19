@@ -1,7 +1,5 @@
 {
   checkClosed();
-  if (conn.netMetrics().isEnabled()) {
-    conn.netMetrics().bytesWritten(remoteAddress(),frame.binaryData().length());
-  }
+  conn.reportBytesWritten(frame.binaryData().length());
   conn.writeToChannel(frame);
 }

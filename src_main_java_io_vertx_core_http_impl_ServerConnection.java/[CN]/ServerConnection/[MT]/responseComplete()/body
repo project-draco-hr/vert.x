@@ -1,8 +1,8 @@
 {
   if (metrics.isEnabled()) {
-    metrics.bytesWritten(remoteAddress(),bytesWritten);
+    reportBytesWritten(bytesWritten);
     bytesWritten=0;
-    metrics.responseEnd(pendingResponse);
+    metrics.responseEnd(requestMetric,pendingResponse);
   }
   pendingResponse=null;
   checkNextTick();

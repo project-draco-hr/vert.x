@@ -1,5 +1,7 @@
 {
-  metrics.disconnected(remoteAddress());
+  if (metrics instanceof TCPMetrics) {
+    ((TCPMetrics)metrics).disconnected(metric(),remoteAddress());
+  }
   if (closeHandler != null) {
     closeHandler.handle(null);
   }

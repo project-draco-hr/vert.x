@@ -46,7 +46,7 @@
       }
     }
     if (end) {
-      if (conn.metrics().isEnabled())       conn.metrics().bytesWritten(conn.remoteAddress(),written);
+      conn.reportBytesWritten(written);
       if (respHandler != null) {
         conn.endRequest();
       }

@@ -1,5 +1,7 @@
 {
-  metrics.bytesRead(packet.sender(),packet.data().length());
+  if (metrics.isEnabled()) {
+    metrics.bytesRead(null,packet.sender(),packet.data().length());
+  }
   if (packetHandler != null) {
     packetHandler.handle(packet);
   }

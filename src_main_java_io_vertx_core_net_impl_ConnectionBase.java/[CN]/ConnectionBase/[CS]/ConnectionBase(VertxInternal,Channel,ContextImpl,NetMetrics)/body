@@ -1,7 +1,0 @@
-{
-  this.vertx=vertx;
-  this.channel=channel;
-  this.context=context;
-  this.metrics=metrics;
-  metrics.connected(remoteAddress());
-}

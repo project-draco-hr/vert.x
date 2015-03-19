@@ -11,6 +11,7 @@
     this.hostHeader=host + ':' + port;
   }
   this.listener=listener;
-  this.metrics=metrics;
   this.exceptionHandler=exceptionHandler;
+  this.metrics=metrics;
+  this.metric=metrics.connected(remoteAddress());
 }

@@ -1,6 +1,7 @@
 {
   conn.setCurrentRequest(this);
   this.conn=conn;
+  this.metric=client.httpClientMetrics().requestBegin(this);
   if (pendingMaxSize != -1) {
     conn.doSetWriteQueueMaxSize(pendingMaxSize);
   }
@@ -9,7 +10,7 @@
     pendingChunks=null;
     if (completed) {
       writeHeadWithContent(pending,true);
-      if (conn.metrics().isEnabled())       conn.metrics().bytesWritten(conn.remoteAddress(),written);
+      conn.reportBytesWritten(written);
       if (respHandler != null) {
         conn.endRequest();
       }
@@ -21,7 +22,7 @@
  else {
     if (completed) {
       writeHeadWithContent(Unpooled.EMPTY_BUFFER,true);
-      if (conn.metrics().isEnabled())       conn.metrics().bytesWritten(conn.remoteAddress(),written);
+      conn.reportBytesWritten(written);
       if (respHandler != null) {
         conn.endRequest();
       }

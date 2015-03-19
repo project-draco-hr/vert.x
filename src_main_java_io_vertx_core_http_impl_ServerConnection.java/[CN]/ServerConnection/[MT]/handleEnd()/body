@@ -1,8 +1,6 @@
 {
   currentRequest.handleEnd();
-  if (metrics.isEnabled()) {
-    metrics.bytesRead(remoteAddress(),bytesRead);
-  }
+  reportBytesRead(bytesRead);
   currentRequest=null;
   bytesRead=0;
 }
