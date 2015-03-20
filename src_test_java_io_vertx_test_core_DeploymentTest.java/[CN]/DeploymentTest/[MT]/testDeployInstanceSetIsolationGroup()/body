@@ -1,0 +1,3 @@
+{
+  vertx.deployVerticle(new MyVerticle(),new DeploymentOptions().setIsolationGroup("foo"));
+}
