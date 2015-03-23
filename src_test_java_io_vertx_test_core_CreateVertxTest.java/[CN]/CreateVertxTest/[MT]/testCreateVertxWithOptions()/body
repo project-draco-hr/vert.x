@@ -2,4 +2,5 @@
   VertxOptions options=new VertxOptions();
   Vertx vertx=Vertx.vertx(options);
   assertNotNull(vertx);
+  assertFalse(vertx.isClustered());
 }
