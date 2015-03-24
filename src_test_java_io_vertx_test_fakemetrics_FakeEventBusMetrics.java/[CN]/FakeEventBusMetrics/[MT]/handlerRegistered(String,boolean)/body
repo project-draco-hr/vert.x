@@ -1,5 +1,5 @@
 {
-  HandlerRegistration registration=new HandlerRegistration(address,replyHandler);
+  HandlerMetric registration=new HandlerMetric(address,replyHandler);
   registrations.add(registration);
   return registration;
 }

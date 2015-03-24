@@ -1,2 +1,3 @@
 {
+  testHandlerProcessMessage(vertx,vertx,1);
 }

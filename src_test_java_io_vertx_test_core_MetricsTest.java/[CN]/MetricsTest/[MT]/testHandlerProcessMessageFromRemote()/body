@@ -1,0 +1,4 @@
+{
+  startNodes(2);
+  testHandlerProcessMessage(vertices[0],vertices[1],0);
+}
