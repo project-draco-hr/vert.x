@@ -1,0 +1,6 @@
+{
+  handler.endCount.incrementAndGet();
+  if (failure != null) {
+    handler.failureCount.incrementAndGet();
+  }
+}
