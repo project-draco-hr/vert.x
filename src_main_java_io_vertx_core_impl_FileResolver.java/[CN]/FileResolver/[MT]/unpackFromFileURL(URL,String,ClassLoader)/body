@@ -11,11 +11,9 @@
   if (!isDirectory) {
     cacheFile.getParentFile().mkdirs();
     try {
-      Files.copy(resource.toPath(),cacheFile.toPath());
+      Files.copy(resource.toPath(),cacheFile.toPath(),StandardCopyOption.REPLACE_EXISTING);
     }
- catch (    FileAlreadyExistsException e) {
-    }
-catch (    IOException e) {
+ catch (    IOException e) {
       throw new VertxException(e);
     }
   }

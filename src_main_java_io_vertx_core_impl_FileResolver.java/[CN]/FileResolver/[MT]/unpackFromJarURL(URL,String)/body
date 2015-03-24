@@ -15,7 +15,7 @@
  else {
           file.getParentFile().mkdirs();
           try (InputStream is=zip.getInputStream(entry)){
-            Files.copy(is,file.toPath());
+            Files.copy(is,file.toPath(),StandardCopyOption.REPLACE_EXISTING);
           }
          }
       }
