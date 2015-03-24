@@ -1,0 +1,5 @@
+{
+  HandlerRegistration registration=new HandlerRegistration(address,replyHandler);
+  registrations.add(registration);
+  return registration;
+}
