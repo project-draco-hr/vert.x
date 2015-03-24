@@ -1,0 +1,6 @@
+{
+  this.address=address;
+  this.publish=publish;
+  this.local=local;
+  this.remote=remote;
+}

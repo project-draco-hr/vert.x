@@ -1,0 +1,4 @@
+{
+  ReceivedMessage that=(ReceivedMessage)obj;
+  return address.equals(that.address) && publish == that.publish && local == that.local && handlers == that.handlers;
+}

@@ -1,0 +1,3 @@
+{
+  testBroadcastMessage(vertx,new Vertx[]{vertx},true,true,false);
+}

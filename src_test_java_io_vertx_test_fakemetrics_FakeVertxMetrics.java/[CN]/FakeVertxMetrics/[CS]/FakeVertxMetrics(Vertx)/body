@@ -1,0 +1,5 @@
+{
+  metricsMap.put(vertx,this);
+  this.vertx=vertx;
+  this.eventBusMetrics=new FakeEventBusMetrics();
+}

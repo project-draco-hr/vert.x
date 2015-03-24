@@ -1,0 +1,4 @@
+String address
+boolean publish
+boolean local
+boolean remote

@@ -1,0 +1,3 @@
+{
+  testReceiveMessagePublished(vertx,vertx,true,3);
+}

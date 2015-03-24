@@ -1,0 +1,4 @@
+{
+  SentMessage that=(SentMessage)obj;
+  return address.equals(that.address) && publish == that.publish && local == that.local && remote == that.remote;
+}

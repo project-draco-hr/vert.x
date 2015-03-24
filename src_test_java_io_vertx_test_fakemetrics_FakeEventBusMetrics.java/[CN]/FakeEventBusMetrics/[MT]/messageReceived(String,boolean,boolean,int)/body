@@ -1,0 +1,3 @@
+{
+  receivedMessages.add(new ReceivedMessage(address,publish,local,handlers));
+}

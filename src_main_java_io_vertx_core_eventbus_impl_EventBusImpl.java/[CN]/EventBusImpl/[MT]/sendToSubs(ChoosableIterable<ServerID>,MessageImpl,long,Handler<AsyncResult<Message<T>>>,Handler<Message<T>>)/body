@@ -2,20 +2,29 @@
   if (message.send()) {
     ServerID sid=subs.choose();
     if (!sid.equals(serverID)) {
+      metrics.messageSent(message.address(),false,false,true);
       sendRemote(sid,message);
     }
  else {
-      receiveMessage(message,timeoutID,asyncResultHandler,replyHandler);
+      metrics.messageSent(message.address(),false,true,false);
+      receiveMessage(message,timeoutID,asyncResultHandler,replyHandler,true);
     }
   }
  else {
+    boolean local=false;
+    boolean remote=false;
     for (    ServerID sid : subs) {
       if (!sid.equals(serverID)) {
+        remote=true;
         sendRemote(sid,message);
       }
  else {
-        receiveMessage(message,timeoutID,null,replyHandler);
+        local=true;
       }
+    }
+    metrics.messageSent(message.address(),true,local,remote);
+    if (local) {
+      receiveMessage(message,timeoutID,null,replyHandler,true);
     }
   }
 }

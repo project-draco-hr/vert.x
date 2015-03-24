@@ -1,0 +1,4 @@
+{
+  startNodes(2);
+  testReceiveMessagePublished(vertices[0],vertices[1],false,3);
+}

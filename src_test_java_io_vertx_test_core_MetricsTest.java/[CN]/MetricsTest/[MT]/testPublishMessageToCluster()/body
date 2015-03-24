@@ -1,0 +1,4 @@
+{
+  startNodes(2);
+  testBroadcastMessage(vertices[0],vertices,true,true,true);
+}

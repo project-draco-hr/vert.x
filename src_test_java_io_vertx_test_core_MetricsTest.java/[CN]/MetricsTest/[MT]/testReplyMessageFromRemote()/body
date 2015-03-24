@@ -1,0 +1,4 @@
+{
+  startNodes(2);
+  testReply(vertices[0],vertices[1],false,true);
+}
