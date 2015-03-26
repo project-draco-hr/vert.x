@@ -1,3 +1,4 @@
 Action<T> action
 Handler<Future<T>> blockingCodeHandler
+boolean internal
 Handler<AsyncResult<T>> resultHandler

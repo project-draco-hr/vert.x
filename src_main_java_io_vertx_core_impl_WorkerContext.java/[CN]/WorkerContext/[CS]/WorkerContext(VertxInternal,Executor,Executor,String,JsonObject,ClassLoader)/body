@@ -1,4 +1,3 @@
 {
-  super(vertx,orderedInternalPoolExec,deploymentID,config,tccl);
-  this.workerExec=workerExec;
+  super(vertx,orderedInternalPoolExec,workerExec,deploymentID,config,tccl);
 }
