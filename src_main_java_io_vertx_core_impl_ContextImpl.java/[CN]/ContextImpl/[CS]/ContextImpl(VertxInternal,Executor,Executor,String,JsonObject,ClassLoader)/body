@@ -1,5 +1,6 @@
 {
   this.orderedInternalPoolExec=orderedInternalPoolExec;
+  this.workerExec=workerExec;
   this.deploymentID=deploymentID;
   this.config=config;
   EventLoopGroup group=vertx.getEventLoopGroup();
