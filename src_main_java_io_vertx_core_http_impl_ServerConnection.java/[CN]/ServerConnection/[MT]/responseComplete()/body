@@ -2,7 +2,7 @@
   if (metrics.isEnabled()) {
     reportBytesWritten(bytesWritten);
     bytesWritten=0;
-    metrics.responseEnd(requestMetric,pendingResponse);
+    metrics.responseEnd(requestMetric,currentRequest,pendingResponse);
   }
   pendingResponse=null;
   checkNextTick();
