@@ -1,3 +1,2 @@
 Void requestMetric
-HttpServerRequest request
 HttpServerResponse response

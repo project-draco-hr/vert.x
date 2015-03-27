@@ -4,5 +4,5 @@
   if (existing != null) {
     value=existing;
   }
-  value.addAndGet(size);
+  value.addAndGet(numberOfBytes);
 }
