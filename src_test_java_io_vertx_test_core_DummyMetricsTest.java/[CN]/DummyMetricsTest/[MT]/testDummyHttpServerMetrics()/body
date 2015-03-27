@@ -1,4 +1,4 @@
 {
   HttpServer server=vertx.createHttpServer(new HttpServerOptions());
-  assertNull(server.metricBaseName());
+  assertFalse(server.isMetricsEnabled());
 }

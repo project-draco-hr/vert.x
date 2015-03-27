@@ -13,9 +13,6 @@
     }
     public void exceptionOccurred(    Object socketMetric,    SocketAddress remoteAddress,    Throwable t){
     }
-    public String baseName(){
-      return null;
-    }
     public boolean isEnabled(){
       return false;
     }

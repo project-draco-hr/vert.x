@@ -1,4 +1,4 @@
 {
   DatagramSocket sock=vertx.createDatagramSocket(new DatagramSocketOptions());
-  assertNull(sock.metricBaseName());
+  assertFalse(sock.isMetricsEnabled());
 }

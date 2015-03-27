@@ -1,4 +1,4 @@
 {
   HttpClient client=vertx.createHttpClient(new HttpClientOptions());
-  assertNull(client.metricBaseName());
+  assertFalse(client.isMetricsEnabled());
 }

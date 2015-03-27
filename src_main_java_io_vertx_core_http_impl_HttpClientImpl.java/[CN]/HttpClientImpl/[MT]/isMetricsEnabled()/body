@@ -1,0 +1,3 @@
+{
+  return metrics != null && metrics.isEnabled();
+}
