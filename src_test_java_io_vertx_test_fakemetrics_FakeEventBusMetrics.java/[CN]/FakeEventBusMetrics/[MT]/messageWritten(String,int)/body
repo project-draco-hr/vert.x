@@ -1,0 +1,8 @@
+{
+  AtomicInteger value=new AtomicInteger();
+  AtomicInteger existing=encoded.putIfAbsent(address,value);
+  if (existing != null) {
+    value=existing;
+  }
+  value.addAndGet(size);
+}

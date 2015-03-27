@@ -1,0 +1,4 @@
+{
+  AtomicInteger value=decoded.get(address);
+  return value != null ? value.get() : 0;
+}
