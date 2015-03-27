@@ -1,2 +1,3 @@
 NetServer server
+SocketAddress localAddress
 NetServerOptions options

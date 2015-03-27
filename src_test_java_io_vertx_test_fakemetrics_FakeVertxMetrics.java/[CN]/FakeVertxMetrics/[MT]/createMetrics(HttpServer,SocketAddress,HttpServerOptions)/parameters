@@ -1,2 +1,3 @@
 HttpServer server
+SocketAddress localAddress
 HttpServerOptions options
