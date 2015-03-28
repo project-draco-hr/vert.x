@@ -5,8 +5,6 @@
     }
     public void disconnected(    Object socketMetric,    SocketAddress remoteAddress){
     }
-    public void listening(    SocketAddress localAddress){
-    }
     public void bytesRead(    Object socketMetric,    SocketAddress remoteAddress,    long numberOfBytes){
     }
     public void bytesWritten(    Object socketMetric,    SocketAddress remoteAddress,    long numberOfBytes){

@@ -1,7 +1,7 @@
 {
   conn.setCurrentRequest(this);
   this.conn=conn;
-  this.metric=client.httpClientMetrics().requestBegin(conn.localAddress(),conn.remoteAddress(),this);
+  this.metric=client.httpClientMetrics().requestBegin(conn.metric(),conn.localAddress(),conn.remoteAddress(),this);
   if (pendingMaxSize != -1) {
     conn.doSetWriteQueueMaxSize(pendingMaxSize);
   }
