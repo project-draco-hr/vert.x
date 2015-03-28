@@ -1,0 +1,3 @@
+SocketAddress localAddress
+SocketAddress remoteAddress
+HttpClientRequest request
