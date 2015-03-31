@@ -1,3 +1,0 @@
-{
-  metricsMap.remove(vertx);
-}

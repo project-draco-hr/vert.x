@@ -1,0 +1,3 @@
+{
+  webSockets.remove(serverWebSocketMetric.ws);
+}

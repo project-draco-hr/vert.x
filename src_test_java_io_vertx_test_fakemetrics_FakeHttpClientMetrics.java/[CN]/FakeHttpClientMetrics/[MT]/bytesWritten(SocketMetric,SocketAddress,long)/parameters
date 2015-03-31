@@ -1,0 +1,3 @@
+SocketMetric socketMetric
+SocketAddress remoteAddress
+long numberOfBytes

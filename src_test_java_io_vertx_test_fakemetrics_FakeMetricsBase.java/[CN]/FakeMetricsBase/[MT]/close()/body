@@ -1,0 +1,3 @@
+{
+  metricsMap.remove(key);
+}

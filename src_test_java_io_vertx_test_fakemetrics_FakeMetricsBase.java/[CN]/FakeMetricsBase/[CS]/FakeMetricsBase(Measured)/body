@@ -1,0 +1,4 @@
+{
+  metricsMap.put(measured,this);
+  key=measured;
+}

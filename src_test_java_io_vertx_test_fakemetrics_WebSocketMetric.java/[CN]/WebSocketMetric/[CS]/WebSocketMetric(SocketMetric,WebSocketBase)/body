@@ -1,0 +1,4 @@
+{
+  this.soMetric=soMetric;
+  this.ws=ws;
+}

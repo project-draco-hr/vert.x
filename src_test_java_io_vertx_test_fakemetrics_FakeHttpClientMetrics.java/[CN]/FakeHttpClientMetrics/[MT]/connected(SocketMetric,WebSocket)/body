@@ -1,0 +1,5 @@
+{
+  WebSocketMetric metric=new WebSocketMetric(socketMetric,webSocket);
+  webSockets.put(webSocket,metric);
+  return metric;
+}
