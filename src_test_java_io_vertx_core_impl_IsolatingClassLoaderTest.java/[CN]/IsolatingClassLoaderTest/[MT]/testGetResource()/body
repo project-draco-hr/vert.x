@@ -1,0 +1,6 @@
+{
+  URL resource=ucl.getResource(resourceName);
+  checkResource(url2,resource);
+  resource=icl.getResource(resourceName);
+  checkResource(url1,resource);
+}

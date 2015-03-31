@@ -1,0 +1,4 @@
+{
+  testGetResourceAsStream(2,ucl);
+  testGetResourceAsStream(1,icl);
+}
