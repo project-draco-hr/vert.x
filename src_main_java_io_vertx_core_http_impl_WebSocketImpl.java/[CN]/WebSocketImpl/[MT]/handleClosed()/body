@@ -1,4 +1,4 @@
 {
-  ((ClientConnection)conn).metrics.disconnected(metric);
+  ((ClientConnection)conn).metrics().disconnected(metric);
   super.handleClosed();
 }
