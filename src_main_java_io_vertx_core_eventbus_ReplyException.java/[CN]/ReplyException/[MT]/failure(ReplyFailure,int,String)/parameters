@@ -1,3 +1,0 @@
-ReplyFailure failureType
-int failureCode
-String message
