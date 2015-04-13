@@ -1,0 +1,3 @@
+{
+  return "(" + failureType + ","+ failureCode+ ") "+ (message != null ? message : "");
+}
