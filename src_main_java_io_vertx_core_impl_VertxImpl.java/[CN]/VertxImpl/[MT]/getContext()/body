@@ -1,3 +1,7 @@
 {
-  return (ContextImpl)context();
+  ContextImpl context=(ContextImpl)context();
+  if (context != null && context.owner == this) {
+    return context;
+  }
+  return null;
 }

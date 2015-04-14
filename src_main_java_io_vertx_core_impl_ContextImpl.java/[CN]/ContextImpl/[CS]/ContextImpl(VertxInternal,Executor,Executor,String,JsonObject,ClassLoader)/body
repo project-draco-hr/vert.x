@@ -11,4 +11,5 @@
     this.eventLoop=null;
   }
   this.tccl=tccl;
+  this.owner=vertx;
 }
