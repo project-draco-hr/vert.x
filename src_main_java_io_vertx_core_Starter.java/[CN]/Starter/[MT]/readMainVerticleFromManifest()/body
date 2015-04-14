@@ -4,7 +4,8 @@
     while (resources.hasMoreElements()) {
       Manifest manifest=new Manifest(resources.nextElement().openStream());
       Attributes attributes=manifest.getMainAttributes();
-      if (Starter.class.getName().equals(attributes.getValue("Main-Class"))) {
+      String mainClass=attributes.getValue("Main-Class");
+      if (Starter.class.getName().equals(mainClass)) {
         String theMainVerticle=attributes.getValue("Main-Verticle");
         if (theMainVerticle != null) {
           return theMainVerticle;
