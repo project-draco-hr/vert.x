@@ -1,7 +1,5 @@
 {
-  if (this.succeeded || this.failed) {
-    throw new IllegalStateException("Result has already been set");
-  }
+  checkComplete();
   this.result=result;
   succeeded=true;
   checkCallHandler();

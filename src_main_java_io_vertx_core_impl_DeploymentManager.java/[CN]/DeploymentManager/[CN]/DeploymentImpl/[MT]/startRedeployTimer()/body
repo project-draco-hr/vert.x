@@ -1,5 +1,2 @@
 {
-  if (redeployer != null) {
-    doStartRedeployTimer();
-  }
 }
