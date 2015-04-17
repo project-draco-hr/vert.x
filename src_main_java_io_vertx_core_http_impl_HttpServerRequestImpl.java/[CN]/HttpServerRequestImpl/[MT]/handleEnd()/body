@@ -1,4 +1,5 @@
 {
+  ended=true;
   if (decoder != null) {
     try {
       decoder.offer(LastHttpContent.EMPTY_LAST_CONTENT);
@@ -30,7 +31,6 @@ catch (    HttpPostRequestDecoder.EndOfDataDecoderException e) {
     }
   }
   if (endHandler != null && lastUpload == null) {
-    ended=true;
     endHandler.handle(null);
   }
 }

@@ -1,6 +1,6 @@
 {
+  ended=true;
   if (endHandler != null && upload == lastUpload) {
-    ended=true;
     endHandler.handle(null);
   }
 }
