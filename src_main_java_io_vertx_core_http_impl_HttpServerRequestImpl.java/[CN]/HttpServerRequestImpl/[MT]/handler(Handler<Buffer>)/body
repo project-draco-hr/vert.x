@@ -1,4 +1,5 @@
 {
+  checkEnded();
   this.dataHandler=dataHandler;
   return this;
 }

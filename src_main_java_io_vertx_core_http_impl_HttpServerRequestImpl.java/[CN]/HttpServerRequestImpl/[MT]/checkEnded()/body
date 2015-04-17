@@ -1,0 +1,5 @@
+{
+  if (ended) {
+    throw new IllegalStateException("Request has already been read");
+  }
+}

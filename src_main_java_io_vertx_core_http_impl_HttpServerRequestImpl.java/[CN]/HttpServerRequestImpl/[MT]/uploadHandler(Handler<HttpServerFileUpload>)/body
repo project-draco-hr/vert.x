@@ -1,4 +1,5 @@
 {
+  checkEnded();
   this.uploadHandler=handler;
   return this;
 }

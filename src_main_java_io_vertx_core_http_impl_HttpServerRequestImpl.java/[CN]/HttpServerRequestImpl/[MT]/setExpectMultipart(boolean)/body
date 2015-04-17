@@ -1,4 +1,5 @@
 {
+  checkEnded();
   if (expect && decoder == null) {
     String contentType=request.headers().get(HttpHeaders.Names.CONTENT_TYPE);
     if (contentType != null) {
