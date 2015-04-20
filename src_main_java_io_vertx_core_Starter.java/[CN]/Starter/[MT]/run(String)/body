@@ -1,4 +1,5 @@
 {
   String[] sargs=commandLine.split(" ");
-  run(sargs);
+  Args args=new Args(sargs);
+  run(args,sargs);
 }
