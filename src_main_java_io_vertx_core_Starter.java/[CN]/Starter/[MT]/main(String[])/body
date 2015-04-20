@@ -1,3 +1,37 @@
 {
-  new Starter().run(args);
+  Args args=new Args(sargs);
+  String extraCP=args.map.get("-cp");
+  if (extraCP != null) {
+    String[] parts=extraCP.split(PATH_SEP);
+    URL[] urls=new URL[parts.length];
+    for (int p=0; p < parts.length; p++) {
+      String part=parts[p];
+      File file=new File(part);
+      try {
+        URL url=file.toURI().toURL();
+        urls[p]=url;
+      }
+ catch (      MalformedURLException e) {
+        throw new IllegalStateException(e);
+      }
+    }
+    IsolatingClassLoader icl=new IsolatingClassLoader(urls,Starter.class.getClassLoader());
+    ClassLoader oldTCCL=Thread.currentThread().getContextClassLoader();
+    Thread.currentThread().setContextClassLoader(icl);
+    try {
+      Class<?> clazz=icl.loadClass(Starter.class.getName());
+      Object instance=clazz.newInstance();
+      Method run=clazz.getMethod("run",Args.class,String[].class);
+      run.invoke(instance,args,sargs);
+    }
+ catch (    Exception e) {
+      throw new IllegalStateException(e);
+    }
+ finally {
+      Thread.currentThread().setContextClassLoader(oldTCCL);
+    }
+  }
+ else {
+    new Starter().run(args,sargs);
+  }
 }
