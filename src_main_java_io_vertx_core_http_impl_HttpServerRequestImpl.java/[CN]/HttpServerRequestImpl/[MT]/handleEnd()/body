@@ -30,7 +30,7 @@ catch (    HttpPostRequestDecoder.EndOfDataDecoderException e) {
       decoder.destroy();
     }
   }
-  if (endHandler != null && lastUpload == null) {
+  if (endHandler != null) {
     endHandler.handle(null);
   }
 }
