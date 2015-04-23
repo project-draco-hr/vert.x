@@ -1,0 +1,6 @@
+{
+  if (deployment == null || deployment.deploymentOptions() == null) {
+    return 1;
+  }
+  return deployment.deploymentOptions().getInstances();
+}
