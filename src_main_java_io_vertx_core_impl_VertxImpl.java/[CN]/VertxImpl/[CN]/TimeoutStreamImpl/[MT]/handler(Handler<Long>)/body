@@ -7,12 +7,7 @@
     id=scheduleTimeout(getOrCreateContext(),this,delay,periodic);
   }
  else {
-    if (id != null) {
-      VertxImpl.this.cancelTimer(id);
-      if (endHandler != null) {
-        runOnContext(endHandler);
-      }
-    }
+    cancel();
   }
   return this;
 }

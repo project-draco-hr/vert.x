@@ -1,3 +1,5 @@
 {
-  handler(null);
+  if (id != null) {
+    VertxImpl.this.cancelTimer(id);
+  }
 }
