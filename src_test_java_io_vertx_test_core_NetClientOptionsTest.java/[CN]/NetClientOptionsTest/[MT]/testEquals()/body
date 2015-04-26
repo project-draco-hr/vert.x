@@ -1,0 +1,5 @@
+{
+  NetClientOptions options1=new NetClientOptions();
+  NetClientOptions options2=new NetClientOptions(new JsonObject("{}"));
+  assertEquals(options1,options2);
+}

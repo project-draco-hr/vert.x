@@ -8,7 +8,7 @@
   this.ssl=other.isSsl();
   this.keyCertOptions=other.getKeyCertOptions() != null ? other.getKeyCertOptions().clone() : null;
   this.trustOptions=other.getTrustOptions() != null ? other.getTrustOptions().clone() : null;
-  this.enabledCipherSuites=other.getEnabledCipherSuites() == null ? null : new HashSet<>(other.getEnabledCipherSuites());
+  this.enabledCipherSuites=other.getEnabledCipherSuites() == null ? new HashSet<>() : new HashSet<>(other.getEnabledCipherSuites());
   this.crlPaths=new ArrayList<>(other.getCrlPaths());
   this.crlValues=new ArrayList<>(other.getCrlValues());
 }
