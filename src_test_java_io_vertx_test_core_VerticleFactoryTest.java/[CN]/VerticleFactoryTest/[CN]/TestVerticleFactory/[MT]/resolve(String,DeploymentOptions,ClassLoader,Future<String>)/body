@@ -1,0 +1,13 @@
+{
+  if (failInResolve) {
+    resolution.fail(new IOException("whatever"));
+  }
+ else {
+    identifierToResolve=identifier;
+    deploymentOptionsToResolve=deploymentOptions;
+    deploymentOptions.setConfig(new JsonObject().put("wibble","quux"));
+    deploymentOptions.setWorker(true);
+    deploymentOptions.setIsolationGroup("othergroup");
+    resolution.complete(resolvedIdentifier);
+  }
+}

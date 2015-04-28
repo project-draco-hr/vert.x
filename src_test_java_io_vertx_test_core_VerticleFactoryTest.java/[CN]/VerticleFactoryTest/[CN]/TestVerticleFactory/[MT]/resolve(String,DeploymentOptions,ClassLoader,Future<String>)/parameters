@@ -1,3 +1,4 @@
 String identifier
 DeploymentOptions deploymentOptions
-ClassLoader cl
+ClassLoader classLoader
+Future<String> resolution
