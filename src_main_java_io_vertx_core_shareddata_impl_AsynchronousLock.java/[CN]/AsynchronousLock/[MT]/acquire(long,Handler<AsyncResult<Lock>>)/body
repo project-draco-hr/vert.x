@@ -1,12 +1,4 @@
 {
   Context context=vertx.getOrCreateContext();
-synchronized (this) {
-    if (!owned) {
-      owned=true;
-      lockAquired(context,resultHandler);
-    }
- else {
-      waiters.add(new LockWaiter(this,context,timeout,resultHandler));
-    }
-  }
+  doAcquire(context,timeout,resultHandler);
 }

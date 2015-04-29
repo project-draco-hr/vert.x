@@ -1,7 +1,0 @@
-VertxInternal vertx
-long pingInterval
-long pingReplyInterval
-ClusterManager clusterManager
-AsyncMultiMap<String,ServerID> subs
-ServerID serverID
-EventBusNetServer server

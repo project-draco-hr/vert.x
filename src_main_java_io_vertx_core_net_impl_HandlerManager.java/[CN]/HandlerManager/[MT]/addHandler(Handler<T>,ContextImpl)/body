@@ -1,5 +1,5 @@
 {
-  EventLoop worker=context.getEventLoop();
+  EventLoop worker=context.eventLoop();
   availableWorkers.addWorker(worker);
   Handlers<T> handlers=new Handlers<T>();
   Handlers<T> prev=handlerMap.putIfAbsent(worker,handlers);

@@ -1,0 +1,4 @@
+{
+  Context context=vertx.getOrCreateContext();
+  delegate.doAcquire(context,timeout,resultHandler);
+}
