@@ -1,0 +1,4 @@
+{
+  this.warningExceptionTime=warningExceptionTime;
+  return this;
+}
