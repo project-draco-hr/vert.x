@@ -1,0 +1,4 @@
+FailoverCompleteHandler handler
+String nodeID
+JsonObject haInfo
+boolean result

@@ -12,7 +12,7 @@
   this.maxWorkerExecuteTime=json.getLong("maxWorkerExecuteTime",DEFAULT_MAX_WORKER_EXECUTE_TIME);
   this.haEnabled=json.getBoolean("haEnabled",false);
   this.quorumSize=json.getInteger("quorumSize",DEFAULT_QUORUM_SIZE);
-  this.haGroup=json.getString("haGroup",null);
+  this.haGroup=json.getString("haGroup",DEFAULT_HA_GROUP);
   JsonObject metricsJson=json.getJsonObject("metricsOptions");
   this.metrics=metricsJson != null ? new MetricsOptions(metricsJson) : null;
 }

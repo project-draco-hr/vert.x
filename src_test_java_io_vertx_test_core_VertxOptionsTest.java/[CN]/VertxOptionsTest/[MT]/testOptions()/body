@@ -127,9 +127,15 @@
   }
  catch (  IllegalArgumentException e) {
   }
-  assertNull(options.getHAGroup());
+  assertEquals(VertxOptions.DEFAULT_HA_GROUP,options.getHAGroup());
   randString=TestUtils.randomUnicodeString(100);
   assertEquals(options,options.setHAGroup(randString));
   assertEquals(randString,options.getHAGroup());
+  try {
+    options.setHAGroup(null);
+    fail("Should throw exception");
+  }
+ catch (  NullPointerException e) {
+  }
   assertNull(options.getMetricsOptions());
 }

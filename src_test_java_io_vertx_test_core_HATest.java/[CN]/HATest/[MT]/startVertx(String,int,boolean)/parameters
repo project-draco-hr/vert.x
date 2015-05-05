@@ -1,0 +1,3 @@
+String haGroup
+int quorumSize
+boolean ha

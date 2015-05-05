@@ -1,0 +1,3 @@
+{
+  callFailoverCompleteHandler(failoverCompleteHandler,nodeID,haInfo,result);
+}

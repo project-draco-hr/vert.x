@@ -6,7 +6,7 @@
     if (sclusterInfo != null) {
       JsonObject clusterInfo=new JsonObject(sclusterInfo);
       String memberGroup=clusterInfo.getString("group");
-      if (group.equals(memberGroup)) {
+      if (group == null || group.equals(memberGroup)) {
         matchingMembers.add(node);
       }
     }
