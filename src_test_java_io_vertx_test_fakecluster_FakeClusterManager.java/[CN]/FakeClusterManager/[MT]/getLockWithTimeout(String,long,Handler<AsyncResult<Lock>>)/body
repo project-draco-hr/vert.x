@@ -4,5 +4,6 @@
   if (prev != null) {
     lock=prev;
   }
-  lock.acquire(timeout,resultHandler);
+  FakeLock flock=new FakeLock(lock);
+  flock.acquire(timeout,resultHandler);
 }

@@ -1,0 +1,11 @@
+{
+synchronized (this) {
+    if (!owned) {
+      owned=true;
+      lockAquired(context,resultHandler);
+    }
+ else {
+      waiters.add(new LockWaiter(this,context,timeout,resultHandler));
+    }
+  }
+}

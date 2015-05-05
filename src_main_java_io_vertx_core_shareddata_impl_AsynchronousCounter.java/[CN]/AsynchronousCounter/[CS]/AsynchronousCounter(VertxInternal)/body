@@ -1,3 +1,4 @@
 {
   this.vertx=vertx;
+  this.counter=new AtomicLong();
 }

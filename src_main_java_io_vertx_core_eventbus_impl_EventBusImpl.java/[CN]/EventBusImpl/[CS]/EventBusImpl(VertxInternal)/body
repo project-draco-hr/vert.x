@@ -6,6 +6,7 @@
   this.server=null;
   this.subs=null;
   this.clusterMgr=null;
+  this.haManager=null;
   this.metrics=vertx.metricsSPI().createMetrics(this);
   this.systemCodecs=systemCodecs();
 }

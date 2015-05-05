@@ -1,0 +1,7 @@
+{
+  for (  Handlers handlers : handlerMap.values()) {
+    for (    HandlerHolder holder : handlers.list) {
+      holder.handler.unregister();
+    }
+  }
+}

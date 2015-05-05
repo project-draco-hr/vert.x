@@ -1,5 +1,0 @@
-{
-  if (haManager() != null) {
-    haManager().failoverCompleteHandler(failoverCompleteHandler);
-  }
-}
