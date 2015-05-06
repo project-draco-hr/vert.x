@@ -12,8 +12,5 @@
   }
   if (connections.remove(theServerID,this)) {
     log.debug("Cluster connection closed: " + theServerID + " holder "+ this);
-    if (failed) {
-      cleanSubsForServerID(theServerID);
-    }
   }
 }

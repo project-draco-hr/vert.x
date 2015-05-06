@@ -1,2 +1,3 @@
 {
+  return startVertx(haGroup,quorumSize,true);
 }

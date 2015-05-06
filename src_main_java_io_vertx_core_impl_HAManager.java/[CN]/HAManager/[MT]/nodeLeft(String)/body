@@ -5,7 +5,9 @@
     if (sclusterInfo == null) {
     }
  else {
-      checkFailover(leftNodeID,new JsonObject(sclusterInfo));
+      JsonObject clusterInfo=new JsonObject(sclusterInfo);
+      checkRemoveSubs(leftNodeID,clusterInfo);
+      checkFailover(leftNodeID,clusterInfo);
     }
     List<String> nodes=clusterManager.getNodes();
     for (    Map.Entry<String,String> entry : clusterMap.entrySet()) {

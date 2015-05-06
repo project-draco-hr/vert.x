@@ -12,11 +12,11 @@
         }
       }
       clusterMap.remove(failedNodeID);
-      callFailoverCompleteHandlers(failedNodeID,theHAInfo,true);
+      callFailoverCompleteHandler(failedNodeID,theHAInfo,true);
     }
   }
  catch (  Throwable t) {
     log.error("Failed to handle failover",t);
-    callFailoverCompleteHandlers(failedNodeID,theHAInfo,false);
+    callFailoverCompleteHandler(failedNodeID,theHAInfo,false);
   }
 }

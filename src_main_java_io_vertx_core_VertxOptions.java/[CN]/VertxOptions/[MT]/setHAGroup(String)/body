@@ -1,4 +1,5 @@
 {
+  Objects.requireNonNull(haGroup,"ha group cannot be null");
   this.haGroup=haGroup;
   return this;
 }

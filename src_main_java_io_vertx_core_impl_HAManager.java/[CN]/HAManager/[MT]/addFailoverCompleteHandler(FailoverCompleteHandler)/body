@@ -1,3 +1,0 @@
-{
-  failoverCompleteHandlers.add(failoverCompleteHandler);
-}
