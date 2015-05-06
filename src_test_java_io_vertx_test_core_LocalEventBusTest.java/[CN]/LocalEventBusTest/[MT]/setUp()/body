@@ -2,4 +2,5 @@
   super.setUp();
   vertx=Vertx.vertx();
   eb=vertx.eventBus();
+  running=true;
 }

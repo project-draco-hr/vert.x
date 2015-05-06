@@ -1,2 +1,4 @@
 {
+  closeVertx();
+  super.tearDown();
 }
