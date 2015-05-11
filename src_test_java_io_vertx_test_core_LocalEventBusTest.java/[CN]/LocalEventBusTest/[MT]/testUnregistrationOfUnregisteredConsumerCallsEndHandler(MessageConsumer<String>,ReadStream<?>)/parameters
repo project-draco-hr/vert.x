@@ -1,2 +1,0 @@
-MessageConsumer<String> consumer
-ReadStream<?> readStream

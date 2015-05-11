@@ -1,1 +1,2 @@
 Handler<AsyncResult<Void>> completionHandler
+boolean callEndHandler

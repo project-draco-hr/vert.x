@@ -1,4 +1,4 @@
 {
   Objects.requireNonNull(completionHandler);
-  doUnregister(completionHandler);
+  doUnregister(completionHandler,false);
 }
