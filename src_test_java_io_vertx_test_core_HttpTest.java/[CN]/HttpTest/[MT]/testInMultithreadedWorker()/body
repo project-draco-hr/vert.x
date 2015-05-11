@@ -1,0 +1,24 @@
+{
+  vertx.deployVerticle(new AbstractVerticle(){
+    @Override public void start() throws Exception {
+      assertTrue(Vertx.currentContext().isWorkerContext());
+      assertTrue(Vertx.currentContext().isMultiThreadedWorkerContext());
+      assertTrue(Context.isOnWorkerThread());
+      try {
+        vertx.createHttpServer();
+        fail("Should throw exception");
+      }
+ catch (      IllegalStateException e) {
+      }
+      try {
+        vertx.createHttpClient();
+        fail("Should throw exception");
+      }
+ catch (      IllegalStateException e) {
+      }
+      testComplete();
+    }
+  }
+,new DeploymentOptions().setWorker(true).setMultiThreaded(true));
+  await();
+}
