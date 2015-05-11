@@ -1,6 +1,0 @@
-{
-  if (contextData == null) {
-    contextData=new HashMap<>();
-  }
-  return contextData;
-}

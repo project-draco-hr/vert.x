@@ -1,0 +1,6 @@
+{
+  if (contextData == null) {
+    contextData=new ConcurrentHashMap<>();
+  }
+  return contextData;
+}
