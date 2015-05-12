@@ -1,5 +1,5 @@
 {
-  List<String> list=new ArrayList<String>();
+  List<String> list=new ArrayList<>();
   ByteBuf data=resource.content().readerIndex(response.originalIndex());
   int index=data.readerIndex();
   while (index < data.writerIndex()) {
