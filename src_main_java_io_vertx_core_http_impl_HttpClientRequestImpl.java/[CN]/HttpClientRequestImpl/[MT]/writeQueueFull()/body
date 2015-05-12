@@ -1,9 +1,4 @@
 {
   checkComplete();
-  if (conn != null) {
-    return conn.isNotWritable();
-  }
- else {
-    return false;
-  }
+  return conn != null && conn.isNotWritable();
 }
