@@ -1,5 +1,4 @@
 {
-  SrvRecord record=getSrvRecord();
   record.priority();
   record.name();
   record.weight();
