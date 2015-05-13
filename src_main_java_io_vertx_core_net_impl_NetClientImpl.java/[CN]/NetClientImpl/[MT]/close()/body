@@ -1,12 +1,2 @@
 {
-  if (!closed) {
-    for (    NetSocket sock : socketMap.values()) {
-      sock.close();
-    }
-    if (creatingContext != null) {
-      creatingContext.removeCloseHook(closeHook);
-    }
-    closed=true;
-    metrics.close();
-  }
 }
