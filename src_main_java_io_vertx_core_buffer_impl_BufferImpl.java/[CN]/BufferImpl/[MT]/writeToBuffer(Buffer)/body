@@ -1,0 +1,4 @@
+{
+  buff.appendInt(this.length());
+  buff.appendBuffer(this);
+}

@@ -1,0 +1,3 @@
+{
+  this(str.getBytes(cs));
+}

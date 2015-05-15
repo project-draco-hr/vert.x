@@ -1,0 +1,6 @@
+{
+  int len=buffer.getInt(pos);
+  Buffer b=buffer.getBuffer(pos + 4,pos + 4 + len);
+  this.buffer=b.getByteBuf();
+  return pos + 4 + len;
+}

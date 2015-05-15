@@ -1,0 +1,6 @@
+{
+  String encoded=encode();
+  byte[] bytes=encoded.getBytes(Utils.UTF8);
+  buffer.appendInt(bytes.length);
+  buffer.appendBytes(bytes);
+}
