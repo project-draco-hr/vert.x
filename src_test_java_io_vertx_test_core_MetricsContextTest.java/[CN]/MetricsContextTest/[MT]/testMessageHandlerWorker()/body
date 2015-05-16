@@ -1,0 +1,3 @@
+{
+  testMessageHandler(workerContextFactory,workerChecker);
+}

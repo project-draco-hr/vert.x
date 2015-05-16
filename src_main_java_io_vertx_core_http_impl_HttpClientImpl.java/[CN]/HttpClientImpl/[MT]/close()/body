@@ -1,12 +1,2 @@
 {
-  checkClosed();
-  pool.close();
-  for (  ClientConnection conn : connectionMap.values()) {
-    conn.close();
-  }
-  if (creatingContext != null) {
-    creatingContext.removeCloseHook(closeHook);
-  }
-  closed=true;
-  metrics.close();
 }
