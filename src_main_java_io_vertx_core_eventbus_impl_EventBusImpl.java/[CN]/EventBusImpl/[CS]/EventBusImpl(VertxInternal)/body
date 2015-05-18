@@ -9,4 +9,5 @@
   this.haManager=null;
   this.metrics=vertx.metricsSPI().createMetrics(this);
   this.systemCodecs=systemCodecs();
+  this.sendNoContext=vertx.getOrCreateContext();
 }

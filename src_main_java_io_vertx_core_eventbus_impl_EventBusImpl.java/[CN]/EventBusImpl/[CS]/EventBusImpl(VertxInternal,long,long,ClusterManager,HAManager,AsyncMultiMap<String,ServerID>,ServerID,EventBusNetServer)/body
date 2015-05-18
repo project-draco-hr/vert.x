@@ -9,6 +9,7 @@
   this.systemCodecs=systemCodecs();
   this.serverID=serverID;
   this.server=server.netServer;
+  this.sendNoContext=vertx.getOrCreateContext();
   setServerHandler(server);
   addFailoverCompleteHandler();
 }
