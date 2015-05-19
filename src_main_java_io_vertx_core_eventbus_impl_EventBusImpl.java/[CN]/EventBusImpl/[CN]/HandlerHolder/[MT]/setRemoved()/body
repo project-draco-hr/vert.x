@@ -1,2 +1,12 @@
 {
+  boolean unregisterMetric=false;
+synchronized (this) {
+    if (!removed) {
+      removed=true;
+      unregisterMetric=true;
+    }
+  }
+  if (unregisterMetric) {
+    metrics.handlerUnregistered(handler.metric);
+  }
 }
