@@ -1,0 +1,3 @@
+{
+  testNetClient(eventLoopContextFactory,eventLoopChecker);
+}

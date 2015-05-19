@@ -1,0 +1,3 @@
+{
+  return delegate != null ? delegate.metrics(vertx,options) : new DummyVertxMetrics();
+}
