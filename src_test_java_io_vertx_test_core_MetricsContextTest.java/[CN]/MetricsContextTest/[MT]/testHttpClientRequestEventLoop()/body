@@ -1,3 +1,0 @@
-{
-  testHttpClientRequest(eventLoopContextFactory,eventLoopChecker);
-}

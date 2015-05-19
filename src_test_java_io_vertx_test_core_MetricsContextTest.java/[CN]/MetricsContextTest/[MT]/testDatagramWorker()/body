@@ -1,3 +1,0 @@
-{
-  testDatagram(workerContextFactory,workerChecker);
-}

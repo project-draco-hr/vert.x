@@ -1,2 +1,0 @@
-Function<Vertx,Context> contextFactory
-BiConsumer<Thread,Context> checker

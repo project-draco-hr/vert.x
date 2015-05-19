@@ -1,3 +1,0 @@
-{
-  testHttpServerRequest(workerContextFactory,workerChecker);
-}

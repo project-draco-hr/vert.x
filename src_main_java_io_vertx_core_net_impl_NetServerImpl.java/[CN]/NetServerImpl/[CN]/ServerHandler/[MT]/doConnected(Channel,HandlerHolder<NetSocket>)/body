@@ -1,0 +1,5 @@
+{
+  NetSocketImpl sock=new NetSocketImpl(vertx,ch,handler.context,sslHelper,false,metrics);
+  socketMap.put(ch,sock);
+  handler.handler.handle(sock);
+}

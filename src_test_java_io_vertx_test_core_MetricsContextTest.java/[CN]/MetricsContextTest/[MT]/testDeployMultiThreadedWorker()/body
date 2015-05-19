@@ -1,3 +1,0 @@
-{
-  testDeploy(true,true,workerChecker);
-}

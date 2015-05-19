@@ -1,3 +1,0 @@
-boolean worker
-boolean multiThreaded
-BiConsumer<Thread,Context> checker

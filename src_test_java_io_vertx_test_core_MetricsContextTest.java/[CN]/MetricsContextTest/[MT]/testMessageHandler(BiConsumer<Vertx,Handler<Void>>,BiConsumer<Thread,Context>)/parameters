@@ -1,2 +1,0 @@
-BiConsumer<Vertx,Handler<Void>> runOnContext
-BiConsumer<Thread,Context> checker

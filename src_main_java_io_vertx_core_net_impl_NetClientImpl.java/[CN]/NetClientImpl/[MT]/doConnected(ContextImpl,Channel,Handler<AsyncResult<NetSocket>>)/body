@@ -1,6 +1,5 @@
 {
   NetSocketImpl sock=new NetSocketImpl(vertx,ch,context,sslHelper,true,metrics);
-  sock.setMetric(metrics.connected(sock.remoteAddress()));
   socketMap.put(ch,sock);
   connectHandler.handle(Future.succeededFuture(sock));
 }
