@@ -1,5 +1,0 @@
-{
-  RecordParser ls=new RecordParser(output);
-  ls.delimitedMode(delim);
-  return ls;
-}

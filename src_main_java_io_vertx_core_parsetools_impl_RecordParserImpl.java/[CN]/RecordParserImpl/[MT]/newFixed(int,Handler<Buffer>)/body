@@ -1,6 +1,6 @@
 {
   Arguments.require(size > 0,"Size must be > 0");
-  RecordParser ls=new RecordParser(output);
+  RecordParserImpl ls=new RecordParserImpl(output);
   ls.fixedSizeMode(size);
   return ls;
 }
