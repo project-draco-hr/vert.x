@@ -1,5 +1,4 @@
 {
   byte[] bytes=getBytes(start,end);
-  Charset cs=Charset.forName("UTF-8");
-  return new String(bytes,cs);
+  return new String(bytes,StandardCharsets.UTF_8);
 }
