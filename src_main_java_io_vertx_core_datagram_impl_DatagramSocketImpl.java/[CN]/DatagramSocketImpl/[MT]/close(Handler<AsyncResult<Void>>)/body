@@ -1,2 +1,8 @@
 {
+  endReadAndFlush();
+  metrics.close();
+  ChannelFuture future=channel.close();
+  if (handler != null) {
+    future.addListener(new DatagramChannelFutureListener<>(null,handler,context));
+  }
 }
