@@ -1,0 +1,3 @@
+{
+  testSend("foo","foo",null,new DeliveryOptions());
+}
