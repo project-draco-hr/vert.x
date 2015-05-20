@@ -1,7 +1,7 @@
 {
   Objects.requireNonNull(delim,"delim");
   delimited=true;
-  this.delim=delim;
+  this.delim=delim.getBytes();
   delimPos=0;
   reset=true;
 }

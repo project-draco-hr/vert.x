@@ -1,5 +1,5 @@
 {
-  delimited(new byte[]{(byte)'\n'});
-  delimited(new byte[]{(byte)'\r',(byte)'\n'});
-  delimited(new byte[]{0,3,2,5,6,4,6});
+  delimited(Buffer.buffer().appendByte((byte)'\n'));
+  delimited(Buffer.buffer().appendByte((byte)'\r').appendByte((byte)'\n'));
+  delimited(Buffer.buffer(new byte[]{0,3,2,5,6,4,6}));
 }
