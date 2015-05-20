@@ -4,5 +4,5 @@
     char c=str.charAt(i);
     bytes[i]=(byte)(c & 0xFF);
   }
-  return bytes;
+  return Buffer.buffer(bytes);
 }

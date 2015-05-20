@@ -1,4 +1,4 @@
 Buffer input
-byte[] delim
+Buffer delim
 Integer[] chunkSizes
 Buffer expected

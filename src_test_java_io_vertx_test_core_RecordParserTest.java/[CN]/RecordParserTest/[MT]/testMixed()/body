@@ -9,7 +9,7 @@ class MyHandler implements Handler<Buffer> {
         Object type=types.get(pos);
         if (type instanceof byte[]) {
           byte[] bytes=(byte[])type;
-          parser.delimitedMode(bytes);
+          parser.delimitedMode(Buffer.buffer(bytes));
         }
  else {
           int length=(Integer)type;
