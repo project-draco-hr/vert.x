@@ -1,0 +1,3 @@
+{
+  testNetServer(eventLoopContextFactory,eventLoopChecker);
+}
