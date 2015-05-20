@@ -4,5 +4,4 @@
   this.server=server;
   this.handshaker=handshaker;
   this.metrics=metrics;
-  this.metric=metrics.connected(remoteAddress());
 }
