@@ -1,2 +1,6 @@
 {
+  super.channelInactive(ctx);
+  if (handshaking) {
+    handleException(new WebSocketHandshakeException("Connection closed while handshake in process"));
+  }
 }
