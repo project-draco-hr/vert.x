@@ -1,0 +1,7 @@
+{
+  ObjectMapper mapper=Json.prettyMapper;
+  assertNotNull(mapper);
+  ObjectMapper newMapper=new ObjectMapper();
+  Json.prettyMapper=newMapper;
+  assertSame(newMapper,Json.prettyMapper);
+}
