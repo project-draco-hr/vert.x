@@ -1,0 +1,4 @@
+{
+  NetClientOptions options=new NetClientOptions(new JsonObject("{}"));
+  options.addEnabledCipherSuite("XXX");
+}
