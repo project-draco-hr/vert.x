@@ -132,4 +132,12 @@
   assertEquals(options,options.setHAGroup(randString));
   assertEquals(randString,options.getHAGroup());
   assertNull(options.getMetricsOptions());
+  try {
+    options.setWarningExceptionTime(-1);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  assertEquals(options,options.setWarningExceptionTime(1000000000l));
+  assertEquals(1000000000l,options.getWarningExceptionTime());
 }
