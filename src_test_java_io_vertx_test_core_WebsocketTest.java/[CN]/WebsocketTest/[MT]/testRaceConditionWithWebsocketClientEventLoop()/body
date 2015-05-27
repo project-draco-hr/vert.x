@@ -1,0 +1,3 @@
+{
+  testRaceConditionWithWebsocketClient(vertx.getOrCreateContext());
+}
