@@ -4,4 +4,5 @@
   ObjectMapper newMapper=new ObjectMapper();
   Json.mapper=newMapper;
   assertSame(newMapper,Json.mapper);
+  Json.mapper=mapper;
 }
