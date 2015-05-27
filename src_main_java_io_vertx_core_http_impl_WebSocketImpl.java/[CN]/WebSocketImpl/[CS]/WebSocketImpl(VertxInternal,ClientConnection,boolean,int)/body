@@ -1,4 +1,3 @@
 {
   super(vertx,conn,supportsContinuation,maxWebSocketFrameSize);
-  metric=conn.metrics().connected(conn.metric(),this);
 }
