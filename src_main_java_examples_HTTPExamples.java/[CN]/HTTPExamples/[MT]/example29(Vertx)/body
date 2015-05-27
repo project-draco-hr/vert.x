@@ -1,4 +1,4 @@
 {
   HttpClientOptions options=new HttpClientOptions().setKeepAlive(false);
-  HttpClient client=vertx.createHttpClient();
+  HttpClient client=vertx.createHttpClient(options);
 }
