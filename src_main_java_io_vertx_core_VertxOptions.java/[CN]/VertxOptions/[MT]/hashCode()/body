@@ -12,5 +12,6 @@
   result=31 * result + (haEnabled ? 1 : 0);
   result=31 * result + quorumSize;
   result=31 * result + (haGroup != null ? haGroup.hashCode() : 0);
+  result=31 * result + (int)(warningExceptionTime ^ (warningExceptionTime >>> 32));
   return result;
 }

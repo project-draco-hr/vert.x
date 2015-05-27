@@ -1,0 +1,11 @@
+{
+  Verticle verticle=new AbstractVerticle(){
+    @Override public void start() throws InterruptedException {
+      Thread.sleep(6000);
+      testComplete();
+    }
+  }
+;
+  vertx.deployVerticle(verticle);
+  await();
+}

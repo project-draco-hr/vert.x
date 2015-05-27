@@ -16,6 +16,7 @@
   boolean metricsEnabled=rand.nextBoolean();
   int quorumSize=51214;
   String haGroup=TestUtils.randomAlphaString(100);
+  long warningExceptionTime=TestUtils.randomPositiveLong();
   options.setClusterPort(clusterPort);
   options.setEventLoopPoolSize(eventLoopPoolSize);
   options.setInternalBlockingPoolSize(internalBlockingPoolSize);
@@ -30,6 +31,7 @@
   options.setQuorumSize(quorumSize);
   options.setHAGroup(haGroup);
   options.setMetricsOptions(new MetricsOptions().setEnabled(metricsEnabled));
+  options.setWarningExceptionTime(warningExceptionTime);
   options=new VertxOptions(options);
   assertEquals(clusterPort,options.getClusterPort());
   assertEquals(clusterPingInterval,options.getClusterPingInterval());
@@ -47,4 +49,5 @@
   MetricsOptions metricsOptions=options.getMetricsOptions();
   assertNotNull(metricsOptions);
   assertEquals(metricsEnabled,metricsOptions.isEnabled());
+  assertEquals(warningExceptionTime,options.getWarningExceptionTime());
 }

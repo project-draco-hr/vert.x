@@ -15,5 +15,6 @@
   if (clusterHost != null ? !clusterHost.equals(that.clusterHost) : that.clusterHost != null)   return false;
   if (clusterManager != null ? !clusterManager.equals(that.clusterManager) : that.clusterManager != null)   return false;
   if (haGroup != null ? !haGroup.equals(that.haGroup) : that.haGroup != null)   return false;
+  if (warningExceptionTime != that.warningExceptionTime)   return false;
   return true;
 }

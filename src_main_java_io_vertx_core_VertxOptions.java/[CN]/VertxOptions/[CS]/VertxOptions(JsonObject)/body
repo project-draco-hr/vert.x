@@ -15,4 +15,5 @@
   this.haGroup=json.getString("haGroup",DEFAULT_HA_GROUP);
   JsonObject metricsJson=json.getJsonObject("metricsOptions");
   this.metrics=metricsJson != null ? new MetricsOptions(metricsJson) : null;
+  this.warningExceptionTime=json.getLong("warningExceptionTime",DEFAULT_WARNING_EXECPTION_TIME);
 }

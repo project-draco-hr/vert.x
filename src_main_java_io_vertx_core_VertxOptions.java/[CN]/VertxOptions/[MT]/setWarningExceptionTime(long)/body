@@ -1,0 +1,7 @@
+{
+  if (warningExceptionTime < 1) {
+    throw new IllegalArgumentException("warningExceptionTime must be > 0");
+  }
+  this.warningExceptionTime=warningExceptionTime;
+  return this;
+}
