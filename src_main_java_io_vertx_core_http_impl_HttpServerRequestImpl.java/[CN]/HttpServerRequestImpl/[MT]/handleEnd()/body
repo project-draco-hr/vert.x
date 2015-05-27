@@ -8,12 +8,7 @@
         if (data instanceof Attribute) {
           Attribute attr=(Attribute)data;
           try {
-            if (isURLEncoded) {
-              attributes().add(urlDecode(attr.getName()),urlDecode(attr.getValue()));
-            }
- else {
-              attributes().add(attr.getName(),attr.getValue());
-            }
+            attributes().add(attr.getName(),attr.getValue());
           }
  catch (          Exception e) {
             handleException(e);
