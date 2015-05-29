@@ -1,5 +1,5 @@
 {
   Objects.requireNonNull(value);
-  list.add(value);
+  list.add(value.list);
   return this;
 }

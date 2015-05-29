@@ -1,0 +1,5 @@
+{
+  JsonObject nested=new JsonObject();
+  jsonObject.put("nested",nested);
+  assertTrue(jsonObject.getMap().get("nested") instanceof Map);
+}

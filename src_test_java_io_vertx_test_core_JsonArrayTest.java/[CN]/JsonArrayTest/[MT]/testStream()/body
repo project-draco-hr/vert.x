@@ -13,6 +13,6 @@
   assertEquals(123,entry);
   assertTrue(iter.hasNext());
   entry=iter.next();
-  assertEquals(obj,entry);
+  assertEquals(obj.getMap(),entry);
   assertFalse(iter.hasNext());
 }
