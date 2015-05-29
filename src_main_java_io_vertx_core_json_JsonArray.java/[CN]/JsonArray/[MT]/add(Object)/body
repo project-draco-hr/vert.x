@@ -1,6 +1,12 @@
 {
   Objects.requireNonNull(value);
   value=Json.checkAndCopy(value,false);
+  if (value instanceof JsonObject) {
+    value=((JsonObject)value).getMap();
+  }
+ else   if (value instanceof JsonArray) {
+    value=((JsonArray)value).getList();
+  }
   list.add(value);
   return this;
 }

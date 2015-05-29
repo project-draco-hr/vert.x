@@ -1,3 +1,9 @@
 {
+  if (value instanceof JsonObject) {
+    value=((JsonObject)value).getMap();
+  }
+ else   if (value instanceof JsonArray) {
+    value=((JsonArray)value).getList();
+  }
   return list.contains(value);
 }

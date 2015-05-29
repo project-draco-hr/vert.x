@@ -16,6 +16,6 @@
   assertTrue(iter.hasNext());
   entry=iter.next();
   assertEquals("wibble",entry.getKey());
-  assertEquals(obj,entry.getValue());
+  assertEquals(obj.getMap(),entry.getValue());
   assertFalse(iter.hasNext());
 }
