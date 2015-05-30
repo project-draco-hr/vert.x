@@ -1,13 +1,7 @@
 {
   Object val=list.get(pos);
-  if (val instanceof JsonObject.JsonMap) {
-    return ((JsonObject.JsonMap)val).owner;
-  }
- else   if (val instanceof Map) {
+  if (val instanceof Map) {
     val=new JsonObject((Map)val);
-  }
-  if (val instanceof JsonList) {
-    val=((JsonList)val).owner;
   }
  else   if (val instanceof List) {
     val=new JsonArray((List)val);

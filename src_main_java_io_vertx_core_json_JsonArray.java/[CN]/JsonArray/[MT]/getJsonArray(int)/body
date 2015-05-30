@@ -1,9 +1,6 @@
 {
   Object val=list.get(pos);
-  if (val instanceof JsonList) {
-    val=((JsonList)val).owner;
-  }
- else   if (val instanceof List) {
+  if (val instanceof List) {
     val=new JsonArray((List)val);
   }
   return (JsonArray)val;

@@ -6,6 +6,6 @@
   assertFalse(jsonArray.contains("foo"));
   list.add("floob");
   assertTrue(jsonArray.contains("floob"));
-  assertSame(obj.getMap(),list.get(1));
+  assertSame(obj,list.get(1));
   obj.remove("quux");
 }

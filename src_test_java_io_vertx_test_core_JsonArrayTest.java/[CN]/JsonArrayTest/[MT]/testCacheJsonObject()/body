@@ -1,6 +1,0 @@
-{
-  JsonObject nested=new JsonObject();
-  jsonArray.add(nested);
-  assertSame(nested,jsonArray.getJsonObject(0));
-  assertSame(nested,jsonArray.getValue(0));
-}
