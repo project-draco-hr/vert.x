@@ -1,0 +1,8 @@
+{
+  int result=1;
+  result+=31 * result + (keyPath != null ? keyPath.hashCode() : 0);
+  result+=31 * result + (keyValue != null ? keyValue.hashCode() : 0);
+  result+=31 * result + (certPath != null ? certPath.hashCode() : 0);
+  result+=31 * result + (certValue != null ? certValue.hashCode() : 0);
+  return result;
+}

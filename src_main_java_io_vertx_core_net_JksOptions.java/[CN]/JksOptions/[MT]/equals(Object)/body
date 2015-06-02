@@ -1,0 +1,19 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof JksOptions)) {
+    return false;
+  }
+  JksOptions that=(JksOptions)o;
+  if (password != null ? !password.equals(that.password) : that.password != null) {
+    return false;
+  }
+  if (path != null ? !path.equals(that.path) : that.path != null) {
+    return false;
+  }
+  if (value != null ? !value.equals(that.value) : that.value != null) {
+    return false;
+  }
+  return true;
+}

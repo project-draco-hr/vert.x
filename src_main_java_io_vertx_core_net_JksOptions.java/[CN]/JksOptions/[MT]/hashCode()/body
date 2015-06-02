@@ -1,0 +1,7 @@
+{
+  int result=1;
+  result+=31 * result + (password != null ? password.hashCode() : 0);
+  result+=31 * result + (path != null ? path.hashCode() : 0);
+  result+=31 * result + (value != null ? value.hashCode() : 0);
+  return result;
+}
