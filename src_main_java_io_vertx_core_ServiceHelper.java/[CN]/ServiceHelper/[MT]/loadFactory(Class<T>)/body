@@ -4,6 +4,12 @@
     return factories.iterator().next();
   }
  else {
-    throw new IllegalStateException("Cannot find META-INF/services/" + clazz.getName() + " on classpath");
+    factories=ServiceLoader.load(clazz,ServiceHelper.class.getClassLoader());
+    if (factories.iterator().hasNext()) {
+      return factories.iterator().next();
+    }
+ else {
+      throw new IllegalStateException("Cannot find META-INF/services/" + clazz.getName() + " on classpath");
+    }
   }
 }
