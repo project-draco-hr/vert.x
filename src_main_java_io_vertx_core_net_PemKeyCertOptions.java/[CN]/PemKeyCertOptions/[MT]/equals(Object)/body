@@ -1,0 +1,22 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof PemKeyCertOptions)) {
+    return false;
+  }
+  PemKeyCertOptions that=(PemKeyCertOptions)o;
+  if (keyPath != null ? !keyPath.equals(that.keyPath) : that.keyPath != null) {
+    return false;
+  }
+  if (keyValue != null ? !keyValue.equals(that.keyValue) : that.keyValue != null) {
+    return false;
+  }
+  if (certPath != null ? !certPath.equals(that.certPath) : that.certPath != null) {
+    return false;
+  }
+  if (certValue != null ? !certValue.equals(that.certValue) : that.certValue != null) {
+    return false;
+  }
+  return true;
+}
