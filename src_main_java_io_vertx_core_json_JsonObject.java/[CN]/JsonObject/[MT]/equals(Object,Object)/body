@@ -1,5 +1,7 @@
 {
-  if (o1 == o2)   return true;
+  if (o1 == o2) {
+    return true;
+  }
   if (o1 instanceof JsonObject) {
     return objectEquals(((JsonObject)o1).map,o2);
   }
