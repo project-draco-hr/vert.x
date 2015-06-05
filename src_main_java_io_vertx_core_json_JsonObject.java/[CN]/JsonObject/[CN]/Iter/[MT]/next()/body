@@ -1,13 +1,7 @@
 {
   Map.Entry<String,Object> entry=mapIter.next();
-  if (entry.getValue() instanceof JsonMap) {
-    entry.setValue(((JsonMap)entry.getValue()).owner);
-  }
- else   if (entry.getValue() instanceof Map) {
+  if (entry.getValue() instanceof Map) {
     entry.setValue(new JsonObject((Map)entry.getValue()));
-  }
- else   if (entry.getValue() instanceof JsonArray.JsonList) {
-    entry.setValue(((JsonArray.JsonList)entry.getValue()).owner);
   }
  else   if (entry.getValue() instanceof List) {
     entry.setValue(new JsonArray((List)entry.getValue()));

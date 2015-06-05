@@ -1,5 +1,0 @@
-{
-  JsonArray nested=new JsonArray();
-  jsonObject.put("nested",nested);
-  assertTrue(jsonObject.getMap().get("nested") instanceof List);
-}
