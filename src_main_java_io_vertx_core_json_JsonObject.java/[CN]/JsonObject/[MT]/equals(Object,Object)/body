@@ -6,9 +6,6 @@
   if (o1 instanceof Map<?,?>) {
     return objectEquals((Map<?,?>)o1,o2);
   }
-  if (o1 instanceof JsonArray) {
-    return JsonArray.arrayEquals(((JsonArray)o1).getList(),o2);
-  }
   if (o1 instanceof List<?>) {
     return JsonArray.arrayEquals((List<?>)o1,o2);
   }

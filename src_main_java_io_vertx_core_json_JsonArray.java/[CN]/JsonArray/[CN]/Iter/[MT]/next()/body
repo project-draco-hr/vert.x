@@ -1,7 +1,13 @@
 {
   Object val=listIter.next();
-  if (val instanceof Map) {
+  if (val instanceof JsonObject.JsonMap) {
+    val=((JsonObject.JsonMap)val).owner;
+  }
+ else   if (val instanceof Map) {
     val=new JsonObject((Map)val);
+  }
+ else   if (val instanceof JsonArray.JsonList) {
+    val=((JsonList)val).owner;
   }
  else   if (val instanceof List) {
     val=new JsonArray((List)val);
