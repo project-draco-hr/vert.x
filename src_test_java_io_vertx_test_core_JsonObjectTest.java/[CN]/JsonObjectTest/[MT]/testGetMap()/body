@@ -12,5 +12,5 @@
   assertFalse(map.containsKey("quux"));
   jsonObject.put("wooble","plink");
   assertTrue(map.containsKey("wooble"));
-  assertSame(obj,map.get("wibble"));
+  assertSame(obj.getMap(),map.get("wibble"));
 }
