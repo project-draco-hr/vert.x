@@ -1,18 +1,16 @@
 {
   Map.Entry<String,Object> entry=mapIter.next();
-  String key=entry.getKey();
-  Object val=entry.getValue();
-  if (val instanceof JsonMap) {
-    entry=new Entry(key,((JsonMap)val).owner);
+  if (entry.getValue() instanceof JsonMap) {
+    entry.setValue(((JsonMap)entry.getValue()).owner);
   }
- else   if (val instanceof Map) {
-    entry=new Entry(key,new JsonObject((Map)val));
+ else   if (entry.getValue() instanceof Map) {
+    entry.setValue(new JsonObject((Map)entry.getValue()));
   }
- else   if (val instanceof JsonArray.JsonList) {
-    entry=new Entry(key,((JsonArray.JsonList)val).owner);
+ else   if (entry.getValue() instanceof JsonArray.JsonList) {
+    entry.setValue(((JsonArray.JsonList)entry.getValue()).owner);
   }
- else   if (val instanceof List) {
-    entry=new Entry(key,new JsonArray((List)val));
+ else   if (entry.getValue() instanceof List) {
+    entry.setValue(new JsonArray((List)entry.getValue()));
   }
   return entry;
 }
