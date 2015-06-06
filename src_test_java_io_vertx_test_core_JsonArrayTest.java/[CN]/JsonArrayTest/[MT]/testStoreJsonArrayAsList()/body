@@ -1,5 +1,0 @@
-{
-  JsonArray nested=new JsonArray();
-  jsonArray.add(nested);
-  assertTrue(jsonArray.getList().get(0) instanceof List);
-}

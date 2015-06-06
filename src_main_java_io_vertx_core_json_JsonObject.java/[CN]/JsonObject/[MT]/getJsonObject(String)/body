@@ -1,10 +1,7 @@
 {
   Objects.requireNonNull(key);
   Object val=map.get(key);
-  if (val instanceof JsonMap) {
-    val=((JsonMap)val).owner;
-  }
- else   if (val instanceof Map) {
+  if (val instanceof Map) {
     val=new JsonObject((Map)val);
   }
   return (JsonObject)val;
