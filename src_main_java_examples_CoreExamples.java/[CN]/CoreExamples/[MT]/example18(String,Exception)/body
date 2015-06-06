@@ -1,0 +1,5 @@
+{
+  Logger logger=LoggerFactory.getLogger(className);
+  logger.info("something happened");
+  logger.error("oops!",exception);
+}
