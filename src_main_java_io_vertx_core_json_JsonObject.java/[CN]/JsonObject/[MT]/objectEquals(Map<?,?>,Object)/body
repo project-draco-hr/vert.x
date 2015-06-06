@@ -9,9 +9,7 @@
  else {
     return false;
   }
-  if (m1.size() != m2.size()) {
-    return false;
-  }
+  if (m1.size() != m2.size())   return false;
   for (  Map.Entry<?,?> entry : m1.entrySet()) {
     Object val=entry.getValue();
     if (val == null) {
