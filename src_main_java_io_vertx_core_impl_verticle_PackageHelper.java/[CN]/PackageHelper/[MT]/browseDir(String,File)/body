@@ -1,5 +1,5 @@
 {
-  List<JavaFileObject> result=new ArrayList<JavaFileObject>();
+  List<JavaFileObject> result=new ArrayList<>();
   for (  File childFile : directory.listFiles()) {
     if (childFile.isFile() && childFile.getName().endsWith(CLASS_FILE)) {
       String binaryName=packageName + "." + childFile.getName().replaceAll(CLASS_FILE + "$","");

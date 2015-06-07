@@ -1,3 +1,3 @@
 {
-  return new FutureImpl<T>();
+  return new FutureImpl<>();
 }

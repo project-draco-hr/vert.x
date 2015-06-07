@@ -24,7 +24,7 @@ synchronized (handlers) {
  else {
             callCompletionHandlerAsync(completionHandler);
           }
-          holder.context.removeCloseHook(new HandlerEntry<T>(address,handler));
+          holder.context.removeCloseHook(new HandlerEntry<>(address,handler));
           break;
         }
       }

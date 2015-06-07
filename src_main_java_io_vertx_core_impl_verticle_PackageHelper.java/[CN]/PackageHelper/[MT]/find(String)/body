@@ -1,6 +1,6 @@
 {
   String javaPackageName=packageName.replaceAll("\\.","/");
-  List<JavaFileObject> result=new ArrayList<JavaFileObject>();
+  List<JavaFileObject> result=new ArrayList<>();
   Enumeration<URL> urlEnumeration=classLoader.getResources(javaPackageName);
   while (urlEnumeration.hasMoreElements()) {
     URL resource=urlEnumeration.nextElement();

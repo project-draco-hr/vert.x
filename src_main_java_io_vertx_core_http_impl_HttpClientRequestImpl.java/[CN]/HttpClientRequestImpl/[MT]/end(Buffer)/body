@@ -2,7 +2,7 @@
   checkComplete();
   checkResponseHandler();
   if (!chunked && !contentLengthSet()) {
-    headers().set(io.vertx.core.http.HttpHeaders.CONTENT_LENGTH,String.valueOf(chunk.length()));
+    headers().set(CONTENT_LENGTH,String.valueOf(chunk.length()));
   }
   write(chunk.getByteBuf(),true);
 }
