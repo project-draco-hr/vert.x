@@ -1,5 +1,5 @@
 {
-  super("(" + failureType + ","+ failureCode+ ") "+ (message != null ? message : ""));
+  super(message);
   this.failureType=failureType;
   this.failureCode=failureCode;
 }
