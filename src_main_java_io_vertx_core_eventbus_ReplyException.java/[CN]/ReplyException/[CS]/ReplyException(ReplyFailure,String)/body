@@ -1,5 +1,3 @@
 {
-  super(message);
-  this.failureType=failureType;
-  this.failureCode=-1;
+  this(failureType,-1,message);
 }
