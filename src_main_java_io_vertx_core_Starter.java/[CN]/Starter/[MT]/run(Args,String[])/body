@@ -17,6 +17,10 @@
         return;
       }
     }
+ else     if (first.equals("-ha")) {
+      runBare(args);
+      return;
+    }
   }
   String main=readMainVerticleFromManifest();
   if (main != null) {

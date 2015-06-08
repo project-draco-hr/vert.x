@@ -1,0 +1,8 @@
+{
+  Vertx vertx=startVertx(true,true,args);
+  if (vertx == null) {
+    return;
+  }
+  addShutdownHook(vertx);
+  block();
+}
