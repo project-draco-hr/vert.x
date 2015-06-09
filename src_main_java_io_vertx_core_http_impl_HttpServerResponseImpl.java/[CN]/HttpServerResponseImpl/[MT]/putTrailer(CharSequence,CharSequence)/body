@@ -1,5 +1,7 @@
 {
-  checkWritten();
-  trailers().set(name,value);
-  return this;
+synchronized (conn) {
+    checkWritten();
+    trailers().set(name,value);
+    return this;
+  }
 }

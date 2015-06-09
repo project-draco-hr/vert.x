@@ -1,5 +1,7 @@
 {
-  checkWritten();
-  headers().set(key,value);
-  return this;
+synchronized (conn) {
+    checkWritten();
+    headers().set(key,value);
+    return this;
+  }
 }

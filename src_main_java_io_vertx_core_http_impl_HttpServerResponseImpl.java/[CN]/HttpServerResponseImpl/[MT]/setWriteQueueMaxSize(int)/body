@@ -1,5 +1,7 @@
 {
-  checkWritten();
-  conn.doSetWriteQueueMaxSize(size);
-  return this;
+synchronized (conn) {
+    checkWritten();
+    conn.doSetWriteQueueMaxSize(size);
+    return this;
+  }
 }

@@ -1,5 +1,7 @@
 {
-  if (drainHandler != null) {
-    drainHandler.handle(null);
+synchronized (conn) {
+    if (drainHandler != null) {
+      drainHandler.handle(null);
+    }
   }
 }

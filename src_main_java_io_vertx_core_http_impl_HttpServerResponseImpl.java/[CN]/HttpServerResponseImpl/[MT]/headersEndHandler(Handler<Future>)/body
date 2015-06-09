@@ -1,4 +1,6 @@
 {
-  this.headersEndHandler=handler;
-  return this;
+synchronized (conn) {
+    this.headersEndHandler=handler;
+    return this;
+  }
 }

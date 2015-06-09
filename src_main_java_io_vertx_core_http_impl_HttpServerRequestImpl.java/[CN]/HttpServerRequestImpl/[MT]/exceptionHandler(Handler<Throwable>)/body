@@ -1,4 +1,6 @@
 {
-  this.exceptionHandler=handler;
-  return this;
+synchronized (conn) {
+    this.exceptionHandler=handler;
+    return this;
+  }
 }

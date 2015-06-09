@@ -1,3 +1,5 @@
 {
-  return written;
+synchronized (conn) {
+    return written;
+  }
 }

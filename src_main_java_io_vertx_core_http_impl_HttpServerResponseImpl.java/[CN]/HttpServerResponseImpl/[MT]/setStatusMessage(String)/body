@@ -1,5 +1,7 @@
 {
-  this.statusMessage=statusMessage;
-  this.response.setStatus(new HttpResponseStatus(response.getStatus().code(),statusMessage));
-  return this;
+synchronized (conn) {
+    this.statusMessage=statusMessage;
+    this.response.setStatus(new HttpResponseStatus(response.getStatus().code(),statusMessage));
+    return this;
+  }
 }

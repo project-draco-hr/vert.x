@@ -1,7 +1,9 @@
 {
-  checkWritten();
-  if (version != HttpVersion.HTTP_1_0) {
-    this.chunked=chunked;
+synchronized (conn) {
+    checkWritten();
+    if (version != HttpVersion.HTTP_1_0) {
+      this.chunked=chunked;
+    }
+    return this;
   }
-  return this;
 }

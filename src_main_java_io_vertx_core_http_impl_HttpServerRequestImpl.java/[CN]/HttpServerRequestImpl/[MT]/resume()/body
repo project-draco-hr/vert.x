@@ -1,4 +1,6 @@
 {
-  conn.resume();
-  return this;
+synchronized (conn) {
+    conn.resume();
+    return this;
+  }
 }

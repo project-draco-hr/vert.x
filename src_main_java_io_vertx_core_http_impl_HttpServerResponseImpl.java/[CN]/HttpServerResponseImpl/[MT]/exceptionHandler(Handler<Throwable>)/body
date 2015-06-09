@@ -1,5 +1,7 @@
 {
-  checkWritten();
-  this.exceptionHandler=handler;
-  return this;
+synchronized (conn) {
+    checkWritten();
+    this.exceptionHandler=handler;
+    return this;
+  }
 }
