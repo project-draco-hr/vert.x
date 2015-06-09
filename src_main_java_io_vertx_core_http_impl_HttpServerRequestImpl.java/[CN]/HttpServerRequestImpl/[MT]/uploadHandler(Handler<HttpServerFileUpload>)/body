@@ -1,5 +1,7 @@
 {
-  checkEnded();
-  this.uploadHandler=handler;
-  return this;
+synchronized (conn) {
+    checkEnded();
+    this.uploadHandler=handler;
+    return this;
+  }
 }

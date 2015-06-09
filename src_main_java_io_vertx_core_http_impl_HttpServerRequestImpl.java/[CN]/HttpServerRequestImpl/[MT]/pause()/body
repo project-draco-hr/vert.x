@@ -1,4 +1,6 @@
 {
-  conn.pause();
-  return this;
+synchronized (conn) {
+    conn.pause();
+    return this;
+  }
 }

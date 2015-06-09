@@ -1,5 +1,7 @@
 {
-  checkWritten();
-  this.closeHandler=handler;
-  return this;
+synchronized (conn) {
+    checkWritten();
+    this.closeHandler=handler;
+    return this;
+  }
 }

@@ -1,3 +1,5 @@
 {
-  end0(Unpooled.EMPTY_BUFFER);
+synchronized (conn) {
+    end0(Unpooled.EMPTY_BUFFER);
+  }
 }

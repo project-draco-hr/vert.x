@@ -1,11 +1,13 @@
 {
-  if (!closed) {
-    if (headWritten) {
-      closeConnAfterWrite();
-    }
+synchronized (conn) {
+    if (!closed) {
+      if (headWritten) {
+        closeConnAfterWrite();
+      }
  else {
-      conn.close();
+        conn.close();
+      }
+      closed=true;
     }
-    closed=true;
   }
 }

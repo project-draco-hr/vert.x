@@ -1,7 +1,9 @@
 {
-  if (!chunked && !contentLengthSet()) {
-    headers().set(HttpHeaders.CONTENT_LENGTH,String.valueOf(chunk.length()));
+synchronized (conn) {
+    if (!chunked && !contentLengthSet()) {
+      headers().set(HttpHeaders.CONTENT_LENGTH,String.valueOf(chunk.length()));
+    }
+    ByteBuf buf=chunk.getByteBuf();
+    end0(buf);
   }
-  ByteBuf buf=chunk.getByteBuf();
-  end0(buf);
 }

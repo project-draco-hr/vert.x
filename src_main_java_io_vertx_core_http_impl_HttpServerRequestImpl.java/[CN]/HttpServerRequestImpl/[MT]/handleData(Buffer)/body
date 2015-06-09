@@ -1,13 +1,15 @@
 {
-  if (decoder != null) {
-    try {
-      decoder.offer(new DefaultHttpContent(data.getByteBuf().duplicate()));
+synchronized (conn) {
+    if (decoder != null) {
+      try {
+        decoder.offer(new DefaultHttpContent(data.getByteBuf().duplicate()));
+      }
+ catch (      HttpPostRequestDecoder.ErrorDataDecoderException e) {
+        handleException(e);
+      }
     }
- catch (    HttpPostRequestDecoder.ErrorDataDecoderException e) {
-      handleException(e);
+    if (dataHandler != null) {
+      dataHandler.handle(data);
     }
-  }
-  if (dataHandler != null) {
-    dataHandler.handle(data);
   }
 }

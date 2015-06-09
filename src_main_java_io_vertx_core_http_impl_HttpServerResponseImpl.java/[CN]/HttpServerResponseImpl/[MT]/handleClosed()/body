@@ -1,5 +1,7 @@
 {
-  if (closeHandler != null) {
-    closeHandler.handle(null);
+synchronized (conn) {
+    if (closeHandler != null) {
+      closeHandler.handle(null);
+    }
   }
 }

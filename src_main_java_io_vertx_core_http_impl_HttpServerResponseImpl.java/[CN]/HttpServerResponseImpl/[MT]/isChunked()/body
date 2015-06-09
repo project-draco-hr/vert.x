@@ -1,3 +1,5 @@
 {
-  return chunked;
+synchronized (conn) {
+    return chunked;
+  }
 }

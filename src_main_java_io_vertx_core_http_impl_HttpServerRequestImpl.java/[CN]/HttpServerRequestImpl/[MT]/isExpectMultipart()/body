@@ -1,3 +1,5 @@
 {
-  return decoder != null;
+synchronized (conn) {
+    return decoder != null;
+  }
 }

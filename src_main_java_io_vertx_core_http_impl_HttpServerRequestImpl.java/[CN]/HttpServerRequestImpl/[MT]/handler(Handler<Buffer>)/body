@@ -1,5 +1,7 @@
 {
-  checkEnded();
-  this.dataHandler=dataHandler;
-  return this;
+synchronized (conn) {
+    checkEnded();
+    this.dataHandler=dataHandler;
+    return this;
+  }
 }
