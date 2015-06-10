@@ -1,3 +1,0 @@
-{
-  executeBlocking(null,blockingCodeHandler,false,resultHandler);
-}

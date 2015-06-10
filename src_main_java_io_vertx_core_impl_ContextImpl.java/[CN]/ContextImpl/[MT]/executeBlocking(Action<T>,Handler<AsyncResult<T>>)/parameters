@@ -1,3 +1,2 @@
 Action<T> action
-boolean internal
 Handler<AsyncResult<T>> resultHandler

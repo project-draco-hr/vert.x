@@ -1,0 +1,4 @@
+{
+  ContextImpl context=getOrCreateContext();
+  context.executeBlocking(blockingCodeHandler,ordered,asyncResultHandler);
+}
