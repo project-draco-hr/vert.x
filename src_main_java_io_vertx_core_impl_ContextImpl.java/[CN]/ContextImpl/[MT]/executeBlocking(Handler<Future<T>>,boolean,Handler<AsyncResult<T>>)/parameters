@@ -1,2 +1,3 @@
 Handler<Future<T>> blockingCodeHandler
+boolean ordered
 Handler<AsyncResult<T>> resultHandler
