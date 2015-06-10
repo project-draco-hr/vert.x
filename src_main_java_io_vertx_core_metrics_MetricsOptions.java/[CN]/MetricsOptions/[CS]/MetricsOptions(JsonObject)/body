@@ -1,3 +1,4 @@
 {
-  enabled=json.getBoolean("enabled",DEFAULT_METRICS_ENABLED);
+  this.enabled=json.getBoolean("enabled",DEFAULT_METRICS_ENABLED);
+  this.json=json.copy();
 }

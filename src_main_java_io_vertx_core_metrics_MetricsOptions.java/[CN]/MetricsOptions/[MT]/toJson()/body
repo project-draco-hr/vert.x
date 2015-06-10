@@ -1,0 +1,3 @@
+{
+  return json != null ? json.copy() : new JsonObject();
+}
