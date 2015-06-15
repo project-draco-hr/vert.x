@@ -3,8 +3,10 @@
     String[] toUse=enabledCipherSuites.toArray(new String[enabledCipherSuites.size()]);
     engine.setEnabledCipherSuites(toUse);
   }
-  engine.setEnabledProtocols(ENABLED_PROTOCOLS);
   engine.setUseClientMode(client);
+  Set<String> enabledProtocols=new HashSet<>(Arrays.asList(ENABLED_PROTOCOLS));
+  enabledProtocols.retainAll(Arrays.asList(engine.getEnabledProtocols()));
+  engine.setEnabledProtocols(enabledProtocols.toArray(new String[0]));
   if (!client) {
 switch (getClientAuth()) {
 case REQUEST:
