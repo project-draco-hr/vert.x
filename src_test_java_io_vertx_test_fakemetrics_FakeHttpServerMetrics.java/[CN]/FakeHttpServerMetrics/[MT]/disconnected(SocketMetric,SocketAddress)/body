@@ -1,2 +1,3 @@
 {
+  socketMetric.connected.set(false);
 }

@@ -1,3 +1,5 @@
 {
-  return null;
+  HttpClientMetric metric=new HttpClientMetric(request,socketMetric);
+  requests.put(request,metric);
+  return metric;
 }
