@@ -1,2 +1,3 @@
 {
+  socketMetric.bytesWritten.addAndGet(numberOfBytes);
 }
