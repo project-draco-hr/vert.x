@@ -1,4 +1,0 @@
-{
-  super(vertx,connectionMap);
-  this.vertx=vertx;
-}

@@ -1,6 +1,11 @@
 {
   if (msg instanceof HttpRequest) {
     HttpRequest request=(HttpRequest)msg;
+    DecoderResult result=((HttpObject)msg).getDecoderResult();
+    if (result.isFailure()) {
+      channel.pipeline().fireExceptionCaught(result.cause());
+      return;
+    }
     HttpServerResponseImpl resp=new HttpServerResponseImpl(vertx,this,request);
     HttpServerRequestImpl req=new HttpServerRequestImpl(this,request,resp);
     handleRequest(req,resp);
