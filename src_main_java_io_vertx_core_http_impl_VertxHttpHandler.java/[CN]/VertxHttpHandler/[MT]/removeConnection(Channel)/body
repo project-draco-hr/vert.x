@@ -1,0 +1,5 @@
+{
+  @SuppressWarnings("unchecked") VertxNioSocketChannel<C> vch=(VertxNioSocketChannel<C>)channel;
+  vch.conn=null;
+  return connectionMap.remove(channel);
+}
