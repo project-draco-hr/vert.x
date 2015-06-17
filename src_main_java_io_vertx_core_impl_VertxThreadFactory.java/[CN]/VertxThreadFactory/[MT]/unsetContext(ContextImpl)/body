@@ -1,0 +1,7 @@
+{
+  for (  VertxThread thread : weakMap.keySet()) {
+    if (thread.getContext() == ctx) {
+      thread.setContext(null);
+    }
+  }
+}

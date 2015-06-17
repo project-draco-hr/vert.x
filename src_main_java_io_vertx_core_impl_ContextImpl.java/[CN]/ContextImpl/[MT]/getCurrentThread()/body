@@ -1,0 +1,3 @@
+{
+  return (VertxThread)Thread.currentThread();
+}
