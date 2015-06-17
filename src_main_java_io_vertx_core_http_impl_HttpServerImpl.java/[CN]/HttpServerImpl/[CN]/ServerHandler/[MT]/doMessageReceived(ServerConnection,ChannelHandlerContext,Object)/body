@@ -1,60 +1,58 @@
 {
   Channel ch=ctx.channel();
-  if (msg instanceof HttpRequest) {
-    final HttpRequest request=(HttpRequest)msg;
-    if (log.isTraceEnabled())     log.trace("Server received request: " + request.getUri());
-    if (HttpHeaders.is100ContinueExpected(request)) {
-      ch.writeAndFlush(new DefaultFullHttpResponse(HTTP_1_1,CONTINUE));
-    }
-    if (request.headers().contains(io.vertx.core.http.HttpHeaders.UPGRADE,io.vertx.core.http.HttpHeaders.WEBSOCKET,true)) {
-      String connectionHeader=request.headers().get(io.vertx.core.http.HttpHeaders.CONNECTION);
-      if (connectionHeader == null || !connectionHeader.toLowerCase().contains("upgrade")) {
-        sendError("\"Connection\" must be \"Upgrade\".",BAD_REQUEST,ch);
-        return;
-      }
-      if (request.getMethod() != HttpMethod.GET) {
-        sendError(null,METHOD_NOT_ALLOWED,ch);
-        return;
-      }
-      if (wsRequest == null) {
-        if (request instanceof FullHttpRequest) {
-          handshake((FullHttpRequest)request,ch,ctx);
+  if (expectingWebsockets) {
+    if (msg instanceof HttpRequest) {
+      final HttpRequest request=(HttpRequest)msg;
+      if (log.isTraceEnabled())       log.trace("Server received request: " + request.getUri());
+      if (request.headers().contains(io.vertx.core.http.HttpHeaders.UPGRADE,io.vertx.core.http.HttpHeaders.WEBSOCKET,true)) {
+        String connectionHeader=request.headers().get(io.vertx.core.http.HttpHeaders.CONNECTION);
+        if (connectionHeader == null || !connectionHeader.toLowerCase().contains("upgrade")) {
+          sendError("\"Connection\" must be \"Upgrade\".",BAD_REQUEST,ch);
+          return;
         }
- else {
-          wsRequest=new DefaultFullHttpRequest(request.getProtocolVersion(),request.getMethod(),request.getUri());
-          wsRequest.headers().set(request.headers());
+        if (request.getMethod() != HttpMethod.GET) {
+          sendError(null,METHOD_NOT_ALLOWED,ch);
+          return;
         }
-      }
-    }
+        if (wsRequest == null) {
+          if (request instanceof FullHttpRequest) {
+            handshake((FullHttpRequest)request,ch,ctx);
+          }
  else {
-      if (conn == null) {
-        HandlerHolder<HttpServerRequest> reqHandler=reqHandlerManager.chooseHandler(ch.eventLoop());
-        if (reqHandler != null) {
-          createConnAndHandle(reqHandler,ch,(HttpRequest)msg,null);
+            wsRequest=new DefaultFullHttpRequest(request.getProtocolVersion(),request.getMethod(),request.getUri());
+            wsRequest.headers().set(request.headers());
+          }
         }
       }
  else {
-        conn.handleMessage(msg);
+        if (conn == null) {
+          HandlerHolder<HttpServerRequest> reqHandler=reqHandlerManager.chooseHandler(ch.eventLoop());
+          if (reqHandler != null) {
+            createConnAndHandle(reqHandler,ch,(HttpRequest)msg,null);
+          }
+        }
+ else {
+          conn.handleMessage(msg);
+        }
       }
     }
-  }
- else   if (msg instanceof WebSocketFrameInternal) {
-    WebSocketFrameInternal wsFrame=(WebSocketFrameInternal)msg;
+ else     if (msg instanceof WebSocketFrameInternal) {
+      WebSocketFrameInternal wsFrame=(WebSocketFrameInternal)msg;
 switch (wsFrame.type()) {
 case BINARY:
 case CONTINUATION:
 case TEXT:
-      if (conn != null) {
-        conn.handleMessage(msg);
-      }
-    break;
+        if (conn != null) {
+          conn.handleMessage(msg);
+        }
+      break;
 case PING:
-  ch.writeAndFlush(new WebSocketFrameImpl(FrameType.PONG,wsFrame.getBinaryData()));
-break;
+    ch.writeAndFlush(new WebSocketFrameImpl(FrameType.PONG,wsFrame.getBinaryData()));
+  break;
 case CLOSE:
 if (!closeFrameSent) {
-ch.writeAndFlush(wsFrame).addListener(ChannelFutureListener.CLOSE);
-closeFrameSent=true;
+  ch.writeAndFlush(wsFrame).addListener(ChannelFutureListener.CLOSE);
+  closeFrameSent=true;
 }
 break;
 default :
@@ -77,5 +75,17 @@ conn.handleMessage(msg);
 }
  else {
 throw new IllegalStateException("Invalid message " + msg);
+}
+}
+ else {
+if (conn == null) {
+HandlerHolder<HttpServerRequest> reqHandler=reqHandlerManager.chooseHandler(ch.eventLoop());
+if (reqHandler != null) {
+createConnAndHandle(reqHandler,ch,(HttpRequest)msg,null);
+}
+}
+ else {
+conn.handleMessage(msg);
+}
 }
 }
