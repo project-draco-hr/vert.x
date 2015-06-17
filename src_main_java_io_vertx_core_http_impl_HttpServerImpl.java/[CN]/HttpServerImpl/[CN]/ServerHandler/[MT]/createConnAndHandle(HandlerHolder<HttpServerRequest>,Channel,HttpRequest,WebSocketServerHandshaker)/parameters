@@ -1,4 +1,0 @@
-HandlerHolder<HttpServerRequest> reqHandler
-Channel ch
-HttpRequest request
-WebSocketServerHandshaker shake

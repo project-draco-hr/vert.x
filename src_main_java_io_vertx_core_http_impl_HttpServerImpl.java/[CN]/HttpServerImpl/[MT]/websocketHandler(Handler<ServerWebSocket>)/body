@@ -1,4 +1,5 @@
 {
+  expectingWebsockets=true;
   websocketStream().handler(handler);
   return this;
 }

@@ -26,10 +26,7 @@
       }
  else {
         if (conn == null) {
-          HandlerHolder<HttpServerRequest> reqHandler=reqHandlerManager.chooseHandler(ch.eventLoop());
-          if (reqHandler != null) {
-            createConnAndHandle(reqHandler,ch,(HttpRequest)msg,null);
-          }
+          createConnAndHandle(ch,msg,null);
         }
  else {
           conn.handleMessage(msg);
@@ -79,10 +76,7 @@ throw new IllegalStateException("Invalid message " + msg);
 }
  else {
 if (conn == null) {
-HandlerHolder<HttpServerRequest> reqHandler=reqHandlerManager.chooseHandler(ch.eventLoop());
-if (reqHandler != null) {
-createConnAndHandle(reqHandler,ch,(HttpRequest)msg,null);
-}
+createConnAndHandle(ch,msg,null);
 }
  else {
 conn.handleMessage(msg);

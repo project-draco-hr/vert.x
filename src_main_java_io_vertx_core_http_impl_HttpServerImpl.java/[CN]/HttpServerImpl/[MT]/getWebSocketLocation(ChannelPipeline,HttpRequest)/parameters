@@ -1,2 +1,2 @@
 ChannelPipeline pipeline
-FullHttpRequest req
+HttpRequest req

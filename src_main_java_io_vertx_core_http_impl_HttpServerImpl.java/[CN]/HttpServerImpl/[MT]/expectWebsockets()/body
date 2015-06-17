@@ -1,4 +1,3 @@
 {
   expectingWebsockets=true;
-  return wsStream;
 }
