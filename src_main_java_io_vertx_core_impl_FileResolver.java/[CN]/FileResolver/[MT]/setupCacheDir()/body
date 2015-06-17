@@ -1,14 +1,7 @@
 {
-  if (cacheDir == null) {
-    String cacheDirName=".vertx/file-cache-" + UUID.randomUUID().toString();
-    cacheDir=new File(cacheDirName);
-    if (cacheDir.exists()) {
-      vertx.fileSystem().deleteRecursiveBlocking(cacheDir.getAbsolutePath(),true);
-    }
- else {
-      if (!cacheDir.mkdirs()) {
-        throw new IllegalStateException("Failed to create cache dir");
-      }
-    }
+  String cacheDirName=".vertx/file-cache-" + UUID.randomUUID().toString();
+  cacheDir=new File(cacheDirName);
+  if (!cacheDir.mkdirs()) {
+    throw new IllegalStateException("Failed to create cache dir");
   }
 }

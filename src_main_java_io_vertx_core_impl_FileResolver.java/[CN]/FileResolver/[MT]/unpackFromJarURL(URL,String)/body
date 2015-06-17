@@ -15,9 +15,11 @@
  else {
           file.getParentFile().mkdirs();
           try (InputStream is=zip.getInputStream(entry)){
-            Files.copy(is,file.toPath(),StandardCopyOption.REPLACE_EXISTING);
+            Files.copy(is,file.toPath());
           }
-         }
+ catch (          FileAlreadyExistsException ignore) {
+          }
+        }
       }
     }
   }

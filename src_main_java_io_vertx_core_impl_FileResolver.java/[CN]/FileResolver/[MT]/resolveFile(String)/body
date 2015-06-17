@@ -7,7 +7,6 @@
     return file;
   }
   if (!file.exists()) {
-    setupCacheDir();
     File cacheFile=new File(cacheDir,fileName);
     if (enableCaching && cacheFile.exists()) {
       return cacheFile;
