@@ -3,5 +3,6 @@
   if (checker != null) {
     checker.registerThread(t);
   }
+  addToMap(t);
   return t;
 }

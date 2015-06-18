@@ -1,0 +1,9 @@
+{
+  thread.setContext(context);
+  if (context != null) {
+    context.setTCCL();
+  }
+ else {
+    Thread.currentThread().setContextClassLoader(null);
+  }
+}

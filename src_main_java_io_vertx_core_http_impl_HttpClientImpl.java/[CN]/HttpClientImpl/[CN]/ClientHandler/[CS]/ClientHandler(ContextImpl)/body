@@ -1,4 +1,0 @@
-{
-  super(vertx,HttpClientImpl.this.connectionMap);
-  this.context=context;
-}

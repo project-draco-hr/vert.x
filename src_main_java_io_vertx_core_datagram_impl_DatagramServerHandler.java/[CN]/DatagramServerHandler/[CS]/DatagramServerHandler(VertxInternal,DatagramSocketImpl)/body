@@ -1,4 +1,0 @@
-{
-  super(vertx,new HashMap<>());
-  this.server=server;
-}

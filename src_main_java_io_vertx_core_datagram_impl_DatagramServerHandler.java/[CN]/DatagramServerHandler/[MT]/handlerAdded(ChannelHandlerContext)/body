@@ -1,4 +1,0 @@
-{
-  super.handlerAdded(ctx);
-  connectionMap.put(ctx.channel(),server);
-}

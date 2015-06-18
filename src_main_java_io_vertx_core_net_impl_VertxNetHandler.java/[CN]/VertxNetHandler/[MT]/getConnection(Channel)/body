@@ -1,0 +1,3 @@
+{
+  return connectionMap.get(channel);
+}
