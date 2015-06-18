@@ -7,7 +7,13 @@
         absoluteURI=uri.toString();
       }
  else {
-        absoluteURI=new URI(conn.getServerOrigin() + uri).toString();
+        String host=headers().get(HttpHeaders.Names.HOST);
+        if (host != null) {
+          absoluteURI=(conn.isSSL() ? "https://" : "http://") + host + uri;
+        }
+ else {
+          absoluteURI=conn.getServerOrigin() + uri;
+        }
       }
     }
  catch (    URISyntaxException e) {
