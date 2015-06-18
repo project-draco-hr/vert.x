@@ -1,3 +1,4 @@
 {
-  return getLogger(clazz.getCanonicalName());
+  String name=clazz.isAnonymousClass() ? clazz.getEnclosingClass().getCanonicalName() : clazz.getCanonicalName();
+  return getLogger(name);
 }
