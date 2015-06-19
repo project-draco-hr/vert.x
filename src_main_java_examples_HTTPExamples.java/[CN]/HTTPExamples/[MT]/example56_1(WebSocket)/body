@@ -1,0 +1,5 @@
+{
+  websocket.writeFinalTextFrame("Geronimo!");
+  Buffer buff=Buffer.buffer().appendInt(12).appendString("foo");
+  websocket.writeFinalBinaryFrame(buff);
+}

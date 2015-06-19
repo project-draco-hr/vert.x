@@ -1,0 +1,3 @@
+{
+  return writeFrame(WebSocketFrame.binaryFrame(data,true));
+}
