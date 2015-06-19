@@ -1,6 +1,6 @@
 {
   Channel ch=ctx.channel();
-  if (expectingWebsockets) {
+  if (!DISABLE_WEBSOCKETS) {
     if (msg instanceof HttpRequest) {
       final HttpRequest request=(HttpRequest)msg;
       if (log.isTraceEnabled())       log.trace("Server received request: " + request.getUri());
