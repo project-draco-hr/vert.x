@@ -3,4 +3,14 @@
   if (ws != null) {
     ws.handleClosed();
   }
+  Exception e=new VertxException("Connection was closed");
+  for (  HttpClientRequestImpl req : requests) {
+    req.handleException(e);
+  }
+  if (currentRequest != null) {
+    currentRequest.handleException(e);
+  }
+ else   if (currentResponse != null) {
+    currentResponse.handleException(e);
+  }
 }
