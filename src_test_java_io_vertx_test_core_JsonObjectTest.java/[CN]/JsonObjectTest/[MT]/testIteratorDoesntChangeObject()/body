@@ -1,0 +1,17 @@
+{
+  Map<String,Object> map=new LinkedHashMap<>();
+  map.put("nestedMap",new HashMap<>());
+  map.put("nestedList",new ArrayList<>());
+  JsonObject obj=new JsonObject(map);
+  Iterator<Map.Entry<String,Object>> iter=obj.iterator();
+  Map.Entry<String,Object> entry1=iter.next();
+  assertEquals("nestedMap",entry1.getKey());
+  Object val1=entry1.getValue();
+  assertTrue(val1 instanceof JsonObject);
+  Map.Entry<String,Object> entry2=iter.next();
+  assertEquals("nestedList",entry2.getKey());
+  Object val2=entry2.getValue();
+  assertTrue(val2 instanceof JsonArray);
+  assertTrue(map.get("nestedMap") instanceof HashMap);
+  assertTrue(map.get("nestedList") instanceof ArrayList);
+}
