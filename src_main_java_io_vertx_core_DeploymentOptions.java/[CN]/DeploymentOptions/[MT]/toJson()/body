@@ -12,11 +12,11 @@
   if (redeploy != DEFAULT_REDEPLOY) {
     json.put("redeploy",redeploy);
   }
-  if (redeployScanPeriod != DEFAULT_REDEPLOY_SCAN_PERIOD) {
-    json.put("redeployScanPeriod",redeployScanPeriod);
+  if (redeployScanInterval != DEFAULT_REDEPLOY_SCAN_INTERVAL) {
+    json.put("redeployScanInterval",redeployScanInterval);
   }
-  if (redeployGracePeriod != DEFAULT_REDEPLOY_GRACE_PERIOD) {
-    json.put("redeployGracePeriod",redeployGracePeriod);
+  if (redeployGraceInterval != DEFAULT_REDEPLOY_GRACE_INTERVAL) {
+    json.put("redeployGraceInterval",redeployGraceInterval);
   }
   return json;
 }

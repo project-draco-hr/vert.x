@@ -1,0 +1,7 @@
+{
+  if (blockedThreadCheckInterval < 1) {
+    throw new IllegalArgumentException("blockedThreadCheckInterval must be > 0");
+  }
+  this.blockedThreadCheckInterval=blockedThreadCheckInterval;
+  return this;
+}

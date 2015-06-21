@@ -10,7 +10,7 @@
  catch (      IllegalArgumentException|URISyntaxException ignore) {
       }
     }
-    return new Redeployer(filesToWatch,options.getRedeployGracePeriod());
+    return new Redeployer(filesToWatch,options.getRedeployGraceInterval());
   }
  else {
     return null;

@@ -16,8 +16,8 @@
   options.setHa(ha);
   options.setExtraClasspath(cp);
   options.setRedeploy(true);
-  options.setRedeployGracePeriod(gracePeriod);
-  options.setRedeployScanPeriod(scanPeriod);
+  options.setRedeployGraceInterval(gracePeriod);
+  options.setRedeployScanInterval(scanPeriod);
   JsonObject json=options.toJson();
   DeploymentOptions copy=new DeploymentOptions(json);
   assertEquals(worker,copy.isWorker());
@@ -26,6 +26,6 @@
   assertEquals("bar",copy.getConfig().getString("foo"));
   assertEquals(ha,copy.isHa());
   assertEquals(cp,copy.getExtraClasspath());
-  assertEquals(gracePeriod,copy.getRedeployGracePeriod());
-  assertEquals(scanPeriod,copy.getRedeployScanPeriod());
+  assertEquals(gracePeriod,copy.getRedeployGraceInterval());
+  assertEquals(scanPeriod,copy.getRedeployScanInterval());
 }

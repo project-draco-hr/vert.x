@@ -4,7 +4,7 @@
   int eventLoopPoolSize=TestUtils.randomPositiveInt();
   int internalBlockingPoolSize=TestUtils.randomPositiveInt();
   int workerPoolSize=TestUtils.randomPositiveInt();
-  int blockedThreadCheckPeriod=TestUtils.randomPositiveInt();
+  int blockedThreadCheckInterval=TestUtils.randomPositiveInt();
   String clusterHost=TestUtils.randomAlphaString(100);
   long clusterPingInterval=TestUtils.randomPositiveLong();
   long clusterPingReplyInterval=TestUtils.randomPositiveLong();
@@ -21,7 +21,7 @@
   options.setEventLoopPoolSize(eventLoopPoolSize);
   options.setInternalBlockingPoolSize(internalBlockingPoolSize);
   options.setWorkerPoolSize(workerPoolSize);
-  options.setBlockedThreadCheckPeriod(blockedThreadCheckPeriod);
+  options.setBlockedThreadCheckInterval(blockedThreadCheckInterval);
   options.setClusterHost(clusterHost);
   options.setClusterPingInterval(clusterPingInterval);
   options.setClusterPingReplyInterval(clusterPingReplyInterval);
@@ -39,7 +39,7 @@
   assertEquals(eventLoopPoolSize,options.getEventLoopPoolSize());
   assertEquals(internalBlockingPoolSize,options.getInternalBlockingPoolSize());
   assertEquals(workerPoolSize,options.getWorkerPoolSize());
-  assertEquals(blockedThreadCheckPeriod,options.getBlockedThreadCheckPeriod());
+  assertEquals(blockedThreadCheckInterval,options.getBlockedThreadCheckInterval());
   assertEquals(clusterHost,options.getClusterHost());
   assertEquals(maxEventLoopExecuteTime,options.getMaxEventLoopExecuteTime());
   assertEquals(maxWorkerExecuteTime,options.getMaxWorkerExecuteTime());

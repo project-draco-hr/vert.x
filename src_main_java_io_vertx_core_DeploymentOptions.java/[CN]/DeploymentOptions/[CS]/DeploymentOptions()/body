@@ -6,6 +6,6 @@
   this.ha=DEFAULT_HA;
   this.instances=DEFAULT_INSTANCES;
   this.redeploy=DEFAULT_REDEPLOY;
-  this.redeployScanPeriod=DEFAULT_REDEPLOY_SCAN_PERIOD;
-  this.redeployGracePeriod=DEFAULT_REDEPLOY_GRACE_PERIOD;
+  this.redeployScanInterval=DEFAULT_REDEPLOY_SCAN_INTERVAL;
+  this.redeployGraceInterval=DEFAULT_REDEPLOY_GRACE_INTERVAL;
 }

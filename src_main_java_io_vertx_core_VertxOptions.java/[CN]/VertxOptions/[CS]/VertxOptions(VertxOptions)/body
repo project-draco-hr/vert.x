@@ -6,7 +6,7 @@
   this.clusterPort=other.getClusterPort();
   this.clusterPingInterval=other.getClusterPingInterval();
   this.clusterPingReplyInterval=other.getClusterPingReplyInterval();
-  this.blockedThreadCheckPeriod=other.getBlockedThreadCheckPeriod();
+  this.blockedThreadCheckInterval=other.getBlockedThreadCheckInterval();
   this.maxEventLoopExecuteTime=other.getMaxEventLoopExecuteTime();
   this.maxWorkerExecuteTime=other.getMaxWorkerExecuteTime();
   this.internalBlockingPoolSize=other.getInternalBlockingPoolSize();

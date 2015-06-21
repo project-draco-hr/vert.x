@@ -2,7 +2,7 @@
   if (this == o)   return true;
   if (o == null || getClass() != o.getClass())   return false;
   VertxOptions that=(VertxOptions)o;
-  if (blockedThreadCheckPeriod != that.blockedThreadCheckPeriod)   return false;
+  if (blockedThreadCheckInterval != that.blockedThreadCheckInterval)   return false;
   if (clusterPort != that.clusterPort)   return false;
   if (clustered != that.clustered)   return false;
   if (eventLoopPoolSize != that.eventLoopPoolSize)   return false;

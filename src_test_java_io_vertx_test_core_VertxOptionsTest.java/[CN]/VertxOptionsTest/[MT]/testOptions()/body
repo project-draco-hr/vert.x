@@ -74,12 +74,12 @@
  catch (  IllegalArgumentException e) {
     assertEquals(randomLong,options.getClusterPingReplyInterval());
   }
-  assertEquals(1000,options.getBlockedThreadCheckPeriod());
+  assertEquals(1000,options.getBlockedThreadCheckInterval());
   rand=TestUtils.randomPositiveInt();
-  assertEquals(options,options.setBlockedThreadCheckPeriod(rand));
-  assertEquals(rand,options.getBlockedThreadCheckPeriod());
+  assertEquals(options,options.setBlockedThreadCheckInterval(rand));
+  assertEquals(rand,options.getBlockedThreadCheckInterval());
   try {
-    options.setBlockedThreadCheckPeriod(0);
+    options.setBlockedThreadCheckInterval(0);
     fail("Should throw exception");
   }
  catch (  IllegalArgumentException e) {

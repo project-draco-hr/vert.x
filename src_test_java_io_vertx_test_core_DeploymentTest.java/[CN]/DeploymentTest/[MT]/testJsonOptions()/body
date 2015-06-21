@@ -14,8 +14,8 @@
   json.put("ha",ha);
   json.put("extraClasspath",new JsonArray(cp));
   json.put("redeploy",true);
-  json.put("redeployGracePeriod",1234);
-  json.put("redeployScanPeriod",4567);
+  json.put("redeployGraceInterval",1234);
+  json.put("redeployScanInterval",4567);
   DeploymentOptions options=new DeploymentOptions(json);
   assertEquals(worker,options.isWorker());
   assertEquals(multiThreaded,options.isMultiThreaded());
@@ -24,6 +24,6 @@
   assertEquals(ha,options.isHa());
   assertEquals(cp,options.getExtraClasspath());
   assertTrue(options.isRedeploy());
-  assertEquals(1234,options.getRedeployGracePeriod());
-  assertEquals(4567,options.getRedeployScanPeriod());
+  assertEquals(1234,options.getRedeployGraceInterval());
+  assertEquals(4567,options.getRedeployScanInterval());
 }

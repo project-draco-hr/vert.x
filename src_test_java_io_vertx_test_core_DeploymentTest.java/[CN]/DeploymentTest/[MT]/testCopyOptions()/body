@@ -16,8 +16,8 @@
   options.setHa(ha);
   options.setExtraClasspath(cp);
   options.setRedeploy(true);
-  options.setRedeployGracePeriod(gracePeriod);
-  options.setRedeployScanPeriod(scanPeriod);
+  options.setRedeployGraceInterval(gracePeriod);
+  options.setRedeployScanInterval(scanPeriod);
   DeploymentOptions copy=new DeploymentOptions(options);
   assertEquals(worker,copy.isWorker());
   assertEquals(multiThreaded,copy.isMultiThreaded());
@@ -28,6 +28,6 @@
   assertEquals(cp,copy.getExtraClasspath());
   assertNotSame(cp,copy.getExtraClasspath());
   assertTrue(options.isRedeploy());
-  assertEquals(gracePeriod,options.getRedeployGracePeriod());
-  assertEquals(scanPeriod,options.getRedeployScanPeriod());
+  assertEquals(gracePeriod,options.getRedeployGraceInterval());
+  assertEquals(scanPeriod,options.getRedeployScanInterval());
 }

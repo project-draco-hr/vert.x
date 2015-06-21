@@ -7,7 +7,7 @@
   this.clusterPingInterval=json.getLong("clusterPingInterval",DEFAULT_CLUSTER_PING_INTERVAL);
   this.clusterPingReplyInterval=json.getLong("clusterPingReplyInterval",DEFAULT_CLUSTER_PING_REPLY_INTERVAL);
   this.internalBlockingPoolSize=json.getInteger("internalBlockingPoolSize",DEFAULT_INTERNAL_BLOCKING_POOL_SIZE);
-  this.blockedThreadCheckPeriod=json.getLong("blockedThreadCheckPeriod",DEFAULT_BLOCKED_THREAD_CHECK_PERIOD);
+  this.blockedThreadCheckInterval=json.getLong("blockedThreadCheckInterval",DEFAULT_BLOCKED_THREAD_CHECK_INTERVAL);
   this.maxEventLoopExecuteTime=json.getLong("maxEventLoopExecuteTime",DEFAULT_MAX_EVENT_LOOP_EXECUTE_TIME);
   this.maxWorkerExecuteTime=json.getLong("maxWorkerExecuteTime",DEFAULT_MAX_WORKER_EXECUTE_TIME);
   this.haEnabled=json.getBoolean("haEnabled",false);
