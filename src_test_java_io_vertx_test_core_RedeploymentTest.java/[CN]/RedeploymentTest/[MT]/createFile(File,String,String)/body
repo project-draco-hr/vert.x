@@ -1,4 +1,0 @@
-{
-  File f=new File(dir,fileName);
-  vertx.fileSystem().writeFileBlocking(f.getAbsolutePath(),Buffer.buffer(content));
-}

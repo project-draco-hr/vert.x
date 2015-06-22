@@ -1,4 +1,0 @@
-{
-  ClassLoader cl=getClassLoader(options,parentContext);
-  doDeployVerticle(identifier,deploymentID,options,parentContext,callingContext,cl,redeployer,completionHandler);
-}

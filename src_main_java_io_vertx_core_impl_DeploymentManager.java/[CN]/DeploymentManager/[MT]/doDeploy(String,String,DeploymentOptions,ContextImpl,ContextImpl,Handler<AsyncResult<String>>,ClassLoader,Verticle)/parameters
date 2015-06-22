@@ -1,0 +1,8 @@
+String identifier
+String deploymentID
+DeploymentOptions options
+ContextImpl parentContext
+ContextImpl callingContext
+Handler<AsyncResult<String>> completionHandler
+ClassLoader tccl
+Verticle verticles

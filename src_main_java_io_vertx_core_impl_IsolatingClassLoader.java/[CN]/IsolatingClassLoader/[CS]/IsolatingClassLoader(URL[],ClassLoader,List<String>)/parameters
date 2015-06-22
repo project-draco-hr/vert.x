@@ -1,0 +1,3 @@
+URL[] urls
+ClassLoader parent
+List<String> isolatedClasses

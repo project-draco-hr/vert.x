@@ -1,3 +1,0 @@
-{
-  vertx.fileSystem().deleteRecursiveBlocking(directory.getAbsolutePath(),true);
-}

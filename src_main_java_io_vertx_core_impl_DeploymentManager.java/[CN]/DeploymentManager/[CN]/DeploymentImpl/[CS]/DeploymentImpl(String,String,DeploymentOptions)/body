@@ -1,0 +1,5 @@
+{
+  this.deploymentID=deploymentID;
+  this.verticleIdentifier=verticleIdentifier;
+  this.options=options;
+}

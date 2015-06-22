@@ -1,3 +1,0 @@
-{
-  return options.isRedeploy() && isTopMostDeployment(parentContext);
-}

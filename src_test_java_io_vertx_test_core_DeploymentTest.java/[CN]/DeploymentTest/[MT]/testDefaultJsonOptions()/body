@@ -7,5 +7,5 @@
   assertEquals(def.getIsolationGroup(),json.getIsolationGroup());
   assertEquals(def.isHa(),json.isHa());
   assertEquals(def.getExtraClasspath(),json.getExtraClasspath());
-  assertEquals(def.isRedeploy(),json.isRedeploy());
+  assertEquals(def.getIsolatedClasses(),json.getIsolatedClasses());
 }

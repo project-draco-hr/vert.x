@@ -1,4 +1,0 @@
-{
-  File f=new File(parent,dirName);
-  vertx.fileSystem().mkdirBlocking(f.getAbsolutePath());
-}

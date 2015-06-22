@@ -2,24 +2,29 @@
 synchronized (getClassLoadingLock(name)) {
     Class<?> c=findLoadedClass(name);
     if (c == null) {
-      if (isVertxOrSystemClass(name)) {
-        try {
-          c=super.loadClass(name,false);
+      if (isIsolatedClass(name)) {
+        if (isVertxOrSystemClass(name)) {
+          try {
+            c=getParent().loadClass(name);
+          }
+ catch (          ClassNotFoundException e) {
+          }
         }
- catch (        ClassNotFoundException e) {
+        if (c == null) {
+          try {
+            c=findClass(name);
+          }
+ catch (          ClassNotFoundException e) {
+            c=getParent().loadClass(name);
+          }
+        }
+        if (resolve) {
+          resolveClass(c);
         }
       }
-      if (c == null) {
-        try {
-          c=findClass(name);
-        }
- catch (        ClassNotFoundException e) {
-          c=super.loadClass(name,false);
-        }
+ else {
+        c=super.loadClass(name,resolve);
       }
-    }
-    if (resolve) {
-      resolveClass(c);
     }
     return c;
   }

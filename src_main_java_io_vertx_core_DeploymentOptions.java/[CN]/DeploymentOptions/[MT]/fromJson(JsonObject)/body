@@ -9,7 +9,8 @@
     this.extraClasspath=arr.getList();
   }
   this.instances=json.getInteger("instances",DEFAULT_INSTANCES);
-  this.redeploy=json.getBoolean("redeploy",DEFAULT_REDEPLOY);
-  this.redeployScanInterval=json.getLong("redeployScanInterval",DEFAULT_REDEPLOY_SCAN_INTERVAL);
-  this.redeployGraceInterval=json.getLong("redeployGraceInterval",DEFAULT_REDEPLOY_GRACE_INTERVAL);
+  JsonArray arrIsolated=json.getJsonArray("isolatedClasses",null);
+  if (arrIsolated != null) {
+    this.isolatedClasses=arrIsolated.getList();
+  }
 }

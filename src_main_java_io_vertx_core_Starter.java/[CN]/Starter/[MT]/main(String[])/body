@@ -15,7 +15,7 @@
         throw new IllegalStateException(e);
       }
     }
-    IsolatingClassLoader icl=new IsolatingClassLoader(urls,Starter.class.getClassLoader());
+    ClassLoader icl=new URLClassLoader(urls,Starter.class.getClassLoader());
     ClassLoader oldTCCL=Thread.currentThread().getContextClassLoader();
     Thread.currentThread().setContextClassLoader(icl);
     try {

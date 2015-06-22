@@ -1,3 +1,0 @@
-{
-  return testRedeploy(RedeployVerticle.class.getName(),runner,1,0,1);
-}

@@ -6,18 +6,15 @@
   boolean multiThreaded=rand.nextBoolean();
   String isolationGroup=TestUtils.randomAlphaString(100);
   boolean ha=rand.nextBoolean();
-  long gracePeriod=521445;
-  long scanPeriod=234234;
   List<String> cp=Arrays.asList("foo","bar");
+  List<String> isol=Arrays.asList("com.foo.MyClass","org.foo.*");
   options.setConfig(config);
   options.setWorker(worker);
   options.setMultiThreaded(multiThreaded);
   options.setIsolationGroup(isolationGroup);
   options.setHa(ha);
   options.setExtraClasspath(cp);
-  options.setRedeploy(true);
-  options.setRedeployGraceInterval(gracePeriod);
-  options.setRedeployScanInterval(scanPeriod);
+  options.setIsolatedClasses(isol);
   JsonObject json=options.toJson();
   DeploymentOptions copy=new DeploymentOptions(json);
   assertEquals(worker,copy.isWorker());
@@ -26,6 +23,5 @@
   assertEquals("bar",copy.getConfig().getString("foo"));
   assertEquals(ha,copy.isHa());
   assertEquals(cp,copy.getExtraClasspath());
-  assertEquals(gracePeriod,copy.getRedeployGraceInterval());
-  assertEquals(scanPeriod,copy.getRedeployScanInterval());
+  assertEquals(isol,copy.getIsolatedClasses());
 }

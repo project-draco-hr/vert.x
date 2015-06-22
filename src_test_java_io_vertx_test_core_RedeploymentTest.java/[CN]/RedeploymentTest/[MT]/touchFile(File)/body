@@ -1,4 +1,0 @@
-{
-  long lastMod=file.lastModified();
-  assertTrue(file.setLastModified(lastMod + 1001));
-}

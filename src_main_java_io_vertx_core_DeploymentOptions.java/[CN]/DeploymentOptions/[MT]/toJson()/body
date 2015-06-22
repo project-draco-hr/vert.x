@@ -9,14 +9,6 @@
   if (instances != DEFAULT_INSTANCES) {
     json.put("instances",instances);
   }
-  if (redeploy != DEFAULT_REDEPLOY) {
-    json.put("redeploy",redeploy);
-  }
-  if (redeployScanInterval != DEFAULT_REDEPLOY_SCAN_INTERVAL) {
-    json.put("redeployScanInterval",redeployScanInterval);
-  }
-  if (redeployGraceInterval != DEFAULT_REDEPLOY_GRACE_INTERVAL) {
-    json.put("redeployGraceInterval",redeployGraceInterval);
-  }
+  if (isolatedClasses != null)   json.put("isolatedClasses",new JsonArray(isolatedClasses));
   return json;
 }

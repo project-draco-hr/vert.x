@@ -20,39 +20,8 @@
   assertNull(options.getExtraClasspath());
   List<String> cp=Arrays.asList("foo","bar");
   assertEquals(options,options.setExtraClasspath(cp));
-  assertSame(cp,options.getExtraClasspath());
-  assertFalse(options.isRedeploy());
-  assertSame(options,options.setRedeploy(true));
-  assertTrue(options.isRedeploy());
-  assertEquals(DeploymentOptions.DEFAULT_REDEPLOY_GRACE_INTERVAL,options.getRedeployGraceInterval());
-  int randInt=TestUtils.randomPositiveInt();
-  assertEquals(options,options.setRedeployGraceInterval(randInt));
-  assertEquals(randInt,options.getRedeployGraceInterval());
-  randInt=TestUtils.randomPositiveInt();
-  assertEquals(options,options.setRedeployScanInterval(randInt));
-  assertEquals(randInt,options.getRedeployScanInterval());
-  try {
-    options.setRedeployGraceInterval(-1);
-    fail();
-  }
- catch (  IllegalArgumentException e) {
-  }
-  try {
-    options.setRedeployScanInterval(-1);
-    fail();
-  }
- catch (  IllegalArgumentException e) {
-  }
-  try {
-    options.setRedeployGraceInterval(0);
-    fail();
-  }
- catch (  IllegalArgumentException e) {
-  }
-  try {
-    options.setRedeployScanInterval(0);
-    fail();
-  }
- catch (  IllegalArgumentException e) {
-  }
+  assertNull(options.getIsolatedClasses());
+  List<String> isol=Arrays.asList("com.foo.MyClass","org.foo.*");
+  assertEquals(options,options.setIsolatedClasses(isol));
+  assertSame(isol,options.getIsolatedClasses());
 }

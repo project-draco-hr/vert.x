@@ -2,15 +2,12 @@
   if (this == o)   return true;
   if (o == null || getClass() != o.getClass())   return false;
   DeploymentOptions that=(DeploymentOptions)o;
-  if (ha != that.ha)   return false;
-  if (multiThreaded != that.multiThreaded)   return false;
   if (worker != that.worker)   return false;
-  if (config != null ? !config.equals(that.config) : that.config != null)   return false;
-  if (extraClasspath != null ? !extraClasspath.equals(that.extraClasspath) : that.extraClasspath != null)   return false;
-  if (isolationGroup != null ? !isolationGroup.equals(that.isolationGroup) : that.isolationGroup != null)   return false;
+  if (multiThreaded != that.multiThreaded)   return false;
+  if (ha != that.ha)   return false;
   if (instances != that.instances)   return false;
-  if (redeploy != that.redeploy)   return false;
-  if (redeployScanInterval != that.redeployScanInterval)   return false;
-  if (redeployGraceInterval != that.redeployGraceInterval)   return false;
-  return true;
+  if (config != null ? !config.equals(that.config) : that.config != null)   return false;
+  if (isolationGroup != null ? !isolationGroup.equals(that.isolationGroup) : that.isolationGroup != null)   return false;
+  if (extraClasspath != null ? !extraClasspath.equals(that.extraClasspath) : that.extraClasspath != null)   return false;
+  return !(isolatedClasses != null ? !isolatedClasses.equals(that.isolatedClasses) : that.isolatedClasses != null);
 }

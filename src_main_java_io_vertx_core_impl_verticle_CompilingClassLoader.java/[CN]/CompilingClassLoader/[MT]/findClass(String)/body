@@ -1,5 +1,5 @@
 {
-  byte[] bytecode=fileManager.getCompiledClass(name);
+  byte[] bytecode=getClassBytes(name);
   if (bytecode == null) {
     throw new ClassNotFoundException(name);
   }

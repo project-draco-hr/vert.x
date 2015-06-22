@@ -1,7 +1,0 @@
-{
-  if (redeployGraceInterval < 1) {
-    throw new IllegalArgumentException("redeployGraceInterval must be > 0");
-  }
-  this.redeployGraceInterval=redeployGraceInterval;
-  return this;
-}

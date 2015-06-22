@@ -1,7 +1,0 @@
-{
-  Integer in=counts.get(depID);
-  if (in == null) {
-    in=0;
-  }
-  counts.put(depID,1 + in);
-}

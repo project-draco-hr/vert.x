@@ -1,5 +1,0 @@
-String deploymentID
-String verticleIdentifier
-DeploymentOptions options
-Redeployer redeployer
-ContextImpl parentContext

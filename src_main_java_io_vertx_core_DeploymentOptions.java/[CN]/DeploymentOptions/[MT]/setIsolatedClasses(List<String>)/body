@@ -1,0 +1,4 @@
+{
+  this.isolatedClasses=isolatedClasses;
+  return this;
+}

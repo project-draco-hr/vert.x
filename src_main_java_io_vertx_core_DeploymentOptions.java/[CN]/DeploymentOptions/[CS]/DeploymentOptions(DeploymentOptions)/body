@@ -6,7 +6,5 @@
   this.ha=other.isHa();
   this.extraClasspath=other.getExtraClasspath() == null ? null : new ArrayList<>(other.getExtraClasspath());
   this.instances=other.instances;
-  this.redeploy=other.redeploy;
-  this.redeployScanInterval=other.redeployScanInterval;
-  this.redeployGraceInterval=other.redeployGraceInterval;
+  this.isolatedClasses=other.getIsolatedClasses() == null ? null : new ArrayList<>(other.getIsolatedClasses());
 }

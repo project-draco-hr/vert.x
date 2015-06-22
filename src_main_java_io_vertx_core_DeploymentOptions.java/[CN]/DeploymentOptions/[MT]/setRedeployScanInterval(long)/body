@@ -1,7 +1,0 @@
-{
-  if (redeployScanInterval < 1) {
-    throw new IllegalArgumentException("redeployScanInterval must be > 0");
-  }
-  this.redeployScanInterval=redeployScanInterval;
-  return this;
-}

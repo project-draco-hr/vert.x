@@ -1,5 +1,0 @@
-{
-  List<VerticleFactory> verticleFactories=resolveFactories(identifier);
-  Iterator<VerticleFactory> iter=verticleFactories.iterator();
-  doDeployVerticle(iter,null,identifier,deploymentID,options,parentContext,callingContext,cl,redeployer,completionHandler);
-}

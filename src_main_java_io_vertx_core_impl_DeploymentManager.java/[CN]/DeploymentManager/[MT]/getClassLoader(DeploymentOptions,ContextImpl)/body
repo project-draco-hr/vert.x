@@ -1,7 +1,4 @@
 {
-  if (shouldEnableRedployment(options,parentContext)) {
-    setRedeployIsolationGroup(options);
-  }
   String isolationGroup=options.getIsolationGroup();
   ClassLoader cl;
   if (isolationGroup == null) {
@@ -15,7 +12,6 @@ synchronized (this) {
         if (!(current instanceof URLClassLoader)) {
           throw new IllegalStateException("Current classloader must be URLClassLoader");
         }
-        URLClassLoader urlc=(URLClassLoader)current;
         List<URL> urls=new ArrayList<>();
         List<String> extraClasspath=options.getExtraClasspath();
         if (extraClasspath != null) {
@@ -30,8 +26,9 @@ synchronized (this) {
             }
           }
         }
+        URLClassLoader urlc=(URLClassLoader)current;
         urls.addAll(Arrays.asList(urlc.getURLs()));
-        cl=new IsolatingClassLoader(urls.toArray(new URL[urls.size()]),getCurrentClassLoader());
+        cl=new IsolatingClassLoader(urls.toArray(new URL[urls.size()]),getCurrentClassLoader(),options.getIsolatedClasses());
         classloaders.put(isolationGroup,cl);
       }
     }
