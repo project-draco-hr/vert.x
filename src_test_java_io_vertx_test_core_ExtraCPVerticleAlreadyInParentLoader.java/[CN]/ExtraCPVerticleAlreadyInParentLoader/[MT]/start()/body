@@ -1,0 +1,5 @@
+{
+  IsolatingClassLoader cl=(IsolatingClassLoader)Thread.currentThread().getContextClassLoader();
+  Class extraCPClass=cl.loadClass("MyVerticle");
+  Assert.assertSame(extraCPClass.getClassLoader(),cl.getParent());
+}
