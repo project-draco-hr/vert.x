@@ -1,0 +1,5 @@
+{
+  Buffer b=Buffer.buffer(TestUtils.randomByteArray(100));
+  b.appendUnsignedByte((short)(Byte.MAX_VALUE + Byte.MAX_VALUE / 2));
+  assertEquals(101,b.length());
+}
