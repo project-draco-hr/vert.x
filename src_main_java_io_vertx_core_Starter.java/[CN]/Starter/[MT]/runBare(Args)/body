@@ -3,6 +3,4 @@
   if (vertx == null) {
     return;
   }
-  addShutdownHook(vertx);
-  block();
 }

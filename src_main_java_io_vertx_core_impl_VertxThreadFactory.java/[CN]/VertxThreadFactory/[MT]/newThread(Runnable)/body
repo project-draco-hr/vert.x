@@ -4,5 +4,6 @@
     checker.registerThread(t);
   }
   addToMap(t);
+  t.setDaemon(false);
   return t;
 }
