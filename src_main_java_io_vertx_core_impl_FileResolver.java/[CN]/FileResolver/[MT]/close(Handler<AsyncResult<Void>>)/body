@@ -1,0 +1,6 @@
+{
+  deleteCacheDir(handler);
+  if (shutdownHook != null) {
+    Runtime.getRuntime().removeShutdownHook(shutdownHook);
+  }
+}

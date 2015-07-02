@@ -3,12 +3,12 @@
   if (cwd != null && !file.isAbsolute()) {
     file=new File(cwd,fileName);
   }
-  if (!enableCPResolving) {
+  if (!ENABLE_CP_RESOLVING) {
     return file;
   }
   if (!file.exists()) {
     File cacheFile=new File(cacheDir,fileName);
-    if (enableCaching && cacheFile.exists()) {
+    if (ENABLE_CACHING && cacheFile.exists()) {
       return cacheFile;
     }
     ClassLoader cl=getClassLoader();
