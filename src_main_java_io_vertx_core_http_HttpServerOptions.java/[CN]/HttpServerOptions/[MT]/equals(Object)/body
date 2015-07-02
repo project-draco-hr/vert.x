@@ -1,10 +1,10 @@
 {
   if (this == o)   return true;
-  if (!(o instanceof HttpServerOptions))   return false;
+  if (o == null || getClass() != o.getClass())   return false;
   if (!super.equals(o))   return false;
   HttpServerOptions that=(HttpServerOptions)o;
   if (compressionSupported != that.compressionSupported)   return false;
   if (maxWebsocketFrameSize != that.maxWebsocketFrameSize)   return false;
-  if (websocketSubProtocols != null ? !websocketSubProtocols.equals(that.websocketSubProtocols) : that.websocketSubProtocols != null)   return false;
-  return true;
+  if (handle100ContinueAutomatically != that.handle100ContinueAutomatically)   return false;
+  return !(websocketSubProtocols != null ? !websocketSubProtocols.equals(that.websocketSubProtocols) : that.websocketSubProtocols != null);
 }

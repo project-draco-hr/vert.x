@@ -6,9 +6,9 @@
       channel.pipeline().fireExceptionCaught(result.cause());
       return;
     }
-    if (HANDLE_100_CONTINUE) {
+    if (server.options().isHandle100ContinueAutomatically()) {
       if (HttpHeaders.is100ContinueExpected(request)) {
-        channel.writeAndFlush(new DefaultFullHttpResponse(HTTP_1_1,CONTINUE));
+        write100Continue();
       }
     }
     HttpServerResponseImpl resp=new HttpServerResponseImpl(vertx,this,request);

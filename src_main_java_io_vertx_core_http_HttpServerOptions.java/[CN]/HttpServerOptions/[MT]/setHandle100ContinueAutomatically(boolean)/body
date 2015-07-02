@@ -1,0 +1,4 @@
+{
+  this.handle100ContinueAutomatically=handle100ContinueAutomatically;
+  return this;
+}
