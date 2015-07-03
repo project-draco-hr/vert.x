@@ -3,4 +3,5 @@
   this.compressionSupported=other.isCompressionSupported();
   this.maxWebsocketFrameSize=other.getMaxWebsocketFrameSize();
   this.websocketSubProtocols=other.getWebsocketSubProtocols();
+  this.handle100ContinueAutomatically=other.handle100ContinueAutomatically;
 }

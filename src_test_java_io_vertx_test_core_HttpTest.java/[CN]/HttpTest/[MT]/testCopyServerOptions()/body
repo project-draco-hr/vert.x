@@ -26,6 +26,7 @@
   boolean compressionSupported=rand.nextBoolean();
   int maxWebsocketFrameSize=TestUtils.randomPositiveInt();
   String wsSubProtocol=TestUtils.randomAlphaString(10);
+  boolean is100ContinueHandledAutomatically=rand.nextBoolean();
   options.setSendBufferSize(sendBufferSize);
   options.setReceiveBufferSize(receiverBufferSize);
   options.setReuseAddress(reuseAddress);
@@ -47,6 +48,7 @@
   options.setCompressionSupported(compressionSupported);
   options.setMaxWebsocketFrameSize(maxWebsocketFrameSize);
   options.setWebsocketSubProtocol(wsSubProtocol);
+  options.setHandle100ContinueAutomatically(is100ContinueHandledAutomatically);
   HttpServerOptions copy=new HttpServerOptions(options);
   assertEquals(sendBufferSize,copy.getSendBufferSize());
   assertEquals(receiverBufferSize,copy.getReceiveBufferSize());
@@ -72,6 +74,7 @@
   assertEquals(host,copy.getHost());
   assertEquals(acceptBacklog,copy.getAcceptBacklog());
   assertEquals(compressionSupported,copy.isCompressionSupported());
-  assertEquals(maxWebsocketFrameSize,options.getMaxWebsocketFrameSize());
-  assertEquals(wsSubProtocol,options.getWebsocketSubProtocols());
+  assertEquals(maxWebsocketFrameSize,copy.getMaxWebsocketFrameSize());
+  assertEquals(wsSubProtocol,copy.getWebsocketSubProtocols());
+  assertEquals(is100ContinueHandledAutomatically,copy.isHandle100ContinueAutomatically());
 }

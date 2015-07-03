@@ -1,0 +1,3 @@
+{
+  channel.writeAndFlush(new DefaultFullHttpResponse(HTTP_1_1,CONTINUE));
+}
