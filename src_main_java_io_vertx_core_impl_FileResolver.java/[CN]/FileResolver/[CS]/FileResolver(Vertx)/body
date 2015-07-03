@@ -7,5 +7,7 @@
  else {
     cwd=null;
   }
-  setupCacheDir();
+  if (ENABLE_CP_RESOLVING) {
+    setupCacheDir();
+  }
 }
