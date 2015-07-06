@@ -1,5 +1,7 @@
 {
-  checkClosed();
-  conn.reportBytesWritten(frame.binaryData().length());
-  conn.writeToChannel(frame);
+synchronized (conn) {
+    checkClosed();
+    conn.reportBytesWritten(frame.binaryData().length());
+    conn.writeToChannel(frame);
+  }
 }

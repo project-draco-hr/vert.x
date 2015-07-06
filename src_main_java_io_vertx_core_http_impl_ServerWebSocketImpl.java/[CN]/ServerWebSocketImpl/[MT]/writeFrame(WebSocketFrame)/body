@@ -1,12 +1,14 @@
 {
-  if (connectRunnable != null) {
-    if (rejected) {
-      throw new IllegalStateException("Cannot write to websocket, it has been rejected");
+synchronized (conn) {
+    if (connectRunnable != null) {
+      if (rejected) {
+        throw new IllegalStateException("Cannot write to websocket, it has been rejected");
+      }
+      if (!connected && !closed) {
+        connect();
+      }
     }
-    if (!connected && !closed) {
-      connect();
-    }
+    super.writeFrameInternal(frame);
+    return this;
   }
-  super.writeFrameInternal(frame);
-  return this;
 }

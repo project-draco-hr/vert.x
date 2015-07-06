@@ -1,7 +1,9 @@
 {
-  if (handler != null) {
-    checkClosed();
+synchronized (conn) {
+    if (handler != null) {
+      checkClosed();
+    }
+    this.dataHandler=handler;
+    return this;
   }
-  this.dataHandler=handler;
-  return this;
 }

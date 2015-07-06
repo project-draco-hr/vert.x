@@ -1,3 +1,5 @@
 {
-  return rejected;
+synchronized (conn) {
+    return rejected;
+  }
 }

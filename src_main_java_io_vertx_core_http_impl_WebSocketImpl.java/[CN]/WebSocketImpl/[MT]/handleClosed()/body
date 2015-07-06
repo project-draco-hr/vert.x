@@ -1,4 +1,6 @@
 {
-  ((ClientConnection)conn).metrics().disconnected(metric);
-  super.handleClosed();
+synchronized (conn) {
+    ((ClientConnection)conn).metrics().disconnected(metric);
+    super.handleClosed();
+  }
 }

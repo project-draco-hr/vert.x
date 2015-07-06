@@ -1,5 +1,7 @@
 {
-  checkClosed();
-  writeMessageInternal(data);
-  return this;
+synchronized (conn) {
+    checkClosed();
+    writeMessageInternal(data);
+    return this;
+  }
 }

@@ -1,3 +1,5 @@
 {
-  this.metric=metric;
+synchronized (conn) {
+    this.metric=metric;
+  }
 }

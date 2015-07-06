@@ -1,5 +1,7 @@
 {
-  if (!connected && !rejected) {
-    connect();
+synchronized (conn) {
+    if (!connected && !rejected) {
+      connect();
+    }
   }
 }

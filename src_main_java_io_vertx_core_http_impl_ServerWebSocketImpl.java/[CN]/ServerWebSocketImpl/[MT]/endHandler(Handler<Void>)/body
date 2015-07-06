@@ -1,5 +1,7 @@
 {
-  checkClosed();
-  this.endHandler=handler;
-  return this;
+synchronized (conn) {
+    checkClosed();
+    this.endHandler=handler;
+    return this;
+  }
 }

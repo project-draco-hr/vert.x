@@ -1,12 +1,14 @@
 {
-  checkClosed();
-  if (connectRunnable != null) {
-    if (rejected) {
-      throw new IllegalStateException("Cannot close websocket, it has been rejected");
+synchronized (conn) {
+    checkClosed();
+    if (connectRunnable != null) {
+      if (rejected) {
+        throw new IllegalStateException("Cannot close websocket, it has been rejected");
+      }
+      if (!connected && !closed) {
+        connect();
+      }
     }
-    if (!connected && !closed) {
-      connect();
-    }
+    super.close();
   }
-  super.close();
 }

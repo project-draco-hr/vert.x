@@ -1,4 +1,6 @@
 {
-  checkClosed();
-  return conn.isNotWritable();
+synchronized (conn) {
+    checkClosed();
+    return conn.isNotWritable();
+  }
 }
