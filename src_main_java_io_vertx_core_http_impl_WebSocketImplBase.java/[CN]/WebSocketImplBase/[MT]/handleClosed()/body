@@ -1,9 +1,11 @@
 {
-  cleanupHandlers();
-  if (endHandler != null) {
-    endHandler.handle(null);
-  }
-  if (closeHandler != null) {
-    closeHandler.handle(null);
+synchronized (conn) {
+    cleanupHandlers();
+    if (endHandler != null) {
+      endHandler.handle(null);
+    }
+    if (closeHandler != null) {
+      closeHandler.handle(null);
+    }
   }
 }

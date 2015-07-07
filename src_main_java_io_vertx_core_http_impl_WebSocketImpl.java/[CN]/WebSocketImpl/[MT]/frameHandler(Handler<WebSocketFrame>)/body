@@ -1,5 +1,7 @@
 {
-  checkClosed();
-  this.frameHandler=handler;
-  return this;
+synchronized (conn) {
+    checkClosed();
+    this.frameHandler=handler;
+    return this;
+  }
 }

@@ -1,10 +1,12 @@
 {
-  conn.reportBytesRead(frame.binaryData().length());
-  if (dataHandler != null) {
-    Buffer buff=Buffer.buffer(frame.getBinaryData());
-    dataHandler.handle(buff);
-  }
-  if (frameHandler != null) {
-    frameHandler.handle(frame);
+synchronized (conn) {
+    conn.reportBytesRead(frame.binaryData().length());
+    if (dataHandler != null) {
+      Buffer buff=Buffer.buffer(frame.getBinaryData());
+      dataHandler.handle(buff);
+    }
+    if (frameHandler != null) {
+      frameHandler.handle(frame);
+    }
   }
 }
