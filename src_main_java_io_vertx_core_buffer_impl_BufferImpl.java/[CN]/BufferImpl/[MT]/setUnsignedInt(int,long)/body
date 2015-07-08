@@ -1,0 +1,5 @@
+{
+  ensureWritable(pos,4);
+  buffer.setInt(pos,(int)i);
+  return this;
+}
