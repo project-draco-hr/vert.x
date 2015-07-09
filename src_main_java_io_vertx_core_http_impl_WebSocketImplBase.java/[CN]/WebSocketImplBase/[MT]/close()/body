@@ -1,5 +1,7 @@
 {
-  checkClosed();
-  conn.close();
-  cleanupHandlers();
+synchronized (conn) {
+    checkClosed();
+    conn.close();
+    cleanupHandlers();
+  }
 }

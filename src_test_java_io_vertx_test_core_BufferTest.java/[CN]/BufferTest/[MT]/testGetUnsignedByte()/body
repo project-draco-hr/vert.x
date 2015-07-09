@@ -1,0 +1,8 @@
+{
+  int bytesLen=100;
+  byte[] bytes=TestUtils.randomByteArray(bytesLen);
+  Buffer b=Buffer.buffer(bytes);
+  for (int i=0; i < bytesLen; i++) {
+    assertEquals(Byte.toUnsignedLong(bytes[i]),b.getUnsignedByte(i));
+  }
+}

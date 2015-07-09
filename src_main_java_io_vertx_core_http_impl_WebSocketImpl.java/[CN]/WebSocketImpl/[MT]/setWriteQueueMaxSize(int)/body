@@ -1,5 +1,7 @@
 {
-  checkClosed();
-  conn.doSetWriteQueueMaxSize(maxSize);
-  return this;
+synchronized (conn) {
+    checkClosed();
+    conn.doSetWriteQueueMaxSize(maxSize);
+    return this;
+  }
 }

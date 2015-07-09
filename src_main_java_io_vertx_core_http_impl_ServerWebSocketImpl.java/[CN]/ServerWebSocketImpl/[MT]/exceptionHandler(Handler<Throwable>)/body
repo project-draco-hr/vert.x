@@ -1,5 +1,7 @@
 {
-  checkClosed();
-  this.exceptionHandler=handler;
-  return this;
+synchronized (conn) {
+    checkClosed();
+    this.exceptionHandler=handler;
+    return this;
+  }
 }

@@ -1,5 +1,7 @@
 {
-  checkClosed();
-  conn.doPause();
-  return this;
+synchronized (conn) {
+    checkClosed();
+    conn.doPause();
+    return this;
+  }
 }

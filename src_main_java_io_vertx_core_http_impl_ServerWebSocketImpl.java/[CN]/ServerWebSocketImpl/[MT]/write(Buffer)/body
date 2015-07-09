@@ -1,4 +1,7 @@
 {
-  writeFrame(WebSocketFrame.binaryFrame(data,true));
-  return this;
+synchronized (conn) {
+    checkClosed();
+    writeFrame(WebSocketFrame.binaryFrame(data,true));
+    return this;
+  }
 }

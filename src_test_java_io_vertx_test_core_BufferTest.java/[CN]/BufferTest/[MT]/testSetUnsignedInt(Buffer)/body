@@ -1,0 +1,10 @@
+{
+  for (int i=0; i < numSets; i++) {
+    long val=Integer.toUnsignedLong(Integer.MAX_VALUE + i);
+    buff.setUnsignedInt(i * 4,val);
+  }
+  for (int i=0; i < numSets; i++) {
+    long val=Integer.toUnsignedLong(Integer.MAX_VALUE + i);
+    assertEquals(val,buff.getUnsignedInt(i * 4));
+  }
+}

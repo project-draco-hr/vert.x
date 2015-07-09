@@ -1,6 +1,10 @@
 {
   deleteCacheDir(handler);
   if (shutdownHook != null) {
-    Runtime.getRuntime().removeShutdownHook(shutdownHook);
+    try {
+      Runtime.getRuntime().removeShutdownHook(shutdownHook);
+    }
+ catch (    IllegalStateException ignore) {
+    }
   }
 }

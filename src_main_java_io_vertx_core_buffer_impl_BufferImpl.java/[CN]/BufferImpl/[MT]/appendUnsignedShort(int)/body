@@ -1,0 +1,4 @@
+{
+  buffer.writeShort(s);
+  return this;
+}

@@ -1,5 +1,7 @@
 {
-  checkClosed();
-  this.drainHandler=handler;
-  return this;
+synchronized (conn) {
+    checkClosed();
+    this.drainHandler=handler;
+    return this;
+  }
 }

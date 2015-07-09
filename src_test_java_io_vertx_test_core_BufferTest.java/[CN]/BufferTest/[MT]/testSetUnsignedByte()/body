@@ -1,0 +1,3 @@
+{
+  testSetUnsignedByte(Buffer.buffer(numSets));
+}
