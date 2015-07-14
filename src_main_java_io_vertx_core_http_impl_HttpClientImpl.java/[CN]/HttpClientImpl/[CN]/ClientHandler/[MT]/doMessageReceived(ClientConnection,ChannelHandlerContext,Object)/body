@@ -30,6 +30,8 @@ case TEXT:
 case PING:
   ctx.writeAndFlush(new WebSocketFrameImpl(FrameType.PONG,frame.getBinaryData()));
 break;
+case PONG:
+break;
 case CLOSE:
 if (!closeFrameSent) {
 ctx.writeAndFlush(frame).addListener(ChannelFutureListener.CLOSE);
