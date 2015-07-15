@@ -1,0 +1,12 @@
+{
+  if (!complete) {
+    for (    Handler<AsyncResult<T>> handler : handlers) {
+      handler.handle(res);
+    }
+    complete=true;
+    result=res;
+  }
+ else {
+    throw new IllegalStateException("Already complete!");
+  }
+}

@@ -1,7 +1,0 @@
-{
-  Runnable runner;
-  while ((runner=bindListeners.poll()) != null) {
-    runner.run();
-  }
-  listenersRun=true;
-}

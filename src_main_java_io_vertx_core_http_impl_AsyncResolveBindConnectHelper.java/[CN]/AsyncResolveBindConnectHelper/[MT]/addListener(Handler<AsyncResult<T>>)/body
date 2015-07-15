@@ -1,0 +1,8 @@
+{
+  if (complete) {
+    handler.handle(result);
+  }
+ else {
+    handlers.add(handler);
+  }
+}

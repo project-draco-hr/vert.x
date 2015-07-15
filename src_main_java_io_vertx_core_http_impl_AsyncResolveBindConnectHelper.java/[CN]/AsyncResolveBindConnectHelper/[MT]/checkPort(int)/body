@@ -1,0 +1,5 @@
+{
+  if (port < 0 || port > 65535) {
+    throw new IllegalArgumentException("Invalid port " + port);
+  }
+}

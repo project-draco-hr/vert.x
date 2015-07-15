@@ -1,0 +1,4 @@
+VertxInternal vertx
+int port
+String host
+Bootstrap bootstrap
