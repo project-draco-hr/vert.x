@@ -1,0 +1,4 @@
+{
+  this.boxedBooleanValue=value;
+  return this;
+}

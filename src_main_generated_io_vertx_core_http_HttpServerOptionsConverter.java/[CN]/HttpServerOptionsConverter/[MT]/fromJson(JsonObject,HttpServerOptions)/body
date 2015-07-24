@@ -1,0 +1,14 @@
+{
+  if (json.getValue("compressionSupported") instanceof Boolean) {
+    obj.setCompressionSupported((Boolean)json.getValue("compressionSupported"));
+  }
+  if (json.getValue("handle100ContinueAutomatically") instanceof Boolean) {
+    obj.setHandle100ContinueAutomatically((Boolean)json.getValue("handle100ContinueAutomatically"));
+  }
+  if (json.getValue("maxWebsocketFrameSize") instanceof Number) {
+    obj.setMaxWebsocketFrameSize(((Number)json.getValue("maxWebsocketFrameSize")).intValue());
+  }
+  if (json.getValue("websocketSubProtocols") instanceof String) {
+    obj.setWebsocketSubProtocols((String)json.getValue("websocketSubProtocols"));
+  }
+}

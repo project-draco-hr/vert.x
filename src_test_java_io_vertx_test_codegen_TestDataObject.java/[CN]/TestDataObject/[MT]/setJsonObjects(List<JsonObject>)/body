@@ -1,0 +1,4 @@
+{
+  this.jsonObjects=jsonObjects;
+  return this;
+}

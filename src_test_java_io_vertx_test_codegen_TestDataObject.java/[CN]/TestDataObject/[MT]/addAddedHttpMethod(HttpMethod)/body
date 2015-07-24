@@ -1,0 +1,4 @@
+{
+  this.addedHttpMethods.add(addedHttpMethod);
+  return this;
+}

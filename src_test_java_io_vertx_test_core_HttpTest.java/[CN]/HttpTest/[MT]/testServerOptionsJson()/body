@@ -59,10 +59,14 @@
   assertEquals(maxWebsocketFrameSize,options.getMaxWebsocketFrameSize());
   assertEquals(wsSubProtocol,options.getWebsocketSubProtocols());
   assertEquals(is100ContinueHandledAutomatically,options.isHandle100ContinueAutomatically());
+  json.remove("keyStoreOptions");
+  json.remove("trustStoreOptions");
   json.put("pfxKeyCertOptions",new JsonObject().put("password",ksPassword)).put("pfxTrustOptions",new JsonObject().put("password",tsPassword));
   options=new HttpServerOptions(json);
   assertTrue(options.getTrustOptions() instanceof PfxOptions);
   assertTrue(options.getKeyCertOptions() instanceof PfxOptions);
+  json.remove("pfxKeyCertOptions");
+  json.remove("pfxTrustOptions");
   json.put("pemKeyCertOptions",new JsonObject()).put("pemTrustOptions",new JsonObject());
   options=new HttpServerOptions(json);
   assertTrue(options.getTrustOptions() instanceof PemTrustOptions);

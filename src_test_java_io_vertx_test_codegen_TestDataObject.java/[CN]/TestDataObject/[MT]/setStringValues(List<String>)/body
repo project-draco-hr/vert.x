@@ -1,0 +1,4 @@
+{
+  this.stringValues=stringValues;
+  return this;
+}

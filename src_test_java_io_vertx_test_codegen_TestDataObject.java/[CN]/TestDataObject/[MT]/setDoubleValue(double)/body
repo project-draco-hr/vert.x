@@ -1,0 +1,4 @@
+{
+  this.doubleValue=doubleValue;
+  return this;
+}

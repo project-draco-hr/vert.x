@@ -1,0 +1,4 @@
+{
+  this.boxedDoubleValue=boxedDoubleValue;
+  return this;
+}

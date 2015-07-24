@@ -1,0 +1,6 @@
+{
+  if (obj.getCodecName() != null) {
+    json.put("codecName",obj.getCodecName());
+  }
+  json.put("sendTimeout",obj.getSendTimeout());
+}

@@ -1,0 +1,4 @@
+{
+  this.jsonArray=jsonArray;
+  return this;
+}

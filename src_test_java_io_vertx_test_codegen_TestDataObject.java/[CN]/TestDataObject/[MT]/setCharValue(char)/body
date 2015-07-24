@@ -1,0 +1,4 @@
+{
+  this.charValue=charValue;
+  return this;
+}
