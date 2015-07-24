@@ -1,0 +1,4 @@
+{
+  this.byteValue=byteValue;
+  return this;
+}

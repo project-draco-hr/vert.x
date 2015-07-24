@@ -1,7 +1,4 @@
 {
   super();
-  this.port=DEFAULT_PORT;
-  this.host=DEFAULT_HOST;
-  this.acceptBacklog=DEFAULT_ACCEPT_BACKLOG;
-  this.clientAuthRequired=DEFAULT_CLIENT_AUTH_REQUIRED;
+  init();
 }

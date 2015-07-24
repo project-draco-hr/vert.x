@@ -1,0 +1,4 @@
+{
+  this.addedJsonObjects.add(addedJsonObject);
+  return this;
+}

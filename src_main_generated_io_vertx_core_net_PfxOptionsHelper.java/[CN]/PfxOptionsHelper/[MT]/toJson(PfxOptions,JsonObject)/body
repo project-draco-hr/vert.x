@@ -1,0 +1,11 @@
+{
+  if (obj.getPassword() != null) {
+    json.put("password",obj.getPassword());
+  }
+  if (obj.getPath() != null) {
+    json.put("path",obj.getPath());
+  }
+  if (obj.getValue() != null) {
+    json.put("value",obj.getValue().getBytes());
+  }
+}

@@ -1,0 +1,4 @@
+{
+  this.addedBuffers.add(addedBuffer);
+  return this;
+}
