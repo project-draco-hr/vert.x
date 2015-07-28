@@ -1,0 +1,4 @@
+{
+  this.childProperty=childProperty;
+  return this;
+}

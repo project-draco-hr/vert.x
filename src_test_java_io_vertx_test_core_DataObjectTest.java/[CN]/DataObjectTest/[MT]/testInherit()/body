@@ -1,0 +1,12 @@
+{
+  ChildInheritingDataObject obj=new ChildInheritingDataObject();
+  JsonObject expectedJson=new JsonObject();
+  expectedJson.put("childProperty","childProperty_value");
+  expectedJson.put("parentProperty","parentProperty_value");
+  ChildInheritingDataObjectConverter.fromJson(expectedJson,obj);
+  assertEquals("childProperty_value",obj.getChildProperty());
+  assertEquals("parentProperty_value",obj.getParentProperty());
+  JsonObject json=new JsonObject();
+  ChildInheritingDataObjectConverter.toJson(obj,json);
+  assertEquals(expectedJson,json);
+}
