@@ -1,9 +1,5 @@
 {
   super();
+  init();
   setReuseAddress(DEFAULT_REUSE_ADDRESS);
-  broadcast=DEFAULT_BROADCAST;
-  loopbackModeDisabled=DEFAULT_LOOPBACK_MODE_DISABLED;
-  multicastTimeToLive=DEFAULT_MULTICAST_TIME_TO_LIVE;
-  multicastNetworkInterface=DEFAULT_MULTICAST_NETWORK_INTERFACE;
-  ipV6=DEFAULT_IPV6;
 }

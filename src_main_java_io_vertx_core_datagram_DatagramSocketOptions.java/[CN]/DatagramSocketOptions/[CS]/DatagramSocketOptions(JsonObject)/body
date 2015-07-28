@@ -1,4 +1,5 @@
 {
-  this();
+  super(json);
+  init();
   DatagramSocketOptionsConverter.fromJson(json,this);
 }
