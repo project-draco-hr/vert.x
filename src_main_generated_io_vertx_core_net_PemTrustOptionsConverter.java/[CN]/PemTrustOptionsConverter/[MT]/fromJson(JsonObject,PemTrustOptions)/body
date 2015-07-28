@@ -1,2 +1,14 @@
 {
+  if (json.getValue("certPaths") instanceof JsonArray) {
+    for (    Object item : json.getJsonArray("certPaths")) {
+      if (item instanceof String)       obj.addCertPath((String)item);
+    }
+    ;
+  }
+  if (json.getValue("certValues") instanceof JsonArray) {
+    for (    Object item : json.getJsonArray("certValues")) {
+      if (item instanceof String)       obj.addCertValue(io.vertx.core.buffer.Buffer.buffer(java.util.Base64.getDecoder().decode((String)item)));
+    }
+    ;
+  }
 }
