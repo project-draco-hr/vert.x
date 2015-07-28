@@ -1,8 +1,0 @@
-{
-  if (json.getValue("reconnectAttempts") instanceof Number) {
-    obj.setReconnectAttempts(((Number)json.getValue("reconnectAttempts")).intValue());
-  }
-  if (json.getValue("reconnectInterval") instanceof Number) {
-    obj.setReconnectInterval(((Number)json.getValue("reconnectInterval")).longValue());
-  }
-}

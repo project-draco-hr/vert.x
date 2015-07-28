@@ -1,4 +1,6 @@
 {
-  this();
-  NetworkOptionsHelper.fromJson(json,this);
+  this.sendBufferSize=json.getInteger("sendBufferSize",DEFAULT_SEND_BUFFER_SIZE);
+  this.receiveBufferSize=json.getInteger("receiveBufferSize",DEFAULT_RECEIVE_BUFFER_SIZE);
+  this.reuseAddress=json.getBoolean("reuseAddress",DEFAULT_REUSE_ADDRESS);
+  this.trafficClass=json.getInteger("trafficClass",DEFAULT_TRAFFIC_CLASS);
 }

@@ -59,14 +59,10 @@
   assertEquals(keepAlive,options.isKeepAlive());
   assertEquals(pipelining,options.isPipelining());
   assertEquals(tryUseCompression,options.isTryUseCompression());
-  json.remove("keyStoreOptions");
-  json.remove("trustStoreOptions");
   json.put("pfxKeyCertOptions",new JsonObject().put("password",ksPassword)).put("pfxTrustOptions",new JsonObject().put("password",tsPassword));
   options=new HttpClientOptions(json);
   assertTrue(options.getTrustOptions() instanceof PfxOptions);
   assertTrue(options.getKeyCertOptions() instanceof PfxOptions);
-  json.remove("pfxKeyCertOptions");
-  json.remove("pfxTrustOptions");
   json.put("pemKeyCertOptions",new JsonObject()).put("pemTrustOptions",new JsonObject());
   options=new HttpClientOptions(json);
   assertTrue(options.getTrustOptions() instanceof PemTrustOptions);

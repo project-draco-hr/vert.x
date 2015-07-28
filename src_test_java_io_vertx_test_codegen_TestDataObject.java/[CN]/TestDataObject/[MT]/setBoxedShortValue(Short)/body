@@ -1,4 +1,0 @@
-{
-  this.boxedShortValue=boxedShortValue;
-  return this;
-}

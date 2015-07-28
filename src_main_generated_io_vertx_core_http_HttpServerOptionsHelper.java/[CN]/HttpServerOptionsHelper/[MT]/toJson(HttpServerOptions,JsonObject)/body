@@ -1,8 +1,0 @@
-{
-  json.put("compressionSupported",obj.isCompressionSupported());
-  json.put("handle100ContinueAutomatically",obj.isHandle100ContinueAutomatically());
-  json.put("maxWebsocketFrameSize",obj.getMaxWebsocketFrameSize());
-  if (obj.getWebsocketSubProtocols() != null) {
-    json.put("websocketSubProtocols",obj.getWebsocketSubProtocols());
-  }
-}

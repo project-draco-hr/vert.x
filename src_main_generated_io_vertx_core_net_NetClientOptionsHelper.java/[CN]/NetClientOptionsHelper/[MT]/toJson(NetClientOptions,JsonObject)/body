@@ -1,4 +1,0 @@
-{
-  json.put("reconnectAttempts",obj.getReconnectAttempts());
-  json.put("reconnectInterval",obj.getReconnectInterval());
-}

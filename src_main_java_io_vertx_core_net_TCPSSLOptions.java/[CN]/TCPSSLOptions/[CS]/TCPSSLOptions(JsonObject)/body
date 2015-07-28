@@ -1,5 +1,2 @@
 {
-  super(json);
-  init();
-  TCPSSLOptionsHelper.fromJson(json,this);
 }

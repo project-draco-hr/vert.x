@@ -47,7 +47,7 @@
   options.setAcceptBacklog(acceptBacklog);
   options.setCompressionSupported(compressionSupported);
   options.setMaxWebsocketFrameSize(maxWebsocketFrameSize);
-  options.setWebsocketSubProtocols(wsSubProtocol);
+  options.setWebsocketSubProtocol(wsSubProtocol);
   options.setHandle100ContinueAutomatically(is100ContinueHandledAutomatically);
   HttpServerOptions copy=new HttpServerOptions(options);
   assertEquals(sendBufferSize,copy.getSendBufferSize());

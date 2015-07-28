@@ -1,4 +1,0 @@
-{
-  this.floatValue=floatValue;
-  return this;
-}

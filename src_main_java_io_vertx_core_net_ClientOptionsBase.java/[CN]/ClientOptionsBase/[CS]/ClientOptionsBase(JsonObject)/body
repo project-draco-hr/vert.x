@@ -1,5 +1,5 @@
 {
   super(json);
-  init();
-  ClientOptionsBaseHelper.fromJson(json,this);
+  this.connectTimeout=json.getInteger("connectTimeout",DEFAULT_CONNECT_TIMEOUT);
+  this.trustAll=json.getBoolean("trustAll",DEFAULT_TRUST_ALL);
 }

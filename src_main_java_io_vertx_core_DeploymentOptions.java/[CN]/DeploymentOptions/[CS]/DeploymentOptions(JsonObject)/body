@@ -1,4 +1,3 @@
 {
-  this();
-  DeploymentOptionsHelper.fromJson(json,this);
+  fromJson(json);
 }

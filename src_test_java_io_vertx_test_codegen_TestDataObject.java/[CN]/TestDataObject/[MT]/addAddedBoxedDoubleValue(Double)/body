@@ -1,4 +1,0 @@
-{
-  this.addedBoxedDoubleValues.add(addedBoxedDoubleValue);
-  return this;
-}

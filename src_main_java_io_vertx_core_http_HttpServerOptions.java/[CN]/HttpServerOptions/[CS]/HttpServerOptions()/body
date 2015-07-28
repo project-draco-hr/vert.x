@@ -1,5 +1,7 @@
 {
   super();
-  init();
   setPort(DEFAULT_PORT);
+  compressionSupported=DEFAULT_COMPRESSION_SUPPORTED;
+  maxWebsocketFrameSize=DEFAULT_MAX_WEBSOCKET_FRAME_SIZE;
+  handle100ContinueAutomatically=DEFAULT_HANDLE_100_CONTINE_AUTOMATICALLY;
 }

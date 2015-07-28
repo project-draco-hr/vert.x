@@ -1,4 +1,0 @@
-{
-  this.longValue=longValue;
-  return this;
-}

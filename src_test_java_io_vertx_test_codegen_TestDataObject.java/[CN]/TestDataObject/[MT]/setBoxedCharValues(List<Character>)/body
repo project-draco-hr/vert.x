@@ -1,4 +1,0 @@
-{
-  this.boxedCharValues=boxedCharValues;
-  return this;
-}

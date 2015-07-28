@@ -1,6 +1,8 @@
 {
   super(json);
-  init();
+  this.compressionSupported=json.getBoolean("compressionSupported",DEFAULT_COMPRESSION_SUPPORTED);
+  this.maxWebsocketFrameSize=json.getInteger("maxWebsocketFrameSize",DEFAULT_MAX_WEBSOCKET_FRAME_SIZE);
+  this.websocketSubProtocols=json.getString("websocketSubProtocols",null);
+  this.handle100ContinueAutomatically=json.getBoolean("handle100ContinueAutomatically",DEFAULT_HANDLE_100_CONTINE_AUTOMATICALLY);
   setPort(json.getInteger("port",DEFAULT_PORT));
-  HttpServerOptionsHelper.fromJson(json,this);
 }

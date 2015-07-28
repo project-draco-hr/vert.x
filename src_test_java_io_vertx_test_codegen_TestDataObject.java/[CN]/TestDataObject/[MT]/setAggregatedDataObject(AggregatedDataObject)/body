@@ -1,4 +1,0 @@
-{
-  this.aggregatedDataObject=aggregatedDataObject;
-  return this;
-}

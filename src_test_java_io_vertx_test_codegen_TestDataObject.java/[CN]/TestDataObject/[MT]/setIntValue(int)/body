@@ -1,4 +1,0 @@
-{
-  this.intValue=intValue;
-  return this;
-}

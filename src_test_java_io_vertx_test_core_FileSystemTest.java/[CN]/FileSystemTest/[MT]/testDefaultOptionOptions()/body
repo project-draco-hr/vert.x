@@ -10,5 +10,5 @@
   assertEquals(def.isTruncateExisting(),json.isTruncateExisting());
   assertEquals(def.isSparse(),json.isSparse());
   assertEquals(def.isSync(),json.isSync());
-  assertEquals(def.isDsync(),json.isDsync());
+  assertEquals(def.isDSync(),json.isDSync());
 }

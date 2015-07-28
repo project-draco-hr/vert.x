@@ -1,4 +1,0 @@
-{
-  this.addedBoxedFloatValues.add(addedBoxedFloatValue);
-  return this;
-}

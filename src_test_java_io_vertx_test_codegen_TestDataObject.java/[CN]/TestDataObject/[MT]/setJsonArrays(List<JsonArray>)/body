@@ -1,4 +1,0 @@
-{
-  this.jsonArrays=jsonArrays;
-  return this;
-}

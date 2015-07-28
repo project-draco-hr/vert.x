@@ -1,7 +1,0 @@
-{
-  if (obj instanceof AggregatedDataObject) {
-    AggregatedDataObject that=(AggregatedDataObject)obj;
-    return value.equals(that.value);
-  }
-  return false;
-}

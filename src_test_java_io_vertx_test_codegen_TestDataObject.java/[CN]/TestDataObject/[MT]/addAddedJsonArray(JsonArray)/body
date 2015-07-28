@@ -1,4 +1,0 @@
-{
-  this.addedJsonArrays.add(addedJsonArray);
-  return this;
-}

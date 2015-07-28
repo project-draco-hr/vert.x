@@ -1,4 +1,0 @@
-{
-  this.connectTimeout=DEFAULT_CONNECT_TIMEOUT;
-  this.trustAll=DEFAULT_TRUST_ALL;
-}

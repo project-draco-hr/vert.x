@@ -1,4 +1,0 @@
-{
-  this.booleanValue=value;
-  return this;
-}

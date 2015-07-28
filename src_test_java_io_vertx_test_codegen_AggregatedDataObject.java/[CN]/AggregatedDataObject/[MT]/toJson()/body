@@ -1,7 +1,0 @@
-{
-  JsonObject ret=new JsonObject();
-  if (value != null) {
-    ret.put("value",value);
-  }
-  return ret;
-}

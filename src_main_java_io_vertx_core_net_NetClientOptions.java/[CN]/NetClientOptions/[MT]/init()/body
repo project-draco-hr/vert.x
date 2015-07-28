@@ -1,4 +1,0 @@
-{
-  this.reconnectAttempts=DEFAULT_RECONNECT_ATTEMPTS;
-  this.reconnectInterval=DEFAULT_RECONNECT_INTERVAL;
-}

@@ -1,4 +1,0 @@
-{
-  json.put("connectTimeout",obj.getConnectTimeout());
-  json.put("trustAll",obj.isTrustAll());
-}

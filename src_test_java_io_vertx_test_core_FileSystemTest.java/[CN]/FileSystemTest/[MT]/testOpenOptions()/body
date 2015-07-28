@@ -16,9 +16,9 @@
   assertTrue(opts.isWrite());
   assertEquals(opts,opts.setWrite(false));
   assertFalse(opts.isWrite());
-  assertFalse(opts.isDsync());
-  assertEquals(opts,opts.setDsync(true));
-  assertTrue(opts.isDsync());
+  assertFalse(opts.isDSync());
+  assertEquals(opts,opts.setDSync(true));
+  assertTrue(opts.isDSync());
   assertFalse(opts.isSync());
   assertEquals(opts,opts.setSync(true));
   assertTrue(opts.isSync());
