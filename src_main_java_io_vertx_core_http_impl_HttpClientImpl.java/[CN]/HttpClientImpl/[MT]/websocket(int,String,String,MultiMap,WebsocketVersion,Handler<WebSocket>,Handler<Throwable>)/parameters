@@ -1,0 +1,7 @@
+int port
+String host
+String requestURI
+MultiMap headers
+WebsocketVersion version
+Handler<WebSocket> wsConnect
+Handler<Throwable> failureHandler
