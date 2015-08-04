@@ -7,4 +7,5 @@
   maxWebsocketFrameSize=DEFAULT_MAX_WEBSOCKET_FRAME_SIZE;
   defaultHost=DEFAULT_DEFAULT_HOST;
   defaultPort=DEFAULT_DEFAULT_PORT;
+  protocolVersion=DEFAULT_PROTOCOL_VERSION;
 }

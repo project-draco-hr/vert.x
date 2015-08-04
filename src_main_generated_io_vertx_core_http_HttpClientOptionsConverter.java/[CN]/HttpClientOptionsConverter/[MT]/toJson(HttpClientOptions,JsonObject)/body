@@ -7,6 +7,9 @@
   json.put("maxPoolSize",obj.getMaxPoolSize());
   json.put("maxWebsocketFrameSize",obj.getMaxWebsocketFrameSize());
   json.put("pipelining",obj.isPipelining());
+  if (obj.getProtocolVersion() != null) {
+    json.put("protocolVersion",obj.getProtocolVersion().name());
+  }
   json.put("tryUseCompression",obj.isTryUseCompression());
   json.put("verifyHost",obj.isVerifyHost());
 }
