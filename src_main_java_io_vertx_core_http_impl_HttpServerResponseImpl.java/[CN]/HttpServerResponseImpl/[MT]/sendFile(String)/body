@@ -1,4 +1,0 @@
-{
-  doSendFile(filename,null);
-  return this;
-}

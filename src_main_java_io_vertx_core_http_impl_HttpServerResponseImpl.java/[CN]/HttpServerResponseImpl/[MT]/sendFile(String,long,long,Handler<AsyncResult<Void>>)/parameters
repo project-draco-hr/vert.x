@@ -1,2 +1,4 @@
 String filename
+long start
+long end
 Handler<AsyncResult<Void>> resultHandler
