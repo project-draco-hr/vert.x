@@ -2,10 +2,15 @@
   checkContext();
   if (paused) {
     if (pendingData == null) {
-      pendingData=new ArrayDeque<>();
+      pendingData=data.copy();
     }
-    pendingData.add(data);
+ else {
+      pendingData.appendBuffer(data);
+    }
     return;
+  }
+  if (pendingData != null) {
+    data=pendingData.appendBuffer(data);
   }
   reportBytesRead(data.length());
   if (dataHandler != null) {

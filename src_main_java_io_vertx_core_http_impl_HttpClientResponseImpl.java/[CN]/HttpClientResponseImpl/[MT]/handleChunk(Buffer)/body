@@ -1,13 +1,19 @@
 {
-  bytesRead+=data.length();
   if (paused) {
-    if (pausedChunks == null) {
-      pausedChunks=new ArrayDeque<>();
+    if (pausedChunk == null) {
+      pausedChunk=data.copy();
     }
-    pausedChunks.add(data);
+ else {
+      pausedChunk.appendBuffer(data);
+    }
   }
  else {
     request.dataReceived();
+    if (pausedChunk != null) {
+      data=pausedChunk.appendBuffer(data);
+      pausedChunk=null;
+    }
+    bytesRead+=data.length();
     if (dataHandler != null) {
       dataHandler.handle(data);
     }
