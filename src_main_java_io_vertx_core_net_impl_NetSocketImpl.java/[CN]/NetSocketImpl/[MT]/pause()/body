@@ -1,5 +1,7 @@
 {
-  paused=true;
-  doPause();
+  if (!paused) {
+    paused=true;
+    doPause();
+  }
   return this;
 }
