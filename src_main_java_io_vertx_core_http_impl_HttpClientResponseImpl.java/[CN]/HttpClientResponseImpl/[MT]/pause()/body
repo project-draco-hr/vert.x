@@ -1,5 +1,7 @@
 {
-  paused=true;
-  conn.doPause();
+  if (!paused) {
+    paused=true;
+    conn.doPause();
+  }
   return this;
 }
