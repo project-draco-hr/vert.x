@@ -6,6 +6,10 @@
   json.put("clusterPingInterval",obj.getClusterPingInterval());
   json.put("clusterPingReplyInterval",obj.getClusterPingReplyInterval());
   json.put("clusterPort",obj.getClusterPort());
+  if (obj.getClusterPublicHost() != null) {
+    json.put("clusterPublicHost",obj.getClusterPublicHost());
+  }
+  json.put("clusterPublicPort",obj.getClusterPublicPort());
   json.put("clustered",obj.isClustered());
   json.put("eventLoopPoolSize",obj.getEventLoopPoolSize());
   json.put("haEnabled",obj.isHAEnabled());

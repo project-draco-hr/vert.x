@@ -5,6 +5,10 @@
   result=31 * result + (clustered ? 1 : 0);
   result=31 * result + (clusterHost != null ? clusterHost.hashCode() : 0);
   result=31 * result + clusterPort;
+  result=31 * result + (clusterPublicHost != null ? clusterPublicHost.hashCode() : 0);
+  result=31 * result + clusterPublicPort;
+  result=31 * result + (int)(clusterPingInterval ^ (clusterPingInterval >>> 32));
+  result=31 * result + (int)(clusterPingReplyInterval ^ (clusterPingReplyInterval >>> 32));
   result=31 * result + (int)(blockedThreadCheckInterval ^ (blockedThreadCheckInterval >>> 32));
   result=31 * result + (int)(maxEventLoopExecuteTime ^ (maxEventLoopExecuteTime >>> 32));
   result=31 * result + (int)(maxWorkerExecuteTime ^ (maxWorkerExecuteTime >>> 32));
@@ -12,6 +16,7 @@
   result=31 * result + (haEnabled ? 1 : 0);
   result=31 * result + quorumSize;
   result=31 * result + (haGroup != null ? haGroup.hashCode() : 0);
+  result=31 * result + (metrics != null ? metrics.hashCode() : 0);
   result=31 * result + (int)(warningExceptionTime ^ (warningExceptionTime >>> 32));
   return result;
 }

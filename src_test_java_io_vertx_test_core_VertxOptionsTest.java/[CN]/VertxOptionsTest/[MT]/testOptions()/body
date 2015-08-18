@@ -48,10 +48,29 @@
   }
  catch (  IllegalArgumentException e) {
   }
+  assertEquals(-1,options.getClusterPublicPort());
+  assertEquals(options,options.setClusterPublicPort(1234));
+  assertEquals(1234,options.getClusterPublicPort());
+  try {
+    options.setClusterPublicPort(-1);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  try {
+    options.setClusterPublicPort(65536);
+    fail("Should throw exception");
+  }
+ catch (  IllegalArgumentException e) {
+  }
   assertEquals("localhost",options.getClusterHost());
   String randString=TestUtils.randomUnicodeString(100);
   assertEquals(options,options.setClusterHost(randString));
   assertEquals(randString,options.getClusterHost());
+  assertEquals(null,options.getClusterPublicHost());
+  randString=TestUtils.randomUnicodeString(100);
+  assertEquals(options,options.setClusterPublicHost(randString));
+  assertEquals(randString,options.getClusterPublicHost());
   assertEquals(20000,options.getClusterPingInterval());
   long randomLong=TestUtils.randomPositiveLong();
   assertEquals(options,options.setClusterPingInterval(randomLong));
