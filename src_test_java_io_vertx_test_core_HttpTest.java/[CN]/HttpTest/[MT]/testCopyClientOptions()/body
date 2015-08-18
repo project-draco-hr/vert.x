@@ -27,6 +27,7 @@
   boolean keepAlive=rand.nextBoolean();
   boolean pipelining=rand.nextBoolean();
   boolean tryUseCompression=rand.nextBoolean();
+  HttpVersion protocolVersion=HttpVersion.HTTP_1_0;
   options.setSendBufferSize(sendBufferSize);
   options.setReceiveBufferSize(receiverBufferSize);
   options.setReuseAddress(reuseAddress);
@@ -49,6 +50,7 @@
   options.setKeepAlive(keepAlive);
   options.setPipelining(pipelining);
   options.setTryUseCompression(tryUseCompression);
+  options.setProtocolVersion(protocolVersion);
   HttpClientOptions copy=new HttpClientOptions(options);
   assertEquals(sendBufferSize,copy.getSendBufferSize());
   assertEquals(receiverBufferSize,copy.getReceiveBufferSize());
@@ -77,4 +79,5 @@
   assertEquals(keepAlive,copy.isKeepAlive());
   assertEquals(pipelining,copy.isPipelining());
   assertEquals(tryUseCompression,copy.isTryUseCompression());
+  assertEquals(protocolVersion,copy.getProtocolVersion());
 }

@@ -11,5 +11,6 @@
   if (tryUseCompression != that.tryUseCompression)   return false;
   if (verifyHost != that.verifyHost)   return false;
   if (!defaultHost.equals(that.defaultHost))   return false;
+  if (protocolVersion != that.protocolVersion)   return false;
   return true;
 }

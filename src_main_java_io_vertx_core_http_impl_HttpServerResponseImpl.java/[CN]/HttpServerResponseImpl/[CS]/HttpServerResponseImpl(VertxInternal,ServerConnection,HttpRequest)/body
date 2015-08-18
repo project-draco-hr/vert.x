@@ -3,5 +3,5 @@
   this.conn=conn;
   this.version=request.getProtocolVersion();
   this.response=new DefaultHttpResponse(version,HttpResponseStatus.OK,false);
-  this.keepAlive=version == HttpVersion.HTTP_1_1 || (version == HttpVersion.HTTP_1_0 && request.headers().contains(io.vertx.core.http.HttpHeaders.CONNECTION,HttpHeaders.KEEP_ALIVE,true));
+  this.keepAlive=(version == HttpVersion.HTTP_1_1 && !request.headers().contains(io.vertx.core.http.HttpHeaders.CONNECTION,HttpHeaders.CLOSE,true)) || (version == HttpVersion.HTTP_1_0 && request.headers().contains(io.vertx.core.http.HttpHeaders.CONNECTION,HttpHeaders.KEEP_ALIVE,true));
 }

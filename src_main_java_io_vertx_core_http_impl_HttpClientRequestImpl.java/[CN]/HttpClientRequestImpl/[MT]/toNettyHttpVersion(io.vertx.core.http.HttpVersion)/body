@@ -1,0 +1,14 @@
+{
+switch (version) {
+case HTTP_1_0:
+{
+      return HttpVersion.HTTP_1_0;
+    }
+case HTTP_1_1:
+{
+    return HttpVersion.HTTP_1_1;
+  }
+default :
+throw new IllegalArgumentException("Unsupported HTTP version: " + version);
+}
+}
