@@ -156,7 +156,7 @@
   }
  catch (  NullPointerException e) {
   }
-  assertNull(options.getMetricsOptions());
+  assertNotNull(options.getMetricsOptions());
   try {
     options.setWarningExceptionTime(-1);
     fail("Should throw exception");

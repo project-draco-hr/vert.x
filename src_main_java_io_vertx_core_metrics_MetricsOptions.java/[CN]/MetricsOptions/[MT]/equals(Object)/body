@@ -1,0 +1,7 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  MetricsOptions that=(MetricsOptions)o;
+  if (enabled != that.enabled)   return false;
+  return !(json != null ? !json.equals(that.json) : that.json != null);
+}

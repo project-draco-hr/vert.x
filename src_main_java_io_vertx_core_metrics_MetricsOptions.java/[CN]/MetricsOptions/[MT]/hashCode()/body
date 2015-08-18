@@ -1,0 +1,5 @@
+{
+  int result=(enabled ? 1 : 0);
+  result=31 * result + (json != null ? json.hashCode() : 0);
+  return result;
+}
