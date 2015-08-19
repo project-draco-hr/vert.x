@@ -8,4 +8,5 @@
   this.maxWebsocketFrameSize=other.maxWebsocketFrameSize;
   this.defaultHost=other.defaultHost;
   this.defaultPort=other.defaultPort;
+  this.protocolVersion=other.protocolVersion;
 }

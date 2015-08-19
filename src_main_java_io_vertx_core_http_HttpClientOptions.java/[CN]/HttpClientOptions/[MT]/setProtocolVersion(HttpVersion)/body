@@ -1,0 +1,7 @@
+{
+  if (protocolVersion == null) {
+    throw new IllegalArgumentException("protocolVersion must not be null");
+  }
+  this.protocolVersion=protocolVersion;
+  return this;
+}

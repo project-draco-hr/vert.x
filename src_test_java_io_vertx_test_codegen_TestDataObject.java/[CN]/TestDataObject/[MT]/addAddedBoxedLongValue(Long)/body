@@ -1,0 +1,4 @@
+{
+  this.addedBoxedLongValues.add(addedBoxedLongValue);
+  return this;
+}

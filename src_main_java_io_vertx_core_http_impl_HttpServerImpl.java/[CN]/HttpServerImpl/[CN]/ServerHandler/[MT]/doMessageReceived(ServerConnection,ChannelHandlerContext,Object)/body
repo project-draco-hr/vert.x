@@ -46,10 +46,12 @@ case TEXT:
 case PING:
     ch.writeAndFlush(new WebSocketFrameImpl(FrameType.PONG,wsFrame.getBinaryData()));
   break;
+case PONG:
+break;
 case CLOSE:
 if (!closeFrameSent) {
-  ch.writeAndFlush(wsFrame).addListener(ChannelFutureListener.CLOSE);
-  closeFrameSent=true;
+ch.writeAndFlush(wsFrame).addListener(ChannelFutureListener.CLOSE);
+closeFrameSent=true;
 }
 break;
 default :

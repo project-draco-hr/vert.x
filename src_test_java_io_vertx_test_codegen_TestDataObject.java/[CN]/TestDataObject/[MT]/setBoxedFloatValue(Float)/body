@@ -1,0 +1,4 @@
+{
+  this.boxedFloatValue=boxedFloatValue;
+  return this;
+}

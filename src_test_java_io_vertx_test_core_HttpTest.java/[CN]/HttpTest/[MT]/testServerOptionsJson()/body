@@ -3,7 +3,7 @@
   int receiverBufferSize=TestUtils.randomPortInt();
   Random rand=new Random();
   boolean reuseAddress=rand.nextBoolean();
-  int trafficClass=TestUtils.randomByte() + 127;
+  int trafficClass=TestUtils.randomByte() + 128;
   boolean tcpNoDelay=rand.nextBoolean();
   boolean tcpKeepAlive=rand.nextBoolean();
   int soLinger=TestUtils.randomPositiveInt();
@@ -30,7 +30,7 @@
   String wsSubProtocol=TestUtils.randomAlphaString(10);
   boolean is100ContinueHandledAutomatically=rand.nextBoolean();
   JsonObject json=new JsonObject();
-  json.put("sendBufferSize",sendBufferSize).put("receiveBufferSize",receiverBufferSize).put("reuseAddress",reuseAddress).put("trafficClass",trafficClass).put("tcpNoDelay",tcpNoDelay).put("tcpKeepAlive",tcpKeepAlive).put("soLinger",soLinger).put("usePooledBuffers",usePooledBuffers).put("idleTimeout",idleTimeout).put("ssl",ssl).put("enabledCipherSuites",new JsonArray().add(enabledCipher)).put("crlPaths",new JsonArray().add(crlPath)).put("keyStoreOptions",new JsonObject().put("type","jks").put("password",ksPassword).put("path",ksPath)).put("trustStoreOptions",new JsonObject().put("type","jks").put("password",tsPassword).put("path",tsPath)).put("port",port).put("host",host).put("acceptBacklog",acceptBacklog).put("compressionSupported",compressionSupported).put("maxWebsocketFrameSize",maxWebsocketFrameSize).put("websocketSubProtocols",wsSubProtocol).put("handle100ContinueAutomatically",is100ContinueHandledAutomatically);
+  json.put("sendBufferSize",sendBufferSize).put("receiveBufferSize",receiverBufferSize).put("reuseAddress",reuseAddress).put("trafficClass",trafficClass).put("tcpNoDelay",tcpNoDelay).put("tcpKeepAlive",tcpKeepAlive).put("soLinger",soLinger).put("usePooledBuffers",usePooledBuffers).put("idleTimeout",idleTimeout).put("ssl",ssl).put("enabledCipherSuites",new JsonArray().add(enabledCipher)).put("crlPaths",new JsonArray().add(crlPath)).put("keyStoreOptions",new JsonObject().put("password",ksPassword).put("path",ksPath)).put("trustStoreOptions",new JsonObject().put("password",tsPassword).put("path",tsPath)).put("port",port).put("host",host).put("acceptBacklog",acceptBacklog).put("compressionSupported",compressionSupported).put("maxWebsocketFrameSize",maxWebsocketFrameSize).put("websocketSubProtocols",wsSubProtocol).put("handle100ContinueAutomatically",is100ContinueHandledAutomatically);
   HttpServerOptions options=new HttpServerOptions(json);
   assertEquals(sendBufferSize,options.getSendBufferSize());
   assertEquals(receiverBufferSize,options.getReceiveBufferSize());
@@ -59,10 +59,14 @@
   assertEquals(maxWebsocketFrameSize,options.getMaxWebsocketFrameSize());
   assertEquals(wsSubProtocol,options.getWebsocketSubProtocols());
   assertEquals(is100ContinueHandledAutomatically,options.isHandle100ContinueAutomatically());
+  json.remove("keyStoreOptions");
+  json.remove("trustStoreOptions");
   json.put("pfxKeyCertOptions",new JsonObject().put("password",ksPassword)).put("pfxTrustOptions",new JsonObject().put("password",tsPassword));
   options=new HttpServerOptions(json);
   assertTrue(options.getTrustOptions() instanceof PfxOptions);
   assertTrue(options.getKeyCertOptions() instanceof PfxOptions);
+  json.remove("pfxKeyCertOptions");
+  json.remove("pfxTrustOptions");
   json.put("pemKeyCertOptions",new JsonObject()).put("pemTrustOptions",new JsonObject());
   options=new HttpServerOptions(json);
   assertTrue(options.getTrustOptions() instanceof PemTrustOptions);

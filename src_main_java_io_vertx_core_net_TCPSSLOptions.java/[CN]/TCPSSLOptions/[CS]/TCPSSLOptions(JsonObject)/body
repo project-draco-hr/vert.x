@@ -1,2 +1,5 @@
 {
+  super(json);
+  init();
+  TCPSSLOptionsConverter.fromJson(json,this);
 }

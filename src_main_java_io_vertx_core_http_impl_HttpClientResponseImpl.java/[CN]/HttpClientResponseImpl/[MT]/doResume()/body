@@ -1,25 +1,2 @@
 {
-  if (pausedChunks != null) {
-    Buffer chunk;
-    while ((chunk=pausedChunks.poll()) != null) {
-      final Buffer theChunk=chunk;
-      vertx.runOnContext(new VoidHandler(){
-        @Override protected void handle(){
-          handleChunk(theChunk);
-        }
-      }
-);
-    }
-  }
-  if (hasPausedEnd) {
-    final LastHttpContent theTrailer=pausedTrailer;
-    vertx.runOnContext(new VoidHandler(){
-      @Override protected void handle(){
-        handleEnd(theTrailer);
-      }
-    }
-);
-    hasPausedEnd=false;
-    pausedTrailer=null;
-  }
 }

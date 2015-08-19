@@ -1,0 +1,3 @@
+{
+  return (ChildInheritingDataObject)super.setParentProperty(parentProperty);
+}

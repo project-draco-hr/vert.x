@@ -1,0 +1,4 @@
+{
+  this.httpMethod=httpMethod;
+  return this;
+}

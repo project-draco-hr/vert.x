@@ -1,0 +1,4 @@
+Deployment parent
+String deploymentID
+String verticleIdentifier
+DeploymentOptions options

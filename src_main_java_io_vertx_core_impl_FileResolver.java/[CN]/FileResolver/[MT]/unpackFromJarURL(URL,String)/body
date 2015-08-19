@@ -15,7 +15,12 @@
  else {
           file.getParentFile().mkdirs();
           try (InputStream is=zip.getInputStream(entry)){
-            Files.copy(is,file.toPath());
+            if (ENABLE_CACHING) {
+              Files.copy(is,file.toPath());
+            }
+ else {
+              Files.copy(is,file.toPath(),StandardCopyOption.REPLACE_EXISTING);
+            }
           }
  catch (          FileAlreadyExistsException ignore) {
           }

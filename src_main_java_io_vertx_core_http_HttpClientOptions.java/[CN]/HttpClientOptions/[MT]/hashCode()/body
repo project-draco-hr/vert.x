@@ -8,5 +8,6 @@
   result=31 * result + maxWebsocketFrameSize;
   result=31 * result + defaultHost.hashCode();
   result=31 * result + defaultPort;
+  result=31 * result + protocolVersion.hashCode();
   return result;
 }

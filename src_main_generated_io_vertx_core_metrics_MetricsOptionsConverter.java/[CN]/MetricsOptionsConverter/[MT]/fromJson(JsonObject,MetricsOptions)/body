@@ -1,0 +1,5 @@
+{
+  if (json.getValue("enabled") instanceof Boolean) {
+    obj.setEnabled((Boolean)json.getValue("enabled"));
+  }
+}

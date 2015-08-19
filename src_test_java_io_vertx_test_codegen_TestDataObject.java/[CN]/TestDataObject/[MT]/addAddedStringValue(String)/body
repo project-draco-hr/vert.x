@@ -1,0 +1,4 @@
+{
+  this.addedStringValues.add(addedStringValue);
+  return this;
+}

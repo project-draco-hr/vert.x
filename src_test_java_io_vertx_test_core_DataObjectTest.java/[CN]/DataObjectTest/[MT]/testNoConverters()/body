@@ -1,0 +1,8 @@
+{
+  try {
+    NoConverterDataObject.class.getClassLoader().loadClass(NoConverterDataObject.class.getName() + "Converter");
+    fail("Was not expecting a converter to be generated");
+  }
+ catch (  ClassNotFoundException ignore) {
+  }
+}

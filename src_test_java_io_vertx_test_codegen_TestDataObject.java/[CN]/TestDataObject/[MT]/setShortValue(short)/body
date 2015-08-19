@@ -1,0 +1,4 @@
+{
+  this.shortValue=shortValue;
+  return this;
+}

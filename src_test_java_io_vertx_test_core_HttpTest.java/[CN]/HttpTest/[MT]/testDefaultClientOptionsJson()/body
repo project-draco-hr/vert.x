@@ -15,4 +15,5 @@
   assertEquals(def.getSoLinger(),json.getSoLinger());
   assertEquals(def.isUsePooledBuffers(),json.isUsePooledBuffers());
   assertEquals(def.isSsl(),json.isSsl());
+  assertEquals(def.getProtocolVersion(),json.getProtocolVersion());
 }

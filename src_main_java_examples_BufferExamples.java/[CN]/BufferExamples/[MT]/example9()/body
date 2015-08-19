@@ -1,0 +1,6 @@
+{
+  Buffer buff=Buffer.buffer(128);
+  int pos=15;
+  buff.setUnsignedByte(pos,(short)200);
+  System.out.println(buff.getUnsignedByte(pos));
+}

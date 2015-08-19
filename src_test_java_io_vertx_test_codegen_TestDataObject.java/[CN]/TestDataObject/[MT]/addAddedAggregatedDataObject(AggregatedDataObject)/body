@@ -1,0 +1,4 @@
+{
+  this.addedAggregatedDataObjects.add(addedAggregatedDataObject);
+  return this;
+}
