@@ -1,0 +1,20 @@
+{
+  Instant bin1=Instant.now();
+  Instant bin2=bin1.plus(1,ChronoUnit.DAYS);
+  Instant bin3=bin1.plus(1,ChronoUnit.MINUTES);
+  assertSame(jsonObject,jsonObject.put("foo",bin1));
+  assertEquals(bin1,jsonObject.getInstant("foo"));
+  jsonObject.put("quux",bin2);
+  assertEquals(bin2,jsonObject.getInstant("quux"));
+  assertEquals(bin1,jsonObject.getInstant("foo"));
+  jsonObject.put("foo",bin3);
+  assertEquals(bin3,jsonObject.getInstant("foo"));
+  jsonObject.put("foo",(Instant)null);
+  assertTrue(jsonObject.containsKey("foo"));
+  try {
+    jsonObject.put(null,bin1);
+    fail();
+  }
+ catch (  NullPointerException e) {
+  }
+}

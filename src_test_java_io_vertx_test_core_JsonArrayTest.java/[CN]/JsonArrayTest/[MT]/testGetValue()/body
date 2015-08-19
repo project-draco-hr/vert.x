@@ -22,8 +22,11 @@
   byte[] bytes=TestUtils.randomByteArray(100);
   jsonArray.add(bytes);
   assertTrue(TestUtils.byteArraysEqual(bytes,Base64.getDecoder().decode((String)jsonArray.getValue(9))));
+  Instant now=Instant.now();
+  jsonArray.add(now);
+  assertEquals(now,jsonArray.getInstant(10));
   jsonArray.addNull();
-  assertNull(jsonArray.getValue(10));
+  assertNull(jsonArray.getValue(11));
   try {
     jsonArray.getValue(-1);
     fail();
@@ -31,7 +34,7 @@
  catch (  IndexOutOfBoundsException e) {
   }
   try {
-    jsonArray.getValue(11);
+    jsonArray.getValue(12);
     fail();
   }
  catch (  IndexOutOfBoundsException e) {

@@ -1,0 +1,11 @@
+{
+  Instant now=Instant.now();
+  assertSame(jsonArray,jsonArray.add(now));
+  assertEquals(now,jsonArray.getInstant(0));
+  try {
+    jsonArray.add((Instant)null);
+    fail();
+  }
+ catch (  NullPointerException e) {
+  }
+}

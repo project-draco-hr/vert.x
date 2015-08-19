@@ -7,5 +7,6 @@
   obj.put("mydouble",Double.MAX_VALUE);
   obj.put("myboolean",true);
   obj.put("mybinary",TestUtils.randomByteArray(100));
+  obj.put("myinstant",Instant.now());
   return obj;
 }

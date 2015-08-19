@@ -7,10 +7,13 @@
   jsonObject.put("myboolean",true);
   byte[] bytes=TestUtils.randomByteArray(10);
   jsonObject.put("mybinary",bytes);
+  Instant now=Instant.now();
+  jsonObject.put("myinstant",now);
   jsonObject.put("myobj",new JsonObject().put("foo","bar"));
   jsonObject.put("myarr",new JsonArray().add("foo").add(123));
   String strBytes=Base64.getEncoder().encodeToString(bytes);
-  String expected="{" + Utils.LINE_SEPARATOR + "  \"mystr\" : \"foo\","+ Utils.LINE_SEPARATOR+ "  \"myint\" : 123,"+ Utils.LINE_SEPARATOR+ "  \"mylong\" : 1234,"+ Utils.LINE_SEPARATOR+ "  \"myfloat\" : 1.23,"+ Utils.LINE_SEPARATOR+ "  \"mydouble\" : 2.34,"+ Utils.LINE_SEPARATOR+ "  \"myboolean\" : true,"+ Utils.LINE_SEPARATOR+ "  \"mybinary\" : \""+ strBytes+ "\","+ Utils.LINE_SEPARATOR+ "  \"myobj\" : {"+ Utils.LINE_SEPARATOR+ "    \"foo\" : \"bar\""+ Utils.LINE_SEPARATOR+ "  },"+ Utils.LINE_SEPARATOR+ "  \"myarr\" : [ \"foo\", 123 ]"+ Utils.LINE_SEPARATOR+ "}";
+  String strInstant=ISO_INSTANT.format(now);
+  String expected="{" + Utils.LINE_SEPARATOR + "  \"mystr\" : \"foo\","+ Utils.LINE_SEPARATOR+ "  \"myint\" : 123,"+ Utils.LINE_SEPARATOR+ "  \"mylong\" : 1234,"+ Utils.LINE_SEPARATOR+ "  \"myfloat\" : 1.23,"+ Utils.LINE_SEPARATOR+ "  \"mydouble\" : 2.34,"+ Utils.LINE_SEPARATOR+ "  \"myboolean\" : true,"+ Utils.LINE_SEPARATOR+ "  \"mybinary\" : \""+ strBytes+ "\","+ Utils.LINE_SEPARATOR+ "  \"myinstant\" : \""+ strInstant+ "\","+ Utils.LINE_SEPARATOR+ "  \"myobj\" : {"+ Utils.LINE_SEPARATOR+ "    \"foo\" : \"bar\""+ Utils.LINE_SEPARATOR+ "  },"+ Utils.LINE_SEPARATOR+ "  \"myarr\" : [ \"foo\", 123 ]"+ Utils.LINE_SEPARATOR+ "}";
   String json=jsonObject.encodePrettily();
   assertEquals(expected,json);
 }
