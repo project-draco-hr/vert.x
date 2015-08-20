@@ -1,0 +1,27 @@
+{
+  Instant now=Instant.now();
+  jsonArray.add(now);
+  assertEquals(now,jsonArray.getInstant(0));
+  assertEquals(now,Instant.from(ISO_INSTANT.parse(jsonArray.getString(0))));
+  try {
+    jsonArray.getInstant(-1);
+    fail();
+  }
+ catch (  IndexOutOfBoundsException e) {
+  }
+  try {
+    jsonArray.getInstant(1);
+    fail();
+  }
+ catch (  IndexOutOfBoundsException e) {
+  }
+  jsonArray.add(123);
+  try {
+    jsonArray.getInstant(1);
+    fail();
+  }
+ catch (  ClassCastException e) {
+  }
+  jsonArray.addNull();
+  assertNull(jsonArray.getInstant(2));
+}

@@ -1,0 +1,5 @@
+{
+  Objects.requireNonNull(key);
+  map.put(key,value == null ? null : ISO_INSTANT.format(value));
+  return this;
+}

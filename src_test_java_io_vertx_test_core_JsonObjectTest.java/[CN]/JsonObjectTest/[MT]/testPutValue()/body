@@ -7,6 +7,8 @@
   jsonObject.put("boolean",(Object)true);
   byte[] bytes=TestUtils.randomByteArray(10);
   jsonObject.put("binary",(Object)(bytes));
+  Instant now=Instant.now();
+  jsonObject.put("instant",now);
   JsonObject obj=new JsonObject().put("foo","blah");
   JsonArray arr=new JsonArray().add("quux");
   jsonObject.put("obj",(Object)obj);
@@ -17,6 +19,7 @@
   assertEquals(Float.valueOf(1.23f),jsonObject.getFloat("float"));
   assertEquals(Double.valueOf(1.23d),jsonObject.getDouble("double"));
   assertTrue(TestUtils.byteArraysEqual(bytes,jsonObject.getBinary("binary")));
+  assertEquals(now,jsonObject.getInstant("instant"));
   assertEquals(obj,jsonObject.getJsonObject("obj"));
   assertEquals(arr,jsonObject.getJsonArray("arr"));
   try {

@@ -7,6 +7,8 @@
   jsonArray.add((Object)true);
   byte[] bytes=TestUtils.randomByteArray(10);
   jsonArray.add((Object)(bytes));
+  Instant now=Instant.now();
+  jsonArray.add(now);
   JsonObject obj=new JsonObject().put("foo","blah");
   JsonArray arr=new JsonArray().add("quux");
   jsonArray.add((Object)obj);
@@ -18,8 +20,9 @@
   assertEquals(Double.valueOf(1.23d),jsonArray.getDouble(4));
   assertEquals(true,jsonArray.getBoolean(5));
   assertTrue(TestUtils.byteArraysEqual(bytes,jsonArray.getBinary(6)));
-  assertEquals(obj,jsonArray.getJsonObject(7));
-  assertEquals(arr,jsonArray.getJsonArray(8));
+  assertEquals(now,jsonArray.getInstant(7));
+  assertEquals(obj,jsonArray.getJsonObject(8));
+  assertEquals(arr,jsonArray.getJsonArray(9));
   try {
     jsonArray.add(new SomeClass());
     fail();

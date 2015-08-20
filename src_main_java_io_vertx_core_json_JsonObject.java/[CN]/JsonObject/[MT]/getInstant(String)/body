@@ -1,0 +1,5 @@
+{
+  Objects.requireNonNull(key);
+  String encoded=(String)map.get(key);
+  return encoded == null ? null : Instant.from(ISO_INSTANT.parse(encoded));
+}

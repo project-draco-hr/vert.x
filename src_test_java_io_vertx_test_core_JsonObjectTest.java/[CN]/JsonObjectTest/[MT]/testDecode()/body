@@ -1,7 +1,9 @@
 {
   byte[] bytes=TestUtils.randomByteArray(10);
   String strBytes=Base64.getEncoder().encodeToString(bytes);
-  String json="{\"mystr\":\"foo\",\"myint\":123,\"mylong\":1234,\"myfloat\":1.23,\"mydouble\":2.34,\"" + "myboolean\":true,\"mybinary\":\"" + strBytes + "\",\"mynull\":null,\"myobj\":{\"foo\":\"bar\"},\"myarr\":[\"foo\",123]}";
+  Instant now=Instant.now();
+  String strInstant=ISO_INSTANT.format(now);
+  String json="{\"mystr\":\"foo\",\"myint\":123,\"mylong\":1234,\"myfloat\":1.23,\"mydouble\":2.34,\"" + "myboolean\":true,\"mybinary\":\"" + strBytes + "\",\"myinstant\":\""+ strInstant+ "\",\"mynull\":null,\"myobj\":{\"foo\":\"bar\"},\"myarr\":[\"foo\",123]}";
   JsonObject obj=new JsonObject(json);
   assertEquals(json,obj.encode());
   assertEquals("foo",obj.getString("mystr"));
@@ -11,6 +13,7 @@
   assertEquals(Double.valueOf(2.34d),obj.getDouble("mydouble"));
   assertTrue(obj.getBoolean("myboolean"));
   assertTrue(TestUtils.byteArraysEqual(bytes,obj.getBinary("mybinary")));
+  assertEquals(now,obj.getInstant("myinstant"));
   assertTrue(obj.containsKey("mynull"));
   JsonObject nestedObj=obj.getJsonObject("myobj");
   assertEquals("bar",nestedObj.getString("foo"));

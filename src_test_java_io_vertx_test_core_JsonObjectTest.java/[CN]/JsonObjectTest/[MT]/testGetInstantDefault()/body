@@ -1,0 +1,25 @@
+{
+  Instant now=Instant.now();
+  Instant later=now.plus(1,ChronoUnit.DAYS);
+  jsonObject.put("foo",now);
+  assertEquals(now,jsonObject.getInstant("foo",later));
+  assertEquals(now,jsonObject.getInstant("foo",null));
+  jsonObject.put("foo",123);
+  try {
+    jsonObject.getInstant("foo",later);
+    fail();
+  }
+ catch (  ClassCastException e) {
+  }
+  jsonObject.putNull("foo");
+  assertNull(jsonObject.getInstant("foo",later));
+  assertEquals(later,jsonObject.getInstant("absent",later));
+  assertNull(jsonObject.getInstant("foo",null));
+  assertNull(jsonObject.getInstant("absent",null));
+  try {
+    jsonObject.getInstant(null,null);
+    fail();
+  }
+ catch (  NullPointerException e) {
+  }
+}
