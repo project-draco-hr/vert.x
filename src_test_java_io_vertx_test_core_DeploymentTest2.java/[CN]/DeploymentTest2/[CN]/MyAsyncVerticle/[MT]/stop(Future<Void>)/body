@@ -1,5 +1,0 @@
-{
-  if (stopConsumer != null) {
-    stopConsumer.accept(stopFuture);
-  }
-}

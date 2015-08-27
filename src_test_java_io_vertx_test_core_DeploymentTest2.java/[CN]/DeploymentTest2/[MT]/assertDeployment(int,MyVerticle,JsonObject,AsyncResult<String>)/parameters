@@ -1,4 +1,0 @@
-int instances
-MyVerticle verticle
-JsonObject config
-AsyncResult<String> ar

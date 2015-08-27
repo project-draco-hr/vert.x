@@ -1,4 +1,0 @@
-{
-  super.setUp();
-  TestVerticle.instanceCount.set(0);
-}

@@ -1,4 +1,0 @@
-{
-  List<String> isolatedClasses=Arrays.asList(TestVerticle.class.getCanonicalName());
-  testIsolationGroup("somegroup","somegroup",1,2,isolatedClasses,"java:" + TestVerticle.class.getCanonicalName());
-}

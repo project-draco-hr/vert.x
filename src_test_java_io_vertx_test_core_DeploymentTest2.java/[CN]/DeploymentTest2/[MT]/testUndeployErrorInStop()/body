@@ -1,3 +1,0 @@
-{
-  testUndeployThrowableInStop(MyVerticle.THROW_ERROR,Error.class);
-}

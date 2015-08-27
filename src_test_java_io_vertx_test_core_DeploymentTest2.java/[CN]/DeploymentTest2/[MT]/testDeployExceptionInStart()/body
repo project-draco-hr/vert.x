@@ -1,3 +1,0 @@
-{
-  testDeployThrowableInStart(MyVerticle.THROW_EXCEPTION,Exception.class);
-}
