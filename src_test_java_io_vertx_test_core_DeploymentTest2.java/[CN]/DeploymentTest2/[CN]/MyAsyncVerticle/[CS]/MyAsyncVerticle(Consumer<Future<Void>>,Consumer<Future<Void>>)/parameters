@@ -1,0 +1,2 @@
+Consumer<Future<Void>> startConsumer
+Consumer<Future<Void>> stopConsumer

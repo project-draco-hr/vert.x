@@ -1,0 +1,11 @@
+{
+  DeploymentOptions def=new DeploymentOptions();
+  DeploymentOptions json=new DeploymentOptions(new JsonObject());
+  assertEquals(def.getConfig(),json.getConfig());
+  assertEquals(def.isWorker(),json.isWorker());
+  assertEquals(def.isMultiThreaded(),json.isMultiThreaded());
+  assertEquals(def.getIsolationGroup(),json.getIsolationGroup());
+  assertEquals(def.isHa(),json.isHa());
+  assertEquals(def.getExtraClasspath(),json.getExtraClasspath());
+  assertEquals(def.getIsolatedClasses(),json.getIsolatedClasses());
+}

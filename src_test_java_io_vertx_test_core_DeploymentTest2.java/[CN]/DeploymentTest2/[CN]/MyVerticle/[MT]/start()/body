@@ -1,0 +1,13 @@
+{
+switch (startAction) {
+case THROW_EXCEPTION:
+    throw new Exception("FooBar!");
+case THROW_ERROR:
+  throw new Error("FooBar!");
+default :
+startCalled=true;
+startContext=Vertx.currentContext();
+}
+deploymentID=Vertx.currentContext().deploymentID();
+config=context.config();
+}

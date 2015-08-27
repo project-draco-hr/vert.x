@@ -1,0 +1,4 @@
+{
+  List<String> isolatedClasses=Arrays.asList("io.vertx.test.core.*");
+  testIsolationGroup("somegroup","somegroup",1,2,isolatedClasses,"java:" + TestVerticle.class.getCanonicalName());
+}

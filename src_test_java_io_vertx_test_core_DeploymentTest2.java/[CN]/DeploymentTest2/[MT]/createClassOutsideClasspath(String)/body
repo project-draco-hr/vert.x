@@ -1,0 +1,14 @@
+{
+  File dir=Files.createTempDirectory("vertx").toFile();
+  dir.deleteOnExit();
+  File source=new File(dir,className + ".java");
+  Files.write(source.toPath(),("public class " + className + " extends io.vertx.core.AbstractVerticle {} ").getBytes());
+  URLClassLoader loader=new URLClassLoader(new URL[]{dir.toURI().toURL()},Thread.currentThread().getContextClassLoader());
+  CompilingClassLoader compilingClassLoader=new CompilingClassLoader(loader,className + ".java");
+  compilingClassLoader.loadClass(className);
+  byte[] bytes=compilingClassLoader.getClassBytes(className);
+  assertNotNull(bytes);
+  File classFile=new File(dir,className + ".class");
+  Files.write(classFile.toPath(),bytes);
+  return dir.getAbsolutePath();
+}

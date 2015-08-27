@@ -1,0 +1,5 @@
+{
+  if (startConsumer != null) {
+    startConsumer.accept(startFuture);
+  }
+}
