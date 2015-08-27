@@ -8,11 +8,13 @@
   jsonObject.put("myboolean",true);
   byte[] bytes=TestUtils.randomByteArray(10);
   jsonObject.put("mybinary",bytes);
+  Instant now=Instant.now();
+  jsonObject.put("myinstant",now);
   jsonObject.putNull("mynull");
   jsonObject.put("myobj",new JsonObject().put("foo","bar"));
   jsonObject.put("myarr",new JsonArray().add("foo").add(123));
   String strBytes=Base64.getEncoder().encodeToString(bytes);
-  String expected="{\"mystr\":\"foo\",\"mycharsequence\":\"oob\",\"myint\":123,\"mylong\":1234,\"myfloat\":1.23,\"mydouble\":2.34,\"" + "myboolean\":true,\"mybinary\":\"" + strBytes + "\",\"mynull\":null,\"myobj\":{\"foo\":\"bar\"},\"myarr\":[\"foo\",123]}";
+  String expected="{\"mystr\":\"foo\",\"mycharsequence\":\"oob\",\"myint\":123,\"mylong\":1234,\"myfloat\":1.23,\"mydouble\":2.34,\"" + "myboolean\":true,\"mybinary\":\"" + strBytes + "\",\"myinstant\":\""+ ISO_INSTANT.format(now)+ "\",\"mynull\":null,\"myobj\":{\"foo\":\"bar\"},\"myarr\":[\"foo\",123]}";
   String json=jsonObject.encode();
   assertEquals(expected,json);
 }

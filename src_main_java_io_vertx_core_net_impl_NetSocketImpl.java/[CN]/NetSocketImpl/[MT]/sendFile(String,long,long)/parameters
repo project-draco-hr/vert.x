@@ -1,0 +1,3 @@
+String filename
+long offset
+long length

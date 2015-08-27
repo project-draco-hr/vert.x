@@ -1,0 +1,4 @@
+{
+  doSendFile(filename,start,end,resultHandler);
+  return this;
+}
