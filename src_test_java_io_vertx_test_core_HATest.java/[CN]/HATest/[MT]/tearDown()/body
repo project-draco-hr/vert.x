@@ -1,0 +1,4 @@
+{
+  closeVertices(vertx1,vertx2,vertx3);
+  super.tearDown();
+}
