@@ -1,4 +1,7 @@
 {
   checkContext();
   read=true;
+  if (ctxThread == null) {
+    ctxThread=Thread.currentThread();
+  }
 }

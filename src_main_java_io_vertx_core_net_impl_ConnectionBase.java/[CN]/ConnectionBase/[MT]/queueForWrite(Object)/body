@@ -1,4 +1,5 @@
 {
   needsFlush=true;
+  needsAsyncFlush=Thread.currentThread() != ctxThread;
   return channel.write(obj);
 }
