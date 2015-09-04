@@ -14,6 +14,12 @@
   if (json.getValue("clusterPort") instanceof Number) {
     obj.setClusterPort(((Number)json.getValue("clusterPort")).intValue());
   }
+  if (json.getValue("clusterPublicHost") instanceof String) {
+    obj.setClusterPublicHost((String)json.getValue("clusterPublicHost"));
+  }
+  if (json.getValue("clusterPublicPort") instanceof Number) {
+    obj.setClusterPublicPort(((Number)json.getValue("clusterPublicPort")).intValue());
+  }
   if (json.getValue("clustered") instanceof Boolean) {
     obj.setClustered((Boolean)json.getValue("clustered"));
   }

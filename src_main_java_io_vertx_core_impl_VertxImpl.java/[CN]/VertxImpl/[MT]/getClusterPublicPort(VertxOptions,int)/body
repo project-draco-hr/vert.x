@@ -1,0 +1,7 @@
+{
+  int publicPort=Integer.getInteger("vertx.cluster.public.port",options.getClusterPublicPort());
+  if (publicPort == -1) {
+    publicPort=actualPort;
+  }
+  return publicPort;
+}
