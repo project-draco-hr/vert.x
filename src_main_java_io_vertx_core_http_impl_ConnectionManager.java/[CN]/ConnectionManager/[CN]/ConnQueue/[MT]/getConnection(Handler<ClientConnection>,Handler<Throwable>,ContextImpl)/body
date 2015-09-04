@@ -1,8 +1,2 @@
 {
-  if (connCount == maxSockets) {
-    waiters.add(new Waiter(handler,connectionExceptionHandler,context));
-  }
- else {
-    createNewConnection(handler,connectionExceptionHandler,context);
-  }
 }

@@ -2,6 +2,7 @@
   connCount--;
   if (conn != null) {
     allConnections.remove(conn);
+    availableConnections.remove(conn);
   }
   Waiter waiter=waiters.poll();
   if (waiter != null) {
