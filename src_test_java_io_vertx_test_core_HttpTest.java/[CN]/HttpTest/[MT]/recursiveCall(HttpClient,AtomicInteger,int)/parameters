@@ -1,0 +1,3 @@
+HttpClient client
+AtomicInteger receivedRequests
+int sendRequests

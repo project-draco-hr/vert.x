@@ -1,11 +1,12 @@
 {
-  if (pipelining) {
-    if (conn.getOutstandingRequestCount() == 0 && waiters.isEmpty()) {
+  if (pipelining || keepAlive) {
+    Waiter waiter=waiters.poll();
+    if (waiter != null) {
+      executeWaiter(conn,waiter);
+    }
+ else     if (!pipelining || conn.getOutstandingRequestCount() == 0) {
       conn.close();
     }
-  }
- else   if (keepAlive) {
-    checkReuseConnection(conn);
   }
  else {
     conn.close();
