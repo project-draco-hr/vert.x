@@ -1,0 +1,10 @@
+{
+  try {
+    theHandler.handle(message);
+    metrics.endHandleMessage(metric,null);
+  }
+ catch (  Exception e) {
+    metrics.endHandleMessage(metric,e);
+    throw e;
+  }
+}

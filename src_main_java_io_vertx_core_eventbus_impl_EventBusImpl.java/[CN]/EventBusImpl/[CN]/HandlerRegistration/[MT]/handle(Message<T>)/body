@@ -1,25 +1,24 @@
 {
-  if (paused) {
-    if (pending.size() < maxBufferedMessages) {
-      pending.add(event);
-    }
+  Handler<Message<T>> theHandler=null;
+synchronized (this) {
+    if (paused) {
+      if (pending.size() < maxBufferedMessages) {
+        pending.add(message);
+      }
  else {
-      if (discardHandler != null) {
-        discardHandler.handle(event);
+        if (discardHandler != null) {
+          discardHandler.handle(message);
+        }
       }
     }
-  }
  else {
-    checkNextTick();
-    MessageImpl abc=(MessageImpl)event;
-    metrics.beginHandleMessage(metric,abc.getSocket() == null);
-    try {
-      handler.handle(event);
-      metrics.endHandleMessage(metric,null);
+      checkNextTick();
+      MessageImpl abc=(MessageImpl)message;
+      metrics.beginHandleMessage(metric,abc.getSocket() == null);
+      theHandler=handler;
     }
- catch (    Exception e) {
-      metrics.endHandleMessage(metric,e);
-      throw e;
-    }
+  }
+  if (theHandler != null) {
+    handleMessage(theHandler,message);
   }
 }
