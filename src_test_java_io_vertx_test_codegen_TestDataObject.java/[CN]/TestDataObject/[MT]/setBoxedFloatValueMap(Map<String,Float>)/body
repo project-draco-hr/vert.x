@@ -1,0 +1,4 @@
+{
+  this.boxedFloatValueMap=boxedFloatValueMap;
+  return this;
+}

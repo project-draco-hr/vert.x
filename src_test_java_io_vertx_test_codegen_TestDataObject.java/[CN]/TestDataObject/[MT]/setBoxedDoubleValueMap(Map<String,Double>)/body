@@ -1,0 +1,4 @@
+{
+  this.boxedDoubleValueMap=boxedDoubleValueMap;
+  return this;
+}

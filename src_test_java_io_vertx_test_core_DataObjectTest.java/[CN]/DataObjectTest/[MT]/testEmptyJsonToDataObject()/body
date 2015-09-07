@@ -37,6 +37,7 @@
   assertEquals(null,obj.getJsonObjects());
   assertEquals(null,obj.getJsonArrays());
   assertEquals(null,obj.getHttpMethods());
+  assertEquals(null,obj.getObjects());
   assertEquals(Collections.emptyList(),obj.getAddedStringValues());
   assertEquals(Collections.emptyList(),obj.getAddedBooleanValues());
   assertEquals(Collections.emptyList(),obj.getAddedByteValues());
@@ -59,4 +60,20 @@
   assertEquals(Collections.emptyList(),obj.getAddedJsonObjects());
   assertEquals(Collections.emptyList(),obj.getAddedJsonArrays());
   assertEquals(Collections.emptyList(),obj.getAddedHttpMethods());
+  assertEquals(Collections.emptyList(),obj.getAddedObjects());
+  assertEquals(null,obj.getStringValueMap());
+  assertEquals(null,obj.getBoxedBooleanValueMap());
+  assertEquals(null,obj.getBoxedByteValueMap());
+  assertEquals(null,obj.getBoxedShortValueMap());
+  assertEquals(null,obj.getBoxedIntValueMap());
+  assertEquals(null,obj.getBoxedLongValueMap());
+  assertEquals(null,obj.getBoxedFloatValueMap());
+  assertEquals(null,obj.getBoxedDoubleValueMap());
+  assertEquals(null,obj.getBoxedCharValueMap());
+  assertEquals(null,obj.getAggregatedDataObjectMap());
+  assertEquals(null,obj.getBufferMap());
+  assertEquals(null,obj.getJsonObjectMap());
+  assertEquals(null,obj.getJsonArrayMap());
+  assertEquals(null,obj.getHttpMethodMap());
+  assertEquals(null,obj.getObjectMap());
 }

@@ -1,0 +1,4 @@
+{
+  this.boxedBooleanValueMap=boxedBooleanValueMap;
+  return this;
+}
