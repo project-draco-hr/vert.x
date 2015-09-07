@@ -3,5 +3,5 @@
   setOptions(serverOptions,options);
   serverOptions.setSsl(true);
   serverOptions.setPort(4043);
-  testStore(serverOptions,Collections.singletonList(expectedPrefix),expectedSuffix);
+  testStore(serverOptions,expectedPossiblePrefixes,expectedSuffix);
 }
