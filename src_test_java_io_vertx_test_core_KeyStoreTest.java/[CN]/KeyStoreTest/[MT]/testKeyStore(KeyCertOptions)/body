@@ -1,5 +1,8 @@
 {
   KeyStoreHelper helper=KeyStoreHelper.create((VertxInternal)vertx,options);
+  KeyStore keyStore=helper.loadStore((VertxInternal)vertx);
+  Enumeration<String> aliases=keyStore.aliases();
+  assertTrue(aliases.hasMoreElements());
   KeyManager[] keyManagers=helper.getKeyMgrs((VertxInternal)vertx);
   assertTrue(keyManagers.length > 0);
 }

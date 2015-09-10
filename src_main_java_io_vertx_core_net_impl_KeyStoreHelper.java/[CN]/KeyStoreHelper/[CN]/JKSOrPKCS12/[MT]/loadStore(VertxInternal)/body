@@ -3,7 +3,7 @@
   InputStream in=null;
   try {
     in=new ByteArrayInputStream(value.get().getBytes());
-    ks.load(in,ksPassword != null ? ksPassword.toCharArray() : null);
+    ks.load(in,password != null ? password.toCharArray() : null);
   }
   finally {
     if (in != null) {
