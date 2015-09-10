@@ -1,0 +1,6 @@
+{
+  byte[] bytes=TestUtils.randomByteArray(100);
+  Buffer b=Buffer.buffer(bytes);
+  byte[] result=new byte[bytes.length / 2];
+  b.getBytes(bytes.length / 4,bytes.length / 4 + bytes.length / 2,result,-1);
+}

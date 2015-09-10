@@ -1,0 +1,3 @@
+{
+  return getBytes(0,buffer.writerIndex(),dst,dstIndex);
+}
