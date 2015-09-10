@@ -39,6 +39,7 @@
   assertEquals(null,json.getJsonArray("jsonObjects"));
   assertEquals(null,json.getJsonArray("jsonArrays"));
   assertEquals(null,json.getJsonArray("httpMethods"));
+  assertEquals(null,json.getJsonArray("objects"));
   assertEquals(new JsonArray(),json.getJsonArray("addedStringValues"));
   assertEquals(new JsonArray(),json.getJsonArray("addedBooleanValues"));
   assertEquals(new JsonArray(),json.getJsonArray("addedByteValues"));
@@ -61,4 +62,20 @@
   assertEquals(new JsonArray(),json.getJsonArray("addedJsonObjects"));
   assertEquals(new JsonArray(),json.getJsonArray("addedJsonArrays"));
   assertEquals(new JsonArray(),json.getJsonArray("addedHttpMethods"));
+  assertEquals(new JsonArray(),json.getJsonArray("addedObjects"));
+  assertEquals(null,json.getJsonArray("stringValueMap"));
+  assertEquals(null,json.getJsonArray("boxedBooleanValueMap"));
+  assertEquals(null,json.getJsonArray("boxedByteValueMap"));
+  assertEquals(null,json.getJsonArray("boxedShortValueMap"));
+  assertEquals(null,json.getJsonArray("boxedIntValueMap"));
+  assertEquals(null,json.getJsonArray("boxedLongValueMap"));
+  assertEquals(null,json.getJsonArray("boxedFloatValueMap"));
+  assertEquals(null,json.getJsonArray("boxedDoubleValueMap"));
+  assertEquals(null,json.getJsonArray("boxedCharValueMap"));
+  assertEquals(null,json.getJsonArray("aggregatedDataObjectMap"));
+  assertEquals(null,json.getJsonArray("bufferMap"));
+  assertEquals(null,json.getJsonArray("jsonObjectMap"));
+  assertEquals(null,json.getJsonArray("jsonArrayMap"));
+  assertEquals(null,json.getJsonArray("httpMethodMap"));
+  assertEquals(null,json.getJsonArray("objectMap"));
 }

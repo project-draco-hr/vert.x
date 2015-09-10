@@ -1,0 +1,4 @@
+{
+  this.bufferMap=bufferMap;
+  return this;
+}

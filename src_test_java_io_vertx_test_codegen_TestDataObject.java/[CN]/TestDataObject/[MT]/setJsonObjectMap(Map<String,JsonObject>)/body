@@ -1,0 +1,4 @@
+{
+  this.jsonObjectMap=jsonObjectMap;
+  return this;
+}

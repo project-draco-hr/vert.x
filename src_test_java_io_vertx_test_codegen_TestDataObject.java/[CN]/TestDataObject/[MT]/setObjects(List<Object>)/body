@@ -1,0 +1,4 @@
+{
+  this.objects=objects;
+  return this;
+}

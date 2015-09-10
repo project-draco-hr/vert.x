@@ -1,0 +1,4 @@
+{
+  this.boxedByteValueMap=boxedByteValueMap;
+  return this;
+}

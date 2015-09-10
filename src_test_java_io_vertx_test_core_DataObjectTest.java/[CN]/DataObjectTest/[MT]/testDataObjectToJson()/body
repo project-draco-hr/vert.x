@@ -1,4 +1,5 @@
 {
+  String key=TestUtils.randomAlphaString(10);
   String stringValue=TestUtils.randomAlphaString(20);
   boolean booleanValue=TestUtils.randomBoolean();
   byte byteValue=TestUtils.randomByte();
@@ -21,6 +22,14 @@
   JsonObject jsonObject=new JsonObject().put("wibble",TestUtils.randomAlphaString(20));
   JsonArray jsonArray=new JsonArray().add(TestUtils.randomAlphaString(20));
   HttpMethod httpMethod=HttpMethod.values()[TestUtils.randomPositiveInt() % HttpMethod.values().length];
+  Map<String,Object> map=new HashMap<>();
+  map.put(TestUtils.randomAlphaString(10),TestUtils.randomAlphaString(20));
+  map.put(TestUtils.randomAlphaString(10),TestUtils.randomBoolean());
+  map.put(TestUtils.randomAlphaString(10),TestUtils.randomInt());
+  List<Object> list=new ArrayList<>();
+  list.add(TestUtils.randomAlphaString(20));
+  list.add(TestUtils.randomBoolean());
+  list.add(TestUtils.randomInt());
   TestDataObject obj=new TestDataObject();
   obj.setStringValue(stringValue);
   obj.setBooleanValue(booleanValue);
@@ -58,6 +67,22 @@
   obj.setJsonObjects(Collections.singletonList(jsonObject));
   obj.setJsonArrays(Collections.singletonList(jsonArray));
   obj.setHttpMethods(Collections.singletonList(httpMethod));
+  obj.setObjects(list);
+  obj.setStringValueMap(Collections.singletonMap(key,stringValue));
+  obj.setBoxedBooleanValueMap(Collections.singletonMap(key,boxedBooleanValue));
+  obj.setBoxedByteValueMap(Collections.singletonMap(key,boxedByteValue));
+  obj.setBoxedShortValueMap(Collections.singletonMap(key,boxedShortValue));
+  obj.setBoxedIntValueMap(Collections.singletonMap(key,boxedIntValue));
+  obj.setBoxedLongValueMap(Collections.singletonMap(key,boxedLongValue));
+  obj.setBoxedFloatValueMap(Collections.singletonMap(key,boxedFloatValue));
+  obj.setBoxedDoubleValueMap(Collections.singletonMap(key,boxedDoubleValue));
+  obj.setBoxedCharValueMap(Collections.singletonMap(key,boxedCharValue));
+  obj.setAggregatedDataObjectMap(Collections.singletonMap(key,aggregatedDataObject));
+  obj.setBufferMap(Collections.singletonMap(key,buffer));
+  obj.setJsonObjectMap(Collections.singletonMap(key,jsonObject));
+  obj.setJsonArrayMap(Collections.singletonMap(key,jsonArray));
+  obj.setHttpMethodMap(Collections.singletonMap(key,httpMethod));
+  obj.setObjectMap(map);
   JsonObject json=new JsonObject();
   TestDataObjectConverter.toJson(obj,json);
   json=new JsonObject(json.encode());
@@ -99,4 +124,22 @@
   assertEquals(new JsonArray().add(jsonObject),json.getJsonArray("jsonObjects"));
   assertEquals(new JsonArray().add(jsonArray),json.getJsonArray("jsonArrays"));
   assertEquals(new JsonArray().add(httpMethod.name()),json.getJsonArray("httpMethods"));
+  assertEquals(new JsonArray().add(list.get(0)).add(list.get(1)).add(list.get(2)),json.getJsonArray("objects"));
+  assertEquals(new JsonObject().put(key,stringValue),json.getJsonObject("stringValueMap"));
+  assertEquals(new JsonObject().put(key,boxedBooleanValue),json.getJsonObject("boxedBooleanValueMap"));
+  assertEquals(new JsonObject().put(key,boxedByteValue),json.getJsonObject("boxedByteValueMap"));
+  assertEquals(new JsonObject().put(key,boxedShortValue),json.getJsonObject("boxedShortValueMap"));
+  assertEquals(new JsonObject().put(key,boxedIntValue),json.getJsonObject("boxedIntValueMap"));
+  assertEquals(new JsonObject().put(key,boxedLongValue),json.getJsonObject("boxedLongValueMap"));
+  assertEquals(1,json.getJsonObject("boxedFloatValueMap").size());
+  assertEquals(boxedFloatValue,json.getJsonObject("boxedFloatValueMap").getFloat(key),0.001);
+  assertEquals(1,json.getJsonObject("boxedDoubleValueMap").size());
+  assertEquals(boxedDoubleValue,json.getJsonObject("boxedDoubleValueMap").getDouble(key),0.001);
+  assertEquals(new JsonObject().put(key,Character.toString(boxedCharValue)),json.getJsonObject("boxedCharValueMap"));
+  assertEquals(new JsonObject().put(key,aggregatedDataObject.toJson()),json.getJsonObject("aggregatedDataObjectMap"));
+  assertEquals(new JsonObject().put(key,Base64.getEncoder().encodeToString(buffer.getBytes())),json.getJsonObject("bufferMap"));
+  assertEquals(new JsonObject().put(key,jsonObject),json.getJsonObject("jsonObjectMap"));
+  assertEquals(new JsonObject().put(key,jsonArray),json.getJsonObject("jsonArrayMap"));
+  assertEquals(new JsonObject().put(key,httpMethod.name()),json.getJsonObject("httpMethodMap"));
+  assertEquals(toJson(map),json.getJsonObject("objectMap"));
 }

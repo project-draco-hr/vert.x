@@ -1,0 +1,4 @@
+{
+  this.objectMap=objectMap;
+  return this;
+}
