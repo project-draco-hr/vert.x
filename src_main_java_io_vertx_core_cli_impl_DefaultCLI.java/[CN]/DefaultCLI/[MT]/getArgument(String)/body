@@ -1,6 +1,6 @@
 {
   Objects.requireNonNull(name);
-  for (  ArgumentModel arg : arguments) {
+  for (  Argument arg : arguments) {
     if (name.equalsIgnoreCase(arg.getArgName())) {
       return arg;
     }

@@ -2,16 +2,16 @@
   cli.addArgument(new TypedArgument<String>().setIndex(0).setType(String.class).setRequired(true));
   cli.addArgument(new TypedArgument<String>().setIndex(1).setType(String.class).setRequired(true));
   try {
-    evaluated=parser.parse(cli,Collections.emptyList());
+    evaluated=cli.parse(Collections.emptyList());
     fail("Missing Value Exception expected");
   }
  catch (  MissingValueException e) {
   }
   try {
-    evaluated=parser.parse(cli,Collections.singletonList("a"));
+    evaluated=cli.parse(Collections.singletonList("a"));
     fail("Missing Value Exception expected");
   }
  catch (  MissingValueException e) {
   }
-  evaluated=parser.parse(cli,Arrays.asList("a","b"));
+  evaluated=cli.parse(Arrays.asList("a","b"));
 }

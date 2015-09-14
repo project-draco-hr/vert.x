@@ -1,5 +1,5 @@
 {
-  final CLI cli=CLI.create("test").addOption(new OptionModel().setLongName("file").setDescription("a file"));
+  final CLI cli=CLI.create("test").addOption(new Option().setLongName("file").setDescription("a file"));
   StringBuilder builder=new StringBuilder();
   cli.usage(builder);
   assertThat(builder).contains("test [--file <value>]").contains(" --file <value>   a file");

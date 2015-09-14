@@ -1,8 +1,8 @@
 {
   CLI cli=new DefaultCLI().setName("test");
-  OptionModel[] options=new OptionModel[]{new TypedOption<String>().setShortName("D").setLongName("systemProperty").setMultiValued(true).setType(String.class),new TypedOption<Boolean>().setShortName("F").setLongName("flag").setFlag(true).setType(Boolean.class)};
+  Option[] options=new Option[]{new TypedOption<String>().setShortName("D").setLongName("systemProperty").setMultiValued(true).setType(String.class),new TypedOption<Boolean>().setShortName("F").setLongName("flag").setFlag(true).setType(Boolean.class)};
   cli.addOptions(Arrays.asList(options));
-  CommandLine evaluated=parser.parse(cli,Arrays.asList("-Dx=y","-F"));
+  CommandLine evaluated=cli.parse(Arrays.asList("-Dx=y","-F"));
   assertThat(evaluated.cli().getOptions()).hasSize(2);
   assertThat(evaluated.getRawValueForOption(evaluated.cli().getOption("systemProperty"))).isEqualTo("x=y");
   assertThat((boolean)evaluated.getOptionValue("flag")).isTrue();

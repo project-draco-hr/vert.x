@@ -1,5 +1,5 @@
 {
-  ArgumentModel arg=cli.getArgument(name);
+  Argument arg=cli.getArgument(name);
   if (arg == null) {
     return null;
   }

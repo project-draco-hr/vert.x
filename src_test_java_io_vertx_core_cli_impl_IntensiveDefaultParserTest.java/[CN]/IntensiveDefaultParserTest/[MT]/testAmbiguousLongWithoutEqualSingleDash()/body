@@ -3,7 +3,7 @@
   TypedOption<String> f=new TypedOption<String>().setType(String.class).setLongName("foo").setShortName("f").setSingleValued(true);
   TypedOption<Boolean> b=new TypedOption<Boolean>().setType(Boolean.class).setLongName("bar").setShortName("b").setFlag(true);
   cli.removeOption("b").addOption(f).addOption(b);
-  CommandLine evaluated=parser.parse(cli,Arrays.asList(args));
+  CommandLine evaluated=cli.parse(Arrays.asList(args));
   assertThat((boolean)evaluated.getOptionValue("bar")).isTrue();
   assertThat((String)evaluated.getOptionValue("foo")).isEqualTo("bar");
 }

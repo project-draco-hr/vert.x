@@ -1,8 +1,8 @@
 {
   CLI cli=new DefaultCLI().setName("test");
-  OptionModel[] options=new OptionModel[]{new TypedOption<String>().setShortName("f").setLongName("file").setParsedAsList(true).setType(String.class)};
+  Option[] options=new Option[]{new TypedOption<String>().setShortName("f").setLongName("file").setParsedAsList(true).setType(String.class)};
   cli.addOptions(Arrays.asList(options));
-  CommandLine evaluated=parser.parse(cli,Collections.singletonList("-f=hello.txt,hello2.txt"));
+  CommandLine evaluated=cli.parse(Collections.singletonList("-f=hello.txt,hello2.txt"));
   assertThat(evaluated.cli().getOptions()).hasSize(1);
   assertThat((String)evaluated.getOptionValue("file")).isEqualTo("hello.txt,hello2.txt");
   assertThat(evaluated.getOptionValues("f")).containsExactly("hello.txt","hello2.txt");

@@ -1,10 +1,10 @@
 {
-  OptionModel[] options=new OptionModel[]{new OptionModel().setShortName("f").setLongName("file").setSingleValued(true)};
+  Option[] options=new Option[]{new Option().setShortName("f").setLongName("file").setSingleValued(true)};
   cli.addOptions(Arrays.asList(options));
-  CommandLine evaluated=parser.parse(cli,Arrays.asList("-f","hello.txt"));
+  CommandLine evaluated=cli.parse(Arrays.asList("-f","hello.txt"));
   assertThat((String)evaluated.getOptionValue("file")).isEqualTo("hello.txt");
-  evaluated=parser.parse(cli,Collections.singletonList("-f=hello.txt"));
+  evaluated=cli.parse(Collections.singletonList("-f=hello.txt"));
   assertThat((String)evaluated.getOptionValue("file")).isEqualTo("hello.txt");
-  evaluated=parser.parse(cli,Collections.singletonList("-fhello.txt"));
+  evaluated=cli.parse(Collections.singletonList("-fhello.txt"));
   assertThat((String)evaluated.getOptionValue("file")).isEqualTo("hello.txt");
 }

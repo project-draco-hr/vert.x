@@ -1,5 +1,0 @@
-{
-  JsonObject json=new JsonObject();
-  ArgumentModelConverter.toJson(this,json);
-  return json;
-}

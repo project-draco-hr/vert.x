@@ -1,5 +1,5 @@
 {
-  List<OptionModel> matchingOpts=getMatchingOptions(token);
+  List<Option> matchingOpts=getMatchingOptions(token);
   if (matchingOpts.isEmpty()) {
     handleArgument(token);
   }
@@ -7,7 +7,7 @@
     throw new AmbiguousOptionException(token,matchingOpts);
   }
  else {
-    final OptionModel option=matchingOpts.get(0);
+    final Option option=matchingOpts.get(0);
     handleOption(option);
   }
 }

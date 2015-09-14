@@ -1,5 +1,5 @@
 {
-  final OptionModel option=commandLine.cli().getOption(name);
+  final io.vertx.core.cli.Option option=commandLine.cli().getOption(name);
   if (option == null) {
     return null;
   }

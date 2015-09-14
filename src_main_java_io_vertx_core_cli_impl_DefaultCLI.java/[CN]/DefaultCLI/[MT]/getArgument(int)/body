@@ -2,7 +2,7 @@
   if (index < 0) {
     throw new IllegalArgumentException("Given index cannot be negative");
   }
-  for (  ArgumentModel arg : arguments) {
+  for (  Argument arg : arguments) {
     if (index == arg.getIndex()) {
       return arg;
     }

@@ -1,5 +1,5 @@
 {
-  AmbiguousOptionException exception=new AmbiguousOptionException("foo",Arrays.asList(new OptionModel().setLongName("foobar"),new OptionModel().setLongName("foobaz")));
+  AmbiguousOptionException exception=new AmbiguousOptionException("foo",Arrays.asList(new Option().setLongName("foobar"),new Option().setLongName("foobaz")));
   assertThat(exception.getOptions()).hasSize(2);
   assertThat(exception.getToken()).isEqualTo("foo");
   assertThat(exception.getMessage()).contains("Ambiguous argument in command line").contains("'foo'").contains("foobar").contains("foobaz");

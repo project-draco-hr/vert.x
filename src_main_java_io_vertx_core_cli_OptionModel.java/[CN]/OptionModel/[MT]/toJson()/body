@@ -1,5 +1,0 @@
-{
-  JsonObject json=new JsonObject();
-  OptionModelConverter.toJson(this,json);
-  return json;
-}

@@ -1,5 +1,5 @@
 {
-  OptionModel[] options=new OptionModel[]{new OptionModel().setShortName("f").setLongName("file").setSingleValued(true)};
+  Option[] options=new Option[]{new Option().setShortName("f").setLongName("file").setSingleValued(true)};
   cli.addOptions(Arrays.asList(options));
-  parser.parse(cli,Collections.singletonList("--file"));
+  cli.parse(Collections.singletonList("--file"));
 }

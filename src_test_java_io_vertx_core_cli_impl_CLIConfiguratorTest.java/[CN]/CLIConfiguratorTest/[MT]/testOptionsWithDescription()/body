@@ -1,6 +1,6 @@
 {
   Object command=new Object(){
-    @Option(longName="option",shortName="o") @Description("This option is awesome") public void setFoo(    String foo){
+    @io.vertx.core.cli.annotations.Option(longName="option",shortName="o") @Description("This option is awesome") public void setFoo(    String foo){
     }
   }
 ;

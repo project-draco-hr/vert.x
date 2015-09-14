@@ -1,6 +1,0 @@
-{
-  if ((shortName == null || shortName.equals(NO_NAME)) && (longName == null || longName.equals(NO_NAME))) {
-    throw new IllegalArgumentException("An option needs at least a long name or a short name");
-  }
-  return true;
-}

@@ -13,11 +13,11 @@
   if (getOptionComparator() != null) {
     Collections.sort(cli.getOptions(),getOptionComparator());
   }
-  for (  OptionModel option : cli.getOptions()) {
+  for (  Option option : cli.getOptions()) {
     appendOption(buff,option,option.isRequired());
     buff.append(" ");
   }
-  for (  ArgumentModel arg : cli.getArguments()) {
+  for (  Argument arg : cli.getArguments()) {
     appendArgument(buff,arg,arg.isRequired());
     buff.append(" ");
   }

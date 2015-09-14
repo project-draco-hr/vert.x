@@ -1,5 +1,5 @@
 {
-  OptionModel option=cli.getOption(name);
+  Option option=cli.getOption(name);
   if (option == null) {
     throw new IllegalArgumentException("Cannot find the option '" + name + "'");
   }

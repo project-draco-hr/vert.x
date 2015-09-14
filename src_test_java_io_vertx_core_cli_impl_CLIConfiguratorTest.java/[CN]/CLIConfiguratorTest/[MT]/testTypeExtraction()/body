@@ -1,16 +1,16 @@
 {
   Object object=new Object(){
-    @Option(longName="list",shortName="l") public void setFoo(    List<String> list){
+    @io.vertx.core.cli.annotations.Option(longName="list",shortName="l") public void setFoo(    List<String> list){
     }
-    @Option(longName="set",shortName="s") public void setFoo(    Set<Character> set){
+    @io.vertx.core.cli.annotations.Option(longName="set",shortName="s") public void setFoo(    Set<Character> set){
     }
-    @Option(longName="collection",shortName="c") public void setFoo(    Collection<Integer> collection){
+    @io.vertx.core.cli.annotations.Option(longName="collection",shortName="c") public void setFoo(    Collection<Integer> collection){
     }
-    @Option(longName="tree",shortName="t") public void setFoo(    TreeSet<String> list){
+    @io.vertx.core.cli.annotations.Option(longName="tree",shortName="t") public void setFoo(    TreeSet<String> list){
     }
-    @Option(longName="al",shortName="al") public void setFoo(    ArrayList<String> list){
+    @io.vertx.core.cli.annotations.Option(longName="al",shortName="al") public void setFoo(    ArrayList<String> list){
     }
-    @Option(longName="array",shortName="a") public void setFoo(    int[] list){
+    @io.vertx.core.cli.annotations.Option(longName="array",shortName="a") public void setFoo(    int[] list){
     }
   }
 ;

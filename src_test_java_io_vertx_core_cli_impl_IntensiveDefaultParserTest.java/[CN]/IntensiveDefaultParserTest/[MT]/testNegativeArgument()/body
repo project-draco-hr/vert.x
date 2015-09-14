@@ -1,5 +1,5 @@
 {
   String[] args=new String[]{"-b","-1"};
-  CommandLine evaluated=parser.parse(cli,Arrays.asList(args));
+  CommandLine evaluated=cli.parse(Arrays.asList(args));
   assertThat(getStringOption(evaluated,"b")).isEqualTo("-1");
 }
