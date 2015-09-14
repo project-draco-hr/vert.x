@@ -1,0 +1,9 @@
+{
+  byte[] bytes=TestUtils.randomByteArray(100);
+  Buffer b=Buffer.buffer(bytes);
+  byte[] sub=new byte[bytes.length];
+  System.arraycopy(bytes,bytes.length / 4,sub,12,bytes.length / 2);
+  byte[] result=new byte[bytes.length];
+  b.getBytes(bytes.length / 4,bytes.length / 4 + bytes.length / 2,result,12);
+  assertTrue(TestUtils.byteArraysEqual(sub,result));
+}
