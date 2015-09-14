@@ -5,5 +5,5 @@
   assertThat(getStringOption(evaluated,"b")).isEqualTo("toast");
   assertThat(getStringOption(evaluated,"bfile")).isEqualTo("toast");
   assertThat(getBooleanOption(evaluated,"c")).isFalse();
-  assertThat(evaluated.getAllArguments()).contains("foo","bar").hasSize(2);
+  assertThat(evaluated.allArguments()).contains("foo","bar").hasSize(2);
 }
