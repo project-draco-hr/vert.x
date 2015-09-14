@@ -32,6 +32,6 @@
   if (defaultValue != null) {
     opt.setDefaultValue(defaultValue.value());
   }
-  opt.isValid();
+  opt.ensureValidity();
   return opt;
 }

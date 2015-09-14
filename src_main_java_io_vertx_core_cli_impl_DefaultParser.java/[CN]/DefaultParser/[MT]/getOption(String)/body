@@ -1,6 +1,6 @@
 {
   opt=stripLeadingHyphens(opt);
-  for (  OptionModel option : cli.getOptions()) {
+  for (  Option option : cli.getOptions()) {
     if (opt.equalsIgnoreCase(option.getShortName()) || opt.equalsIgnoreCase(option.getLongName())) {
       return option;
     }

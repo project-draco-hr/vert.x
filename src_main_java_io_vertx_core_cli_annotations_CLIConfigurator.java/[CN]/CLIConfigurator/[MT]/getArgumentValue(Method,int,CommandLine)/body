@@ -1,5 +1,5 @@
 {
-  final ArgumentModel argument=commandLine.cli().getArgument(index);
+  final io.vertx.core.cli.Argument argument=commandLine.cli().getArgument(index);
   if (argument == null) {
     return null;
   }

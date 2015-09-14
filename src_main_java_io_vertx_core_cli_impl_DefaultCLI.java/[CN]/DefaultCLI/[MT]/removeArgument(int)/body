@@ -1,5 +1,5 @@
 {
-  for (  ArgumentModel arg : new TreeSet<>(arguments)) {
+  for (  Argument arg : new TreeSet<>(arguments)) {
     if (arg.getIndex() == index) {
       arguments.remove(arg);
       return this;

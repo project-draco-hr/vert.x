@@ -3,7 +3,7 @@
   TypedOption<String> b=new TypedOption<String>().setShortName("b").setLongName("bfile").setSingleValued(true).setDescription("set the value of [b]").setType(String.class).setRequired(true);
   cli.removeOption("b").addOption(b);
   try {
-    parser.parse(cli,Arrays.asList(args));
+    cli.parse(Arrays.asList(args));
     fail("exception expected");
   }
  catch (  MissingOptionException e) {

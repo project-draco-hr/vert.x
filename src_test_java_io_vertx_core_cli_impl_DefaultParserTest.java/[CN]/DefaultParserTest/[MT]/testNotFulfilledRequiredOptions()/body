@@ -1,5 +1,5 @@
 {
-  OptionModel[] options=new OptionModel[]{new TypedOption<Boolean>().setShortName("f").setLongName("flag").setType(Boolean.class).setRequired(true).setSingleValued(true)};
+  Option[] options=new Option[]{new TypedOption<Boolean>().setShortName("f").setLongName("flag").setType(Boolean.class).setRequired(true).setSingleValued(true)};
   cli.addOptions(Arrays.asList(options));
-  CommandLine evaluated=parser.parse(cli,Collections.emptyList());
+  CommandLine evaluated=cli.parse(Collections.emptyList());
 }

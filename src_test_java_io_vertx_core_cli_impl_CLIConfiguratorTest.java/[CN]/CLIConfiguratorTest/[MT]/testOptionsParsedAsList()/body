@@ -1,6 +1,6 @@
 {
   Object object=new Object(){
-    @Option(longName="option",shortName="o") @ParsedAsList(separator=":") public void setFoo(    List<String> foo){
+    @io.vertx.core.cli.annotations.Option(longName="option",shortName="o") @ParsedAsList(separator=":") public void setFoo(    List<String> foo){
     }
   }
 ;

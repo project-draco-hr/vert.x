@@ -1,5 +1,5 @@
 {
-  OptionModel[] options=new OptionModel[]{new TypedOption<Boolean>().setShortName("f").setLongName("flag").setType(Boolean.class).setRequired(true).setFlag(true)};
+  Option[] options=new Option[]{new TypedOption<Boolean>().setShortName("f").setLongName("flag").setType(Boolean.class).setRequired(true).setFlag(true)};
   cli.addOptions(Arrays.asList(options));
-  parser.parse(cli,Collections.singletonList("-f"));
+  cli.parse(Collections.singletonList("-f"));
 }

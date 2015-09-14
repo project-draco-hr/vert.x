@@ -1,8 +1,8 @@
 {
   cli.addArgument(new TypedArgument<Integer>().setIndex(0).setArgName("1").setType(Integer.class));
   try {
-    evaluated=parser.parse(cli,Collections.singletonList("a"));
-    String v=evaluated.getArgumentValue(0);
+    evaluated=cli.parse(Collections.singletonList("a"));
+    evaluated.getArgumentValue(0);
     fail("Exception expected");
   }
  catch (  CLIException e) {

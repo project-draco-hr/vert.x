@@ -1,5 +1,5 @@
 {
-  final CLI cli=CLI.create("test").addOption(new OptionModel().setLongName("flag").setShortName("f").setDescription("turn on/off").setFlag(true));
+  final CLI cli=CLI.create("test").addOption(new Option().setLongName("flag").setShortName("f").setDescription("turn on/off").setFlag(true));
   StringBuilder builder=new StringBuilder();
   cli.usage(builder);
   assertThat(builder).contains("test [-f]").contains(" -f,--flag   turn on/off");

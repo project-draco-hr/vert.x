@@ -1,6 +1,6 @@
 {
   String[] args=new String[]{"--copt","-b","-","-a","-"};
-  CommandLine evaluated=parser.parse(cli,Arrays.asList(args));
+  CommandLine evaluated=cli.parse(Arrays.asList(args));
   assertThat(getBooleanOption(evaluated,"a")).isTrue();
   assertThat(getStringOption(evaluated,"b")).isEqualTo("-");
   assertThat(getBooleanOption(evaluated,"c")).isTrue();

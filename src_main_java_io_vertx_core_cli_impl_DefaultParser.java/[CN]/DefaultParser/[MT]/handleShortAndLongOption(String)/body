@@ -30,7 +30,7 @@
       }
  else       if (isAValidShortOption(t)) {
         String strip=t.substring(0,1);
-        OptionModel option=getOption(strip);
+        Option option=getOption(strip);
         handleOption(option);
         commandLine.addRawValue(current,t.substring(1));
         current=null;
@@ -44,7 +44,7 @@
     String opt=t.substring(0,pos);
     String value=t.substring(pos + 1);
     if (opt.length() == 1) {
-      OptionModel option=getOption(opt);
+      Option option=getOption(opt);
       if (option != null) {
         if (commandLine.acceptMoreValues(option)) {
           handleOption(option);

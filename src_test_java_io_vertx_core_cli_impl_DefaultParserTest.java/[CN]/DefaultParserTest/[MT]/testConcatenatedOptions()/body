@@ -1,16 +1,16 @@
 {
   CLI cli=new DefaultCLI().setName("test");
-  OptionModel[] options=new OptionModel[]{new TypedOption<Boolean>().setShortName("d").setFlag(true).setType(Boolean.class),new TypedOption<Boolean>().setShortName("e").setFlag(true).setType(Boolean.class),new TypedOption<Boolean>().setShortName("f").setFlag(true).setType(Boolean.class)};
+  Option[] options=new Option[]{new TypedOption<Boolean>().setShortName("d").setFlag(true).setType(Boolean.class),new TypedOption<Boolean>().setShortName("e").setFlag(true).setType(Boolean.class),new TypedOption<Boolean>().setShortName("f").setFlag(true).setType(Boolean.class)};
   cli.addOptions(Arrays.asList(options));
-  CommandLine evaluated=parser.parse(cli,Arrays.asList("-d","-e","-f"));
+  CommandLine evaluated=cli.parse(Arrays.asList("-d","-e","-f"));
   assertThat((boolean)evaluated.getOptionValue("d")).isTrue();
   assertThat((boolean)evaluated.getOptionValue("e")).isTrue();
   assertThat((boolean)evaluated.getOptionValue("f")).isTrue();
-  evaluated=parser.parse(cli,Collections.singletonList("-de"));
+  evaluated=cli.parse(Collections.singletonList("-de"));
   assertThat((boolean)evaluated.getOptionValue("d")).isTrue();
   assertThat((boolean)evaluated.getOptionValue("e")).isTrue();
   assertThat((boolean)evaluated.getOptionValue("f")).isFalse();
-  evaluated=parser.parse(cli,Collections.singletonList("-def"));
+  evaluated=cli.parse(Collections.singletonList("-def"));
   assertThat((boolean)evaluated.getOptionValue("d")).isTrue();
   assertThat((boolean)evaluated.getOptionValue("e")).isTrue();
   assertThat((boolean)evaluated.getOptionValue("f")).isTrue();

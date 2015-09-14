@@ -4,7 +4,7 @@
   TypedOption<Boolean> v2=new TypedOption<Boolean>().setLongName("version").setType(Boolean.class).setSingleValued(false);
   cli.addOption(v1).addOption(v2);
   try {
-    parser.parse(cli,Arrays.asList(args));
+    cli.parse(Arrays.asList(args));
     fail("Exception expected");
   }
  catch (  AmbiguousOptionException e) {

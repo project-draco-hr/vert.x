@@ -1,4 +1,0 @@
-{
-  this();
-  OptionModelConverter.fromJson(json,this);
-}
