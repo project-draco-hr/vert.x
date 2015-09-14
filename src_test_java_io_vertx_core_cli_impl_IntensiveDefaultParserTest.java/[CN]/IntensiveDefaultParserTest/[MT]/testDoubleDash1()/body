@@ -3,5 +3,5 @@
   CommandLine evaluated=cli.parse(Arrays.asList(args));
   assertThat(getBooleanOption(evaluated,"c")).isTrue();
   assertThat(getStringOption(evaluated,"b")).isNull();
-  assertThat(evaluated.getAllArguments()).hasSize(2).contains("-b","toast");
+  assertThat(evaluated.allArguments()).hasSize(2).contains("-b","toast");
 }

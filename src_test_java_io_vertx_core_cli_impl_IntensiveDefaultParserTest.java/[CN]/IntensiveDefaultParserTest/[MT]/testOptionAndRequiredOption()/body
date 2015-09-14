@@ -5,5 +5,5 @@
   CommandLine evaluated=cli.parse(Arrays.asList(args));
   assertThat(getBooleanOption(evaluated,"a")).isTrue();
   assertThat(getStringOption(evaluated,"b")).isEqualTo("file");
-  assertThat(evaluated.getAllArguments()).isEmpty();
+  assertThat(evaluated.allArguments()).isEmpty();
 }

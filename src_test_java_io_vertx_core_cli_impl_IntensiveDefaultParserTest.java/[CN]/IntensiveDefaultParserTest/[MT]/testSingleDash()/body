@@ -4,5 +4,5 @@
   assertThat(getBooleanOption(evaluated,"a")).isTrue();
   assertThat(getStringOption(evaluated,"b")).isEqualTo("-");
   assertThat(getBooleanOption(evaluated,"c")).isTrue();
-  assertThat(evaluated.getAllArguments()).contains("-").hasSize(1);
+  assertThat(evaluated.allArguments()).contains("-").hasSize(1);
 }

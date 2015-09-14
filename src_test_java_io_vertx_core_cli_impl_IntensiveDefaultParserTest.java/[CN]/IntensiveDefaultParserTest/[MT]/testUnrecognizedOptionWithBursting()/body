@@ -1,5 +1,5 @@
 {
   String[] args=new String[]{"-adbtoast","foo","bar"};
   CommandLine evaluated=cli.parse(Arrays.asList(args));
-  assertThat(evaluated.getAllArguments()).contains("-adbtoast","foo","bar").hasSize(3);
+  assertThat(evaluated.allArguments()).contains("-adbtoast","foo","bar").hasSize(3);
 }

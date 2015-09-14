@@ -4,5 +4,5 @@
   assertThat(getBooleanOption(evaluated,"a")).isTrue();
   assertThat(getBooleanOption(evaluated,"c")).isTrue();
   assertThat(getStringOption(evaluated,"b")).isEqualTo("toast");
-  assertThat(evaluated.getAllArguments()).hasSize(2).contains("foo","bar");
+  assertThat(evaluated.allArguments()).hasSize(2).contains("foo","bar");
 }
