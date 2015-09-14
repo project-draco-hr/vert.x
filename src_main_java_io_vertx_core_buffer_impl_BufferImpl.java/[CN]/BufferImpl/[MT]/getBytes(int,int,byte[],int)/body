@@ -1,0 +1,5 @@
+{
+  Arguments.require(end >= start,"end must be greater or equal than start");
+  buffer.getBytes(start,dst,dstIndex,end - start);
+  return this;
+}

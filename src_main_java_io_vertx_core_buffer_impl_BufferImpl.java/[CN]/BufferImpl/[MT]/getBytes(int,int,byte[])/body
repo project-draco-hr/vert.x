@@ -1,0 +1,3 @@
+{
+  return getBytes(start,end,dst,0);
+}
