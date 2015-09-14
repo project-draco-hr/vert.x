@@ -1,0 +1,5 @@
+{
+  Person4 p4=Converters.create("bob, morane",new Person4Converter());
+  assertThat(p4.first).isEqualTo("bob");
+  assertThat(p4.last).isEqualTo("morane");
+}

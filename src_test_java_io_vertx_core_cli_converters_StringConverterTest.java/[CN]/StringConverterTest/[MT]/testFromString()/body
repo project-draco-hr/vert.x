@@ -1,0 +1,5 @@
+{
+  assertThat(StringConverter.INSTANCE.fromString("hello")).isEqualTo("hello");
+  assertThat(StringConverter.INSTANCE.fromString("")).isEqualTo("");
+  assertThat(StringConverter.INSTANCE.fromString(null)).isEqualTo(null);
+}

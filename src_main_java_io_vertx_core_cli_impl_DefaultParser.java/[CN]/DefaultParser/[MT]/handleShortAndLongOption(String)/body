@@ -1,0 +1,71 @@
+{
+  String t=stripLeadingHyphens(token);
+  int pos=t.indexOf('=');
+  if (t.length() == 1) {
+    if (hasOptionWithShortName(t)) {
+      handleOption(getOption(t));
+    }
+ else {
+      handleArgument(token);
+    }
+  }
+ else   if (pos == -1) {
+    if (hasOptionWithShortName(t)) {
+      handleOption(getOption(t));
+    }
+ else     if (!getMatchingOptions(t).isEmpty()) {
+      handleLongOptionWithoutEqual(token);
+    }
+ else {
+      String opt=getLongPrefix(t);
+      if (opt != null) {
+        if (commandLine.acceptMoreValues(getOption(opt))) {
+          handleOption(getOption(opt));
+          commandLine.addRawValue(getOption(opt),t.substring(opt.length()));
+          current=null;
+        }
+ else {
+          throw new InvalidValueException(getOption(opt),t.substring(opt.length()));
+        }
+      }
+ else       if (isAValidShortOption(t)) {
+        String strip=t.substring(0,1);
+        OptionModel option=getOption(strip);
+        handleOption(option);
+        commandLine.addRawValue(current,t.substring(1));
+        current=null;
+      }
+ else {
+        handleConcatenatedOptions(token);
+      }
+    }
+  }
+ else {
+    String opt=t.substring(0,pos);
+    String value=t.substring(pos + 1);
+    if (opt.length() == 1) {
+      OptionModel option=getOption(opt);
+      if (option != null) {
+        if (commandLine.acceptMoreValues(option)) {
+          handleOption(option);
+          commandLine.addRawValue(option,value);
+          current=null;
+        }
+ else {
+          throw new InvalidValueException(option,value);
+        }
+      }
+ else {
+        handleArgument(token);
+      }
+    }
+ else     if (isAValidShortOption(opt) && !hasOptionWithLongName(opt)) {
+      handleOption(getOption(opt.substring(0,1)));
+      commandLine.addRawValue(current,opt.substring(1) + "=" + value);
+      current=null;
+    }
+ else {
+      handleLongOptionWithEqual(token);
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  StringBuilder buff;
+  if (prefix == null) {
+    buff=new StringBuilder(getUsagePrefix());
+  }
+ else {
+    buff=new StringBuilder(getUsagePrefix()).append(prefix);
+    if (!prefix.endsWith(" ")) {
+      buff.append(" ");
+    }
+  }
+  buff.append(cli.getName()).append(" ");
+  if (getOptionComparator() != null) {
+    Collections.sort(cli.getOptions(),getOptionComparator());
+  }
+  for (  OptionModel option : cli.getOptions()) {
+    appendOption(buff,option,option.isRequired());
+    buff.append(" ");
+  }
+  for (  ArgumentModel arg : cli.getArguments()) {
+    appendArgument(buff,arg,arg.isRequired());
+    buff.append(" ");
+  }
+  buildWrapped(buffer,buff.toString().indexOf(' ') + 1,buff.toString());
+}

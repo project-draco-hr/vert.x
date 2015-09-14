@@ -1,0 +1,8 @@
+{
+  String[] args=new String[]{"-a","-b","toast","foo","bar"};
+  CommandLine evaluated=parser.parse(cli,Arrays.asList(args));
+  assertThat(getBooleanOption(evaluated,"a")).isTrue();
+  assertThat(getStringOption(evaluated,"b")).isEqualTo("toast");
+  assertThat(getBooleanOption(evaluated,"c")).isFalse();
+  assertThat(evaluated.getAllArguments()).contains("foo","bar").hasSize(2);
+}

@@ -1,0 +1,10 @@
+{
+  String[] args=new String[]{"-b"};
+  try {
+    CommandLine evaluated=parser.parse(cli,Arrays.asList(args));
+    fail("Exception expected");
+  }
+ catch (  MissingValueException e) {
+    assertThat(e.getOption().getShortName()).isEqualToIgnoringCase("b");
+  }
+}

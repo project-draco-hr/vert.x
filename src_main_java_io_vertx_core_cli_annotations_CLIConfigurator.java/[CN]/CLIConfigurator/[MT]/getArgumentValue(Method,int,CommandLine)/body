@@ -1,0 +1,7 @@
+{
+  final ArgumentModel argument=commandLine.cli().getArgument(index);
+  if (argument == null) {
+    return null;
+  }
+  return commandLine.getArgumentValue(argument.getIndex());
+}

@@ -1,0 +1,7 @@
+{
+  ArgumentModel arg=cli.getArgument(name);
+  if (arg == null) {
+    return null;
+  }
+  return getArgumentValue(arg.getIndex());
+}

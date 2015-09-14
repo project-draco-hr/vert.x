@@ -1,0 +1,14 @@
+{
+  CLI command=CLIConfigurator.define(HelloClI.class);
+  assertThat(command.getOptions()).hasSize(1);
+  TypedOption option=(TypedOption)find(command.getOptions(),"name");
+  assertThat(option.getLongName()).isEqualToIgnoringCase("name");
+  assertThat(option.getShortName()).isEqualToIgnoringCase("n");
+  assertThat(option.getType()).isEqualTo(String.class);
+  assertThat(option.getArgName()).isEqualTo("name");
+  assertThat(option.getDescription()).isEqualToIgnoringCase("your name");
+  assertThat(option.getDefaultValue()).isNull();
+  assertThat(option.acceptValue()).isTrue();
+  assertThat(option.isMultiValued()).isFalse();
+  assertThat(option.isRequired()).isTrue();
+}

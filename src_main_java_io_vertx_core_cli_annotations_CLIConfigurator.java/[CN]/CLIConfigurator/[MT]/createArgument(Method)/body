@@ -1,0 +1,25 @@
+{
+  TypedArgument arg=new TypedArgument();
+  Argument argument=method.getAnnotation(Argument.class);
+  arg.setIndex(argument.index());
+  arg.setArgName(argument.argName());
+  arg.setRequired(argument.required());
+  Description description=method.getAnnotation(Description.class);
+  if (description != null) {
+    arg.setDescription(description.value());
+  }
+  Hidden hidden=method.getAnnotation(Hidden.class);
+  if (hidden != null) {
+    arg.setHidden(true);
+  }
+  arg.setType(method.getParameters()[0].getType());
+  ConvertedBy convertedBy=method.getAnnotation(ConvertedBy.class);
+  if (convertedBy != null) {
+    arg.setConverter(ReflectionUtils.newInstance(convertedBy.value()));
+  }
+  DefaultValue defaultValue=method.getAnnotation(DefaultValue.class);
+  if (defaultValue != null) {
+    arg.setDefaultValue(defaultValue.value());
+  }
+  return arg;
+}

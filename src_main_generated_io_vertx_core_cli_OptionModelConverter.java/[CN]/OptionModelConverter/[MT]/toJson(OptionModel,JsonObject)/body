@@ -1,0 +1,22 @@
+{
+  if (obj.getArgName() != null) {
+    json.put("argName",obj.getArgName());
+  }
+  if (obj.getDefaultValue() != null) {
+    json.put("defaultValue",obj.getDefaultValue());
+  }
+  if (obj.getDescription() != null) {
+    json.put("description",obj.getDescription());
+  }
+  json.put("flag",obj.isFlag());
+  json.put("hidden",obj.isHidden());
+  if (obj.getLongName() != null) {
+    json.put("longName",obj.getLongName());
+  }
+  json.put("multiValued",obj.isMultiValued());
+  json.put("required",obj.isRequired());
+  if (obj.getShortName() != null) {
+    json.put("shortName",obj.getShortName());
+  }
+  json.put("singleValued",obj.isSingleValued());
+}

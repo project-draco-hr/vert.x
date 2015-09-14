@@ -1,0 +1,19 @@
+{
+  assertThat(Converters.create(Integer.class,"1")).isEqualTo(1);
+  assertThat(Converters.create(Integer.TYPE,"1")).isEqualTo(1);
+  assertThat(Converters.create(Long.class,"2")).isEqualTo(2l);
+  assertThat(Converters.create(Long.TYPE,"2")).isEqualTo(2l);
+  assertThat(Converters.create(Short.class,"3")).isEqualTo((short)3);
+  assertThat(Converters.create(Short.TYPE,"3")).isEqualTo((short)3);
+  assertThat(Converters.create(Byte.class,"4")).isEqualTo((byte)4);
+  assertThat(Converters.create(Byte.TYPE,"4")).isEqualTo((byte)4);
+  assertThat(Converters.create(Float.class,"5.5")).isEqualTo(5.5f);
+  assertThat(Converters.create(Float.TYPE,"5.5")).isEqualTo(5.5f);
+  assertThat(Converters.create(Double.class,"5.5")).isEqualTo(5.5d);
+  assertThat(Converters.create(Double.TYPE,"5.5")).isEqualTo(5.5d);
+  assertThat(Converters.create(Character.class,"a")).isEqualTo('a');
+  assertThat(Converters.create(Character.TYPE,"a")).isEqualTo('a');
+  assertThat(Converters.create(Boolean.class,"true")).isTrue();
+  assertThat(Converters.create(Boolean.TYPE,"on")).isTrue();
+  assertThat(Converters.create(Boolean.class,"")).isFalse();
+}

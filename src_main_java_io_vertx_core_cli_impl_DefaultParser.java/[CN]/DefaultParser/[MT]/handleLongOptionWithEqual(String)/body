@@ -1,0 +1,23 @@
+{
+  int pos=token.indexOf('=');
+  String value=token.substring(pos + 1);
+  String opt=token.substring(0,pos);
+  List<OptionModel> matchingOpts=getMatchingOptions(opt);
+  if (matchingOpts.isEmpty()) {
+    handleArgument(token);
+  }
+ else   if (matchingOpts.size() > 1) {
+    throw new AmbiguousOptionException(opt,matchingOpts);
+  }
+ else {
+    OptionModel option=matchingOpts.get(0);
+    if (commandLine.acceptMoreValues(option)) {
+      handleOption(option);
+      commandLine.addRawValue(option,value);
+      current=null;
+    }
+ else {
+      throw new InvalidValueException(option,value);
+    }
+  }
+}

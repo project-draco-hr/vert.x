@@ -1,0 +1,3 @@
+{
+  return CommandLineParser.create().parse(cli,Arrays.asList(args));
+}

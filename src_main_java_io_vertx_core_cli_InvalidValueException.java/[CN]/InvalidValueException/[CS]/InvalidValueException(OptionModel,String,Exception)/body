@@ -1,0 +1,6 @@
+{
+  super("The value '" + value + "' is not accepted by '"+ option.getName()+ "'",cause);
+  this.argument=null;
+  this.value=value;
+  this.option=option;
+}

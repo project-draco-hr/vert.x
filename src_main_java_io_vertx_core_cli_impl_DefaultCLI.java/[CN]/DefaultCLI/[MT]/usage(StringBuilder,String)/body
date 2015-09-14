@@ -1,0 +1,4 @@
+{
+  new UsageMessageFormatter().usage(builder,prefix,this);
+  return this;
+}

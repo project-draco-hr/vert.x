@@ -1,0 +1,5 @@
+{
+  Objects.requireNonNull(arg);
+  arguments.add(arg);
+  return this;
+}

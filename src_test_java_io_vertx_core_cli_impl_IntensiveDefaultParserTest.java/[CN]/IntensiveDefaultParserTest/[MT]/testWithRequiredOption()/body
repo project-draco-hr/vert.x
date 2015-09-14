@@ -1,0 +1,9 @@
+{
+  String[] args=new String[]{"-b","file"};
+  TypedOption<String> b=new TypedOption<String>().setShortName("b").setLongName("bfile").setSingleValued(true).setDescription("set the value of [b]").setType(String.class).setRequired(true);
+  cli.removeOption("b").addOption(b);
+  CommandLine evaluated=parser.parse(cli,Arrays.asList(args));
+  assertThat(getBooleanOption(evaluated,"a")).isFalse();
+  assertThat((String)evaluated.getOptionValue("b")).isEqualTo("file");
+  assertThat(evaluated.getAllArguments()).isEmpty();
+}

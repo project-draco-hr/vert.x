@@ -1,0 +1,6 @@
+{
+  assertThat(converter.fromString("true")).isTrue();
+  assertThat(converter.fromString("TruE")).isTrue();
+  assertThat(converter.fromString("fALse")).isFalse();
+  assertThat(converter.fromString("false")).isFalse();
+}

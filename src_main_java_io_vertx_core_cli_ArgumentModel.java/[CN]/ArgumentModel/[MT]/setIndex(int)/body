@@ -1,0 +1,7 @@
+{
+  if (index < 0) {
+    throw new IllegalArgumentException("Argument index cannot be negative");
+  }
+  this.index=index;
+  return this;
+}

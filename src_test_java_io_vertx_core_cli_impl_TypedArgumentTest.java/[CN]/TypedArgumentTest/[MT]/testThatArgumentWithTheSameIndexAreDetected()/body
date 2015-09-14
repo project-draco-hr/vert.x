@@ -1,0 +1,5 @@
+{
+  cli.addArgument(new TypedArgument<String>().setIndex(0).setType(String.class));
+  cli.addArgument(new TypedArgument<String>().setIndex(0).setType(String.class));
+  evaluated=parser.parse(cli,Arrays.asList("a","b"));
+}

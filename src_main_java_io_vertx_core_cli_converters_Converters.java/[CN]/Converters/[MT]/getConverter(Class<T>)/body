@@ -1,0 +1,28 @@
+{
+  if (type == String.class) {
+    return (Converter<T>)StringConverter.INSTANCE;
+  }
+  if (type == Boolean.class) {
+    return (Converter<T>)BooleanConverter.INSTANCE;
+  }
+  Converter<T> converter=ConstructorBasedConverter.getIfEligible(type);
+  if (converter != null) {
+    return converter;
+  }
+  converter=ValueOfBasedConverter.getIfEligible(type);
+  if (converter != null) {
+    return converter;
+  }
+  converter=FromBasedConverter.getIfEligible(type);
+  if (converter != null) {
+    return converter;
+  }
+  converter=FromStringBasedConverter.getIfEligible(type);
+  if (converter != null) {
+    return converter;
+  }
+  if (type == Character.class) {
+    return (Converter<T>)CharacterConverter.INSTANCE;
+  }
+  throw new NoSuchElementException("Cannot find a converter able to create instance of " + type.getName());
+}

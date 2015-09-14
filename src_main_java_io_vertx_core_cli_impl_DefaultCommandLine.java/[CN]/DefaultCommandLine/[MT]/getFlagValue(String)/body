@@ -1,0 +1,12 @@
+{
+  OptionModel option=cli.getOption(name);
+  if (option == null) {
+    throw new IllegalArgumentException("Cannot find the option '" + name + "'");
+  }
+  if (option.isFlag()) {
+    return optionsSeenInCommandLine.contains(option);
+  }
+ else {
+    throw new IllegalStateException("Cannot retrieve the flag value on a non-flag option (" + name + ")");
+  }
+}

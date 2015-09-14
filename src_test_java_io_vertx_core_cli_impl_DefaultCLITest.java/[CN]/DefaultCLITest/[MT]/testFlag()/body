@@ -1,0 +1,6 @@
+{
+  final CLI cli=CLI.create("test").addOption(new OptionModel().setShortName("f").setFlag(true)).addOption(new OptionModel().setShortName("x"));
+  final CommandLine evaluated=CommandLineParser.create().parse(cli,Arrays.asList("-f","-x","foo"));
+  assertThat(evaluated.getFlagValue("f")).isTrue();
+  assertThat((String)evaluated.getOptionValue("x")).isEqualToIgnoringCase("foo");
+}

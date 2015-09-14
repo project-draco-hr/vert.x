@@ -1,0 +1,6 @@
+{
+  String[] args=new String[]{"-f=bar"};
+  cli.addOption(new TypedOption<String>().setType(String.class).setSingleValued(true).setLongName("foo").setShortName("f"));
+  CommandLine evaluated=parser.parse(cli,Arrays.asList(args));
+  assertThat(getStringOption(evaluated,"foo")).isEqualTo("bar");
+}

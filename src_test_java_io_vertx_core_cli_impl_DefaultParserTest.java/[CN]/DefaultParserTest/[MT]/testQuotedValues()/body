@@ -1,0 +1,8 @@
+{
+  OptionModel[] options=new OptionModel[]{new OptionModel().setShortName("f").setLongName("file").setSingleValued(true)};
+  cli.addOptions(Arrays.asList(options));
+  CommandLine evaluated=parser.parse(cli,Arrays.asList("--file","\"hello.txt\""));
+  assertThat(evaluated.cli().getOptions()).hasSize(1);
+  assertThat((String)evaluated.getOptionValue("file")).isEqualTo("hello.txt");
+  assertThat(evaluated.getOptionValues("f")).containsExactly("hello.txt");
+}

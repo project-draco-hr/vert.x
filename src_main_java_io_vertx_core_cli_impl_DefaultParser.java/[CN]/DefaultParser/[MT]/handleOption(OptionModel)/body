@@ -1,0 +1,11 @@
+{
+  checkRequiredValues();
+  updateRequiredOptions(option);
+  commandLine.setSeenInCommandLine(option);
+  if (commandLine.acceptMoreValues(option)) {
+    current=option;
+  }
+ else {
+    current=null;
+  }
+}

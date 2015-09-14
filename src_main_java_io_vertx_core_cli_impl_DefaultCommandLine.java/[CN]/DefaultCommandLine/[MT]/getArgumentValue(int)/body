@@ -1,0 +1,12 @@
+{
+  ArgumentModel arg=cli.getArgument(index);
+  if (arg == null) {
+    return null;
+  }
+  if (arg instanceof TypedArgument) {
+    return create(getRawValueForArgument(arg),(TypedArgument<T>)arg);
+  }
+ else {
+    return (T)getRawValueForArgument(arg);
+  }
+}

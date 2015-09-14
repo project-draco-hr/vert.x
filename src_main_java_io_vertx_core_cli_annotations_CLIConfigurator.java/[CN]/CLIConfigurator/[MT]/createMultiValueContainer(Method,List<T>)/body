@@ -1,0 +1,17 @@
+{
+  final Class<?> type=setter.getParameterTypes()[0];
+  if (type.isArray()) {
+    Object array=Array.newInstance(type.getComponentType(),values.size());
+    for (int i=0; i < values.size(); i++) {
+      Array.set(array,i,values.get(i));
+    }
+    return array;
+  }
+  if (Set.class.isAssignableFrom(type)) {
+    return new LinkedHashSet<>(values);
+  }
+  if (List.class.isAssignableFrom(type) || Collection.class.isAssignableFrom(type)) {
+    return values;
+  }
+  return null;
+}

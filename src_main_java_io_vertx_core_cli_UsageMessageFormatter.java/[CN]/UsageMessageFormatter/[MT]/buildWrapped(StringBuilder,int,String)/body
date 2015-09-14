@@ -1,0 +1,4 @@
+{
+  renderWrappedTextBlock(buffer,width,nextLineTabStop,text);
+  buffer.append(newLine);
+}

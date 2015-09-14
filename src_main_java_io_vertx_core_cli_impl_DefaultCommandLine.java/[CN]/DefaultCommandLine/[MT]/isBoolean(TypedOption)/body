@@ -1,0 +1,4 @@
+{
+  Class type=option.getType();
+  return type == Boolean.TYPE || type == Boolean.class;
+}

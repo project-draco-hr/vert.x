@@ -1,0 +1,9 @@
+{
+  this();
+  index=other.index;
+  argName=other.argName;
+  description=other.description;
+  hidden=other.hidden;
+  required=other.required;
+  defaultValue=other.defaultValue;
+}

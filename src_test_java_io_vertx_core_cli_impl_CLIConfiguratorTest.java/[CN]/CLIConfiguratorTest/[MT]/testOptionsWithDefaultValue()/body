@@ -1,0 +1,11 @@
+{
+  Object object=new Object(){
+    @Option(longName="option",shortName="o") @DefaultValue("bar") public void setFoo(    String foo){
+    }
+  }
+;
+  CLI cli=CLIConfigurator.define(object.getClass());
+  assertThat(cli.getOptions()).hasSize(1);
+  assertThat(find(cli.getOptions(),"option").getDefaultValue()).isEqualTo("bar");
+  assertThat(find(cli.getOptions(),"option").getName()).isEqualTo("option");
+}

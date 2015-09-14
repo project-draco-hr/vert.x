@@ -1,0 +1,12 @@
+{
+  OptionModel[] options=new OptionModel[]{new OptionModel().setShortName("f").setLongName("file").setSingleValued(true)};
+  cli.addOptions(Arrays.asList(options));
+  CommandLine evaluated=parser.parse(cli,Collections.singletonList("--file=hello.txt"));
+  assertThat(evaluated.cli().getOptions()).hasSize(1);
+  assertThat((String)evaluated.getOptionValue("file")).isEqualTo("hello.txt");
+  assertThat(evaluated.getOptionValues("f")).containsExactly("hello.txt");
+  StringBuilder usage=new StringBuilder();
+  cli.usage(usage);
+  assertThat(usage).startsWith("Usage: test [-f <value>]\n");
+  assertThat(usage).contains("-f,--file <value>");
+}

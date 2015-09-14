@@ -1,0 +1,3 @@
+{
+  cli=new DefaultCLI().setName("test");
+}

@@ -1,0 +1,7 @@
+{
+  super(option);
+  this.type=option.getType();
+  this.converter=option.getConverter();
+  this.parsedAsList=option.isParsedAsList();
+  this.listSeparator=option.getListSeparator();
+}

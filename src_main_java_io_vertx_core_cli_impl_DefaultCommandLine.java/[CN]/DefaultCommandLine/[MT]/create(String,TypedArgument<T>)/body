@@ -1,0 +1,20 @@
+{
+  Objects.requireNonNull(argument);
+  if (value == null) {
+    value=argument.getDefaultValue();
+  }
+  if (value == null) {
+    return null;
+  }
+  try {
+    if (argument.getConverter() != null) {
+      return Converters.create(value,argument.getConverter());
+    }
+ else {
+      return Converters.create(argument.getType(),value);
+    }
+  }
+ catch (  Exception e) {
+    throw new InvalidValueException(argument,value,e);
+  }
+}

@@ -1,0 +1,6 @@
+{
+  Objects.requireNonNull(listSeparator);
+  this.parsedAsList=true;
+  this.listSeparator=listSeparator;
+  return this;
+}

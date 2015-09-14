@@ -1,0 +1,4 @@
+{
+  this.allArgs=args;
+  return this;
+}

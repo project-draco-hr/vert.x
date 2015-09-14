@@ -1,0 +1,31 @@
+{
+  CLIWithMultipleValues command=new CLIWithMultipleValues();
+  CLI cli=CLIConfigurator.define(command.getClass());
+  CommandLine evaluatedCLI=parse(cli,"--persons=x","--persons","y","z");
+  CLIConfigurator.inject(evaluatedCLI,command);
+  assertThat(command.persons).hasSize(3);
+  evaluatedCLI=parse(cli,"--persons2=x","--persons2","y","z");
+  CLIConfigurator.inject(evaluatedCLI,command);
+  assertThat(command.persons2).hasSize(3);
+  evaluatedCLI=parse(cli,"--persons3=x","--persons3","y","z");
+  CLIConfigurator.inject(evaluatedCLI,command);
+  assertThat(command.persons3).hasSize(3);
+  evaluatedCLI=parse(cli,"--persons4=x:y:z");
+  CLIConfigurator.inject(evaluatedCLI,command);
+  assertThat(command.persons4).hasSize(3);
+  evaluatedCLI=parse(cli,"--states=NEW","--states","BLOCKED","RUNNABLE");
+  CLIConfigurator.inject(evaluatedCLI,command);
+  assertThat(command.states).hasSize(3).containsExactly(Thread.State.NEW,Thread.State.BLOCKED,Thread.State.RUNNABLE);
+  evaluatedCLI=parse(cli,"--ints=1","--ints","2","3");
+  CLIConfigurator.inject(evaluatedCLI,command);
+  assertThat(command.ints).hasSize(3).containsExactly(1,2,3);
+  evaluatedCLI=parse(cli,"--shorts=1","--shorts","2","3");
+  CLIConfigurator.inject(evaluatedCLI,command);
+  assertThat(command.shorts).hasSize(3).containsExactly((short)1,(short)2,(short)3);
+  evaluatedCLI=parse(cli,"--strings=a");
+  CLIConfigurator.inject(evaluatedCLI,command);
+  assertThat(command.strings).hasSize(1).containsExactly("a");
+  evaluatedCLI=parse(cli,"--doubles=1","--doubles","2.2","3.3");
+  CLIConfigurator.inject(evaluatedCLI,command);
+  assertThat(command.doubles).hasSize(3).containsExactly(1.0,2.2,3.3);
+}

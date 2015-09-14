@@ -1,0 +1,10 @@
+{
+  OptionModel[] options=new OptionModel[]{new TypedOption<Boolean>().setShortName("f").setLongName("flag").setType(Boolean.class).setSingleValued(true)};
+  cli.addOptions(Arrays.asList(options));
+  CommandLine evaluated=parser.parse(cli,Arrays.asList("org.acme.Foo","-f=no"));
+  assertThat(evaluated.getAllArguments()).contains("org.acme.Foo");
+  evaluated=parser.parse(cli,Arrays.asList("-f=no","org.acme.Foo"));
+  assertThat(evaluated.getAllArguments()).contains("org.acme.Foo");
+  evaluated=parser.parse(cli,Arrays.asList("-f=no","org.acme.Foo","bar"));
+  assertThat(evaluated.getAllArguments()).contains("org.acme.Foo","bar");
+}

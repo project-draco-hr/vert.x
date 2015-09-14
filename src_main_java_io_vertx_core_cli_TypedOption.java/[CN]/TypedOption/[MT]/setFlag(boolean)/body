@@ -1,0 +1,4 @@
+{
+  super.setFlag(flag);
+  return this;
+}

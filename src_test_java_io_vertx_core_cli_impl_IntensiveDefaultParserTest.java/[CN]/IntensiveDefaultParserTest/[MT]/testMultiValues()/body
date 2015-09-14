@@ -1,0 +1,9 @@
+{
+  String[] args=new String[]{"-e","one","two","-f","1"};
+  TypedOption<String> e=new TypedOption<String>().setShortName("e").setMultiValued(true).setType(String.class);
+  TypedOption<Integer> f=new TypedOption<Integer>().setShortName("f").setMultiValued(true).setType(Integer.class);
+  cli.addOption(e).addOption(f);
+  CommandLine evaluated=parser.parse(cli,Arrays.asList(args));
+  assertThat(evaluated.getOptionValues("e")).contains("one","two").hasSize(2);
+  assertThat(evaluated.getOptionValues("f")).contains(1).hasSize(1);
+}

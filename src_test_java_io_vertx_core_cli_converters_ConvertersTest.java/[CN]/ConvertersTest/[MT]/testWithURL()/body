@@ -1,0 +1,4 @@
+{
+  final URL url=Converters.create(URL.class,"http://vertx.io");
+  assertThat(url.toExternalForm()).isEqualToIgnoringCase("http://vertx.io");
+}

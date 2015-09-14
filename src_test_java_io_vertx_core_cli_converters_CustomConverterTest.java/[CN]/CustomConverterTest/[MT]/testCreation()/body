@@ -1,0 +1,4 @@
+{
+  assertThat(new Person4Converter().fromString("bob, morane").first).isEqualToIgnoringCase("bob");
+  assertThat(new Person4Converter().fromString("bob, morane").last).isEqualToIgnoringCase("morane");
+}

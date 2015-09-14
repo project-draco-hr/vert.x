@@ -1,0 +1,4 @@
+{
+  super.setIndex(index);
+  return this;
+}

@@ -1,0 +1,21 @@
+{
+  if (option.isHidden()) {
+    return;
+  }
+  if (!required) {
+    buff.append("[");
+  }
+  if (!isNullOrEmpty(option.getShortName())) {
+    buff.append("-").append(option.getShortName());
+  }
+ else {
+    buff.append("--").append(option.getLongName());
+  }
+  if (option.acceptValue() && (option.getArgName() == null || option.getArgName().length() != 0)) {
+    buff.append(isNullOrEmpty(option.getShortName()) ? getLongOptionSeparator() : " ");
+    buff.append("<").append(option.getArgName() != null ? option.getArgName() : getArgName()).append(">");
+  }
+  if (!required) {
+    buff.append("]");
+  }
+}

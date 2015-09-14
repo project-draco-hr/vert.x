@@ -1,0 +1,8 @@
+{
+  HelloClI command=new HelloClI();
+  CLI cli=CLIConfigurator.define(HelloClI.class);
+  CommandLine evaluatedCLI=CommandLineParser.create().parse(cli,Arrays.asList("--name","vert.x"));
+  CLIConfigurator.inject(evaluatedCLI,command);
+  assertThat(command.run()).isEqualToIgnoringCase("Hello vert.x");
+  assertThat(command.name).isEqualToIgnoringCase("vert.x");
+}

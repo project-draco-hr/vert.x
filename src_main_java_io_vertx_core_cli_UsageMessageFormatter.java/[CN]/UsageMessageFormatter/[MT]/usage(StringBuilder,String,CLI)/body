@@ -1,0 +1,11 @@
+{
+  computeUsageLine(builder,prefix,cli);
+  if (cli.getSummary() != null && cli.getSummary().trim().length() > 0) {
+    buildWrapped(builder,"\n" + cli.getSummary());
+  }
+  if (cli.getDescription() != null && cli.getDescription().trim().length() > 0) {
+    buildWrapped(builder,"\n" + cli.getDescription());
+  }
+  builder.append("\n");
+  computeOptions(builder,cli.getOptions());
+}

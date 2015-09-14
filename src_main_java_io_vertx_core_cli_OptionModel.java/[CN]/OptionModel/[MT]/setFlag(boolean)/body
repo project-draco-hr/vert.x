@@ -1,0 +1,5 @@
+{
+  this.flag=flag;
+  setSingleValued(false);
+  return this;
+}

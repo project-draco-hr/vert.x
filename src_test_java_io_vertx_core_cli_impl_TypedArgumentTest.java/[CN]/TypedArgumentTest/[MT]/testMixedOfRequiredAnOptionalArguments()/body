@@ -1,0 +1,16 @@
+{
+  cli.addArgument(new TypedArgument<String>().setIndex(0).setType(String.class).setRequired(true));
+  cli.addArgument(new TypedArgument<String>().setIndex(1).setType(String.class).setRequired(false));
+  try {
+    evaluated=parser.parse(cli,Collections.emptyList());
+    fail("Missing Value Exception expected");
+  }
+ catch (  MissingValueException e) {
+  }
+  evaluated=parser.parse(cli,Collections.singletonList("a"));
+  assertThat((String)evaluated.getArgumentValue(0)).isEqualTo("a");
+  assertThat((String)evaluated.getArgumentValue(1)).isNull();
+  evaluated=parser.parse(cli,Arrays.asList("a","b"));
+  assertThat((String)evaluated.getArgumentValue(0)).isEqualTo("a");
+  assertThat((String)evaluated.getArgumentValue(1)).isEqualTo("b");
+}

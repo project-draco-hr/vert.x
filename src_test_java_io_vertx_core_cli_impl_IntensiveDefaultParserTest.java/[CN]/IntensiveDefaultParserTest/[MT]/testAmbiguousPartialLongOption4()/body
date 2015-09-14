@@ -1,0 +1,14 @@
+{
+  String[] args=new String[]{"-ver=1"};
+  TypedOption<Integer> v1=new TypedOption<Integer>().setLongName("verbose").setSingleValued(true).setType(Integer.class);
+  TypedOption<Boolean> v2=new TypedOption<Boolean>().setLongName("version").setType(Boolean.class).setSingleValued(false);
+  cli.addOption(v1).addOption(v2);
+  try {
+    parser.parse(cli,Arrays.asList(args));
+    fail("Exception expected");
+  }
+ catch (  AmbiguousOptionException e) {
+    assertThat(e.getToken()).isEqualTo("-ver");
+    assertThat(e.getOptions()).hasSize(2);
+  }
+}

@@ -1,0 +1,4 @@
+{
+  this();
+  ArgumentModelConverter.fromJson(json,this);
+}

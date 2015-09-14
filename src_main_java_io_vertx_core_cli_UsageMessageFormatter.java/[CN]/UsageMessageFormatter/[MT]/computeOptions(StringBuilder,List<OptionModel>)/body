@@ -1,0 +1,4 @@
+{
+  renderOptions(buffer,options);
+  buffer.append(newLine);
+}

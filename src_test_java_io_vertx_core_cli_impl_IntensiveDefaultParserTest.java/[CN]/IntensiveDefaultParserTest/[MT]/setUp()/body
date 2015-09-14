@@ -1,0 +1,7 @@
+{
+  cli=new DefaultCLI();
+  cli.setName("test").setHidden(false).setDescription("A test command");
+  cli.addOption(new TypedOption<Boolean>().setType(Boolean.class).setShortName("a").setLongName("enable-a").setFlag(true).setDescription("turn [a] on or off"));
+  cli.addOption(new TypedOption<String>().setType(String.class).setShortName("b").setLongName("bfile").setSingleValued(true).setDescription("set the value of [b]"));
+  cli.addOption(new TypedOption<Boolean>().setType(Boolean.class).setShortName("c").setLongName("copt").setSingleValued(false).setDescription("turn [c] on or off"));
+}

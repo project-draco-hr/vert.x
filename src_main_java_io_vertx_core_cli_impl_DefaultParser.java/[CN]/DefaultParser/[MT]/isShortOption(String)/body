@@ -1,0 +1,3 @@
+{
+  return token.startsWith("-") && token.length() >= 2 && hasOptionWithShortName(token.substring(1,2));
+}

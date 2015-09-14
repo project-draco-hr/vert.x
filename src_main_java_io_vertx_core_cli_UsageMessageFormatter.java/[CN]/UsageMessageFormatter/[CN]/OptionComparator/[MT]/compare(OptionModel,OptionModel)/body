@@ -1,0 +1,3 @@
+{
+  return opt1.getName().compareToIgnoreCase(opt2.getName());
+}

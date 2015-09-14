@@ -1,0 +1,32 @@
+{
+  if (json.getValue("argName") instanceof String) {
+    obj.setArgName((String)json.getValue("argName"));
+  }
+  if (json.getValue("defaultValue") instanceof String) {
+    obj.setDefaultValue((String)json.getValue("defaultValue"));
+  }
+  if (json.getValue("description") instanceof String) {
+    obj.setDescription((String)json.getValue("description"));
+  }
+  if (json.getValue("flag") instanceof Boolean) {
+    obj.setFlag((Boolean)json.getValue("flag"));
+  }
+  if (json.getValue("hidden") instanceof Boolean) {
+    obj.setHidden((Boolean)json.getValue("hidden"));
+  }
+  if (json.getValue("longName") instanceof String) {
+    obj.setLongName((String)json.getValue("longName"));
+  }
+  if (json.getValue("multiValued") instanceof Boolean) {
+    obj.setMultiValued((Boolean)json.getValue("multiValued"));
+  }
+  if (json.getValue("required") instanceof Boolean) {
+    obj.setRequired((Boolean)json.getValue("required"));
+  }
+  if (json.getValue("shortName") instanceof String) {
+    obj.setShortName((String)json.getValue("shortName"));
+  }
+  if (json.getValue("singleValued") instanceof Boolean) {
+    obj.setSingleValued((Boolean)json.getValue("singleValued"));
+  }
+}

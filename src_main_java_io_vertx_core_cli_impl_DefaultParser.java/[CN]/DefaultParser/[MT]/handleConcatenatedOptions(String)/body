@@ -1,0 +1,16 @@
+{
+  for (int i=1; i < token.length(); i++) {
+    String ch=String.valueOf(token.charAt(i));
+    if (hasOptionWithShortName(ch)) {
+      handleOption(getOption(ch));
+      if (current != null && token.length() != i + 1) {
+        commandLine.addRawValue(current,token.substring(i + 1));
+        break;
+      }
+    }
+ else {
+      handleArgument(token);
+      break;
+    }
+  }
+}

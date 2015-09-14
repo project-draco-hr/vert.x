@@ -1,0 +1,5 @@
+{
+  String[] args=new String[]{"-b","-foo"};
+  CommandLine evaluated=parser.parse(cli,Arrays.asList(args));
+  assertThat(getStringOption(evaluated,"b")).isEqualTo("-foo");
+}

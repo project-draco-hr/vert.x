@@ -1,0 +1,6 @@
+{
+  super("The value '" + value + "' is not accepted by the argument '"+ (argument.getArgName() != null ? argument.getArgName() : argument.getIndex())+ "'",cause);
+  this.option=null;
+  this.value=value;
+  this.argument=argument;
+}

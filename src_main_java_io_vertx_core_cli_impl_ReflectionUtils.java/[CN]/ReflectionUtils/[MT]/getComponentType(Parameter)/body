@@ -1,0 +1,13 @@
+{
+  Class<?> type=parameter.getType();
+  if (type.isArray()) {
+    return type.getComponentType();
+  }
+  if (parameter.getParameterizedType() != null) {
+    return (Class)((ParameterizedType)parameter.getParameterizedType()).getActualTypeArguments()[0];
+  }
+  if (parameter.getType().getGenericSuperclass() instanceof ParameterizedType) {
+    return (Class)((ParameterizedType)parameter.getType().getGenericSuperclass()).getActualTypeArguments()[0];
+  }
+  return null;
+}
