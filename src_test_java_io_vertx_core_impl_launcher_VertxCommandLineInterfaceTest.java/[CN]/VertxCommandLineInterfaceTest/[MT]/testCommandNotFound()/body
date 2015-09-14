@@ -1,0 +1,10 @@
+{
+  ByteArrayOutputStream baos=new ByteArrayOutputStream();
+  PrintStream stream=new PrintStream(baos);
+  System.setOut(stream);
+  itf.execute("missing");
+  assertThat(baos.toString()).contains("The command","missing","See","--help");
+  baos.reset();
+  itf.execute("missing","--help");
+  assertThat(baos.toString()).contains("The command","missing","See","--help");
+}

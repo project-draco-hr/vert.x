@@ -1,0 +1,15 @@
+{
+  ByteArrayOutputStream baos=new ByteArrayOutputStream();
+  PrintStream stream=new PrintStream(baos);
+  itf=new VertxCommandLauncher(){
+    /** 
+ * @return the printer used to write the messages. Defaults to {@link System#out}.
+ */
+    @Override public PrintStream getPrintStream(){
+      return stream;
+    }
+  }
+;
+  itf.execute("--help");
+  assertThat(baos.toString()).contains("hello").contains("bye").doesNotContain("hidden").contains("A command saying hello");
+}

@@ -1,0 +1,3 @@
+{
+  this.clusterPort=port;
+}

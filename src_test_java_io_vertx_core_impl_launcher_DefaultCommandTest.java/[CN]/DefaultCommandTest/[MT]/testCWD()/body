@@ -1,0 +1,9 @@
+{
+  CLI cli=CLIConfigurator.define(command.getClass());
+  CommandLine evaluatedCLI=parse(cli,"--name=vert.x");
+  CLIConfigurator.inject(evaluatedCLI,command);
+  assertThat(command.getCwd()).isEqualTo(new File("."));
+  evaluatedCLI=parse(cli,"--cwd=target","--name=vert.x");
+  CLIConfigurator.inject(evaluatedCLI,command);
+  assertThat(command.getCwd()).isEqualTo(new File("target"));
+}

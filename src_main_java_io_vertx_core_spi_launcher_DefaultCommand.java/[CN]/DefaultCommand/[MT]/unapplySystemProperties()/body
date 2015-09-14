@@ -1,0 +1,11 @@
+{
+  if (props != null) {
+    for (    String prop : props) {
+      int p=prop.indexOf('=');
+      if (p > 0) {
+        String key=prop.substring(0,p);
+        System.clearProperty(key);
+      }
+    }
+  }
+}

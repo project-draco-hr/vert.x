@@ -1,0 +1,5 @@
+{
+  this.lookups=new ArrayList<>(lookups);
+  this.commandByName=new TreeMap<>();
+  load();
+}

@@ -1,0 +1,5 @@
+{
+  assertTrue(beforeStartingVertxInvoked);
+  assertTrue(afterStartingVertxInvoked);
+  assertTrue(beforeDeployingVerticle);
+}

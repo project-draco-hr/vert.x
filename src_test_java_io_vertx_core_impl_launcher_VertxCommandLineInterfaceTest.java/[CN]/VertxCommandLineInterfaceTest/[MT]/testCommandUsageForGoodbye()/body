@@ -1,0 +1,7 @@
+{
+  ByteArrayOutputStream baos=new ByteArrayOutputStream();
+  PrintStream stream=new PrintStream(baos);
+  System.setOut(stream);
+  itf.execute("bye","--help");
+  assertThat(baos.toString()).contains("A command saying goodbye.").contains("-n <value>");
+}

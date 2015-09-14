@@ -1,0 +1,46 @@
+{
+  if (command != null && isAskingForVersion(command)) {
+    execute("version");
+    return;
+  }
+  if (command == null || isAskingForHelp(command)) {
+    printGlobalUsage();
+    return;
+  }
+  CommandRegistration registration=commandByName.get(command);
+  if (registration == null) {
+    printCommandNotFound(command);
+    return;
+  }
+  CLI cli=registration.cli;
+  try {
+    if (cla.length >= 1 && isAskingForHelp(cla[0])) {
+      printCommandUsage(cli);
+      return;
+    }
+    CommandLine evaluated=CommandLineParser.create().parse(cli,Arrays.asList(cla));
+    Command cmd=getNewCommandInstance(command,evaluated);
+    ExecutionContext context=new ExecutionContext(cmd,this,evaluated);
+    if (main != null) {
+      context.put("Main",main);
+      context.put("Main-Class",main.getClass().getName());
+    }
+    CLIConfigurator.inject(evaluated,cmd);
+    cmd.setUp(context);
+    cmd.run();
+    cmd.tearDown();
+  }
+ catch (  MissingOptionException|MissingValueException|InvalidValueException e) {
+    printSpecificException(cli,e);
+  }
+catch (  CLIException e) {
+    printGenericExecutionError(cli,e);
+  }
+catch (  RuntimeException e) {
+    if (e.getCause() instanceof CLIException) {
+      printGenericExecutionError(cli,(CLIException)e.getCause());
+      return;
+    }
+    throw e;
+  }
+}

@@ -1,0 +1,19 @@
+{
+  stop();
+  if (os != null) {
+    os.close();
+  }
+  if (err != null) {
+    err.close();
+  }
+  try {
+    output.close();
+  }
+ catch (  IOException e) {
+  }
+  try {
+    error.close();
+  }
+ catch (  IOException e) {
+  }
+}

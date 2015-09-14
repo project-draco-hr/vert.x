@@ -1,0 +1,18 @@
+{
+  final String command=getCommand();
+  if (command != null) {
+    final String[] segments=command.split(" ");
+    if (segments.length >= 1) {
+      if (segments[0].endsWith(".jar")) {
+        return segments[0];
+      }
+    }
+  }
+ else {
+    String classpath=System.getProperty("java.class.path");
+    if (!classpath.isEmpty() && !classpath.contains(File.pathSeparator) && classpath.endsWith(".jar")) {
+      return classpath;
+    }
+  }
+  return null;
+}

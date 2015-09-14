@@ -1,0 +1,3 @@
+{
+  assertThat(latch.await(10,TimeUnit.SECONDS)).isTrue();
+}

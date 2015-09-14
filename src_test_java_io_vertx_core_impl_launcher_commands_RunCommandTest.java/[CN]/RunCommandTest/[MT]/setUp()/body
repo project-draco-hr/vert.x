@@ -1,0 +1,6 @@
+{
+  super.setUp();
+  if (manifest.isFile()) {
+    manifest.delete();
+  }
+}

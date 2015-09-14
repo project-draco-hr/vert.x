@@ -1,0 +1,2 @@
+Collection<CommandFactory> commands
+String name

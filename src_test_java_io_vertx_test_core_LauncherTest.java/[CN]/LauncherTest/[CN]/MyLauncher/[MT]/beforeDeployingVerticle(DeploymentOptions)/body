@@ -1,0 +1,4 @@
+{
+  beforeDeployingVerticle=true;
+  this.deploymentOptions=deploymentOptions;
+}

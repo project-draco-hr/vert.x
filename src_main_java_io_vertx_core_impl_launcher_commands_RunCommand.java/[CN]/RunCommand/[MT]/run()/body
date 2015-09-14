@@ -1,0 +1,12 @@
+{
+  super.run();
+  if (vertx == null) {
+    return;
+  }
+  JsonObject conf=getConfiguration();
+  deploymentOptions=new DeploymentOptions();
+  configureFromSystemProperties(deploymentOptions,DEPLOYMENT_OPTIONS_PROP_PREFIX);
+  deploymentOptions.setConfig(conf).setWorker(worker).setHa(ha).setInstances(instances);
+  beforeDeployingVerticle(deploymentOptions);
+  deploy();
+}

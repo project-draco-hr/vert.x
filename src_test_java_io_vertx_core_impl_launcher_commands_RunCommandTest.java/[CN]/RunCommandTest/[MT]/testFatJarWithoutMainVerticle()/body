@@ -1,0 +1,7 @@
+{
+  setManifest("MANIFEST-Launcher-No-Main-Verticle.MF");
+  record();
+  cli.dispatch(new Launcher(),new String[0]);
+  stop();
+  assertThat(output.toString()).contains("Usage:");
+}
