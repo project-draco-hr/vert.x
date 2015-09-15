@@ -1,0 +1,22 @@
+{
+  set("windows 98");
+  assertThat(ExecUtils.isWindows()).isTrue();
+  set("windows me");
+  assertThat(ExecUtils.isWindows()).isTrue();
+  set("windows nt");
+  assertThat(ExecUtils.isWindows()).isTrue();
+  set("windows 2000");
+  assertThat(ExecUtils.isWindows()).isTrue();
+  set("windows xp");
+  assertThat(ExecUtils.isWindows()).isTrue();
+  set("windows 2003");
+  assertThat(ExecUtils.isWindows()).isTrue();
+  set("windows vista");
+  assertThat(ExecUtils.isWindows()).isTrue();
+  set("windows 7");
+  assertThat(ExecUtils.isWindows()).isTrue();
+  set("windows 8");
+  assertThat(ExecUtils.isWindows()).isTrue();
+  set("windows nt (unknown)");
+  assertThat(ExecUtils.isWindows()).isTrue();
+}

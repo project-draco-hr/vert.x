@@ -1,0 +1,17 @@
+{
+  boolean none=true;
+  final Process process=new ProcessBuilder(cmd).start();
+  BufferedReader reader=new BufferedReader(new InputStreamReader(process.getInputStream()));
+  String line;
+  while ((line=reader.readLine()) != null) {
+    final Matcher matcher=PS.matcher(line);
+    if (matcher.find()) {
+      out.println(matcher.group(1));
+      none=false;
+    }
+  }
+  process.waitFor();
+  if (none) {
+    out.println("No vert.x application found.");
+  }
+}

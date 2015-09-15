@@ -1,0 +1,10 @@
+{
+  if (ExecUtils.isWindows()) {
+    ExecUtils.addArgument(cmd,"cmd.exe");
+    ExecUtils.addArgument(cmd,"/C");
+    ExecUtils.addArgument(cmd,"start");
+    ExecUtils.addArgument(cmd,"vertx.id - " + id);
+    ExecUtils.addArgument(cmd,"/B");
+  }
+  ExecUtils.addArgument(cmd,getJava().getAbsolutePath());
+}

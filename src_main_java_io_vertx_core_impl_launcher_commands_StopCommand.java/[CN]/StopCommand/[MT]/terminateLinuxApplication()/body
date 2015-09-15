@@ -1,0 +1,18 @@
+{
+  String pid=pid();
+  if (pid == null) {
+    out.println("Cannot find process for application using the id '" + id + "'.");
+    return;
+  }
+  List<String> cmd=new ArrayList<>();
+  cmd.add("kill");
+  cmd.add(pid);
+  try {
+    new ProcessBuilder(cmd).start().waitFor();
+    out.println("Application '" + id + "' stopped.");
+  }
+ catch (  Exception e) {
+    out.println("Failed to stop application '" + id + "'");
+    e.printStackTrace(out);
+  }
+}

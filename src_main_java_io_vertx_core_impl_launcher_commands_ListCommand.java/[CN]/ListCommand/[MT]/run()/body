@@ -1,0 +1,30 @@
+{
+  out.println("Listing vert.x applications...");
+  List<String> cmd=new ArrayList<>();
+  if (!ExecUtils.isWindows()) {
+    try {
+      cmd.add("sh");
+      cmd.add("-c");
+      cmd.add("ps ax | grep \"vertx.id=\"");
+      dumpFoundVertxApplications(cmd);
+    }
+ catch (    Exception e) {
+      e.printStackTrace(out);
+    }
+  }
+ else {
+    try {
+      cmd.add("WMIC");
+      cmd.add("PROCESS");
+      cmd.add("WHERE");
+      cmd.add("CommandLine like '%java.exe%'");
+      cmd.add("GET");
+      cmd.add("CommandLine");
+      cmd.add("/VALUE");
+      dumpFoundVertxApplications(cmd);
+    }
+ catch (    Exception e) {
+      e.printStackTrace(out);
+    }
+  }
+}

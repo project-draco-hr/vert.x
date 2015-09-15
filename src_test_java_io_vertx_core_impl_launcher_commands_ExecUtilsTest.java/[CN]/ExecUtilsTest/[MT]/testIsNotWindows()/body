@@ -1,0 +1,6 @@
+{
+  set("mac os x");
+  assertThat(ExecUtils.isWindows()).isFalse();
+  set("linux");
+  assertThat(ExecUtils.isWindows()).isFalse();
+}

@@ -1,0 +1,22 @@
+{
+  try {
+    List<String> cmd=new ArrayList<>();
+    cmd.add("sh");
+    cmd.add("-c");
+    cmd.add("ps ax | grep \"" + id + "\"");
+    final Process process=new ProcessBuilder(cmd).start();
+    BufferedReader reader=new BufferedReader(new InputStreamReader(process.getInputStream()));
+    String line;
+    while ((line=reader.readLine()) != null) {
+      final Matcher matcher=PS.matcher(line);
+      if (matcher.find()) {
+        return matcher.group(1);
+      }
+    }
+    process.waitFor();
+  }
+ catch (  Exception e) {
+    e.printStackTrace(out);
+  }
+  return null;
+}

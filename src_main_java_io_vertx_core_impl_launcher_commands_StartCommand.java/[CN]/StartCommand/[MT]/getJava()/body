@@ -1,0 +1,14 @@
+{
+  File java;
+  File home=new File(System.getProperty("java.home"));
+  if (ExecUtils.isWindows()) {
+    java=new File(home,"bin/java.exe");
+  }
+ else {
+    java=new File(home,"bin/java");
+  }
+  if (!java.isFile()) {
+    throw new IllegalStateException("Cannot find java executable - " + java.getAbsolutePath() + " does not exist");
+  }
+  return java;
+}
