@@ -1,0 +1,15 @@
+{
+  List<String> args=new ArrayList<>();
+  ExecUtils.addArgument(args,"hello");
+  ExecUtils.addArgument(args,"-foo");
+  ExecUtils.addArgument(args,"--bar");
+  ExecUtils.addArgument(args,"--baz=hello");
+  ExecUtils.addArgument(args,"with spaces");
+  ExecUtils.addArgument(args,"with'single'_quotes");
+  ExecUtils.addArgument(args,"with\"double\"quotes");
+  ExecUtils.addArgument(args,"with \"double\" quotes and spaces");
+  ExecUtils.addArgument(args,"with 'single' quotes and spaces");
+  ExecUtils.addArgument(args,"'wrapped_in_single_quotes'");
+  ExecUtils.addArgument(args,"\"wrapped_in_double_quotes\"");
+  assertThat(args).contains("hello","-foo","--bar","--baz=hello","\"with spaces\"","\"with'single'_quotes\"","'with\"double\"quotes'","'with \"double\" quotes and spaces'","\"with 'single' quotes and spaces\"","wrapped_in_single_quotes","wrapped_in_double_quotes");
+}

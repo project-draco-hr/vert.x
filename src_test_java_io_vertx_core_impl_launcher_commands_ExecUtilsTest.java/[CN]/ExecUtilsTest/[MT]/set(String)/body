@@ -1,0 +1,4 @@
+{
+  field.setAccessible(true);
+  field.set(null,value);
+}

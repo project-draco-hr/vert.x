@@ -1,0 +1,14 @@
+{
+  if (id == null) {
+    out.println("Application id not specified...");
+    executionContext.execute("list");
+    return;
+  }
+  out.println("Stopping vert.x application '" + id + "'");
+  if (ExecUtils.isWindows()) {
+    terminateWindowsApplication();
+  }
+ else {
+    terminateLinuxApplication();
+  }
+}

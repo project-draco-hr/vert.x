@@ -1,0 +1,7 @@
+{
+  File manifest=new File("target/test-classes/META-INF/MANIFEST.MF");
+  if (manifest.isFile()) {
+    manifest.delete();
+  }
+  super.setUp();
+}

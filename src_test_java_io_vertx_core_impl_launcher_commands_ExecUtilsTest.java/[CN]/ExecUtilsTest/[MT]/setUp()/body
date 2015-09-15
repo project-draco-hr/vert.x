@@ -1,0 +1,5 @@
+{
+  field=ExecUtils.class.getDeclaredField("osName");
+  field.setAccessible(true);
+  originalOsName=(String)field.get(null);
+}
