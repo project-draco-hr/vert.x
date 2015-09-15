@@ -1,0 +1,12 @@
+{
+  if (!acceptMoreValues(option) && !option.isFlag()) {
+    throw new CLIException("The option " + option.getName() + " does not accept value or has "+ "already been set");
+  }
+  List<String> list=optionValues.get(option);
+  if (list == null) {
+    list=new ArrayList<>();
+    optionValues.put(option,list);
+  }
+  list.add(value);
+  return this;
+}

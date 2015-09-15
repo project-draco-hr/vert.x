@@ -1,0 +1,6 @@
+{
+  if (type.isPrimitive()) {
+    type=wrap(type);
+  }
+  return getConverter(type).fromString(value);
+}

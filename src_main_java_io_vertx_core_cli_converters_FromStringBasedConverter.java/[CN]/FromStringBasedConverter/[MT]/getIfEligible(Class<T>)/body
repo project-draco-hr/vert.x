@@ -1,0 +1,17 @@
+{
+  try {
+    final Method method=clazz.getMethod(FROM_STRING,String.class);
+    if (Modifier.isStatic(method.getModifiers())) {
+      if (!method.isAccessible()) {
+        method.setAccessible(true);
+      }
+      return new FromStringBasedConverter<>(clazz,method);
+    }
+ else {
+      return null;
+    }
+  }
+ catch (  NoSuchMethodException e) {
+    return null;
+  }
+}

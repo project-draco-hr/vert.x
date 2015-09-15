@@ -1,0 +1,11 @@
+{
+  final io.vertx.core.cli.Option option=commandLine.cli().getOption(name);
+  if (option == null) {
+    return null;
+  }
+  boolean multiple=ReflectionUtils.isMultiple(method);
+  if (multiple) {
+    return createMultiValueContainer(method,commandLine.getOptionValues(name));
+  }
+  return commandLine.getOptionValue(name);
+}

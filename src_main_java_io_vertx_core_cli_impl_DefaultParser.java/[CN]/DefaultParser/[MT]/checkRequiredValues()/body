@@ -1,0 +1,7 @@
+{
+  if (current != null) {
+    if (current.acceptValue() && !commandLine.isOptionAssigned(current) && !current.isFlag()) {
+      throw new MissingValueException(current);
+    }
+  }
+}

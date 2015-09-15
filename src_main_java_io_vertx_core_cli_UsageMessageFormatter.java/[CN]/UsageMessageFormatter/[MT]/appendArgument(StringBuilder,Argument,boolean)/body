@@ -1,0 +1,9 @@
+{
+  if (!required) {
+    buff.append("[");
+  }
+  buff.append(argument.getArgName());
+  if (!required) {
+    buff.append("]");
+  }
+}

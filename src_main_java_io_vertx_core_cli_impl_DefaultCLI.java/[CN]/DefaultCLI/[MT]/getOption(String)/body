@@ -1,0 +1,19 @@
+{
+  Objects.requireNonNull(name);
+  for (  Option option : options) {
+    if (name.equalsIgnoreCase(option.getLongName())) {
+      return option;
+    }
+  }
+  for (  Option option : options) {
+    if (name.equalsIgnoreCase(option.getShortName())) {
+      return option;
+    }
+  }
+  for (  Option option : options) {
+    if (name.equalsIgnoreCase(option.getArgName())) {
+      return option;
+    }
+  }
+  return null;
+}

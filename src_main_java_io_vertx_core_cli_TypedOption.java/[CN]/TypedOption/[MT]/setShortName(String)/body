@@ -1,0 +1,4 @@
+{
+  super.setShortName(shortName);
+  return this;
+}

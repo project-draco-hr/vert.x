@@ -1,0 +1,3 @@
+{
+  return option.isMultiValued() || option.isSingleValued() && !isOptionAssigned(option);
+}

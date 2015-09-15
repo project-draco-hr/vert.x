@@ -1,0 +1,12 @@
+{
+  String[] args=new String[]{"-a"};
+  TypedOption<String> b=new TypedOption<String>().setShortName("b").setLongName("bfile").setSingleValued(true).setDescription("set the value of [b]").setType(String.class).setRequired(true);
+  cli.removeOption("b").addOption(b);
+  try {
+    cli.parse(Arrays.asList(args));
+    fail("exception expected");
+  }
+ catch (  MissingOptionException e) {
+    assertThat(e.getExpected()).hasSize(1);
+  }
+}

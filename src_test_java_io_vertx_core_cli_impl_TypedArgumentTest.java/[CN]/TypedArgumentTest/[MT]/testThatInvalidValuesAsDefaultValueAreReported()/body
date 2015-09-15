@@ -1,0 +1,12 @@
+{
+  try {
+    cli.addArgument(new TypedArgument<Integer>().setIndex(0).setArgName("1").setType(Integer.class).setDefaultValue("a"));
+  }
+ catch (  IllegalArgumentException e) {
+    assertThat(e.getCause()).isInstanceOf(InvalidValueException.class);
+    InvalidValueException cause=(InvalidValueException)e.getCause();
+    assertThat(cause.getArgument().getIndex()).isEqualTo(0);
+    assertThat(cause.getArgument().getArgName()).isEqualTo("1");
+    assertThat(cause.getValue()).isEqualTo("a");
+  }
+}

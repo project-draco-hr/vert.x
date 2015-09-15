@@ -1,0 +1,5 @@
+{
+  String opt=token.substring(0,1);
+  Option option=getOption(opt);
+  return option != null && commandLine.acceptMoreValues(option);
+}

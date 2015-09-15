@@ -1,0 +1,13 @@
+{
+  List<Option> matchingOpts=getMatchingOptions(token);
+  if (matchingOpts.isEmpty()) {
+    handleArgument(token);
+  }
+ else   if (matchingOpts.size() > 1) {
+    throw new AmbiguousOptionException(token,matchingOpts);
+  }
+ else {
+    final Option option=matchingOpts.get(0);
+    handleOption(option);
+  }
+}

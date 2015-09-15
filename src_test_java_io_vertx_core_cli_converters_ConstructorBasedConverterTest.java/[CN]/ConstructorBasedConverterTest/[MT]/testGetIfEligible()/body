@@ -1,0 +1,4 @@
+{
+  assertThat(ConstructorBasedConverter.getIfEligible(Person.class)).isNotNull();
+  assertThat(ConstructorBasedConverter.getIfEligible(Object.class)).isNull();
+}

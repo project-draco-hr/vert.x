@@ -1,0 +1,4 @@
+{
+  final String[] strings=s.split(",");
+  return new Person4(strings[0].trim(),strings[1].trim());
+}

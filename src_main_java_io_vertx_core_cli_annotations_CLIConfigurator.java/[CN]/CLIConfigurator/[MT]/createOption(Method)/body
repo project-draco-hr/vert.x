@@ -1,0 +1,37 @@
+{
+  TypedOption opt=new TypedOption();
+  Option option=method.getAnnotation(Option.class);
+  opt.setLongName(option.longName()).setShortName(option.shortName()).setMultiValued(option.acceptMultipleValues()).setSingleValued(option.acceptValue()).setArgName(option.argName()).setFlag(option.flag()).setRequired(option.required());
+  Description description=method.getAnnotation(Description.class);
+  if (description != null) {
+    opt.setDescription(description.value());
+  }
+  Hidden hidden=method.getAnnotation(Hidden.class);
+  if (hidden != null) {
+    opt.setHidden(true);
+  }
+  if (ReflectionUtils.isMultiple(method)) {
+    opt.setType(ReflectionUtils.getComponentType(method.getParameters()[0])).setMultiValued(true);
+  }
+ else {
+    final Class<?> type=method.getParameters()[0].getType();
+    opt.setType(type);
+    if (type != Boolean.TYPE && type != Boolean.class) {
+      opt.setSingleValued(true);
+    }
+  }
+  ConvertedBy convertedBy=method.getAnnotation(ConvertedBy.class);
+  if (convertedBy != null) {
+    opt.setConverter(ReflectionUtils.newInstance(convertedBy.value()));
+  }
+  ParsedAsList parsedAsList=method.getAnnotation(ParsedAsList.class);
+  if (parsedAsList != null) {
+    opt.setParsedAsList(true).setListSeparator(parsedAsList.separator());
+  }
+  DefaultValue defaultValue=method.getAnnotation(DefaultValue.class);
+  if (defaultValue != null) {
+    opt.setDefaultValue(defaultValue.value());
+  }
+  opt.ensureValidity();
+  return opt;
+}

@@ -1,0 +1,4 @@
+{
+  optionsSeenInCommandLine.add(option);
+  return this;
+}

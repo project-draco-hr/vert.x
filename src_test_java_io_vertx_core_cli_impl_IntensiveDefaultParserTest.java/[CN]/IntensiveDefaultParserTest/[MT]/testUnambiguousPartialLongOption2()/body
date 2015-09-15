@@ -1,0 +1,8 @@
+{
+  String[] args=new String[]{"-ver"};
+  TypedOption<Boolean> v=new TypedOption<Boolean>().setLongName("version").setType(Boolean.class).setSingleValued(false);
+  TypedOption<Boolean> h=new TypedOption<Boolean>().setLongName("help").setType(Boolean.class).setSingleValued(false);
+  cli.addOption(v).addOption(h);
+  CommandLine evaluated=cli.parse(Arrays.asList(args));
+  assertThat(getBooleanOption(evaluated,"version")).isTrue();
+}

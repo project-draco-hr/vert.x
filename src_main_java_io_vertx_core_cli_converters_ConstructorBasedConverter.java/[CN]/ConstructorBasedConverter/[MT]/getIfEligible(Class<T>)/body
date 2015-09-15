@@ -1,0 +1,12 @@
+{
+  try {
+    final Constructor<T> constructor=clazz.getConstructor(String.class);
+    if (!constructor.isAccessible()) {
+      constructor.setAccessible(true);
+    }
+    return new ConstructorBasedConverter<>(constructor);
+  }
+ catch (  NoSuchMethodException e) {
+    return null;
+  }
+}

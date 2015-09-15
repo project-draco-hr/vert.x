@@ -1,0 +1,4 @@
+{
+  assertThat(Converters.create(String.class,"Hello")).isEqualTo("Hello");
+  assertThat(Converters.create(String.class,"")).isEqualTo("");
+}

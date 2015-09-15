@@ -1,0 +1,12 @@
+{
+  Object object=new Object(){
+    @io.vertx.core.cli.annotations.Option(longName="option",shortName="o") @ParsedAsList(separator=":") public void setFoo(    List<String> foo){
+    }
+  }
+;
+  CLI command=CLIConfigurator.define(object.getClass());
+  assertThat(command.getOptions()).hasSize(1);
+  assertThat(((TypedOption)find(command.getOptions(),"option")).getListSeparator()).isEqualTo(":");
+  assertThat(find(command.getOptions(),"option").isMultiValued()).isTrue();
+  assertThat(((TypedOption)find(command.getOptions(),"option")).getType()).isEqualTo(String.class);
+}

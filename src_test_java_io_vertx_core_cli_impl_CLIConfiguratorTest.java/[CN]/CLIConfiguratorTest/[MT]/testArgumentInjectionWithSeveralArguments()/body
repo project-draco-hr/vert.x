@@ -1,0 +1,18 @@
+{
+  AtomicReference<String> x=new AtomicReference<>();
+  AtomicReference<Integer> y=new AtomicReference<>();
+  Object command=new Object(){
+    @Argument(index=0) public void setX(    String s){
+      x.set(s);
+    }
+    @Argument(index=1) public void setY(    int s){
+      y.set(s);
+    }
+  }
+;
+  CLI cli=CLIConfigurator.define(command.getClass()).setName("test");
+  CommandLine evaluatedCLI=parse(cli,"foo","1");
+  CLIConfigurator.inject(evaluatedCLI,command);
+  assertThat(x.get()).isEqualTo("foo");
+  assertThat(y.get()).isEqualTo(1);
+}

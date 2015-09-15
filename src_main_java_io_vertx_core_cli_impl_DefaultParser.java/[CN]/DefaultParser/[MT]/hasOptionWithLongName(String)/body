@@ -1,0 +1,8 @@
+{
+  for (  Option option : cli.getOptions()) {
+    if (name.equalsIgnoreCase(option.getLongName())) {
+      return true;
+    }
+  }
+  return false;
+}

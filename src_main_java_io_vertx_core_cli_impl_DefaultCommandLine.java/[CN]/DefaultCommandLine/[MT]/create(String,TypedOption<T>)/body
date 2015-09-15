@@ -1,0 +1,20 @@
+{
+  Objects.requireNonNull(option);
+  if (value == null) {
+    value=option.getDefaultValue();
+  }
+  if (value == null) {
+    return null;
+  }
+  try {
+    if (option.getConverter() != null) {
+      return Converters.create(value,option.getConverter());
+    }
+ else {
+      return Converters.create(option.getType(),value);
+    }
+  }
+ catch (  Exception e) {
+    throw new InvalidValueException(option,value,e);
+  }
+}

@@ -1,0 +1,20 @@
+{
+  if (json.getValue("argName") instanceof String) {
+    obj.setArgName((String)json.getValue("argName"));
+  }
+  if (json.getValue("defaultValue") instanceof String) {
+    obj.setDefaultValue((String)json.getValue("defaultValue"));
+  }
+  if (json.getValue("description") instanceof String) {
+    obj.setDescription((String)json.getValue("description"));
+  }
+  if (json.getValue("hidden") instanceof Boolean) {
+    obj.setHidden((Boolean)json.getValue("hidden"));
+  }
+  if (json.getValue("index") instanceof Number) {
+    obj.setIndex(((Number)json.getValue("index")).intValue());
+  }
+  if (json.getValue("required") instanceof Boolean) {
+    obj.setRequired((Boolean)json.getValue("required"));
+  }
+}

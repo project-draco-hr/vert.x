@@ -1,0 +1,11 @@
+{
+  if (index < 0) {
+    throw new IllegalArgumentException("Given index cannot be negative");
+  }
+  for (  Argument arg : arguments) {
+    if (index == arg.getIndex()) {
+      return arg;
+    }
+  }
+  return null;
+}

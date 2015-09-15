@@ -1,0 +1,13 @@
+{
+  CLI cli=new DefaultCLI().setName("test");
+  Option[] options=new Option[]{new TypedOption<Double>().setLongName("num").setSingleValued(true).setType(Double.class)};
+  cli.addOptions(Arrays.asList(options));
+  CommandLine evaluated=cli.parse(Arrays.asList("--num","-1.5"));
+  assertThat(evaluated.cli().getOptions()).hasSize(1);
+  assertThat(cli.getArguments()).isEmpty();
+  assertThat((double)evaluated.getOptionValue("num")).isEqualTo(-1.5d);
+  evaluated=cli.parse(Collections.singletonList("--num=-1.5"));
+  assertThat(evaluated.cli().getOptions()).hasSize(1);
+  assertThat(cli.getArguments()).isEmpty();
+  assertThat((double)evaluated.getOptionValue("num")).isEqualTo(-1.5d);
+}

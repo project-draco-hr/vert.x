@@ -1,0 +1,10 @@
+{
+  String[] args=new String[]{"-acb"};
+  try {
+    CommandLine evaluated=cli.parse(Arrays.asList(args));
+    fail("exception expected");
+  }
+ catch (  MissingValueException e) {
+    assertThat(e.getOption().getShortName()).isEqualTo("b");
+  }
+}

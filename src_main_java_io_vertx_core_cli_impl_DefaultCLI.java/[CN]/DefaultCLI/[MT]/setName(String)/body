@@ -1,0 +1,8 @@
+{
+  Objects.requireNonNull(name);
+  if (name.isEmpty()) {
+    throw new IllegalArgumentException("Invalid command name");
+  }
+  this.name=name;
+  return this;
+}

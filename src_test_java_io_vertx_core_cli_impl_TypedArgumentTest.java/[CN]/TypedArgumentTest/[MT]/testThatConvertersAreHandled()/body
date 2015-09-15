@@ -1,0 +1,12 @@
+{
+  final TypedArgument<Person4> arg=new TypedArgument<Person4>().setIndex(0).setArgName("person").setType(Person4.class).setConverter(ReflectionUtils.newInstance(Person4Converter.class)).setDefaultValue("Bill,Ballantine").setRequired(false);
+  cli.addArgument(arg);
+  evaluated=cli.parse(Collections.singletonList("Bob,Morane"));
+  Person4 person=evaluated.getArgumentValue("person");
+  assertThat(person.first).isEqualTo("Bob");
+  assertThat(person.last).isEqualTo("Morane");
+  evaluated=cli.parse(Collections.emptyList());
+  person=evaluated.getArgumentValue("person");
+  assertThat(person.first).isEqualTo("Bill");
+  assertThat(person.last).isEqualTo("Ballantine");
+}

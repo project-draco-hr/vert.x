@@ -1,0 +1,24 @@
+{
+  if (isOptionAssigned(option)) {
+    return create(getRawValueForOption(option),option);
+  }
+ else {
+    if (option.getDefaultValue() != null) {
+      return create(getRawValueForOption(option),option);
+    }
+    if (option.isFlag() || isBoolean(option)) {
+      try {
+        if (isSeenInCommandLine(option)) {
+          return (T)Boolean.TRUE;
+        }
+ else {
+          return (T)Boolean.FALSE;
+        }
+      }
+ catch (      InvalidValueException e) {
+        throw new IllegalArgumentException(e);
+      }
+    }
+  }
+  return null;
+}

@@ -1,0 +1,8 @@
+{
+  try {
+    return type.newInstance();
+  }
+ catch (  InstantiationException|IllegalAccessException e) {
+    throw new IllegalArgumentException("Cannot create a new instance of " + type.getName() + " - it requires an "+ "public constructor without argument",e);
+  }
+}

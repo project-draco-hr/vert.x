@@ -1,0 +1,10 @@
+{
+  Object command=new Object(){
+    @io.vertx.core.cli.annotations.Option(longName="option",shortName="o") @Description("This option is awesome") public void setFoo(    String foo){
+    }
+  }
+;
+  CLI cli=CLIConfigurator.define(command.getClass());
+  assertThat(cli.getOptions()).hasSize(1);
+  assertThat(find(cli.getOptions(),"option").getDescription()).isEqualTo("This option is awesome");
+}

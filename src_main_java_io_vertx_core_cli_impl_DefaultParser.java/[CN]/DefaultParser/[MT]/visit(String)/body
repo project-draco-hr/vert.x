@@ -1,0 +1,24 @@
+{
+  this.token=token;
+  if (skipParsing) {
+    commandLine.addArgumentValue(token);
+  }
+ else   if (token.equals("--")) {
+    skipParsing=true;
+  }
+ else   if (current != null && current.acceptValue() && isValue(token)) {
+    commandLine.addRawValue(current,stripLeadingAndTrailingQuotes(token));
+  }
+ else   if (token.startsWith("--")) {
+    handleLongOption(token);
+  }
+ else   if (token.startsWith("-") && !"-".equals(token)) {
+    handleShortAndLongOption(token);
+  }
+ else {
+    handleArgument(token);
+  }
+  if (current != null && !commandLine.acceptMoreValues(current)) {
+    current=null;
+  }
+}

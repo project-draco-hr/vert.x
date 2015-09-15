@@ -1,0 +1,7 @@
+{
+  this.multiValued=multiValued;
+  if (this.multiValued) {
+    this.singleValued=true;
+  }
+  return this;
+}

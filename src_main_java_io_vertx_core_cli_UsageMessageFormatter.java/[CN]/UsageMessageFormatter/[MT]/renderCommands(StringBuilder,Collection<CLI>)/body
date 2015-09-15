@@ -1,0 +1,33 @@
+{
+  final String lpad=createPadding(leftPad);
+  final String dpad=createPadding(descPad);
+  int max=0;
+  List<StringBuilder> prefixList=new ArrayList<>();
+  for (  CLI command : commands) {
+    if (!command.isHidden()) {
+      StringBuilder buf=new StringBuilder();
+      buf.append(lpad).append("   ").append(command.getName());
+      prefixList.add(buf);
+      max=buf.length() > max ? buf.length() : max;
+    }
+  }
+  int x=0;
+  for (Iterator<CLI> it=commands.iterator(); it.hasNext(); ) {
+    CLI command=it.next();
+    if (command.isHidden()) {
+      continue;
+    }
+    StringBuilder buf=new StringBuilder(prefixList.get(x++).toString());
+    if (buf.length() < max) {
+      buf.append(createPadding(max - buf.length()));
+    }
+    buf.append(dpad);
+    int nextLineTabStop=max + descPad;
+    buf.append(command.getSummary());
+    renderWrappedText(sb,width,nextLineTabStop,buf.toString());
+    if (it.hasNext()) {
+      sb.append(getNewLine());
+    }
+  }
+  return sb;
+}

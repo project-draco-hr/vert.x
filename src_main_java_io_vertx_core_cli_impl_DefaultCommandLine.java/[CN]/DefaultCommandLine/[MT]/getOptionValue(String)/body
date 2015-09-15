@@ -1,0 +1,12 @@
+{
+  Option option=cli.getOption(name);
+  if (option == null) {
+    return null;
+  }
+  if (option instanceof TypedOption) {
+    return getValue((TypedOption<T>)option);
+  }
+ else {
+    return (T)getRawValueForOption(option);
+  }
+}

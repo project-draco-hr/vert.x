@@ -1,0 +1,4 @@
+{
+  this.parsedAsList=isList;
+  return this;
+}

@@ -1,0 +1,13 @@
+{
+  try {
+    return constructor.newInstance(input);
+  }
+ catch (  InstantiationException|IllegalAccessException|InvocationTargetException e) {
+    if (e.getCause() != null) {
+      throw new IllegalArgumentException(e.getCause());
+    }
+ else {
+      throw new IllegalArgumentException(e);
+    }
+  }
+}

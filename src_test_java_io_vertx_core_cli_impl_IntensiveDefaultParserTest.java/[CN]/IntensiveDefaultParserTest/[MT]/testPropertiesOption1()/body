@@ -1,0 +1,8 @@
+{
+  String[] args=new String[]{"-Jsource=1.5","-J","target","1.5","foo"};
+  TypedOption<String> f=new TypedOption<String>().setShortName("J").setType(String.class).setMultiValued(true);
+  cli.addOption(f);
+  CommandLine evaluated=cli.parse(Arrays.asList(args));
+  List<String> values=evaluated.getOptionValues("J");
+  assertThat(values).hasSize(4).containsExactly("source=1.5","target","1.5","foo");
+}

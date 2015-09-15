@@ -1,0 +1,5 @@
+{
+  Option[] options=new Option[]{new TypedOption<Boolean>().setShortName("f").setLongName("flag").setType(Boolean.class).setRequired(true).setFlag(true)};
+  cli.addOptions(Arrays.asList(options));
+  cli.parse(Collections.singletonList("-f"));
+}

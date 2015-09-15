@@ -1,0 +1,6 @@
+{
+  assertThat(converter.fromString("on")).isTrue();
+  assertThat(converter.fromString("ON")).isTrue();
+  assertThat(converter.fromString("off")).isFalse();
+  assertThat(converter.fromString("oFf")).isFalse();
+}

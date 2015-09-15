@@ -1,0 +1,4 @@
+{
+  final File file=Converters.create(File.class,"foo/hello.txt");
+  assertThat(file).hasName("hello.txt").doesNotExist();
+}

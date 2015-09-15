@@ -1,0 +1,13 @@
+{
+  String[] args=new String[]{"-f=bar"};
+  TypedOption<Boolean> f=new TypedOption<Boolean>().setLongName("foo").setShortName("f").setType(Boolean.class).setSingleValued(false);
+  cli.addOption(f);
+  try {
+    CommandLine evaluated=cli.parse(Arrays.asList(args));
+    fail("Exception expected");
+  }
+ catch (  InvalidValueException e) {
+    assertThat(e.getOption().getShortName()).isEqualToIgnoringCase("f");
+    assertThat(e.getValue()).isEqualToIgnoringCase("bar");
+  }
+}

@@ -1,0 +1,4 @@
+{
+  int argPos=cmdLineSyntax.indexOf(' ') + 1;
+  buildWrapped(buffer,getUsagePrefix().length() + argPos,getUsagePrefix() + cmdLineSyntax);
+}

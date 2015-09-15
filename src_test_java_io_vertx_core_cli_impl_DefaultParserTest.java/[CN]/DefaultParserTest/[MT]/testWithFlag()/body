@@ -1,0 +1,21 @@
+{
+  CLI cli=new DefaultCLI().setName("test");
+  Option[] options=new Option[]{new TypedOption<Boolean>().setType(Boolean.TYPE).setShortName("f").setLongName("flag").setFlag(true).setSingleValued(true),new TypedOption<Boolean>().setType(Boolean.TYPE).setShortName("f2").setLongName("flag2").setFlag(true).setSingleValued(true),new TypedOption<Boolean>().setType(Boolean.TYPE).setShortName("f3").setLongName("flag3").setFlag(true)};
+  cli.addOptions(Arrays.asList(options));
+  CommandLine evaluated=cli.parse(Arrays.asList("--flag","--flag2","--flag3"));
+  assertThat((boolean)evaluated.getOptionValue("flag")).isEqualTo(true);
+  assertThat((boolean)evaluated.getOptionValue("flag2")).isEqualTo(true);
+  assertThat((boolean)evaluated.getOptionValue("flag3")).isEqualTo(true);
+  evaluated=cli.parse(Arrays.asList("--flag=true","--flag2=false","--flag3"));
+  assertThat((boolean)evaluated.getOptionValue("flag")).isEqualTo(true);
+  assertThat((boolean)evaluated.getOptionValue("flag2")).isEqualTo(false);
+  assertThat((boolean)evaluated.getOptionValue("flag3")).isEqualTo(true);
+  evaluated=cli.parse(Arrays.asList("--flag","--flag2"));
+  assertThat((boolean)evaluated.getOptionValue("flag")).isEqualTo(true);
+  assertThat((boolean)evaluated.getOptionValue("flag2")).isEqualTo(true);
+  assertThat((boolean)evaluated.getOptionValue("flag3")).isEqualTo(false);
+  evaluated=cli.parse(Arrays.asList("--flag","true","--flag2","false","--flag3"));
+  assertThat((boolean)evaluated.getOptionValue("flag")).isEqualTo(true);
+  assertThat((boolean)evaluated.getOptionValue("flag2")).isEqualTo(false);
+  assertThat((boolean)evaluated.getOptionValue("flag3")).isEqualTo(true);
+}

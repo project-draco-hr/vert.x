@@ -1,0 +1,7 @@
+{
+  this.defaultValue=defaultValue;
+  if (this.defaultValue != null) {
+    setRequired(false);
+  }
+  return this;
+}

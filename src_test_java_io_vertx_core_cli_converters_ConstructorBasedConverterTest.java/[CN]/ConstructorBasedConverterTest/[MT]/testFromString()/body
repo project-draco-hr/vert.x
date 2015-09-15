@@ -1,0 +1,3 @@
+{
+  assertThat(ConstructorBasedConverter.getIfEligible(Person.class).fromString("vertx").name).isEqualTo("vertx");
+}

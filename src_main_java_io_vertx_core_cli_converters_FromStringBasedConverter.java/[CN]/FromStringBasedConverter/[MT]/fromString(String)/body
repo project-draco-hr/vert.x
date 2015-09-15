@@ -1,0 +1,13 @@
+{
+  try {
+    return clazz.cast(method.invoke(null,input));
+  }
+ catch (  IllegalAccessException|InvocationTargetException e) {
+    if (e.getCause() != null) {
+      throw new IllegalArgumentException(e.getCause());
+    }
+ else {
+      throw new IllegalArgumentException(e);
+    }
+  }
+}

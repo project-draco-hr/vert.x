@@ -1,0 +1,15 @@
+{
+  cli.addArgument(new TypedArgument<Integer>().setIndex(0).setArgName("1").setType(Integer.class));
+  try {
+    evaluated=cli.parse(Collections.singletonList("a"));
+    evaluated.getArgumentValue(0);
+    fail("Exception expected");
+  }
+ catch (  CLIException e) {
+    assertThat(e).isInstanceOf(InvalidValueException.class);
+    InvalidValueException cause=(InvalidValueException)e;
+    assertThat(cause.getArgument().getIndex()).isEqualTo(0);
+    assertThat(cause.getArgument().getArgName()).isEqualTo("1");
+    assertThat(cause.getValue()).isEqualTo("a");
+  }
+}

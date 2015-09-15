@@ -1,0 +1,4 @@
+{
+  this.longName=longName;
+  return this;
+}

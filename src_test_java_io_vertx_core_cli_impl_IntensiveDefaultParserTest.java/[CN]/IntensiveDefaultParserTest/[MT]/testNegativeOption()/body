@@ -1,0 +1,10 @@
+{
+  String[] args=new String[]{"-b","-1"};
+  cli.addOption(new TypedOption<Boolean>().setType(Boolean.class).setSingleValued(false).setShortName("1"));
+  CommandLine evaluated=cli.parse(Arrays.asList(args));
+  assertThat(getStringOption(evaluated,"b")).isEqualTo("-1");
+  assertThat(getBooleanOption(evaluated,"1")).isFalse();
+  evaluated=cli.parse(Collections.singletonList("-1"));
+  assertThat(getBooleanOption(evaluated,"1")).isTrue();
+  assertThat(getStringOption(evaluated,"b")).isNull();
+}

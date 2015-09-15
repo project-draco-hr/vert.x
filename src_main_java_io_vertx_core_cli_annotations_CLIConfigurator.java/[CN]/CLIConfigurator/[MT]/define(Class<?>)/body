@@ -1,0 +1,31 @@
+{
+  CLI cli=new DefaultCLI();
+  final Summary summary=clazz.getAnnotation(Summary.class);
+  final Description desc=clazz.getAnnotation(Description.class);
+  final Hidden hidden=clazz.getAnnotation(Hidden.class);
+  final Name name=clazz.getAnnotation(Name.class);
+  if (name != null) {
+    cli.setName(name.value());
+  }
+  if (summary != null) {
+    cli.setSummary(summary.value());
+  }
+  if (desc != null) {
+    cli.setDescription(desc.value());
+  }
+  if (hidden != null) {
+    cli.setHidden(true);
+  }
+  final List<Method> methods=ReflectionUtils.getSetterMethods(clazz);
+  for (  Method method : methods) {
+    final Option option=method.getAnnotation(Option.class);
+    final Argument argument=method.getAnnotation(Argument.class);
+    if (option != null) {
+      cli.addOption(createOption(method));
+    }
+    if (argument != null) {
+      cli.addArgument(createArgument(method));
+    }
+  }
+  return cli;
+}

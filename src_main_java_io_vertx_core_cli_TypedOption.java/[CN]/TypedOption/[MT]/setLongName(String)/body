@@ -1,0 +1,4 @@
+{
+  super.setLongName(longName);
+  return this;
+}

@@ -1,0 +1,4 @@
+{
+  this.singleValued=singleValued;
+  return this;
+}

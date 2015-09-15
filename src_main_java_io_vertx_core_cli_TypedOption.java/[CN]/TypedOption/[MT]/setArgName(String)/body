@@ -1,0 +1,4 @@
+{
+  super.setArgName(argName);
+  return this;
+}

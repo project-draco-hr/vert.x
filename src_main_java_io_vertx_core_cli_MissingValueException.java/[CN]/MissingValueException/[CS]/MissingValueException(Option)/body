@@ -1,0 +1,5 @@
+{
+  super("The option '" + option.getName() + "' requires a value");
+  this.argument=null;
+  this.option=option;
+}

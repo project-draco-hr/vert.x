@@ -1,0 +1,15 @@
+{
+  assertThat(Converters.create(HttpMethod.class,"GET")).isEqualTo(HttpMethod.GET);
+  try {
+    assertThat(Converters.create(HttpMethod.class,null)).isNull();
+    fail("Exception expected");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  try {
+    assertThat(Converters.create(HttpMethod.class,"FOO_IS_NOT_A_METHOD")).isNull();
+    fail("Exception expected");
+  }
+ catch (  IllegalArgumentException e) {
+  }
+}

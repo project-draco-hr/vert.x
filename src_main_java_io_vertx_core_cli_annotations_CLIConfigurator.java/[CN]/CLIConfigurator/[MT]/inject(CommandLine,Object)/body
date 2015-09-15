@@ -1,0 +1,36 @@
+{
+  final List<Method> methods=ReflectionUtils.getSetterMethods(object.getClass());
+  for (  Method method : methods) {
+    Option option=method.getAnnotation(Option.class);
+    Argument argument=method.getAnnotation(Argument.class);
+    if (option != null) {
+      String name=option.longName();
+      if (name == null) {
+        name=option.shortName();
+      }
+      try {
+        Object injected=getOptionValue(method,name,cli);
+        if (injected != null) {
+          method.setAccessible(true);
+          method.invoke(object,injected);
+        }
+      }
+ catch (      Exception e) {
+        throw new CLIException("Cannot inject value for option '" + name + "'",e);
+      }
+    }
+    if (argument != null) {
+      int index=argument.index();
+      try {
+        Object injected=getArgumentValue(method,index,cli);
+        if (injected != null) {
+          method.setAccessible(true);
+          method.invoke(object,injected);
+        }
+      }
+ catch (      Exception e) {
+        throw new CLIException("Cannot inject value for argument '" + index + "'",e);
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  String t=stripLeadingHyphens(token);
+  int i;
+  String opt=null;
+  for (i=t.length() - 2; i > 1; i--) {
+    String prefix=t.substring(0,i);
+    if (hasOptionWithLongName(prefix)) {
+      opt=prefix;
+      break;
+    }
+  }
+  return opt;
+}

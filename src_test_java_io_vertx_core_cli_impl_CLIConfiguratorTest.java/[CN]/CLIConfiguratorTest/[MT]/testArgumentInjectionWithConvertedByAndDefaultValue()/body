@@ -1,0 +1,18 @@
+{
+  AtomicReference<Person4> reference=new AtomicReference<>();
+  Object command=new Object(){
+    @Argument(index=0,required=false) @DefaultValue("Bill,Balantine") @ConvertedBy(Person4Converter.class) public void setX(    Person4 s){
+      reference.set(s);
+    }
+  }
+;
+  CLI cli=CLIConfigurator.define(command.getClass()).setName("test");
+  CommandLine evaluatedCLI=parse(cli,"Bob,Morane");
+  CLIConfigurator.inject(evaluatedCLI,command);
+  assertThat(reference.get().first).isEqualTo("Bob");
+  assertThat(reference.get().last).isEqualTo("Morane");
+  evaluatedCLI=parse(cli);
+  CLIConfigurator.inject(evaluatedCLI,command);
+  assertThat(reference.get().first).isEqualTo("Bill");
+  assertThat(reference.get().last).isEqualTo("Balantine");
+}

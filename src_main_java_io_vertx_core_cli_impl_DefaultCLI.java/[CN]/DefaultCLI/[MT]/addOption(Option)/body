@@ -1,0 +1,5 @@
+{
+  Objects.requireNonNull(option);
+  options.add(option);
+  return this;
+}

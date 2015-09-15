@@ -1,0 +1,3 @@
+{
+  assertThat(Converters.create(Person3.class,"vertx").name).isEqualTo("vertx");
+}

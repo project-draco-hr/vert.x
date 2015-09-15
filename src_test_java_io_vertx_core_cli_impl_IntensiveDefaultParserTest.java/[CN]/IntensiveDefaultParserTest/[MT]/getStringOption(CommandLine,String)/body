@@ -1,0 +1,3 @@
+{
+  return evaluatedCLI.getOptionValue(name);
+}

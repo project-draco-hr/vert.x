@@ -1,0 +1,4 @@
+{
+  allArgs.add(argument);
+  return this;
+}

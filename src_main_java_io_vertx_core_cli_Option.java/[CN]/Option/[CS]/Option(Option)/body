@@ -1,0 +1,13 @@
+{
+  this();
+  this.longName=other.longName;
+  this.shortName=other.shortName;
+  this.argName=other.argName;
+  this.description=other.description;
+  this.required=other.required;
+  this.hidden=other.hidden;
+  this.singleValued=other.singleValued;
+  this.multiValued=other.multiValued;
+  this.defaultValue=other.defaultValue;
+  this.flag=other.flag;
+}

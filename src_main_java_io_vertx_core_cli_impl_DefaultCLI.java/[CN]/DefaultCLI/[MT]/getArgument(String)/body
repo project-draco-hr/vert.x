@@ -1,0 +1,9 @@
+{
+  Objects.requireNonNull(name);
+  for (  Argument arg : arguments) {
+    if (name.equalsIgnoreCase(arg.getArgName())) {
+      return arg;
+    }
+  }
+  return null;
+}
