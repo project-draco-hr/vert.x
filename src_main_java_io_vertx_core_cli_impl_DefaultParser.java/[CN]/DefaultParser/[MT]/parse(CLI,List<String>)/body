@@ -1,2 +1,3 @@
 {
+  return parse(cli,cla,true);
 }
