@@ -1,0 +1,4 @@
+String verticle
+Vertx vertx
+DeploymentOptions options
+Handler<AsyncResult<String>> completionHandler

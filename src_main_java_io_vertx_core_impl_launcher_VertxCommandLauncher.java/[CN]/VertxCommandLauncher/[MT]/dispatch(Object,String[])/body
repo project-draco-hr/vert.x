@@ -1,0 +1,39 @@
+{
+  this.main=main == null ? this : main;
+  PROCESS_ARGS=Collections.unmodifiableList(Arrays.asList(args));
+  if (args.length >= 1 && isAskingForHelp(args[0])) {
+    printGlobalUsage();
+    return;
+  }
+  if (args.length >= 1 && isAskingForVersion(args[0])) {
+    execute("version");
+    return;
+  }
+  if (args.length >= 1 && commandByName.get(args[0]) != null) {
+    execute(args[0],Arrays.copyOfRange(args,1,args.length));
+    return;
+  }
+  if (args.length >= 2 && isAskingForHelp(args[1])) {
+    execute(args[0],"--help");
+    return;
+  }
+  final String verticle=getMainVerticle();
+  if (verticle != null) {
+    String[] newArgs=new String[args.length + 1];
+    newArgs[0]=verticle;
+    System.arraycopy(args,0,newArgs,1,args.length);
+    execute(getDefaultCommand(),newArgs);
+    return;
+  }
+  if (args.length == 0) {
+    printGlobalUsage();
+  }
+ else {
+    if (args[0].equalsIgnoreCase("-ha")) {
+      execute("bare",Arrays.copyOfRange(args,1,args.length));
+    }
+ else {
+      printCommandNotFound(args[0]);
+    }
+  }
+}

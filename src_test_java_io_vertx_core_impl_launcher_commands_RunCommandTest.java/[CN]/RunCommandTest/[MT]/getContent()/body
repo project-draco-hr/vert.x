@@ -1,0 +1,15 @@
+{
+  URL url=new URL("http://localhost:8080");
+  HttpURLConnection conn=(HttpURLConnection)url.openConnection();
+  conn.connect();
+  InputStreamReader in=new InputStreamReader((InputStream)conn.getContent());
+  BufferedReader buff=new BufferedReader(in);
+  String line;
+  StringBuilder builder=new StringBuilder();
+  do {
+    line=buff.readLine();
+    builder.append(line).append("\n");
+  }
+ while (line != null);
+  return new JsonObject(builder.toString());
+}

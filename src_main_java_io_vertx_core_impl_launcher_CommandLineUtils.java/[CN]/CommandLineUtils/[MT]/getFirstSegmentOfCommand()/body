@@ -1,0 +1,10 @@
+{
+  String cmd=getCommand();
+  if (cmd != null) {
+    final String[] segments=cmd.split(" ");
+    if (segments.length >= 1) {
+      return segments[0];
+    }
+  }
+  return null;
+}

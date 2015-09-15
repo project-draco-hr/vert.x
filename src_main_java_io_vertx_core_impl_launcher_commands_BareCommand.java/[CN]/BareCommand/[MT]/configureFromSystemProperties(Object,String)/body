@@ -1,0 +1,46 @@
+{
+  Properties props=System.getProperties();
+  Enumeration e=props.propertyNames();
+  while (e.hasMoreElements()) {
+    String propName=(String)e.nextElement();
+    String propVal=props.getProperty(propName);
+    if (propName.startsWith(prefix)) {
+      String fieldName=propName.substring(prefix.length());
+      Method setter=getSetter(fieldName,options.getClass());
+      if (setter == null) {
+        log.warn("No such property to configure on options: " + options.getClass().getName() + "."+ fieldName);
+        continue;
+      }
+      Class<?> argType=setter.getParameterTypes()[0];
+      Object arg;
+      try {
+        if (argType.equals(String.class)) {
+          arg=propVal;
+        }
+ else         if (argType.equals(int.class)) {
+          arg=Integer.valueOf(propVal);
+        }
+ else         if (argType.equals(long.class)) {
+          arg=Long.valueOf(propVal);
+        }
+ else         if (argType.equals(boolean.class)) {
+          arg=Boolean.valueOf(propVal);
+        }
+ else {
+          log.warn("Invalid type for setter: " + argType);
+          continue;
+        }
+      }
+ catch (      IllegalArgumentException e2) {
+        log.warn("Invalid argtype:" + argType + " on options: "+ options.getClass().getName()+ "."+ fieldName);
+        continue;
+      }
+      try {
+        setter.invoke(options,arg);
+      }
+ catch (      Exception ex) {
+        throw new VertxException("Failed to invoke setter: " + setter,ex);
+      }
+    }
+  }
+}

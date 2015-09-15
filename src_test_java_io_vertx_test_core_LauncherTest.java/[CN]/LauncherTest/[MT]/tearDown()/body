@@ -1,0 +1,6 @@
+{
+  clearProperties();
+  super.tearDown();
+  out.close();
+  stream.close();
+}

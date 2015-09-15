@@ -1,0 +1,3 @@
+{
+  return command.equalsIgnoreCase("-version") || command.equalsIgnoreCase("--version");
+}

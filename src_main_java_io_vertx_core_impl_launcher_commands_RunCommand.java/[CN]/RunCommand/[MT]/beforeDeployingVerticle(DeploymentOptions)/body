@@ -1,0 +1,6 @@
+{
+  final Object main=executionContext.main();
+  if (main instanceof VertxLifecycleHooks) {
+    ((VertxLifecycleHooks)main).beforeDeployingVerticle(deploymentOptions);
+  }
+}

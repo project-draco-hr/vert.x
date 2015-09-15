@@ -1,0 +1,5 @@
+{
+  this.command=command;
+  this.commandLine=commandLine;
+  this.launcher=launcher;
+}

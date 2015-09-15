@@ -1,0 +1,6 @@
+{
+  getPrintStream().println("Error while executing command " + cli.getName() + ": "+ e.getMessage()+ getNewLine());
+  if (e.getCause() != null) {
+    e.getCause().printStackTrace(getPrintStream());
+  }
+}

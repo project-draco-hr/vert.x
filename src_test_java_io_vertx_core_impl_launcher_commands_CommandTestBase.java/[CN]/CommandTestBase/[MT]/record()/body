@@ -1,0 +1,6 @@
+{
+  os=new PrintStream(output);
+  err=new PrintStream(error);
+  System.setOut(os);
+  System.setErr(err);
+}

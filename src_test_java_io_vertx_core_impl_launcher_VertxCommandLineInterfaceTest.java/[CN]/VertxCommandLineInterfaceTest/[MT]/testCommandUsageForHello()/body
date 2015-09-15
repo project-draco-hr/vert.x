@@ -1,0 +1,7 @@
+{
+  ByteArrayOutputStream baos=new ByteArrayOutputStream();
+  PrintStream stream=new PrintStream(baos);
+  System.setOut(stream);
+  itf.execute("hello","--help");
+  assertThat(baos.toString()).contains("Usage: ").contains("A command saying hello.").contains("A simple command to wish you a good day.").contains("-n,--name <name>").contains("your name");
+}

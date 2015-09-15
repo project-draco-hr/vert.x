@@ -1,0 +1,14 @@
+{
+  MyLauncher launcher=new MyLauncher(){
+    @Override public PrintStream getPrintStream(){
+      return stream;
+    }
+  }
+;
+  String[] args=new String[]{};
+  launcher.dispatch(args);
+  assertTrue(out.toString().contains("Usage:"));
+  assertTrue(out.toString().contains("bare"));
+  assertTrue(out.toString().contains("run"));
+  assertTrue(out.toString().contains("hello"));
+}

@@ -1,0 +1,4 @@
+{
+  final String n=executionContext.commandLine().getOptionValue("n");
+  out.println("Good Bye " + n);
+}

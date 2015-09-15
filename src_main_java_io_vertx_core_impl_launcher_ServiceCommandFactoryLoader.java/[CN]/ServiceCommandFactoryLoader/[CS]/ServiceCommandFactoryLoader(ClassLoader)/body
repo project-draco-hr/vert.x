@@ -1,0 +1,3 @@
+{
+  this.loader=ServiceLoader.load(CommandFactory.class,loader);
+}

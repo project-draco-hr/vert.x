@@ -1,0 +1,14 @@
+{
+  final ClassLoader originalClassLoader=Thread.currentThread().getContextClassLoader();
+  try {
+    Thread.currentThread().setContextClassLoader(classloader);
+    return Vertx.vertx(options);
+  }
+ catch (  Exception e) {
+    log.error("Failed to create the vert.x instance",e);
+  }
+ finally {
+    Thread.currentThread().setContextClassLoader(originalClassLoader);
+  }
+  return null;
+}

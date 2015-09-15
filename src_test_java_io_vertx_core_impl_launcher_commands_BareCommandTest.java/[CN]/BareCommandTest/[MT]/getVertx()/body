@@ -1,0 +1,3 @@
+{
+  return ((BareCommand)cli.getExistingCommandInstance("bare")).vertx;
+}

@@ -1,0 +1,28 @@
+{
+  JsonObject conf;
+  if (config != null) {
+    try (Scanner scanner=new Scanner(new File(config)).useDelimiter("\\A")){
+      String sconf=scanner.next();
+      try {
+        conf=new JsonObject(sconf);
+      }
+ catch (      DecodeException e) {
+        log.error("Configuration file " + sconf + " does not contain a valid JSON object");
+        return null;
+      }
+    }
+ catch (    FileNotFoundException e) {
+      try {
+        conf=new JsonObject(config);
+      }
+ catch (      DecodeException e2) {
+        log.error("-conf option does not point to a file and is not valid JSON: " + config);
+        return null;
+      }
+    }
+  }
+ else {
+    conf=null;
+  }
+  return conf;
+}
