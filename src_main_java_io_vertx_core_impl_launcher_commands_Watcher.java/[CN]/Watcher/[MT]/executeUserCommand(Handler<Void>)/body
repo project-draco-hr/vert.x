@@ -1,0 +1,22 @@
+{
+  if (cmd != null) {
+    try {
+      List<String> command=new ArrayList<>();
+      if (ExecUtils.isWindows()) {
+        ExecUtils.addArgument(command,cmd);
+      }
+ else {
+        ExecUtils.addArgument(command,"sh");
+        ExecUtils.addArgument(command,"-c");
+        ExecUtils.addArgument(command,cmd);
+      }
+      final Process process=new ProcessBuilder(command).redirectError(ProcessBuilder.Redirect.INHERIT).redirectOutput(ProcessBuilder.Redirect.INHERIT).start();
+      process.waitFor();
+    }
+ catch (    Throwable e) {
+      System.err.println("Error while executing the onRedeploy command : '" + cmd + "'");
+      e.printStackTrace();
+    }
+  }
+  onCompletion.handle(null);
+}

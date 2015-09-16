@@ -1,0 +1,3 @@
+{
+  return str.startsWith(separator) != pattern.startsWith(separator);
+}

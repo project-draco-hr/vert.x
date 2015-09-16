@@ -1,0 +1,58 @@
+{
+  try {
+    while (!closed) {
+      WatchKey key;
+      try {
+        key=service.poll(10,TimeUnit.MILLISECONDS);
+      }
+ catch (      ClosedWatchServiceException|InterruptedException e) {
+        return;
+      }
+      if (key != null) {
+        for (        WatchEvent<?> event : key.pollEvents()) {
+          WatchEvent.Kind<?> kind=event.kind();
+          @SuppressWarnings("unchecked") WatchEvent<Path> ev=(WatchEvent<Path>)event;
+          Path fileName=ev.context();
+          File theFile=new File(keyToFile.get(key),fileName.toFile().getName());
+          if (kind == ENTRY_CREATE) {
+            if (theFile.isDirectory()) {
+              try {
+                final WatchKey newKey=register(theFile.toPath());
+                keyToFile.put(newKey,theFile);
+              }
+ catch (              IOException e) {
+                log.error("Cannot register directory " + theFile.getAbsolutePath());
+              }
+            }
+ else {
+              if (match(theFile)) {
+                trigger(theFile);
+              }
+            }
+          }
+ else           if (kind == ENTRY_DELETE) {
+            if (theFile.isDirectory()) {
+              removeDirectory(theFile);
+            }
+ else {
+              if (match(theFile)) {
+                trigger(theFile);
+              }
+            }
+          }
+ else           if (kind == ENTRY_MODIFY) {
+            if (!theFile.isDirectory()) {
+              if (match(theFile)) {
+                trigger(theFile);
+              }
+            }
+          }
+        }
+        key.reset();
+      }
+    }
+  }
+ catch (  Throwable e) {
+    log.error("An error have been encountered while watching resources - leaving the redeploy mode",e);
+  }
+}

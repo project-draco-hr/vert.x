@@ -1,0 +1,8 @@
+{
+  if (separatorPatternStartSlashMismatch(pattern,str,separator)) {
+    return false;
+  }
+  String[] patDirs=tokenizePathToString(pattern,separator);
+  String[] strDirs=tokenizePathToString(str,separator);
+  return matchPathPattern(patDirs,strDirs,isCaseSensitive);
+}

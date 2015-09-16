@@ -1,0 +1,13 @@
+{
+  log.info("Stopping redeployment");
+  closed=true;
+  if (service != null) {
+    try {
+      service.close();
+    }
+ catch (    IOException e) {
+      log.error("Cannot stop the watcher service",e);
+    }
+  }
+  undeploy.handle(null);
+}
