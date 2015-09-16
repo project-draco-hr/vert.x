@@ -1,0 +1,13 @@
+{
+  MetricsOptions metricsOptions;
+  ServiceLoader<VertxMetricsFactory> factories=ServiceLoader.load(VertxMetricsFactory.class);
+  if (factories.iterator().hasNext()) {
+    VertxMetricsFactory factory=factories.iterator().next();
+    metricsOptions=factory.newOptions();
+  }
+ else {
+    metricsOptions=new MetricsOptions();
+  }
+  configureFromSystemProperties(metricsOptions,METRICS_OPTIONS_PROP_PREFIX);
+  return metricsOptions;
+}

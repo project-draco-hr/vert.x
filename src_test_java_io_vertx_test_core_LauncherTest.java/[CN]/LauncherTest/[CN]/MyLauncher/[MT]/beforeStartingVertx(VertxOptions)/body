@@ -1,0 +1,4 @@
+{
+  beforeStartingVertxInvoked=true;
+  this.options=options;
+}

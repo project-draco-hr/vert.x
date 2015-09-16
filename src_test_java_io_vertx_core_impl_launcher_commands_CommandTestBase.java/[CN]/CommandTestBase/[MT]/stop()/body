@@ -1,0 +1,8 @@
+{
+  if (System.out != originalOutputPrintStream) {
+    System.setOut(originalOutputPrintStream);
+  }
+  if (System.err != originalErrorPrintStream) {
+    System.setErr(originalErrorPrintStream);
+  }
+}

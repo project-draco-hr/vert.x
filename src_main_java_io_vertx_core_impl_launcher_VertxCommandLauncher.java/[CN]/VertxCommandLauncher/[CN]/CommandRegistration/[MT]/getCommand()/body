@@ -1,0 +1,6 @@
+{
+  if (!commands.isEmpty()) {
+    return commands.get(0);
+  }
+  return null;
+}

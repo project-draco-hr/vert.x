@@ -1,0 +1,5 @@
+{
+  this.vertx=vertx;
+  String message=(options.isWorker()) ? "deploying worker verticle" : "deploying verticle";
+  vertx.deployVerticle(verticle,options,createHandler(message,completionHandler));
+}

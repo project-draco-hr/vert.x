@@ -1,0 +1,19 @@
+{
+  File manifest=new File("target/test-classes/META-INF/MANIFEST-Launcher.MF");
+  if (!manifest.isFile()) {
+    throw new IllegalStateException("Cannot find the MANIFEST-Launcher.MF file");
+  }
+  File target=new File("target/test-classes/META-INF/MANIFEST.MF");
+  Files.copy(manifest.toPath(),target.toPath(),StandardCopyOption.REPLACE_EXISTING);
+  Launcher launcher=new Launcher(){
+    @Override public PrintStream getPrintStream(){
+      return stream;
+    }
+  }
+;
+  String[] args={"hello","--help"};
+  launcher.dispatch(args);
+  assertTrue(out.toString().contains("Usage"));
+  assertTrue(out.toString().contains("hello"));
+  assertTrue(out.toString().contains("A simple command to wish you a good day."));
+}

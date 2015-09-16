@@ -1,0 +1,12 @@
+{
+  CLI cli=CLIConfigurator.define(command.getClass());
+  VertxCommandLauncher launcher=new VertxCommandLauncher();
+  CommandLine evaluatedCLI=parse(cli,"--name=vert.x","-Dfoo=bar","--systemProp=x=y");
+  CLIConfigurator.inject(evaluatedCLI,command);
+  command.setUp(new ExecutionContext(command,launcher,evaluatedCLI));
+  assertThat(System.getProperty("foo")).isEqualToIgnoringCase("bar");
+  assertThat(System.getProperty("x")).isEqualToIgnoringCase("y");
+  command.tearDown();
+  assertThat(System.getProperty("foo")).isNull();
+  assertThat(System.getProperty("x")).isNull();
+}

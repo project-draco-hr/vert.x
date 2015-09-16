@@ -1,0 +1,7 @@
+{
+  ByteArrayOutputStream baos=new ByteArrayOutputStream();
+  PrintStream stream=new PrintStream(baos);
+  System.setOut(stream);
+  itf.execute("hello");
+  assertThat(baos.toString()).contains("The option","name","is required");
+}

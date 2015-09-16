@@ -1,0 +1,11 @@
+{
+  String jar=CommandLineUtils.getJar();
+  if (jar != null) {
+    return "java -jar " + jar;
+  }
+  String command=CommandLineUtils.getFirstSegmentOfCommand();
+  if (command != null) {
+    return "java " + command;
+  }
+  return "vertx";
+}

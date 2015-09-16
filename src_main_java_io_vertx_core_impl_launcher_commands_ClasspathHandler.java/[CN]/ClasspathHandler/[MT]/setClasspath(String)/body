@@ -1,0 +1,10 @@
+{
+  if (classpath == null || classpath.isEmpty()) {
+    this.classloader=ClasspathHandler.class.getClassLoader();
+    this.classpath=Collections.emptyList();
+  }
+ else {
+    this.classpath=Arrays.asList(classpath.split(PATH_SEP));
+    this.classloader=createClassloader();
+  }
+}

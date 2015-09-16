@@ -1,0 +1,11 @@
+{
+  MyLauncher launcher=new MyLauncher(){
+    @Override public PrintStream getPrintStream(){
+      return stream;
+    }
+  }
+;
+  String[] args={"run"};
+  launcher.dispatch(args);
+  assertTrue(out.toString().contains("The argument 'main-verticle' is required"));
+}

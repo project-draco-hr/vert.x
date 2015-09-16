@@ -1,0 +1,4 @@
+{
+  getPrintStream().println(e.getMessage() + getNewLine());
+  printCommandUsage(cli);
+}

@@ -1,0 +1,8 @@
+{
+  if (run != null) {
+    run.vertx.close();
+  }
+  if (bare != null) {
+    bare.vertx.close();
+  }
+}

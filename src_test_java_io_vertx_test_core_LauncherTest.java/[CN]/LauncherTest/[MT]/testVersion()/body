@@ -1,0 +1,8 @@
+{
+  String[] args={"-version"};
+  MyLauncher launcher=new MyLauncher();
+  launcher.dispatch(args);
+  final VersionCommand version=(VersionCommand)launcher.getExistingCommandInstance("version");
+  assertNotNull(version);
+  assertEquals(version.getVersion(),expectedVersion);
+}

@@ -1,0 +1,3 @@
+{
+  return "java:io.vertx.test.core.TestVerticle";
+}

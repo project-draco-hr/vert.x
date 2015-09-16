@@ -1,0 +1,5 @@
+{
+  Collection<CommandFactory<?>> commands=loader.lookup();
+  ensureCommand(commands,"Hello");
+  ensureCommand(commands,"Bye");
+}

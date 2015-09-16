@@ -1,0 +1,4 @@
+{
+  afterStartingVertxInvoked=true;
+  this.vertx=vertx;
+}

@@ -1,0 +1,4 @@
+{
+  System.out.println("Started...");
+  vertx.deployVerticle("io.vertx.core.impl.launcher.commands.HttpTestVerticle");
+}

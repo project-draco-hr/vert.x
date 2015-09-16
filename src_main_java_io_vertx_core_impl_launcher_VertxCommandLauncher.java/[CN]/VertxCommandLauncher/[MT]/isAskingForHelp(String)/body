@@ -1,0 +1,3 @@
+{
+  return command.equalsIgnoreCase("--help") || command.equalsIgnoreCase("-help") || command.equalsIgnoreCase("-h")|| command.equalsIgnoreCase("?")|| command.equalsIgnoreCase("/?");
+}

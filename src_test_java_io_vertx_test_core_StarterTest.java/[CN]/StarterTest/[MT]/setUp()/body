@@ -3,4 +3,11 @@
   TestVerticle.instanceCount.set(0);
   TestVerticle.processArgs=null;
   TestVerticle.conf=null;
+  VertxCommandLauncher.resetProcessArguments();
+  File manifest=new File("target/test-classes/META-INF/MANIFEST-Starter.MF");
+  if (!manifest.isFile()) {
+    throw new IllegalStateException("Cannot find the MANIFEST-Starter.MF file");
+  }
+  File target=new File("target/test-classes/META-INF/MANIFEST.MF");
+  Files.copy(manifest.toPath(),target.toPath(),StandardCopyOption.REPLACE_EXISTING);
 }

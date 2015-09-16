@@ -1,0 +1,7 @@
+{
+  CommandRegistration registration=commandByName.get(name);
+  if (registration != null) {
+    return registration.getCommand();
+  }
+  return null;
+}

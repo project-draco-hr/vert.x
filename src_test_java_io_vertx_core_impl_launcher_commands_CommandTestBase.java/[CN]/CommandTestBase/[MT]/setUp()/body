@@ -1,0 +1,7 @@
+{
+  cli=new VertxCommandLauncher();
+  output=new ByteArrayOutputStream();
+  error=new ByteArrayOutputStream();
+  LogManager.getLogManager().reset();
+  LogManager.getLogManager().readConfiguration();
+}

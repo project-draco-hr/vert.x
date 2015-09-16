@@ -1,0 +1,5 @@
+{
+  if (executionContext.main() instanceof VertxLifecycleHooks) {
+    ((VertxLifecycleHooks)executionContext.main()).handleDeployFailed(vertx,mainVerticle,deploymentOptions,cause);
+  }
+}
