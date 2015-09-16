@@ -3,5 +3,7 @@
     throw new ClassNotFoundException("whatever");
   }
   this.identifier=verticleName;
+  this.createContext=Vertx.currentContext();
+  this.createWorkerThread=Context.isOnWorkerThread();
   return verticle;
 }
