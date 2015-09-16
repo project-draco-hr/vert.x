@@ -5,7 +5,7 @@
     }
   }
 ;
-  String[] args=new String[]{"run"};
+  String[] args={"run"};
   launcher.dispatch(args);
   assertTrue(out.toString().contains("The argument 'main-verticle' is required"));
 }

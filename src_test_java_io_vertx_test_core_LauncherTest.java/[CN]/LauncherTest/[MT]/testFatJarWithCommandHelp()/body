@@ -11,7 +11,7 @@
     }
   }
 ;
-  String[] args=new String[]{"hello","--help"};
+  String[] args={"hello","--help"};
   launcher.dispatch(args);
   assertTrue(out.toString().contains("Usage"));
   assertTrue(out.toString().contains("hello"));
