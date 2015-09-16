@@ -1,0 +1,4 @@
+VerticleFactory verticleFactory
+String identifier
+int instances
+ClassLoader cl

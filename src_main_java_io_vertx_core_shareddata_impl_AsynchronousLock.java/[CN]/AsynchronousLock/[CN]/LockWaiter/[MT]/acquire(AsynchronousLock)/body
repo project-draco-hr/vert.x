@@ -1,4 +1,4 @@
 {
   acquired=true;
-  lock.lockAquired(context,resultHandler);
+  lock.lockAcquired(context,resultHandler);
 }
