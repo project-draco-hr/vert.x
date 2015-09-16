@@ -1,0 +1,10 @@
+{
+  Verticle[] verticles=new Verticle[instances];
+  for (int i=0; i < instances; i++) {
+    verticles[i]=verticleFactory.createVerticle(identifier,cl);
+    if (verticles[i] == null) {
+      throw new NullPointerException("VerticleFactory::createVerticle returned null");
+    }
+  }
+  return verticles;
+}
