@@ -1,6 +1,0 @@
-{
-  final Collection<CommandFactory> commands=loader.lookup();
-  ensureCommand(commands,"bare");
-  ensureCommand(commands,"run");
-  ensureCommand(commands,"version");
-}

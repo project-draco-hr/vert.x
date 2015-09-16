@@ -5,7 +5,7 @@
     }
   }
 ;
-  String[] args=new String[]{};
+  String[] args={};
   launcher.dispatch(args);
   assertTrue(out.toString().contains("Usage:"));
   assertTrue(out.toString().contains("bare"));

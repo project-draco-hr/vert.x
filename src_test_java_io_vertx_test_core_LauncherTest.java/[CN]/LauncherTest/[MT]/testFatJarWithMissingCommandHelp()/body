@@ -11,7 +11,7 @@
     }
   }
 ;
-  String[] args=new String[]{"not-a-command","--help"};
+  String[] args={"not-a-command","--help"};
   launcher.dispatch(args);
   assertTrue(out.toString().contains("The command 'not-a-command' is not a valid command."));
 }

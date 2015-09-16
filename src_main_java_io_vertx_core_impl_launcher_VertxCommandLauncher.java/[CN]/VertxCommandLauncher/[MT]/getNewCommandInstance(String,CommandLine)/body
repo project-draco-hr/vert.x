@@ -1,7 +1,7 @@
 {
   CommandRegistration registration=commandByName.get(name);
   if (registration != null) {
-    final Command command=registration.factory.create(commandLine);
+    Command command=registration.factory.create(commandLine);
     registration.addCommand(command);
     return command;
   }

@@ -1,4 +1,4 @@
 {
-  final List<String> processArgument=VertxCommandLauncher.getProcessArguments();
+  List<String> processArgument=VertxCommandLauncher.getProcessArguments();
   return processArgument != null ? processArgument : Starter.PROCESS_ARGS;
 }
