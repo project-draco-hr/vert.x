@@ -1,0 +1,3 @@
+{
+  CLI cli=CLI.create("copy").setSummary("A command line interface to copy files.").addOption(new TypedOption<Boolean>().setType(Boolean.class).setLongName("directory").setShortName("R").setDescription("enables directory support").setFlag(true)).addArgument(new TypedArgument<File>().setType(File.class).setIndex(0).setDescription("The source").setArgName("source")).addArgument(new TypedArgument<File>().setType(File.class).setIndex(0).setDescription("The destination").setArgName("target"));
+}

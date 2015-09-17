@@ -1,0 +1,3 @@
+{
+  CLI cli=CLI.create("some-name").addOption(new Option().setLongName("mandatory").setRequired(true).setDescription("a mandatory option"));
+}

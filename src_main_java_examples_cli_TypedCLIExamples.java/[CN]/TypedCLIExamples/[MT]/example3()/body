@@ -1,0 +1,3 @@
+{
+  CLI cli=CLI.create("some-name").addOption(new TypedOption<Person>().setType(Person.class).setConverter(new PersonConverter()).setLongName("person"));
+}

@@ -1,0 +1,3 @@
+{
+  CLI cli=CLI.create("some-name").setSummary("A command line interface illustrating the options valuation.").addOption(new Option().setLongName("flag").setShortName("f").setFlag(true).setDescription("a flag")).addOption(new Option().setLongName("single").setShortName("s").setDescription("a single-valued option")).addOption(new Option().setLongName("multiple").setShortName("m").setMultiValued(true).setDescription("a multi-valued option"));
+}
