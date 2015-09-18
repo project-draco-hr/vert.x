@@ -1,0 +1,18 @@
+{
+  if (version == HttpVersion.HTTP_1_0 && keepAlive) {
+    response.headers().set(HttpHeaders.CONNECTION,HttpHeaders.KEEP_ALIVE);
+  }
+ else   if (version == HttpVersion.HTTP_1_1 && !keepAlive) {
+    response.headers().set(HttpHeaders.CONNECTION,HttpHeaders.CLOSE);
+  }
+  if (chunked) {
+    response.headers().set(HttpHeaders.TRANSFER_ENCODING,HttpHeaders.CHUNKED);
+  }
+ else   if (keepAlive && !contentLengthSet()) {
+    response.headers().set(HttpHeaders.CONTENT_LENGTH,"0");
+  }
+  if (headersEndHandler != null) {
+    headersEndHandler.handle(null);
+  }
+  headWritten=true;
+}
