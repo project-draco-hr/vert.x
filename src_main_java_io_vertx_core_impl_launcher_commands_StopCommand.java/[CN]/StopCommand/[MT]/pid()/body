@@ -1,10 +1,6 @@
 {
   try {
-    List<String> cmd=new ArrayList<>();
-    cmd.add("sh");
-    cmd.add("-c");
-    cmd.add("ps ax | grep \"" + id + "\"");
-    final Process process=new ProcessBuilder(cmd).start();
+    final Process process=new ProcessBuilder(Arrays.asList("sh","-c","ps ax | grep \"" + id + "\"")).start();
     BufferedReader reader=new BufferedReader(new InputStreamReader(process.getInputStream()));
     String line;
     while ((line=reader.readLine()) != null) {
@@ -14,8 +10,13 @@
       }
     }
     process.waitFor();
+    reader.close();
   }
- catch (  Exception e) {
+ catch (  InterruptedException e) {
+    Thread.currentThread().interrupt();
+    e.printStackTrace(out);
+  }
+catch (  Exception e) {
     e.printStackTrace(out);
   }
   return null;
