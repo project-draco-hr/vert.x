@@ -3,6 +3,6 @@
   result=31 * result + port;
   result=31 * result + (host != null ? host.hashCode() : 0);
   result=31 * result + acceptBacklog;
-  result=31 * result + (clientAuthRequired ? 1 : 0);
+  result=31 * result + clientAuth.hashCode();
   return result;
 }

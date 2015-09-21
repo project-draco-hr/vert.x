@@ -1,4 +1,0 @@
-{
-  this.clientAuthRequired=clientAuthRequired;
-  return this;
-}

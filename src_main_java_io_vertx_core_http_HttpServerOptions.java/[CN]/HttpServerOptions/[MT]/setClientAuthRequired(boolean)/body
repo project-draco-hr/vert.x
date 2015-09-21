@@ -1,4 +1,0 @@
-{
-  super.setClientAuthRequired(clientAuthRequired);
-  return this;
-}

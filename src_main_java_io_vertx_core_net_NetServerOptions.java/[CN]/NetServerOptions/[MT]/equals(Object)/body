@@ -4,7 +4,7 @@
   if (!super.equals(o))   return false;
   NetServerOptions that=(NetServerOptions)o;
   if (acceptBacklog != that.acceptBacklog)   return false;
-  if (clientAuthRequired != that.clientAuthRequired)   return false;
+  if (clientAuth != that.clientAuth)   return false;
   if (port != that.port)   return false;
   if (host != null ? !host.equals(that.host) : that.host != null)   return false;
   return true;
