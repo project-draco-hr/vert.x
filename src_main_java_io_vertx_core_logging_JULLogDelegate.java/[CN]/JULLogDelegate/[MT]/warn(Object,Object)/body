@@ -1,0 +1,3 @@
+{
+  log(Level.WARNING,message,null,params);
+}

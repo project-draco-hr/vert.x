@@ -1,0 +1,3 @@
+{
+  log(TRACE_INT,message,null,params);
+}

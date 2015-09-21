@@ -1,0 +1,3 @@
+{
+  log(DEBUG_INT,message,null,params);
+}
