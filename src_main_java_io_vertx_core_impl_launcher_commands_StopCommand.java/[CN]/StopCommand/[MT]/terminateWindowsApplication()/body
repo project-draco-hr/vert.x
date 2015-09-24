@@ -1,11 +1,5 @@
 {
-  List<String> cmd=new ArrayList<>();
-  cmd.add("WMIC");
-  cmd.add("PROCESS");
-  cmd.add("WHERE");
-  cmd.add("CommandLine like '%vertx.id=" + id + "%'");
-  cmd.add("CALL");
-  cmd.add("TERMINATE");
+  List<String> cmd=Arrays.asList("WMIC","PROCESS","WHERE","CommandLine like '%vertx.id=" + id + "%'","CALL","TERMINATE");
   try {
     final Process process=new ProcessBuilder(cmd).start();
     out.println("Application '" + id + "' stopped");

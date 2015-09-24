@@ -11,6 +11,7 @@
     }
   }
   process.waitFor();
+  reader.close();
   if (none) {
     out.println("No vert.x application found.");
   }

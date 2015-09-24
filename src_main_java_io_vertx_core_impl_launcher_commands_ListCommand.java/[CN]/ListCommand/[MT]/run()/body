@@ -8,7 +8,11 @@
       cmd.add("ps ax | grep \"vertx.id=\"");
       dumpFoundVertxApplications(cmd);
     }
- catch (    Exception e) {
+ catch (    InterruptedException e) {
+      Thread.currentThread().interrupt();
+      e.printStackTrace(out);
+    }
+catch (    Exception e) {
       e.printStackTrace(out);
     }
   }
@@ -23,7 +27,11 @@
       cmd.add("/VALUE");
       dumpFoundVertxApplications(cmd);
     }
- catch (    Exception e) {
+ catch (    InterruptedException e) {
+      Thread.currentThread().interrupt();
+      e.printStackTrace(out);
+    }
+catch (    Exception e) {
       e.printStackTrace(out);
     }
   }
