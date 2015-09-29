@@ -1,0 +1,6 @@
+{
+  if (watcher != null) {
+    watcher.close();
+    watcher=null;
+  }
+}

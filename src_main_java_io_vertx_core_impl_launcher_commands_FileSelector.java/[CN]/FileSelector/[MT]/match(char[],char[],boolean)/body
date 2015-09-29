@@ -34,12 +34,7 @@
     strIdxStart++;
   }
   if (strIdxStart > strIdxEnd) {
-    for (int i=patIdxStart; i <= patIdxEnd; i++) {
-      if (patArr[i] != '*') {
-        return false;
-      }
-    }
-    return true;
+    return checkOnlyStartsLeft(patArr,patIdxStart,patIdxEnd);
   }
   while ((ch=patArr[patIdxEnd]) != '*' && strIdxStart <= strIdxEnd) {
     if (ch != '?' && !equals(ch,strArr[strIdxEnd],isCaseSensitive)) {
@@ -49,12 +44,7 @@
     strIdxEnd--;
   }
   if (strIdxStart > strIdxEnd) {
-    for (int i=patIdxStart; i <= patIdxEnd; i++) {
-      if (patArr[i] != '*') {
-        return false;
-      }
-    }
-    return true;
+    return checkOnlyStartsLeft(patArr,patIdxStart,patIdxEnd);
   }
   while (patIdxStart != patIdxEnd && strIdxStart <= strIdxEnd) {
     int patIdxTmp=-1;
@@ -87,10 +77,5 @@
     patIdxStart=patIdxTmp;
     strIdxStart=foundIdx + patLength;
   }
-  for (int i=patIdxStart; i <= patIdxEnd; i++) {
-    if (patArr[i] != '*') {
-      return false;
-    }
-  }
-  return true;
+  return checkOnlyStartsLeft(patArr,patIdxStart,patIdxEnd);
 }

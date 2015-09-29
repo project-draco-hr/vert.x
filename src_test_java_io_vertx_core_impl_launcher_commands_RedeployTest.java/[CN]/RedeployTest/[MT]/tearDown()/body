@@ -5,6 +5,8 @@
     Vertx vertx=run.vertx;
     close(vertx);
     run.stopBackgroundApplication(null);
+    run.shutdownRedeployment();
   }
   FakeClusterManager.reset();
+  waitForTermination();
 }

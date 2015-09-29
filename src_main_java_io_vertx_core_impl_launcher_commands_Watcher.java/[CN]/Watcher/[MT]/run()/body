@@ -14,16 +14,16 @@
           @SuppressWarnings("unchecked") WatchEvent<Path> ev=(WatchEvent<Path>)event;
           Path fileName=ev.context();
           File theFile=new File(keyToFile.get(key),fileName.toFile().getName());
-          log.debug("Watcher ~> " + kind + " "+ theFile.getAbsolutePath());
+          LOGGER.debug("Watcher ~> " + kind + " "+ theFile.getAbsolutePath());
           if (kind == ENTRY_CREATE) {
             if (theFile.isDirectory()) {
               try {
                 final WatchKey newKey=register(theFile.toPath());
                 keyToFile.put(newKey,theFile);
-                log.debug("Watcher ~> new directory added to watch list :" + theFile.getAbsolutePath());
+                LOGGER.debug("Watcher ~> new directory added to watch list :" + theFile.getAbsolutePath());
               }
  catch (              IOException e) {
-                log.error("Cannot register directory " + theFile.getAbsolutePath());
+                LOGGER.error("Cannot register directory " + theFile.getAbsolutePath());
               }
             }
  else {
@@ -55,6 +55,6 @@
     }
   }
  catch (  Throwable e) {
-    log.error("An error have been encountered while watching resources - leaving the redeploy mode",e);
+    LOGGER.error("An error have been encountered while watching resources - leaving the redeploy mode",e);
   }
 }
