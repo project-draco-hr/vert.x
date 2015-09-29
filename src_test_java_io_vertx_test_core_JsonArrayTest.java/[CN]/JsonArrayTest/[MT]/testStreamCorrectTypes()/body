@@ -1,0 +1,6 @@
+{
+  String json="{\"object1\": [{\"object2\": 12}]}";
+  JsonObject object=new JsonObject(json);
+  testStreamCorrectTypes(object.copy());
+  testStreamCorrectTypes(object);
+}
