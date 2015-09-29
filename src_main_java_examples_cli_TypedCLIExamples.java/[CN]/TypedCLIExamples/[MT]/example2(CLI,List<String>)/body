@@ -1,0 +1,6 @@
+{
+  CommandLine commandLine=cli.parse(userCommandLineArguments);
+  boolean flag=commandLine.getOptionValue("R");
+  File source=commandLine.getArgumentValue("source");
+  File target=commandLine.getArgumentValue("target");
+}

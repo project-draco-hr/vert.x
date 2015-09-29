@@ -1,0 +1,6 @@
+{
+  CommandLine commandLine=cli.parse(userCommandLineArguments);
+  String opt=commandLine.getOptionValue("my-option");
+  boolean flag=commandLine.isFlagEnabled("my-flag");
+  String arg0=commandLine.getArgumentValue(0);
+}

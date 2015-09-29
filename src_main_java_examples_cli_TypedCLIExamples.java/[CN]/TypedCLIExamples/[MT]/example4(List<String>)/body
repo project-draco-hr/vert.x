@@ -1,0 +1,6 @@
+{
+  CLI cli=CLI.create(AnnotatedCli.class);
+  CommandLine commandLine=cli.parse(userCommandLineArguments);
+  AnnotatedCli instance=new AnnotatedCli();
+  CLIConfigurator.inject(commandLine,instance);
+}
