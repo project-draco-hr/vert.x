@@ -1,0 +1,15 @@
+{
+  if (!path.exists()) {
+    return false;
+  }
+  boolean ret=true;
+  if (path.isDirectory()) {
+    File[] files=path.listFiles();
+    if (files != null) {
+      for (      File f : files) {
+        ret=ret && deleteRecursive(f);
+      }
+    }
+  }
+  return ret && path.delete();
+}
