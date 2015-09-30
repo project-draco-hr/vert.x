@@ -1,4 +1,7 @@
 {
+  if (argument.isHidden()) {
+    return;
+  }
   if (!required) {
     buff.append("[");
   }

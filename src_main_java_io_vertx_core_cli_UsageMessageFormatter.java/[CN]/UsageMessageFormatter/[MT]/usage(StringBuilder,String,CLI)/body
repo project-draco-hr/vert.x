@@ -7,5 +7,5 @@
     buildWrapped(builder,"\n" + cli.getDescription());
   }
   builder.append("\n");
-  computeOptions(builder,cli.getOptions());
+  computeOptionsAndArguments(builder,cli.getOptions(),cli.getArguments());
 }
