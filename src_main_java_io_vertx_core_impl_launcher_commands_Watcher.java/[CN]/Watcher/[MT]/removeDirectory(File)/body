@@ -1,0 +1,8 @@
+{
+  for (  Map.Entry<WatchKey,File> entry : keyToFile.entrySet()) {
+    if (entry.getValue().getAbsolutePath().equals(theFile.getAbsolutePath())) {
+      keyToFile.remove(entry.getKey());
+      return;
+    }
+  }
+}

@@ -1,0 +1,3 @@
+String[] patDirs
+String[] strDirs
+boolean isCaseSensitive

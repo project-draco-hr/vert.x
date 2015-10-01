@@ -1,0 +1,7 @@
+{
+  String separator="\\";
+  assertTrue(FileSelector.matchPath(separator + "*" + separator+ "a.txt",separator + "b" + separator+ "a.txt",separator,false));
+  assertFalse(FileSelector.matchPath(separator + "*" + separator+ "a.txt","b" + separator + "a.txt",separator,false));
+  assertFalse(FileSelector.matchPath("*" + separator + "a.txt",separator + "b" + separator+ "a.txt",separator,false));
+  assertTrue(FileSelector.matchPath("*" + separator + "a.txt","b" + separator + "a.txt",separator,false));
+}

@@ -1,0 +1,5 @@
+{
+  char[] patArr=pattern.toCharArray();
+  char[] strArr=str.toCharArray();
+  return match(patArr,strArr,isCaseSensitive);
+}

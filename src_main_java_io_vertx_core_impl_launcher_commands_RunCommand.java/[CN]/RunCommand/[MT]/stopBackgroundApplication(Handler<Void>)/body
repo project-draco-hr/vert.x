@@ -1,0 +1,6 @@
+{
+  executionContext.execute("stop",vertxApplicationBackgroundId);
+  if (onCompletion != null) {
+    onCompletion.handle(null);
+  }
+}

@@ -1,0 +1,5 @@
+File root
+List<String> includes
+Handler<Handler<Void>> deploy
+Handler<Handler<Void>> undeploy
+String onRedeployCommand

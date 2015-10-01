@@ -1,0 +1,8 @@
+{
+  List<String> ret=new ArrayList<>();
+  StringTokenizer st=new StringTokenizer(path,separator);
+  while (st.hasMoreTokens()) {
+    ret.add(st.nextToken());
+  }
+  return ret.toArray(new String[ret.size()]);
+}
