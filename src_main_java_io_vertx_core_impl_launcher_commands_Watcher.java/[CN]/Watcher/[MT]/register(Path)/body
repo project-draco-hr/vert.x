@@ -1,9 +1,0 @@
-{
-  try {
-    this.getClass().getClassLoader().loadClass("com.sun.nio.file.SensitivityWatchEventModifier");
-    return dir.register(service,new WatchEvent.Kind[]{ENTRY_CREATE,ENTRY_DELETE,ENTRY_MODIFY},SensitivityWatchEventModifier.HIGH);
-  }
- catch (  ClassNotFoundException e) {
-    return dir.register(service,ENTRY_CREATE,ENTRY_DELETE,ENTRY_MODIFY);
-  }
-}
