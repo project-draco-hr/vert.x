@@ -1,0 +1,12 @@
+{
+  if (!file.getAbsolutePath().startsWith(root.getAbsolutePath())) {
+    return false;
+  }
+  String rel=file.getAbsolutePath().substring(root.getAbsolutePath().length() + 1);
+  for (  String include : includes) {
+    if (FileSelector.matchPath(include,rel)) {
+      return true;
+    }
+  }
+  return false;
+}

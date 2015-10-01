@@ -1,0 +1,4 @@
+String pattern
+String str
+String separator
+boolean isCaseSensitive

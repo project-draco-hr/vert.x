@@ -1,0 +1,3 @@
+char[] patArr
+int patIdxStart
+int patIdxEnd

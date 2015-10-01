@@ -1,0 +1,3 @@
+char[] patArr
+char[] strArr
+boolean isCaseSensitive

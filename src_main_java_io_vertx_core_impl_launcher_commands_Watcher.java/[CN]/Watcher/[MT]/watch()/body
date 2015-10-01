@@ -1,0 +1,20 @@
+{
+  try {
+    service=FileSystems.getDefault().newWatchService();
+  }
+ catch (  IOException e) {
+    LOGGER.error("Cannot initialize the watcher",e);
+    return this;
+  }
+  try {
+    registerAll(root.toPath());
+  }
+ catch (  IOException e) {
+    LOGGER.error("Cannot register current directory into the watcher service",e);
+    return this;
+  }
+  new Thread(this).start();
+  LOGGER.info("Starting the vert.x application in redeploy mode");
+  deploy.handle(null);
+  return this;
+}

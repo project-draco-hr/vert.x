@@ -1,4 +1,8 @@
 {
+  String sysProp=System.getProperty("vertx.cli.usage.prefix");
+  if (sysProp != null) {
+    return sysProp;
+  }
   String jar=CommandLineUtils.getJar();
   if (jar != null) {
     return "java -jar " + jar;

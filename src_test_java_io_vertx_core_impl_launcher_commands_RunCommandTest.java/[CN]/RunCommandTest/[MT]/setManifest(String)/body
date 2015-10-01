@@ -1,4 +1,4 @@
 {
   File source=new File("target/test-classes/META-INF/" + name);
-  Files.copy(source.toPath(),manifest.toPath());
+  Files.copy(source.toPath(),manifest.toPath(),StandardCopyOption.REPLACE_EXISTING,StandardCopyOption.COPY_ATTRIBUTES);
 }

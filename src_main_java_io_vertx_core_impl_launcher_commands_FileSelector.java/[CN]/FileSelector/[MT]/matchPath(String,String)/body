@@ -1,0 +1,3 @@
+{
+  return matchPath(pattern,str,true);
+}
