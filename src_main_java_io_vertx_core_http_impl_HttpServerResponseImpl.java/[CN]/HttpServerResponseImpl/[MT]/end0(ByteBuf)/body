@@ -1,2 +1,43 @@
 {
+  checkWritten();
+  if (!headWritten) {
+    prepareHeaders();
+    FullHttpResponse resp;
+    if (trailing != null) {
+      resp=new AssembledFullHttpResponse(response,data,trailing.trailingHeaders(),trailing.getDecoderResult());
+    }
+ else {
+      resp=new AssembledFullHttpResponse(response,data);
+    }
+    channelFuture=conn.writeToChannel(resp);
+  }
+ else {
+    if (!data.isReadable()) {
+      if (trailing == null) {
+        channelFuture=conn.writeToChannel(LastHttpContent.EMPTY_LAST_CONTENT);
+      }
+ else {
+        channelFuture=conn.writeToChannel(trailing);
+      }
+    }
+ else {
+      LastHttpContent content;
+      if (trailing != null) {
+        content=new AssembledLastHttpContent(data,trailing.trailingHeaders(),trailing.getDecoderResult());
+      }
+ else {
+        content=new DefaultLastHttpContent(data,false);
+      }
+      channelFuture=conn.writeToChannel(content);
+    }
+  }
+  if (!keepAlive) {
+    closeConnAfterWrite();
+    closed=true;
+  }
+  written=true;
+  conn.responseComplete();
+  if (bodyEndHandler != null) {
+    bodyEndHandler.handle(null);
+  }
 }

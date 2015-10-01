@@ -1,0 +1,4 @@
+{
+  this.readBufferSize=readBufferSize;
+  return this;
+}
