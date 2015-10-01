@@ -1,3 +1,2 @@
 MessageImpl msg
 HandlerHolder<T> holder
-boolean local
