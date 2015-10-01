@@ -7,7 +7,7 @@
   if (handlers.isEmpty()) {
     handlerMap.remove(worker);
   }
-  if (handlers.isEmpty()) {
+  if (handlerMap.isEmpty()) {
     hasHandlers=false;
   }
   availableWorkers.removeWorker(worker);
