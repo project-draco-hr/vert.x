@@ -7,5 +7,5 @@
   assertThat(evaluated.getOptionValues("f")).containsExactly("hello.txt");
   StringBuilder usage=new StringBuilder();
   cli.usage(usage);
-  assertThat(usage).startsWith("Usage: test [-f <value>]\n");
+  assertThat(usage).startsWith("Usage: test [-f <value>]");
 }
