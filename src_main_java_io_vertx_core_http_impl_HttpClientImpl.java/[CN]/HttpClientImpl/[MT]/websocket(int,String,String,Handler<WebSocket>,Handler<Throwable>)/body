@@ -1,0 +1,4 @@
+{
+  websocketStream(port,host,requestURI,null,null).exceptionHandler(failureHandler).handler(wsConnect);
+  return this;
+}

@@ -1,0 +1,3 @@
+{
+  return websocket(options.getDefaultPort(),host,requestURI,headers,wsConnect,failureHandler);
+}
