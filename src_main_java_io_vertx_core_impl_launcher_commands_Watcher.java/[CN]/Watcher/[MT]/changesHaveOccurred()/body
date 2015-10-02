@@ -1,0 +1,63 @@
+{
+  boolean changed=false;
+  for (  File toWatch : new HashSet<>(filesToWatch)) {
+    Map<File,File> newFiles=new HashMap<>();
+    if (toWatch.isDirectory()) {
+      File[] files=toWatch.exists() ? toWatch.listFiles() : new File[]{};
+      if (files == null) {
+        throw new IllegalStateException("Cannot scan the file system to detect file changes");
+      }
+      for (      File file : files) {
+        newFiles.put(file,file);
+      }
+    }
+ else {
+      newFiles.put(toWatch,toWatch);
+    }
+    Map<File,FileInfo> currentFileMap=fileMap.get(toWatch);
+    for (    Map.Entry<File,FileInfo> currentEntry : new HashMap<>(currentFileMap).entrySet()) {
+      File currFile=currentEntry.getKey();
+      FileInfo currInfo=currentEntry.getValue();
+      File newFile=newFiles.get(currFile);
+      if (newFile == null) {
+        currentFileMap.remove(currFile);
+        if (currentFileMap.isEmpty()) {
+          fileMap.remove(toWatch);
+          filesToWatch.remove(toWatch);
+        }
+        LOGGER.trace("File: " + currFile + " has been deleted");
+        if (match(currFile)) {
+          changed=true;
+        }
+      }
+ else       if (newFile.lastModified() != currInfo.lastModified || newFile.length() != currInfo.length) {
+        currentFileMap.put(newFile,new FileInfo(newFile.lastModified(),newFile.length()));
+        LOGGER.trace("File: " + currFile + " has been modified");
+        if (match(currFile)) {
+          changed=true;
+        }
+      }
+    }
+    for (    File newFile : newFiles.keySet()) {
+      if (!currentFileMap.containsKey(newFile)) {
+        currentFileMap.put(newFile,new FileInfo(newFile.lastModified(),newFile.length()));
+        if (newFile.isDirectory()) {
+          addFileToWatch(newFile);
+        }
+        LOGGER.trace("File was added: " + newFile);
+        if (match(newFile)) {
+          changed=true;
+        }
+      }
+    }
+  }
+  long now=System.currentTimeMillis();
+  if (changed) {
+    lastChange=now;
+  }
+  if (lastChange != -1 && now - lastChange >= gracePeriod) {
+    lastChange=-1;
+    return true;
+  }
+  return false;
+}
