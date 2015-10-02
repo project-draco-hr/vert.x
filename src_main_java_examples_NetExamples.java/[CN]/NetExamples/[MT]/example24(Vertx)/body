@@ -1,5 +1,5 @@
 {
   Buffer myTrustStoreAsABuffer=vertx.fileSystem().readFileBlocking("/path/to/your/truststore.jks");
-  NetServerOptions options=new NetServerOptions().setSsl(true).setClientAuth(SSLHelper.ClientAuth.REQUIRED).setTrustStoreOptions(new JksOptions().setValue(myTrustStoreAsABuffer).setPassword("password-of-your-truststore"));
+  NetServerOptions options=new NetServerOptions().setSsl(true).setClientAuth(ClientAuth.REQUIRED).setTrustStoreOptions(new JksOptions().setValue(myTrustStoreAsABuffer).setPassword("password-of-your-truststore"));
   NetServer server=vertx.createNetServer(options);
 }

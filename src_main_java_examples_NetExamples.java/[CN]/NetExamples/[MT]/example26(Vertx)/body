@@ -1,5 +1,5 @@
 {
   Buffer myTrustStoreAsABuffer=vertx.fileSystem().readFileBlocking("/path/to/your/truststore.pfx");
-  NetServerOptions options=new NetServerOptions().setSsl(true).setClientAuth(SSLHelper.ClientAuth.REQUIRED).setPfxTrustOptions(new PfxOptions().setValue(myTrustStoreAsABuffer).setPassword("password-of-your-truststore"));
+  NetServerOptions options=new NetServerOptions().setSsl(true).setClientAuth(ClientAuth.REQUIRED).setPfxTrustOptions(new PfxOptions().setValue(myTrustStoreAsABuffer).setPassword("password-of-your-truststore"));
   NetServer server=vertx.createNetServer(options);
 }

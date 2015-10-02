@@ -3,5 +3,4 @@
   this.port=other.getPort();
   this.host=other.getHost();
   this.acceptBacklog=other.getAcceptBacklog();
-  this.clientAuth=other.getClientAuth();
 }
