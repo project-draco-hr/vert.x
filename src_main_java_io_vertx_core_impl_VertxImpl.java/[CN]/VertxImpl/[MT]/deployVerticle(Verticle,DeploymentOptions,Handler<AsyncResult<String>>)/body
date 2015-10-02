@@ -1,3 +1,12 @@
 {
-  deploymentManager.deployVerticle(verticle,options,completionHandler);
+  boolean closed;
+synchronized (this) {
+    closed=this.closed;
+  }
+  if (closed) {
+    completionHandler.handle(Future.failedFuture("Vert.x closed"));
+  }
+ else {
+    deploymentManager.deployVerticle(verticle,options,completionHandler);
+  }
 }
