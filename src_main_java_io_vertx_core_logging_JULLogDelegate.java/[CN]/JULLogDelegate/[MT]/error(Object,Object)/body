@@ -1,0 +1,3 @@
+{
+  log(Level.SEVERE,message,null,params);
+}

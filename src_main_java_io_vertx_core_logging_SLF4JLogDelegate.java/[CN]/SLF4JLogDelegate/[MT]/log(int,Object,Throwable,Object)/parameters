@@ -1,0 +1,4 @@
+int level
+Object message
+Throwable t
+Object params

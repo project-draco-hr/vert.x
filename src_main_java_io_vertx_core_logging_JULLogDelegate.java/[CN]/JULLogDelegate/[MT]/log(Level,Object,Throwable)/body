@@ -1,11 +1,3 @@
 {
-  if (!logger.isLoggable(level)) {
-    return;
-  }
-  String msg=(message == null) ? "NULL" : message.toString();
-  LogRecord record=new LogRecord(level,msg);
-  record.setLoggerName(logger.getName());
-  record.setThrown(t);
-  record.setSourceClassName(null);
-  logger.log(record);
+  log(level,message,t,null);
 }

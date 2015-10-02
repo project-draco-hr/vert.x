@@ -1,0 +1,3 @@
+{
+  log(ERROR_INT,message,null,params);
+}
