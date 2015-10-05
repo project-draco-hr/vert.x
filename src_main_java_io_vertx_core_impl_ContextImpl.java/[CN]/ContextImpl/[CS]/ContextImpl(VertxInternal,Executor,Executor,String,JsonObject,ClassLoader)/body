@@ -1,4 +1,7 @@
 {
+  if (DISABLE_TCCL && !tccl.getClass().getName().equals("sun.misc.Launcher$AppClassLoader")) {
+    log.warn("You have disabled TCCL checks but you have a custom TCCL to set.");
+  }
   this.orderedInternalPoolExec=orderedInternalPoolExec;
   this.workerExec=workerExec;
   this.deploymentID=deploymentID;
