@@ -12,5 +12,6 @@
   if (verifyHost != that.verifyHost)   return false;
   if (!defaultHost.equals(that.defaultHost))   return false;
   if (protocolVersion != that.protocolVersion)   return false;
+  if (maxChunkSize != that.maxChunkSize)   return false;
   return true;
 }

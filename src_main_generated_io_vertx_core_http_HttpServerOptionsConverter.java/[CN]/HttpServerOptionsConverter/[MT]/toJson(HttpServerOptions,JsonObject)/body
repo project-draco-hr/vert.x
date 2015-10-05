@@ -5,4 +5,5 @@
   if (obj.getWebsocketSubProtocols() != null) {
     json.put("websocketSubProtocols",obj.getWebsocketSubProtocols());
   }
+  json.put("maxChunkSize",obj.getMaxChunkSize());
 }

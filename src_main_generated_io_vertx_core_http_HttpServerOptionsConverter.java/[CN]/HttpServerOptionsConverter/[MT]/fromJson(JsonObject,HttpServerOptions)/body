@@ -11,4 +11,7 @@
   if (json.getValue("websocketSubProtocols") instanceof String) {
     obj.setWebsocketSubProtocols((String)json.getValue("websocketSubProtocols"));
   }
+  if (json.getValue("maxChunkSize") instanceof Number) {
+    obj.setMaxChunkSize(((Number)json.getValue("maxChunkSize")).intValue());
+  }
 }
