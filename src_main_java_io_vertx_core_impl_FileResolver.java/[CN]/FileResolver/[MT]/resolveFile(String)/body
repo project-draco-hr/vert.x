@@ -23,8 +23,10 @@ case "file":
         return unpackFromFileURL(url,fileName,cl);
 case "jar":
       return unpackFromJarURL(url,fileName);
+case "bundle":
+    return unpackFromBundleURL(url);
 default :
-    throw new IllegalStateException("Invalid url protocol: " + prot);
+  throw new IllegalStateException("Invalid url protocol: " + prot);
 }
 }
 }

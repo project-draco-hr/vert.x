@@ -1,0 +1,26 @@
+{
+  try {
+    File file=new File(cacheDir,url.getHost() + File.separator + url.getFile());
+    file.getParentFile().mkdirs();
+    if (url.toExternalForm().endsWith("/")) {
+      file.mkdirs();
+    }
+ else {
+      file.getParentFile().mkdirs();
+      try (InputStream is=url.openStream()){
+        if (ENABLE_CACHING) {
+          Files.copy(is,file.toPath());
+        }
+ else {
+          Files.copy(is,file.toPath(),StandardCopyOption.REPLACE_EXISTING);
+        }
+      }
+ catch (      FileAlreadyExistsException ignore) {
+      }
+    }
+  }
+ catch (  IOException e) {
+    throw new VertxException(e);
+  }
+  return new File(cacheDir,url.getHost() + File.separator + url.getFile());
+}
