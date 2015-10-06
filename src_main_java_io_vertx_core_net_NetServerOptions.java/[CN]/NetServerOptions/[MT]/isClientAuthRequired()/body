@@ -1,3 +1,3 @@
 {
-  return clientAuthRequired;
+  return clientAuth == ClientAuth.REQUIRED;
 }

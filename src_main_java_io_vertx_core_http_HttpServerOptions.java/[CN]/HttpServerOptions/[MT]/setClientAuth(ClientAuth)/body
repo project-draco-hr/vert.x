@@ -1,0 +1,4 @@
+{
+  super.setClientAuth(clientAuth);
+  return this;
+}

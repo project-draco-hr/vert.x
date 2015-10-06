@@ -1,5 +1,5 @@
 {
   Buffer myCaAsABuffer=vertx.fileSystem().readFileBlocking("/path/to/your/server-ca.pfx");
-  NetServerOptions options=new NetServerOptions().setSsl(true).setClientAuthRequired(true).setPemTrustOptions(new PemTrustOptions().addCertValue(myCaAsABuffer));
+  NetServerOptions options=new NetServerOptions().setSsl(true).setClientAuth(ClientAuth.REQUIRED).setPemTrustOptions(new PemTrustOptions().addCertValue(myCaAsABuffer));
   NetServer server=vertx.createNetServer(options);
 }

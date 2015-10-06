@@ -1,4 +1,4 @@
 {
-  this.clientAuthRequired=clientAuthRequired;
+  this.clientAuth=clientAuthRequired ? ClientAuth.REQUIRED : ClientAuth.NONE;
   return this;
 }
