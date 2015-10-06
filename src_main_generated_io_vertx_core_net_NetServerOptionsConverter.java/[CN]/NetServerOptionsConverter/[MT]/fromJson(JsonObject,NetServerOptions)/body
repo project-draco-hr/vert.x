@@ -2,6 +2,9 @@
   if (json.getValue("acceptBacklog") instanceof Number) {
     obj.setAcceptBacklog(((Number)json.getValue("acceptBacklog")).intValue());
   }
+  if (json.getValue("clientAuth") instanceof String) {
+    obj.setClientAuth(io.vertx.core.http.ClientAuth.valueOf((String)json.getValue("clientAuth")));
+  }
   if (json.getValue("clientAuthRequired") instanceof Boolean) {
     obj.setClientAuthRequired((Boolean)json.getValue("clientAuthRequired"));
   }

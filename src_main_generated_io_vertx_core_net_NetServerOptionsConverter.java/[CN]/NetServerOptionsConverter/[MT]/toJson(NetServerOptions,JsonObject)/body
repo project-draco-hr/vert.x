@@ -1,5 +1,8 @@
 {
   json.put("acceptBacklog",obj.getAcceptBacklog());
+  if (obj.getClientAuth() != null) {
+    json.put("clientAuth",obj.getClientAuth().name());
+  }
   json.put("clientAuthRequired",obj.isClientAuthRequired());
   if (obj.getHost() != null) {
     json.put("host",obj.getHost());

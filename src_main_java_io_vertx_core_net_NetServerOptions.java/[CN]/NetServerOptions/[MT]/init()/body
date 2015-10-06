@@ -2,4 +2,5 @@
   this.port=DEFAULT_PORT;
   this.host=DEFAULT_HOST;
   this.acceptBacklog=DEFAULT_ACCEPT_BACKLOG;
+  this.clientAuth=DEFAULT_CLIENT_AUTH;
 }
