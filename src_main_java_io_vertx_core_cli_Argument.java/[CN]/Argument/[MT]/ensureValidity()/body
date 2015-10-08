@@ -1,2 +1,5 @@
 {
+  if (index < 0) {
+    throw new IllegalArgumentException("The index cannot be negative");
+  }
 }

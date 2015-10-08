@@ -1,0 +1,12 @@
+{
+  CLI cli=new DefaultCLI().setName("test");
+  cli.addArgument(new Argument().setIndex(0).setArgName("arg").setDescription("argument1"));
+  cli.addArgument(new Argument().setIndex(1).setMultiValued(true).setArgName("m").setDescription("multiple arg"));
+  CommandLine cl=cli.parse(Arrays.asList("a","b","c"));
+  assertThat((String)cl.getArgumentValue(0)).isEqualTo("a");
+  assertThat(cl.getArgumentValues(1)).containsExactly("b","c");
+  assertThat((String)cl.getArgumentValue(1)).isEqualTo("b");
+  StringBuilder builder=new StringBuilder();
+  cli.usage(builder);
+  assertThat(builder).contains("test arg m...");
+}

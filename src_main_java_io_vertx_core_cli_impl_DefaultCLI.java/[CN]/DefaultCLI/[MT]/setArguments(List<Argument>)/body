@@ -1,5 +1,5 @@
 {
   Objects.requireNonNull(args);
-  arguments=new TreeSet<>();
-  return addArguments(args);
+  arguments=new ArrayList<>(args);
+  return this;
 }

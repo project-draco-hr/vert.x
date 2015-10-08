@@ -1,6 +1,6 @@
 {
   if (isOptionAssigned(option)) {
-    return getRawValues(option).get(0);
+    return getRawValuesForOption(option).get(0);
   }
   return option.getDefaultValue();
 }

@@ -1,0 +1,10 @@
+{
+  CLI cli=new DefaultCLI().setName("test");
+  cli.addArgument(new Argument());
+  cli.addArgument(new Argument().setIndex(1));
+  cli.addArgument(new Argument().setMultiValued(true));
+  CommandLine line=cli.parse(Arrays.asList("a","b","c","d"));
+  assertThat((String)line.getArgumentValue(0)).isEqualToIgnoringCase("a");
+  assertThat((String)line.getArgumentValue(1)).isEqualToIgnoringCase("b");
+  assertThat(line.getArgumentValues(2)).containsExactly("c","d");
+}

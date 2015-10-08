@@ -1,2 +1,37 @@
 {
+  boolean multiValue=false;
+  List<Integer> usedIndexes=new ArrayList<>();
+  for (  Argument argument : cli.getArguments()) {
+    if (usedIndexes.contains(argument.getIndex())) {
+      throw new CLIException("Only one argument can use the index " + argument.getIndex());
+    }
+    usedIndexes.add(argument.getIndex());
+    if (multiValue) {
+      throw new CLIException("Only the last argument can be multi-valued");
+    }
+    multiValue=argument.isMultiValued();
+  }
+  Iterator<Argument> iterator=cli.getArguments().iterator();
+  Argument current=null;
+  if (iterator.hasNext()) {
+    current=iterator.next();
+  }
+  for (  String v : commandLine.allArguments()) {
+    if (current != null) {
+      commandLine.setRawValue(current,v);
+      if (!current.isMultiValued()) {
+        if (iterator.hasNext()) {
+          current=iterator.next();
+        }
+ else {
+          current=null;
+        }
+      }
+    }
+  }
+  for (  Argument arg : cli.getArguments()) {
+    if (arg.isRequired() && !commandLine.isArgumentAssigned(arg)) {
+      throw new MissingValueException(arg);
+    }
+  }
 }

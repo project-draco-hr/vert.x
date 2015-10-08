@@ -6,6 +6,9 @@
     buff.append("[");
   }
   buff.append(argument.getArgName());
+  if (argument.isMultiValued()) {
+    buff.append("...");
+  }
   if (!required) {
     buff.append("]");
   }

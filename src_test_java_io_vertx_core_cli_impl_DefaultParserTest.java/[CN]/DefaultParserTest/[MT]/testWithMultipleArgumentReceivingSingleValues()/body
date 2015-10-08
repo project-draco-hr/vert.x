@@ -1,0 +1,9 @@
+{
+  CLI cli=new DefaultCLI().setName("test");
+  cli.addArgument(new Argument().setIndex(0));
+  cli.addArgument(new Argument().setIndex(1).setMultiValued(true));
+  CommandLine cl=cli.parse(Arrays.asList("a","b"));
+  assertThat((String)cl.getArgumentValue(0)).isEqualTo("a");
+  assertThat(cl.getArgumentValues(1)).containsExactly("b");
+  assertThat((String)cl.getArgumentValue(1)).isEqualTo("b");
+}

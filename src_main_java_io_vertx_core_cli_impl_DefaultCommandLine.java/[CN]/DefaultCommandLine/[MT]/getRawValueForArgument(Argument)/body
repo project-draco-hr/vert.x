@@ -1,7 +1,7 @@
 {
-  Object v=argumentValues.get(arg);
-  if (v == null) {
+  List values=argumentValues.get(arg);
+  if (values == null || values.isEmpty()) {
     return arg.getDefaultValue();
   }
-  return v.toString();
+  return values.get(0).toString();
 }

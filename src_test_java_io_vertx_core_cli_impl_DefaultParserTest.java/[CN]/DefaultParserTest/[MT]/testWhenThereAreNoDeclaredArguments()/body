@@ -1,0 +1,5 @@
+{
+  CLI cli=new DefaultCLI().setName("test");
+  CommandLine cl=cli.parse(Arrays.asList("a","b","c"));
+  assertThat(cl.allArguments()).containsExactly("a","b","c");
+}

@@ -6,4 +6,5 @@
   hidden=other.hidden;
   required=other.required;
   defaultValue=other.defaultValue;
+  multiValued=other.multiValued;
 }

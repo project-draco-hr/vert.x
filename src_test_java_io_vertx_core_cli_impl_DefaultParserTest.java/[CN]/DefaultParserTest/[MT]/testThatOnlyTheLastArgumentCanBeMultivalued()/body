@@ -1,0 +1,7 @@
+{
+  CLI cli=new DefaultCLI().setName("test");
+  cli.addArgument(new Argument().setIndex(0));
+  cli.addArgument(new Argument().setIndex(1).setMultiValued(true));
+  cli.addArgument(new Argument().setIndex(2));
+  cli.parse(Arrays.asList("a","b","c","d"));
+}
