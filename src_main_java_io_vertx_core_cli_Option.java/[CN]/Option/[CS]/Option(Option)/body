@@ -10,4 +10,5 @@
   this.multiValued=other.multiValued;
   this.defaultValue=other.defaultValue;
   this.flag=other.flag;
+  this.help=other.help;
 }

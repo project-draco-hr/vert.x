@@ -11,6 +11,9 @@
   if (json.getValue("flag") instanceof Boolean) {
     obj.setFlag((Boolean)json.getValue("flag"));
   }
+  if (json.getValue("help") instanceof Boolean) {
+    obj.setHelp((Boolean)json.getValue("help"));
+  }
   if (json.getValue("hidden") instanceof Boolean) {
     obj.setHidden((Boolean)json.getValue("hidden"));
   }

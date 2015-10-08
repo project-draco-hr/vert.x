@@ -1,7 +1,7 @@
 {
   TypedOption opt=new TypedOption();
   Option option=method.getAnnotation(Option.class);
-  opt.setLongName(option.longName()).setShortName(option.shortName()).setMultiValued(option.acceptMultipleValues()).setSingleValued(option.acceptValue()).setArgName(option.argName()).setFlag(option.flag()).setRequired(option.required());
+  opt.setLongName(option.longName()).setShortName(option.shortName()).setMultiValued(option.acceptMultipleValues()).setSingleValued(option.acceptValue()).setArgName(option.argName()).setFlag(option.flag()).setHelp(option.help()).setRequired(option.required());
   Description description=method.getAnnotation(Description.class);
   if (description != null) {
     opt.setDescription(description.value());
