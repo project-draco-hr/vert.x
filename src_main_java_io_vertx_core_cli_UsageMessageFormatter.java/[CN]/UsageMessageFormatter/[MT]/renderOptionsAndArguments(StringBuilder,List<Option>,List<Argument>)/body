@@ -20,7 +20,11 @@
         buf.append(',').append(getLongOptionPrefix()).append(option.getLongName());
       }
     }
-    if (option.acceptValue()) {
+    if (!option.getChoices().isEmpty()) {
+      buf.append(!isNullOrEmpty(option.getLongName()) ? longOptSeparator : " ");
+      buf.append(option.getChoices().stream().collect(Collectors.joining(", ","{","}")));
+    }
+ else     if (option.acceptValue()) {
       String argName=option.getArgName();
       if (argName != null && argName.length() == 0) {
         buf.append(' ');

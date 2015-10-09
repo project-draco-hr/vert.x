@@ -12,7 +12,7 @@
   assertThat((String)cl.getArgumentValue(1)).isEqualTo("b");
   try {
     cli.parse(Collections.singletonList("a"));
-    Assert.fail("required argument not fultilled");
+    fail("required argument not fultilled");
   }
  catch (  MissingValueException e) {
   }

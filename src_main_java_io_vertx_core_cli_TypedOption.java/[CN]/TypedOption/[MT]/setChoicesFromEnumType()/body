@@ -1,0 +1,6 @@
+{
+  Object[] constants=type.getEnumConstants();
+  for (  Object c : constants) {
+    addChoice(c.toString());
+  }
+}

@@ -1,4 +1,7 @@
 {
   this.type=type;
+  if (type != null && getChoices().isEmpty() && type.isEnum()) {
+    setChoicesFromEnumType();
+  }
   return this;
 }

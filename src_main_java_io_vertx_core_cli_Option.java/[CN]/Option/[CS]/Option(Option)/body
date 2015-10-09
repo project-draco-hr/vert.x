@@ -11,4 +11,5 @@
   this.defaultValue=other.defaultValue;
   this.flag=other.flag;
   this.help=other.help;
+  this.choices=other.choices;
 }
