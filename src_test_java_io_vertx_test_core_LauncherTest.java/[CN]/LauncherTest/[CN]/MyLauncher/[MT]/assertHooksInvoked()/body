@@ -2,4 +2,5 @@
   assertTrue(beforeStartingVertxInvoked);
   assertTrue(afterStartingVertxInvoked);
   assertTrue(beforeDeployingVerticle);
+  assertNotNull(vertx);
 }
