@@ -1,0 +1,6 @@
+{
+  CLI cli=CLI.create(CLIUsingMultipleArgument.class);
+  CLIUsingMultipleArgument instance=new CLIUsingMultipleArgument();
+  CommandLine cl=cli.parse(Arrays.asList("a","b","-s=1","-s=2"));
+  CLIConfigurator.inject(cl,instance);
+}

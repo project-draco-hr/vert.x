@@ -3,5 +3,9 @@
   if (argument == null) {
     return null;
   }
+  boolean multiple=ReflectionUtils.isMultiple(method);
+  if (multiple) {
+    return createMultiValueContainer(method,commandLine.getArgumentValues(argument.getIndex()));
+  }
   return commandLine.getArgumentValue(argument.getIndex());
 }
