@@ -1,4 +1,0 @@
-String address
-boolean replyHandler
-boolean localOnly
-long timeoutID

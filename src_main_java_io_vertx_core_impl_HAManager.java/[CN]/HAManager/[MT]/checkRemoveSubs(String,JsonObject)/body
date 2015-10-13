@@ -1,6 +1,6 @@
 {
   String chosen=chooseHashedNode(null,failedNodeID.hashCode());
   if (chosen != null && chosen.equals(this.nodeID)) {
-    callFailoverCompleteHandler(removeSubsHandler,failedNodeID,theHAInfo,true);
+    callFailoverCompleteHandler(nodeCrashedHandler,failedNodeID,theHAInfo,true);
   }
 }

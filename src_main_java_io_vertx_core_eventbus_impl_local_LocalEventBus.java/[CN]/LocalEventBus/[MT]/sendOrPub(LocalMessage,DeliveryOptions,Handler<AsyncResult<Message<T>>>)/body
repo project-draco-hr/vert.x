@@ -1,0 +1,6 @@
+{
+  checkStarted();
+  HandlerRegistration<T> registration=createReplyHandlerRegistration(message,options,replyHandler);
+  metrics.messageSent(message.address(),!message.send(),true,false);
+  serveMessage(message,registration,true);
+}

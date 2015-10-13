@@ -1,0 +1,11 @@
+{
+  this.handler=handler;
+  if (this.handler != null && !registered) {
+    registered=true;
+    eventBus.addRegistration(address,this,replyHandler,localOnly);
+  }
+ else   if (this.handler == null && registered) {
+    this.unregister();
+  }
+  return this;
+}

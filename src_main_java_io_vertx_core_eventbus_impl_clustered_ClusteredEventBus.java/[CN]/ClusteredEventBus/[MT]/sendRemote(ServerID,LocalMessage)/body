@@ -1,0 +1,14 @@
+{
+  ConnectionHolder holder=connections.get(theServerID);
+  if (holder == null) {
+    holder=new ConnectionHolder(this,theServerID);
+    ConnectionHolder prevHolder=connections.putIfAbsent(theServerID,holder);
+    if (prevHolder != null) {
+      holder=prevHolder;
+    }
+ else {
+      holder.connect();
+    }
+  }
+  holder.writeMessage((ClusteredMessage)message);
+}

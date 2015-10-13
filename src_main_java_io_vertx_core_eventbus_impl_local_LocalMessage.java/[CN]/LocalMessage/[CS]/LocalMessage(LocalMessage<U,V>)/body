@@ -1,0 +1,18 @@
+{
+  this.bus=other.bus;
+  this.address=other.address;
+  this.replyAddress=other.replyAddress;
+  this.messageCodec=other.messageCodec;
+  if (other.headers != null) {
+    List<Map.Entry<String,String>> entries=other.headers.entries();
+    this.headers=new CaseInsensitiveHeaders();
+    for (    Map.Entry<String,String> entry : entries) {
+      this.headers.add(entry.getKey(),entry.getValue());
+    }
+  }
+  if (other.sentBody != null) {
+    this.sentBody=other.sentBody;
+    this.receivedBody=messageCodec.transform(other.sentBody);
+  }
+  this.send=other.send;
+}

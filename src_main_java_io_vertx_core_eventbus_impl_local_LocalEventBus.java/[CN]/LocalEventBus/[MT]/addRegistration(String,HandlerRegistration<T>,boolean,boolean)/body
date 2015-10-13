@@ -1,0 +1,5 @@
+{
+  Objects.requireNonNull(registration.getHandler(),"handler");
+  doAddRegistration(address,registration,replyHandler,localOnly);
+  registration.setResult(Future.succeededFuture());
+}
