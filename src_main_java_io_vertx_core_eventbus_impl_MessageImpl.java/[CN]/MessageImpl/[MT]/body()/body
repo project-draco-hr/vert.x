@@ -1,0 +1,6 @@
+{
+  if (receivedBody == null && sentBody != null) {
+    receivedBody=messageCodec.transform(sentBody);
+  }
+  return receivedBody;
+}

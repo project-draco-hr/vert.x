@@ -1,0 +1,6 @@
+{
+  this.message=message;
+  this.options=options;
+  this.handlerRegistration=handlerRegistration;
+  this.iter=interceptors.iterator();
+}

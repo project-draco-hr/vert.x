@@ -1,0 +1,9 @@
+{
+  if (replyMessage.address() == null) {
+    throw new IllegalStateException("address not specified");
+  }
+ else {
+    HandlerRegistration<T> replyHandlerRegistration=createReplyHandlerRegistration(replyMessage,options,replyHandler);
+    new ReplySendContextImpl<>(replyMessage,options,replyHandlerRegistration,replierMessage).next();
+  }
+}

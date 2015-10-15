@@ -1,4 +1,0 @@
-String address
-HandlerRegistration<T> registration
-boolean replyHandler
-boolean localOnly

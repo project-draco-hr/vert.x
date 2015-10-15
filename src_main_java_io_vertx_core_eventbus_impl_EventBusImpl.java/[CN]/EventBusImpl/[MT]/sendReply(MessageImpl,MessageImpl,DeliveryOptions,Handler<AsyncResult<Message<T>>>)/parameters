@@ -1,0 +1,4 @@
+MessageImpl replyMessage
+MessageImpl replierMessage
+DeliveryOptions options
+Handler<AsyncResult<Message<T>>> replyHandler

@@ -1,0 +1,4 @@
+MessageProducer<String> prod
+int batchSize
+int numBatches
+int batchNumber

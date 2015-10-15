@@ -1,3 +1,4 @@
 {
+  this.drainHandler=handler;
   return this;
 }

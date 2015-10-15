@@ -1,4 +1,0 @@
-VertxInternal vertx
-VertxOptions options
-ClusterManager clusterManager
-HAManager haManager

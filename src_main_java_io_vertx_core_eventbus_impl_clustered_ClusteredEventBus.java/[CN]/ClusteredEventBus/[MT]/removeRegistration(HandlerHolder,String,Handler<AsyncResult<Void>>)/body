@@ -1,0 +1,8 @@
+{
+  if (lastHolder != null && subs != null && !lastHolder.isLocalOnly()) {
+    removeSub(address,serverID,completionHandler);
+  }
+ else {
+    callCompletionHandlerAsync(completionHandler);
+  }
+}

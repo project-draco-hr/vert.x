@@ -1,0 +1,8 @@
+{
+  if (sendContext.message().address().startsWith(startsWith)) {
+    handleContext(sendContext);
+  }
+ else {
+    sendContext.next();
+  }
+}

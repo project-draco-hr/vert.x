@@ -1,0 +1,9 @@
+{
+  if (credits > 0) {
+    credits--;
+    bus.send(address,data,options);
+  }
+ else {
+    pending.add(data);
+  }
+}

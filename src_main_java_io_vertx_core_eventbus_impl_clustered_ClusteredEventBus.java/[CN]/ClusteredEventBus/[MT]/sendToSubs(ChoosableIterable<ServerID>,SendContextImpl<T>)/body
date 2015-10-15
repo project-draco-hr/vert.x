@@ -1,0 +1,31 @@
+{
+  String address=sendContext.message.address();
+  if (sendContext.message.send()) {
+    ServerID sid=subs.choose();
+    if (!sid.equals(serverID)) {
+      metrics.messageSent(address,false,false,true);
+      sendRemote(sid,sendContext.message);
+    }
+ else {
+      metrics.messageSent(address,false,true,false);
+      deliverMessageLocally(sendContext);
+    }
+  }
+ else {
+    boolean local=false;
+    boolean remote=false;
+    for (    ServerID sid : subs) {
+      if (!sid.equals(serverID)) {
+        remote=true;
+        sendRemote(sid,sendContext.message);
+      }
+ else {
+        local=true;
+      }
+    }
+    metrics.messageSent(address,true,local,remote);
+    if (local) {
+      deliverMessageLocally(sendContext);
+    }
+  }
+}

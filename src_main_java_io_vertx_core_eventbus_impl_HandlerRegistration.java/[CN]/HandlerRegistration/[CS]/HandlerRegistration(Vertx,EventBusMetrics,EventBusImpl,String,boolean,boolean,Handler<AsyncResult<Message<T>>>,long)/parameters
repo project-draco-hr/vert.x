@@ -1,0 +1,8 @@
+Vertx vertx
+EventBusMetrics metrics
+EventBusImpl eventBus
+String address
+boolean replyHandler
+boolean localOnly
+Handler<AsyncResult<Message<T>>> asyncResultHandler
+long timeout

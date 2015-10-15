@@ -1,6 +1,6 @@
 {
   if (send) {
-    bus.send(address,data,options);
+    doSend(data);
   }
  else {
     bus.publish(address,data,options);

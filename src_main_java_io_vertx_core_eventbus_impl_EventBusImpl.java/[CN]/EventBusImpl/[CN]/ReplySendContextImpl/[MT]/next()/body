@@ -1,0 +1,9 @@
+{
+  if (iter.hasNext()) {
+    Handler<SendContext> handler=iter.next();
+    handler.handle(this);
+  }
+ else {
+    sendReply(this,replierMessage);
+  }
+}
