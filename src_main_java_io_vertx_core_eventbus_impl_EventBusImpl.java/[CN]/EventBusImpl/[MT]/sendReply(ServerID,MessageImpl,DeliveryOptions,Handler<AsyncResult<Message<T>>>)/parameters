@@ -1,4 +1,0 @@
-ServerID dest
-MessageImpl message
-DeliveryOptions options
-Handler<AsyncResult<Message<T>>> replyHandler

@@ -1,0 +1,23 @@
+{
+  Handlers handlers=handlerMap.get(address);
+  HandlerHolder lastHolder=null;
+  if (handlers != null) {
+synchronized (handlers) {
+      int size=handlers.list.size();
+      for (int i=0; i < size; i++) {
+        HandlerHolder holder=handlers.list.get(i);
+        if (holder.getHandler() == handler) {
+          handlers.list.remove(i);
+          holder.setRemoved();
+          if (handlers.list.isEmpty()) {
+            handlerMap.remove(address);
+            lastHolder=holder;
+          }
+          holder.getContext().removeCloseHook(new HandlerEntry<>(address,holder.getHandler()));
+          break;
+        }
+      }
+    }
+  }
+  return lastHolder;
+}

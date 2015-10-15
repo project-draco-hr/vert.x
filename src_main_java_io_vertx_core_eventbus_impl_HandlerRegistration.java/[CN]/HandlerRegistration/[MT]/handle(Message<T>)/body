@@ -1,0 +1,32 @@
+{
+  Handler<Message<T>> theHandler=null;
+synchronized (this) {
+    if (paused) {
+      if (pending.size() < maxBufferedMessages) {
+        pending.add(message);
+      }
+ else {
+        if (discardHandler != null) {
+          discardHandler.handle(message);
+        }
+      }
+    }
+ else {
+      checkNextTick();
+      if (metrics.isEnabled()) {
+        boolean local=true;
+        if (message instanceof ClusteredMessage) {
+          ClusteredMessage cmsg=(ClusteredMessage)message;
+          if (cmsg.isFromWire()) {
+            local=false;
+          }
+        }
+        metrics.beginHandleMessage(metric,local);
+      }
+      theHandler=handler;
+    }
+  }
+  if (theHandler != null) {
+    handleMessage(theHandler,message);
+  }
+}

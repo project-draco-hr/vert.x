@@ -1,4 +1,0 @@
-{
-  unregisterHandler(this.address,this.handler,null);
-  completionHandler.handle(Future.succeededFuture());
-}

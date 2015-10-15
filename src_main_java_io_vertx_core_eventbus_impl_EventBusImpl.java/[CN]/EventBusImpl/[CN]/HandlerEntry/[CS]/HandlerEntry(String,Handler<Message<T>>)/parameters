@@ -1,2 +1,0 @@
-String address
-Handler<Message<T>> handler

@@ -1,5 +1,0 @@
-MessageImpl msg
-long timeoutID
-Handler<AsyncResult<Message<T>>> replyHandler
-Handler<Message<T>> simpleReplyHandler
-boolean local

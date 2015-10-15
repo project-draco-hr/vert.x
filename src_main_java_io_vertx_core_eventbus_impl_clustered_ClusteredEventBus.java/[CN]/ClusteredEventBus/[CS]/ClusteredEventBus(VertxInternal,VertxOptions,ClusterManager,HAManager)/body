@@ -1,0 +1,8 @@
+{
+  super(vertx);
+  this.options=options;
+  this.clusterManager=clusterManager;
+  this.haManager=haManager;
+  this.sendNoContext=vertx.getOrCreateContext();
+  setNodeCrashedHandler(haManager);
+}

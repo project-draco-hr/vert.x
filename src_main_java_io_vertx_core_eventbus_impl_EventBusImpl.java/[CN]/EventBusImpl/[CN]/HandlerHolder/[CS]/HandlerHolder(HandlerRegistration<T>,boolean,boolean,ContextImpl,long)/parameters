@@ -1,5 +1,0 @@
-HandlerRegistration<T> handler
-boolean replyHandler
-boolean localOnly
-ContextImpl context
-long timeoutID

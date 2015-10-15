@@ -1,0 +1,8 @@
+{
+  if (message.address() == null) {
+    throw new IllegalStateException("address not specified");
+  }
+ else {
+    sendReply(replyDest,(ClusteredMessage)message,options,replyHandler);
+  }
+}

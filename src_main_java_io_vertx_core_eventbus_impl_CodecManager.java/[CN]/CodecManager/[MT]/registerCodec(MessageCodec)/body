@@ -1,0 +1,9 @@
+{
+  Objects.requireNonNull(codec,"codec");
+  Objects.requireNonNull(codec.name(),"code.name()");
+  checkSystemCodec(codec);
+  if (userCodecMap.containsKey(codec.name())) {
+    throw new IllegalStateException("Already a codec registered with name " + codec.name());
+  }
+  userCodecMap.put(codec.name(),codec);
+}

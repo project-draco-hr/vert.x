@@ -1,0 +1,5 @@
+{
+  if (bus != null & replyAddress() != null) {
+    ((ClusteredEventBus)bus).sendReply(sender,msg,options,replyHandler);
+  }
+}

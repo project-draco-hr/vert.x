@@ -1,4 +1,0 @@
-{
-  sendOrPub(null,createMessage(true,address,options.getHeaders(),message,options.getCodecName()),options,replyHandler);
-  return this;
-}

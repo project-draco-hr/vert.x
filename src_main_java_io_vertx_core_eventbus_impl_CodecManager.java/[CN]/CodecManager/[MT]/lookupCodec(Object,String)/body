@@ -1,0 +1,61 @@
+{
+  MessageCodec codec;
+  if (codecName != null) {
+    codec=userCodecMap.get(codecName);
+    if (codec == null) {
+      throw new IllegalArgumentException("No message codec for name: " + codecName);
+    }
+  }
+ else   if (body == null) {
+    codec=NULL_MESSAGE_CODEC;
+  }
+ else   if (body instanceof String) {
+    codec=STRING_MESSAGE_CODEC;
+  }
+ else   if (body instanceof Buffer) {
+    codec=BUFFER_MESSAGE_CODEC;
+  }
+ else   if (body instanceof JsonObject) {
+    codec=JSON_OBJECT_MESSAGE_CODEC;
+  }
+ else   if (body instanceof JsonArray) {
+    codec=JSON_ARRAY_MESSAGE_CODEC;
+  }
+ else   if (body instanceof byte[]) {
+    codec=BYTE_ARRAY_MESSAGE_CODEC;
+  }
+ else   if (body instanceof Integer) {
+    codec=INT_MESSAGE_CODEC;
+  }
+ else   if (body instanceof Long) {
+    codec=LONG_MESSAGE_CODEC;
+  }
+ else   if (body instanceof Float) {
+    codec=FLOAT_MESSAGE_CODEC;
+  }
+ else   if (body instanceof Double) {
+    codec=DOUBLE_MESSAGE_CODEC;
+  }
+ else   if (body instanceof Boolean) {
+    codec=BOOLEAN_MESSAGE_CODEC;
+  }
+ else   if (body instanceof Short) {
+    codec=SHORT_MESSAGE_CODEC;
+  }
+ else   if (body instanceof Character) {
+    codec=CHAR_MESSAGE_CODEC;
+  }
+ else   if (body instanceof Byte) {
+    codec=BYTE_MESSAGE_CODEC;
+  }
+ else   if (body instanceof ReplyException) {
+    codec=REPLY_EXCEPTION_MESSAGE_CODEC;
+  }
+ else {
+    codec=defaultCodecMap.get(body.getClass());
+    if (codec == null) {
+      throw new IllegalArgumentException("No message codec for type: " + body.getClass());
+    }
+  }
+  return codec;
+}

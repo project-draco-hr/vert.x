@@ -1,0 +1,4 @@
+{
+  unregister();
+  asyncResultHandler.handle(Future.failedFuture(new ReplyException(failure,msg)));
+}

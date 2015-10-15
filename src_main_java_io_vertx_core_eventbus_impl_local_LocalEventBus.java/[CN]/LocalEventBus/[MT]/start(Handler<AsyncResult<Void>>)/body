@@ -1,0 +1,7 @@
+{
+  if (started) {
+    throw new IllegalStateException("Already started");
+  }
+  started=true;
+  completionHandler.handle(Future.succeededFuture());
+}

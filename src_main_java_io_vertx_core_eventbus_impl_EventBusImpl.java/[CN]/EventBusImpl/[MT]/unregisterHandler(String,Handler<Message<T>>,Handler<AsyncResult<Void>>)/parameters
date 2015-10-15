@@ -1,3 +1,0 @@
-String address
-Handler<Message<T>> handler
-Handler<AsyncResult<Void>> completionHandler
