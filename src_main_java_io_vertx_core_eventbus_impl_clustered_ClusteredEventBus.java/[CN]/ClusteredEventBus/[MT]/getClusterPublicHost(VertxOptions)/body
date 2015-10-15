@@ -1,5 +1,5 @@
 {
-  String publicHost=System.getProperty("vertx.cluster.public.host",options.getClusterPublicHost());
+  String publicHost=System.getProperty(CLUSTER_PUBLIC_HOST_PROP_NAME,options.getClusterPublicHost());
   if (publicHost == null) {
     publicHost=options.getClusterHost();
   }
