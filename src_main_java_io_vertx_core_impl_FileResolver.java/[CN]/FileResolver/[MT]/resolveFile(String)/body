@@ -24,6 +24,8 @@ case "file":
 case "jar":
       return unpackFromJarURL(url,fileName);
 case "bundle":
+case "bundleentry":
+case "bundleresource":
     return unpackFromBundleURL(url);
 default :
   throw new IllegalStateException("Invalid url protocol: " + prot);
