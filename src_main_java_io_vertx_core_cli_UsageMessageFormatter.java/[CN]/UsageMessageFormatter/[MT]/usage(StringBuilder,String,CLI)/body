@@ -7,6 +7,9 @@
     buildWrapped(builder,"\n" + cli.getDescription());
   }
   builder.append("\n");
-  builder.append("Options:\n");
+  if (cli.getOptions().isEmpty() && cli.getArguments().isEmpty()) {
+    return;
+  }
+  builder.append("Options and Arguments:\n");
   computeOptionsAndArguments(builder,cli.getOptions(),cli.getArguments());
 }
