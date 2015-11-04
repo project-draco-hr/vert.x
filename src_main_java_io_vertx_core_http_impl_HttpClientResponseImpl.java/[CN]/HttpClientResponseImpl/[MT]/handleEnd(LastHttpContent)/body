@@ -10,7 +10,12 @@
     this.trailer=trailer;
     trailers=new HeadersAdaptor(trailer.trailingHeaders());
     if (endHandler != null) {
-      endHandler.handle(null);
+      try {
+        endHandler.handle(null);
+      }
+ catch (      Throwable t) {
+        handleException(t);
+      }
     }
   }
 }
