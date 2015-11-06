@@ -1,4 +1,4 @@
 {
-  write(message);
+  doSend(message,null);
   return this;
 }

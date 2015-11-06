@@ -5,4 +5,5 @@
   this.headers=headers;
   this.sentBody=sentBody;
   this.send=send;
+  this.bus=bus;
 }
