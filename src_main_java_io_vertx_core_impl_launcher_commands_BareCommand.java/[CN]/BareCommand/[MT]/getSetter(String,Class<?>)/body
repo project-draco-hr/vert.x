@@ -5,5 +5,11 @@
       return meth;
     }
   }
+  meths=clazz.getMethods();
+  for (  Method meth : meths) {
+    if (("set" + fieldName).toLowerCase().equals(meth.getName().toLowerCase())) {
+      return meth;
+    }
+  }
   return null;
 }
