@@ -1,0 +1,5 @@
+{
+  CLI cli=factory.define();
+  commandByName.put(cli.getName(),new CommandRegistration(factory,cli));
+  return this;
+}

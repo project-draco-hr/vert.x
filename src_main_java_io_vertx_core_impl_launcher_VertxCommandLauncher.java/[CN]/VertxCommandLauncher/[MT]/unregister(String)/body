@@ -1,0 +1,4 @@
+{
+  commandByName.remove(name);
+  return this;
+}

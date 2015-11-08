@@ -1,0 +1,14 @@
+{
+  Launcher myLauncher=new Launcher(){
+    @Override protected void load(){
+      super.load();
+      unregister("start");
+    }
+  }
+;
+  record();
+  myLauncher.dispatch(new String[]{"start"});
+  stop();
+  assertThat(output.toString()).contains("The command 'start' is not a valid command.");
+  assertThat(myLauncher.getCommandNames()).doesNotContain("start");
+}

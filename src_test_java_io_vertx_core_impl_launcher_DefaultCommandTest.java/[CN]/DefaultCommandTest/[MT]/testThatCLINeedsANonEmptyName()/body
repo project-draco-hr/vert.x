@@ -1,0 +1,3 @@
+{
+  CLIConfigurator.define(MyCommandWithoutEmptyName.class);
+}
