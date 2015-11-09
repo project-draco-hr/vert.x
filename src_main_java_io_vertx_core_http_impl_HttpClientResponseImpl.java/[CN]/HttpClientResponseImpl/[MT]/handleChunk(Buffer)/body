@@ -15,7 +15,12 @@
     }
     bytesRead+=data.length();
     if (dataHandler != null) {
-      dataHandler.handle(data);
+      try {
+        dataHandler.handle(data);
+      }
+ catch (      Throwable t) {
+        handleException(t);
+      }
     }
   }
 }
