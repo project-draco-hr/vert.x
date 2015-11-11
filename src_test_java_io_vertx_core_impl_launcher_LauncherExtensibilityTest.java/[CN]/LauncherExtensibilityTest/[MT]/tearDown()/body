@@ -1,0 +1,5 @@
+{
+  spy.set(false);
+  super.tearDown();
+  close(vertx);
+}

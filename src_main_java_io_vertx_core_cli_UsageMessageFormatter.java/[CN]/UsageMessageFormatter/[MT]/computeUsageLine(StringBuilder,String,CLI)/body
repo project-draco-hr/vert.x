@@ -14,7 +14,7 @@
     Collections.sort(cli.getOptions(),getOptionComparator());
   }
   for (  Option option : cli.getOptions()) {
-    appendOption(buff,option,option.isRequired());
+    appendOption(buff,option);
     buff.append(" ");
   }
   for (  Argument arg : cli.getArguments()) {

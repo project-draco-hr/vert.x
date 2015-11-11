@@ -1,0 +1,10 @@
+{
+  super(other);
+  this.sender=other.sender;
+  if (other.sentBody == null) {
+    this.wireBuffer=other.wireBuffer;
+    this.bodyPos=other.bodyPos;
+    this.headersPos=other.headersPos;
+  }
+  this.fromWire=other.fromWire;
+}

@@ -1,0 +1,4 @@
+{
+  this.choices.add(choice);
+  return this;
+}

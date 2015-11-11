@@ -1,13 +1,7 @@
 {
-  AtomicReference<String> reference=new AtomicReference<>();
-  Object command=new Object(){
-    @Argument(index=0) public void setX(    String s){
-      reference.set(s);
-    }
-  }
-;
+  CommandForArgumentInjectionTest command=new CommandForArgumentInjectionTest();
   CLI cli=CLIConfigurator.define(command.getClass()).setName("test");
   CommandLine evaluatedCLI=parse(cli,"foo");
   CLIConfigurator.inject(evaluatedCLI,command);
-  assertThat(reference.get()).isEqualTo("foo");
+  assertThat(command.reference.get()).isEqualTo("foo");
 }

@@ -1,0 +1,5 @@
+boolean send
+String address
+MultiMap headers
+Object body
+String codecName

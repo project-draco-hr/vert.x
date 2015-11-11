@@ -1,0 +1,8 @@
+{
+  for (  Option option : cli.getOptions()) {
+    if (option.isHelp() && isSeenInCommandLine(option)) {
+      return true;
+    }
+  }
+  return false;
+}

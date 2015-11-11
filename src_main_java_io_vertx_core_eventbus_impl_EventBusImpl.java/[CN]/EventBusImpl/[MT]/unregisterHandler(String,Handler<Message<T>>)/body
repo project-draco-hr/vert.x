@@ -1,3 +1,0 @@
-{
-  unregisterHandler(address,handler,null);
-}

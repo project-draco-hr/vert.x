@@ -1,0 +1,33 @@
+{
+  CLI cli=new DefaultCLI().setName("test");
+  cli.addOption(new Option().setLongName("foo").setRequired(true));
+  cli.addOption(new Option().setLongName("help").setShortName("h").setHelp(true).setFlag(true));
+  CommandLine line=cli.parse(Collections.singletonList("--foo=bar"));
+  assertThat(line.isValid()).isTrue();
+  assertThat((String)line.getOptionValue("foo")).isEqualTo("bar");
+  assertThat(line.isAskingForHelp()).isFalse();
+  line=cli.parse(Arrays.asList("--foo=bar","-h"));
+  assertThat(line.isValid()).isTrue();
+  assertThat((String)line.getOptionValue("foo")).isEqualTo("bar");
+  assertThat(line.isFlagEnabled("help")).isTrue();
+  assertThat(line.isAskingForHelp()).isTrue();
+  line=cli.parse(Collections.singletonList("-h"));
+  assertThat(line.isValid()).isFalse();
+  assertThat(line.isFlagEnabled("help")).isTrue();
+  assertThat(line.isAskingForHelp()).isTrue();
+  line=cli.parse(Collections.singletonList("-h"),false);
+  assertThat(line.isValid()).isFalse();
+  assertThat(line.isFlagEnabled("help")).isTrue();
+  assertThat(line.isAskingForHelp()).isTrue();
+  line=cli.parse(Arrays.asList("--foo=bar","-h"),false);
+  assertThat(line.isValid()).isTrue();
+  assertThat((String)line.getOptionValue("foo")).isEqualTo("bar");
+  assertThat(line.isFlagEnabled("help")).isTrue();
+  assertThat(line.isAskingForHelp()).isTrue();
+  try {
+    cli.parse(Collections.<String>emptyList());
+    fail("Exception expected");
+  }
+ catch (  MissingOptionException e) {
+  }
+}

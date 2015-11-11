@@ -1,0 +1,3 @@
+{
+  CLI cli=CLI.create("some-name").addArgument(new Argument().setDescription("the first argument").setArgName("arg1")).addArgument(new Argument().setDescription("the second argument").setArgName("arg2"));
+}

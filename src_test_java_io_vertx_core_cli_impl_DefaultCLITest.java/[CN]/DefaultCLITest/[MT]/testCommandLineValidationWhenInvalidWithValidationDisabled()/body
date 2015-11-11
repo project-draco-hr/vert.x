@@ -1,0 +1,5 @@
+{
+  final CLI cli=CLI.create("test").addArgument(new Argument().setArgName("foo").setRequired(true));
+  CommandLine commandLine=cli.parse(Collections.<String>emptyList(),false);
+  assertThat(commandLine.isValid()).isEqualTo(false);
+}

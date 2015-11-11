@@ -1,0 +1,14 @@
+{
+  CLI cli=CLIConfigurator.define(CLIUsingAEnumOption.class);
+  StringBuilder builder=new StringBuilder();
+  cli.usage(builder);
+  assertThat(builder).contains("[--retention {CLASS, RUNTIME, SOURCE}]").contains("  --retention {CLASS, RUNTIME, SOURCE}");
+  CommandLine line=cli.parse(Arrays.asList("--retention","CLASS","--foo","bar"));
+  assertThat((RetentionPolicy)line.getOptionValue("retention")).isEqualTo(RetentionPolicy.CLASS);
+  try {
+    cli.parse(Collections.singletonList("--retention=nope"));
+    fail("Invalid value expected");
+  }
+ catch (  InvalidValueException e) {
+  }
+}

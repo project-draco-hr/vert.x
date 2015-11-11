@@ -1,4 +1,0 @@
-{
-  this.theServerID=serverID;
-  client=new NetClientImpl(vertx,new NetClientOptions().setConnectTimeout(60 * 1000),false);
-}

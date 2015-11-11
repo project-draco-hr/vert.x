@@ -1,9 +1,2 @@
 {
-  for (  CommandFactoryLookup lookup : lookups) {
-    Collection<CommandFactory<?>> commands=lookup.lookup();
-    for (    CommandFactory factory : commands) {
-      CLI cli=factory.define();
-      commandByName.put(cli.getName(),new CommandRegistration(factory,cli));
-    }
-  }
 }

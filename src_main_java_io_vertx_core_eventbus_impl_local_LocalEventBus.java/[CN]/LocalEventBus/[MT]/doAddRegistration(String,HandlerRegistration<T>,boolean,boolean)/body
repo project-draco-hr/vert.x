@@ -1,0 +1,25 @@
+{
+  Objects.requireNonNull(address,"address");
+  Context context=Vertx.currentContext();
+  boolean hasContext=context != null;
+  if (!hasContext) {
+    context=vertx.getOrCreateContext();
+  }
+  boolean newAddress=false;
+  HandlerHolder holder=new HandlerHolder<>(metrics,registration,replyHandler,localOnly,context);
+  Handlers handlers=handlerMap.get(address);
+  if (handlers == null) {
+    handlers=new Handlers();
+    Handlers prevHandlers=handlerMap.putIfAbsent(address,handlers);
+    if (prevHandlers != null) {
+      handlers=prevHandlers;
+    }
+    newAddress=true;
+  }
+  handlers.list.add(holder);
+  if (hasContext) {
+    HandlerEntry entry=new HandlerEntry<>(address,registration);
+    context.addCloseHook(entry);
+  }
+  return newAddress;
+}

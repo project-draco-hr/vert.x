@@ -1,0 +1,19 @@
+{
+  CLI cli=new DefaultCLI().setName("test");
+  cli.addArgument(new Argument().setIndex(0));
+  cli.addArgument(new Argument().setIndex(1).setMultiValued(true).setRequired(true));
+  CommandLine cl=cli.parse(Arrays.asList("a","b","c"));
+  assertThat((String)cl.getArgumentValue(0)).isEqualTo("a");
+  assertThat(cl.getArgumentValues(1)).containsExactly("b","c");
+  assertThat((String)cl.getArgumentValue(1)).isEqualTo("b");
+  cl=cli.parse(Arrays.asList("a","b"));
+  assertThat((String)cl.getArgumentValue(0)).isEqualTo("a");
+  assertThat(cl.getArgumentValues(1)).containsExactly("b");
+  assertThat((String)cl.getArgumentValue(1)).isEqualTo("b");
+  try {
+    cli.parse(Collections.singletonList("a"));
+    fail("required argument not fultilled");
+  }
+ catch (  MissingValueException e) {
+  }
+}

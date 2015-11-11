@@ -1,0 +1,15 @@
+{
+  CLI cli=new DefaultCLI().setName("test");
+  cli.addOption(new Option().setLongName("color").addChoice("red").addChoice("blue").addChoice("green"));
+  StringBuilder builder=new StringBuilder();
+  cli.usage(builder);
+  assertThat(builder).contains("[--color {blue, green, red}]").contains("  --color {blue, green, red}");
+  CommandLine line=cli.parse(Arrays.asList("--color","blue"));
+  assertThat((String)line.getOptionValue("color")).isEqualTo("blue");
+  try {
+    cli.parse(Collections.singletonList("--color=black"));
+    fail("Invalid value expected");
+  }
+ catch (  InvalidValueException e) {
+  }
+}

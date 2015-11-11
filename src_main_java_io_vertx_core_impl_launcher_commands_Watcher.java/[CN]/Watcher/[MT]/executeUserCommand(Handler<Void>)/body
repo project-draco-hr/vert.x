@@ -8,7 +8,7 @@
  else {
         ExecUtils.addArgument(command,"sh");
         ExecUtils.addArgument(command,"-c");
-        ExecUtils.addArgument(command,cmd);
+        command.add(cmd);
       }
       final Process process=new ProcessBuilder(command).redirectError(ProcessBuilder.Redirect.INHERIT).redirectOutput(ProcessBuilder.Redirect.INHERIT).start();
       process.waitFor();

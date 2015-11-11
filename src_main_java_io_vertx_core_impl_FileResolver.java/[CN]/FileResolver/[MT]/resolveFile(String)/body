@@ -22,8 +22,10 @@ switch (prot) {
 case "file":
         return unpackFromFileURL(url,fileName,cl);
 case "jar":
-      return unpackFromJarURL(url,fileName);
+      return unpackFromJarURL(url,fileName,cl);
 case "bundle":
+case "bundleentry":
+case "bundleresource":
     return unpackFromBundleURL(url);
 default :
   throw new IllegalStateException("Invalid url protocol: " + prot);

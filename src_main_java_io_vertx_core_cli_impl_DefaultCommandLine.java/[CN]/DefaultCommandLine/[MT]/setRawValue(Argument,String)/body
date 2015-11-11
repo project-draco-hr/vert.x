@@ -1,4 +1,9 @@
 {
-  argumentValues.put(arg,rawValue);
+  List<String> list=argumentValues.get(arg);
+  if (list == null) {
+    list=new ArrayList<>();
+    argumentValues.put(arg,list);
+  }
+  list.add(rawValue);
   return this;
 }

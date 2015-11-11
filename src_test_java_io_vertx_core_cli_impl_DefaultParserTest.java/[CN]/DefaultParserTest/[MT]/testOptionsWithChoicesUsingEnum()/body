@@ -1,0 +1,15 @@
+{
+  CLI cli=new DefaultCLI().setName("test");
+  cli.addOption(new TypedOption<RetentionPolicy>().setLongName("retention").setType(RetentionPolicy.class));
+  StringBuilder builder=new StringBuilder();
+  cli.usage(builder);
+  assertThat(builder).contains("[--retention {CLASS, RUNTIME, SOURCE}]").contains("  --retention {CLASS, RUNTIME, SOURCE}");
+  CommandLine line=cli.parse(Arrays.asList("--retention","CLASS"));
+  assertThat((RetentionPolicy)line.getOptionValue("retention")).isEqualTo(RetentionPolicy.CLASS);
+  try {
+    cli.parse(Collections.singletonList("--retention=nope"));
+    fail("Invalid value expected");
+  }
+ catch (  InvalidValueException e) {
+  }
+}

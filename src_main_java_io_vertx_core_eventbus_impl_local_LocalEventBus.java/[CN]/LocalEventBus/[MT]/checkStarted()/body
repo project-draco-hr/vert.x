@@ -1,0 +1,5 @@
+{
+  if (!started) {
+    throw new IllegalStateException("Event Bus is not started");
+  }
+}

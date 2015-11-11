@@ -1,0 +1,4 @@
+{
+  codecManager.unregisterCodec(name);
+  return this;
+}

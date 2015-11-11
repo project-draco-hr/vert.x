@@ -1,0 +1,6 @@
+VertxInternal vertx
+DeploymentManager deploymentManager
+ClusterManager clusterManager
+int quorumSize
+String group
+boolean enabled

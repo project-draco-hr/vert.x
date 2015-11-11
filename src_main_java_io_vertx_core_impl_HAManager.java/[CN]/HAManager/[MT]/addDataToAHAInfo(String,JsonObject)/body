@@ -1,0 +1,6 @@
+{
+synchronized (haInfo) {
+    haInfo.put(key,value);
+    clusterMap.put(nodeID,haInfo.encode());
+  }
+}

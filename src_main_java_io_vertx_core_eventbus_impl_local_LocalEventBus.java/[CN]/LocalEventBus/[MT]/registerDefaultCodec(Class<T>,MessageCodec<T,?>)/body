@@ -1,0 +1,4 @@
+{
+  codecManager.registerDefaultCodec(clazz,codec);
+  return this;
+}

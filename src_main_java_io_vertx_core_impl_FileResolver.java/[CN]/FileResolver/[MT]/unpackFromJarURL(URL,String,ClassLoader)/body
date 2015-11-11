@@ -1,0 +1,35 @@
+{
+  try (ZipInputStream zip=toZipInputStream(url,cl)){
+    ZipEntry entry=zip.getNextEntry();
+    while (entry != null) {
+      String name=entry.getName();
+      if (name.startsWith(fileName)) {
+        File file=new File(cacheDir,name);
+        if (name.endsWith("/")) {
+          file.mkdirs();
+        }
+ else {
+          file.getParentFile().mkdirs();
+          try {
+            if (ENABLE_CACHING) {
+              Files.copy(zip,file.toPath());
+            }
+ else {
+              Files.copy(zip,file.toPath(),StandardCopyOption.REPLACE_EXISTING);
+            }
+          }
+ catch (          FileAlreadyExistsException ignore) {
+          }
+ finally {
+            zip.closeEntry();
+          }
+        }
+      }
+      entry=zip.getNextEntry();
+    }
+  }
+ catch (  IOException e) {
+    throw new VertxException(e);
+  }
+  return new File(cacheDir,fileName);
+}

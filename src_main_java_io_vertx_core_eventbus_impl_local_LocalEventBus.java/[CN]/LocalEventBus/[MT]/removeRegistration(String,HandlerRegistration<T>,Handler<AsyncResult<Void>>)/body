@@ -1,0 +1,4 @@
+{
+  removeRegistration(address,handler);
+  callCompletionHandlerAsync(completionHandler);
+}

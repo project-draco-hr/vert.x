@@ -1,0 +1,27 @@
+{
+  if (option.isHidden()) {
+    return;
+  }
+  if (!option.isRequired()) {
+    buff.append("[");
+  }
+  if (!isNullOrEmpty(option.getShortName())) {
+    buff.append("-").append(option.getShortName());
+  }
+ else {
+    buff.append("--").append(option.getLongName());
+  }
+  if (!option.getChoices().isEmpty()) {
+    buff.append(isNullOrEmpty(option.getShortName()) ? getLongOptionSeparator() : " ");
+    buff.append(option.getChoices().stream().collect(Collectors.joining(", ","{","}")));
+  }
+ else {
+    if (option.acceptValue() && (option.getArgName() == null || option.getArgName().length() != 0)) {
+      buff.append(isNullOrEmpty(option.getShortName()) ? getLongOptionSeparator() : " ");
+      buff.append("<").append(option.getArgName() != null ? option.getArgName() : getArgName()).append(">");
+    }
+  }
+  if (!option.isRequired()) {
+    buff.append("]");
+  }
+}
