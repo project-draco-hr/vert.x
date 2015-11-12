@@ -1,0 +1,4 @@
+{
+  FakeReadStream<MyClass> rs=new FakeReadStream<>();
+  Pump.pump(rs,null,1000);
+}
