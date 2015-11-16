@@ -39,14 +39,6 @@
   assertEquals(null,obj.getHttpMethods());
   assertEquals(null,obj.getObjects());
   assertEquals(Collections.emptyList(),obj.getAddedStringValues());
-  assertEquals(Collections.emptyList(),obj.getAddedBooleanValues());
-  assertEquals(Collections.emptyList(),obj.getAddedByteValues());
-  assertEquals(Collections.emptyList(),obj.getAddedShortValues());
-  assertEquals(Collections.emptyList(),obj.getAddedIntValues());
-  assertEquals(Collections.emptyList(),obj.getAddedLongValues());
-  assertEquals(Collections.emptyList(),obj.getAddedFloatValues());
-  assertEquals(Collections.emptyList(),obj.getAddedDoubleValues());
-  assertEquals(Collections.emptyList(),obj.getAddedCharValues());
   assertEquals(Collections.emptyList(),obj.getAddedBoxedBooleanValues());
   assertEquals(Collections.emptyList(),obj.getAddedBoxedByteValues());
   assertEquals(Collections.emptyList(),obj.getAddedBoxedShortValues());

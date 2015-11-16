@@ -1,4 +1,0 @@
-{
-  this.addedByteValues.add(addedBoxedByteValue);
-  return this;
-}

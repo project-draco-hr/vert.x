@@ -146,14 +146,6 @@
   assertEquals(Collections.singletonList(httpMethod),obj.getHttpMethods());
   assertEquals(list,obj.getObjects());
   assertEquals(Collections.singletonList(stringValue),obj.getAddedStringValues());
-  assertEquals(Collections.singletonList(boxedBooleanValue),obj.getAddedBooleanValues());
-  assertEquals(Collections.singletonList(boxedByteValue),obj.getAddedByteValues());
-  assertEquals(Collections.singletonList(boxedShortValue),obj.getAddedShortValues());
-  assertEquals(Collections.singletonList(boxedIntValue),obj.getAddedIntValues());
-  assertEquals(Collections.singletonList(boxedLongValue),obj.getAddedLongValues());
-  assertEquals(Collections.singletonList(boxedFloatValue),obj.getAddedFloatValues());
-  assertEquals(Collections.singletonList(boxedDoubleValue),obj.getAddedDoubleValues());
-  assertEquals(Collections.singletonList(boxedCharValue),obj.getAddedCharValues());
   assertEquals(Collections.singletonList(boxedBooleanValue),obj.getAddedBoxedBooleanValues());
   assertEquals(Collections.singletonList(boxedByteValue),obj.getAddedBoxedByteValues());
   assertEquals(Collections.singletonList(boxedShortValue),obj.getAddedBoxedShortValues());

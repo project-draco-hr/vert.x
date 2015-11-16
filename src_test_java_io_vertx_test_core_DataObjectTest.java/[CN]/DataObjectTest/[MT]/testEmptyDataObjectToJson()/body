@@ -41,14 +41,6 @@
   assertEquals(null,json.getJsonArray("httpMethods"));
   assertEquals(null,json.getJsonArray("objects"));
   assertEquals(new JsonArray(),json.getJsonArray("addedStringValues"));
-  assertEquals(new JsonArray(),json.getJsonArray("addedBooleanValues"));
-  assertEquals(new JsonArray(),json.getJsonArray("addedByteValues"));
-  assertEquals(new JsonArray(),json.getJsonArray("addedShortValues"));
-  assertEquals(new JsonArray(),json.getJsonArray("addedIntValues"));
-  assertEquals(new JsonArray(),json.getJsonArray("addedLongValues"));
-  assertEquals(new JsonArray(),json.getJsonArray("addedFloatValues"));
-  assertEquals(new JsonArray(),json.getJsonArray("addedDoubleValues"));
-  assertEquals(new JsonArray(),json.getJsonArray("addedCharValues"));
   assertEquals(new JsonArray(),json.getJsonArray("addedBoxedBooleanValues"));
   assertEquals(new JsonArray(),json.getJsonArray("addedBoxedByteValues"));
   assertEquals(new JsonArray(),json.getJsonArray("addedBoxedShortValues"));
