@@ -1,0 +1,12 @@
+{
+  MessageImpl message=sendContext.message;
+  String address=message.address();
+  if (!replyDest.equals(serverID)) {
+    metrics.messageSent(address,false,false,true);
+    sendRemote(replyDest,message);
+  }
+ else {
+    metrics.messageSent(address,false,true,false);
+    deliverMessageLocally(sendContext);
+  }
+}

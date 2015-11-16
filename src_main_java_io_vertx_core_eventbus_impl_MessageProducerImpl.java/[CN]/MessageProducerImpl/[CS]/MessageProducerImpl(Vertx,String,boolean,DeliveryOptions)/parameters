@@ -1,0 +1,4 @@
+Vertx vertx
+String address
+boolean send
+DeliveryOptions options

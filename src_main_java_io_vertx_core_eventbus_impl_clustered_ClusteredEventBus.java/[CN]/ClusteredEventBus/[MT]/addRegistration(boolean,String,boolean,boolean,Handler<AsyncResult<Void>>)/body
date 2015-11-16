@@ -1,0 +1,8 @@
+{
+  if (newAddress && subs != null && !replyHandler && !localOnly) {
+    subs.add(address,serverID,completionHandler);
+  }
+ else {
+    completionHandler.handle(Future.succeededFuture());
+  }
+}

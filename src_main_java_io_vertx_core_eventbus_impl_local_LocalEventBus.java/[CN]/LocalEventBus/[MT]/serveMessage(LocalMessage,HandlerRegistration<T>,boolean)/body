@@ -1,7 +1,0 @@
-{
-  if (!serveMessage(msg,local)) {
-    if (handlerRegistration != null) {
-      handlerRegistration.sendAsyncResultFailure(ReplyFailure.NO_HANDLERS,"No handlers for address " + msg.address);
-    }
-  }
-}

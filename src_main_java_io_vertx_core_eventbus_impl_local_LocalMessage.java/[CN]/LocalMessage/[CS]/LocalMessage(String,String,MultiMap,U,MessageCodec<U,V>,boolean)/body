@@ -1,8 +1,0 @@
-{
-  this.messageCodec=messageCodec;
-  this.address=address;
-  this.replyAddress=replyAddress;
-  this.headers=headers;
-  this.sentBody=sentBody;
-  this.send=send;
-}

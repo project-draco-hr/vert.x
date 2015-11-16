@@ -1,0 +1,14 @@
+{
+  if (iter.hasNext()) {
+    Handler<SendContext> handler=iter.next();
+    try {
+      handler.handle(this);
+    }
+ catch (    Throwable t) {
+      log.error("Failure in interceptor",t);
+    }
+  }
+ else {
+    sendOrPub(this);
+  }
+}

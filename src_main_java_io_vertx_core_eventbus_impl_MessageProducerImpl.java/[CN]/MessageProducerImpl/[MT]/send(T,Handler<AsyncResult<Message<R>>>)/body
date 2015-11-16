@@ -1,0 +1,4 @@
+{
+  doSend(message,replyHandler);
+  return this;
+}

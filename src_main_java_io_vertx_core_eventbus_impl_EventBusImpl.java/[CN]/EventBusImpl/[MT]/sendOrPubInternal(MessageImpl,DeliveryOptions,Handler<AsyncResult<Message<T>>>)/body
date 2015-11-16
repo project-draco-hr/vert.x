@@ -1,0 +1,6 @@
+{
+  checkStarted();
+  HandlerRegistration<T> replyHandlerRegistration=createReplyHandlerRegistration(message,options,replyHandler);
+  SendContextImpl<T> sendContext=new SendContextImpl<>(message,options,replyHandlerRegistration);
+  sendContext.next();
+}

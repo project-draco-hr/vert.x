@@ -1,0 +1,4 @@
+{
+  HandlerHolder holder=removeLocalRegistration(address,handler);
+  removeRegistration(holder,address,completionHandler);
+}

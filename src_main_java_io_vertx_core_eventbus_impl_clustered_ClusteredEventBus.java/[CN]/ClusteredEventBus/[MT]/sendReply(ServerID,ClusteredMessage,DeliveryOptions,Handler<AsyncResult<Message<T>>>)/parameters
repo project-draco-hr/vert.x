@@ -1,4 +1,0 @@
-ServerID replyDest
-ClusteredMessage message
-DeliveryOptions options
-Handler<AsyncResult<Message<T>>> replyHandler

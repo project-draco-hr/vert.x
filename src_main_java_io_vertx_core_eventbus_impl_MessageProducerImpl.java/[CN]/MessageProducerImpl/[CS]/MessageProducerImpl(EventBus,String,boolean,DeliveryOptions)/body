@@ -1,6 +1,0 @@
-{
-  this.bus=bus;
-  this.address=address;
-  this.send=send;
-  this.options=options;
-}

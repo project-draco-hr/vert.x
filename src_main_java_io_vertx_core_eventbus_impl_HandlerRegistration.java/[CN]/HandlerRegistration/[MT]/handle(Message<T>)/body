@@ -9,6 +9,9 @@ synchronized (this) {
         if (discardHandler != null) {
           discardHandler.handle(message);
         }
+ else {
+          log.warn("Discarding message as more than " + maxBufferedMessages + " buffered in paused consumer");
+        }
       }
     }
  else {
@@ -27,6 +30,10 @@ synchronized (this) {
     }
   }
   if (theHandler != null) {
+    String creditsAddress=message.headers().get(MessageProducerImpl.CREDIT_ADDRESS_HEADER_NAME);
+    if (creditsAddress != null) {
+      eventBus.send(creditsAddress,1);
+    }
     handleMessage(theHandler,message);
   }
 }

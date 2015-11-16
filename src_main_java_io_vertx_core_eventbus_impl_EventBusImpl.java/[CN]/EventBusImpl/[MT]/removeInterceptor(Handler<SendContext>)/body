@@ -1,0 +1,4 @@
+{
+  interceptors.remove(interceptor);
+  return this;
+}

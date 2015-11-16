@@ -1,4 +1,0 @@
-{
-  super(address,replyAddress,headers,sentBody,messageCodec,send);
-  this.sender=sender;
-}

@@ -1,0 +1,7 @@
+{
+  if (!deliverMessageLocally(sendContext.message)) {
+    if (sendContext.handlerRegistration != null) {
+      sendContext.handlerRegistration.sendAsyncResultFailure(ReplyFailure.NO_HANDLERS,"No handlers for address " + sendContext.message.address);
+    }
+  }
+}

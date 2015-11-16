@@ -1,0 +1,5 @@
+{
+  MessageImpl message=sendContext.message;
+  metrics.messageSent(message.address(),!message.send(),true,false);
+  deliverMessageLocally(sendContext);
+}

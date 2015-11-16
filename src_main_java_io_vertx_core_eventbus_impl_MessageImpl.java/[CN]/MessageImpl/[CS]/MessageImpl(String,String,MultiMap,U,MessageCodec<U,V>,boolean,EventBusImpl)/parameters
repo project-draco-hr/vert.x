@@ -1,0 +1,7 @@
+String address
+String replyAddress
+MultiMap headers
+U sentBody
+MessageCodec<U,V> messageCodec
+boolean send
+EventBusImpl bus

@@ -1,0 +1,4 @@
+{
+  Objects.requireNonNull(address,"address");
+  return new MessageProducerImpl<>(vertx,address,false,new DeliveryOptions());
+}

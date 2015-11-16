@@ -1,0 +1,4 @@
+{
+  ClusteredMessage clusteredMessage=(ClusteredMessage)msg;
+  return !clusteredMessage.isFromWire();
+}

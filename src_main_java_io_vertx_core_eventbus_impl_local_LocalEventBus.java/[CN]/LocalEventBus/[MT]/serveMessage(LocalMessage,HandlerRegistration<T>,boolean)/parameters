@@ -1,3 +1,0 @@
-LocalMessage msg
-HandlerRegistration<T> handlerRegistration
-boolean local

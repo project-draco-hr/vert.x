@@ -1,0 +1,4 @@
+{
+  interceptors.add(interceptor);
+  return this;
+}
