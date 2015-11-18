@@ -8,6 +8,7 @@
       version=HttpVersion.HTTP_1_1;
     }
  else {
+      sendNotImplementedAndClose();
       throw new IllegalStateException("Unsupported HTTP version: " + nettyVersion);
     }
   }

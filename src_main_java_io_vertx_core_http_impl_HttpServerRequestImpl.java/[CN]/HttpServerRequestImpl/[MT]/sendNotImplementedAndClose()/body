@@ -1,0 +1,4 @@
+{
+  response().setStatusCode(501).end();
+  response().close();
+}
