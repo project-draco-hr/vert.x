@@ -1,10 +1,12 @@
 {
-  if (drainHandler != null) {
-    try {
-      drainHandler.handle(null);
-    }
- catch (    Throwable t) {
-      handleException(t);
+synchronized (getLock()) {
+    if (drainHandler != null) {
+      try {
+        drainHandler.handle(null);
+      }
+ catch (      Throwable t) {
+        handleException(t);
+      }
     }
   }
 }

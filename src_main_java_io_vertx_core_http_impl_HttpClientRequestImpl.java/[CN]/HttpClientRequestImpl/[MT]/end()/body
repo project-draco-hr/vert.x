@@ -1,5 +1,7 @@
 {
-  checkComplete();
-  checkResponseHandler();
-  write(Unpooled.EMPTY_BUFFER,true);
+synchronized (getLock()) {
+    checkComplete();
+    checkResponseHandler();
+    write(Unpooled.EMPTY_BUFFER,true);
+  }
 }

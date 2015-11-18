@@ -1,7 +1,9 @@
 {
-  checkComplete();
-  checkResponseHandler();
-  ByteBuf buf=chunk.getByteBuf();
-  write(buf,false);
-  return this;
+synchronized (getLock()) {
+    checkComplete();
+    checkResponseHandler();
+    ByteBuf buf=chunk.getByteBuf();
+    write(buf,false);
+    return this;
+  }
 }

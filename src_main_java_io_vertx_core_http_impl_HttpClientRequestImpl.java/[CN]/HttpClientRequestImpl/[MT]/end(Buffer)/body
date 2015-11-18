@@ -1,8 +1,10 @@
 {
-  checkComplete();
-  checkResponseHandler();
-  if (!chunked && !contentLengthSet()) {
-    headers().set(CONTENT_LENGTH,String.valueOf(chunk.length()));
+synchronized (getLock()) {
+    checkComplete();
+    checkResponseHandler();
+    if (!chunked && !contentLengthSet()) {
+      headers().set(CONTENT_LENGTH,String.valueOf(chunk.length()));
+    }
+    write(chunk.getByteBuf(),true);
   }
-  write(chunk.getByteBuf(),true);
 }

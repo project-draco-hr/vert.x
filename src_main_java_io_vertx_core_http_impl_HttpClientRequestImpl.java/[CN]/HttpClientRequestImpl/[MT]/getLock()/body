@@ -1,0 +1,8 @@
+{
+  if (conn != null) {
+    return conn;
+  }
+ else {
+    return this;
+  }
+}

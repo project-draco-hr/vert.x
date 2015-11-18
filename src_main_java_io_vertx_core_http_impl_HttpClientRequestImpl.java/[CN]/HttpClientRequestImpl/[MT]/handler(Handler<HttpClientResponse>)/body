@@ -1,10 +1,12 @@
 {
-  if (handler != null) {
-    checkComplete();
-    respHandler=checkConnect(method,handler);
-  }
+synchronized (getLock()) {
+    if (handler != null) {
+      checkComplete();
+      respHandler=checkConnect(method,handler);
+    }
  else {
-    respHandler=null;
+      respHandler=null;
+    }
+    return this;
   }
-  return this;
 }

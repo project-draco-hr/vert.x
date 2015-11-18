@@ -1,5 +1,7 @@
 {
-  checkComplete();
-  checkResponseHandler();
-  return write(Buffer.buffer(chunk));
+synchronized (getLock()) {
+    checkComplete();
+    checkResponseHandler();
+    return write(Buffer.buffer(chunk));
+  }
 }

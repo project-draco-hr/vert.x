@@ -1,14 +1,16 @@
 {
-  checkComplete();
-  checkResponseHandler();
-  if (conn != null) {
-    if (!headWritten) {
-      writeHead();
+synchronized (getLock()) {
+    checkComplete();
+    checkResponseHandler();
+    if (conn != null) {
+      if (!headWritten) {
+        writeHead();
+      }
     }
-  }
  else {
-    connect();
-    writeHead=true;
+      connect();
+      writeHead=true;
+    }
+    return this;
   }
-  return this;
 }
