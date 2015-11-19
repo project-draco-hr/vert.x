@@ -1,0 +1,5 @@
+{
+  HandlerMetric registration=new HandlerMetric(address,repliedAddress);
+  registrations.add(registration);
+  return registration;
+}

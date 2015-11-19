@@ -4,7 +4,7 @@
     String replyAddress=generateReplyAddress();
     message.setReplyAddress(replyAddress);
     Handler<Message<T>> simpleReplyHandler=convertHandler(replyHandler);
-    HandlerRegistration<T> registration=new HandlerRegistration<>(vertx,metrics,this,replyAddress,true,true,replyHandler,timeout);
+    HandlerRegistration<T> registration=new HandlerRegistration<>(vertx,metrics,this,replyAddress,message.address,true,replyHandler,timeout);
     registration.handler(simpleReplyHandler);
     return registration;
   }

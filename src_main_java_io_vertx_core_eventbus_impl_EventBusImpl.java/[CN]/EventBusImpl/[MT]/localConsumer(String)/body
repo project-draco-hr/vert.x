@@ -1,5 +1,5 @@
 {
   checkStarted();
   Objects.requireNonNull(address,"address");
-  return new HandlerRegistration<>(vertx,metrics,this,address,false,true,null,-1);
+  return new HandlerRegistration<>(vertx,metrics,this,address,null,true,null,-1);
 }

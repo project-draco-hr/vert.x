@@ -1,3 +1,4 @@
 {
-  throw new UnsupportedOperationException();
+  replyFailureAddresses.add(address);
+  replyFailures.add(failure);
 }

@@ -2,7 +2,7 @@ Vertx vertx
 EventBusMetrics metrics
 EventBusImpl eventBus
 String address
-boolean replyHandler
+String repliedAddress
 boolean localOnly
 Handler<AsyncResult<Message<T>>> asyncResultHandler
 long timeout

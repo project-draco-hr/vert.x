@@ -1,5 +1,6 @@
 {
   if (!deliverMessageLocally(sendContext.message)) {
+    metrics.replyFailure(sendContext.message.address,ReplyFailure.NO_HANDLERS);
     if (sendContext.handlerRegistration != null) {
       sendContext.handlerRegistration.sendAsyncResultFailure(ReplyFailure.NO_HANDLERS,"No handlers for address " + sendContext.message.address);
     }
