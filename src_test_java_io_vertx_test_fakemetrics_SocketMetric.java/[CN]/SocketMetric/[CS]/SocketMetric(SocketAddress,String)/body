@@ -1,0 +1,4 @@
+{
+  this.remoteAddress=remoteAddress;
+  this.remoteName=remoteName;
+}
