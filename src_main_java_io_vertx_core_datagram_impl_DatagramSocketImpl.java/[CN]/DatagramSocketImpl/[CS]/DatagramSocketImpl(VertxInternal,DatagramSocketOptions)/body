@@ -1,5 +1,5 @@
 {
-  super(vertx,createChannel(options.isIpV6() ? io.vertx.core.datagram.impl.InternetProtocolFamily.IPv6 : io.vertx.core.datagram.impl.InternetProtocolFamily.IPv4,new DatagramSocketOptions(options)),vertx.getOrCreateContext(),vertx.metricsSPI().createMetrics(null,options));
+  super(vertx,createChannel(options.isIpV6() ? io.vertx.core.datagram.impl.InternetProtocolFamily.IPv6 : io.vertx.core.datagram.impl.InternetProtocolFamily.IPv4,new DatagramSocketOptions(options)),vertx.getOrCreateContext(),options);
   ContextImpl creatingContext=vertx.getContext();
   if (creatingContext != null && creatingContext.isMultiThreadedWorkerContext()) {
     throw new IllegalStateException("Cannot use DatagramSocket in a multi-threaded worker verticle");
