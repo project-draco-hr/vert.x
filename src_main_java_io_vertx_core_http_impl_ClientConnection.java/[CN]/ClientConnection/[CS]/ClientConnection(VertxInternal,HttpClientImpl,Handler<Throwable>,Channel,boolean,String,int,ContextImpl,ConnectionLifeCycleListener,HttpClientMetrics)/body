@@ -13,5 +13,5 @@
   this.listener=listener;
   this.exceptionHandler=exceptionHandler;
   this.metrics=metrics;
-  this.metric=metrics.connected(remoteAddress());
+  this.metric=metrics.connected(remoteAddress(),remoteName());
 }

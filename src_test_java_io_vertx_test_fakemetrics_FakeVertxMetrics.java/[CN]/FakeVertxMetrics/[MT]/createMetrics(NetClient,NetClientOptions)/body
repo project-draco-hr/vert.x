@@ -1,6 +1,6 @@
 {
   return new TCPMetrics<Object>(){
-    public Object connected(    SocketAddress remoteAddress){
+    public Object connected(    SocketAddress remoteAddress,    String remoteName){
       return null;
     }
     public void disconnected(    Object socketMetric,    SocketAddress remoteAddress){
