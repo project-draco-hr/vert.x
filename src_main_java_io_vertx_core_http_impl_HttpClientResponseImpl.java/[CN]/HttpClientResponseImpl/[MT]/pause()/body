@@ -1,7 +1,9 @@
 {
-  if (!paused) {
-    paused=true;
-    conn.doPause();
+synchronized (conn) {
+    if (!paused) {
+      paused=true;
+      conn.doPause();
+    }
+    return this;
   }
-  return this;
 }

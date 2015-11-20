@@ -1,25 +1,27 @@
 {
-  if (paused) {
-    if (pausedChunk == null) {
-      pausedChunk=data.copy();
-    }
- else {
-      pausedChunk.appendBuffer(data);
-    }
-  }
- else {
-    request.dataReceived();
-    if (pausedChunk != null) {
-      data=pausedChunk.appendBuffer(data);
-      pausedChunk=null;
-    }
-    bytesRead+=data.length();
-    if (dataHandler != null) {
-      try {
-        dataHandler.handle(data);
+synchronized (conn) {
+    if (paused) {
+      if (pausedChunk == null) {
+        pausedChunk=data.copy();
       }
- catch (      Throwable t) {
-        handleException(t);
+ else {
+        pausedChunk.appendBuffer(data);
+      }
+    }
+ else {
+      request.dataReceived();
+      if (pausedChunk != null) {
+        data=pausedChunk.appendBuffer(data);
+        pausedChunk=null;
+      }
+      bytesRead+=data.length();
+      if (dataHandler != null) {
+        try {
+          dataHandler.handle(data);
+        }
+ catch (        Throwable t) {
+          handleException(t);
+        }
       }
     }
   }

@@ -1,4 +1,6 @@
 {
-  this.dataHandler=dataHandler;
-  return this;
+synchronized (conn) {
+    this.dataHandler=dataHandler;
+    return this;
+  }
 }

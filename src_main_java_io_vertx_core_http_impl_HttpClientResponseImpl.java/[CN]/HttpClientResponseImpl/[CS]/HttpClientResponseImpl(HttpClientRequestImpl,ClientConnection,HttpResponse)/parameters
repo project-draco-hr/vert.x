@@ -1,4 +1,3 @@
-Vertx vertx
 HttpClientRequestImpl request
 ClientConnection conn
 HttpResponse response

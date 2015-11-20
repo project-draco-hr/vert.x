@@ -1,5 +1,7 @@
 {
-  if (exceptionHandler != null) {
-    exceptionHandler.handle(e);
+synchronized (conn) {
+    if (exceptionHandler != null) {
+      exceptionHandler.handle(e);
+    }
   }
 }

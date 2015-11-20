@@ -3,6 +3,13 @@
     return conn;
   }
  else {
-    return this;
+synchronized (this) {
+      if (conn != null) {
+        return conn;
+      }
+ else {
+        return this;
+      }
+    }
   }
 }

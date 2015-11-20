@@ -1,4 +1,6 @@
 {
-  this.endHandler=endHandler;
-  return this;
+synchronized (conn) {
+    this.endHandler=endHandler;
+    return this;
+  }
 }
