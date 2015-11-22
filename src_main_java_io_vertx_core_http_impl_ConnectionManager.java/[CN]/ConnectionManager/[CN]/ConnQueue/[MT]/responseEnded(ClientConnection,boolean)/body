@@ -1,0 +1,10 @@
+{
+  if (pipelining || keepAlive) {
+    if (available) {
+      dispose(conn);
+    }
+  }
+ else {
+    conn.close();
+  }
+}

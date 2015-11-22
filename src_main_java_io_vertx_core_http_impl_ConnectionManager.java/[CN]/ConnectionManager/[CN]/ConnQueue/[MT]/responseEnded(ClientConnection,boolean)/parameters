@@ -1,0 +1,2 @@
+ClientConnection conn
+boolean available
