@@ -1,0 +1,4 @@
+{
+  String command="vertx run verticle test1 -Dvertx.id=xxx --cluster";
+  assertThat(ListCommand.extractApplicationDetails(command)).isEqualTo("verticle");
+}

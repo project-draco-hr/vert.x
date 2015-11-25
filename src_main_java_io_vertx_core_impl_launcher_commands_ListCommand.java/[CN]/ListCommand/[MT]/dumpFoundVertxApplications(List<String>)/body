@@ -6,7 +6,9 @@
   while ((line=reader.readLine()) != null) {
     final Matcher matcher=PS.matcher(line);
     if (matcher.find()) {
-      out.println(matcher.group(1));
+      String id=matcher.group(1);
+      String details=extractApplicationDetails(line);
+      out.println(id + "\t" + details);
       none=false;
     }
   }

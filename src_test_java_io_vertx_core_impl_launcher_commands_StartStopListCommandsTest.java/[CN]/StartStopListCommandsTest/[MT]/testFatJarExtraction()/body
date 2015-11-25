@@ -1,0 +1,8 @@
+{
+  String command="java -jar fat.jar -Dvertx.id=xxx --cluster";
+  assertThat(ListCommand.extractApplicationDetails(command)).isEqualTo("fat.jar");
+  command="java -jar bin/fat.jar -Dvertx.id=xxx --cluster";
+  assertThat(ListCommand.extractApplicationDetails(command)).isEqualTo("bin/fat.jar");
+  command="java foo bar -Dvertx.id=xxx --cluster";
+  assertThat(ListCommand.extractApplicationDetails(command)).isEqualTo("");
+}
