@@ -1,0 +1,4 @@
+{
+  checkThread();
+  handleThrowable(cause);
+}
