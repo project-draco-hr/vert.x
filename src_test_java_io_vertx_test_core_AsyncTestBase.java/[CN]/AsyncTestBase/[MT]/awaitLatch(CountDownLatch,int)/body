@@ -1,3 +1,0 @@
-{
-  assertTrue(latch.await(numSecs,TimeUnit.SECONDS));
-}
