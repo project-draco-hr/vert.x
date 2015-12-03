@@ -1,10 +1,7 @@
 {
   currentResponse.handleEnd(trailer);
   if (currentResponse.statusCode() != 100 && requestForResponse.getRequest().getMethod() != HttpMethod.CONNECT) {
-    currentResponse=null;
-    listener.responseEnded(this,currentRequest == null);
+    listener.responseEnded(this);
   }
- else {
-    currentResponse=null;
-  }
+  currentResponse=null;
 }
