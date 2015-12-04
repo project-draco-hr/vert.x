@@ -1,0 +1,15 @@
+{
+  JsonArray arr=new JsonArray();
+  arr.add("wibble");
+  arr.add(5);
+  arr.add(true);
+  Buffer buff=Buffer.buffer(arr.encode());
+  assertEquals(arr,buff.toJsonArray());
+  buff=Buffer.buffer(TestUtils.randomAlphaString(10));
+  try {
+    buff.toJsonObject();
+    fail();
+  }
+ catch (  DecodeException ignore) {
+  }
+}

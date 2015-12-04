@@ -1,0 +1,15 @@
+{
+  JsonObject obj=new JsonObject();
+  obj.put("wibble","wibble_value");
+  obj.put("foo",5);
+  obj.put("bar",true);
+  Buffer buff=Buffer.buffer(obj.encode());
+  assertEquals(obj,buff.toJsonObject());
+  buff=Buffer.buffer(TestUtils.randomAlphaString(10));
+  try {
+    buff.toJsonObject();
+    fail();
+  }
+ catch (  DecodeException ignore) {
+  }
+}
