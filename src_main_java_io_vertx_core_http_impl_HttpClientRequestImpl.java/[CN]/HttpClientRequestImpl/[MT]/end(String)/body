@@ -1,3 +1,5 @@
 {
-  end(Buffer.buffer(chunk));
+synchronized (getLock()) {
+    end(Buffer.buffer(chunk));
+  }
 }

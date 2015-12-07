@@ -1,6 +1,8 @@
 {
-  if (trailers == null) {
-    trailers=new HeadersAdaptor(new DefaultHttpHeaders());
+synchronized (conn) {
+    if (trailers == null) {
+      trailers=new HeadersAdaptor(new DefaultHttpHeaders());
+    }
+    return trailers;
   }
-  return trailers;
 }

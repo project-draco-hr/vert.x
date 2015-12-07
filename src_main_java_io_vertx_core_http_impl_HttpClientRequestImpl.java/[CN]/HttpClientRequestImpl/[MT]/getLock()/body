@@ -1,0 +1,15 @@
+{
+  if (conn != null) {
+    return conn;
+  }
+ else {
+synchronized (this) {
+      if (conn != null) {
+        return conn;
+      }
+ else {
+        return this;
+      }
+    }
+  }
+}

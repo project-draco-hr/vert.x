@@ -1,10 +1,12 @@
 {
-  checkComplete();
-  if (conn != null) {
-    conn.doSetWriteQueueMaxSize(maxSize);
-  }
+synchronized (getLock()) {
+    checkComplete();
+    if (conn != null) {
+      conn.doSetWriteQueueMaxSize(maxSize);
+    }
  else {
-    pendingMaxSize=maxSize;
+      pendingMaxSize=maxSize;
+    }
+    return this;
   }
-  return this;
 }

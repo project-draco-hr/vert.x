@@ -1,8 +1,10 @@
 {
-  if (paused) {
-    paused=false;
-    doResume();
-    conn.doResume();
+synchronized (conn) {
+    if (paused) {
+      paused=false;
+      doResume();
+      conn.doResume();
+    }
+    return this;
   }
-  return this;
 }

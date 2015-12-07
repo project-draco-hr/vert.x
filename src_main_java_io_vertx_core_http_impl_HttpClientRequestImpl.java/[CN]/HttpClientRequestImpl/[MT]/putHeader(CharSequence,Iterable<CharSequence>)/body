@@ -1,5 +1,7 @@
 {
-  checkComplete();
-  headers().set(name,values);
-  return this;
+synchronized (getLock()) {
+    checkComplete();
+    headers().set(name,values);
+    return this;
+  }
 }

@@ -1,4 +1,6 @@
 {
-  checkComplete();
-  return conn != null && conn.isNotWritable();
+synchronized (getLock()) {
+    checkComplete();
+    return conn != null && conn.isNotWritable();
+  }
 }

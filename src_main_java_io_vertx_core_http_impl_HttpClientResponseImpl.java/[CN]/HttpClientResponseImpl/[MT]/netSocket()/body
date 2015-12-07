@@ -1,6 +1,8 @@
 {
-  if (netSocket == null) {
-    netSocket=conn.createNetSocket();
+synchronized (conn) {
+    if (netSocket == null) {
+      netSocket=conn.createNetSocket();
+    }
+    return netSocket;
   }
-  return netSocket;
 }

@@ -1,7 +1,9 @@
 {
-  if (endHandler != null) {
-    checkComplete();
+synchronized (getLock()) {
+    if (endHandler != null) {
+      checkComplete();
+    }
+    this.endHandler=endHandler;
+    return this;
   }
-  this.endHandler=endHandler;
-  return this;
 }

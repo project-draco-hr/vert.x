@@ -1,5 +1,7 @@
 {
-  if (currentTimeoutTimerId != -1) {
-    lastDataReceived=System.currentTimeMillis();
+synchronized (getLock()) {
+    if (currentTimeoutTimerId != -1) {
+      lastDataReceived=System.currentTimeMillis();
+    }
   }
 }

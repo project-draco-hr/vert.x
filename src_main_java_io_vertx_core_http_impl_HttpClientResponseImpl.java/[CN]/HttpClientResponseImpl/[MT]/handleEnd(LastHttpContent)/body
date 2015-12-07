@@ -1,20 +1,22 @@
 {
-  conn.reportBytesRead(bytesRead);
-  bytesRead=0;
-  request.reportResponseEnd(this);
-  if (paused) {
-    hasPausedEnd=true;
-    pausedTrailer=trailer;
-  }
+synchronized (conn) {
+    conn.reportBytesRead(bytesRead);
+    bytesRead=0;
+    request.reportResponseEnd(this);
+    if (paused) {
+      hasPausedEnd=true;
+      pausedTrailer=trailer;
+    }
  else {
-    this.trailer=trailer;
-    trailers=new HeadersAdaptor(trailer.trailingHeaders());
-    if (endHandler != null) {
-      try {
-        endHandler.handle(null);
-      }
- catch (      Throwable t) {
-        handleException(t);
+      this.trailer=trailer;
+      trailers=new HeadersAdaptor(trailer.trailingHeaders());
+      if (endHandler != null) {
+        try {
+          endHandler.handle(null);
+        }
+ catch (        Throwable t) {
+          handleException(t);
+        }
       }
     }
   }

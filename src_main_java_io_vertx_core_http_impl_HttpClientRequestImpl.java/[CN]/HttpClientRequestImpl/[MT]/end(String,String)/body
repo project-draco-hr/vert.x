@@ -1,4 +1,6 @@
 {
-  Objects.requireNonNull(enc,"no null encoding accepted");
-  end(Buffer.buffer(chunk,enc));
+synchronized (getLock()) {
+    Objects.requireNonNull(enc,"no null encoding accepted");
+    end(Buffer.buffer(chunk,enc));
+  }
 }

@@ -1,5 +1,7 @@
 {
-  checkComplete();
-  this.continueHandler=handler;
-  return this;
+synchronized (getLock()) {
+    checkComplete();
+    this.continueHandler=handler;
+    return this;
+  }
 }

@@ -1,3 +1,5 @@
 {
-  return chunked;
+synchronized (getLock()) {
+    return chunked;
+  }
 }

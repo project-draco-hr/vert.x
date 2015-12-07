@@ -1,6 +1,8 @@
 {
-  if (headers == null) {
-    headers=new HeadersAdaptor(request.headers());
+synchronized (getLock()) {
+    if (headers == null) {
+      headers=new HeadersAdaptor(request.headers());
+    }
+    return headers;
   }
-  return headers;
 }
