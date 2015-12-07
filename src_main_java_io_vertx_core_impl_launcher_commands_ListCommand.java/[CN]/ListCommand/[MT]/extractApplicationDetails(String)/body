@@ -1,0 +1,13 @@
+{
+  Matcher matcher=FAT_JAR_EXTRACTION.matcher(line);
+  if (matcher.find()) {
+    return matcher.group(1);
+  }
+ else {
+    matcher=VERTICLE_EXTRACTION.matcher(line);
+    if (matcher.find()) {
+      return matcher.group(1);
+    }
+  }
+  return "";
+}
