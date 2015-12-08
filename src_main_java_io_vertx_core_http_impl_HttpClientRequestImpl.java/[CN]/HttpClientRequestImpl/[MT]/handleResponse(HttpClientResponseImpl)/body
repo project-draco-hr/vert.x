@@ -1,6 +1,6 @@
 {
 synchronized (getLock()) {
-    if (!exceptionOccurred) {
+    if (!exceptionOccurred.get()) {
       cancelOutstandingTimeoutTimer();
       try {
         if (resp.statusCode() == 100) {

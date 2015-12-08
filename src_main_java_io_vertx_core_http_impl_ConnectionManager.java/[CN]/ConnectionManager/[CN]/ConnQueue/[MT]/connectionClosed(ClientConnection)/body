@@ -4,7 +4,7 @@
     allConnections.remove(conn);
     availableConnections.remove(conn);
   }
-  Waiter waiter=waiters.poll();
+  Waiter waiter=getNextWaiter();
   if (waiter != null) {
     createNewConnection(waiter.handler,waiter.connectionExceptionHandler,waiter.context);
   }

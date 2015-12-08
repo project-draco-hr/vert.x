@@ -6,4 +6,5 @@
   this.chunked=false;
   this.method=method;
   this.vertx=vertx;
+  this.exceptionOccurred=new AtomicBoolean(false);
 }

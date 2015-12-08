@@ -12,6 +12,6 @@
         connQueue=prev;
       }
     }
-    connQueue.getConnection(handler,connectionExceptionHandler,context);
+    connQueue.getConnection(handler,connectionExceptionHandler,context,canceled);
   }
 }
