@@ -4,5 +4,6 @@
   result=31 * result + maxWebsocketFrameSize;
   result=31 * result + (websocketSubProtocols != null ? websocketSubProtocols.hashCode() : 0);
   result=31 * result + (handle100ContinueAutomatically ? 1 : 0);
+  result=31 * result + maxChunkSize;
   return result;
 }

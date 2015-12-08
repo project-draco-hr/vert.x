@@ -27,6 +27,7 @@
   int maxWebsocketFrameSize=TestUtils.randomPositiveInt();
   String wsSubProtocol=TestUtils.randomAlphaString(10);
   boolean is100ContinueHandledAutomatically=rand.nextBoolean();
+  int maxChunkSize=rand.nextInt(10000);
   options.setSendBufferSize(sendBufferSize);
   options.setReceiveBufferSize(receiverBufferSize);
   options.setReuseAddress(reuseAddress);
@@ -49,6 +50,7 @@
   options.setMaxWebsocketFrameSize(maxWebsocketFrameSize);
   options.setWebsocketSubProtocols(wsSubProtocol);
   options.setHandle100ContinueAutomatically(is100ContinueHandledAutomatically);
+  options.setMaxChunkSize(maxChunkSize);
   HttpServerOptions copy=new HttpServerOptions(options);
   assertEquals(sendBufferSize,copy.getSendBufferSize());
   assertEquals(receiverBufferSize,copy.getReceiveBufferSize());
@@ -77,4 +79,5 @@
   assertEquals(maxWebsocketFrameSize,copy.getMaxWebsocketFrameSize());
   assertEquals(wsSubProtocol,copy.getWebsocketSubProtocols());
   assertEquals(is100ContinueHandledAutomatically,copy.isHandle100ContinueAutomatically());
+  assertEquals(maxChunkSize,copy.getMaxChunkSize());
 }

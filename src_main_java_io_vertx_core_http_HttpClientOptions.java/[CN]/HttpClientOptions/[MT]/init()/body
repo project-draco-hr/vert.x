@@ -8,4 +8,5 @@
   defaultHost=DEFAULT_DEFAULT_HOST;
   defaultPort=DEFAULT_DEFAULT_PORT;
   protocolVersion=DEFAULT_PROTOCOL_VERSION;
+  maxChunkSize=DEFAULT_MAX_CHUNK_SIZE;
 }
