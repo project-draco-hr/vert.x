@@ -6,6 +6,7 @@
   json.put("keepAlive",obj.isKeepAlive());
   json.put("maxChunkSize",obj.getMaxChunkSize());
   json.put("maxPoolSize",obj.getMaxPoolSize());
+  json.put("maxWaitQueueSize",obj.getMaxWaitQueueSize());
   json.put("maxWebsocketFrameSize",obj.getMaxWebsocketFrameSize());
   json.put("pipelining",obj.isPipelining());
   if (obj.getProtocolVersion() != null) {

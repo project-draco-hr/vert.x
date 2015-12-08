@@ -1,3 +1,4 @@
 int maxSockets
 boolean keepAlive
 boolean pipelining
+int maxWaitQueueSize
