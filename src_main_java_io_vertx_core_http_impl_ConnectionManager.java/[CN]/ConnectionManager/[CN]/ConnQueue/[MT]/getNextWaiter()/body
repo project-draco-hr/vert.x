@@ -1,6 +1,6 @@
 {
   Waiter waiter=waiters.poll();
-  while (waiter != null && waiter.canceled.get()) {
+  while (waiter != null && waiter.canceled.getAsBoolean()) {
     waiter=waiters.poll();
   }
   return waiter;

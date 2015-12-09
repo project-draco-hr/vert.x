@@ -3,4 +3,4 @@ String host
 Handler<ClientConnection> handler
 Handler<Throwable> connectionExceptionHandler
 ContextImpl context
-AtomicBoolean canceled
+BooleanSupplier canceled

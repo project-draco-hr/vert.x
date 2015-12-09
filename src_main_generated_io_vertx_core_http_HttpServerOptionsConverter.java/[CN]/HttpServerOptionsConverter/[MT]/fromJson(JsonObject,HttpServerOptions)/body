@@ -5,13 +5,13 @@
   if (json.getValue("handle100ContinueAutomatically") instanceof Boolean) {
     obj.setHandle100ContinueAutomatically((Boolean)json.getValue("handle100ContinueAutomatically"));
   }
+  if (json.getValue("maxChunkSize") instanceof Number) {
+    obj.setMaxChunkSize(((Number)json.getValue("maxChunkSize")).intValue());
+  }
   if (json.getValue("maxWebsocketFrameSize") instanceof Number) {
     obj.setMaxWebsocketFrameSize(((Number)json.getValue("maxWebsocketFrameSize")).intValue());
   }
   if (json.getValue("websocketSubProtocols") instanceof String) {
     obj.setWebsocketSubProtocols((String)json.getValue("websocketSubProtocols"));
-  }
-  if (json.getValue("maxChunkSize") instanceof Number) {
-    obj.setMaxChunkSize(((Number)json.getValue("maxChunkSize")).intValue());
   }
 }

@@ -1,3 +1,2 @@
 {
-  pool.getConnection(port,host,handler,connectionExceptionHandler,context,new AtomicBoolean(false));
 }
