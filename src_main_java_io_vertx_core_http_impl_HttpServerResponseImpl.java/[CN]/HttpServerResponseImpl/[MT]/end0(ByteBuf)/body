@@ -1,5 +1,6 @@
 {
   checkWritten();
+  bytesWritten+=data.readableBytes();
   if (!headWritten) {
     prepareHeaders();
     FullHttpResponse resp;
