@@ -14,4 +14,10 @@
   if (json.getValue("websocketSubProtocols") instanceof String) {
     obj.setWebsocketSubProtocols((String)json.getValue("websocketSubProtocols"));
   }
+  if (json.getValue("maxInitialLineLength") instanceof Number) {
+    obj.setMaxInitialLineLength(((Number)json.getValue("maxInitialLineLength")).intValue());
+  }
+  if (json.getValue("maxHeaderSize") instanceof Number) {
+    obj.setMaxHeaderSize(((Number)json.getValue("maxHeaderSize")).intValue());
+  }
 }

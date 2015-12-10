@@ -17,4 +17,6 @@
   assertEquals(def.isSsl(),json.isSsl());
   assertEquals(def.isHandle100ContinueAutomatically(),json.isHandle100ContinueAutomatically());
   assertEquals(def.getMaxChunkSize(),json.getMaxChunkSize());
+  assertEquals(def.getMaxInitialLineLength(),json.getMaxInitialLineLength());
+  assertEquals(def.getMaxHeaderSize(),json.getMaxHeaderSize());
 }
