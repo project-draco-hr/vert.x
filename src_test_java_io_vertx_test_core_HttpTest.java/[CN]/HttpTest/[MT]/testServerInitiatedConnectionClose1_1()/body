@@ -1,0 +1,3 @@
+{
+  testConnectionClose(HttpVersion.HTTP_1_1,true,2,10,5);
+}
