@@ -1,0 +1,4 @@
+{
+  out.println("[WARNING] the 'onRedeploy' option is deprecated, and will be removed in vert.x 3.3. Use " + "'on-redeploy' instead.");
+  setOnRedeployCommand(command);
+}
