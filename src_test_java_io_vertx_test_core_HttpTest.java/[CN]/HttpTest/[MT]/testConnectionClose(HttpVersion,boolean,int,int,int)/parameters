@@ -1,5 +1,0 @@
-HttpVersion protocolVersion
-boolean serverClose
-int requestsPerClose
-int totalRequests
-int expectedConnections

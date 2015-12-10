@@ -1,15 +1,6 @@
 {
   currentResponse.handleEnd(trailer);
   if (currentResponse.statusCode() != 100 && requestForResponse.getRequest().getMethod() != HttpMethod.CONNECT) {
-    String responseConnectionHeader=currentResponse.getHeader(HttpHeaders.Names.CONNECTION);
-    HttpVersion protocolVersion=requestForResponse.getRequest().getProtocolVersion();
-    String requestConnectionHeader=requestForResponse.getRequest().headers().get(HttpHeaders.Names.CONNECTION);
-    if (HttpHeaders.Values.CLOSE.equalsIgnoreCase(responseConnectionHeader) || HttpHeaders.Values.CLOSE.equalsIgnoreCase(requestConnectionHeader)) {
-      forceClose=true;
-    }
- else     if (protocolVersion == HttpVersion.HTTP_1_0 && !HttpHeaders.Values.KEEP_ALIVE.equalsIgnoreCase(responseConnectionHeader)) {
-      forceClose=true;
-    }
     listener.responseEnded(this);
   }
   currentResponse=null;
