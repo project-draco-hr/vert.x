@@ -1,0 +1,4 @@
+{
+  this.maxWaitQueueSize=maxWaitQueueSize;
+  return this;
+}

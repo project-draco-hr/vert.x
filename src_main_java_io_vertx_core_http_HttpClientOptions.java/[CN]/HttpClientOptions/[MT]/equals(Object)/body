@@ -13,5 +13,6 @@
   if (!defaultHost.equals(that.defaultHost))   return false;
   if (protocolVersion != that.protocolVersion)   return false;
   if (maxChunkSize != that.maxChunkSize)   return false;
+  if (maxWaitQueueSize != that.maxWaitQueueSize)   return false;
   return true;
 }
