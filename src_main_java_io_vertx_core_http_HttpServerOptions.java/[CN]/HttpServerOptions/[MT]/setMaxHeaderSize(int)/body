@@ -1,0 +1,4 @@
+{
+  this.maxHeaderSize=maxHeaderSize;
+  return this;
+}
