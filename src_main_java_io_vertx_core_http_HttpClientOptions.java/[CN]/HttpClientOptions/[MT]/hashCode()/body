@@ -10,5 +10,6 @@
   result=31 * result + defaultPort;
   result=31 * result + protocolVersion.hashCode();
   result=31 * result + maxChunkSize;
+  result=31 * result + maxWaitQueueSize;
   return result;
 }

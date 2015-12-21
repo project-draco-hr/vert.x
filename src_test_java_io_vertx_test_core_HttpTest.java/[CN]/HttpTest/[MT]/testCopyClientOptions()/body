@@ -28,6 +28,7 @@
   boolean pipelining=rand.nextBoolean();
   boolean tryUseCompression=rand.nextBoolean();
   HttpVersion protocolVersion=HttpVersion.HTTP_1_0;
+  int maxWaitQueueSize=TestUtils.randomPositiveInt();
   options.setSendBufferSize(sendBufferSize);
   options.setReceiveBufferSize(receiverBufferSize);
   options.setReuseAddress(reuseAddress);
@@ -51,6 +52,7 @@
   options.setPipelining(pipelining);
   options.setTryUseCompression(tryUseCompression);
   options.setProtocolVersion(protocolVersion);
+  options.setMaxWaitQueueSize(maxWaitQueueSize);
   HttpClientOptions copy=new HttpClientOptions(options);
   assertEquals(sendBufferSize,copy.getSendBufferSize());
   assertEquals(receiverBufferSize,copy.getReceiveBufferSize());
@@ -80,4 +82,5 @@
   assertEquals(pipelining,copy.isPipelining());
   assertEquals(tryUseCompression,copy.isTryUseCompression());
   assertEquals(protocolVersion,copy.getProtocolVersion());
+  assertEquals(maxWaitQueueSize,copy.getMaxWaitQueueSize());
 }

@@ -9,4 +9,5 @@
   defaultPort=DEFAULT_DEFAULT_PORT;
   protocolVersion=DEFAULT_PROTOCOL_VERSION;
   maxChunkSize=DEFAULT_MAX_CHUNK_SIZE;
+  maxWaitQueueSize=DEFAULT_MAX_WAIT_QUEUE_SIZE;
 }

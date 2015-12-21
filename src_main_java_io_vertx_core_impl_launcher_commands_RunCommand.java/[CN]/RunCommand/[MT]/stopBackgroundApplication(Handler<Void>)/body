@@ -1,5 +1,13 @@
 {
   executionContext.execute("stop",vertxApplicationBackgroundId);
+  if (redeployTerminationPeriod > 0) {
+    try {
+      Thread.sleep(redeployTerminationPeriod);
+    }
+ catch (    InterruptedException e) {
+      Thread.currentThread().interrupt();
+    }
+  }
   if (onCompletion != null) {
     onCompletion.handle(null);
   }

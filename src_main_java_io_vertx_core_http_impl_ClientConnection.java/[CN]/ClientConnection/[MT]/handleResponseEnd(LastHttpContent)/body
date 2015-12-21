@@ -1,7 +1,17 @@
 {
   currentResponse.handleEnd(trailer);
   if (currentResponse.statusCode() != 100 && requestForResponse.getRequest().getMethod() != HttpMethod.CONNECT) {
-    listener.responseEnded(this);
+    boolean close=false;
+    String responseConnectionHeader=currentResponse.getHeader(HttpHeaders.Names.CONNECTION);
+    HttpVersion protocolVersion=requestForResponse.getRequest().getProtocolVersion();
+    String requestConnectionHeader=requestForResponse.getRequest().headers().get(HttpHeaders.Names.CONNECTION);
+    if (HttpHeaders.Values.CLOSE.equalsIgnoreCase(responseConnectionHeader) || HttpHeaders.Values.CLOSE.equalsIgnoreCase(requestConnectionHeader)) {
+      close=true;
+    }
+ else     if (protocolVersion == HttpVersion.HTTP_1_0 && !HttpHeaders.Values.KEEP_ALIVE.equalsIgnoreCase(responseConnectionHeader)) {
+      close=true;
+    }
+    listener.responseEnded(this,close);
   }
   currentResponse=null;
 }
