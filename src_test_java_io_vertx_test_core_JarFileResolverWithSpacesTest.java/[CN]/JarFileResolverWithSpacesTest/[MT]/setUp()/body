@@ -1,0 +1,7 @@
+{
+  original=Thread.currentThread().getContextClassLoader();
+  URLClassLoader someClassloader=new URLClassLoader(new URL[]{new File("src/test/resources/dir with " + "spaces/webroot3.jar").toURI().toURL()},JarFileResolverWithSpacesTest.class.getClassLoader());
+  Thread.currentThread().setContextClassLoader(someClassloader);
+  super.setUp();
+  webRoot="webroot3";
+}
