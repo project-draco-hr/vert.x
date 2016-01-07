@@ -1,4 +1,4 @@
-ContextImpl context
+ContextImpl clientContext
 int port
 String host
 Handler<ClientConnection> connectHandler
