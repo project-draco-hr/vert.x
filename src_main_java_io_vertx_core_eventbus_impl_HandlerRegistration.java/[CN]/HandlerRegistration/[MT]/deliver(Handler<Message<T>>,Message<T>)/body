@@ -1,0 +1,24 @@
+{
+  checkNextTick();
+  boolean local=true;
+  if (message instanceof ClusteredMessage) {
+    ClusteredMessage cmsg=(ClusteredMessage)message;
+    if (cmsg.isFromWire()) {
+      local=false;
+    }
+  }
+  String creditsAddress=message.headers().get(MessageProducerImpl.CREDIT_ADDRESS_HEADER_NAME);
+  if (creditsAddress != null) {
+    eventBus.send(creditsAddress,1);
+  }
+  try {
+    metrics.beginHandleMessage(metric,local);
+    theHandler.handle(message);
+    metrics.endHandleMessage(metric,null);
+  }
+ catch (  Exception e) {
+    log.error("Failed to handleMessage",e);
+    metrics.endHandleMessage(metric,e);
+    throw e;
+  }
+}

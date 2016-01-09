@@ -5,6 +5,7 @@
   if (!hasContext) {
     context=vertx.getOrCreateContext();
   }
+  registration.setHandlerContext(context);
   boolean newAddress=false;
   HandlerHolder holder=new HandlerHolder<>(metrics,registration,replyHandler,localOnly,context);
   Handlers handlers=handlerMap.get(address);

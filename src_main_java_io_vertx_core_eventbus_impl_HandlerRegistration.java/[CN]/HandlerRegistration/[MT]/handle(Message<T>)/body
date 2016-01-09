@@ -1,5 +1,5 @@
 {
-  Handler<Message<T>> theHandler=null;
+  Handler<Message<T>> theHandler;
 synchronized (this) {
     if (paused) {
       if (pending.size() < maxBufferedMessages) {
@@ -13,27 +13,15 @@ synchronized (this) {
           log.warn("Discarding message as more than " + maxBufferedMessages + " buffered in paused consumer");
         }
       }
+      return;
     }
  else {
-      checkNextTick();
-      if (metrics.isEnabled()) {
-        boolean local=true;
-        if (message instanceof ClusteredMessage) {
-          ClusteredMessage cmsg=(ClusteredMessage)message;
-          if (cmsg.isFromWire()) {
-            local=false;
-          }
-        }
-        metrics.beginHandleMessage(metric,local);
+      if (pending.size() > 0) {
+        pending.add(message);
+        message=pending.poll();
       }
       theHandler=handler;
     }
   }
-  if (theHandler != null) {
-    String creditsAddress=message.headers().get(MessageProducerImpl.CREDIT_ADDRESS_HEADER_NAME);
-    if (creditsAddress != null) {
-      eventBus.send(creditsAddress,1);
-    }
-    handleMessage(theHandler,message);
-  }
+  deliver(theHandler,message);
 }
