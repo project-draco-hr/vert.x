@@ -1,4 +1,6 @@
 {
-  this.credits=maxSize;
+  int delta=s - maxSize;
+  maxSize=s;
+  credits+=delta;
   return this;
 }
