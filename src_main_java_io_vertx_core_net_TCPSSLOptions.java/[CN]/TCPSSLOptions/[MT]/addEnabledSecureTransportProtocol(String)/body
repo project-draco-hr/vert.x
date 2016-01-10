@@ -1,0 +1,4 @@
+{
+  enabledSecureTransportProtocols.add(protocol);
+  return this;
+}

@@ -4,9 +4,15 @@
     engine.setEnabledCipherSuites(toUse);
   }
   engine.setUseClientMode(client);
-  Set<String> enabledProtocols=new HashSet<>(Arrays.asList(ENABLED_PROTOCOLS));
-  enabledProtocols.retainAll(Arrays.asList(engine.getEnabledProtocols()));
-  engine.setEnabledProtocols(enabledProtocols.toArray(new String[0]));
+  Set<String> protocols=new HashSet<>(Arrays.asList(DEFAULT_ENABLED_PROTOCOLS));
+  protocols.retainAll(Arrays.asList(engine.getEnabledProtocols()));
+  if (enabledProtocols != null && !enabledProtocols.isEmpty() && !protocols.isEmpty()) {
+    protocols.retainAll(enabledProtocols);
+    if (protocols.isEmpty()) {
+      log.warn("no SSL/TLS protocols are enabled due to configuration restrictions");
+    }
+  }
+  engine.setEnabledProtocols(protocols.toArray(new String[protocols.size()]));
   if (!client) {
 switch (getClientAuth()) {
 case REQUEST:

@@ -16,5 +16,6 @@
   if (trustOptions != null ? !trustOptions.equals(that.trustOptions) : that.trustOptions != null)   return false;
   if (useAlpn != that.useAlpn)   return false;
   if (sslEngine != that.sslEngine)   return false;
+  if (!enabledSecureTransportProtocols.equals(that.enabledSecureTransportProtocols))   return false;
   return true;
 }

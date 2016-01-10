@@ -1,3 +1,0 @@
-{
-  testTLS(TLSCert.NONE,TLSCert.NONE,TLSCert.JKS,TLSCert.NONE).clientTrustAll().enabledCipherSuites(ENABLED_CIPHER_SUITES).pass();
-}
