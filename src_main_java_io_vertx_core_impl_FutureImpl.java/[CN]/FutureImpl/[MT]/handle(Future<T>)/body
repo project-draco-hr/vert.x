@@ -1,0 +1,8 @@
+{
+  if (ar.succeeded()) {
+    complete(ar.result());
+  }
+ else {
+    fail(ar.cause());
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return (CompositeFuture)super.setHandler(handler);
+}
