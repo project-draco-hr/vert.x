@@ -1,0 +1,7 @@
+{
+  assertTrue(future.isComplete());
+  assertFalse(future.succeeded());
+  assertTrue(future.failed());
+  assertEquals(expected,future.cause());
+  assertEquals(null,future.result());
+}

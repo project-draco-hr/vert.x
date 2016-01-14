@@ -1,0 +1,10 @@
+{
+  Future<String> f1=Future.future();
+  Future<Integer> f2=Future.future();
+  CompositeFuture composite=CompositeFuture.any(f1,f2);
+  f1.fail("failure");
+  assertNotCompleted(composite);
+  Throwable cause=new Exception();
+  f2.fail(cause);
+  assertFailed(composite,cause);
+}
