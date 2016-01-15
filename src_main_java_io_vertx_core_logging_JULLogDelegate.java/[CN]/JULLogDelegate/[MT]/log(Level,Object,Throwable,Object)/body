@@ -5,7 +5,12 @@
   String msg=(message == null) ? "NULL" : message.toString();
   LogRecord record=new LogRecord(level,msg);
   record.setLoggerName(logger.getName());
-  record.setThrown(t);
+  if (t != null) {
+    record.setThrown(t);
+  }
+ else   if (params != null && params.length != 0 && params[params.length - 1] instanceof Throwable) {
+    record.setThrown((Throwable)params[params.length - 1]);
+  }
   record.setSourceClassName(null);
   record.setParameters(params);
   logger.log(record);
