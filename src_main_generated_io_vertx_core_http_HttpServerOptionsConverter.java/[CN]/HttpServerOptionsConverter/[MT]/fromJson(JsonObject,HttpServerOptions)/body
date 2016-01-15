@@ -8,6 +8,12 @@
   if (json.getValue("maxChunkSize") instanceof Number) {
     obj.setMaxChunkSize(((Number)json.getValue("maxChunkSize")).intValue());
   }
+  if (json.getValue("maxHeaderSize") instanceof Number) {
+    obj.setMaxHeaderSize(((Number)json.getValue("maxHeaderSize")).intValue());
+  }
+  if (json.getValue("maxInitialLineLength") instanceof Number) {
+    obj.setMaxInitialLineLength(((Number)json.getValue("maxInitialLineLength")).intValue());
+  }
   if (json.getValue("maxWebsocketFrameSize") instanceof Number) {
     obj.setMaxWebsocketFrameSize(((Number)json.getValue("maxWebsocketFrameSize")).intValue());
   }

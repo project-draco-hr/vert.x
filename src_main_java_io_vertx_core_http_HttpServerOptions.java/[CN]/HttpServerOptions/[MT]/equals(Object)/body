@@ -7,5 +7,7 @@
   if (maxWebsocketFrameSize != that.maxWebsocketFrameSize)   return false;
   if (handle100ContinueAutomatically != that.handle100ContinueAutomatically)   return false;
   if (maxChunkSize != that.maxChunkSize)   return false;
+  if (maxInitialLineLength != that.maxInitialLineLength)   return false;
+  if (maxHeaderSize != that.maxHeaderSize)   return false;
   return !(websocketSubProtocols != null ? !websocketSubProtocols.equals(that.websocketSubProtocols) : that.websocketSubProtocols != null);
 }

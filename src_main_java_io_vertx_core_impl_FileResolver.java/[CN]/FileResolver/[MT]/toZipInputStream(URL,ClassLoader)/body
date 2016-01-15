@@ -1,7 +1,8 @@
 {
   String[] breadcrumbs=url.getPath().substring(5).split(".jar!");
   if (breadcrumbs.length == 2) {
-    return new ZipInputStream(new FileInputStream(breadcrumbs[0] + ".jar"));
+    File file=new File(URLDecoder.decode(breadcrumbs[0] + ".jar","UTF-8"));
+    return new ZipInputStream(new FileInputStream(file));
   }
  else {
     return new ZipInputStream(cl.getResourceAsStream(breadcrumbs[1].substring(1) + ".jar"));
