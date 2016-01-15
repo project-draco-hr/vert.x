@@ -1,6 +1,3 @@
 {
-  if (index < 0 || index > results.length) {
-    throw new IndexOutOfBoundsException();
-  }
-  return (T)results[index].result();
+  return this.<T>future(index).result();
 }

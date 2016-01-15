@@ -1,0 +1,6 @@
+{
+  Handler<AsyncResult<CompositeFuture>> handler=setFailed(throwable);
+  if (handler != null) {
+    handler.handle(this);
+  }
+}

@@ -1,3 +1,11 @@
 {
-  return (CompositeFuture)super.setHandler(handler);
+  boolean call;
+synchronized (this) {
+    this.handler=handler;
+    call=completed;
+  }
+  if (call) {
+    handler.handle(this);
+  }
+  return this;
 }

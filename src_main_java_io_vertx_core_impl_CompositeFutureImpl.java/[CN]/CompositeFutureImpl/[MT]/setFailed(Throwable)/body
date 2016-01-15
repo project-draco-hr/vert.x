@@ -1,0 +1,10 @@
+{
+synchronized (this) {
+    if (completed) {
+      throw new IllegalStateException("Result is already complete: " + (this.cause == null ? "succeeded" : "failed"));
+    }
+    this.completed=true;
+    this.cause=cause;
+    return handler;
+  }
+}
