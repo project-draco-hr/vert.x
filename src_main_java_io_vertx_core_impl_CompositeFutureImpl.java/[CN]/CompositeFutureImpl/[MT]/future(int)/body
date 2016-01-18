@@ -1,0 +1,6 @@
+{
+  if (index < 0 || index > results.length) {
+    throw new IndexOutOfBoundsException();
+  }
+  return (Future<T>)results[index];
+}
