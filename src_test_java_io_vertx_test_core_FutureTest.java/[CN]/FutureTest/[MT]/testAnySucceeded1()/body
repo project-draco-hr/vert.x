@@ -1,12 +1,2 @@
 {
-  Future<String> f1=Future.future();
-  Future<Integer> f2=Future.future();
-  CompositeFuture composite=CompositeFuture.any(f1,f2);
-  assertNotCompleted(composite);
-  assertEquals(null,composite.<String>result(0));
-  assertEquals(null,composite.<Integer>result(1));
-  f1.complete("something");
-  assertSucceeded(composite,composite);
-  f2.complete(3);
-  assertSucceeded(composite,composite);
 }

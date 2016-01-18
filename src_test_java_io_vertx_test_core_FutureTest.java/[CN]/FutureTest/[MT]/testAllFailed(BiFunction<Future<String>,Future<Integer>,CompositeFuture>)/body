@@ -1,0 +1,11 @@
+{
+  Future<String> f1=Future.future();
+  Future<Integer> f2=Future.future();
+  CompositeFuture composite=all.apply(f1,f2);
+  f1.complete("s");
+  Exception cause=new Exception();
+  f2.fail(cause);
+  assertFailed(composite,cause);
+  assertEquals("s",composite.result(0));
+  assertEquals(null,composite.<Integer>result(1));
+}
