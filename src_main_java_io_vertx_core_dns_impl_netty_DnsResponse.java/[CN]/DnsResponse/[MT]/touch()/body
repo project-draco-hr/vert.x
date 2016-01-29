@@ -1,0 +1,4 @@
+{
+  rawPacket.touch();
+  return this;
+}

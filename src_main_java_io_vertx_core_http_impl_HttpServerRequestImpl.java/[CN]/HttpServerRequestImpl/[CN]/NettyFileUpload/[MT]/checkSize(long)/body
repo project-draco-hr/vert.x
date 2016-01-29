@@ -1,0 +1,5 @@
+{
+  if (maxSize >= 0 && newSize > maxSize) {
+    throw new IOException("Size exceed allowed maximum capacity");
+  }
+}
