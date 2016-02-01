@@ -1,7 +1,11 @@
 {
-  try (ZipInputStream zip=toZipInputStream(url,cl)){
-    ZipEntry entry=zip.getNextEntry();
-    while (entry != null) {
+  String path=url.getPath();
+  String jarFile=path.substring(5,path.lastIndexOf(".jar!") + 4);
+  try {
+    ZipFile zip=new ZipFile(jarFile);
+    Enumeration<? extends ZipEntry> entries=zip.entries();
+    while (entries.hasMoreElements()) {
+      ZipEntry entry=entries.nextElement();
       String name=entry.getName();
       if (name.startsWith(fileName)) {
         File file=new File(cacheDir,name);
@@ -10,22 +14,18 @@
         }
  else {
           file.getParentFile().mkdirs();
-          try {
+          try (InputStream is=zip.getInputStream(entry)){
             if (ENABLE_CACHING) {
-              Files.copy(zip,file.toPath());
+              Files.copy(is,file.toPath());
             }
  else {
-              Files.copy(zip,file.toPath(),StandardCopyOption.REPLACE_EXISTING);
+              Files.copy(is,file.toPath(),StandardCopyOption.REPLACE_EXISTING);
             }
           }
  catch (          FileAlreadyExistsException ignore) {
           }
- finally {
-            zip.closeEntry();
-          }
         }
       }
-      entry=zip.getNextEntry();
     }
   }
  catch (  IOException e) {
