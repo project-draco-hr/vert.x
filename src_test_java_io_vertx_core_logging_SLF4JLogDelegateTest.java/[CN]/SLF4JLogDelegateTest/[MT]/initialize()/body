@@ -1,0 +1,4 @@
+{
+  System.setProperty("vertx.logger-delegate-factory-class-name",SLF4JLogDelegateFactory.class.getName());
+  LoggerFactory.initialise();
+}

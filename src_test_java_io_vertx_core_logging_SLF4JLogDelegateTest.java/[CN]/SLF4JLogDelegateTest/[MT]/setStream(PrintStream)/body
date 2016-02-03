@@ -1,0 +1,10 @@
+{
+  try {
+    Field field=SimpleLogger.class.getDeclaredField("TARGET_STREAM");
+    field.setAccessible(true);
+    field.set(null,stream);
+  }
+ catch (  Exception e) {
+    throw new IllegalStateException(e);
+  }
+}

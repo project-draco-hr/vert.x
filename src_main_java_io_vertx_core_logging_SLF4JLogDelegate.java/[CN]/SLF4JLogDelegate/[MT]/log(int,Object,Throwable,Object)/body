@@ -1,25 +1,34 @@
 {
   String msg=(message == null) ? "NULL" : message.toString();
+  Object[] parameters=params;
+  if (params != null && t != null) {
+    parameters=new Object[params.length + 1];
+    System.arraycopy(params,0,parameters,0,params.length);
+    parameters[params.length]=t;
+  }
+ else   if (params == null && t != null) {
+    parameters=new Object[]{t};
+  }
   if (logger instanceof LocationAwareLogger) {
     LocationAwareLogger l=(LocationAwareLogger)logger;
-    l.log(null,FQCN,level,msg,null,t);
+    l.log(null,FQCN,level,msg,parameters,t);
   }
  else {
 switch (level) {
 case TRACE_INT:
-      logger.trace(msg,t,params);
+      logger.trace(msg,parameters);
     break;
 case DEBUG_INT:
-  logger.debug(msg,t,params);
+  logger.debug(msg,parameters);
 break;
 case INFO_INT:
-logger.info(msg,t,params);
+logger.info(msg,parameters);
 break;
 case WARN_INT:
-logger.warn(msg,t,params);
+logger.warn(msg,parameters);
 break;
 case ERROR_INT:
-logger.error(msg,t,params);
+logger.error(msg,parameters);
 break;
 default :
 throw new IllegalArgumentException("Unknown log level " + level);
