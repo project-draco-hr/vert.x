@@ -1,0 +1,11 @@
+{
+  Http2ServerRequestImpl req=requestMap.get(streamId);
+  int processed=padding;
+  if (req.handleData(Buffer.buffer(data.copy()))) {
+    processed+=data.readableBytes();
+  }
+  if (endOfStream) {
+    req.end();
+  }
+  return processed;
+}

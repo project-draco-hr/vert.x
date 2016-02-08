@@ -1,0 +1,10 @@
+{
+  if (paused || pending.size() > 0) {
+    pending.add(END);
+  }
+ else {
+    if (endHandler != null) {
+      endHandler.handle(null);
+    }
+  }
+}

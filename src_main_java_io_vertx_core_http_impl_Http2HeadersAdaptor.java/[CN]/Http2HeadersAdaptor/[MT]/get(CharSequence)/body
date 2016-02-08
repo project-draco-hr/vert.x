@@ -1,0 +1,4 @@
+{
+  CharSequence val=headers.get(name);
+  return val != null ? val.toString() : null;
+}

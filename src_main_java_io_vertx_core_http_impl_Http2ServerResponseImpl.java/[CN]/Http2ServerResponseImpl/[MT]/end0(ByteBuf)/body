@@ -1,0 +1,11 @@
+{
+  encoder.writeHeaders(ctx,streamId,headers,0,false,ctx.newPromise());
+  encoder.writeData(ctx,streamId,data,0,true,ctx.newPromise());
+  try {
+    encoder.flowController().writePendingBytes();
+  }
+ catch (  Http2Exception e) {
+    e.printStackTrace();
+  }
+  ctx.flush();
+}

@@ -1,0 +1,4 @@
+String filename
+long offset
+long length
+Handler<AsyncResult<Void>> resultHandler

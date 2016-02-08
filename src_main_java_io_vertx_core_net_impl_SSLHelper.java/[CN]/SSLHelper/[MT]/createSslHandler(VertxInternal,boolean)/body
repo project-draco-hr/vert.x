@@ -1,4 +1,6 @@
 {
   SSLEngine engine=getContext(vertx).createSSLEngine();
+  JdkAlpnApplicationProtocolNegotiator apn=new JdkAlpnApplicationProtocolNegotiator(true,"h2","http/1.1");
+  engine=apn.wrapperFactory().wrapSslEngine(engine,apn,!client);
   return createHandler(engine,client);
 }

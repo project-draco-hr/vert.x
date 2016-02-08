@@ -1,0 +1,5 @@
+{
+  this.ctx=ctx;
+  this.encoder=encoder;
+  this.streamId=streamId;
+}

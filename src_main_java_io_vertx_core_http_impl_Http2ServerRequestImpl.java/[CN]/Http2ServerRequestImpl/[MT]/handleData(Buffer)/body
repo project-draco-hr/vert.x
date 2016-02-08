@@ -1,0 +1,18 @@
+{
+  if (!paused) {
+    if (dataHandler != null) {
+      if (pending.isEmpty()) {
+        dataHandler.handle(data);
+        return true;
+      }
+ else {
+        pending.add(data);
+        checkNextTick(null);
+      }
+    }
+  }
+ else {
+    pending.add(data);
+  }
+  return false;
+}

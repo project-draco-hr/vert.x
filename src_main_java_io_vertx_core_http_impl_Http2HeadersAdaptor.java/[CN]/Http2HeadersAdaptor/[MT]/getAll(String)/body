@@ -1,0 +1,15 @@
+{
+  List<CharSequence> all=headers.getAll(name);
+  if (all != null) {
+    return new AbstractList<String>(){
+      @Override public String get(      int index){
+        return all.get(index).toString();
+      }
+      @Override public int size(){
+        return all.size();
+      }
+    }
+;
+  }
+  return null;
+}

@@ -1,0 +1,5 @@
+{
+  super.setUp();
+  HttpServerOptions options=new HttpServerOptions().setPort(4043).setHost("localhost").setSsl(true).addEnabledCipherSuite("TLS_RSA_WITH_AES_128_CBC_SHA").setKeyStoreOptions((JksOptions)getServerCertOptions(KeyCert.JKS));
+  server=vertx.createHttpServer(options);
+}

@@ -1,0 +1,10 @@
+{
+  Http2Connection conn=connection();
+  Http2Stream stream=conn.stream(streamId);
+  Http2ServerRequestImpl req=new Http2ServerRequestImpl(vertx,conn,stream,ctx,encoder(),streamId,headers);
+  requestMap.put(streamId,req);
+  handler.handle(req);
+  if (endOfStream) {
+    req.end();
+  }
+}
