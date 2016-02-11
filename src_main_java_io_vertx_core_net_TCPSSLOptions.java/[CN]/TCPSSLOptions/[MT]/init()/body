@@ -7,4 +7,5 @@
   ssl=DEFAULT_SSL;
   crlPaths=new ArrayList<>();
   crlValues=new ArrayList<>();
+  useAlpn=DEFAULT_USE_ALPN;
 }

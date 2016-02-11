@@ -1,5 +1,6 @@
 {
   this.ssl=options.isSsl();
+  this.useALPN=false;
   this.keyStoreHelper=keyStoreHelper;
   this.trustStoreHelper=trustStoreHelper;
   this.trustAll=options.isTrustAll();

@@ -11,4 +11,5 @@
   this.enabledCipherSuites=other.getEnabledCipherSuites() == null ? new HashSet<>() : new HashSet<>(other.getEnabledCipherSuites());
   this.crlPaths=new ArrayList<>(other.getCrlPaths());
   this.crlValues=new ArrayList<>(other.getCrlValues());
+  this.useAlpn=other.useAlpn;
 }
