@@ -1,5 +1,5 @@
 Vertx vertx
-HttpServerRequestImpl req
+HttpServerRequest req
 String name
 String filename
 String contentType

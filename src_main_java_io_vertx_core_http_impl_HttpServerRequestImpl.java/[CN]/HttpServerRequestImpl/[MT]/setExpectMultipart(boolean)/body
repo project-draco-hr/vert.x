@@ -9,7 +9,7 @@ synchronized (conn) {
           String lowerCaseContentType=contentType.toLowerCase();
           boolean isURLEncoded=lowerCaseContentType.startsWith(HttpHeaders.Values.APPLICATION_X_WWW_FORM_URLENCODED);
           if ((lowerCaseContentType.startsWith(HttpHeaders.Values.MULTIPART_FORM_DATA) || isURLEncoded) && (method.equals(HttpMethod.POST) || method.equals(HttpMethod.PUT) || method.equals(HttpMethod.PATCH)|| method.equals(HttpMethod.DELETE))) {
-            decoder=new HttpPostRequestDecoder(new DataFactory(),request);
+            decoder=new HttpPostRequestDecoder(new NettyFileUploadDataFactory(conn.vertx(),this,uploadHandler),request);
           }
         }
       }
