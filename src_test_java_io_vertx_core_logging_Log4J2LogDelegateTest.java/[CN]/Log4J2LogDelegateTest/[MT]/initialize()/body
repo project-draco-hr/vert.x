@@ -1,0 +1,5 @@
+{
+  System.setProperty("vertx.logger-delegate-factory-class-name",Log4j2LogDelegateFactory.class.getName());
+  LoggerFactory.initialise();
+  recording=new Recording();
+}

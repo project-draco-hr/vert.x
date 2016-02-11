@@ -1,0 +1,4 @@
+{
+  System.clearProperty("vertx.logger-delegate-factory-class-name");
+  recording.terminate();
+}

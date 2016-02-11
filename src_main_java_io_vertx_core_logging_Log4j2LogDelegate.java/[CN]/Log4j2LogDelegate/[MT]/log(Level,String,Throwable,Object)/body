@@ -1,0 +1,3 @@
+{
+  logger.log(level,new FormattedMessage(message,params),t);
+}
