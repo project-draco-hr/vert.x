@@ -1,3 +1,4 @@
 {
-  throw new UnsupportedOperationException();
+  uploadHandler=handler;
+  return this;
 }

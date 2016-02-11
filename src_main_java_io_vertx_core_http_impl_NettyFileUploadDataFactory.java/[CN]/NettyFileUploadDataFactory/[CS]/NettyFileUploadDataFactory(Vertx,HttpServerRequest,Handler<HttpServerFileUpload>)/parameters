@@ -1,3 +1,0 @@
-Vertx vertx
-HttpServerRequest request
-Handler<HttpServerFileUpload> uploadHandler

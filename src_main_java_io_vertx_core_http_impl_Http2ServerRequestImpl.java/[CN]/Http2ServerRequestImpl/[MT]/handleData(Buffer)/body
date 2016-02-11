@@ -1,14 +1,12 @@
 {
   if (!paused) {
-    if (dataHandler != null) {
-      if (pending.isEmpty()) {
-        dataHandler.handle(data);
-        return true;
-      }
+    if (pending.isEmpty()) {
+      callHandler(data);
+      return true;
+    }
  else {
-        pending.add(data);
-        checkNextTick(null);
-      }
+      pending.add(data);
+      checkNextTick(null);
     }
   }
  else {

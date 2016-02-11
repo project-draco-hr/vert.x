@@ -1,6 +1,7 @@
 {
   HttpServerFileUploadImpl upload=new HttpServerFileUploadImpl(vertx,request,name,filename,contentType,contentTransferEncoding,charset,size);
   NettyFileUpload nettyUpload=new NettyFileUpload(upload,name,filename,contentType,contentTransferEncoding,charset);
+  Handler<HttpServerFileUpload> uploadHandler=lazyUploadHandler.get();
   if (uploadHandler != null) {
     uploadHandler.handle(upload);
   }

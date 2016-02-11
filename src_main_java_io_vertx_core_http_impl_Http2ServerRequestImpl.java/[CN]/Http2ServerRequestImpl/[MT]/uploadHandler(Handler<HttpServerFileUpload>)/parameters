@@ -1,1 +1,1 @@
-Handler<HttpServerFileUpload> uploadHandler
+Handler<HttpServerFileUpload> handler

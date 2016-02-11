@@ -3,8 +3,6 @@
     pending.add(END);
   }
  else {
-    if (endHandler != null) {
-      endHandler.handle(null);
-    }
+    callEnd();
   }
 }

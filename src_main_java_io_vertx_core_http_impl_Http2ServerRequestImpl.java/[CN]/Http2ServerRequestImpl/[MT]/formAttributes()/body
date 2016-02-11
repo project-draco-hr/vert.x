@@ -1,3 +1,6 @@
 {
-  throw new UnsupportedOperationException();
+  if (attributes == null) {
+    attributes=new CaseInsensitiveHeaders();
+  }
+  return attributes;
 }

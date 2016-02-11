@@ -1,0 +1,13 @@
+{
+  if (decoder != null) {
+    try {
+      decoder.offer(new DefaultHttpContent(data.getByteBuf()));
+    }
+ catch (    HttpPostRequestDecoder.ErrorDataDecoderException e) {
+      e.printStackTrace();
+    }
+  }
+  if (dataHandler != null) {
+    dataHandler.handle(data);
+  }
+}

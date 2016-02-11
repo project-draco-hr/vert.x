@@ -2,5 +2,5 @@
   super(false);
   this.vertx=vertx;
   this.request=request;
-  this.uploadHandler=uploadHandler;
+  this.lazyUploadHandler=lazyUploadHandler;
 }
