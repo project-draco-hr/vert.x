@@ -1,5 +1,6 @@
 {
   this.vertx=vertx;
+  this.serverOrigin=serverOrigin;
   this.conn=conn;
   this.stream=stream;
   this.headers=headers;

@@ -1,3 +1,11 @@
 {
-  throw new UnsupportedOperationException();
+  if (absoluteURI == null) {
+    try {
+      absoluteURI=UriUtils.absoluteURI(serverOrigin,this);
+    }
+ catch (    URISyntaxException e) {
+      log.error("Failed to create abs uri",e);
+    }
+  }
+  return absoluteURI;
 }

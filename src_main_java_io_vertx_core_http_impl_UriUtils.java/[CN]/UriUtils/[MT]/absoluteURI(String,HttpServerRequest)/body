@@ -1,0 +1,18 @@
+{
+  String absoluteURI;
+  URI uri=new URI(req.uri());
+  String scheme=uri.getScheme();
+  if (scheme != null && (scheme.equals("http") || scheme.equals("https"))) {
+    absoluteURI=uri.toString();
+  }
+ else {
+    String host=req.headers().get(HttpHeaderNames.HOST);
+    if (host != null) {
+      absoluteURI=(req.isSSL() ? "https://" : "http://") + host + uri;
+    }
+ else {
+      absoluteURI=serverOrigin + uri;
+    }
+  }
+  return absoluteURI;
+}

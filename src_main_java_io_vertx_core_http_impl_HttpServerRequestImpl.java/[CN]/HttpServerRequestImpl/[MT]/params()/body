@@ -1,13 +1,6 @@
 {
   if (params == null) {
-    QueryStringDecoder queryStringDecoder=new QueryStringDecoder(uri());
-    Map<String,List<String>> prms=queryStringDecoder.parameters();
-    params=new CaseInsensitiveHeaders();
-    if (!prms.isEmpty()) {
-      for (      Map.Entry<String,List<String>> entry : prms.entrySet()) {
-        params.add(entry.getKey(),entry.getValue());
-      }
-    }
+    params=UriUtils.params(uri());
   }
   return params;
 }

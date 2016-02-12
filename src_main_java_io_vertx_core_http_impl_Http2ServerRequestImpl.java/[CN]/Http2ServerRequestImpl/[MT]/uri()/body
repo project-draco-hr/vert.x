@@ -1,3 +1,6 @@
 {
-  throw new UnsupportedOperationException();
+  if (uri == null) {
+    uri=headers.path().toString();
+  }
+  return uri;
 }

@@ -1,3 +1,6 @@
 {
-  throw new UnsupportedOperationException();
+  if (query == null) {
+    query=UriUtils.parseQuery(uri());
+  }
+  return query;
 }

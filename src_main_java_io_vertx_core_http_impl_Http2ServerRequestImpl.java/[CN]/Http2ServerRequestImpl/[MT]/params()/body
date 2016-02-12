@@ -1,3 +1,6 @@
 {
-  throw new UnsupportedOperationException();
+  if (params == null) {
+    params=UriUtils.params(uri());
+  }
+  return params;
 }
