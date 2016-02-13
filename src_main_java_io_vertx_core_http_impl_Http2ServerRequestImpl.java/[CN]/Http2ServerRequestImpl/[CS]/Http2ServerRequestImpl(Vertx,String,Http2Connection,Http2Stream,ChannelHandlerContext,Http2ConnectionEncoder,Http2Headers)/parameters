@@ -4,5 +4,4 @@ Http2Connection conn
 Http2Stream stream
 ChannelHandlerContext ctx
 Http2ConnectionEncoder encoder
-int streamId
 Http2Headers headers

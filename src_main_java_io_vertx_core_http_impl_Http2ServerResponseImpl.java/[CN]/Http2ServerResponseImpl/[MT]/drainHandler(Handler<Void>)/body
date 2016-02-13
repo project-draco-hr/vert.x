@@ -1,3 +1,4 @@
 {
-  throw new UnsupportedOperationException();
+  drainHandler=handler;
+  return this;
 }

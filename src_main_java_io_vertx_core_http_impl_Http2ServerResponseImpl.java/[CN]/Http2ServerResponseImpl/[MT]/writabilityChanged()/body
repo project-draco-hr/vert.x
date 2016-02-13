@@ -1,0 +1,5 @@
+{
+  if (!writeQueueFull() && drainHandler != null) {
+    drainHandler.handle(null);
+  }
+}

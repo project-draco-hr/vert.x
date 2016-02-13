@@ -1,3 +1,4 @@
 {
-  throw new UnsupportedOperationException();
+  this.chunked=true;
+  return this;
 }

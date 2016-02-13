@@ -1,4 +1,3 @@
 {
-  ByteBuf buf=chunk.getByteBuf();
-  end0(buf);
+  end(chunk.getByteBuf());
 }

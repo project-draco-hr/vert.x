@@ -1,5 +1,5 @@
 {
   this.ctx=ctx;
   this.encoder=encoder;
-  this.streamId=streamId;
+  this.stream=stream;
 }

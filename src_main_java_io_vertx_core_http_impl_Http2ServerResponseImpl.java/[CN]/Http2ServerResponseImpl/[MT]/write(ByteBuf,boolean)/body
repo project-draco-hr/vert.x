@@ -1,6 +1,6 @@
 {
-  encoder.writeHeaders(ctx,streamId,headers,0,false,ctx.newPromise());
-  encoder.writeData(ctx,streamId,data,0,true,ctx.newPromise());
+  checkSendHeaders();
+  encoder.writeData(ctx,stream.id(),chunk,0,last,ctx.newPromise());
   try {
     encoder.flowController().writePendingBytes();
   }
@@ -8,4 +8,5 @@
     e.printStackTrace();
   }
   ctx.flush();
+  return this;
 }

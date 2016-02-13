@@ -1,3 +1,4 @@
 {
-  throw new UnsupportedOperationException();
+  ByteBuf buf=chunk.getByteBuf();
+  return write(buf);
 }
