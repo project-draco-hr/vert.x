@@ -1,5 +1,5 @@
 {
-  Http2ServerRequestImpl req=(Http2ServerRequestImpl)requestMap.get(streamId);
+  Http2ServerRequestImpl req=(Http2ServerRequestImpl)streams.get(streamId);
   int processed=padding;
   if (req.handleData(Buffer.buffer(data.copy()))) {
     processed+=data.readableBytes();

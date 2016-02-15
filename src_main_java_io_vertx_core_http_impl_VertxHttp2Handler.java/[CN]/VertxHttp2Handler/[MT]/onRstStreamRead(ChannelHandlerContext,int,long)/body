@@ -1,4 +1,4 @@
 {
-  VertxHttp2Stream req=requestMap.get(streamId);
+  VertxHttp2Stream req=streams.get(streamId);
   req.reset(errorCode);
 }
