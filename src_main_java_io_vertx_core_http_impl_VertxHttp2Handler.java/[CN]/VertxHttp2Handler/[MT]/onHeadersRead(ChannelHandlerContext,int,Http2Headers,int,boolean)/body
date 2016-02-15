@@ -3,7 +3,6 @@
   Http2Stream stream=conn.stream(streamId);
   Http2ServerRequestImpl req=new Http2ServerRequestImpl(vertx,this,serverOrigin,conn,stream,ctx,encoder(),headers);
   requestMap.put(streamId,req);
-  responseMap.put(streamId,req.response());
   handler.handle(req);
   if (endOfStream) {
     req.end();

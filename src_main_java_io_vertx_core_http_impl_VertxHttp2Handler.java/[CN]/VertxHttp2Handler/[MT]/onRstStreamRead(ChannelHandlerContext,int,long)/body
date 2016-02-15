@@ -1,10 +1,4 @@
 {
-  Http2ServerRequestImpl req=requestMap.get(streamId);
-  if (req != null) {
-    req.reset(errorCode);
-  }
- else {
-    Http2ServerResponseImpl resp=responseMap.get(streamId);
-    resp.reset(streamId);
-  }
+  VertxHttp2Stream req=requestMap.get(streamId);
+  req.reset(errorCode);
 }

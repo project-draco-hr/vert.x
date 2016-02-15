@@ -1,0 +1,15 @@
+{
+  Http2Stream stream=connection().stream(streamId);
+  Http2ServerResponseImpl resp=new Http2ServerResponseImpl(ctx,encoder(),stream);
+  VertxHttp2Stream push=new VertxHttp2Stream(){
+    @Override public Http2ServerResponseImpl response(){
+      return resp;
+    }
+    @Override public void reset(    long code){
+      resp.reset(code);
+    }
+  }
+;
+  requestMap.put(streamId,push);
+  handler.handle(Future.succeededFuture(resp));
+}
