@@ -1,2 +1,6 @@
 {
+  Long v=settings.maxConcurrentStreams();
+  if (v != null) {
+    maxConcurrentStreams=v;
+  }
 }
