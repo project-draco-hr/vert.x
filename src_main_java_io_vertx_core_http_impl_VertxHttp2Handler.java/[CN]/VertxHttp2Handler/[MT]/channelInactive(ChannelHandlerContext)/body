@@ -1,0 +1,6 @@
+{
+  super.channelInactive(ctx);
+  if (closeHandler != null) {
+    closeHandler.handle(null);
+  }
+}
