@@ -1,0 +1,7 @@
+{
+  KeyStoreHelper helper=KeyStoreHelper.create((VertxInternal)vertx,(TrustOptions)getServerCertOptions(KeyCert.JKS));
+  TrustManager[] trustMgrs=helper.getTrustMgrs((VertxInternal)vertx);
+  SSLContext context=SSLContext.getInstance("SSL");
+  context.init(null,trustMgrs,new java.security.SecureRandom());
+  return context;
+}

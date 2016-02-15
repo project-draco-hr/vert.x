@@ -1,0 +1,51 @@
+{
+class TestClientHandler extends Http2ConnectionHandler {
+    public TestClientHandler(    Http2ConnectionDecoder decoder,    Http2ConnectionEncoder encoder,    Http2Settings initialSettings){
+      super(decoder,encoder,initialSettings);
+    }
+  }
+class TestClientHandlerBuilder extends AbstractHttp2ConnectionHandlerBuilder<TestClientHandler,TestClientHandlerBuilder> {
+    @Override protected TestClientHandler build(    Http2ConnectionDecoder decoder,    Http2ConnectionEncoder encoder,    Http2Settings initialSettings) throws Exception {
+      return new TestClientHandler(decoder,encoder,initialSettings);
+    }
+    public TestClientHandler build(    Http2Connection conn){
+      connection(conn);
+      frameListener(new Http2EventAdapter(){
+        @Override public int onDataRead(        ChannelHandlerContext ctx,        int streamId,        ByteBuf data,        int padding,        boolean endOfStream) throws Http2Exception {
+          return super.onDataRead(ctx,streamId,data,padding,endOfStream);
+        }
+      }
+);
+      return super.build();
+    }
+  }
+  Bootstrap bootstrap=new Bootstrap();
+  bootstrap.channel(NioSocketChannel.class);
+  bootstrap.group(new NioEventLoopGroup());
+  bootstrap.handler(new ChannelInitializer<Channel>(){
+    @Override protected void initChannel(    Channel ch) throws Exception {
+      SSLHelper sslHelper=new SSLHelper(new HttpClientOptions().setUseAlpn(true),null,KeyStoreHelper.create((VertxInternal)vertx,getClientTrustOptions(Trust.JKS)));
+      SslHandler sslHandler=sslHelper.createSslHandler((VertxInternal)vertx,true,host,port);
+      ch.pipeline().addLast(sslHandler);
+      ch.pipeline().addLast(new ApplicationProtocolNegotiationHandler("whatever"){
+        @Override protected void configurePipeline(        ChannelHandlerContext ctx,        String protocol){
+          if (ApplicationProtocolNames.HTTP_2.equals(protocol)) {
+            ChannelPipeline p=ctx.pipeline();
+            Http2Connection connection=new DefaultHttp2Connection(false);
+            TestClientHandlerBuilder clientHandlerBuilder=new TestClientHandlerBuilder();
+            TestClientHandler clientHandler=clientHandlerBuilder.build(connection);
+            p.addLast(clientHandler);
+            Request request=new Request(ctx,connection,clientHandler.encoder(),clientHandler.decoder());
+            handler.accept(request);
+            return;
+          }
+          ctx.close();
+          throw new IllegalStateException("unknown protocol: " + protocol);
+        }
+      }
+);
+    }
+  }
+);
+  return bootstrap.connect(new InetSocketAddress(host,port));
+}

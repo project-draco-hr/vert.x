@@ -1,2 +1,4 @@
 {
+  Http2ServerRequestImpl req=requestMap.get(streamId);
+  req.reset(errorCode);
 }

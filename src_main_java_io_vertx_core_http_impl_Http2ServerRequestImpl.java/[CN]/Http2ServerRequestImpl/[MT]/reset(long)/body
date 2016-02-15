@@ -1,0 +1,11 @@
+{
+  ended=true;
+  paused=false;
+  pending.clear();
+  if (resetHandler != null) {
+    resetHandler.handle(code);
+  }
+  if (endHandler != null) {
+    endHandler.handle(null);
+  }
+}
