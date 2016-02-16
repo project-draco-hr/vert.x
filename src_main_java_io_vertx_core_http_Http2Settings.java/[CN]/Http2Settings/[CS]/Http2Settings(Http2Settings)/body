@@ -1,0 +1,8 @@
+{
+  headerTableSize=that.headerTableSize;
+  enablePush=that.enablePush;
+  maxConcurrentStreams=that.maxConcurrentStreams;
+  initialWindowSize=that.initialWindowSize;
+  maxFrameSize=that.maxFrameSize;
+  maxHeaderListSize=that.maxHeaderListSize;
+}

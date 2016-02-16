@@ -1,0 +1,12 @@
+{
+  io.vertx.core.http.Http2Settings converted=new io.vertx.core.http.Http2Settings();
+  converted.setEnablePush(settings.pushEnabled());
+  converted.setMaxConcurrentStreams(settings.maxConcurrentStreams());
+  converted.setMaxHeaderListSize(settings.maxHeaderListSize());
+  converted.setMaxFrameSize(settings.maxFrameSize());
+  converted.setInitialWindowSize(settings.initialWindowSize());
+  if (settings.headerTableSize() != null) {
+    converted.setHeaderTableSize((int)(long)settings.headerTableSize());
+  }
+  return converted;
+}

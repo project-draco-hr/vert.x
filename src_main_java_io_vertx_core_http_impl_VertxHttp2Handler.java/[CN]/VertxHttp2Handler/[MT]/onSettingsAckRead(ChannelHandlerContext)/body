@@ -1,2 +1,6 @@
 {
+  Runnable handler=updateSettingsHandler.poll();
+  if (handler != null) {
+    handler.run();
+  }
 }

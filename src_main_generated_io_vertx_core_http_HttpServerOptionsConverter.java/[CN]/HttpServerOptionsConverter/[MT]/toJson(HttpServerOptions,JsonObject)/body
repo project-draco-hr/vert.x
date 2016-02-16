@@ -1,6 +1,9 @@
 {
   json.put("compressionSupported",obj.isCompressionSupported());
   json.put("handle100ContinueAutomatically",obj.isHandle100ContinueAutomatically());
+  if (obj.getHttp2Settings() != null) {
+    json.put("http2Settings",obj.getHttp2Settings().toJson());
+  }
   json.put("maxChunkSize",obj.getMaxChunkSize());
   json.put("maxHeaderSize",obj.getMaxHeaderSize());
   json.put("maxInitialLineLength",obj.getMaxInitialLineLength());

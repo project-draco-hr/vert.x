@@ -1,0 +1,23 @@
+{
+  this.vertx=vertx;
+  this.serverOrigin=serverOrigin;
+  this.handler=handler;
+  this.context=context;
+  if (initialSettings != null) {
+    if (initialSettings.getHeaderTableSize() != null) {
+      initialSettings().headerTableSize(initialSettings.getHeaderTableSize());
+    }
+    if (initialSettings.getInitialWindowSize() != null) {
+      initialSettings().initialWindowSize(initialSettings.getInitialWindowSize());
+    }
+    if (initialSettings.getMaxConcurrentStreams() != null) {
+      initialSettings().maxConcurrentStreams(initialSettings.getMaxConcurrentStreams());
+    }
+    if (initialSettings.getMaxFrameSize() != null) {
+      initialSettings().maxFrameSize(initialSettings.getMaxFrameSize());
+    }
+    if (initialSettings.getMaxHeaderListSize() != null) {
+      initialSettings().maxHeaderListSize(initialSettings.getMaxHeaderListSize());
+    }
+  }
+}

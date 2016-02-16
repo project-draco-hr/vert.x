@@ -1,0 +1,6 @@
+{
+  Arguments.require(maxHeaderListSize == null || maxHeaderListSize >= Http2CodecUtil.MIN_HEADER_LIST_SIZE,"maxHeaderListSize must be >= " + Http2CodecUtil.MIN_HEADER_LIST_SIZE);
+  Arguments.require(maxHeaderListSize == null || maxHeaderListSize <= Http2CodecUtil.MAX_HEADER_LIST_SIZE,"maxHeaderListSize must be <= " + Http2CodecUtil.MAX_HEADER_LIST_SIZE);
+  this.maxHeaderListSize=maxHeaderListSize;
+  return this;
+}

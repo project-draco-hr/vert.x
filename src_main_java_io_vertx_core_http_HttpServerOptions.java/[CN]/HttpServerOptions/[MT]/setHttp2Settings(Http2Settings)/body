@@ -1,0 +1,4 @@
+{
+  this.http2Settings=http2Settings;
+  return this;
+}

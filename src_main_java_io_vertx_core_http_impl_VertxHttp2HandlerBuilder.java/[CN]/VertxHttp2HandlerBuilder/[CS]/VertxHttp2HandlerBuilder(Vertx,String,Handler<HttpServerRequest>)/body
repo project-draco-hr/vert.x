@@ -1,5 +1,0 @@
-{
-  this.vertx=vertx;
-  this.serverOrigin=serverOrigin;
-  this.handler=handler;
-}

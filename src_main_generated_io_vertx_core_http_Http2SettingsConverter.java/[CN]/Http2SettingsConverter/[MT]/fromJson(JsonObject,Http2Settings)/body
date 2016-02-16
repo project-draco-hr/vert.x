@@ -1,0 +1,20 @@
+{
+  if (json.getValue("enablePush") instanceof Boolean) {
+    obj.setEnablePush((Boolean)json.getValue("enablePush"));
+  }
+  if (json.getValue("headerTableSize") instanceof Number) {
+    obj.setHeaderTableSize(((Number)json.getValue("headerTableSize")).intValue());
+  }
+  if (json.getValue("initialWindowSize") instanceof Number) {
+    obj.setInitialWindowSize(((Number)json.getValue("initialWindowSize")).intValue());
+  }
+  if (json.getValue("maxConcurrentStreams") instanceof Number) {
+    obj.setMaxConcurrentStreams(((Number)json.getValue("maxConcurrentStreams")).longValue());
+  }
+  if (json.getValue("maxFrameSize") instanceof Number) {
+    obj.setMaxFrameSize(((Number)json.getValue("maxFrameSize")).intValue());
+  }
+  if (json.getValue("maxHeaderListSize") instanceof Number) {
+    obj.setMaxHeaderListSize(((Number)json.getValue("maxHeaderListSize")).intValue());
+  }
+}

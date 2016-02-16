@@ -1,0 +1,5 @@
+ChannelHandlerContext context
+Vertx vertx
+String serverOrigin
+io.vertx.core.http.Http2Settings initialSettings
+Handler<HttpServerRequest> handler
