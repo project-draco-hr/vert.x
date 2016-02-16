@@ -1,0 +1,5 @@
+{
+  if (resetHandler != null) {
+    resetHandler.handle(code);
+  }
+}

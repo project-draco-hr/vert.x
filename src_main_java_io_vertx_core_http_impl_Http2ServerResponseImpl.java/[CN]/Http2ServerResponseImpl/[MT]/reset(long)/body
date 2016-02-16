@@ -1,5 +1,3 @@
 {
-  if (resetHandler != null) {
-    resetHandler.handle(code);
-  }
+  encoder.writeRstStream(ctx,stream.id(),code,ctx.newPromise());
 }

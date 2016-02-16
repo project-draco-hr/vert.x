@@ -2,7 +2,7 @@
   ended=true;
   paused=false;
   pending.clear();
-  response.reset(code);
+  response.handleReset(code);
   if (endHandler != null) {
     endHandler.handle(null);
   }
