@@ -1,0 +1,5 @@
+{
+  map.set("foo","foo_value");
+  assertEquals(Collections.singletonList("foo_value"),map.getAll("Foo"));
+  assertEquals(Collections.singletonList("foo_value"),map.getAll((CharSequence)"Foo"));
+}

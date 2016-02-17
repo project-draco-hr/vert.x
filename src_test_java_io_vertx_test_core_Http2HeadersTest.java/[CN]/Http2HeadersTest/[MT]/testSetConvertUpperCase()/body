@@ -1,0 +1,7 @@
+{
+  map.set("Foo","foo_value");
+  map.set((CharSequence)"Bar","bar_value");
+  map.set("Juu",(Iterable<String>)Collections.singletonList("juu_value"));
+  map.set("Daa",Collections.singletonList((CharSequence)"daa_value"));
+  assertHeaderNames("foo","bar","juu","daa");
+}

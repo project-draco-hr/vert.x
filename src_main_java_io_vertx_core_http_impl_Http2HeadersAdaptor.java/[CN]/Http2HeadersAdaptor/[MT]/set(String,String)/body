@@ -1,4 +1,4 @@
 {
-  headers.set(name,value);
+  headers.set(toLowerCase(name),value);
   return this;
 }

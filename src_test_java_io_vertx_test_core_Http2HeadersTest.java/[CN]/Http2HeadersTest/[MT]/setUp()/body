@@ -1,0 +1,4 @@
+{
+  headers=new DefaultHttp2Headers();
+  map=new Http2HeadersAdaptor(headers);
+}

@@ -1,4 +1,4 @@
 {
-  headers.add(name,value);
+  headers().add(name,value);
   return this;
 }

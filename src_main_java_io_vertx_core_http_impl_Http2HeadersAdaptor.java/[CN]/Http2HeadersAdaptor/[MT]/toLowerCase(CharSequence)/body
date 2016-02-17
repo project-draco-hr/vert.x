@@ -1,0 +1,19 @@
+{
+  StringBuilder buffer=null;
+  int len=s.length();
+  for (int index=0; index < len; index++) {
+    char c=s.charAt(index);
+    if (c >= 'A' && c <= 'Z') {
+      if (buffer == null) {
+        buffer=new StringBuilder(s);
+      }
+      buffer.setCharAt(index,(char)(c + ('a' - 'A')));
+    }
+  }
+  if (buffer != null) {
+    return buffer.toString();
+  }
+ else {
+    return s;
+  }
+}

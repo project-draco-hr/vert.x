@@ -1,0 +1,7 @@
+{
+  map.set("foo","foo_value");
+  map.remove("Foo");
+  map.set("bar","bar_value");
+  map.remove((CharSequence)"Bar");
+  assertHeaderNames();
+}

@@ -1,0 +1,5 @@
+{
+  map.set("foo","foo_value");
+  assertEquals("foo_value",map.get("Foo"));
+  assertEquals("foo_value",map.get((CharSequence)"Foo"));
+}

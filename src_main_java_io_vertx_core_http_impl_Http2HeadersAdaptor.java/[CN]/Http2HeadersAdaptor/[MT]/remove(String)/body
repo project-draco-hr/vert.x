@@ -1,4 +1,4 @@
 {
-  headers.remove(name);
+  headers.remove(toLowerCase(name));
   return this;
 }

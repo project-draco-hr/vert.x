@@ -1,5 +1,5 @@
 {
-  List<CharSequence> all=headers.getAll(name);
+  List<CharSequence> all=headers.getAll(toLowerCase(name));
   if (all != null) {
     return new AbstractList<String>(){
       @Override public String get(      int index){
