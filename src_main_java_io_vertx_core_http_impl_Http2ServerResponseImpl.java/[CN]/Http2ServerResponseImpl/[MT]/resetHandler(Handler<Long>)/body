@@ -1,4 +1,0 @@
-{
-  resetHandler=handler;
-  return this;
-}

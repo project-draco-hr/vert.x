@@ -1,5 +1,5 @@
 {
-  if (resetHandler != null) {
-    resetHandler.handle(code);
+  if (exceptionHandler != null) {
+    exceptionHandler.handle(new StreamResetException(code));
   }
 }
