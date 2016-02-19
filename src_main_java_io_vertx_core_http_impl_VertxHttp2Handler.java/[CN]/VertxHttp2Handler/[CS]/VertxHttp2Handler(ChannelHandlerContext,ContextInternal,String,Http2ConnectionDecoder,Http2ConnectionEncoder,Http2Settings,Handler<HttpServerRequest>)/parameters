@@ -1,5 +1,5 @@
 ChannelHandlerContext context
-Vertx vertx
+ContextInternal handlerContext
 String serverOrigin
 Http2ConnectionDecoder decoder
 Http2ConnectionEncoder encoder

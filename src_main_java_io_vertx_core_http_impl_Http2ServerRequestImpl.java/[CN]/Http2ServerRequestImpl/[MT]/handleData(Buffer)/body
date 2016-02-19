@@ -2,7 +2,7 @@
   if (!paused) {
     if (pending.isEmpty()) {
       callHandler(data);
-      return true;
+      consume(data.length());
     }
  else {
       pending.add(data);
@@ -12,5 +12,4 @@
  else {
     pending.add(data);
   }
-  return false;
 }

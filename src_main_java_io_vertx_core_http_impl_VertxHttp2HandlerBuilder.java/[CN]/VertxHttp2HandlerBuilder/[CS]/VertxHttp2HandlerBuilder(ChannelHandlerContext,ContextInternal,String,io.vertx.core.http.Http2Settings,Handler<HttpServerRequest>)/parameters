@@ -1,5 +1,5 @@
 ChannelHandlerContext context
-Vertx vertx
+ContextInternal handlerContext
 String serverOrigin
 io.vertx.core.http.Http2Settings initialSettings
 Handler<HttpServerRequest> handler

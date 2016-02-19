@@ -1,5 +1,5 @@
 {
-  this.vertx=vertx;
+  this.handlerContext=handlerContext;
   this.serverOrigin=serverOrigin;
   this.handler=handler;
   this.context=context;

@@ -1,5 +1,5 @@
 {
-  VertxHttp2Handler vertxHttp2Handler=new VertxHttp2Handler(context,vertx,serverOrigin,decoder,encoder,initialSettings,handler);
+  VertxHttp2Handler vertxHttp2Handler=new VertxHttp2Handler(context,handlerContext,serverOrigin,decoder,encoder,initialSettings,handler);
   frameListener(vertxHttp2Handler);
   return vertxHttp2Handler;
 }
