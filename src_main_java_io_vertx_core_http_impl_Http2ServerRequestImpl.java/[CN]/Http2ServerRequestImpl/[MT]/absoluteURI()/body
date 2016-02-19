@@ -1,4 +1,7 @@
 {
+  if (method() == HttpMethod.CONNECT) {
+    return null;
+  }
   if (absoluteURI == null) {
     try {
       absoluteURI=UriUtils.absoluteURI(serverOrigin,this);

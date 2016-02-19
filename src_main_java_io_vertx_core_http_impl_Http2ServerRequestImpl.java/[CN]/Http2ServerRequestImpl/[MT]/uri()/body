@@ -1,6 +1,9 @@
 {
   if (uri == null) {
-    uri=headers.path().toString();
+    CharSequence path=headers.path();
+    if (path != null) {
+      uri=path.toString();
+    }
   }
   return uri;
 }

@@ -1,4 +1,8 @@
 {
+  if (isMalformedRequest(headers)) {
+    encoder().writeRstStream(ctx,streamId,Http2Error.PROTOCOL_ERROR.code(),ctx.newPromise());
+    return;
+  }
   Http2Connection conn=connection();
   Http2Stream stream=conn.stream(streamId);
   Http2ServerRequestImpl req=new Http2ServerRequestImpl(vertx,this,serverOrigin,conn,stream,ctx,encoder(),headers);

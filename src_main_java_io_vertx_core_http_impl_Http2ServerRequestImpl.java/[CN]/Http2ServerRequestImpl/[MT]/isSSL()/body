@@ -1,3 +1,3 @@
 {
-  return headers.scheme().equals(HTTPS.name());
+  return true;
 }

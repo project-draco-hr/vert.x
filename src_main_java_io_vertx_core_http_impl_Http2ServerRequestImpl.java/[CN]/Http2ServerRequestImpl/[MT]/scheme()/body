@@ -1,0 +1,4 @@
+{
+  CharSequence scheme=headers.scheme();
+  return scheme != null ? scheme.toString() : null;
+}

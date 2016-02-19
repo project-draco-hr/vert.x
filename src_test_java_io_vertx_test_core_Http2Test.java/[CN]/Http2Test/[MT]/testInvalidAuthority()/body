@@ -1,0 +1,3 @@
+{
+  testMalformedRequest(new DefaultHttp2Headers().method("GET").scheme("http").authority("foo@localhost:4043").path("/"));
+}

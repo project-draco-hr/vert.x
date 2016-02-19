@@ -1,6 +1,9 @@
 {
   if (path == null) {
-    path=UriUtils.parsePath(uri());
+    CharSequence path=headers.path();
+    if (path != null) {
+      this.path=UriUtils.parsePath(path.toString());
+    }
   }
   return path;
 }
