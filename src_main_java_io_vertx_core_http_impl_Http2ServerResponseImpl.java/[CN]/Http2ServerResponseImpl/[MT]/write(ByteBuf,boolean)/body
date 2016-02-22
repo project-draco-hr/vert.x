@@ -1,6 +1,12 @@
 {
-  checkSendHeaders();
-  ChannelFuture fut=encoder.writeData(ctx,stream.id(),chunk,0,last,ctx.newPromise());
+  boolean empty=chunk.readableBytes() == 0;
+  checkSendHeaders(empty && end);
+  if (!empty) {
+    encoder.writeData(ctx,stream.id(),chunk,0,end && trailers == null,ctx.newPromise());
+  }
+  if (trailers != null && end) {
+    encoder.writeHeaders(ctx,stream.id(),trailers,0,true,ctx.newPromise());
+  }
   try {
     encoder.flowController().writePendingBytes();
   }
@@ -8,5 +14,4 @@
     e.printStackTrace();
   }
   ctx.flush();
-  return fut;
 }

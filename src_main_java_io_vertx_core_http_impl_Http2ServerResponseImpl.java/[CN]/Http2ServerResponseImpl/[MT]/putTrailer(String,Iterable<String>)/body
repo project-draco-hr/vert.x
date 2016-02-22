@@ -1,3 +1,4 @@
 {
-  throw new UnsupportedOperationException();
+  trailers().set(name,values);
+  return this;
 }

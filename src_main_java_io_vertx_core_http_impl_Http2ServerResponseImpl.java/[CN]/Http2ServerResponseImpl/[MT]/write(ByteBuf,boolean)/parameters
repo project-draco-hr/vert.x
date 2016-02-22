@@ -1,2 +1,2 @@
 ByteBuf chunk
-boolean last
+boolean end
