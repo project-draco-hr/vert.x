@@ -1,0 +1,8 @@
+{
+  ByteBuf chunk;
+  while (!response.writeQueueFull() && (chunk=(ByteBuf)in.current()) != null && length > 0) {
+    length-=chunk.readableBytes();
+    response.write(chunk.retain(),length == 0);
+    in.remove();
+  }
+}

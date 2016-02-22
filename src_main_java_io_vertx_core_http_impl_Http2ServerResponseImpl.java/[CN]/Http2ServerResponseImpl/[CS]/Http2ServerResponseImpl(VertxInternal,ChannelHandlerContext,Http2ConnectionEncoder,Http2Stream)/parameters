@@ -1,3 +1,4 @@
+VertxInternal vertx
 ChannelHandlerContext ctx
 Http2ConnectionEncoder encoder
 Http2Stream stream

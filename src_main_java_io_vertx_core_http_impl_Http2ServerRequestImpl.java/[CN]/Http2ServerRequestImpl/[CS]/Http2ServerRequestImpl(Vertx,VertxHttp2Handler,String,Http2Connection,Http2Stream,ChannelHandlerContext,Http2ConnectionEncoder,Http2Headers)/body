@@ -6,5 +6,5 @@
   this.stream=stream;
   this.headers=headers;
   this.ctx=ctx;
-  this.response=new Http2ServerResponseImpl(ctx,encoder,stream);
+  this.response=new Http2ServerResponseImpl((VertxInternal)vertx,ctx,encoder,stream);
 }

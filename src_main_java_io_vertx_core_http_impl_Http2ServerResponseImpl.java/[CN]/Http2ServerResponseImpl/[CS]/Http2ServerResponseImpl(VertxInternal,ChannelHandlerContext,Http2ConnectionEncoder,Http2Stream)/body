@@ -1,4 +1,5 @@
 {
+  this.vertx=vertx;
   this.ctx=ctx;
   this.encoder=encoder;
   this.stream=stream;

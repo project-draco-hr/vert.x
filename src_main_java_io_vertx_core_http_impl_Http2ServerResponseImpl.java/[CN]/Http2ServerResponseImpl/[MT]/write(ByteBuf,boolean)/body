@@ -1,6 +1,6 @@
 {
   checkSendHeaders();
-  encoder.writeData(ctx,stream.id(),chunk,0,last,ctx.newPromise());
+  ChannelFuture fut=encoder.writeData(ctx,stream.id(),chunk,0,last,ctx.newPromise());
   try {
     encoder.flowController().writePendingBytes();
   }
@@ -8,5 +8,5 @@
     e.printStackTrace();
   }
   ctx.flush();
-  return this;
+  return fut;
 }
