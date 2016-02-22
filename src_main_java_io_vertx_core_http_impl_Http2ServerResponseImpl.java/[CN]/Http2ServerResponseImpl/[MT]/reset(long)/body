@@ -1,3 +1,5 @@
 {
+  checkEnded();
+  ended=true;
   encoder.writeRstStream(ctx,stream.id(),code,ctx.newPromise());
 }

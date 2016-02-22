@@ -1,4 +1,5 @@
 {
+  checkEnded();
   boolean empty=chunk.readableBytes() == 0;
   checkSendHeaders(empty && end);
   if (!empty) {
@@ -12,6 +13,9 @@
   }
  catch (  Http2Exception e) {
     e.printStackTrace();
+  }
+  if (end) {
+    ended=true;
   }
   ctx.flush();
 }

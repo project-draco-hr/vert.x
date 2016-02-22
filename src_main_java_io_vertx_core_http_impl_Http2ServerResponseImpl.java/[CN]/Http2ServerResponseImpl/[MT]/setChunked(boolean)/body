@@ -1,4 +1,5 @@
 {
+  checkEnded();
   this.chunked=true;
   return this;
 }
