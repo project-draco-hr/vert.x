@@ -2,6 +2,9 @@
   ended=true;
   paused=false;
   pending.clear();
+  if (exceptionHandler != null) {
+    exceptionHandler.handle(new StreamResetException(code));
+  }
   response.handleReset(code);
   if (endHandler != null) {
     endHandler.handle(null);
