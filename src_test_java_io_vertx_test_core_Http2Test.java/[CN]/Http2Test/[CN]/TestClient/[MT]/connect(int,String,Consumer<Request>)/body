@@ -36,7 +36,7 @@ class TestClientHandlerBuilder extends AbstractHttp2ConnectionHandlerBuilder<Tes
             TestClientHandlerBuilder clientHandlerBuilder=new TestClientHandlerBuilder();
             TestClientHandler clientHandler=clientHandlerBuilder.build(connection);
             p.addLast(clientHandler);
-            Request request=new Request(ctx,connection,clientHandler.encoder(),clientHandler.decoder());
+            Request request=new Request(ch,ctx,connection,clientHandler.encoder(),clientHandler.decoder());
             handler.accept(request);
             return;
           }

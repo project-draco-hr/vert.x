@@ -1,6 +1,4 @@
 {
   ended=true;
-  if (exceptionHandler != null) {
-    exceptionHandler.handle(new StreamResetException(code));
-  }
+  handleError(new StreamResetException(code));
 }

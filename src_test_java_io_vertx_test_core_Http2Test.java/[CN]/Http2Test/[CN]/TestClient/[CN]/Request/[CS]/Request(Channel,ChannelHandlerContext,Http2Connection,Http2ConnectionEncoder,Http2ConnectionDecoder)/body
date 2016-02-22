@@ -1,4 +1,5 @@
 {
+  this.channel=channel;
   this.context=context;
   this.connection=connection;
   this.encoder=encoder;

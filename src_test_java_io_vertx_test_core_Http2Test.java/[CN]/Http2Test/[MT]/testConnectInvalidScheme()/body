@@ -1,3 +1,3 @@
 {
-  testMalformedRequest(new DefaultHttp2Headers().method("CONNECT").scheme("http").authority("localhost:4043"));
+  testMalformedRequestHeaders(new DefaultHttp2Headers().method("CONNECT").scheme("http").authority("localhost:4043"));
 }
