@@ -1,0 +1,3 @@
+{
+  startServer(vertx.getOrCreateContext());
+}
