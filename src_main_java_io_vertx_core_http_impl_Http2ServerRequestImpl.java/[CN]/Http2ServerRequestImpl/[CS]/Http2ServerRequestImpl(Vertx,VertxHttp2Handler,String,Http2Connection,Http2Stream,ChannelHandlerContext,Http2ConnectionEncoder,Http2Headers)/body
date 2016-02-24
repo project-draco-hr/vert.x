@@ -1,4 +1,5 @@
 {
+  String contentEncoding=UriUtils.determineContentEncoding(headers);
   this.vertx=vertx;
   this.connection=connection;
   this.serverOrigin=serverOrigin;
@@ -6,5 +7,5 @@
   this.stream=stream;
   this.headers=headers;
   this.ctx=ctx;
-  this.response=new Http2ServerResponseImpl((VertxInternal)vertx,ctx,connection,encoder,stream,false);
+  this.response=new Http2ServerResponseImpl((VertxInternal)vertx,ctx,connection,encoder,stream,false,contentEncoding);
 }

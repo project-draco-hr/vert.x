@@ -1,4 +1,7 @@
 {
+  if (supportsCompression) {
+    encoder=new CompressorHttp2ConnectionEncoder(encoder);
+  }
   VertxHttp2Handler vertxHttp2Handler=new VertxHttp2Handler(context,handlerContext,serverOrigin,decoder,encoder,initialSettings,handler);
   frameListener(vertxHttp2Handler);
   return vertxHttp2Handler;

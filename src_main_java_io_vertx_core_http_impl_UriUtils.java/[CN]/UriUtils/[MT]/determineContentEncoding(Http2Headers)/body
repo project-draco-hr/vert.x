@@ -1,0 +1,15 @@
+{
+  String acceptEncoding=headers.get(HttpHeaderNames.ACCEPT_ENCODING) != null ? headers.get(HttpHeaderNames.ACCEPT_ENCODING).toString() : null;
+  if (acceptEncoding != null) {
+    ZlibWrapper wrapper=compressor.determineWrapper(acceptEncoding);
+    if (wrapper != null) {
+switch (wrapper) {
+case GZIP:
+        return "gzip";
+case ZLIB:
+      return "deflate";
+  }
+}
+}
+return null;
+}

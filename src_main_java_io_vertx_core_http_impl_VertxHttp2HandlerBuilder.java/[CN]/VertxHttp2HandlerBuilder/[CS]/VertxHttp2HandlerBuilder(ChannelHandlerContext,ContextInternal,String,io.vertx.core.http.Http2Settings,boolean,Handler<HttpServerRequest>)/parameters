@@ -2,4 +2,5 @@ ChannelHandlerContext context
 ContextInternal handlerContext
 String serverOrigin
 io.vertx.core.http.Http2Settings initialSettings
+boolean supportsCompression
 Handler<HttpServerRequest> handler

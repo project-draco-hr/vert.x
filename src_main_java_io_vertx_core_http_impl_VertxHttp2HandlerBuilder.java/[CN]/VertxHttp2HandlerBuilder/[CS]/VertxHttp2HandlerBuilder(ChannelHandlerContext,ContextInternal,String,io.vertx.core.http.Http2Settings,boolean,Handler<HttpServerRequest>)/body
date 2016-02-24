@@ -3,6 +3,7 @@
   this.serverOrigin=serverOrigin;
   this.handler=handler;
   this.context=context;
+  this.supportsCompression=supportsCompression;
   if (initialSettings != null) {
     if (initialSettings.getHeaderTableSize() != null) {
       initialSettings().headerTableSize(initialSettings.getHeaderTableSize());

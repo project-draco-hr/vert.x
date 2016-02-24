@@ -4,3 +4,4 @@ VertxHttp2Handler connection
 Http2ConnectionEncoder encoder
 Http2Stream stream
 boolean push
+String contentEncoding
