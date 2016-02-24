@@ -6,3 +6,4 @@ Http2Stream stream
 ChannelHandlerContext ctx
 Http2ConnectionEncoder encoder
 Http2Headers headers
+String contentEncoding

@@ -1,5 +1,4 @@
 {
-  String contentEncoding=UriUtils.determineContentEncoding(headers);
   this.vertx=vertx;
   this.connection=connection;
   this.serverOrigin=serverOrigin;
