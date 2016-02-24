@@ -1,0 +1,5 @@
+{
+  if (headWritten) {
+    throw new IllegalStateException("Header already sent");
+  }
+}

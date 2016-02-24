@@ -1,4 +1,5 @@
 {
+  checkEnded();
   drainHandler=handler;
   return this;
 }

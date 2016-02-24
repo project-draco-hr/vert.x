@@ -1,3 +1,4 @@
 {
+  checkEnded();
   return !encoder.flowController().isWritable(stream);
 }

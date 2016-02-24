@@ -1,4 +1,5 @@
 {
+  checkHeadWritten();
   headers().add(name,values);
   return this;
 }

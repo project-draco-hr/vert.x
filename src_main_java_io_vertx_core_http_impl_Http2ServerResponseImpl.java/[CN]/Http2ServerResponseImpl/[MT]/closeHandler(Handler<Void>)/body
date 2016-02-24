@@ -1,3 +1,4 @@
 {
-  throw new UnsupportedOperationException();
+  checkEnded();
+  return this;
 }
