@@ -1,0 +1,8 @@
+{
+  if (!ended) {
+    ended=true;
+    if (exceptionHandler != null) {
+      exceptionHandler.handle(new ClosedChannelException());
+    }
+  }
+}

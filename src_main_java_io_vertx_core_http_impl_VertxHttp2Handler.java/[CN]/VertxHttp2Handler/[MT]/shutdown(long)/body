@@ -1,0 +1,6 @@
+{
+  if (timeout <= 0) {
+    throw new IllegalArgumentException("Invalid timeout value " + timeout);
+  }
+  return shutdown((Long)timeout);
+}

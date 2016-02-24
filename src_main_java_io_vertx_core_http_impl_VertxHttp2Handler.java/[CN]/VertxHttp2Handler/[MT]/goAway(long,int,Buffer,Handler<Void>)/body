@@ -1,0 +1,20 @@
+{
+  if (errorCode < 0) {
+    throw new IllegalArgumentException();
+  }
+  if (lastStreamId < 0) {
+    throw new IllegalArgumentException();
+  }
+  if (completionHandler != null) {
+    connection().addListener(new Http2ConnectionAdapter(){
+      @Override public void onStreamClosed(      Http2Stream stream){
+        if (connection().numActiveStreams() == 0) {
+          completionHandler.handle(null);
+        }
+      }
+    }
+);
+  }
+  encoder().writeGoAway(context,lastStreamId,errorCode,debugData != null ? debugData.getByteBuf() : Unpooled.EMPTY_BUFFER,context.newPromise());
+  return this;
+}
