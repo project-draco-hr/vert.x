@@ -1,4 +1,5 @@
 {
+  checkEnded();
   dataHandler=handler;
   return this;
 }

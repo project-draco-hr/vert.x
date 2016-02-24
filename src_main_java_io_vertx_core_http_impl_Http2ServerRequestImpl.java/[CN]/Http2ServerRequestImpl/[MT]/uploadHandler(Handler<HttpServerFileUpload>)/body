@@ -1,4 +1,5 @@
 {
+  checkEnded();
   uploadHandler=handler;
   return this;
 }
