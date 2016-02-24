@@ -1,4 +1,0 @@
-{
-  handler.handle(Future.failedFuture("Push promise not supported with " + version().name()));
-  return this;
-}

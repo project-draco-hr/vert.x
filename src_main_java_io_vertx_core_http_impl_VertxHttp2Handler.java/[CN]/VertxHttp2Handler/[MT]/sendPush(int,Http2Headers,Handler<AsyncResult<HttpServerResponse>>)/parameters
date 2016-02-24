@@ -1,0 +1,3 @@
+int streamId
+Http2Headers headers
+Handler<AsyncResult<HttpServerResponse>> handler

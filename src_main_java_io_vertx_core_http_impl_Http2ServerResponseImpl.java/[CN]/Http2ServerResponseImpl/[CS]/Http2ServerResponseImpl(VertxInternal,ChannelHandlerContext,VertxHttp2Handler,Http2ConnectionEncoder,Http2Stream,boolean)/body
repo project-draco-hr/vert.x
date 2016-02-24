@@ -1,6 +1,8 @@
 {
   this.vertx=vertx;
   this.ctx=ctx;
+  this.connection=connection;
   this.encoder=encoder;
   this.stream=stream;
+  this.push=push;
 }
