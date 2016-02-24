@@ -1,10 +1,12 @@
 {
   if (!headWritten) {
-    headWritten=true;
     if (!headers.contains(HttpHeaderNames.CONTENT_LENGTH) && !chunked) {
       throw new IllegalStateException("You must set the Content-Length header to be the total size of the message " + "body BEFORE sending any data if you are not sending an HTTP chunked response.");
     }
-    encoder.writeHeaders(ctx,stream.id(),headers,0,end,ctx.newPromise());
+    if (headersEndHandler != null) {
+      headersEndHandler.handle(null);
+    }
     headWritten=true;
+    encoder.writeHeaders(ctx,stream.id(),headers,0,end,ctx.newPromise());
   }
 }

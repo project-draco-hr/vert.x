@@ -18,4 +18,7 @@
     ended=true;
   }
   ctx.flush();
+  if (end && bodyEndHandler != null) {
+    bodyEndHandler.handle(null);
+  }
 }
