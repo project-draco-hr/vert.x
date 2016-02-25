@@ -1,0 +1,9 @@
+{
+  assertEquals(context,Vertx.currentContext());
+  for (  StackTraceElement elt : Thread.currentThread().getStackTrace()) {
+    if (elt.getMethodName().equals("executeFromIO")) {
+      return;
+    }
+  }
+  fail("Not from IO");
+}

@@ -1,10 +1,2 @@
 {
-  Long v=settings.maxConcurrentStreams();
-  if (v != null) {
-    maxConcurrentStreams=v;
-  }
-  clientSettings.putAll(settings);
-  if (clientSettingsHandler != null) {
-    clientSettingsHandler.handle(clientSettings());
-  }
 }
