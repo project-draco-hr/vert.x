@@ -16,10 +16,10 @@
         }
       }
     }
- catch (    HttpPostRequestDecoder.ErrorDataDecoderException e) {
-      handleException(e);
+ catch (    HttpPostRequestDecoder.EndOfDataDecoderException e) {
     }
-catch (    HttpPostRequestDecoder.EndOfDataDecoderException e) {
+catch (    Exception e) {
+      handleException(e);
     }
  finally {
       decoder.destroy();

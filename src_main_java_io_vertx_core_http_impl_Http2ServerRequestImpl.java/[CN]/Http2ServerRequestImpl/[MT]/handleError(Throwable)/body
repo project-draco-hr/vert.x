@@ -1,6 +1,0 @@
-{
-  if (exceptionHandler != null) {
-    exceptionHandler.handle(cause);
-    response.handleError(cause);
-  }
-}
