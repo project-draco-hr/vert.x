@@ -1,13 +1,2 @@
 {
-  Http2Stream stream=connection().stream(streamId);
-  Http2ServerResponseImpl resp=new Http2ServerResponseImpl((VertxInternal)handlerContext.owner(),ctx,this,encoder(),stream,true,contentEncoding);
-  Push push=new Push(resp,handler);
-  streams.put(streamId,push);
-  if (maxConcurrentStreams == null || concurrentStreams < maxConcurrentStreams) {
-    concurrentStreams++;
-    handler.handle(Future.succeededFuture(resp));
-  }
- else {
-    pendingPushes.add(push);
-  }
 }
