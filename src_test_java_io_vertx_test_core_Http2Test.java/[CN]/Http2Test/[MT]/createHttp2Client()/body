@@ -1,3 +1,0 @@
-{
-  return createHttp2ClientBuilder().build();
-}
