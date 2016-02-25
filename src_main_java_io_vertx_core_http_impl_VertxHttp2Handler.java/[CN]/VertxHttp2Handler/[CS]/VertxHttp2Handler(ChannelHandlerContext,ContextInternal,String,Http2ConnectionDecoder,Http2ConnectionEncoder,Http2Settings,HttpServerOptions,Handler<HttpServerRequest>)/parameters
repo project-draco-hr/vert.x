@@ -4,5 +4,5 @@ String serverOrigin
 Http2ConnectionDecoder decoder
 Http2ConnectionEncoder encoder
 Http2Settings initialSettings
-boolean supportsCompression
+HttpServerOptions options
 Handler<HttpServerRequest> handler

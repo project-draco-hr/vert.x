@@ -3,7 +3,8 @@
   this.serverOrigin=serverOrigin;
   this.handler=handler;
   this.context=context;
-  this.supportsCompression=supportsCompression;
+  this.options=option;
+  io.vertx.core.http.Http2Settings initialSettings=options.getHttp2Settings();
   if (initialSettings != null) {
     if (initialSettings.getHeaderTableSize() != null) {
       initialSettings().headerTableSize(initialSettings.getHeaderTableSize());

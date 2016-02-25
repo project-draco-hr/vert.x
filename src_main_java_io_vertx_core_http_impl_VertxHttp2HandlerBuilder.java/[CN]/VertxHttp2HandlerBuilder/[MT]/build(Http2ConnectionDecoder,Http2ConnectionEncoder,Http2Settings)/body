@@ -1,8 +1,8 @@
 {
-  if (supportsCompression) {
+  if (options.isCompressionSupported()) {
     encoder=new CompressorHttp2ConnectionEncoder(encoder);
   }
-  VertxHttp2Handler vertxHttp2Handler=new VertxHttp2Handler(context,handlerContext,serverOrigin,decoder,encoder,initialSettings,supportsCompression,handler);
+  VertxHttp2Handler vertxHttp2Handler=new VertxHttp2Handler(context,handlerContext,serverOrigin,decoder,encoder,initialSettings,options,handler);
   frameListener(vertxHttp2Handler);
   return vertxHttp2Handler;
 }
