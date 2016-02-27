@@ -1,0 +1,10 @@
+{
+  HttpRequest request=createRequest(version,method,uri,headers);
+  prepareHeaders(request,chunked);
+  if (end) {
+    writeToChannel(new AssembledFullHttpRequest(request,buf));
+  }
+ else {
+    writeToChannel(new AssembledHttpRequest(request,buf));
+  }
+}

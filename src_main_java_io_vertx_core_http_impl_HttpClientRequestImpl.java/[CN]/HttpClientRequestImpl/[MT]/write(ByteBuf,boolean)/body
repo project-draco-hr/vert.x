@@ -33,17 +33,7 @@
       writeHeadWithContent(buff,end);
     }
  else {
-      if (end) {
-        if (buff.isReadable()) {
-          conn.writeToChannel(new DefaultLastHttpContent(buff,false));
-        }
- else {
-          conn.writeToChannel(LastHttpContent.EMPTY_LAST_CONTENT);
-        }
-      }
- else {
-        conn.writeToChannel(new DefaultHttpContent(buff));
-      }
+      conn.writeBuffer(buff,end);
     }
     if (end) {
       conn.reportBytesWritten(written);

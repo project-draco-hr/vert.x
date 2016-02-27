@@ -1,0 +1,7 @@
+io.vertx.core.http.HttpVersion version
+io.vertx.core.http.HttpMethod method
+String uri
+MultiMap headers
+boolean chunked
+ByteBuf buf
+boolean end

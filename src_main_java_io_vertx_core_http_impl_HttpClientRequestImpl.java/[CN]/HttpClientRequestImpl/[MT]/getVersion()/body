@@ -1,0 +1,5 @@
+{
+synchronized (getLock()) {
+    return version;
+  }
+}

@@ -2,7 +2,7 @@
   HttpHeaders headers=request.headers();
   headers.remove(TRANSFER_ENCODING);
   if (!headers.contains(HOST)) {
-    request.headers().set(HOST,conn.hostHeader());
+    request.headers().set(HOST,hostHeader());
   }
   if (chunked) {
     HttpHeaders.setTransferEncodingChunked(request);

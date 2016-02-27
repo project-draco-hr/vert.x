@@ -1,5 +1,4 @@
 {
-  prepareHeaders();
-  conn.writeToChannel(request);
+  conn.writeHead(version,method,uri,headers,chunked);
   headWritten=true;
 }

@@ -2,8 +2,9 @@
   this.host=host;
   this.port=port;
   this.client=client;
-  this.request=new DefaultHttpRequest(toNettyHttpVersion(client.getOptions().getProtocolVersion()),toNettyHttpMethod(method),relativeURI,false);
   this.chunked=false;
   this.method=method;
   this.vertx=vertx;
+  this.version=client.getOptions().getProtocolVersion();
+  this.uri=relativeURI;
 }
