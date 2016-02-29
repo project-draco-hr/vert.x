@@ -1,0 +1,22 @@
+{
+  options=new EventBusOptions();
+  options.setSsl(true);
+  if (serverTrust) {
+    options.setTrustStoreOptions(new JksOptions().setPath(findFileOnClasspath("tls/server-truststore.jks")).setPassword("wibble"));
+  }
+  if (serverCert) {
+    options.setKeyStoreOptions(new JksOptions().setPath(findFileOnClasspath("tls/server-keystore.jks")).setPassword("wibble"));
+  }
+  if (requireClientAuth) {
+    options.setClientAuth(ClientAuth.REQUIRED);
+  }
+  if (clientTrustAll) {
+    options.setTrustAll(true);
+  }
+  if (clientTrust) {
+    options.setTrustStoreOptions(new JksOptions().setPath(findFileOnClasspath("tls/server-truststore.jks")).setPassword("wibble"));
+  }
+  if (clientCert) {
+    options.setKeyStoreOptions(new JksOptions().setPath(findFileOnClasspath("tls/client-keystore.jks")).setPassword("wibble"));
+  }
+}
