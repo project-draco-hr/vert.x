@@ -1,5 +1,5 @@
 {
-  Arguments.require(sendBufferSize > 0,"sendBufferSize must be > 0");
+  Arguments.require(sendBufferSize > 0 || sendBufferSize == DEFAULT_SEND_BUFFER_SIZE,"sendBufferSize must be > 0");
   this.sendBufferSize=sendBufferSize;
   return this;
 }

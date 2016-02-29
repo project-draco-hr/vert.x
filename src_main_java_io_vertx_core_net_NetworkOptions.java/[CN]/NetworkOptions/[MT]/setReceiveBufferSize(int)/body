@@ -1,5 +1,5 @@
 {
-  Arguments.require(receiveBufferSize > 0,"receiveBufferSize must be > 0");
+  Arguments.require(receiveBufferSize > 0 || receiveBufferSize == DEFAULT_RECEIVE_BUFFER_SIZE,"receiveBufferSize must be > 0");
   this.receiveBufferSize=receiveBufferSize;
   return this;
 }
