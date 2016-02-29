@@ -1,0 +1,4 @@
+{
+  this.reconnectAttempts=reconnectAttempts;
+  return this;
+}

@@ -1,0 +1,5 @@
+{
+  super.setKeyStoreOptions(options);
+  this.keystoreOptions=options;
+  return this;
+}

@@ -1,0 +1,18 @@
+{
+  super(other);
+  this.clustered=other.clustered;
+  this.clusterPublicHost=other.clusterPublicHost;
+  this.clusterPublicPort=other.clusterPublicPort;
+  this.clusterPingInterval=other.clusterPingInterval;
+  this.clusterPingReplyInterval=other.clusterPingReplyInterval;
+  this.port=other.port;
+  this.host=other.host;
+  this.acceptBacklog=other.acceptBacklog;
+  this.clientAuth=other.clientAuth;
+  this.reconnectInterval=other.reconnectInterval;
+  this.reconnectAttempts=other.reconnectAttempts;
+  this.connectTimeout=other.connectTimeout;
+  this.trustAll=other.trustAll;
+  setKeyStoreOptions(other.keystoreOptions);
+  setTrustStoreOptions(other.trustStoreOptions);
+}

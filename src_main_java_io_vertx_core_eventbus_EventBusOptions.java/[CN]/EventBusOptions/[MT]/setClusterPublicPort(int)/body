@@ -1,0 +1,7 @@
+{
+  if (clusterPublicPort < 0 || clusterPublicPort > 65535) {
+    throw new IllegalArgumentException("clusterPublicPort p must be in range 0 <= p <= 65535");
+  }
+  this.clusterPublicPort=clusterPublicPort;
+  return this;
+}

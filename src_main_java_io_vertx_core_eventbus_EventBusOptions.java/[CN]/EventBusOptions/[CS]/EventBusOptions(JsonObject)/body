@@ -1,0 +1,4 @@
+{
+  this();
+  EventBusOptionsConverter.fromJson(json,this);
+}

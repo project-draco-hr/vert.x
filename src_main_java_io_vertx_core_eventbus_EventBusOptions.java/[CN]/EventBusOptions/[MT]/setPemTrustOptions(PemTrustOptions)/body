@@ -1,0 +1,4 @@
+{
+  super.setPemTrustOptions(options);
+  return this;
+}
