@@ -1,0 +1,5 @@
+{
+  Http2ClientStream stream=new Http2ClientStream(req,context,connection(),encoder());
+  streams.put(stream.id,stream);
+  return stream;
+}

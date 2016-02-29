@@ -1,7 +1,0 @@
-{
-  this.statusCode=response.getStatus().code();
-  this.statusMessage=response.getStatus().reasonPhrase();
-  this.request=request;
-  this.conn=conn;
-  this.response=response;
-}

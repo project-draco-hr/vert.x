@@ -1,8 +1,0 @@
-{
-  if (version == HttpVersion.HTTP_2) {
-    http2Manager.getConnection(port,host,handler,connectionExceptionHandler,context,canceled);
-  }
- else {
-    http1Manager.getConnection(port,host,handler,connectionExceptionHandler,context,canceled);
-  }
-}

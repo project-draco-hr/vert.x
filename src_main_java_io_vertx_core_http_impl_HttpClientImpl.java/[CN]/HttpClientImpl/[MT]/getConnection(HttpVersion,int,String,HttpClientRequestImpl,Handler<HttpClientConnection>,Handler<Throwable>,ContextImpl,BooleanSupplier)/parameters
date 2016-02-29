@@ -1,0 +1,8 @@
+HttpVersion version
+int port
+String host
+HttpClientRequestImpl req
+Handler<HttpClientConnection> handler
+Handler<Throwable> connectionExceptionHandler
+ContextImpl context
+BooleanSupplier canceled

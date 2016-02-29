@@ -1,0 +1,9 @@
+{
+  if (chunk.isReadable()) {
+    Buffer buff=Buffer.buffer(chunk.slice());
+    resp.handleChunk(buff);
+  }
+  if (end) {
+    handleEnd();
+  }
+}

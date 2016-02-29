@@ -1,5 +1,5 @@
 {
-  currentResponse.handleEnd(trailer);
+  currentResponse.handleEnd(new HeadersAdaptor(trailer.trailingHeaders()));
   if (currentResponse.statusCode() != 100 && requestForResponse.getMethod() != io.vertx.core.http.HttpMethod.CONNECT) {
     boolean close=false;
     String responseConnectionHeader=currentResponse.getHeader(HttpHeaders.Names.CONNECTION);

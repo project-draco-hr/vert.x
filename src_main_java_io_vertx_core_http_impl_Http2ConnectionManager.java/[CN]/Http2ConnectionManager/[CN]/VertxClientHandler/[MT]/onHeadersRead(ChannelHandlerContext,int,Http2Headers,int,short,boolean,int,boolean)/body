@@ -1,0 +1,4 @@
+{
+  Http2ClientStream stream=streams.get(streamId);
+  stream.handleHeaders(headers,endOfStream);
+}

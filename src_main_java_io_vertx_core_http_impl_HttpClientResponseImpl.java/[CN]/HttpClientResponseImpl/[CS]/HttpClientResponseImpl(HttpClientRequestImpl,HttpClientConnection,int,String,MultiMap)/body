@@ -1,0 +1,7 @@
+{
+  this.statusCode=statusCode;
+  this.statusMessage=statusMessage;
+  this.request=request;
+  this.conn=conn;
+  this.headers=headers;
+}

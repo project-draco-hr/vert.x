@@ -1,0 +1,7 @@
+{
+  this.req=req;
+  this.context=context;
+  this.conn=conn;
+  this.id=conn.local().incrementAndGetNextStreamId();
+  this.encoder=encoder;
+}

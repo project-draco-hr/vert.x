@@ -1,0 +1,5 @@
+ChannelHandlerContext ctx
+int streamId
+Http2Headers headers
+int padding
+boolean endOfStream

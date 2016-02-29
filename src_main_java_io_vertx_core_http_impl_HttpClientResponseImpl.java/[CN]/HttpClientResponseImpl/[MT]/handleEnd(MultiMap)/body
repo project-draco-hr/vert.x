@@ -1,0 +1,22 @@
+{
+synchronized (conn) {
+    conn.reportBytesRead(bytesRead);
+    bytesRead=0;
+    request.reportResponseEnd(this);
+    if (paused) {
+      hasPausedEnd=true;
+      pausedTrailers=trailers;
+    }
+ else {
+      this.trailers=trailers;
+      if (endHandler != null) {
+        try {
+          endHandler.handle(null);
+        }
+ catch (        Throwable t) {
+          handleException(t);
+        }
+      }
+    }
+  }
+}

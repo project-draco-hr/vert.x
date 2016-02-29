@@ -1,0 +1,7 @@
+{
+  Http2Headers h=new DefaultHttp2Headers();
+  h.method(method.name());
+  h.path(uri);
+  h.scheme("https");
+  encoder.writeHeaders(context,id,h,0,end,context.newPromise());
+}

@@ -1,8 +1,3 @@
 {
-synchronized (conn) {
-    if (headers == null) {
-      headers=new HeadersAdaptor(response.headers());
-    }
-    return headers;
-  }
+  return headers;
 }
