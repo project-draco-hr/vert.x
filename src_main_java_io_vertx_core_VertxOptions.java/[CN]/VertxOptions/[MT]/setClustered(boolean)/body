@@ -1,4 +1,4 @@
 {
-  this.clustered=clustered;
+  eventBusOptions.setClustered(clustered);
   return this;
 }

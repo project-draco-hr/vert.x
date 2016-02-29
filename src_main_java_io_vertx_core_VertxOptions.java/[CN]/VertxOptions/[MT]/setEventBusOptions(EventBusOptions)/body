@@ -1,0 +1,5 @@
+{
+  Objects.requireNonNull(options);
+  this.eventBusOptions=options;
+  return this;
+}

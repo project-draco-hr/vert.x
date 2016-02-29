@@ -1,7 +1,4 @@
 {
-  if (clusterPingReplyInterval < 1) {
-    throw new IllegalArgumentException("clusterPingReplyInterval must be greater than 0");
-  }
-  this.clusterPingReplyInterval=clusterPingReplyInterval;
+  eventBusOptions.setClusterPingReplyInterval(clusterPingReplyInterval);
   return this;
 }
