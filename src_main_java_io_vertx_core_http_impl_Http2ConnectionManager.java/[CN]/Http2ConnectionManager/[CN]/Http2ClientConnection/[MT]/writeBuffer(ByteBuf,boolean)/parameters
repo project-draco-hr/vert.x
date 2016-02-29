@@ -1,0 +1,2 @@
+ByteBuf buf
+boolean end

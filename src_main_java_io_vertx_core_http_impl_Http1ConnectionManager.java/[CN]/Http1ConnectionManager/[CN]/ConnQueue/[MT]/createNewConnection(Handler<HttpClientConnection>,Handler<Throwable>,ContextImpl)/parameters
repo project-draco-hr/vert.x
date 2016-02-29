@@ -1,0 +1,3 @@
+Handler<HttpClientConnection> handler
+Handler<Throwable> connectionExceptionHandler
+ContextImpl context

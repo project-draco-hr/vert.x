@@ -1,7 +1,0 @@
-HttpVersion version
-int port
-String host
-Handler<ClientConnection> handler
-Handler<Throwable> connectionExceptionHandler
-ContextImpl context
-BooleanSupplier canceled

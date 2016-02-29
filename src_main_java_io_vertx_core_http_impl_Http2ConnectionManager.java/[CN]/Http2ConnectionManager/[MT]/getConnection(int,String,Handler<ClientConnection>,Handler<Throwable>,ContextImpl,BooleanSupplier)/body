@@ -1,3 +1,0 @@
-{
-  connectionExceptionHandler.handle(new UnsupportedOperationException());
-}

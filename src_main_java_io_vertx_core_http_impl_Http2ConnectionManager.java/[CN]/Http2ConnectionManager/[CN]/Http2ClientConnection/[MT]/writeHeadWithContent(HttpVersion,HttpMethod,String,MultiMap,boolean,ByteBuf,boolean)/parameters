@@ -1,0 +1,7 @@
+HttpVersion vertsion
+HttpMethod method
+String uri
+MultiMap headers
+boolean chunked
+ByteBuf buf
+boolean end
