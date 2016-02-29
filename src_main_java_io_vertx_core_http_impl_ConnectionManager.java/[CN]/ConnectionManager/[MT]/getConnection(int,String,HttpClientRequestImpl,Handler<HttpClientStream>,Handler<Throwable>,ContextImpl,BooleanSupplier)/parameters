@@ -1,7 +1,7 @@
 int port
 String host
 HttpClientRequestImpl req
-Handler<HttpClientConnection> handler
+Handler<HttpClientStream> handler
 Handler<Throwable> connectionExceptionHandler
-ContextImpl clientContext
+ContextImpl context
 BooleanSupplier canceled
