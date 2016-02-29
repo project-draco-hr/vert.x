@@ -1,15 +1,21 @@
 {
+  ContextInternal context;
+  if (clientContext == null) {
+    context=client.getVertx().getOrCreateContext();
+  }
+ else {
+    context=clientContext;
+  }
   Bootstrap bootstrap=new Bootstrap();
   bootstrap.group(context.nettyEventLoop());
   bootstrap.channelFactory(new VertxNioSocketChannelFactory());
   SSLHelper sslHelper=client.getSslHelper();
   sslHelper.validate(client.getVertx());
-  SslHandler sslHandler=sslHelper.createSslHandler(client.getVertx(),true,host,port);
   bootstrap.handler(new ChannelInitializer<Channel>(){
     @Override protected void initChannel(    Channel ch) throws Exception {
       SslHandler sslHandler=sslHelper.createSslHandler(client.getVertx(),true,host,port);
       ch.pipeline().addLast(sslHandler);
-      ch.pipeline().addLast(new ApplicationProtocolNegotiationHandler("whatever"){
+      ch.pipeline().addLast(new ApplicationProtocolNegotiationHandler("alpn"){
         @Override protected void configurePipeline(        ChannelHandlerContext ctx,        String protocol){
           if (ApplicationProtocolNames.HTTP_2.equals(protocol)) {
             ChannelPipeline p=ctx.pipeline();
@@ -30,6 +36,5 @@
   }
 );
   applyConnectionOptions(client.getOptions(),bootstrap);
-  System.out.println("IMPLEMENT ME");
-  connectionExceptionHandler.handle(new UnsupportedOperationException());
+  bootstrap.connect(new InetSocketAddress(host,port));
 }
