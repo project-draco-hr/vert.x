@@ -1,5 +1,6 @@
 {
   super(vertx,channel,context,metrics);
+  this.manager=manager;
   this.client=client;
   this.ssl=ssl;
   this.host=host;

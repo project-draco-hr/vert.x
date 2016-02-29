@@ -1,0 +1,4 @@
+{
+  super(Http1ConnectionManager.this.connectionMap);
+  this.context=context;
+}

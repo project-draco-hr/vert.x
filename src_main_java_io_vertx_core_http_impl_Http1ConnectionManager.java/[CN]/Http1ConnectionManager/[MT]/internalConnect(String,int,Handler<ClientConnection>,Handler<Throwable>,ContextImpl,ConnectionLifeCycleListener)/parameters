@@ -2,5 +2,5 @@ String host
 int port
 Handler<ClientConnection> connectHandler
 Handler<Throwable> connectErrorHandler
-ContextImpl context
+ContextImpl clientContext
 ConnectionLifeCycleListener listener

@@ -1,8 +1,8 @@
 {
   if (version == HttpVersion.HTTP_2) {
-    pool2.getConnection(port,host,handler,connectionExceptionHandler,context,canceled);
+    http2Manager.getConnection(port,host,handler,connectionExceptionHandler,context,canceled);
   }
  else {
-    pool.getConnection(port,host,handler,connectionExceptionHandler,context,canceled);
+    http1Manager.getConnection(port,host,handler,connectionExceptionHandler,context,canceled);
   }
 }
