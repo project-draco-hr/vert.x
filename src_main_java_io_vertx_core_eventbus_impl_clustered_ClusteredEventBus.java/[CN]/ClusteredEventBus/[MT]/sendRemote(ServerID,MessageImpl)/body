@@ -1,7 +1,7 @@
 {
   ConnectionHolder holder=connections.get(theServerID);
   if (holder == null) {
-    holder=new ConnectionHolder(this,theServerID);
+    holder=new ConnectionHolder(this,theServerID,options);
     ConnectionHolder prevHolder=connections.putIfAbsent(theServerID,holder);
     if (prevHolder != null) {
       holder=prevHolder;

@@ -1,7 +1,7 @@
 {
   String publicHost=System.getProperty(CLUSTER_PUBLIC_HOST_PROP_NAME,options.getClusterPublicHost());
   if (publicHost == null) {
-    publicHost=options.getClusterHost();
+    publicHost=options.getHost();
   }
   return publicHost;
 }

@@ -1,0 +1,7 @@
+{
+  this.eventBus=eventBus;
+  this.serverID=serverID;
+  this.vertx=eventBus.vertx();
+  this.metrics=eventBus.getMetrics();
+  client=new NetClientImpl(eventBus.vertx(),new NetClientOptions(options.toJson()).setTrustStoreOptions(options.getTrustStoreOptions()).setKeyStoreOptions(options.getKeystoreOptions()),false);
+}
