@@ -1,4 +1,4 @@
 {
-  this.reconnectAttempts=reconnectAttempts;
+  this.reconnectAttempts=attempts;
   return this;
 }
