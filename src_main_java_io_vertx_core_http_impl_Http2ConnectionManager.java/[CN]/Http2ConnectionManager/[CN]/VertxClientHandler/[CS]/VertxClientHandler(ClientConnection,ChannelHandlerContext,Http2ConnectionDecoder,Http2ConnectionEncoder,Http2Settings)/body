@@ -1,5 +1,5 @@
 {
   super(decoder,encoder,initialSettings);
-  decoder.frameListener(this);
+  this.conn=conn;
   this.context=context;
 }
