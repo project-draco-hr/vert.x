@@ -1,5 +1,0 @@
-{
-  super(decoder,encoder,initialSettings);
-  this.conn=conn;
-  this.context=context;
-}

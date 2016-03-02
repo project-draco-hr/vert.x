@@ -1,0 +1,6 @@
+ContextImpl context
+int port
+String host
+Channel ch
+Handler<HttpClientStream> connectHandler
+Handler<Throwable> exceptionHandler

@@ -1,0 +1,17 @@
+{
+  if (!keepAlive && pipelining) {
+    connectionExceptionHandler.handle(new IllegalStateException("Cannot have pipelining with no keep alive"));
+  }
+ else {
+    TargetAddress address=new TargetAddress(host,port);
+    ConnQueue connQueue=connQueues.get(address);
+    if (connQueue == null) {
+      connQueue=new ConnQueue(address);
+      ConnQueue prev=connQueues.putIfAbsent(address,connQueue);
+      if (prev != null) {
+        connQueue=prev;
+      }
+    }
+    connQueue.getConnection(req,handler,connectionExceptionHandler,context,canceled);
+  }
+}

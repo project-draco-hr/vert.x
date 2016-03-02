@@ -1,0 +1,16 @@
+{
+  ChannelPipeline p=ch.pipeline();
+  Http2Connection connection=new DefaultHttp2Connection(false);
+  VertxClientHandlerBuilder clientHandlerBuilder=new VertxClientHandlerBuilder(handlerCtx,context);
+synchronized (queue) {
+    VertxClientHandler handler=clientHandlerBuilder.build(connection);
+    handler.decoder().frameListener(handler);
+    clientHandler=handler;
+    p.addLast(handler);
+    handler.handle(connectHandler,req);
+    Waiter waiter;
+    while ((waiter=queue.getNextWaiter()) != null) {
+      handler.handle(waiter.handler,waiter.req);
+    }
+  }
+}

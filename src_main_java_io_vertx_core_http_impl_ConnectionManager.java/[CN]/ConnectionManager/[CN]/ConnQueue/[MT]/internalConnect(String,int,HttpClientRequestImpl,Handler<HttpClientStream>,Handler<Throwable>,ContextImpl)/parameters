@@ -1,0 +1,6 @@
+String host
+int port
+HttpClientRequestImpl req
+Handler<HttpClientStream> connectHandler
+Handler<Throwable> connectErrorHandler
+ContextImpl clientContext

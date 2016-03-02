@@ -1,0 +1,9 @@
+{
+  this.address=address;
+  if (options.getProtocolVersion() == HttpVersion.HTTP_2) {
+    pool=new Http2Pool(this);
+  }
+ else {
+    pool=new Http1xPool(this);
+  }
+}

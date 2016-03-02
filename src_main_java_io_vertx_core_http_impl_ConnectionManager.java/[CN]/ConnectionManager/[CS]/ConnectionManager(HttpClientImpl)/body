@@ -1,0 +1,9 @@
+{
+  this.client=client;
+  this.sslHelper=client.getSslHelper();
+  this.options=client.getOptions();
+  this.vertx=client.getVertx();
+  this.keepAlive=client.getOptions().isKeepAlive();
+  this.pipelining=client.getOptions().isPipelining();
+  this.maxWaitQueueSize=client.getOptions().getMaxWaitQueueSize();
+}

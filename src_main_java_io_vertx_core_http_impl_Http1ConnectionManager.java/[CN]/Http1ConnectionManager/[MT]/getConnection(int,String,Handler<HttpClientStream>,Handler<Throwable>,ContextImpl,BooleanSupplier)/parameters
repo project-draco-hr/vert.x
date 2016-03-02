@@ -1,6 +1,0 @@
-int port
-String host
-Handler<HttpClientStream> handler
-Handler<Throwable> connectionExceptionHandler
-ContextImpl context
-BooleanSupplier canceled

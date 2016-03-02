@@ -1,6 +1,0 @@
-{
-synchronized (getLock()) {
-    this.version=version;
-  }
-  return this;
-}

@@ -1,3 +1,0 @@
-{
-  getConnection(port,host,handler,connectionExceptionHandler,context,canceled);
-}

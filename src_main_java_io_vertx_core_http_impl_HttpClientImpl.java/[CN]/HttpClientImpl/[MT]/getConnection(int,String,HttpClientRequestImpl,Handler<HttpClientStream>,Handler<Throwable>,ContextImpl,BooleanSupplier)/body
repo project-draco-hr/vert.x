@@ -1,0 +1,3 @@
+{
+  connectionManager.getConnection(port,host,req,handler,connectionExceptionHandler,context,canceled);
+}

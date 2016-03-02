@@ -6,6 +6,6 @@ synchronized (this) {
   if (creatingContext != null) {
     creatingContext.removeCloseHook(closeHook);
   }
-  http1Manager.close();
+  connectionManager.close();
   metrics.close();
 }

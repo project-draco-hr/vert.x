@@ -1,0 +1,4 @@
+{
+  super(client.getOptions().getMaxPoolSize());
+  this.queue=queue;
+}

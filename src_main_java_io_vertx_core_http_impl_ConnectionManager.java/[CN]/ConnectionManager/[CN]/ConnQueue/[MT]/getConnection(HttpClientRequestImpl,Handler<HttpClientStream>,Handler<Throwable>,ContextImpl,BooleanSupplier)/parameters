@@ -1,0 +1,5 @@
+HttpClientRequestImpl req
+Handler<HttpClientStream> handler
+Handler<Throwable> connectionExceptionHandler
+ContextImpl context
+BooleanSupplier canceled

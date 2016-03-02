@@ -1,0 +1,7 @@
+{
+  this.req=req;
+  this.handler=handler;
+  this.connectionExceptionHandler=connectionExceptionHandler;
+  this.context=context;
+  this.canceled=canceled;
+}

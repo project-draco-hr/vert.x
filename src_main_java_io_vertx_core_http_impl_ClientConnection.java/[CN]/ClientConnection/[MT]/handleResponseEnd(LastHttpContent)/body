@@ -3,7 +3,7 @@
   if (currentResponse.statusCode() != 100 && requestForResponse.getMethod() != io.vertx.core.http.HttpMethod.CONNECT) {
     boolean close=false;
     String responseConnectionHeader=currentResponse.getHeader(HttpHeaders.Names.CONNECTION);
-    io.vertx.core.http.HttpVersion protocolVersion=requestForResponse.getVersion();
+    io.vertx.core.http.HttpVersion protocolVersion=client.getOptions().getProtocolVersion();
     String requestConnectionHeader=requestForResponse.headers().get(HttpHeaders.Names.CONNECTION);
     if (HttpHeaders.Values.CLOSE.equalsIgnoreCase(responseConnectionHeader) || HttpHeaders.Values.CLOSE.equalsIgnoreCase(requestConnectionHeader)) {
       close=true;

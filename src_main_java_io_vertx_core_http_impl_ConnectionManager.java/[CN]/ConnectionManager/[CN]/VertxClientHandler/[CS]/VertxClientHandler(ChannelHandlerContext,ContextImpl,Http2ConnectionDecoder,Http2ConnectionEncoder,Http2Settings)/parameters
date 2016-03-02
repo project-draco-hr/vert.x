@@ -1,0 +1,5 @@
+ChannelHandlerContext handlerCtx
+ContextImpl context
+Http2ConnectionDecoder decoder
+Http2ConnectionEncoder encoder
+Http2Settings initialSettings

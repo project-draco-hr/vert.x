@@ -1,0 +1,7 @@
+{
+synchronized (queue) {
+    allConnections.remove(conn);
+    availableConnections.remove(conn);
+    queue.connectionClosed();
+  }
+}

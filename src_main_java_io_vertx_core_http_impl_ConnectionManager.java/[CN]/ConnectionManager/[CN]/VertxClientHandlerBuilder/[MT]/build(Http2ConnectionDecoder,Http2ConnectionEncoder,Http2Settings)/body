@@ -1,0 +1,3 @@
+{
+  return new VertxClientHandler(handlerCtx,context,decoder,encoder,initialSettings);
+}
