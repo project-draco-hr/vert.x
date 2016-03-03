@@ -1,5 +1,5 @@
 {
   Http2ClientStream stream=streams.get(streamId);
-  stream.handleData(data,endOfStream);
-  return data.readableBytes() + padding;
+  int consumed=stream.handleData(data,endOfStream);
+  return consumed + padding;
 }
