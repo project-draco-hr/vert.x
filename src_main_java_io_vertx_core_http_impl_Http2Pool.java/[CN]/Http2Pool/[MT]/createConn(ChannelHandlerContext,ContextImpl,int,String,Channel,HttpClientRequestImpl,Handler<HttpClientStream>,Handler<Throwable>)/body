@@ -8,7 +8,7 @@ synchronized (queue) {
     clientHandler=handler;
     p.addLast(handler);
     handler.handle(connectHandler,req);
-    Waiter waiter;
+    ConnectionManager.Waiter waiter;
     while ((waiter=queue.getNextWaiter()) != null) {
       handler.handle(waiter.handler,waiter.req);
     }
