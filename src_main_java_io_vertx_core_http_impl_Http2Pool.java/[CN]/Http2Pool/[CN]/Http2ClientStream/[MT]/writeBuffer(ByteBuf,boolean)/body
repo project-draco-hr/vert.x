@@ -1,3 +1,4 @@
 {
+  System.out.println("SHOULD WRITE BUFFER");
   throw new UnsupportedOperationException();
 }
