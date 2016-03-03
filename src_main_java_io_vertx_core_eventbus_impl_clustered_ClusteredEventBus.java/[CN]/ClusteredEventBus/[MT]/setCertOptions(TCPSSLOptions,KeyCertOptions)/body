@@ -1,0 +1,14 @@
+{
+  if (keyCertOptions == null) {
+    return;
+  }
+  if (keyCertOptions instanceof JksOptions) {
+    options.setKeyStoreOptions((JksOptions)keyCertOptions);
+  }
+ else   if (keyCertOptions instanceof PfxOptions) {
+    options.setPfxKeyCertOptions((PfxOptions)keyCertOptions);
+  }
+ else {
+    options.setPemKeyCertOptions((PemKeyCertOptions)keyCertOptions);
+  }
+}

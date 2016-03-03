@@ -1,0 +1,20 @@
+{
+  options=new EventBusOptions();
+  options.setSsl(true);
+  if (clientTrustAll) {
+    options.setTrustAll(true);
+  }
+  if (useCrl) {
+    options.addCrlPath(findFileOnClasspath("tls/ca/crl.pem"));
+  }
+  setOptions(options,getClientTrustOptions(trust));
+  setOptions(options,getServerCertOptions(cert));
+  if (enabledCipherSuites != null) {
+    for (    String suite : enabledCipherSuites) {
+      options.addEnabledCipherSuite(suite);
+    }
+  }
+  if (requireClientAuth) {
+    options.setClientAuth(ClientAuth.REQUIRED);
+  }
+}

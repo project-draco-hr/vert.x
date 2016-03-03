@@ -13,6 +13,4 @@
   this.reconnectAttempts=other.reconnectAttempts;
   this.connectTimeout=other.connectTimeout;
   this.trustAll=other.trustAll;
-  setKeyStoreOptions(other.keystoreOptions);
-  setTrustStoreOptions(other.trustStoreOptions);
 }

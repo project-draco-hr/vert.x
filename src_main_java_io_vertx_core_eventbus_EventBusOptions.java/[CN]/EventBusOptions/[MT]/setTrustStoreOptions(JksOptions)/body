@@ -1,5 +1,4 @@
 {
-  this.trustStoreOptions=options;
   super.setTrustStoreOptions(options);
   return this;
 }
