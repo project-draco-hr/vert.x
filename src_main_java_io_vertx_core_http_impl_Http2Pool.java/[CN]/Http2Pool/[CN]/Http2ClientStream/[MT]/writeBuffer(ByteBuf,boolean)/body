@@ -1,4 +1,12 @@
 {
-  System.out.println("SHOULD WRITE BUFFER");
-  throw new UnsupportedOperationException();
+  encoder.writeData(handlerCtx,stream.id(),buf,0,end,handlerCtx.newPromise());
+  if (end) {
+    try {
+      encoder.flowController().writePendingBytes();
+    }
+ catch (    Http2Exception e) {
+      e.printStackTrace();
+    }
+  }
+  handlerCtx.flush();
 }

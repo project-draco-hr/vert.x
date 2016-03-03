@@ -1,4 +1,5 @@
 HttpClientRequestImpl req
-ChannelHandlerContext context
+ContextImpl context
+ChannelHandlerContext handlerCtx
 Http2Connection conn
 Http2ConnectionEncoder encoder

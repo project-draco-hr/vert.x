@@ -1,5 +1,10 @@
 {
-  Http2ClientStream stream=new Http2ClientStream(req,handlerCtx,connection(),encoder());
-  streams.put(stream.id,stream);
-  return stream;
+  try {
+    Http2ClientStream stream=new Http2ClientStream(req,context,handlerCtx,connection(),encoder());
+    streams.put(stream.stream.id(),stream);
+    return stream;
+  }
+ catch (  Http2Exception e) {
+    throw new UnsupportedOperationException("handle me gracefully",e);
+  }
 }
