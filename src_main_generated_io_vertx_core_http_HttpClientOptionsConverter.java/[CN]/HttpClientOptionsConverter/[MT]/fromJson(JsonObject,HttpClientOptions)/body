@@ -1,2 +1,38 @@
 {
+  if (json.getValue("alpnFallbackProtocolVersion") instanceof String) {
+    obj.setAlpnFallbackProtocolVersion(io.vertx.core.http.HttpVersion.valueOf((String)json.getValue("alpnFallbackProtocolVersion")));
+  }
+  if (json.getValue("defaultHost") instanceof String) {
+    obj.setDefaultHost((String)json.getValue("defaultHost"));
+  }
+  if (json.getValue("defaultPort") instanceof Number) {
+    obj.setDefaultPort(((Number)json.getValue("defaultPort")).intValue());
+  }
+  if (json.getValue("keepAlive") instanceof Boolean) {
+    obj.setKeepAlive((Boolean)json.getValue("keepAlive"));
+  }
+  if (json.getValue("maxChunkSize") instanceof Number) {
+    obj.setMaxChunkSize(((Number)json.getValue("maxChunkSize")).intValue());
+  }
+  if (json.getValue("maxPoolSize") instanceof Number) {
+    obj.setMaxPoolSize(((Number)json.getValue("maxPoolSize")).intValue());
+  }
+  if (json.getValue("maxWaitQueueSize") instanceof Number) {
+    obj.setMaxWaitQueueSize(((Number)json.getValue("maxWaitQueueSize")).intValue());
+  }
+  if (json.getValue("maxWebsocketFrameSize") instanceof Number) {
+    obj.setMaxWebsocketFrameSize(((Number)json.getValue("maxWebsocketFrameSize")).intValue());
+  }
+  if (json.getValue("pipelining") instanceof Boolean) {
+    obj.setPipelining((Boolean)json.getValue("pipelining"));
+  }
+  if (json.getValue("protocolVersion") instanceof String) {
+    obj.setProtocolVersion(io.vertx.core.http.HttpVersion.valueOf((String)json.getValue("protocolVersion")));
+  }
+  if (json.getValue("tryUseCompression") instanceof Boolean) {
+    obj.setTryUseCompression((Boolean)json.getValue("tryUseCompression"));
+  }
+  if (json.getValue("verifyHost") instanceof Boolean) {
+    obj.setVerifyHost((Boolean)json.getValue("verifyHost"));
+  }
 }

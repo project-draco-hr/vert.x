@@ -1,3 +1,4 @@
+HttpVersion version
 ConnectionManager manager
 VertxInternal vertx
 HttpClientImpl client

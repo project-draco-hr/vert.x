@@ -1,4 +1,4 @@
 {
-  conn.writeHeadWithContent(version,method,uri,headers,chunked,buf,end);
+  conn.writeHeadWithContent(method,uri,headers,chunked,buf,end);
   headWritten=true;
 }

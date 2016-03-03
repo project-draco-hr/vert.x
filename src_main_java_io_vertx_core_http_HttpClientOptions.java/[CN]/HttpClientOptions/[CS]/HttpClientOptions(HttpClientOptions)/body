@@ -11,5 +11,5 @@
   this.protocolVersion=other.protocolVersion;
   this.maxChunkSize=other.maxChunkSize;
   this.maxWaitQueueSize=other.maxWaitQueueSize;
-  this.alpnProtocols=new ArrayList<>(other.alpnProtocols);
+  this.alpnFallbackProtocolVersion=other.alpnFallbackProtocolVersion;
 }
