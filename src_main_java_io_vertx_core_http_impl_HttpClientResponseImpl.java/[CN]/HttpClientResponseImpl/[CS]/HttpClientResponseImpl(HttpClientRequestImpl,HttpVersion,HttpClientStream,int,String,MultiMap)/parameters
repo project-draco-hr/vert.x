@@ -1,4 +1,5 @@
 HttpClientRequestImpl request
+HttpVersion version
 HttpClientStream conn
 int statusCode
 String statusMessage

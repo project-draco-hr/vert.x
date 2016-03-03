@@ -1,5 +1,5 @@
 {
-  resp=new HttpClientResponseImpl(req,this,Integer.parseInt(headers.status().toString()),"todo",new Http2HeadersAdaptor(headers));
+  resp=new HttpClientResponseImpl(req,HttpVersion.HTTP_2,this,Integer.parseInt(headers.status().toString()),"todo",new Http2HeadersAdaptor(headers));
   req.handleResponse(resp);
   if (end) {
     handleEnd();

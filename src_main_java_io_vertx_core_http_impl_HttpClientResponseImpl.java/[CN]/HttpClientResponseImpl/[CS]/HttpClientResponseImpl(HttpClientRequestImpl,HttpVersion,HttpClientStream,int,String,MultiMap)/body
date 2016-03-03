@@ -1,4 +1,5 @@
 {
+  this.version=version;
   this.statusCode=statusCode;
   this.statusMessage=statusMessage;
   this.request=request;
