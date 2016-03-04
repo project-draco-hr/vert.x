@@ -3,7 +3,7 @@
   h.method(method.name());
   h.path(uri);
   h.scheme("https");
-  if (headers.size() > 0) {
+  if (headers != null && headers.size() > 0) {
     for (    Map.Entry<String,String> header : headers) {
       h.add(Http2HeadersAdaptor.toLowerCase(header.getKey()),header.getValue());
     }
