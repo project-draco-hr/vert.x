@@ -1,0 +1,6 @@
+{
+  if (prevCL != null) {
+    Thread.currentThread().setContextClassLoader(prevCL);
+  }
+  super.after();
+}
