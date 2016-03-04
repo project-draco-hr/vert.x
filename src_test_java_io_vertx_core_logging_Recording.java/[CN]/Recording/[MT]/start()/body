@@ -1,10 +1,4 @@
 {
   error.reset();
-  System.setErr(new PrintStream(error){
-    @Override public void write(    byte[] buf,    int off,    int len){
-      System.out.println("Logged on System.err " + new String(buf,off,len));
-      super.write(buf,off,len);
-    }
-  }
-);
+  logger.addHandler(handler);
 }
