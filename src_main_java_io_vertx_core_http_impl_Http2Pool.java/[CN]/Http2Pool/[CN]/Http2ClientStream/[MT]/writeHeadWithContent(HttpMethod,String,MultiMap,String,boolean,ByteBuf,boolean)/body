@@ -3,6 +3,9 @@
   h.method(method.name());
   h.path(uri);
   h.scheme("https");
+  if (hostHeader != null) {
+    h.authority(hostHeader);
+  }
   if (headers != null && headers.size() > 0) {
     for (    Map.Entry<String,String> header : headers) {
       h.add(Http2HeadersAdaptor.toLowerCase(header.getKey()),header.getValue());

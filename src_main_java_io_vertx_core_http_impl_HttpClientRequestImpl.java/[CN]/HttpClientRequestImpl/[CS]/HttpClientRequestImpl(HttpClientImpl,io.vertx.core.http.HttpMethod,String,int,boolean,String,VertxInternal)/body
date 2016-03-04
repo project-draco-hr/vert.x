@@ -6,4 +6,5 @@
   this.method=method;
   this.vertx=vertx;
   this.uri=relativeURI;
+  this.ssl=ssl;
 }

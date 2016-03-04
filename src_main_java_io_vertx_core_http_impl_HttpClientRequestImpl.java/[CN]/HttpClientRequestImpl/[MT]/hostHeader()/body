@@ -1,0 +1,11 @@
+{
+  if (hostHeader != null) {
+    return hostHeader;
+  }
+  if ((port == 80 && !ssl) || (port == 443 && ssl)) {
+    return host;
+  }
+ else {
+    return host + ':' + port;
+  }
+}

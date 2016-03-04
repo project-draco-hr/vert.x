@@ -1,4 +1,4 @@
 {
-  conn.writeHead(method,uri,headers,chunked);
+  conn.writeHead(method,uri,headers,hostHeader(),chunked);
   headWritten=true;
 }

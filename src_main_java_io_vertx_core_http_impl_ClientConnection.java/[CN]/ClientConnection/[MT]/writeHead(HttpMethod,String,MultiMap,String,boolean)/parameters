@@ -1,6 +1,5 @@
 HttpMethod method
 String uri
 MultiMap headers
+String hostHeader
 boolean chunked
-ByteBuf buf
-boolean end

@@ -2,5 +2,6 @@ HttpClientImpl client
 io.vertx.core.http.HttpMethod method
 String host
 int port
+boolean ssl
 String relativeURI
 VertxInternal vertx

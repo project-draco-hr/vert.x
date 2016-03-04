@@ -1,6 +1,6 @@
 {
   HttpRequest request=createRequest(version,method,uri,headers);
-  prepareHeaders(request,chunked);
+  prepareHeaders(request,hostHeader,chunked);
   if (end) {
     writeToChannel(new AssembledFullHttpRequest(request,buf));
   }
