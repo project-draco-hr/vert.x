@@ -1,4 +1,5 @@
 {
+  this.channel=channel;
   this.handlerContext=handlerContext;
   this.serverOrigin=serverOrigin;
   this.handler=handler;

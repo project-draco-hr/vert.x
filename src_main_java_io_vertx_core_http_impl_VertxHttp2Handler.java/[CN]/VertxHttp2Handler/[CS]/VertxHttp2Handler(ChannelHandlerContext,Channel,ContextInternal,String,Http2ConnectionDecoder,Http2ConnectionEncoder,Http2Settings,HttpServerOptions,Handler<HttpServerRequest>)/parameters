@@ -1,4 +1,5 @@
 ChannelHandlerContext context
+Channel channel
 ContextInternal handlerContext
 String serverOrigin
 Http2ConnectionDecoder decoder
