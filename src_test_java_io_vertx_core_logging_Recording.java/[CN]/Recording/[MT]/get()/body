@@ -1,8 +1,6 @@
 {
-  try {
-    error.flush();
-  }
- catch (  IOException e) {
+  for (  Handler handler : LogManager.getLogManager().getLogger("").getHandlers()) {
+    handler.flush();
   }
   return error.toString();
 }
