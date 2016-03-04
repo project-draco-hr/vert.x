@@ -5,7 +5,9 @@
   h.scheme("https");
   encoder.writeHeaders(handlerCtx,stream.id(),h,0,end && buf == null,handlerCtx.newPromise());
   if (buf != null) {
-    encoder.writeData(handlerCtx,stream.id(),buf,0,end,handlerCtx.newPromise());
+    writeBuffer(buf,end);
   }
-  handlerCtx.flush();
+ else {
+    handlerCtx.flush();
+  }
 }
