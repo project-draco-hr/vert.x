@@ -1,5 +1,6 @@
 {
   start();
+  System.err.print("verification message");
   runnable.run();
   String result=get();
   stop();
