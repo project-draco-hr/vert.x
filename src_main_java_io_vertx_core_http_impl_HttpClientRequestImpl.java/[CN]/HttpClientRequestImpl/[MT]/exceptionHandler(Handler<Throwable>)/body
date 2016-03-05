@@ -1,2 +1,12 @@
 {
+synchronized (getLock()) {
+    if (handler != null) {
+      checkComplete();
+      this.exceptionHandler=handler;
+    }
+ else {
+      this.exceptionHandler=null;
+    }
+    return this;
+  }
 }

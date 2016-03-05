@@ -2,6 +2,11 @@
 synchronized (getLock()) {
     cancelOutstandingTimeoutTimer();
     exceptionOccurred=true;
-    getExceptionHandler().handle(t);
+    if (exceptionHandler != null) {
+      exceptionHandler.handle(t);
+    }
+ else {
+      log.error(t);
+    }
   }
 }
