@@ -1,0 +1,5 @@
+HttpClientImpl client
+HttpMethod method
+String uri
+String host
+MultiMap headers

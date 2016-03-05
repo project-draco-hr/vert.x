@@ -1,0 +1,7 @@
+{
+  super(client);
+  this.method=method;
+  this.uri=uri;
+  this.host=host;
+  this.headers=headers;
+}

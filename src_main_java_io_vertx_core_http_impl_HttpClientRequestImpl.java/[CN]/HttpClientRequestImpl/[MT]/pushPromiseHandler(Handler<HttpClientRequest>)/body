@@ -1,0 +1,6 @@
+{
+synchronized (getLock()) {
+    pushHandler=handler;
+  }
+  return this;
+}

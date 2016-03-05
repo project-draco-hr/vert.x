@@ -1,2 +1,11 @@
 {
+  Http2ClientStream stream=streams.get(streamId);
+  HttpMethod method=UriUtils.toVertxMethod(headers.method().toString());
+  String uri=headers.path().toString();
+  String host=headers.authority() != null ? headers.authority().toString() : null;
+  MultiMap headersMap=new Http2HeadersAdaptor(headers);
+  HttpClientRequestPushPromise req=new HttpClientRequestPushPromise(client,method,uri,host,headersMap);
+  Http2ClientStream newStream=new Http2ClientStream(req,context,handlerCtx,stream.conn,stream.encoder);
+  streams.put(promisedStreamId,newStream);
+  stream.handlePushPromise(req);
 }

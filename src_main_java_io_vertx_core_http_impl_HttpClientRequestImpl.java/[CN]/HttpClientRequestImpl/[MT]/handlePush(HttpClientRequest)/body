@@ -1,0 +1,7 @@
+{
+synchronized (getLock()) {
+    if (pushHandler != null) {
+      pushHandler.handle(pushedRequest);
+    }
+  }
+}
