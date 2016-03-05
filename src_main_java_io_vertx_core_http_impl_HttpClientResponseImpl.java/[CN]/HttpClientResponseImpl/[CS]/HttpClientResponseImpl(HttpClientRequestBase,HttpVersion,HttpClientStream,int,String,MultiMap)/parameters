@@ -1,4 +1,4 @@
-HttpClientRequestImpl request
+HttpClientRequestBase request
 HttpVersion version
 HttpClientStream conn
 int statusCode
