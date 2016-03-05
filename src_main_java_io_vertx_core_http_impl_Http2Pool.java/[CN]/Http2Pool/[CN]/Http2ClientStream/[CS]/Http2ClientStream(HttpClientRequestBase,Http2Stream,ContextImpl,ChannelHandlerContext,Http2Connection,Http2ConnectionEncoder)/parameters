@@ -1,4 +1,5 @@
 HttpClientRequestBase req
+Http2Stream stream
 ContextImpl context
 ChannelHandlerContext handlerCtx
 Http2Connection conn

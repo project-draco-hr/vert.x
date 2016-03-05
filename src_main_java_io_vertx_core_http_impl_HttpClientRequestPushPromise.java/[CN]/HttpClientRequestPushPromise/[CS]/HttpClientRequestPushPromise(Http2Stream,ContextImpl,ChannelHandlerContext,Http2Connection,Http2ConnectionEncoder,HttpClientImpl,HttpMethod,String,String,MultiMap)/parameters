@@ -1,0 +1,10 @@
+Http2Stream clientStream
+ContextImpl context
+ChannelHandlerContext handlerCtx
+Http2Connection conn
+Http2ConnectionEncoder encoder
+HttpClientImpl client
+HttpMethod method
+String uri
+String host
+MultiMap headers

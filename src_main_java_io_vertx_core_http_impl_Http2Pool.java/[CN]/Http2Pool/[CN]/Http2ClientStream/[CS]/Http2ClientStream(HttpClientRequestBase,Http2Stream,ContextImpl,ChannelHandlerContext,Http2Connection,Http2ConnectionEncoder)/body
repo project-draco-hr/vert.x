@@ -3,6 +3,6 @@
   this.req=req;
   this.handlerCtx=handlerCtx;
   this.conn=conn;
-  this.stream=conn.local().createStream(conn.local().incrementAndGetNextStreamId(),false);
+  this.stream=stream;
   this.encoder=encoder;
 }

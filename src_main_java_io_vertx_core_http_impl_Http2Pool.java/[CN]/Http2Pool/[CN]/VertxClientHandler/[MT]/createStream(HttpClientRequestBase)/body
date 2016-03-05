@@ -1,8 +1,10 @@
 {
   try {
-    Http2ClientStream stream=new Http2ClientStream(req,context,handlerCtx,connection(),encoder());
-    streams.put(stream.stream.id(),stream);
-    return stream;
+    Http2Connection conn=connection();
+    Http2Stream stream=conn.local().createStream(conn.local().incrementAndGetNextStreamId(),false);
+    Http2ClientStream clientStream=new Http2ClientStream(req,stream,context,handlerCtx,conn,encoder());
+    streams.put(clientStream.stream.id(),clientStream);
+    return clientStream;
   }
  catch (  Http2Exception e) {
     throw new UnsupportedOperationException("handle me gracefully",e);
