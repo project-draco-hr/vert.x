@@ -1,4 +1,5 @@
 {
+  super(client);
   this.host=host;
   this.port=port;
   this.client=client;

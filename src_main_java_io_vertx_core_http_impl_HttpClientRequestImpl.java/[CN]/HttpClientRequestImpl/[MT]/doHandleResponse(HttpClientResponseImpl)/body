@@ -1,0 +1,15 @@
+{
+  if (resp.statusCode() == 100) {
+    if (continueHandler != null) {
+      continueHandler.handle(null);
+    }
+  }
+ else {
+    if (respHandler != null) {
+      respHandler.handle(resp);
+    }
+    if (endHandler != null) {
+      endHandler.handle(null);
+    }
+  }
+}
