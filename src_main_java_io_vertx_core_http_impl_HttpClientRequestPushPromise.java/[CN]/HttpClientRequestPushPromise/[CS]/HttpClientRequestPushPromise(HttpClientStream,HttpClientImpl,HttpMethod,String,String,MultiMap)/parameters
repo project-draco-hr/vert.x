@@ -1,3 +1,4 @@
+HttpClientStream conn
 HttpClientImpl client
 HttpMethod method
 String uri

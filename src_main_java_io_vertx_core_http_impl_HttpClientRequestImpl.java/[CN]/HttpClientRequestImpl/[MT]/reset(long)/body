@@ -1,0 +1,8 @@
+{
+synchronized (getLock()) {
+    if (conn == null) {
+      throw new IllegalStateException("Cannot reset the request that is not yet connected");
+    }
+    conn.reset(code);
+  }
+}

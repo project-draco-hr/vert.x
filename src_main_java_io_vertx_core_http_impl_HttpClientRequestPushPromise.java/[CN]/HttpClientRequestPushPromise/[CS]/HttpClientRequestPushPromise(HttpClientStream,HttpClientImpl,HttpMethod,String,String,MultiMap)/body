@@ -1,5 +1,6 @@
 {
   super(client);
+  this.conn=conn;
   this.method=method;
   this.uri=uri;
   this.host=host;
