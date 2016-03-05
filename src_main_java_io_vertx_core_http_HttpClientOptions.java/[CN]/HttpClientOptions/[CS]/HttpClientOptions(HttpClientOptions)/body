@@ -12,4 +12,5 @@
   this.maxChunkSize=other.maxChunkSize;
   this.maxWaitQueueSize=other.maxWaitQueueSize;
   this.alpnFallbackProtocolVersion=other.alpnFallbackProtocolVersion;
+  this.http2Settings=other.http2Settings != null ? new Http2Settings(other.http2Settings) : null;
 }

@@ -1,4 +1,5 @@
 {
   super.setUp();
-  client=vertx.createHttpClient(new HttpClientOptions().setUseAlpn(true).setTrustStoreOptions((JksOptions)getClientTrustOptions(Trust.JKS)).setProtocolVersion(HttpVersion.HTTP_2));
+  clientOptions=new HttpClientOptions().setUseAlpn(true).setTrustStoreOptions((JksOptions)getClientTrustOptions(Trust.JKS)).setProtocolVersion(HttpVersion.HTTP_2);
+  client=vertx.createHttpClient(clientOptions);
 }
