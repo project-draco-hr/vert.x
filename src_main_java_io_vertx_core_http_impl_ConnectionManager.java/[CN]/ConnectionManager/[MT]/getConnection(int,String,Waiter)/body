@@ -1,0 +1,17 @@
+{
+  if (!keepAlive && pipelining) {
+    waiter.handleFailure(new IllegalStateException("Cannot have pipelining with no keep alive"));
+  }
+ else {
+    TargetAddress address=new TargetAddress(host,port);
+    ConnQueue connQueue=connQueues.get(address);
+    if (connQueue == null) {
+      connQueue=new ConnQueue(address);
+      ConnQueue prev=connQueues.putIfAbsent(address,connQueue);
+      if (prev != null) {
+        connQueue=prev;
+      }
+    }
+    connQueue.getConnection(waiter);
+  }
+}

@@ -1,2 +1,18 @@
 {
+  if (!connecting) {
+    Waiter waiter=new Waiter(this,vertx.getContext()){
+      @Override void handleFailure(      Throwable failure){
+        handleException(failure);
+      }
+      @Override void handleSuccess(      HttpClientStream conn){
+        connected(conn);
+      }
+      @Override boolean isCancelled(){
+        return exceptionOccurred;
+      }
+    }
+;
+    client.getConnection(port,host,waiter);
+    connecting=true;
+  }
 }

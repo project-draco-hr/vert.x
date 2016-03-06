@@ -2,7 +2,7 @@
   connCount--;
   Waiter waiter=getNextWaiter();
   if (waiter != null) {
-    createNewConnection(waiter.req,waiter.handler,waiter.connectionExceptionHandler,waiter.context);
+    createNewConnection(waiter);
   }
  else   if (connCount == 0) {
     connQueues.remove(address);

@@ -1,2 +1,14 @@
 {
+  connectionManager.getConnection(port,host,new Waiter(null,context){
+    @Override void handleSuccess(    HttpClientStream conn){
+      handler.handle((ClientConnection)conn);
+    }
+    @Override void handleFailure(    Throwable failure){
+      connectionExceptionHandler.handle(failure);
+    }
+    @Override boolean isCancelled(){
+      return false;
+    }
+  }
+);
 }

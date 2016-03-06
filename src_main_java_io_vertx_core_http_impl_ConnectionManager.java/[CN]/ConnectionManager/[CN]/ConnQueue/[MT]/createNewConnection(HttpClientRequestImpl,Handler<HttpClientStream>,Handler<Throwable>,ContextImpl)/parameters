@@ -1,4 +1,0 @@
-HttpClientRequestImpl req
-Handler<HttpClientStream> connectHandler
-Handler<Throwable> connectionExceptionHandler
-ContextImpl context

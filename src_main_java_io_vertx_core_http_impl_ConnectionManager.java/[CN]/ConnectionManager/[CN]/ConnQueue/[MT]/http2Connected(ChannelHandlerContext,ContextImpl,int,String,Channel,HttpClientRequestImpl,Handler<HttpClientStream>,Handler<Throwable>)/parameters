@@ -1,8 +1,0 @@
-ChannelHandlerContext handlerCtx
-ContextImpl context
-int port
-String host
-Channel ch
-HttpClientRequestImpl req
-Handler<HttpClientStream> connectHandler
-Handler<Throwable> exceptionHandler

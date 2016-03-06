@@ -1,0 +1,11 @@
+{
+  if (conn.isClosed()) {
+    queue.getConnection(waiter);
+  }
+ else   if (waiter.isCancelled()) {
+    recycle(conn);
+  }
+ else {
+    waiter.handleSuccess(conn);
+  }
+}

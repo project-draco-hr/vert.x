@@ -1,4 +1,0 @@
-{
-  Http2ClientStream stream=createStream(req);
-  handler.handle(stream);
-}
