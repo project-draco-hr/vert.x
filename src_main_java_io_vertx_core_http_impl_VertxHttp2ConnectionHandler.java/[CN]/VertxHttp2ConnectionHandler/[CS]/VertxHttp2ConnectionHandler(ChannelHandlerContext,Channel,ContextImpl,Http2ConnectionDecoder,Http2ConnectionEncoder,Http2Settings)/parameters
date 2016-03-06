@@ -1,9 +1,6 @@
 ChannelHandlerContext context
 Channel channel
-ContextInternal handlerContext
-String serverOrigin
+ContextImpl handlerContext
 Http2ConnectionDecoder decoder
 Http2ConnectionEncoder encoder
 Http2Settings initialSettings
-HttpServerOptions options
-Handler<HttpServerRequest> handler

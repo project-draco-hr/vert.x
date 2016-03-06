@@ -1,0 +1,7 @@
+{
+  Long v=settings.maxConcurrentStreams();
+  if (v != null) {
+    maxConcurrentStreams=v;
+  }
+  super.onSettingsRead(ctx,settings);
+}

@@ -1,0 +1,9 @@
+ChannelHandlerContext context
+Channel channel
+ContextImpl handlerContext
+String serverOrigin
+Http2ConnectionDecoder decoder
+Http2ConnectionEncoder encoder
+Http2Settings initialSettings
+HttpServerOptions options
+Handler<HttpServerRequest> handler
