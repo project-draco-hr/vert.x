@@ -1,3 +1,5 @@
 {
-  return new VertxHttp2ClientHandler(Http2Pool.this,handlerCtx,context,channel,decoder,encoder,initialSettings);
+  VertxHttp2ClientHandler handler=new VertxHttp2ClientHandler(Http2Pool.this,handlerCtx,context,channel,decoder,encoder,initialSettings);
+  frameListener(handler);
+  return handler;
 }

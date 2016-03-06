@@ -21,11 +21,5 @@
       initialSettings().pushEnabled(initialSettings.getEnablePush());
     }
   }
-  frameListener(new Http2EventAdapter(){
-    @Override public int onDataRead(    ChannelHandlerContext ctx,    int streamId,    ByteBuf data,    int padding,    boolean endOfStream) throws Http2Exception {
-      return super.onDataRead(ctx,streamId,data,padding,endOfStream);
-    }
-  }
-);
   return super.build();
 }
