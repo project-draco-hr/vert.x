@@ -1,8 +1,5 @@
+Http2Pool.VertxClientHandler handler
 Http2Stream clientStream
-ContextImpl context
-ChannelHandlerContext handlerCtx
-Http2Connection conn
-Http2ConnectionEncoder encoder
 HttpClientImpl client
 HttpMethod method
 String uri

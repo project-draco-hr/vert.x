@@ -1,0 +1,9 @@
+{
+  super(client);
+  this.handler=handler;
+  this.clientStream=new Http2Pool.Http2ClientStream(handler,this,clientStream);
+  this.method=method;
+  this.uri=uri;
+  this.host=host;
+  this.headers=headers;
+}

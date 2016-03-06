@@ -1,8 +1,0 @@
-{
-  this.context=context;
-  this.req=req;
-  this.handlerCtx=handlerCtx;
-  this.conn=conn;
-  this.stream=stream;
-  this.encoder=encoder;
-}
