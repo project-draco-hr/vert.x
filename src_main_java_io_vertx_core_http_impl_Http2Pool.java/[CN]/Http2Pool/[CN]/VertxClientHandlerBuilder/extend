@@ -1,1 +1,1 @@
-AbstractHttp2ConnectionHandlerBuilder<VertxClientHandler,VertxClientHandlerBuilder>
+AbstractHttp2ConnectionHandlerBuilder<VertxHttp2ClientHandler,VertxClientHandlerBuilder>

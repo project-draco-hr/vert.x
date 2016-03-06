@@ -1,4 +1,4 @@
-Http2Pool.VertxClientHandler handler
+VertxHttp2ClientHandler handler
 Http2Stream clientStream
 HttpClientImpl client
 HttpMethod method
