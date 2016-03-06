@@ -1,5 +1,0 @@
-ChannelHandlerContext ctx
-byte frameType
-int streamId
-Http2Flags flags
-ByteBuf payload

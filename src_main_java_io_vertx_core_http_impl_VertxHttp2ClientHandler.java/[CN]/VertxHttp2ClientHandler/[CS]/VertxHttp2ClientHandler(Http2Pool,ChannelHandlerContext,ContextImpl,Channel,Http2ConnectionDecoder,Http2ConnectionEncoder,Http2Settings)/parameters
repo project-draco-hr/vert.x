@@ -1,6 +1,7 @@
 Http2Pool http2Pool
 ChannelHandlerContext handlerCtx
 ContextImpl context
+Channel channel
 Http2ConnectionDecoder decoder
 Http2ConnectionEncoder encoder
 Http2Settings initialSettings

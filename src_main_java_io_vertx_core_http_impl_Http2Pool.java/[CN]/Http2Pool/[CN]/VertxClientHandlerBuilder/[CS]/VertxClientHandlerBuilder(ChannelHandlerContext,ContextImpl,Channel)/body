@@ -1,4 +1,5 @@
 {
   this.handlerCtx=handlerCtx;
   this.context=context;
+  this.channel=channel;
 }
