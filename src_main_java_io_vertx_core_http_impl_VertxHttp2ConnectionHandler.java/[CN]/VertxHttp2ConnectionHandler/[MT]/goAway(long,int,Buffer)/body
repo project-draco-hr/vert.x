@@ -1,0 +1,11 @@
+{
+  if (errorCode < 0) {
+    throw new IllegalArgumentException();
+  }
+  if (lastStreamId < 0) {
+    throw new IllegalArgumentException();
+  }
+  encoder().writeGoAway(context,lastStreamId,errorCode,debugData != null ? debugData.getByteBuf() : Unpooled.EMPTY_BUFFER,context.newPromise());
+  context.flush();
+  return this;
+}

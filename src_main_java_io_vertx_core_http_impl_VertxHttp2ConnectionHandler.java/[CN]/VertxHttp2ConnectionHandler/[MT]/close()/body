@@ -1,0 +1,3 @@
+{
+  shutdown((Long)0L);
+}

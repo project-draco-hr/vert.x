@@ -1,0 +1,5 @@
+{
+  errorCode=that.errorCode;
+  lastStreamId=that.lastStreamId;
+  debugData=that.debugData != null ? that.debugData.copy() : null;
+}

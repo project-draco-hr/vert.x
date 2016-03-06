@@ -1,4 +1,0 @@
-long errorCode
-int lastStreamId
-Buffer debugData
-Handler<Void> completionHandler
