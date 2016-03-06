@@ -1,2 +1,0 @@
-io.vertx.core.http.Http2Settings settings
-Handler<AsyncResult<Void>> completionHandler

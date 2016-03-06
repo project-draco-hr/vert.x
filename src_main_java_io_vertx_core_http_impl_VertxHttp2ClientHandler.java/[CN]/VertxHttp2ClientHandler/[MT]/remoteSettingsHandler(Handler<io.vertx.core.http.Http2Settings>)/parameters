@@ -1,1 +1,0 @@
-Handler<io.vertx.core.http.Http2Settings> handler
