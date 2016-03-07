@@ -1,4 +1,7 @@
 {
+  if (listening) {
+    throw new IllegalStateException("Please set handler before server is listening");
+  }
   connectionHandler=handler;
   return this;
 }
