@@ -6,6 +6,6 @@
     recycle(conn);
   }
  else {
-    waiter.handleSuccess(conn,connected);
+    waiter.handleStream(createStream(conn));
   }
 }

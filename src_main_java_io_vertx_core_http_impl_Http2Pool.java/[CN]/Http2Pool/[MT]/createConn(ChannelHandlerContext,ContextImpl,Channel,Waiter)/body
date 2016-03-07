@@ -7,9 +7,9 @@ synchronized (queue) {
     handler.decoder().frameListener(handler);
     clientHandler=handler;
     p.addLast(handler);
-    handler.handle(waiter,true);
-    while ((waiter=queue.getNextWaiter()) != null) {
-      handler.handle(waiter,false);
-    }
+    handler.streamCount++;
+    waiter.handleConnection(handler);
+    deliverStream(handler,waiter);
+    checkPending(handler);
   }
 }

@@ -1,0 +1,4 @@
+{
+  int maxConcurrentStreams=handler.connection().local().maxActiveStreams();
+  return handler.streamCount < maxConcurrentStreams;
+}

@@ -1,0 +1,3 @@
+{
+  return ((VertxHttp2ClientHandler)conn).createStream();
+}

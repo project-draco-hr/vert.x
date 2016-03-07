@@ -1,3 +1,2 @@
 HttpClientConnection conn
 Waiter waiter
-boolean connected

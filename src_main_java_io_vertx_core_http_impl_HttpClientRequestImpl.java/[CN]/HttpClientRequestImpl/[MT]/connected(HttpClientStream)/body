@@ -1,5 +1,6 @@
 {
-  conn=s.beginRequest(this);
+  conn=s;
+  s.beginRequest(this);
   if (this.conn instanceof ClientConnection) {
     ClientConnection http1Conn=(ClientConnection)this.conn;
     this.metric=client.httpClientMetrics().requestBegin(http1Conn.metric(),http1Conn.localAddress(),http1Conn.remoteAddress(),this);
@@ -12,7 +13,7 @@
     pendingChunks=null;
     if (completed) {
       writeHeadWithContent(pending,true);
-      s.reportBytesWritten(written);
+      s.connection().reportBytesWritten(written);
       if (respHandler != null) {
         this.conn.endRequest();
       }
@@ -24,7 +25,7 @@
  else {
     if (completed) {
       writeHeadWithContent(Unpooled.EMPTY_BUFFER,true);
-      s.reportBytesWritten(written);
+      s.connection().reportBytesWritten(written);
       if (respHandler != null) {
         this.conn.endRequest();
       }

@@ -1,0 +1,9 @@
+{
+synchronized (queue) {
+    Waiter waiter;
+    while (canReserveStream(handler) && (waiter=queue.getNextWaiter()) != null) {
+      handler.streamCount++;
+      deliverStream(handler,waiter);
+    }
+  }
+}

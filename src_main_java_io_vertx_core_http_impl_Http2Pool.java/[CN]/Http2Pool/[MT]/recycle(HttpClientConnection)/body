@@ -1,2 +1,7 @@
 {
+synchronized (queue) {
+    VertxHttp2ClientHandler handler=(VertxHttp2ClientHandler)conn;
+    handler.streamCount--;
+    checkPending(handler);
+  }
 }
