@@ -4,8 +4,13 @@
       @Override void handleFailure(      Throwable failure){
         handleException(failure);
       }
-      @Override void handleSuccess(      HttpClientConnection conn){
-        connected(conn);
+      @Override void handleSuccess(      HttpClientConnection conn,      boolean connected){
+synchronized (HttpClientRequestImpl.this) {
+          if (connected && connectionHandler != null && conn instanceof HttpConnection) {
+            connectionHandler.handle((HttpConnection)conn);
+          }
+          connected(conn);
+        }
       }
       @Override boolean isCancelled(){
         return exceptionOccurred;

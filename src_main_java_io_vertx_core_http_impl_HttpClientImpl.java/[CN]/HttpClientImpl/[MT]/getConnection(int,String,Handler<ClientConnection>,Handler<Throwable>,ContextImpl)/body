@@ -1,6 +1,6 @@
 {
   connectionManager.getConnection(port,host,new Waiter(null,context){
-    @Override void handleSuccess(    HttpClientConnection conn){
+    @Override void handleSuccess(    HttpClientConnection conn,    boolean connected){
       handler.handle((ClientConnection)conn);
     }
     @Override void handleFailure(    Throwable failure){

@@ -1,0 +1,6 @@
+{
+synchronized (getLock()) {
+    connectionHandler=handler;
+    return this;
+  }
+}
