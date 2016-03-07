@@ -3,6 +3,6 @@ synchronized (getLock()) {
     if (conn == null) {
       throw new IllegalStateException("Not yet connected");
     }
-    return conn.connection();
+    return (HttpConnection)conn.connection();
   }
 }

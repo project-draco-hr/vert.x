@@ -1,6 +1,6 @@
 {
 synchronized (conn) {
-    conn.reportBytesRead(bytesRead);
+    conn.connection().reportBytesRead(bytesRead);
     bytesRead=0;
     request.reportResponseEnd(this);
     if (paused) {

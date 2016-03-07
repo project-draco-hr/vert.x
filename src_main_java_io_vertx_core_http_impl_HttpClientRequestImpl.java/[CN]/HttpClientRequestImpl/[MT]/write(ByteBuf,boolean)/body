@@ -36,7 +36,7 @@
       conn.writeBuffer(buff,end);
     }
     if (end) {
-      conn.reportBytesWritten(written);
+      conn.connection().reportBytesWritten(written);
       if (respHandler != null) {
         conn.endRequest();
       }

@@ -1,4 +1,3 @@
 {
-  Http2ClientStream stream=createStream(waiter.req);
-  waiter.handleSuccess(stream);
+  waiter.handleSuccess(this);
 }

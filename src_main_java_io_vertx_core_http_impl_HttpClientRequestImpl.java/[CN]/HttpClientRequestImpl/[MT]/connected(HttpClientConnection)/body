@@ -1,21 +1,20 @@
 {
-  conn.beginRequest(this);
-  if (conn instanceof ClientConnection) {
-    ClientConnection http1Conn=(ClientConnection)conn;
+  conn=s.beginRequest(this);
+  if (this.conn instanceof ClientConnection) {
+    ClientConnection http1Conn=(ClientConnection)this.conn;
     this.metric=client.httpClientMetrics().requestBegin(http1Conn.metric(),http1Conn.localAddress(),http1Conn.remoteAddress(),this);
   }
-  this.conn=conn;
   if (pendingMaxSize != -1) {
-    conn.doSetWriteQueueMaxSize(pendingMaxSize);
+    this.conn.doSetWriteQueueMaxSize(pendingMaxSize);
   }
   if (pendingChunks != null) {
     ByteBuf pending=pendingChunks;
     pendingChunks=null;
     if (completed) {
       writeHeadWithContent(pending,true);
-      conn.reportBytesWritten(written);
+      s.reportBytesWritten(written);
       if (respHandler != null) {
-        conn.endRequest();
+        this.conn.endRequest();
       }
     }
  else {
@@ -25,9 +24,9 @@
  else {
     if (completed) {
       writeHeadWithContent(Unpooled.EMPTY_BUFFER,true);
-      conn.reportBytesWritten(written);
+      s.reportBytesWritten(written);
       if (respHandler != null) {
-        conn.endRequest();
+        this.conn.endRequest();
       }
     }
  else {

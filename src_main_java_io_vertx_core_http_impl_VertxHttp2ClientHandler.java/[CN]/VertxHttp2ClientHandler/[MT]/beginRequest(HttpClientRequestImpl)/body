@@ -2,7 +2,7 @@
   try {
     Http2Connection conn=connection();
     Http2Stream stream=conn.local().createStream(conn.local().incrementAndGetNextStreamId(),false);
-    Http2ClientStream clientStream=new Http2ClientStream(this,req,stream);
+    Http2ClientStream clientStream=new Http2ClientStream(this,request,stream);
     streams.put(clientStream.stream.id(),clientStream);
     return clientStream;
   }
