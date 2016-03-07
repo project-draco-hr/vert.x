@@ -2,7 +2,7 @@
   this.channel=channel;
   this.handlerContext=handlerContext;
   this.serverOrigin=serverOrigin;
-  this.handler=handler;
+  this.requestHandler=requestHandler;
   this.context=context;
   this.options=option;
   io.vertx.core.http.Http2Settings initialSettings=options.getHttp2Settings();

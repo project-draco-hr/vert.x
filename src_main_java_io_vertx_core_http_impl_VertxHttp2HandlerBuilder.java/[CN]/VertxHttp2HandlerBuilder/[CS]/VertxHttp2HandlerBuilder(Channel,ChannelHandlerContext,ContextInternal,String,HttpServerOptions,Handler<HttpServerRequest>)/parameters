@@ -3,4 +3,4 @@ ChannelHandlerContext context
 ContextInternal handlerContext
 String serverOrigin
 HttpServerOptions option
-Handler<HttpServerRequest> handler
+Handler<HttpServerRequest> requestHandler

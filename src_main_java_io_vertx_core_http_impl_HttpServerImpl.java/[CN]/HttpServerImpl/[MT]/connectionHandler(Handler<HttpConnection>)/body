@@ -1,0 +1,4 @@
+{
+  connectionHandler=handler;
+  return this;
+}

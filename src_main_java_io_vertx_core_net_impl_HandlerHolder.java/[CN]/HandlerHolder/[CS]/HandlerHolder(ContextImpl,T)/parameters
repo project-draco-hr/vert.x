@@ -1,2 +1,2 @@
 ContextImpl context
-Handler<T> handler
+T handler

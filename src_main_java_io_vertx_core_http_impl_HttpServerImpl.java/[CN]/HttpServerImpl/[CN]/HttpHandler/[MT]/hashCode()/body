@@ -1,0 +1,7 @@
+{
+  int result=reqHandlerManager.hashCode();
+  if (connectionHandler != null) {
+    result=31 * result + connectionHandler.hashCode();
+  }
+  return result;
+}
