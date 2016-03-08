@@ -1,5 +1,5 @@
 {
-  if (conn.isClosed()) {
+  if (!conn.isValid()) {
     queue.getConnection(waiter);
   }
  else   if (waiter.isCancelled()) {
