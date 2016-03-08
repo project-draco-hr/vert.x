@@ -1,0 +1,3 @@
+int lastStreamId
+long errorCode
+ByteBuf debugData

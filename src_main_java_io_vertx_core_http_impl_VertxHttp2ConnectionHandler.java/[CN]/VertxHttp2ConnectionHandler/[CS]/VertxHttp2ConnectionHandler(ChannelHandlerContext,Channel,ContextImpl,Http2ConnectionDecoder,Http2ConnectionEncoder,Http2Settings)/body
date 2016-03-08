@@ -1,2 +1,7 @@
 {
+  super(decoder,encoder,initialSettings);
+  connection().addListener(this);
+  this.channel=channel;
+  this.context=context;
+  this.handlerContext=handlerContext;
 }

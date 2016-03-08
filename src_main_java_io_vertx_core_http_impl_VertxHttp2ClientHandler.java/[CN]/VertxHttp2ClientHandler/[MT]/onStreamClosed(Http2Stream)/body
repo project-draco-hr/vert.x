@@ -1,0 +1,8 @@
+{
+  super.onStreamClosed(nettyStream);
+  Http2ClientStream stream=streams.remove(nettyStream.id());
+  if (!stream.ended) {
+    stream.handleException(new VertxException("Connection was closed"));
+  }
+  http2Pool.recycle(VertxHttp2ClientHandler.this);
+}
