@@ -1,0 +1,4 @@
+{
+  ended=true;
+  handleException(new StreamResetException(errorCode));
+}

@@ -1,4 +1,4 @@
 {
   Http2ClientStream stream=streams.get(streamId);
-  stream.handleException(new StreamResetException(errorCode));
+  stream.handleReset(errorCode);
 }
