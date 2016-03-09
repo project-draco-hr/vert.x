@@ -1,0 +1,42 @@
+{
+class Handler extends Http2ConnectionHandler {
+    public Handler(    Http2ConnectionDecoder decoder,    Http2ConnectionEncoder encoder,    Http2Settings initialSettings){
+      super(decoder,encoder,initialSettings);
+      decoder.frameListener(handler.apply(decoder,encoder));
+    }
+  }
+class Builder extends AbstractHttp2ConnectionHandlerBuilder<Handler,Builder> {
+    @Override protected Handler build(    Http2ConnectionDecoder decoder,    Http2ConnectionEncoder encoder,    Http2Settings initialSettings) throws Exception {
+      return new Handler(decoder,encoder,initialSettings);
+    }
+    @Override public Handler build(){
+      return super.build();
+    }
+  }
+  ServerBootstrap bootstrap=new ServerBootstrap();
+  bootstrap.channel(NioServerSocketChannel.class);
+  bootstrap.group(new NioEventLoopGroup());
+  bootstrap.childHandler(new ChannelInitializer<Channel>(){
+    @Override protected void initChannel(    Channel ch) throws Exception {
+      SSLHelper sslHelper=new SSLHelper(serverOptions,KeyStoreHelper.create((VertxInternal)vertx,getServerCertOptions(KeyCert.JKS)),null);
+      SslHandler sslHandler=sslHelper.createSslHandler((VertxInternal)vertx,false,"localhost",4043);
+      ch.pipeline().addLast(sslHandler);
+      ch.pipeline().addLast(new ApplicationProtocolNegotiationHandler("whatever"){
+        @Override protected void configurePipeline(        ChannelHandlerContext ctx,        String protocol){
+          if (ApplicationProtocolNames.HTTP_2.equals(protocol)) {
+            ChannelPipeline p=ctx.pipeline();
+            Builder builder=new Builder();
+            Handler clientHandler=builder.build();
+            p.addLast("handler",clientHandler);
+            return;
+          }
+          ctx.close();
+          throw new IllegalStateException("unknown protocol: " + protocol);
+        }
+      }
+);
+    }
+  }
+);
+  return bootstrap;
+}
