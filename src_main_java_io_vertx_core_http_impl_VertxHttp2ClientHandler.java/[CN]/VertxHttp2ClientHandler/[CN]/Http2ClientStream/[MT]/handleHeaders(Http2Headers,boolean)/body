@@ -1,16 +1,18 @@
 {
   if (resp == null) {
     int status;
+    String statusMessage;
     try {
       status=Integer.parseInt(headers.status().toString());
+      statusMessage=HttpResponseStatus.valueOf(status).reasonPhrase();
     }
- catch (    NumberFormatException e) {
+ catch (    Exception e) {
       handleException(e);
       encoder.writeRstStream(handlerCtx,stream.id(),0x01,handlerCtx.newPromise());
       handlerCtx.flush();
       return;
     }
-    resp=new HttpClientResponseImpl(req,HttpVersion.HTTP_2,this,status,"todo",new Http2HeadersAdaptor(headers));
+    resp=new HttpClientResponseImpl(req,HttpVersion.HTTP_2,this,status,statusMessage,new Http2HeadersAdaptor(headers));
     req.handleResponse(resp);
     if (end) {
       handleEnd();
