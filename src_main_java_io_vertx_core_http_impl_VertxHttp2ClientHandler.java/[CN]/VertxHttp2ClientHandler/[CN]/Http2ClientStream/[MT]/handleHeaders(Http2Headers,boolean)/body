@@ -1,6 +1,16 @@
 {
   if (resp == null) {
-    resp=new HttpClientResponseImpl(req,HttpVersion.HTTP_2,this,Integer.parseInt(headers.status().toString()),"todo",new Http2HeadersAdaptor(headers));
+    int status;
+    try {
+      status=Integer.parseInt(headers.status().toString());
+    }
+ catch (    NumberFormatException e) {
+      handleException(e);
+      encoder.writeRstStream(handlerCtx,stream.id(),0x01,handlerCtx.newPromise());
+      handlerCtx.flush();
+      return;
+    }
+    resp=new HttpClientResponseImpl(req,HttpVersion.HTTP_2,this,status,"todo",new Http2HeadersAdaptor(headers));
     req.handleResponse(resp);
     if (end) {
       handleEnd();
