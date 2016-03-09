@@ -1,6 +1,6 @@
 {
   Http2ClientStream stream=streams.get(streamId);
-  HttpMethod method=UriUtils.toVertxMethod(headers.method().toString());
+  HttpMethod method=HttpUtils.toVertxMethod(headers.method().toString());
   String uri=headers.path().toString();
   String host=headers.authority() != null ? headers.authority().toString() : null;
   MultiMap headersMap=new Http2HeadersAdaptor(headers);

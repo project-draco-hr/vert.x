@@ -1,7 +1,7 @@
 {
   if (method == null) {
     String sMethod=headers.method().toString();
-    method=UriUtils.toVertxMethod(sMethod);
+    method=HttpUtils.toVertxMethod(sMethod);
   }
   return method;
 }

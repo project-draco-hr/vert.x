@@ -1,6 +1,6 @@
 {
   if (params == null) {
-    params=UriUtils.params(uri());
+    params=HttpUtils.params(uri());
   }
   return params;
 }

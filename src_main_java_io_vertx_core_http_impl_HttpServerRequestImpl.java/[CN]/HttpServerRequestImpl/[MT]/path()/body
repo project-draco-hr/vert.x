@@ -1,6 +1,6 @@
 {
   if (path == null) {
-    path=UriUtils.parsePath(uri());
+    path=HttpUtils.parsePath(uri());
   }
   return path;
 }

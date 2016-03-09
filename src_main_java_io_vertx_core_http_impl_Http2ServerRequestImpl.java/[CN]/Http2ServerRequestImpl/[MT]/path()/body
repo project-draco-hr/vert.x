@@ -2,7 +2,7 @@
   if (path == null) {
     CharSequence path=headers.path();
     if (path != null) {
-      this.path=UriUtils.parsePath(path.toString());
+      this.path=HttpUtils.parsePath(path.toString());
     }
   }
   return path;

@@ -1,7 +1,7 @@
 {
   if (absoluteURI == null) {
     try {
-      absoluteURI=UriUtils.absoluteURI(conn.getServerOrigin(),this);
+      absoluteURI=HttpUtils.absoluteURI(conn.getServerOrigin(),this);
     }
  catch (    URISyntaxException e) {
       log.error("Failed to create abs uri",e);
