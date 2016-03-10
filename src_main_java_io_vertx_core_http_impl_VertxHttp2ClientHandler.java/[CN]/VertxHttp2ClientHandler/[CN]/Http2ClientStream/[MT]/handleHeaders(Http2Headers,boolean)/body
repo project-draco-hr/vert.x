@@ -1,5 +1,5 @@
 {
-  if (resp == null) {
+  if (resp == null || resp.statusCode() == 100) {
     int status;
     String statusMessage;
     try {
