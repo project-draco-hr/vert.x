@@ -1,3 +1,4 @@
 {
+  this();
   Http2SettingsConverter.fromJson(json,this);
 }

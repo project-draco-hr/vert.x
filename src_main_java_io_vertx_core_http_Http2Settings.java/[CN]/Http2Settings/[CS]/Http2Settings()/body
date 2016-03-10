@@ -1,2 +1,8 @@
 {
+  headerTableSize=DEFAULT_HEADER_TABLE_SIZE;
+  enablePush=DEFAULT_ENABLE_PUSH;
+  maxConcurrentStreams=DEFAULT_MAX_CONCURRENT_STREAMS;
+  initialWindowSize=DEFAULT_INITIAL_WINDOW_SIZE;
+  maxFrameSize=DEFAULT_MAX_FRAME_SIZE;
+  maxHeaderListSize=DEFAULT_MAX_HEADER_LIST_SIZE;
 }

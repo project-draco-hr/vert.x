@@ -1,0 +1,6 @@
+{
+  Arguments.require(initialWindowSize >= Http2CodecUtil.MIN_INITIAL_WINDOW_SIZE,"initialWindowSize must be >= " + Http2CodecUtil.MIN_INITIAL_WINDOW_SIZE);
+  Arguments.require(initialWindowSize < Http2CodecUtil.MAX_INITIAL_WINDOW_SIZE,"initialWindowSize must be < " + Http2CodecUtil.MAX_INITIAL_WINDOW_SIZE);
+  this.initialWindowSize=initialWindowSize;
+  return this;
+}

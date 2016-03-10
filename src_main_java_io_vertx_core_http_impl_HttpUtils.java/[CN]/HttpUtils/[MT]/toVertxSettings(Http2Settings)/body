@@ -1,6 +1,6 @@
 {
   io.vertx.core.http.Http2Settings converted=new io.vertx.core.http.Http2Settings();
-  converted.setEnablePush(settings.pushEnabled());
+  converted.setEnablePush(Boolean.TRUE.equals(settings.pushEnabled()));
   converted.setMaxConcurrentStreams(settings.maxConcurrentStreams());
   converted.setMaxHeaderListSize(settings.maxHeaderListSize());
   converted.setMaxFrameSize(settings.maxFrameSize());

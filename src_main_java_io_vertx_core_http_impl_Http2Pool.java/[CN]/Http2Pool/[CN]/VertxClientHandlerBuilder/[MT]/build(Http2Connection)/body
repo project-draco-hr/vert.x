@@ -1,25 +1,4 @@
 {
   connection(conn);
-  io.vertx.core.http.Http2Settings initialSettings=client.getOptions().getHttp2Settings();
-  if (initialSettings != null) {
-    if (initialSettings.getHeaderTableSize() != null) {
-      initialSettings().headerTableSize(initialSettings.getHeaderTableSize());
-    }
-    if (initialSettings.getInitialWindowSize() != null) {
-      initialSettings().initialWindowSize(initialSettings.getInitialWindowSize());
-    }
-    if (initialSettings.getMaxConcurrentStreams() != null) {
-      initialSettings().maxConcurrentStreams(initialSettings.getMaxConcurrentStreams());
-    }
-    if (initialSettings.getMaxFrameSize() != null) {
-      initialSettings().maxFrameSize(initialSettings.getMaxFrameSize());
-    }
-    if (initialSettings.getMaxHeaderListSize() != null) {
-      initialSettings().maxHeaderListSize(initialSettings.getMaxHeaderListSize());
-    }
-    if (initialSettings.getEnablePush() != null) {
-      initialSettings().pushEnabled(initialSettings.getEnablePush());
-    }
-  }
   return super.build();
 }

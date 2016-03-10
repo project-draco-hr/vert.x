@@ -1,6 +1,0 @@
-{
-  Arguments.require(headerTableSize == null || headerTableSize >= Http2CodecUtil.MIN_HEADER_TABLE_SIZE,"headerTableSize must be >= " + Http2CodecUtil.MIN_HEADER_TABLE_SIZE);
-  Arguments.require(headerTableSize == null || headerTableSize < Http2CodecUtil.MAX_HEADER_TABLE_SIZE,"headerTableSize must be <= " + Http2CodecUtil.MAX_HEADER_TABLE_SIZE);
-  this.headerTableSize=headerTableSize;
-  return this;
-}
