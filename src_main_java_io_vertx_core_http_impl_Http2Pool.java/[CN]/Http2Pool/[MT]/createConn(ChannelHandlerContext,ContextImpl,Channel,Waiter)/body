@@ -4,7 +4,6 @@
   VertxClientHandlerBuilder clientHandlerBuilder=new VertxClientHandlerBuilder(handlerCtx,context,ch);
 synchronized (queue) {
     VertxHttp2ClientHandler handler=clientHandlerBuilder.build(connection);
-    handler.decoder().frameListener(handler);
     clientHandler=handler;
     p.addLast(handler);
     handler.streamCount++;

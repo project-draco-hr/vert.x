@@ -1,5 +1,10 @@
 {
   VertxHttp2ClientHandler handler=new VertxHttp2ClientHandler(Http2Pool.this,handlerCtx,context,channel,decoder,encoder,initialSettings);
-  frameListener(handler);
+  if (client.getOptions().isTryUseCompression()) {
+    frameListener(new DelegatingDecompressorFrameListener(decoder.connection(),handler));
+  }
+ else {
+    frameListener(handler);
+  }
   return handler;
 }
