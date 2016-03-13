@@ -1,17 +1,17 @@
 {
 switch (cert) {
 case JKS:
-    return new JksOptions().setPath(findFileOnClasspath("tls/server-keystore.jks")).setPassword("wibble");
+    return new JksOptions().setPath("tls/server-keystore.jks").setPassword("wibble");
 case JKS_CA:
-  return new JksOptions().setPath(findFileOnClasspath("tls/server-keystore-ca.jks")).setPassword("wibble");
+  return new JksOptions().setPath("tls/server-keystore-ca.jks").setPassword("wibble");
 case PKCS12:
-return new PfxOptions().setPath(findFileOnClasspath("tls/server-keystore.p12")).setPassword("wibble");
+return new PfxOptions().setPath("tls/server-keystore.p12").setPassword("wibble");
 case PKCS12_CA:
-return new PfxOptions().setPath(findFileOnClasspath("tls/server-keystore-ca.p12")).setPassword("wibble");
+return new PfxOptions().setPath("tls/server-keystore-ca.p12").setPassword("wibble");
 case PEM:
-return new PemKeyCertOptions().setKeyPath(findFileOnClasspath("tls/server-key.pem")).setCertPath(findFileOnClasspath("tls/server-cert.pem"));
+return new PemKeyCertOptions().setKeyPath("tls/server-key.pem").setCertPath("tls/server-cert.pem");
 case PEM_CA:
-return new PemKeyCertOptions().setKeyPath(findFileOnClasspath("tls/server-key.pem")).setCertPath(findFileOnClasspath("tls/server-cert-ca.pem"));
+return new PemKeyCertOptions().setKeyPath("tls/server-key.pem").setCertPath("tls/server-cert-ca.pem");
 default :
 return null;
 }
