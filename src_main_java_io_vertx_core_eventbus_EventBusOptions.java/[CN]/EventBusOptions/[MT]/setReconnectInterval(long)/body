@@ -1,0 +1,4 @@
+{
+  this.reconnectInterval=interval;
+  return this;
+}

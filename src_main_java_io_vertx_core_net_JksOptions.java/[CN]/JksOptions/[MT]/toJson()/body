@@ -1,0 +1,5 @@
+{
+  JsonObject json=new JsonObject();
+  JksOptionsConverter.toJson(this,json);
+  return json;
+}

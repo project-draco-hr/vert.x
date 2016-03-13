@@ -23,6 +23,9 @@
   if (json.getValue("clustered") instanceof Boolean) {
     obj.setClustered((Boolean)json.getValue("clustered"));
   }
+  if (json.getValue("eventBusOptions") instanceof JsonObject) {
+    obj.setEventBusOptions(new io.vertx.core.eventbus.EventBusOptions((JsonObject)json.getValue("eventBusOptions")));
+  }
   if (json.getValue("eventLoopPoolSize") instanceof Number) {
     obj.setEventLoopPoolSize(((Number)json.getValue("eventLoopPoolSize")).intValue());
   }

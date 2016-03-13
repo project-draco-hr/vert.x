@@ -1,13 +1,6 @@
 {
   this.eventLoopPoolSize=other.getEventLoopPoolSize();
   this.workerPoolSize=other.getWorkerPoolSize();
-  this.clustered=other.isClustered();
-  this.clusterHost=other.getClusterHost();
-  this.clusterPort=other.getClusterPort();
-  this.clusterPublicHost=other.getClusterPublicHost();
-  this.clusterPublicPort=other.getClusterPublicPort();
-  this.clusterPingInterval=other.getClusterPingInterval();
-  this.clusterPingReplyInterval=other.getClusterPingReplyInterval();
   this.blockedThreadCheckInterval=other.getBlockedThreadCheckInterval();
   this.maxEventLoopExecuteTime=other.getMaxEventLoopExecuteTime();
   this.maxWorkerExecuteTime=other.getMaxWorkerExecuteTime();
@@ -18,4 +11,5 @@
   this.haGroup=other.getHAGroup();
   this.metrics=other.getMetricsOptions() != null ? new MetricsOptions(other.getMetricsOptions()) : null;
   this.warningExceptionTime=other.warningExceptionTime;
+  this.eventBusOptions=new EventBusOptions(other.eventBusOptions);
 }

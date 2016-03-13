@@ -1,5 +1,4 @@
 {
   System.clearProperty("vertx.logger-delegate-factory-class-name");
-  logger=LoggerFactory.getLogger("my-logger");
   recording=new Recording();
 }

@@ -1,5 +1,5 @@
 {
-  Arguments.requireInRange(trafficClass,0,255,"trafficClass tc must be 0 <= tc <= 255");
+  Arguments.requireInRange(trafficClass,DEFAULT_TRAFFIC_CLASS,255,"trafficClass tc must be 0 <= tc <= 255");
   this.trafficClass=trafficClass;
   return this;
 }

@@ -1,0 +1,4 @@
+{
+  super.setPemKeyCertOptions(options);
+  return this;
+}

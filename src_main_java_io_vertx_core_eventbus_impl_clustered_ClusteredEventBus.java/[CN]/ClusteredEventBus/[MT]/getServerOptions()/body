@@ -1,0 +1,6 @@
+{
+  NetServerOptions serverOptions=new NetServerOptions(this.options.toJson());
+  setCertOptions(serverOptions,options.getKeyCertOptions());
+  setTrustOptions(serverOptions,options.getTrustOptions());
+  return serverOptions;
+}

@@ -1,7 +1,4 @@
 {
-  if (clusterPort < 0 || clusterPort > 65535) {
-    throw new IllegalArgumentException("clusterPort p must be in range 0 <= p <= 65535");
-  }
-  this.clusterPort=clusterPort;
+  eventBusOptions.setPort(clusterPort);
   return this;
 }

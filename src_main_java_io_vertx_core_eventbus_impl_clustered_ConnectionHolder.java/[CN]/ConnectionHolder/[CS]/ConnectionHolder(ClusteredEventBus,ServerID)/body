@@ -1,7 +1,0 @@
-{
-  this.eventBus=eventBus;
-  this.serverID=serverID;
-  this.vertx=eventBus.vertx();
-  this.metrics=eventBus.getMetrics();
-  client=new NetClientImpl(eventBus.vertx(),new NetClientOptions().setConnectTimeout(60 * 1000),false);
-}

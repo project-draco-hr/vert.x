@@ -1,0 +1,6 @@
+KeyCert cert
+Trust trust
+boolean requireClientAuth
+boolean clientTrustAll
+boolean useCrl
+String enabledCipherSuites
