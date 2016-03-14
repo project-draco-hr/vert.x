@@ -1,0 +1,4 @@
+{
+  super.handlerAdded(ctx);
+  connection.setHandlerContext(ctx);
+}

@@ -1,4 +1,4 @@
 Http2ConnectionDecoder decoder
 Http2ConnectionEncoder encoder
 Http2Settings initialSettings
-Function<VertxHttp2ConnectionHandler,Http2ConnectionBase> a
+Function<VertxHttp2ConnectionHandler,Http2ConnectionBase> connectionFactory

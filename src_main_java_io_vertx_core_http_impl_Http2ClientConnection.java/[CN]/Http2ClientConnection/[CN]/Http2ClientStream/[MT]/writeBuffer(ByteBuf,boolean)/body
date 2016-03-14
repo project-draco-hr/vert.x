@@ -1,6 +1,6 @@
 {
   writeData(buf,end);
   if (end) {
-    handlerContext.flush();
+    channel.flush();
   }
 }

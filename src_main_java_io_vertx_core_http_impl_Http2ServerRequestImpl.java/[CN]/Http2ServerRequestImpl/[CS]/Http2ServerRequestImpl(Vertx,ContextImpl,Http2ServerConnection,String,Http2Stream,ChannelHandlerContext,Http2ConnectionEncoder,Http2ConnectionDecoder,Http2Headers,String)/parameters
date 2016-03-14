@@ -2,7 +2,6 @@ Vertx vertx
 ContextImpl context
 Http2ServerConnection connection
 String serverOrigin
-Http2Connection conn
 Http2Stream stream
 ChannelHandlerContext handlerContext
 Http2ConnectionEncoder encoder

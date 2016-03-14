@@ -8,8 +8,8 @@
     }
  catch (    Exception e) {
       handleException(e);
-      encoder.writeRstStream(handlerCtx,stream.id(),0x01,handlerCtx.newPromise());
-      handlerCtx.flush();
+      encoder.writeRstStream(handlerContext,stream.id(),0x01,handlerContext.newPromise());
+      channel.flush();
       return;
     }
     resp=new HttpClientResponseImpl(req,HttpVersion.HTTP_2,this,status,statusMessage,new Http2HeadersAdaptor(headers));

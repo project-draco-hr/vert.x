@@ -5,4 +5,5 @@
   this.decoder=decoder;
   this.stream=stream;
   this.context=context;
+  this.channel=handlerContext.channel();
 }

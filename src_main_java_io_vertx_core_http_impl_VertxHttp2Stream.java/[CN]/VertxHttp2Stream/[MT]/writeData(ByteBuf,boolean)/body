@@ -10,6 +10,6 @@
  catch (    Http2Exception e) {
       e.printStackTrace();
     }
-    handlerContext.flush();
+    channel.flush();
   }
 }

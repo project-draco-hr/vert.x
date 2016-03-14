@@ -1,4 +1,4 @@
 {
-  encoder.writeRstStream(handlerCtx,stream.id(),code,handlerCtx.newPromise());
-  handlerCtx.flush();
+  encoder.writeRstStream(handlerContext,stream.id(),code,handlerContext.newPromise());
+  channel.flush();
 }

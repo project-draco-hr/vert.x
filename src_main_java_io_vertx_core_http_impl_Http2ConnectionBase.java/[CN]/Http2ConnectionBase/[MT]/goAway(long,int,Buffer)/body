@@ -5,7 +5,7 @@
   if (lastStreamId < 0) {
     throw new IllegalArgumentException();
   }
-  connHandler.encoder().writeGoAway(handlerCtx,lastStreamId,errorCode,debugData != null ? debugData.getByteBuf() : Unpooled.EMPTY_BUFFER,handlerCtx.newPromise());
-  handlerCtx.flush();
+  connHandler.encoder().writeGoAway(handlerContext,lastStreamId,errorCode,debugData != null ? debugData.getByteBuf() : Unpooled.EMPTY_BUFFER,handlerContext.newPromise());
+  channel.flush();
   return this;
 }
