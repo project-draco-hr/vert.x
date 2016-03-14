@@ -1,0 +1,1 @@
+Function<HttpServerRequest,ReadStream<Buffer>> streamProvider
