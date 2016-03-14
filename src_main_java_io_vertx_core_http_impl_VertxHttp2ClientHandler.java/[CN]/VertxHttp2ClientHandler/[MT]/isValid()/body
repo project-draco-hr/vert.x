@@ -1,4 +1,0 @@
-{
-  Http2Connection conn=connection();
-  return !conn.goAwaySent() && !conn.goAwayReceived();
-}

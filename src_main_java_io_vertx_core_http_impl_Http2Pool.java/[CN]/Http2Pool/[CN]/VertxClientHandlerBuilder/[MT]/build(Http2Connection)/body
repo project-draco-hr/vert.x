@@ -1,4 +1,0 @@
-{
-  connection(conn);
-  return super.build();
-}

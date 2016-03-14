@@ -1,3 +1,0 @@
-{
-  http2Pool.discard(VertxHttp2ClientHandler.this);
-}

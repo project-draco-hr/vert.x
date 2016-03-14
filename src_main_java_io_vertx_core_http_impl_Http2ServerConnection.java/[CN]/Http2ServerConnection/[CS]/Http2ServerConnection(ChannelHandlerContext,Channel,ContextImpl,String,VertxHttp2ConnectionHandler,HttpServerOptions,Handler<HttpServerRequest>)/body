@@ -1,0 +1,6 @@
+{
+  super(handlerCtx,channel,context,connHandler);
+  this.options=options;
+  this.serverOrigin=serverOrigin;
+  this.handler=handler;
+}

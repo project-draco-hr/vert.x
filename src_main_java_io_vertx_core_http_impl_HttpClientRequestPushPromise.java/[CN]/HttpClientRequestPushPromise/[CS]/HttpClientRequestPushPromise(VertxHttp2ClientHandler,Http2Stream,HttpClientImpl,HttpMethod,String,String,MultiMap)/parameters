@@ -1,7 +1,0 @@
-VertxHttp2ClientHandler handler
-Http2Stream clientStream
-HttpClientImpl client
-HttpMethod method
-String uri
-String host
-MultiMap headers

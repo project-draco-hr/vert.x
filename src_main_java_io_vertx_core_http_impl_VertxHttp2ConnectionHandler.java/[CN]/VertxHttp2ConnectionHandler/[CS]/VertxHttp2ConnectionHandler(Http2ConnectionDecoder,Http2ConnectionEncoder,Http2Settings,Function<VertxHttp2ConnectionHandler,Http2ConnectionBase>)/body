@@ -1,0 +1,4 @@
+{
+  super(decoder,encoder,initialSettings);
+  connection=a.apply(this);
+}

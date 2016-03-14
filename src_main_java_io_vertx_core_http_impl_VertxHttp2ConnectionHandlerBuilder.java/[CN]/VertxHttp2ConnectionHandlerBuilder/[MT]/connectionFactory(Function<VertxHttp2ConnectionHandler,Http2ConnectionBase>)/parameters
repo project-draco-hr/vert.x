@@ -1,0 +1,1 @@
+Function<VertxHttp2ConnectionHandler,Http2ConnectionBase> connectionFactory

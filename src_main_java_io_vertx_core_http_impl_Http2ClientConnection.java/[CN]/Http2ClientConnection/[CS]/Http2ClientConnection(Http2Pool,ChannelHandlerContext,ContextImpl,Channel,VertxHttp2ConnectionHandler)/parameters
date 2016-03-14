@@ -1,0 +1,5 @@
+Http2Pool http2Pool
+ChannelHandlerContext handlerCtx
+ContextImpl context
+Channel channel
+VertxHttp2ConnectionHandler connHandler

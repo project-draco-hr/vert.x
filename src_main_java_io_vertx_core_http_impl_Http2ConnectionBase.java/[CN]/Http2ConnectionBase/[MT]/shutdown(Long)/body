@@ -1,0 +1,10 @@
+{
+  if (!shuttingdown) {
+    shuttingdown=true;
+    if (timeout != null) {
+      connHandler.gracefulShutdownTimeoutMillis(timeout);
+    }
+    channel.close();
+  }
+  return this;
+}

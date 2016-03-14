@@ -1,7 +1,0 @@
-{
-  if (evt instanceof HttpServerUpgradeHandler.UpgradeEvent) {
-    Http2Headers headers=new DefaultHttp2Headers().status(OK.codeAsText()).set(new AsciiString(UPGRADE_RESPONSE_HEADER),new AsciiString("true"));
-    encoder().writeHeaders(ctx,1,headers,0,true,ctx.newPromise());
-  }
-  super.userEventTriggered(ctx,evt);
-}

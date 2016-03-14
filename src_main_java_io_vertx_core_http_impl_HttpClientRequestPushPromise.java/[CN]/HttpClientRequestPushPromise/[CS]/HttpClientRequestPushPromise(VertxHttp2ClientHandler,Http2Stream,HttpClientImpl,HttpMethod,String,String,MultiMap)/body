@@ -1,9 +1,0 @@
-{
-  super(client);
-  this.handler=handler;
-  this.clientStream=new VertxHttp2ClientHandler.Http2ClientStream(handler,this,clientStream);
-  this.method=method;
-  this.uri=uri;
-  this.host=host;
-  this.headers=headers;
-}

@@ -1,9 +1,0 @@
-ChannelHandlerContext handlerCtx
-Channel channel
-ContextImpl context
-String serverOrigin
-Http2ConnectionDecoder decoder
-Http2ConnectionEncoder encoder
-Http2Settings initialSettings
-HttpServerOptions options
-Handler<HttpServerRequest> handler

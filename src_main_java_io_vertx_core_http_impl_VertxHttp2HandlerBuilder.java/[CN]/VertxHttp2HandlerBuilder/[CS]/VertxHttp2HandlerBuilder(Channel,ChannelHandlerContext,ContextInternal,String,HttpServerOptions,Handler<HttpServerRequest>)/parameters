@@ -1,6 +1,0 @@
-Channel channel
-ChannelHandlerContext context
-ContextInternal handlerContext
-String serverOrigin
-HttpServerOptions option
-Handler<HttpServerRequest> requestHandler

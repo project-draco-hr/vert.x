@@ -1,0 +1,20 @@
+{
+  if (isServer()) {
+    if (useCompression) {
+      encoder=new CompressorHttp2ConnectionEncoder(encoder);
+    }
+    VertxHttp2ConnectionHandler handler=new VertxHttp2ConnectionHandler(decoder,encoder,initialSettings,connectionFactory);
+    frameListener(handler.connection);
+    return handler;
+  }
+ else {
+    VertxHttp2ConnectionHandler handler=new VertxHttp2ConnectionHandler(decoder,encoder,initialSettings,connectionFactory);
+    if (useCompression) {
+      frameListener(new DelegatingDecompressorFrameListener(decoder.connection(),handler.connection));
+    }
+ else {
+      frameListener(handler.connection);
+    }
+    return handler;
+  }
+}

@@ -1,4 +1,0 @@
-{
-  super.onStreamClosed(nettyStream);
-  http2Pool.recycle(VertxHttp2ClientHandler.this);
-}

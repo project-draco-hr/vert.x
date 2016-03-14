@@ -1,8 +1,0 @@
-{
-  if (options.isCompressionSupported()) {
-    encoder=new CompressorHttp2ConnectionEncoder(encoder);
-  }
-  VertxHttp2ServerHandler vertxHttp2Handler=new VertxHttp2ServerHandler(context,channel,(ContextImpl)handlerContext,serverOrigin,decoder,encoder,initialSettings,options,requestHandler);
-  frameListener(vertxHttp2Handler);
-  return vertxHttp2Handler;
-}

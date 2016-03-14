@@ -1,0 +1,7 @@
+ChannelHandlerContext handlerCtx
+Channel channel
+ContextImpl context
+String serverOrigin
+VertxHttp2ConnectionHandler connHandler
+HttpServerOptions options
+Handler<HttpServerRequest> handler

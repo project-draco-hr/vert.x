@@ -1,0 +1,4 @@
+{
+  this.initialSettings=settings;
+  return this;
+}

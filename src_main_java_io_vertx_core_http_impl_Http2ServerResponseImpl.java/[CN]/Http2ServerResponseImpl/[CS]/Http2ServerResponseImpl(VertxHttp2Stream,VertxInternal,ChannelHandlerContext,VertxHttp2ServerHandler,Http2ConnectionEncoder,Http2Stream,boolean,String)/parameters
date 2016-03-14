@@ -1,8 +1,0 @@
-VertxHttp2Stream stream_
-VertxInternal vertx
-ChannelHandlerContext ctx
-VertxHttp2ServerHandler connection
-Http2ConnectionEncoder encoder
-Http2Stream stream
-boolean push
-String contentEncoding

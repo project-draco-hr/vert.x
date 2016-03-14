@@ -1,0 +1,4 @@
+{
+  super.onStreamClosed(nettyStream);
+  http2Pool.recycle(Http2ClientConnection.this);
+}

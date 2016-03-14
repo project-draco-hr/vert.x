@@ -1,4 +1,0 @@
-{
-  super(handlerCtx,channel,context,decoder,encoder,initialSettings);
-  this.http2Pool=http2Pool;
-}

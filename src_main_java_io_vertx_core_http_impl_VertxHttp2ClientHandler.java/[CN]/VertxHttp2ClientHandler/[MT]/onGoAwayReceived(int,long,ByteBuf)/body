@@ -1,4 +1,0 @@
-{
-  super.onGoAwayReceived(lastStreamId,errorCode,debugData);
-  http2Pool.discard(VertxHttp2ClientHandler.this);
-}
