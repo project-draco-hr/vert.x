@@ -1,5 +1,8 @@
 {
   checkEnded();
+  if (end) {
+    ended=true;
+  }
   int len=chunk.readableBytes();
   boolean empty=len == 0;
   checkSendHeaders(empty && end);
@@ -9,10 +12,6 @@
   if (trailers != null && end) {
     encoder.writeHeaders(ctx,stream.id(),trailers,0,true,ctx.newPromise());
   }
-  if (end) {
-    ended=true;
-  }
-  ctx.flush();
   if (end && bodyEndHandler != null) {
     bodyEndHandler.handle(null);
   }

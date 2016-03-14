@@ -5,5 +5,8 @@
     }
     headWritten=true;
     encoder.writeHeaders(ctx,stream.id(),headers,0,end,ctx.newPromise());
+    if (end) {
+      ctx.flush();
+    }
   }
 }
