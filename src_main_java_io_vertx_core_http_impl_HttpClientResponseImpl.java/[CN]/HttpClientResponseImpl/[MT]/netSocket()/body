@@ -1,7 +1,7 @@
 {
 synchronized (conn) {
     if (netSocket == null) {
-      netSocket=conn.connection().createNetSocket();
+      netSocket=conn.createNetSocket();
     }
     return netSocket;
   }

@@ -1,0 +1,5 @@
+{
+  VertxHttp2NetSocket socket=new VertxHttp2NetSocket(vertx,context,handlerContext,encoder,decoder,stream);
+  handler.streams.put(stream.id(),socket);
+  return socket;
+}
