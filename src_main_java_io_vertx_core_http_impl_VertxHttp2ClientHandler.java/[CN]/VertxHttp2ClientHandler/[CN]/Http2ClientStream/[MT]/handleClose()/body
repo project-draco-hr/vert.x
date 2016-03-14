@@ -1,0 +1,5 @@
+{
+  if (!ended) {
+    handleException(new VertxException("Connection was closed"));
+  }
+}

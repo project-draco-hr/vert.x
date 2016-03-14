@@ -1,5 +1,4 @@
 {
-  paused=false;
-  checkNextTick(null);
+  doResume();
   return this;
 }

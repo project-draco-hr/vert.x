@@ -19,6 +19,6 @@
     }
   }
  else   if (end) {
-    resp.handleEnd(new Http2HeadersAdaptor(headers));
+    resp.handleEnd(null,new Http2HeadersAdaptor(headers));
   }
 }

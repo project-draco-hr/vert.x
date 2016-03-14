@@ -1,0 +1,4 @@
+{
+  ended=true;
+  resp.handleEnd(null,new CaseInsensitiveHeaders());
+}

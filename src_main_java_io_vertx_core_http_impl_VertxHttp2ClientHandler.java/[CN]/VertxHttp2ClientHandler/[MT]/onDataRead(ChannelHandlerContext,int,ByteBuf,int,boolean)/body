@@ -1,5 +1,8 @@
 {
-  Http2ClientStream stream=streams.get(streamId);
-  int consumed=stream.handleData(data,endOfStream);
-  return consumed + padding;
+  VertxHttp2Stream stream=streams.get(streamId);
+  stream.handleData(Buffer.buffer(data.copy()));
+  if (endOfStream) {
+    stream.handleEnd();
+  }
+  return 0;
 }

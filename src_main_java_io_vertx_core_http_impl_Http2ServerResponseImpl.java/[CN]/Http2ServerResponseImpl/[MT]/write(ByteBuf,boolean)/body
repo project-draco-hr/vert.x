@@ -4,17 +4,10 @@
   boolean empty=len == 0;
   checkSendHeaders(empty && end);
   if (!empty) {
-    bytesWritten+=len;
-    encoder.writeData(ctx,stream.id(),chunk,0,end && trailers == null,ctx.newPromise());
+    stream_.writeData(chunk,end && trailers == null);
   }
   if (trailers != null && end) {
     encoder.writeHeaders(ctx,stream.id(),trailers,0,true,ctx.newPromise());
-  }
-  try {
-    encoder.flowController().writePendingBytes();
-  }
- catch (  Http2Exception e) {
-    e.printStackTrace();
   }
   if (end) {
     ended=true;

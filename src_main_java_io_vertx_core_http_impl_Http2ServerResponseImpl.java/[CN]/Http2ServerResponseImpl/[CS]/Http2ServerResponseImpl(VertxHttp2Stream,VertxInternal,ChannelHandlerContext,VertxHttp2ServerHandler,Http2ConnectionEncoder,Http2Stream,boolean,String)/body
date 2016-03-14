@@ -1,0 +1,12 @@
+{
+  this.stream_=stream_;
+  this.vertx=vertx;
+  this.ctx=ctx;
+  this.connection=connection;
+  this.encoder=encoder;
+  this.stream=stream;
+  this.push=push;
+  if (contentEncoding != null) {
+    putHeader(HttpHeaderNames.CONTENT_ENCODING,contentEncoding);
+  }
+}

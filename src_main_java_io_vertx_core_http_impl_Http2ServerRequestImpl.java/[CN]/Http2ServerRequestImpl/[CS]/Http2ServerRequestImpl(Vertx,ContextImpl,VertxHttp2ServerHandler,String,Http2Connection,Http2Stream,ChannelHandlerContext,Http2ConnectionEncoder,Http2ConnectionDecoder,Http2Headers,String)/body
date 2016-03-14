@@ -1,0 +1,8 @@
+{
+  super(vertx,context,handlerContext,encoder,decoder,stream);
+  this.vertx=vertx;
+  this.connection=connection;
+  this.serverOrigin=serverOrigin;
+  this.headers=headers;
+  this.response=new Http2ServerResponseImpl(this,(VertxInternal)vertx,handlerContext,connection,encoder,stream,false,contentEncoding);
+}

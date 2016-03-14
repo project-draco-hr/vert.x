@@ -1,0 +1,10 @@
+{
+  try {
+    if (endHandler != null) {
+      endHandler.handle(null);
+    }
+  }
+  finally {
+    end();
+  }
+}

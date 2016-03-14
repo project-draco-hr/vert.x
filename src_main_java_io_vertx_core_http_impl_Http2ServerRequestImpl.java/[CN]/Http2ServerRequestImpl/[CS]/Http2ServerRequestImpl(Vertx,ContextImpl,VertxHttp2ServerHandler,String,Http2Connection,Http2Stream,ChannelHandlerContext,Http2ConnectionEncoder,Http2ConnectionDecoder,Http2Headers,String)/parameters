@@ -1,0 +1,11 @@
+Vertx vertx
+ContextImpl context
+VertxHttp2ServerHandler connection
+String serverOrigin
+Http2Connection conn
+Http2Stream stream
+ChannelHandlerContext handlerContext
+Http2ConnectionEncoder encoder
+Http2ConnectionDecoder decoder
+Http2Headers headers
+String contentEncoding

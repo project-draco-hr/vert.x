@@ -1,0 +1,11 @@
+{
+  int len=chunk.readableBytes();
+  bytesWritten+=len;
+  encoder.writeData(handlerContext,stream.id(),chunk,0,end,handlerContext.newPromise());
+  try {
+    encoder.flowController().writePendingBytes();
+  }
+ catch (  Http2Exception e) {
+    e.printStackTrace();
+  }
+}

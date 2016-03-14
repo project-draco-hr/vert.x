@@ -1,8 +1,13 @@
 {
   ByteBuf chunk;
-  while (!response.writeQueueFull() && (chunk=(ByteBuf)in.current()) != null && length > 0) {
+  while (!stream.isNotWritable() && (chunk=(ByteBuf)in.current()) != null && length > 0) {
     length-=chunk.readableBytes();
-    response.write(chunk.retain(),length == 0);
+    boolean end=length == 0;
+    stream.writeData(chunk.retain(),end);
+    stream.handlerContext.flush();
     in.remove();
+    if (end) {
+      endHandler.handle(null);
+    }
   }
 }

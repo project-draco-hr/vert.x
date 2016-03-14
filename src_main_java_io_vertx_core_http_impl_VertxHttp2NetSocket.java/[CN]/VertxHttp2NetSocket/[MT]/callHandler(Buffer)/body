@@ -1,0 +1,5 @@
+{
+  if (dataHandler != null) {
+    dataHandler.handle(buf);
+  }
+}

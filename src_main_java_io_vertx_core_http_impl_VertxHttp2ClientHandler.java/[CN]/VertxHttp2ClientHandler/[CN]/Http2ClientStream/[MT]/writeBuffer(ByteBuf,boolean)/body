@@ -1,12 +1,6 @@
 {
-  encoder.writeData(handlerCtx,stream.id(),buf,0,end,handlerCtx.newPromise());
+  writeData(buf,end);
   if (end) {
-    try {
-      encoder.flowController().writePendingBytes();
-    }
- catch (    Http2Exception e) {
-      e.printStackTrace();
-    }
+    handlerContext.flush();
   }
-  handlerCtx.flush();
 }

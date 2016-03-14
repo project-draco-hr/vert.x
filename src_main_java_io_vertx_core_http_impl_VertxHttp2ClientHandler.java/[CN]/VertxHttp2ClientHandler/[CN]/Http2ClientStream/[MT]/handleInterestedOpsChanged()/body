@@ -1,3 +1,5 @@
 {
-  ((HttpClientRequestImpl)req).handleDrained();
+  if (req instanceof HttpClientRequestImpl) {
+    ((HttpClientRequestImpl)req).handleDrained();
+  }
 }

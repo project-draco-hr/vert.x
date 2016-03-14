@@ -1,3 +1,0 @@
-ChannelHandlerContext ctx
-Throwable cause
-Http2Exception.StreamException http2Ex

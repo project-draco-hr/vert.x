@@ -1,2 +1,6 @@
 {
+  super(handlerCtx,channel,context,decoder,encoder,initialSettings);
+  this.options=options;
+  this.serverOrigin=serverOrigin;
+  this.handler=handler;
 }

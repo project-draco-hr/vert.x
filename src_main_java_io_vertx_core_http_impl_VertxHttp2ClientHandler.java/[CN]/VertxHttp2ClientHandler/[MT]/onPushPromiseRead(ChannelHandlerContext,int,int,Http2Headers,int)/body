@@ -1,5 +1,5 @@
 {
-  Http2ClientStream stream=streams.get(streamId);
+  Http2ClientStream stream=(Http2ClientStream)streams.get(streamId);
   HttpMethod method=HttpUtils.toVertxMethod(headers.method().toString());
   String uri=headers.path().toString();
   String host=headers.authority() != null ? headers.authority().toString() : null;

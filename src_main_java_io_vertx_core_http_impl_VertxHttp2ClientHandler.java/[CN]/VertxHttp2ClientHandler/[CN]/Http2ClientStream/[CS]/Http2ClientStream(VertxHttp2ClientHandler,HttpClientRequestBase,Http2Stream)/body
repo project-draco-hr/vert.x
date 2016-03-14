@@ -1,9 +1,9 @@
 {
+  super(handler.http2Pool.client.getVertx(),handler.context,handler.handlerCtx,handler.encoder(),handler.decoder(),stream);
   this.handler=handler;
   this.context=handler.context;
   this.handlerCtx=handler.handlerCtx;
   this.conn=handler.connection();
   this.stream=stream;
-  this.encoder=handler.encoder();
   this.req=req;
 }
