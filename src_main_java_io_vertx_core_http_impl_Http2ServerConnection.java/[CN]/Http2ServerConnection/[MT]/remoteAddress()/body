@@ -1,5 +1,0 @@
-{
-  InetSocketAddress addr=(InetSocketAddress)channel.remoteAddress();
-  if (addr == null)   return null;
-  return new SocketAddressImpl(addr);
-}
