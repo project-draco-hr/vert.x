@@ -5,8 +5,8 @@
   }
   int len=chunk.readableBytes();
   boolean empty=len == 0;
-  checkSendHeaders(empty && end);
-  if (!empty) {
+  boolean sent=checkSendHeaders(empty && end);
+  if (!empty || (!sent && end)) {
     stream_.writeData(chunk,end && trailers == null);
   }
   if (trailers != null && end) {

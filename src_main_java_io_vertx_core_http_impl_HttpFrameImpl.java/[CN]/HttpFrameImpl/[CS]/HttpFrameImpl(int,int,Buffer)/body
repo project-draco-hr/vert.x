@@ -1,0 +1,5 @@
+{
+  this.type=type;
+  this.flags=flags;
+  this.payload=payload;
+}

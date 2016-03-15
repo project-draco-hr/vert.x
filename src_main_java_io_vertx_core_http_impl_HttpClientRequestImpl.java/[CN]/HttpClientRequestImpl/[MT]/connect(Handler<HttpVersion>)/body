@@ -13,7 +13,7 @@ synchronized (HttpClientRequestImpl.this) {
       }
       @Override void handleStream(      HttpClientStream stream){
 synchronized (HttpClientRequestImpl.this) {
-          connected(stream);
+          connected(stream,headersCompletionHandler);
         }
       }
       @Override boolean isCancelled(){

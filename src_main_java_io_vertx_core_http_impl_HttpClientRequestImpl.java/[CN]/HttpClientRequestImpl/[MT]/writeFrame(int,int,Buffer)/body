@@ -1,0 +1,9 @@
+{
+synchronized (getLock()) {
+    if (conn == null) {
+      throw new IllegalStateException("Not yet connected");
+    }
+    conn.writeFrame(type,flags,payload.getByteBuf());
+  }
+  return this;
+}

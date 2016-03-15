@@ -8,5 +8,9 @@
     if (end) {
       ctx.flush();
     }
+    return true;
+  }
+ else {
+    return false;
   }
 }

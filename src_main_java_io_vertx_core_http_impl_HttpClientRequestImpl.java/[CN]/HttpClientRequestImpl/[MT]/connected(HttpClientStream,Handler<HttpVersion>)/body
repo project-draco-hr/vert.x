@@ -20,6 +20,9 @@
     }
  else {
       writeHeadWithContent(pending,false);
+      if (headersCompletionHandler != null) {
+        headersCompletionHandler.handle(s.version());
+      }
     }
   }
  else {
@@ -33,6 +36,9 @@
  else {
       if (writeHead) {
         writeHead();
+        if (headersCompletionHandler != null) {
+          headersCompletionHandler.handle(s.version());
+        }
       }
     }
   }

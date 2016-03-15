@@ -1,0 +1,13 @@
+{
+  FrameQueue list=new FrameQueue();
+  HttpFrame frame=new HttpFrameImpl(0,0,Buffer.buffer());
+  list.append(frame);
+  ByteBuf hello=Unpooled.copiedBuffer("hello",cs);
+  ByteBuf world=Unpooled.copiedBuffer("world",cs);
+  list.append(hello);
+  list.append(world);
+  assertSame(frame,list.next());
+  ByteBuf buf=(ByteBuf)list.next();
+  assertEquals("helloworld",buf.toString(cs));
+  assertNull(list.next());
+}
