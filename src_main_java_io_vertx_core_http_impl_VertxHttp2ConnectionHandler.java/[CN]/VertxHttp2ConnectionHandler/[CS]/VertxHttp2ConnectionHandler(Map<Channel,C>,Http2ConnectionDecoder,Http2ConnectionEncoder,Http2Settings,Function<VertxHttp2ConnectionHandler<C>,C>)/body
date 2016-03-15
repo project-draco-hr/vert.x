@@ -1,0 +1,5 @@
+{
+  super(decoder,encoder,initialSettings);
+  this.connectionMap=connectionMap;
+  this.connection=connectionFactory.apply(this);
+}

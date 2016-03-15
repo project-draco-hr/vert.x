@@ -1,7 +1,7 @@
 {
 synchronized (queue) {
-    if (clientHandler == conn) {
-      clientHandler=null;
+    if (connection == conn) {
+      connection=null;
       queue.connectionClosed();
     }
   }

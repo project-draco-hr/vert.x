@@ -1,4 +1,0 @@
-{
-  super(decoder,encoder,initialSettings);
-  connection=connectionFactory.apply(this);
-}

@@ -6,4 +6,7 @@
   for (  ClientConnection conn : connectionMap.values()) {
     conn.close();
   }
+  for (  Http2ClientConnection conn : connectionMap2.values()) {
+    conn.close();
+  }
 }

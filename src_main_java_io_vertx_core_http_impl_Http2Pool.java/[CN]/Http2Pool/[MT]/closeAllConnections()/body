@@ -1,2 +1,9 @@
 {
+  Http2ClientConnection conn;
+synchronized (queue) {
+    conn=this.connection;
+  }
+  if (conn != null) {
+    conn.close();
+  }
 }
