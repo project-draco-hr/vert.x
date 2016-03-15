@@ -5,4 +5,5 @@
   initialWindowSize=DEFAULT_INITIAL_WINDOW_SIZE;
   maxFrameSize=DEFAULT_MAX_FRAME_SIZE;
   maxHeaderListSize=DEFAULT_MAX_HEADER_LIST_SIZE;
+  extraSettings=DEFAULT_EXTRA_SETTINGS;
 }

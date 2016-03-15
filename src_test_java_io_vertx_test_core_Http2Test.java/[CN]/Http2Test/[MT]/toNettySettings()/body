@@ -1,0 +1,14 @@
+{
+  Http2Settings settings=new Http2Settings();
+  for (int i=7; i <= 0xFFFF; i+=1) {
+    settings.put(0xFFFF,TestUtils.randomPositiveLong());
+  }
+  io.netty.handler.codec.http2.Http2Settings conv=HttpUtils.fromVertxSettings(settings);
+  for (int i=1; i <= 0xFFFF; i+=1) {
+    assertEquals(settings.get(i),conv.get((char)i));
+  }
+  settings=HttpUtils.toVertxSettings(conv);
+  for (int i=1; i <= 0xFFFF; i+=1) {
+    assertEquals(settings.get(i),conv.get((char)i));
+  }
+}

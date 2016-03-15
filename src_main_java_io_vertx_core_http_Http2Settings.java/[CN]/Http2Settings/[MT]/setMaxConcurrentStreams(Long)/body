@@ -1,6 +1,0 @@
-{
-  Arguments.require(maxConcurrentStreams == null || maxConcurrentStreams >= Http2CodecUtil.MIN_CONCURRENT_STREAMS,"maxConcurrentStreams must be >= " + Http2CodecUtil.MIN_CONCURRENT_STREAMS);
-  Arguments.require(maxConcurrentStreams == null || maxConcurrentStreams <= Http2CodecUtil.MAX_CONCURRENT_STREAMS,"maxConcurrentStreams must be < " + Http2CodecUtil.MAX_CONCURRENT_STREAMS);
-  this.maxConcurrentStreams=maxConcurrentStreams;
-  return this;
-}

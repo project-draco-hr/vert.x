@@ -3,7 +3,7 @@
     obj.setEnablePush((Boolean)json.getValue("enablePush"));
   }
   if (json.getValue("headerTableSize") instanceof Number) {
-    obj.setHeaderTableSize(((Number)json.getValue("headerTableSize")).intValue());
+    obj.setHeaderTableSize(((Number)json.getValue("headerTableSize")).longValue());
   }
   if (json.getValue("initialWindowSize") instanceof Number) {
     obj.setInitialWindowSize(((Number)json.getValue("initialWindowSize")).intValue());

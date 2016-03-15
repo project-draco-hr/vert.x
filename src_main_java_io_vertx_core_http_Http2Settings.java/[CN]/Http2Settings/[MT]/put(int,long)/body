@@ -1,0 +1,32 @@
+{
+  Arguments.require(code >= 0 || code <= 0xFFFF,"Setting code must me an unsigned 16-bit value");
+  Arguments.require(setting >= 0 || setting <= 0xFFFFFFFF,"Setting value must me an unsigned 32-bit value");
+switch (code) {
+case 1:
+    setHeaderTableSize(setting);
+  break;
+case 2:
+Arguments.require(setting == 0 || setting == 1,"enablePush must be 0 or 1");
+setEnablePush(setting == 1);
+break;
+case 3:
+setMaxConcurrentStreams(setting);
+break;
+case 4:
+setInitialWindowSize((int)setting);
+break;
+case 5:
+setMaxFrameSize((int)setting);
+break;
+case 6:
+Arguments.require(setting <= Integer.MAX_VALUE,"maxHeaderListSize must be <= " + Integer.MAX_VALUE);
+setMaxHeaderListSize((int)setting);
+break;
+default :
+if (extraSettings == null) {
+extraSettings=new HashMap<>();
+}
+extraSettings.put(code,setting);
+}
+return this;
+}
