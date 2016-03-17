@@ -1,18 +1,4 @@
 {
-class Handler extends Http2ConnectionHandler {
-    public Handler(    Http2ConnectionDecoder decoder,    Http2ConnectionEncoder encoder,    Http2Settings initialSettings){
-      super(decoder,encoder,initialSettings);
-      decoder.frameListener(handler.apply(decoder,encoder));
-    }
-  }
-class Builder extends AbstractHttp2ConnectionHandlerBuilder<Handler,Builder> {
-    @Override protected Handler build(    Http2ConnectionDecoder decoder,    Http2ConnectionEncoder encoder,    Http2Settings initialSettings) throws Exception {
-      return new Handler(decoder,encoder,initialSettings);
-    }
-    @Override public Handler build(){
-      return super.build();
-    }
-  }
   ServerBootstrap bootstrap=new ServerBootstrap();
   bootstrap.channel(NioServerSocketChannel.class);
   bootstrap.group(new NioEventLoopGroup());
@@ -25,8 +11,8 @@ class Builder extends AbstractHttp2ConnectionHandlerBuilder<Handler,Builder> {
         @Override protected void configurePipeline(        ChannelHandlerContext ctx,        String protocol){
           if (ApplicationProtocolNames.HTTP_2.equals(protocol)) {
             ChannelPipeline p=ctx.pipeline();
-            Builder builder=new Builder();
-            Handler clientHandler=builder.build();
+            createHttpConnectionHandler(handler);
+            Http2ConnectionHandler clientHandler=createHttpConnectionHandler(handler);
             p.addLast("handler",clientHandler);
             return;
           }

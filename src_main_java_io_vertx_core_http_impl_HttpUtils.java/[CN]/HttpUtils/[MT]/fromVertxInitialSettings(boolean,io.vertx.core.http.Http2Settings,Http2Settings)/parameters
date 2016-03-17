@@ -1,0 +1,3 @@
+boolean server
+io.vertx.core.http.Http2Settings vertxSettings
+Http2Settings nettySettings

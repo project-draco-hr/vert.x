@@ -1,0 +1,12 @@
+{
+  Http2Settings nettySettings=new Http2Settings();
+  HttpUtils.fromVertxInitialSettings(false,settings,nettySettings);
+  Buffer buf=Buffer.buffer();
+  for (  CharObjectMap.PrimitiveEntry<Long> entry : nettySettings.entries()) {
+    buf.appendUnsignedShort(entry.key());
+    buf.appendUnsignedInt(entry.value());
+  }
+  String encodedSettings=new String(java.util.Base64.getUrlEncoder().encode(buf.getBytes()),UTF_8);
+  upgradeRequest.headers().set(HTTP_UPGRADE_SETTINGS_HEADER,encodedSettings);
+  return UPGRADE_HEADERS;
+}

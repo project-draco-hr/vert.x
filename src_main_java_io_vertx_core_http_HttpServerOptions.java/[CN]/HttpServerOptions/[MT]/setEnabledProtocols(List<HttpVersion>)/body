@@ -1,0 +1,4 @@
+{
+  this.enabledProtocols=enabledProtocols;
+  return this;
+}

@@ -1,7 +1,0 @@
-{
-  FrameQueue list=new FrameQueue();
-  HttpFrame frame=new HttpFrameImpl(0,0,Buffer.buffer());
-  list.append(frame);
-  assertSame(frame,list.next());
-  assertNull(list.next());
-}

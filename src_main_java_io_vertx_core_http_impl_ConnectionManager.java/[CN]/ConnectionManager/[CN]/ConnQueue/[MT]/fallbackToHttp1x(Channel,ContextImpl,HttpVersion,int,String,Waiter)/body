@@ -1,0 +1,7 @@
+{
+synchronized (ConnQueue.this) {
+    pool=new Http1xPool(ConnQueue.this);
+  }
+  applyHttp1xConnectionOptions(ch.pipeline(),context);
+  http1xConnected(fallbackVersion,context,port,host,ch,waiter);
+}

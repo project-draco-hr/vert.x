@@ -1,0 +1,18 @@
+{
+class Handler extends Http2ConnectionHandler {
+    public Handler(    Http2ConnectionDecoder decoder,    Http2ConnectionEncoder encoder,    Http2Settings initialSettings){
+      super(decoder,encoder,initialSettings);
+      decoder.frameListener(handler.apply(decoder,encoder));
+    }
+  }
+class Builder extends AbstractHttp2ConnectionHandlerBuilder<Handler,Builder> {
+    @Override protected Handler build(    Http2ConnectionDecoder decoder,    Http2ConnectionEncoder encoder,    Http2Settings initialSettings) throws Exception {
+      return new Handler(decoder,encoder,initialSettings);
+    }
+    @Override public Handler build(){
+      return super.build();
+    }
+  }
+  Builder builder=new Builder();
+  return builder.build();
+}

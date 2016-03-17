@@ -1,0 +1,6 @@
+Channel ch
+ContextImpl context
+HttpVersion fallbackVersion
+int port
+String host
+Waiter waiter

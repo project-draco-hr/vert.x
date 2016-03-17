@@ -10,4 +10,5 @@
   }
   this.sslHelper=new SSLHelper(options,KeyStoreHelper.create(vertx,options.getKeyCertOptions()),KeyStoreHelper.create(vertx,options.getTrustOptions()));
   this.subProtocols=options.getWebsocketSubProtocols();
+  this.http2Enabled=options.getEnabledProtocols() == null || options.getEnabledProtocols().contains(HttpVersion.HTTP_2);
 }

@@ -1,7 +1,0 @@
-{
-  FrameQueue list=new FrameQueue();
-  ByteBuf buf=Unpooled.copiedBuffer("hello",cs);
-  list.append(buf);
-  assertSame(buf,list.next());
-  assertNull(list.next());
-}
