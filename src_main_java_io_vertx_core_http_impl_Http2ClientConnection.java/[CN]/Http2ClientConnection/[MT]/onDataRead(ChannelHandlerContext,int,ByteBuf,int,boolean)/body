@@ -1,8 +1,0 @@
-{
-  VertxHttp2Stream stream=streams.get(streamId);
-  stream.handleData(Buffer.buffer(data.copy()));
-  if (endOfStream) {
-    stream.handleEnd();
-  }
-  return 0;
-}

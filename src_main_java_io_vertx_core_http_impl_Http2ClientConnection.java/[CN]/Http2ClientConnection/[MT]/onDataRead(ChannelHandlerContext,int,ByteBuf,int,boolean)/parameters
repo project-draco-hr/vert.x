@@ -1,5 +1,0 @@
-ChannelHandlerContext ctx
-int streamId
-ByteBuf data
-int padding
-boolean endOfStream
