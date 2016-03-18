@@ -1,4 +1,4 @@
 {
-  ended=true;
+  handleEnded(true);
   handleError(new StreamResetException(code));
 }

@@ -1,4 +1,13 @@
 {
+  if (conn.metrics.isEnabled()) {
+    HttpClientRequestBase req=this.req;
+    if (req.exceptionOccurred) {
+      conn.metrics.requestReset(req.metric());
+    }
+ else {
+      conn.metrics.responseEnd(req.metric(),resp);
+    }
+  }
   ended=true;
   resp.handleEnd(null,new CaseInsensitiveHeaders());
 }

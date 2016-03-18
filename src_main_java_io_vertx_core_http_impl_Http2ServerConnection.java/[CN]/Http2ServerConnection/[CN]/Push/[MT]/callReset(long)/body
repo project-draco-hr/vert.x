@@ -1,3 +1,5 @@
 {
-  response.callReset(errorCode);
+  if (response != null) {
+    response.callReset(errorCode);
+  }
 }

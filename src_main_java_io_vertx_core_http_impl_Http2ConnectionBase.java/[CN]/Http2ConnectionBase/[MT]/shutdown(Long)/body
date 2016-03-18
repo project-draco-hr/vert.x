@@ -2,7 +2,7 @@
   if (!shuttingdown) {
     shuttingdown=true;
     if (timeout != null) {
-      connHandler.gracefulShutdownTimeoutMillis(timeout);
+      handler.gracefulShutdownTimeoutMillis(timeout);
     }
     channel.close();
   }

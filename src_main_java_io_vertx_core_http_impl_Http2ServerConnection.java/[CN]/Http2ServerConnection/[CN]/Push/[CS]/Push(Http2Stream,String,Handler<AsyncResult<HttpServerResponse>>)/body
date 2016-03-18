@@ -1,5 +1,5 @@
 {
-  super(Http2ServerConnection.this.context.owner(),Http2ServerConnection.this.context,Http2ServerConnection.this.handlerContext,connHandler.encoder(),connHandler.decoder(),stream);
-  this.response=new Http2ServerResponseImpl(this,(VertxInternal)context.owner(),handlerContext,Http2ServerConnection.this,connHandler.encoder(),stream,true,contentEncoding);
-  this.handler=handler;
+  super(Http2ServerConnection.this,stream);
+  this.contentEncoding=contentEncoding;
+  this.completionHandler=completionHandler;
 }

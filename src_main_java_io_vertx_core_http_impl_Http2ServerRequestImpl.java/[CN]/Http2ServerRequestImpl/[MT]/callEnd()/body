@@ -1,5 +1,6 @@
 {
   ended=true;
+  conn.reportBytesRead(bytesRead);
   if (decoder != null) {
     try {
       decoder.offer(LastHttpContent.EMPTY_LAST_CONTENT);

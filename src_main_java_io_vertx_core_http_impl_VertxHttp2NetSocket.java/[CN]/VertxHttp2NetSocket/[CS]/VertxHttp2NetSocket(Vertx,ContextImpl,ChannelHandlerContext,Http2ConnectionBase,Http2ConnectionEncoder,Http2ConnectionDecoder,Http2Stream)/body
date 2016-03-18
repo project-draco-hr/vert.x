@@ -1,4 +1,3 @@
 {
-  super(vertx,context,handlerContext,encoder,decoder,stream);
-  this.connection=connection;
+  super(connection,stream);
 }

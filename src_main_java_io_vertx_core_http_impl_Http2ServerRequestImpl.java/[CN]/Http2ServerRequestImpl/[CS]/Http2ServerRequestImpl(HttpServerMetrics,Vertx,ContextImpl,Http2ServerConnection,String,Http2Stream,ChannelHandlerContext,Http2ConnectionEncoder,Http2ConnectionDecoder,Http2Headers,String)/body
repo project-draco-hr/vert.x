@@ -1,0 +1,7 @@
+{
+  super(conn,stream);
+  this.serverOrigin=serverOrigin;
+  this.headers=headers;
+  Object metric=metrics.isEnabled() ? metrics.requestBegin(conn.metric(),this) : null;
+  this.response=new Http2ServerResponseImpl(metrics,metric,this,(VertxInternal)vertx,handlerContext,conn,encoder,stream,false,contentEncoding);
+}

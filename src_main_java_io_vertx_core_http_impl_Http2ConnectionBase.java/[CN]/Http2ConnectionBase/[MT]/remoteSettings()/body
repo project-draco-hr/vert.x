@@ -1,10 +1,10 @@
 {
   io.vertx.core.http.Http2Settings a=new io.vertx.core.http.Http2Settings();
-  a.setPushEnabled(connHandler.connection().remote().allowPushTo());
-  a.setMaxConcurrentStreams((long)connHandler.connection().local().maxActiveStreams());
-  a.setMaxHeaderListSize(connHandler.encoder().configuration().headerTable().maxHeaderListSize());
-  a.setHeaderTableSize(connHandler.encoder().configuration().headerTable().maxHeaderTableSize());
-  a.setMaxFrameSize(connHandler.encoder().configuration().frameSizePolicy().maxFrameSize());
-  a.setInitialWindowSize(connHandler.encoder().flowController().initialWindowSize());
+  a.setPushEnabled(handler.connection().remote().allowPushTo());
+  a.setMaxConcurrentStreams((long)handler.connection().local().maxActiveStreams());
+  a.setMaxHeaderListSize(handler.encoder().configuration().headerTable().maxHeaderListSize());
+  a.setHeaderTableSize(handler.encoder().configuration().headerTable().maxHeaderTableSize());
+  a.setMaxFrameSize(handler.encoder().configuration().frameSizePolicy().maxFrameSize());
+  a.setInitialWindowSize(handler.encoder().flowController().initialWindowSize());
   return a;
 }

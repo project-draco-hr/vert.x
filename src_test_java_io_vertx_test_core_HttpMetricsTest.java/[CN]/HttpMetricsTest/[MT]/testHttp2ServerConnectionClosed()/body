@@ -1,0 +1,3 @@
+{
+  testServerConnectionClosed(HttpVersion.HTTP_2);
+}

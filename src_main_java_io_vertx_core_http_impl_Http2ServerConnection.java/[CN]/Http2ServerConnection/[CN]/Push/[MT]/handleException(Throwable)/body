@@ -1,3 +1,5 @@
 {
-  response.handleError(cause);
+  if (response != null) {
+    response.handleError(cause);
+  }
 }

@@ -1,4 +1,10 @@
 {
-  ended=true;
-  handleException(new StreamResetException(errorCode));
+  if (!ended) {
+    ended=true;
+    if (conn.metrics.isEnabled()) {
+      HttpClientRequestBase req=this.req;
+      conn.metrics.requestReset(req.metric());
+    }
+    handleException(new StreamResetException(errorCode));
+  }
 }

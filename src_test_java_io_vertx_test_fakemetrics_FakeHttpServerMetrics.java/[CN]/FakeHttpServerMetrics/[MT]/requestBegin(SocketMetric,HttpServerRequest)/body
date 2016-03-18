@@ -1,5 +1,5 @@
 {
   HttpServerMetric metric=new HttpServerMetric(request,socketMetric);
-  requests.put(request,metric);
+  requests.add(metric);
   return metric;
 }

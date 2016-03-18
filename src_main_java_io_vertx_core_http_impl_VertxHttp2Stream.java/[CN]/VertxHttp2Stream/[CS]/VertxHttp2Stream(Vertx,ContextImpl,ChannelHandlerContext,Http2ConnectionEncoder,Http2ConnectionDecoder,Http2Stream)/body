@@ -1,9 +1,0 @@
-{
-  this.vertx=vertx;
-  this.handlerContext=handlerContext;
-  this.encoder=encoder;
-  this.decoder=decoder;
-  this.stream=stream;
-  this.context=context;
-  this.channel=handlerContext.channel();
-}

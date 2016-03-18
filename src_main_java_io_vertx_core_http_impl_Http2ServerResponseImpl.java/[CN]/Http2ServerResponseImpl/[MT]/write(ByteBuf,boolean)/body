@@ -1,13 +1,14 @@
 {
   checkEnded();
   if (end) {
-    ended=true;
+    handleEnded(false);
   }
   int len=chunk.readableBytes();
   boolean empty=len == 0;
   boolean sent=checkSendHeaders(empty && end);
   if (!empty || (!sent && end)) {
     stream_.writeData(chunk,end && trailers == null);
+    bytesWritten+=len;
   }
   if (trailers != null && end) {
     encoder.writeHeaders(ctx,stream.id(),trailers,0,true,ctx.newPromise());

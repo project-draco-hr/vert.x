@@ -1,4 +1,14 @@
 {
+  if (metrics.isEnabled()) {
+    HttpClientRequestBase req=currentResponse.request();
+    Object reqMetric=req.metric();
+    if (req.exceptionOccurred) {
+      metrics.requestReset(reqMetric);
+    }
+ else {
+      metrics.responseEnd(reqMetric,currentResponse);
+    }
+  }
   currentResponse.handleEnd(pausedChunk,new HeadersAdaptor(trailer.trailingHeaders()));
   if (currentResponse.statusCode() != 100 && requestForResponse.getMethod() != io.vertx.core.http.HttpMethod.CONNECT) {
     boolean close=false;

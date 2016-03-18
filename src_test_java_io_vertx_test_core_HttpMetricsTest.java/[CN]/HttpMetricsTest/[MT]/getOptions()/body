@@ -1,0 +1,5 @@
+{
+  VertxOptions options=super.getOptions();
+  options.setMetricsOptions(new MetricsOptions().setEnabled(true));
+  return options;
+}

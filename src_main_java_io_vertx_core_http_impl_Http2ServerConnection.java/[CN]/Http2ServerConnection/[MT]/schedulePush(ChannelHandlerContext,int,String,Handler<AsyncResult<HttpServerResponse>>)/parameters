@@ -1,4 +1,0 @@
-ChannelHandlerContext ctx
-int streamId
-String contentEncoding
-Handler<AsyncResult<HttpServerResponse>> handler

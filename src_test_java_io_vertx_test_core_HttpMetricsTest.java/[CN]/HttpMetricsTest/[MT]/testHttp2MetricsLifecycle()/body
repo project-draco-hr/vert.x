@@ -1,0 +1,3 @@
+{
+  testMetricsLifecycle(HttpVersion.HTTP_2);
+}

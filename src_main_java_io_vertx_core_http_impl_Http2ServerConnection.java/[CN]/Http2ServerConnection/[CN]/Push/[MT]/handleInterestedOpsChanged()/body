@@ -1,3 +1,5 @@
 {
-  response.writabilityChanged();
+  if (response != null) {
+    response.writabilityChanged();
+  }
 }

@@ -2,7 +2,13 @@
   if (metrics.isEnabled()) {
     reportBytesWritten(bytesWritten);
     bytesWritten=0;
-    metrics.responseEnd(requestMetric,pendingResponse);
+    if (requestFailed) {
+      metrics.requestReset(requestMetric);
+      requestFailed=false;
+    }
+ else {
+      metrics.responseEnd(requestMetric,pendingResponse);
+    }
   }
   pendingResponse=null;
   checkNextTick();

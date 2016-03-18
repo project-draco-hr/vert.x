@@ -2,7 +2,6 @@
 synchronized (conn) {
     conn.connection().reportBytesRead(bytesRead);
     bytesRead=0;
-    request.reportResponseEnd(this);
     if (paused) {
       pausedLastChunk=lastChunk;
       hasPausedEnd=true;

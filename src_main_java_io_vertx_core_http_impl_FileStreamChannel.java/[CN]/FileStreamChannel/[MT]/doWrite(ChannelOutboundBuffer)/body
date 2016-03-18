@@ -2,12 +2,13 @@
   ByteBuf chunk;
   while (!stream.isNotWritable() && (chunk=(ByteBuf)in.current()) != null && length > 0) {
     length-=chunk.readableBytes();
+    bytesWritten+=chunk.readableBytes();
     boolean end=length == 0;
-    stream.writeData(chunk.retain(),end);
+    stream.writeData(chunk.retain(),false);
     stream.handlerContext.flush();
     in.remove();
     if (end) {
-      endHandler.handle(null);
+      endHandler.handle(bytesWritten);
     }
   }
 }

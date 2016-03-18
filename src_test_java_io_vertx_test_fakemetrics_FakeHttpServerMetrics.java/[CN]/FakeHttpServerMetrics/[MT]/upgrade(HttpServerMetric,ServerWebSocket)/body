@@ -1,5 +1,5 @@
 {
-  requests.remove(requestMetric.request);
+  requests.remove(requestMetric);
   WebSocketMetric metric=new WebSocketMetric(requestMetric.socket,serverWebSocket);
   webSockets.put(serverWebSocket,metric);
   return metric;

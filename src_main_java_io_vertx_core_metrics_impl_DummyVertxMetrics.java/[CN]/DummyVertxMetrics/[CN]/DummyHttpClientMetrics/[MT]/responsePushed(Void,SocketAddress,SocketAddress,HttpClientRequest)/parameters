@@ -1,0 +1,4 @@
+Void socketMetric
+SocketAddress localAddress
+SocketAddress remoteAddress
+HttpClientRequest request

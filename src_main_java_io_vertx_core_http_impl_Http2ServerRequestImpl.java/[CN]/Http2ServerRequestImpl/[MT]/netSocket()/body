@@ -1,5 +1,5 @@
 {
   checkEnded();
   response.toNetSocket();
-  return connection.toNetSocket(this);
+  return conn.toNetSocket(this);
 }

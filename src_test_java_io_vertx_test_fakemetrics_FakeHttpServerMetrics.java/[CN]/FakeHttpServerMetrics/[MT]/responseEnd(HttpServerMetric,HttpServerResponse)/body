@@ -1,3 +1,3 @@
 {
-  requests.remove(requestMetric.request);
+  requests.remove(requestMetric);
 }

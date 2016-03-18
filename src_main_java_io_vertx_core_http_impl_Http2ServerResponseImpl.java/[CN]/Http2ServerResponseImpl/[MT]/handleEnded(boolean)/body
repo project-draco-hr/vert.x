@@ -1,0 +1,16 @@
+{
+  if (!ended) {
+    ended=true;
+    if (metric != null) {
+      if (failed) {
+        metrics.requestReset(metric);
+      }
+ else {
+        connection.reportBytesWritten(bytesWritten);
+        metrics.responseEnd(metric,this);
+      }
+    }
+    return true;
+  }
+  return false;
+}

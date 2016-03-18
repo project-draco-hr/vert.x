@@ -1,0 +1,10 @@
+HttpServerMetrics metrics
+Object metric
+VertxHttp2Stream stream_
+VertxInternal vertx
+ChannelHandlerContext ctx
+Http2ServerConnection connection
+Http2ConnectionEncoder encoder
+Http2Stream stream
+boolean push
+String contentEncoding

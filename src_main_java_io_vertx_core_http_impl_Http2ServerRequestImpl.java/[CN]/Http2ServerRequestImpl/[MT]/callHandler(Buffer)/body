@@ -1,4 +1,5 @@
 {
+  bytesRead+=data.length();
   if (decoder != null) {
     try {
       decoder.offer(new DefaultHttpContent(data.getByteBuf()));

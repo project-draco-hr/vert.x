@@ -1,6 +1,0 @@
-Vertx vertx
-ContextImpl context
-ChannelHandlerContext handlerContext
-Http2ConnectionEncoder encoder
-Http2ConnectionDecoder decoder
-Http2Stream stream
