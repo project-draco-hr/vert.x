@@ -1,0 +1,10 @@
+{
+  long result=super.hashCode();
+  result=31 * result + (pushEnabled ? 1 : 0);
+  result=31 * result + maxConcurrentStreams;
+  result=31 * result + maxConcurrentStreams;
+  result=31 * result + initialWindowSize;
+  result=31 * result + maxFrameSize;
+  result=31 * result + maxHeaderListSize;
+  return Long.hashCode(result);
+}

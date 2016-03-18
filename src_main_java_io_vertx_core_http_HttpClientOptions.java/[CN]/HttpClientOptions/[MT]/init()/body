@@ -11,4 +11,5 @@
   maxChunkSize=DEFAULT_MAX_CHUNK_SIZE;
   maxWaitQueueSize=DEFAULT_MAX_WAIT_QUEUE_SIZE;
   alpnFallbackProtocolVersion=DEFAULT_ALPN_FALLBACK_PROTOCOL_VERSION;
+  initialSettings=new Http2Settings();
 }

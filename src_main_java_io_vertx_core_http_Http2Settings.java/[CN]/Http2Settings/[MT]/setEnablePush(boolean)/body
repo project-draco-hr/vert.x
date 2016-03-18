@@ -1,4 +1,0 @@
-{
-  this.enablePush=enablePush;
-  return this;
-}

@@ -1,0 +1,16 @@
+{
+  for (int i=1; i <= 6; i++) {
+    try {
+      new Http2Settings().set(i,max[i - 1] + 1);
+      System.out.println("i = " + i);
+      fail();
+    }
+ catch (    IllegalArgumentException ignore) {
+    }
+  }
+  Http2Settings settings=new Http2Settings();
+  for (int i=1; i <= 6; i++) {
+    settings.set(i,max[i - 1]);
+  }
+  HttpUtils.fromVertxSettings(settings);
+}

@@ -1,8 +1,8 @@
 {
-  json.put("enablePush",obj.getEnablePush());
   json.put("headerTableSize",obj.getHeaderTableSize());
   json.put("initialWindowSize",obj.getInitialWindowSize());
   json.put("maxConcurrentStreams",obj.getMaxConcurrentStreams());
   json.put("maxFrameSize",obj.getMaxFrameSize());
   json.put("maxHeaderListSize",obj.getMaxHeaderListSize());
+  json.put("pushEnabled",obj.isPushEnabled());
 }

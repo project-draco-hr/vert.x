@@ -29,6 +29,8 @@
   boolean tryUseCompression=rand.nextBoolean();
   HttpVersion protocolVersion=HttpVersion.HTTP_1_0;
   int maxWaitQueueSize=TestUtils.randomPositiveInt();
+  HttpVersion alpnFallbackProtocolVersion=TestUtils.randomBoolean() ? HttpVersion.HTTP_1_1 : HttpVersion.HTTP_1_0;
+  Http2Settings initialSettings=randomHttp2Settings();
   options.setSendBufferSize(sendBufferSize);
   options.setReceiveBufferSize(receiverBufferSize);
   options.setReuseAddress(reuseAddress);
@@ -53,6 +55,8 @@
   options.setTryUseCompression(tryUseCompression);
   options.setProtocolVersion(protocolVersion);
   options.setMaxWaitQueueSize(maxWaitQueueSize);
+  options.setAlpnFallbackProtocolVersion(alpnFallbackProtocolVersion);
+  options.setInitialSettings(initialSettings);
   HttpClientOptions copy=new HttpClientOptions(options);
   assertEquals(sendBufferSize,copy.getSendBufferSize());
   assertEquals(receiverBufferSize,copy.getReceiveBufferSize());
@@ -83,4 +87,6 @@
   assertEquals(tryUseCompression,copy.isTryUseCompression());
   assertEquals(protocolVersion,copy.getProtocolVersion());
   assertEquals(maxWaitQueueSize,copy.getMaxWaitQueueSize());
+  assertEquals(alpnFallbackProtocolVersion,copy.getAlpnFallbackProtocolVersion());
+  assertEquals(initialSettings,copy.getInitialSettings());
 }

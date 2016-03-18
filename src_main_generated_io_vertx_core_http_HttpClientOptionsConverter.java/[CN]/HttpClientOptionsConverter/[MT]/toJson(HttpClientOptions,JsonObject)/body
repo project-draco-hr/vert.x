@@ -6,8 +6,8 @@
     json.put("defaultHost",obj.getDefaultHost());
   }
   json.put("defaultPort",obj.getDefaultPort());
-  if (obj.getHttp2Settings() != null) {
-    json.put("http2Settings",obj.getHttp2Settings().toJson());
+  if (obj.getInitialSettings() != null) {
+    json.put("initialSettings",obj.getInitialSettings().toJson());
   }
   json.put("keepAlive",obj.isKeepAlive());
   json.put("maxChunkSize",obj.getMaxChunkSize());

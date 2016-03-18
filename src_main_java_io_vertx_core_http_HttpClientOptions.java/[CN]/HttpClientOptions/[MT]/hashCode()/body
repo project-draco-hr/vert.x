@@ -11,5 +11,7 @@
   result=31 * result + protocolVersion.hashCode();
   result=31 * result + maxChunkSize;
   result=31 * result + maxWaitQueueSize;
+  result=31 * result + alpnFallbackProtocolVersion.hashCode();
+  result=31 * result + (initialSettings != null ? initialSettings.hashCode() : 0);
   return result;
 }

@@ -1,4 +1,7 @@
 {
+  if (alpnFallbackProtocolVersion != HttpVersion.HTTP_1_0 && alpnFallbackProtocolVersion != HttpVersion.HTTP_1_1) {
+    throw new IllegalArgumentException("ALPN fallback protocol must be HTTP/1.1 or HTTP/1.0");
+  }
   this.alpnFallbackProtocolVersion=alpnFallbackProtocolVersion;
   return this;
 }

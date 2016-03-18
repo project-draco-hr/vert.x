@@ -14,5 +14,7 @@
   if (protocolVersion != that.protocolVersion)   return false;
   if (maxChunkSize != that.maxChunkSize)   return false;
   if (maxWaitQueueSize != that.maxWaitQueueSize)   return false;
+  if (alpnFallbackProtocolVersion != that.alpnFallbackProtocolVersion)   return false;
+  if (initialSettings == null ? that.initialSettings != null : !initialSettings.equals(that.initialSettings))   return false;
   return true;
 }

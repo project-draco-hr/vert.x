@@ -1,4 +1,4 @@
 {
-  this.extraSettings=extraSettings;
+  extraSettings=settings;
   return this;
 }

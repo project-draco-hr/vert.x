@@ -1,0 +1,9 @@
+{
+  EnumSet<E> set=EnumSet.noneOf(enumType);
+  for (  E e : EnumSet.allOf(enumType)) {
+    if (randomPositiveInt() % 2 == 1) {
+      set.add(e);
+    }
+  }
+  return set;
+}

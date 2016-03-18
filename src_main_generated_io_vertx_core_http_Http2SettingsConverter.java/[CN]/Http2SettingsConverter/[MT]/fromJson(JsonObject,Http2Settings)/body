@@ -1,7 +1,4 @@
 {
-  if (json.getValue("enablePush") instanceof Boolean) {
-    obj.setEnablePush((Boolean)json.getValue("enablePush"));
-  }
   if (json.getValue("headerTableSize") instanceof Number) {
     obj.setHeaderTableSize(((Number)json.getValue("headerTableSize")).longValue());
   }
@@ -16,5 +13,8 @@
   }
   if (json.getValue("maxHeaderListSize") instanceof Number) {
     obj.setMaxHeaderListSize(((Number)json.getValue("maxHeaderListSize")).intValue());
+  }
+  if (json.getValue("pushEnabled") instanceof Boolean) {
+    obj.setPushEnabled((Boolean)json.getValue("pushEnabled"));
   }
 }

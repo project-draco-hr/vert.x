@@ -1,9 +1,9 @@
 {
-  headerTableSize=that.headerTableSize;
-  enablePush=that.enablePush;
-  maxConcurrentStreams=that.maxConcurrentStreams;
-  initialWindowSize=that.initialWindowSize;
-  maxFrameSize=that.maxFrameSize;
-  maxHeaderListSize=that.maxHeaderListSize;
-  extraSettings=that.extraSettings != null ? new HashMap<>(that.extraSettings) : null;
+  headerTableSize=other.headerTableSize;
+  pushEnabled=other.pushEnabled;
+  maxConcurrentStreams=other.maxConcurrentStreams;
+  initialWindowSize=other.initialWindowSize;
+  maxFrameSize=other.maxFrameSize;
+  maxHeaderListSize=other.maxHeaderListSize;
+  extraSettings=other.extraSettings != null ? new HashMap<>(other.extraSettings) : null;
 }

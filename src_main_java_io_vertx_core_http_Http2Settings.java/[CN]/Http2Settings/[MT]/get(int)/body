@@ -1,9 +1,9 @@
 {
-switch (code) {
+switch (id) {
 case 1:
-    return (long)headerTableSize;
+    return headerTableSize;
 case 2:
-  return enablePush ? 1L : 0L;
+  return pushEnabled ? 1L : 0L;
 case 3:
 return maxConcurrentStreams;
 case 4:
@@ -13,6 +13,6 @@ return (long)maxFrameSize;
 case 6:
 return (long)maxHeaderListSize;
 default :
-return extraSettings != null ? extraSettings.get(code) : null;
+return extraSettings != null ? extraSettings.get(id) : null;
 }
 }

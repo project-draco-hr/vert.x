@@ -7,6 +7,5 @@
   this.maxChunkSize=other.getMaxChunkSize();
   this.maxInitialLineLength=other.getMaxInitialLineLength();
   this.maxHeaderSize=other.getMaxHeaderSize();
-  this.http2Settings=other.http2Settings != null ? new Http2Settings(other.http2Settings) : null;
-  this.enabledProtocols=other.enabledProtocols != null ? new ArrayList<>(other.enabledProtocols) : null;
+  this.initialSettings=other.initialSettings != null ? new Http2Settings(other.initialSettings) : null;
 }
