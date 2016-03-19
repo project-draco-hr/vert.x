@@ -1,0 +1,6 @@
+{
+  if (options.getIdleTimeout() > 0) {
+    pipeline.addLast("idle",new IdleStateHandler(0,0,options.getIdleTimeout()));
+  }
+  pipeline.addLast("handler",handler);
+}
