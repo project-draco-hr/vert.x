@@ -1,1 +1,1 @@
-VertxHttp2Stream
+VertxHttp2Stream<Http2ServerConnection>

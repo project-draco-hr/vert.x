@@ -1,11 +1,9 @@
 HttpServerMetrics metrics
 Vertx vertx
-ContextImpl context
 Http2ServerConnection conn
 String serverOrigin
 Http2Stream stream
 ChannelHandlerContext handlerContext
 Http2ConnectionEncoder encoder
-Http2ConnectionDecoder decoder
 Http2Headers headers
 String contentEncoding
