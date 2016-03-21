@@ -26,7 +26,7 @@ class TestClientHandlerBuilder extends AbstractHttp2ConnectionHandlerBuilder<Tes
   bootstrap.handler(new ChannelInitializer<Channel>(){
     @Override protected void initChannel(    Channel ch) throws Exception {
       SSLHelper sslHelper=new SSLHelper(new HttpClientOptions().setUseAlpn(true),null,KeyStoreHelper.create((VertxInternal)vertx,getClientTrustOptions(Trust.JKS)));
-      SslHandler sslHandler=sslHelper.createSslHandler((VertxInternal)vertx,true,host,port);
+      SslHandler sslHandler=sslHelper.createSslHandler((VertxInternal)vertx,true,host,port,true);
       ch.pipeline().addLast(sslHandler);
       ch.pipeline().addLast(new ApplicationProtocolNegotiationHandler("whatever"){
         @Override protected void configurePipeline(        ChannelHandlerContext ctx,        String protocol){

@@ -1,0 +1,5 @@
+VertxInternal vertx
+boolean client
+String host
+int port
+boolean useALPN
