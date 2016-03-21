@@ -1,0 +1,14 @@
+{
+  if (push) {
+    throw new IllegalStateException("A push response cannot promise another push");
+  }
+  checkEnded();
+  Http2Headers headers=new DefaultHttp2Headers();
+  headers.method(method.name());
+  headers.path(path);
+  if (host != null) {
+    headers.authority(host);
+  }
+  connection.sendPush(stream.id(),headers,handler);
+  return this;
+}

@@ -1,0 +1,4 @@
+io.vertx.core.http.HttpMethod method
+String host
+String path
+Handler<AsyncResult<HttpServerResponse>> handler

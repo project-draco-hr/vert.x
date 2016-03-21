@@ -1,4 +1,6 @@
 {
+  if (host == null) {
+  }
   this.metrics=metrics;
   this.metric=metric;
   this.stream_=stream_;
@@ -8,6 +10,7 @@
   this.encoder=encoder;
   this.stream=stream;
   this.push=push;
+  this.host=host;
   if (contentEncoding != null) {
     putHeader(HttpHeaderNames.CONTENT_ENCODING,contentEncoding);
   }
