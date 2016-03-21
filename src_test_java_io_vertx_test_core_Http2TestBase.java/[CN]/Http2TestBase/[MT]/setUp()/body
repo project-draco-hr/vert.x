@@ -1,6 +1,6 @@
 {
   super.setUp();
-  serverOptions=new HttpServerOptions().setPort(4043).setHost("localhost").setUseAlpn(true).setSsl(true).addEnabledCipherSuite("TLS_RSA_WITH_AES_128_CBC_SHA").setKeyStoreOptions((JksOptions)getServerCertOptions(KeyCert.JKS));
+  serverOptions=new HttpServerOptions().setPort(DEFAULT_HTTPS_PORT).setHost(DEFAULT_HTTP_HOST).setUseAlpn(true).setSsl(true).addEnabledCipherSuite("TLS_RSA_WITH_AES_128_CBC_SHA").setKeyStoreOptions((JksOptions)getServerCertOptions(KeyCert.JKS));
   clientOptions=new HttpClientOptions().setUseAlpn(true).setTrustStoreOptions((JksOptions)getClientTrustOptions(Trust.JKS)).setProtocolVersion(HttpVersion.HTTP_2);
   server=vertx.createHttpServer(serverOptions);
 }

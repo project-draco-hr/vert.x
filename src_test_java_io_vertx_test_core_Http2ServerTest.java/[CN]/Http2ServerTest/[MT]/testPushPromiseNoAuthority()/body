@@ -1,5 +1,5 @@
 {
   Http2Headers get=GET("/");
   get.remove("authority");
-  testPushPromise(get,"localhost:4043",false);
+  testPushPromise(get,DEFAULT_HTTPS_HOST_AND_PORT,false);
 }
