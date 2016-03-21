@@ -1,5 +1,5 @@
 {
-  if (resp == null || resp.statusCode() == 100) {
+  if (response == null || response.statusCode() == 100) {
     int status;
     String statusMessage;
     try {
@@ -7,18 +7,19 @@
       statusMessage=HttpResponseStatus.valueOf(status).reasonPhrase();
     }
  catch (    Exception e) {
+      e.printStackTrace();
       handleException(e);
       encoder.writeRstStream(handlerContext,stream.id(),0x01,handlerContext.newPromise());
       channel.flush();
       return;
     }
-    resp=new HttpClientResponseImpl(req,HttpVersion.HTTP_2,this,status,statusMessage,new Http2HeadersAdaptor(headers));
-    req.handleResponse(resp);
+    response=new HttpClientResponseImpl(request,HttpVersion.HTTP_2,this,status,statusMessage,new Http2HeadersAdaptor(headers));
+    request.handleResponse(response);
     if (end) {
       handleEnd();
     }
   }
  else   if (end) {
-    resp.handleEnd(null,new Http2HeadersAdaptor(headers));
+    response.handleEnd(null,new Http2HeadersAdaptor(headers));
   }
 }

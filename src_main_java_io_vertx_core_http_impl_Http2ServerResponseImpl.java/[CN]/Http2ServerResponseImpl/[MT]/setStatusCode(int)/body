@@ -4,6 +4,5 @@
   }
   checkHeadWritten();
   this.statusCode=statusCode;
-  headers.status("" + statusCode);
   return this;
 }

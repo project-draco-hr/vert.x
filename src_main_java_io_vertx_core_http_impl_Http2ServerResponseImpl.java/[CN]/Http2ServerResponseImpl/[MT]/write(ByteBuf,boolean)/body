@@ -5,12 +5,12 @@
   }
   int len=chunk.readableBytes();
   boolean empty=len == 0;
-  boolean sent=checkSendHeaders(empty && end);
+  boolean sent=checkSendHeaders(end && empty && trailers == null);
   if (!empty || (!sent && end)) {
     stream_.writeData(chunk,end && trailers == null);
     bytesWritten+=len;
   }
-  if (trailers != null && end) {
+  if (end && trailers != null) {
     encoder.writeHeaders(ctx,stream.id(),trailers,0,true,ctx.newPromise());
   }
   if (end && bodyEndHandler != null) {

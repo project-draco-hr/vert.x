@@ -1,7 +1,7 @@
 {
-  if (req instanceof HttpClientRequestImpl && !isNotWritable()) {
+  if (request instanceof HttpClientRequestImpl && !isNotWritable()) {
     if (!isNotWritable()) {
-      ((HttpClientRequestImpl)req).handleDrained();
+      ((HttpClientRequestImpl)request).handleDrained();
     }
   }
 }

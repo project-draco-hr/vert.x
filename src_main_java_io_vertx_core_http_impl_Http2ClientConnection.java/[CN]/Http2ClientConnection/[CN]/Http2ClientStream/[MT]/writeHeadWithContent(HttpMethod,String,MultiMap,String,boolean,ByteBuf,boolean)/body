@@ -26,7 +26,7 @@
     h.set(HttpHeaderNames.ACCEPT_ENCODING,DEFLATE_GZIP);
   }
   if (conn.metrics.isEnabled()) {
-    ((HttpClientRequestImpl)req).metric(conn.metrics.requestBegin(conn.metric,conn.localAddress(),conn.remoteAddress(),req));
+    request.metric(conn.metrics.requestBegin(conn.metric,conn.localAddress(),conn.remoteAddress(),request));
   }
   encoder.writeHeaders(handlerContext,stream.id(),h,0,end && content == null,handlerContext.newPromise());
   if (content != null) {

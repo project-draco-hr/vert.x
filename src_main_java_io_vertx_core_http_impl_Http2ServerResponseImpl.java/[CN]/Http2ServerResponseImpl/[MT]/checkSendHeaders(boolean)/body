@@ -4,6 +4,7 @@
       headersEndHandler.handle(null);
     }
     headWritten=true;
+    headers.status(Integer.toString(statusCode));
     encoder.writeHeaders(ctx,stream.id(),headers,0,end,ctx.newPromise());
     if (end) {
       ctx.flush();
