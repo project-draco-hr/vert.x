@@ -1,0 +1,8 @@
+{
+  File f=File.createTempFile("vertx",".bin");
+  f.deleteOnExit();
+  try (FileOutputStream out=new FileOutputStream(f)){
+    out.write(buffer.getBytes());
+  }
+   return f;
+}
