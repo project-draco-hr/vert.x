@@ -1,0 +1,3 @@
+Handler<AsyncResult<Long>> resultHandler
+VertxHttp2Stream stream
+long length
