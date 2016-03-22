@@ -2,4 +2,7 @@
   if (response != null) {
     response.callReset(errorCode);
   }
+ else {
+    completionHandler.fail(new StreamResetException(errorCode));
+  }
 }

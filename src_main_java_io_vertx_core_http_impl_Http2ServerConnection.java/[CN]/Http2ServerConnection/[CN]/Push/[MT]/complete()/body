@@ -1,4 +1,4 @@
 {
   response=new Http2ServerResponseImpl(Http2ServerConnection.this,this,true,contentEncoding);
-  completionHandler.handle(Future.succeededFuture(response));
+  completionHandler.complete(response);
 }
