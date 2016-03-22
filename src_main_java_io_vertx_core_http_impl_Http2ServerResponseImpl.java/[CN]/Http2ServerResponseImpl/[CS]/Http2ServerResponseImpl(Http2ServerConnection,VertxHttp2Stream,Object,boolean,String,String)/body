@@ -1,14 +1,8 @@
 {
-  if (host == null) {
-  }
-  this.metrics=metrics;
   this.metric=metric;
-  this.stream_=stream_;
-  this.vertx=vertx;
-  this.ctx=ctx;
-  this.connection=connection;
-  this.encoder=encoder;
   this.stream=stream;
+  this.ctx=connection.handlerContext;
+  this.connection=connection;
   this.push=push;
   this.host=host;
   if (contentEncoding != null) {

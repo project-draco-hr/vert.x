@@ -1,0 +1,6 @@
+Http2ServerConnection connection
+VertxHttp2Stream stream
+Object metric
+boolean push
+String contentEncoding
+String host

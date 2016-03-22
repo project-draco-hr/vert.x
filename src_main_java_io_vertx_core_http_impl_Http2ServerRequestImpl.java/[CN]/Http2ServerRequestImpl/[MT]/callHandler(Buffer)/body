@@ -1,8 +1,8 @@
 {
   bytesRead+=data.length();
-  if (decoder != null) {
+  if (postRequestDecoder != null) {
     try {
-      decoder.offer(new DefaultHttpContent(data.getByteBuf()));
+      postRequestDecoder.offer(new DefaultHttpContent(data.getByteBuf()));
     }
  catch (    Exception e) {
       handleException(e);

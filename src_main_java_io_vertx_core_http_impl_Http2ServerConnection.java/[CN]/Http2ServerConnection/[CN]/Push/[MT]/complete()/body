@@ -1,4 +1,4 @@
 {
-  response=new Http2ServerResponseImpl(metrics,this,(VertxInternal)context.owner(),handlerContext,Http2ServerConnection.this,Http2ServerConnection.this.handler.encoder(),stream,true,contentEncoding);
+  response=new Http2ServerResponseImpl(Http2ServerConnection.this,this,true,contentEncoding);
   completionHandler.handle(Future.succeededFuture(response));
 }

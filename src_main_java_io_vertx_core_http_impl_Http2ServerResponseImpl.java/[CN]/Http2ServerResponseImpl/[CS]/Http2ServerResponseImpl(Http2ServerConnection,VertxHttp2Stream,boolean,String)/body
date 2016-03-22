@@ -1,0 +1,11 @@
+{
+  this.stream=stream;
+  this.ctx=connection.handlerContext;
+  this.connection=connection;
+  this.push=push;
+  this.host=null;
+  if (contentEncoding != null) {
+    putHeader(HttpHeaderNames.CONTENT_ENCODING,contentEncoding);
+  }
+  this.metric=connection.metrics().responsePushed(connection.metric(),this);
+}

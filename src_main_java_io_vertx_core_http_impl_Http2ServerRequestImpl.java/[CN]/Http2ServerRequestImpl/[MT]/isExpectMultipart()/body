@@ -1,3 +1,3 @@
 {
-  return decoder != null;
+  return postRequestDecoder != null;
 }

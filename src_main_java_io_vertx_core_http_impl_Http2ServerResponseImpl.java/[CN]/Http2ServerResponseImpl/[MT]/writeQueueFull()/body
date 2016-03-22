@@ -1,4 +1,4 @@
 {
   checkEnded();
-  return stream_.isNotWritable();
+  return stream.isNotWritable();
 }

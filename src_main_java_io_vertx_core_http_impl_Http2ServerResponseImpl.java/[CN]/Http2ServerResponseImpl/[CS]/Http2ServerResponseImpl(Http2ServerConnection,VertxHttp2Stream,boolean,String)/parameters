@@ -1,0 +1,4 @@
+Http2ServerConnection connection
+VertxHttp2Stream stream
+boolean push
+String contentEncoding
