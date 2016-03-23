@@ -1,0 +1,4 @@
+{
+  writable=!writable;
+  handleInterestedOpsChanged();
+}
