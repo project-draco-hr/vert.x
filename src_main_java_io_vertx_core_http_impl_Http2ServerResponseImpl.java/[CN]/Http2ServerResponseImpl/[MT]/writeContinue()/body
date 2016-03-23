@@ -1,6 +1,6 @@
 {
   checkHeadWritten();
-  stream.encoder.writeHeaders(ctx,stream.id(),new DefaultHttp2Headers().status("100"),0,false,ctx.newPromise());
+  stream.writeHeaders(new DefaultHttp2Headers().status("100"),false);
   ctx.flush();
   return this;
 }

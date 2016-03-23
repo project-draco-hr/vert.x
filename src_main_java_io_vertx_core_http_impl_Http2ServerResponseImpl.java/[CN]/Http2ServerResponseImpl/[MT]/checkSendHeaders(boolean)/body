@@ -5,7 +5,7 @@
     }
     headWritten=true;
     headers.status(Integer.toString(statusCode));
-    stream.encoder.writeHeaders(ctx,stream.id(),headers,0,end,ctx.newPromise());
+    stream.writeHeaders(headers,end);
     if (end) {
       ctx.flush();
     }

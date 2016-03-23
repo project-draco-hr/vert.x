@@ -9,14 +9,13 @@
  catch (    Exception e) {
       e.printStackTrace();
       handleException(e);
-      encoder.writeRstStream(handlerContext,stream.id(),0x01,handlerContext.newPromise());
-      channel.flush();
+      writeReset(0x01);
       return;
     }
     response=new HttpClientResponseImpl(request,HttpVersion.HTTP_2,this,status,statusMessage,new Http2HeadersAdaptor(headers));
     request.handleResponse(response);
     if (end) {
-      handleEnd();
+      onEnd();
     }
   }
  else   if (end) {

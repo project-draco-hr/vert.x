@@ -1,0 +1,15 @@
+{
+  if (!paused) {
+    if (pending.isEmpty()) {
+      handleData(data);
+      consume(data.length());
+    }
+ else {
+      pending.add(data);
+      checkNextTick(null);
+    }
+  }
+ else {
+    pending.add(data);
+  }
+}

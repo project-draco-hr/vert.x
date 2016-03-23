@@ -1,6 +1,6 @@
 {
   checkEnded();
   handleEnded(true);
-  stream.encoder.writeRstStream(ctx,stream.id(),code,ctx.newPromise());
+  stream.writeReset(code);
   ctx.flush();
 }

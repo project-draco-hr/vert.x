@@ -1,7 +1,7 @@
 {
   checkEnded();
   checkSendHeaders(false);
-  stream.encoder.writeFrame(ctx,(byte)type,stream.id(),new Http2Flags((short)flags),payload.getByteBuf(),ctx.newPromise());
+  stream.writeFrame(type,flags,payload.getByteBuf());
   ctx.flush();
   return this;
 }

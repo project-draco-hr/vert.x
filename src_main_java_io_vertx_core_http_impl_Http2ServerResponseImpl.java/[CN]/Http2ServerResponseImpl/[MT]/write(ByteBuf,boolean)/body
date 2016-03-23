@@ -11,7 +11,7 @@
     bytesWritten+=len;
   }
   if (end && trailers != null) {
-    stream.encoder.writeHeaders(ctx,stream.id(),trailers,0,true,ctx.newPromise());
+    stream.writeHeaders(trailers,true);
   }
   if (end && bodyEndHandler != null) {
     bodyEndHandler.handle(null);

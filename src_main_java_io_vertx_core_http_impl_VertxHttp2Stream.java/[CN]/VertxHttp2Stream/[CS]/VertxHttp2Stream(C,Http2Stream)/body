@@ -6,5 +6,4 @@
   this.decoder=conn.handler.decoder();
   this.stream=stream;
   this.context=conn.getContext();
-  this.channel=conn.channel;
 }

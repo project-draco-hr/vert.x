@@ -28,11 +28,11 @@
   if (conn.metrics.isEnabled()) {
     request.metric(conn.metrics.requestBegin(conn.metric,conn.localAddress(),conn.remoteAddress(),request));
   }
-  encoder.writeHeaders(handlerContext,stream.id(),h,0,end && content == null,handlerContext.newPromise());
+  writeHeaders(h,end && content == null);
   if (content != null) {
     writeBuffer(content,end);
   }
  else {
-    channel.flush();
+    handlerContext.flush();
   }
 }

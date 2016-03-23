@@ -1,0 +1,4 @@
+{
+  encoder.writeFrame(handlerContext,(byte)type,stream.id(),new Http2Flags((short)flags),payload,handlerContext.newPromise());
+  handlerContext.flush();
+}
