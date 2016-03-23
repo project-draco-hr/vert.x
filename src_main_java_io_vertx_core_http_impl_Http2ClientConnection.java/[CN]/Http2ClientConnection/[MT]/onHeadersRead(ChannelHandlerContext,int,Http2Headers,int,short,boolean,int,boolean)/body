@@ -1,4 +1,0 @@
-{
-  Http2ClientStream stream=(Http2ClientStream)streams.get(streamId);
-  stream.handleHeaders(headers,endOfStream);
-}

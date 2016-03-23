@@ -1,5 +1,7 @@
 {
-  assertEquals(context,Vertx.currentContext());
+  Context current=Vertx.currentContext();
+  assertNotNull(current);
+  assertEquals(context,current);
   for (  StackTraceElement elt : Thread.currentThread().getStackTrace()) {
     if (elt.getMethodName().equals("executeFromIO")) {
       return;

@@ -1,8 +1,0 @@
-ChannelHandlerContext ctx
-int streamId
-Http2Headers headers
-int streamDependency
-short weight
-boolean exclusive
-int padding
-boolean endOfStream

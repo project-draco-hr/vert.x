@@ -1,2 +1,6 @@
 {
+  Handler<Void> handler=this.drainHandler;
+  if (handler != null && !writeQueueFull()) {
+    handler.handle(null);
+  }
 }

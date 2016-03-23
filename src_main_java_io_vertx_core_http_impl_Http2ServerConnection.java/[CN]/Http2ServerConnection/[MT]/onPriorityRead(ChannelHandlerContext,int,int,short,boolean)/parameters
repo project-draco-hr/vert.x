@@ -1,5 +1,0 @@
-ChannelHandlerContext ctx
-int streamId
-int streamDependency
-short weight
-boolean exclusive
