@@ -1,3 +1,5 @@
 {
-  return bytesWritten;
+synchronized (conn) {
+    return bytesWritten;
+  }
 }

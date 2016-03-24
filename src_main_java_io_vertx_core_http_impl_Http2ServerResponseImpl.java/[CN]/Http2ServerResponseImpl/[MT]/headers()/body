@@ -1,6 +1,8 @@
 {
-  if (headersMap == null) {
-    headersMap=new Http2HeadersAdaptor(headers);
+synchronized (conn) {
+    if (headersMap == null) {
+      headersMap=new Http2HeadersAdaptor(headers);
+    }
+    return headersMap;
   }
-  return headersMap;
 }

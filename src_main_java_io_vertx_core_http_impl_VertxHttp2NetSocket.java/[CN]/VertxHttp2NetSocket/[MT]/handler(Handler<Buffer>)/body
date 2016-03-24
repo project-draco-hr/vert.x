@@ -1,4 +1,6 @@
 {
-  dataHandler=handler;
-  return this;
+synchronized (conn) {
+    dataHandler=handler;
+    return this;
+  }
 }

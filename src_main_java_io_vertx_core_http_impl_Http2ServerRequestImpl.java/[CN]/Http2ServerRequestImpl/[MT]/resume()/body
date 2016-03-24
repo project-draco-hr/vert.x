@@ -1,4 +1,6 @@
 {
-  doResume();
+synchronized (conn) {
+    doResume();
+  }
   return this;
 }

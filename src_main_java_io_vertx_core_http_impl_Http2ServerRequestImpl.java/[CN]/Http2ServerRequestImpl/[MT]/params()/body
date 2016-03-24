@@ -1,6 +1,8 @@
 {
-  if (params == null) {
-    params=HttpUtils.params(uri());
+synchronized (conn) {
+    if (params == null) {
+      params=HttpUtils.params(uri());
+    }
+    return params;
   }
-  return params;
 }

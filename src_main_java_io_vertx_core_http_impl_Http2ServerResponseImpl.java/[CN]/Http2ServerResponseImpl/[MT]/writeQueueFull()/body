@@ -1,4 +1,6 @@
 {
-  checkEnded();
-  return stream.isNotWritable();
+synchronized (conn) {
+    checkEnded();
+    return stream.isNotWritable();
+  }
 }

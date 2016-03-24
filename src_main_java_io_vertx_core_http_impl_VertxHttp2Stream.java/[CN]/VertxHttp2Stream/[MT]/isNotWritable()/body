@@ -1,3 +1,5 @@
 {
-  return !writable;
+synchronized (conn) {
+    return !writable;
+  }
 }

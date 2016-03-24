@@ -1,4 +1,6 @@
 {
-  doPause();
+synchronized (conn) {
+    doPause();
+  }
   return this;
 }

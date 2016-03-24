@@ -1,19 +1,21 @@
 {
-  checkEnded();
-  if (end) {
-    handleEnded(false);
-  }
-  int len=chunk.readableBytes();
-  boolean empty=len == 0;
-  boolean sent=checkSendHeaders(end && empty && trailers == null);
-  if (!empty || (!sent && end)) {
-    stream.writeData(chunk,end && trailers == null);
-    bytesWritten+=len;
-  }
-  if (end && trailers != null) {
-    stream.writeHeaders(trailers,true);
-  }
-  if (end && bodyEndHandler != null) {
-    bodyEndHandler.handle(null);
+synchronized (conn) {
+    checkEnded();
+    if (end) {
+      handleEnded(false);
+    }
+    int len=chunk.readableBytes();
+    boolean empty=len == 0;
+    boolean sent=checkSendHeaders(end && empty && trailers == null);
+    if (!empty || (!sent && end)) {
+      stream.writeData(chunk,end && trailers == null);
+      bytesWritten+=len;
+    }
+    if (end && trailers != null) {
+      stream.writeHeaders(trailers,true);
+    }
+    if (end && bodyEndHandler != null) {
+      bodyEndHandler.handle(null);
+    }
   }
 }

@@ -1,2 +1,2 @@
-HttpClientStream s
+HttpClientStream stream
 Handler<HttpVersion> headersCompletionHandler

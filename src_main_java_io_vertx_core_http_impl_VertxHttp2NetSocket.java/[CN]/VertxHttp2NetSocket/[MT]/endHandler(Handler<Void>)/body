@@ -1,4 +1,6 @@
 {
-  endHandler=handler;
-  return this;
+synchronized (conn) {
+    endHandler=handler;
+    return this;
+  }
 }

@@ -1,6 +1,8 @@
 {
-  if (!chunked && !headers.contains(HttpHeaderNames.CONTENT_LENGTH)) {
-    headers().set(HttpHeaderNames.CONTENT_LENGTH,String.valueOf(chunk.readableBytes()));
+synchronized (conn) {
+    if (!chunked && !headers.contains(HttpHeaderNames.CONTENT_LENGTH)) {
+      headers().set(HttpHeaderNames.CONTENT_LENGTH,String.valueOf(chunk.readableBytes()));
+    }
+    write(chunk,true);
   }
-  write(chunk,true);
 }

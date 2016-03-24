@@ -1,4 +1,6 @@
 {
-  checkEnded();
+synchronized (conn) {
+    checkEnded();
+  }
   return this;
 }

@@ -3,11 +3,11 @@
     ended=true;
     if (metric != null) {
       if (failed) {
-        connection.metrics().requestReset(metric);
+        conn.metrics().requestReset(metric);
       }
  else {
-        connection.reportBytesWritten(bytesWritten);
-        connection.metrics().responseEnd(metric,this);
+        conn.reportBytesWritten(bytesWritten);
+        conn.metrics().responseEnd(metric,this);
       }
     }
     return true;

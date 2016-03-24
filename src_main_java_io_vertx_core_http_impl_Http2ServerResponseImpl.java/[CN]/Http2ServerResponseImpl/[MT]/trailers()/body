@@ -1,6 +1,8 @@
 {
-  if (trailedMap == null) {
-    trailedMap=new Http2HeadersAdaptor(trailers=new DefaultHttp2Headers());
+synchronized (conn) {
+    if (trailedMap == null) {
+      trailedMap=new Http2HeadersAdaptor(trailers=new DefaultHttp2Headers());
+    }
+    return trailedMap;
   }
-  return trailedMap;
 }

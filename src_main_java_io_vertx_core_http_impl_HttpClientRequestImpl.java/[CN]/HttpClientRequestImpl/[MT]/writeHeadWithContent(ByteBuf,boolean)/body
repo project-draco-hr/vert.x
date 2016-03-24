@@ -1,4 +1,4 @@
 {
-  conn.writeHeadWithContent(method,uri,headers,hostHeader(),chunked,buf,end);
+  stream.writeHeadWithContent(method,uri,headers,hostHeader(),chunked,buf,end);
   headWritten=true;
 }

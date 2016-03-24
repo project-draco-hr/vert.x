@@ -1,4 +1,6 @@
 {
-  bodyEndHandler=handler;
-  return this;
+synchronized (conn) {
+    bodyEndHandler=handler;
+    return this;
+  }
 }

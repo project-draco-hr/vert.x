@@ -1,4 +1,6 @@
 {
-  exceptionHandler=handler;
+synchronized (conn) {
+    exceptionHandler=handler;
+  }
   return this;
 }

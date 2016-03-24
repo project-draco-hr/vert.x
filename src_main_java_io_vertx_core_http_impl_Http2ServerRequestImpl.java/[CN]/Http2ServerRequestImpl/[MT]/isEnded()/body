@@ -1,3 +1,5 @@
 {
-  return ended;
+synchronized (conn) {
+    return ended;
+  }
 }

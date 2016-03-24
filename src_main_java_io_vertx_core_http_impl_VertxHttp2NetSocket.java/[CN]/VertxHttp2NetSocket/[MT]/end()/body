@@ -1,3 +1,5 @@
 {
-  writeData(Unpooled.EMPTY_BUFFER,true);
+synchronized (conn) {
+    writeData(Unpooled.EMPTY_BUFFER,true);
+  }
 }

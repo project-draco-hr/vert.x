@@ -1,14 +1,15 @@
 {
-  if (statusMessage == null) {
+synchronized (conn) {
+    if (statusMessage == null) {
 switch (statusCode / 100) {
 case 1:
-      return "Informational";
+        return "Informational";
 case 2:
-    return "Success";
+      return "Success";
 case 3:
-  return "Redirection";
+    return "Redirection";
 case 4:
-return "Client Error";
+  return "Client Error";
 case 5:
 return "Server Error";
 default :
@@ -16,4 +17,5 @@ return "Unknown Status";
 }
 }
 return statusMessage;
+}
 }

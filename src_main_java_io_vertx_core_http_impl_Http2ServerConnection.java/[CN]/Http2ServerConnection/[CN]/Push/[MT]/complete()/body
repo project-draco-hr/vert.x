@@ -1,4 +1,6 @@
 {
-  response=new Http2ServerResponseImpl(Http2ServerConnection.this,this,true,contentEncoding);
-  completionHandler.complete(response);
+synchronized (Http2ServerConnection.this) {
+    response=new Http2ServerResponseImpl(Http2ServerConnection.this,this,true,contentEncoding);
+    completionHandler.complete(response);
+  }
 }

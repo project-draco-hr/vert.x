@@ -1,39 +1,43 @@
 {
-  conn=s;
-  s.beginRequest(this);
-  if (pendingMaxSize != -1) {
-    this.conn.doSetWriteQueueMaxSize(pendingMaxSize);
-  }
-  if (pendingChunks != null) {
-    ByteBuf pending=pendingChunks;
-    pendingChunks=null;
-    if (completed) {
-      writeHeadWithContent(pending,true);
-      s.connection().reportBytesWritten(written);
-      if (respHandler != null) {
-        this.conn.endRequest();
-      }
+  HttpClientConnection conn=stream.connection();
+synchronized (conn) {
+    this.conn=conn;
+    this.stream=stream;
+    stream.beginRequest(this);
+    if (pendingMaxSize != -1) {
+      this.stream.doSetWriteQueueMaxSize(pendingMaxSize);
     }
- else {
-      writeHeadWithContent(pending,false);
-      if (headersCompletionHandler != null) {
-        headersCompletionHandler.handle(s.version());
+    if (pendingChunks != null) {
+      ByteBuf pending=pendingChunks;
+      pendingChunks=null;
+      if (completed) {
+        writeHeadWithContent(pending,true);
+        conn.reportBytesWritten(written);
+        if (respHandler != null) {
+          this.stream.endRequest();
+        }
       }
-    }
-  }
  else {
-    if (completed) {
-      writeHeadWithContent(Unpooled.EMPTY_BUFFER,true);
-      s.connection().reportBytesWritten(written);
-      if (respHandler != null) {
-        this.conn.endRequest();
-      }
-    }
- else {
-      if (writeHead) {
-        writeHead();
+        writeHeadWithContent(pending,false);
         if (headersCompletionHandler != null) {
-          headersCompletionHandler.handle(s.version());
+          headersCompletionHandler.handle(stream.version());
+        }
+      }
+    }
+ else {
+      if (completed) {
+        writeHeadWithContent(Unpooled.EMPTY_BUFFER,true);
+        conn.reportBytesWritten(written);
+        if (respHandler != null) {
+          this.stream.endRequest();
+        }
+      }
+ else {
+        if (writeHead) {
+          writeHead();
+          if (headersCompletionHandler != null) {
+            headersCompletionHandler.handle(stream.version());
+          }
         }
       }
     }

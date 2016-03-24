@@ -1,4 +1,6 @@
 {
-  unknownFrameHandler=handler;
-  return this;
+synchronized (conn) {
+    unknownFrameHandler=handler;
+    return this;
+  }
 }

@@ -1,4 +1,6 @@
 {
-  drainHandler=handler;
-  return this;
+synchronized (conn) {
+    drainHandler=handler;
+    return this;
+  }
 }

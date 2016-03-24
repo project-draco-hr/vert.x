@@ -1,5 +1,7 @@
 {
-  checkHeadWritten();
-  this.chunked=true;
-  return this;
+synchronized (conn) {
+    checkHeadWritten();
+    this.chunked=true;
+    return this;
+  }
 }

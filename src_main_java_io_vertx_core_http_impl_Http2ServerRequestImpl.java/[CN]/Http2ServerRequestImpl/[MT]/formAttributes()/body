@@ -1,6 +1,8 @@
 {
-  if (attributes == null) {
-    attributes=new CaseInsensitiveHeaders();
+synchronized (conn) {
+    if (attributes == null) {
+      attributes=new CaseInsensitiveHeaders();
+    }
+    return attributes;
   }
-  return attributes;
 }

@@ -1,4 +1,4 @@
-Http2ServerConnection connection
+Http2ServerConnection conn
 VertxHttp2Stream stream
 Object metric
 boolean push

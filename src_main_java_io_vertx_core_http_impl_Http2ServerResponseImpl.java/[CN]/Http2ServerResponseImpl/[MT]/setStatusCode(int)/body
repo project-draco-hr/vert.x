@@ -2,7 +2,9 @@
   if (statusCode < 0) {
     throw new IllegalArgumentException("code: " + statusCode + " (expected: 0+)");
   }
-  checkHeadWritten();
-  this.statusCode=statusCode;
-  return this;
+synchronized (conn) {
+    checkHeadWritten();
+    this.statusCode=statusCode;
+    return this;
+  }
 }

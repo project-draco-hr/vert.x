@@ -1,5 +1,7 @@
 {
-  checkEnded();
-  dataHandler=handler;
+synchronized (conn) {
+    checkEnded();
+    dataHandler=handler;
+  }
   return this;
 }

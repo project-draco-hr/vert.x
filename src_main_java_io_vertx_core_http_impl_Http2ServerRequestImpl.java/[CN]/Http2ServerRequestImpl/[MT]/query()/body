@@ -1,9 +1,11 @@
 {
-  if (query == null) {
-    CharSequence path=headers.path();
-    if (path != null) {
-      this.query=HttpUtils.parseQuery(path.toString());
+synchronized (conn) {
+    if (query == null) {
+      CharSequence path=headers.path();
+      if (path != null) {
+        this.query=HttpUtils.parseQuery(path.toString());
+      }
     }
+    return query;
   }
-  return query;
 }

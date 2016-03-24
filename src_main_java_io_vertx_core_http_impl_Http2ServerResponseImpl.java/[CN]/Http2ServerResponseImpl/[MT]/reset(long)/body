@@ -1,6 +1,8 @@
 {
-  checkEnded();
-  handleEnded(true);
-  stream.writeReset(code);
-  ctx.flush();
+synchronized (conn) {
+    checkEnded();
+    handleEnded(true);
+    stream.writeReset(code);
+    ctx.flush();
+  }
 }

@@ -1,6 +1,6 @@
 {
 synchronized (getLock()) {
     checkComplete();
-    return conn != null && conn.isNotWritable();
+    return stream != null && stream.isNotWritable();
   }
 }

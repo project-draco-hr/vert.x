@@ -1,4 +1,6 @@
 {
-  writeData(data.getByteBuf(),false);
-  return this;
+synchronized (conn) {
+    writeData(data.getByteBuf(),false);
+    return this;
+  }
 }

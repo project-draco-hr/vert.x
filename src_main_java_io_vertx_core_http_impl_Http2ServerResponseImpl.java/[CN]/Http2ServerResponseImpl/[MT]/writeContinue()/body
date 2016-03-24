@@ -1,6 +1,8 @@
 {
-  checkHeadWritten();
-  stream.writeHeaders(new DefaultHttp2Headers().status("100"),false);
-  ctx.flush();
-  return this;
+synchronized (conn) {
+    checkHeadWritten();
+    stream.writeHeaders(new DefaultHttp2Headers().status("100"),false);
+    ctx.flush();
+    return this;
+  }
 }

@@ -1,3 +1,5 @@
 {
-  writeData(buffer.getByteBuf(),true);
+synchronized (conn) {
+    writeData(buffer.getByteBuf(),true);
+  }
 }

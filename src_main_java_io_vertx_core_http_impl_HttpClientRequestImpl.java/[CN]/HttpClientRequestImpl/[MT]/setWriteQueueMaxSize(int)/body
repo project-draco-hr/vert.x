@@ -1,8 +1,8 @@
 {
 synchronized (getLock()) {
     checkComplete();
-    if (conn != null) {
-      conn.doSetWriteQueueMaxSize(maxSize);
+    if (stream != null) {
+      stream.doSetWriteQueueMaxSize(maxSize);
     }
  else {
       pendingMaxSize=maxSize;

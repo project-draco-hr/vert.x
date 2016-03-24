@@ -1,5 +1,7 @@
 {
-  checkEnded();
-  exceptionHandler=handler;
-  return this;
+synchronized (conn) {
+    checkEnded();
+    exceptionHandler=handler;
+    return this;
+  }
 }

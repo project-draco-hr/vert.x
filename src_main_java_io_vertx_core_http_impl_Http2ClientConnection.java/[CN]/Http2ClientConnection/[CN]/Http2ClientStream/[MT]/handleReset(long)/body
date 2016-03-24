@@ -1,9 +1,10 @@
 {
-  if (!responseEnded) {
-    responseEnded=true;
-    if (conn.metrics.isEnabled()) {
-      conn.metrics.requestReset(request.metric());
-    }
-    handleException(new StreamResetException(errorCode));
+  if (responseEnded) {
+    return;
   }
+  responseEnded=true;
+  if (conn.metrics.isEnabled()) {
+    conn.metrics.requestReset(request.metric());
+  }
+  handleException(new StreamResetException(errorCode));
 }

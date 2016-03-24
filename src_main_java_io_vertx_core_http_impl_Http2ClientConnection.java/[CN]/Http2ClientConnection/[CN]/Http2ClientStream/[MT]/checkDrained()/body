@@ -1,6 +1,5 @@
 {
 synchronized (conn) {
-    writable=!writable;
     handleInterestedOpsChanged();
   }
 }

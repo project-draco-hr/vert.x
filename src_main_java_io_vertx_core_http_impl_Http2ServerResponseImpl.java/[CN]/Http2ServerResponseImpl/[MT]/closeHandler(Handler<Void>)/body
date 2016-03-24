@@ -1,5 +1,7 @@
 {
-  checkEnded();
-  closeHandler=handler;
-  return this;
+synchronized (conn) {
+    checkEnded();
+    closeHandler=handler;
+    return this;
+  }
 }

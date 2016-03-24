@@ -1,8 +1,10 @@
 {
-  if (paused || pending.size() > 0) {
-    pending.add(END);
-  }
+synchronized (conn) {
+    if (paused || pending.size() > 0) {
+      pending.add(END);
+    }
  else {
-    handleEnd();
+      handleEnd();
+    }
   }
 }

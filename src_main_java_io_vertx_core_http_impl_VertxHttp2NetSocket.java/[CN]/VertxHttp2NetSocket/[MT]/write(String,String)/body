@@ -1,9 +1,7 @@
 {
-  if (enc == null) {
-    write(str);
+synchronized (conn) {
+    Charset cs=enc != null ? Charset.forName(enc) : CharsetUtil.UTF_8;
+    writeData(Unpooled.copiedBuffer(str,cs),false);
+    return this;
   }
- else {
-    writeData(Unpooled.copiedBuffer(str,Charset.forName(enc)),false);
-  }
-  return this;
 }

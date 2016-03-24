@@ -1,3 +1,5 @@
 {
-  return postRequestDecoder != null;
+synchronized (conn) {
+    return postRequestDecoder != null;
+  }
 }

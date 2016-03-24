@@ -1,3 +1,5 @@
 {
-  return statusCode;
+synchronized (conn) {
+    return statusCode;
+  }
 }

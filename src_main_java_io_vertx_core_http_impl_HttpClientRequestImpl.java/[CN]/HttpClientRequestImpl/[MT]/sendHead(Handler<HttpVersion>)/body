@@ -2,11 +2,11 @@
 synchronized (getLock()) {
     checkComplete();
     checkResponseHandler();
-    if (conn != null) {
+    if (stream != null) {
       if (!headWritten) {
         writeHead();
         if (completionHandler != null) {
-          completionHandler.handle(conn.version());
+          completionHandler.handle(stream.version());
         }
       }
     }

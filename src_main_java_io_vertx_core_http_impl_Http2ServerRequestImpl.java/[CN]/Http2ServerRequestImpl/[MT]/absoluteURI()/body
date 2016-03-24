@@ -2,13 +2,15 @@
   if (method() == HttpMethod.CONNECT) {
     return null;
   }
-  if (absoluteURI == null) {
-    try {
-      absoluteURI=HttpUtils.absoluteURI(serverOrigin,this);
+synchronized (conn) {
+    if (absoluteURI == null) {
+      try {
+        absoluteURI=HttpUtils.absoluteURI(serverOrigin,this);
+      }
+ catch (      URISyntaxException e) {
+        log.error("Failed to create abs uri",e);
+      }
     }
- catch (    URISyntaxException e) {
-      log.error("Failed to create abs uri",e);
-    }
+    return absoluteURI;
   }
-  return absoluteURI;
 }

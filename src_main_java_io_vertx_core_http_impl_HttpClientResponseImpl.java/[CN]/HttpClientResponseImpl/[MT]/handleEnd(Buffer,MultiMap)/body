@@ -1,6 +1,6 @@
 {
 synchronized (conn) {
-    conn.connection().reportBytesRead(bytesRead);
+    conn.reportBytesRead(bytesRead);
     bytesRead=0;
     if (paused) {
       pausedLastChunk=lastChunk;

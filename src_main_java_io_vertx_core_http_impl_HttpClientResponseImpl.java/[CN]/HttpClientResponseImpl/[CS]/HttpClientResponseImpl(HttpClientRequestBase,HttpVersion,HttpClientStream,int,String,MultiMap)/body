@@ -3,6 +3,7 @@
   this.statusCode=statusCode;
   this.statusMessage=statusMessage;
   this.request=request;
-  this.conn=conn;
+  this.stream=stream;
+  this.conn=stream.connection();
   this.headers=headers;
 }

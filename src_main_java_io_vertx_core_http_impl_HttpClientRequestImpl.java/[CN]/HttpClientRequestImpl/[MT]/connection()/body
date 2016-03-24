@@ -1,8 +1,8 @@
 {
 synchronized (getLock()) {
-    if (conn == null) {
+    if (stream == null) {
       throw new IllegalStateException("Not yet connected");
     }
-    return (HttpConnection)conn.connection();
+    return (HttpConnection)stream.connection();
   }
 }

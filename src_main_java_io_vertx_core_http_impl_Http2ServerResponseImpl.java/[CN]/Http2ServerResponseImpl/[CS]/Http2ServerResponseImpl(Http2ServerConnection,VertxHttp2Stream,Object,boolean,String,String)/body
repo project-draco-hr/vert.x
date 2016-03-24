@@ -1,8 +1,8 @@
 {
   this.metric=metric;
   this.stream=stream;
-  this.ctx=connection.handlerContext;
-  this.connection=connection;
+  this.ctx=conn.handlerContext;
+  this.conn=conn;
   this.push=push;
   this.host=host;
   if (contentEncoding != null) {
