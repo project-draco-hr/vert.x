@@ -1,2 +1,6 @@
 {
+  super((VertxInternal)context.owner(),channel,context,metrics);
+  this.channel=channel;
+  this.handlerContext=channel.pipeline().context(handler);
+  this.handler=handler;
 }

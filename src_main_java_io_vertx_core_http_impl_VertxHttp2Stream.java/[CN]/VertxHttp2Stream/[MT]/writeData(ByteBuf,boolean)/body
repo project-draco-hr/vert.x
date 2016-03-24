@@ -1,13 +1,3 @@
 {
-  encoder.writeData(handlerContext,stream.id(),chunk,0,end,handlerContext.newPromise());
-  Http2RemoteFlowController controller=encoder.flowController();
-  if (!controller.isWritable(stream) || end) {
-    try {
-      encoder.flowController().writePendingBytes();
-    }
- catch (    Http2Exception e) {
-      e.printStackTrace();
-    }
-    handlerContext.channel().flush();
-  }
+  conn.handler.writeData(stream,chunk,end);
 }

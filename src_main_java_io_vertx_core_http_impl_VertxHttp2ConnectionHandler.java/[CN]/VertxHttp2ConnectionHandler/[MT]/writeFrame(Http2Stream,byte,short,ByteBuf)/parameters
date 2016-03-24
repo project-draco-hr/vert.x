@@ -1,0 +1,4 @@
+Http2Stream stream
+byte type
+short flags
+ByteBuf payload

@@ -1,5 +1,6 @@
 {
   super.handlerAdded(ctx);
+  this.ctx=ctx;
   connection.setHandlerContext(ctx);
   connectionMap.put(ctx.channel(),connection);
 }
