@@ -1,0 +1,7 @@
+{
+  MapEntry e=head.after;
+  while (e != head) {
+    action.accept(e);
+    e=e.after;
+  }
+}

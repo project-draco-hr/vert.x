@@ -1,3 +1,0 @@
-{
-  return pushPromise(method,host,path,handler);
-}

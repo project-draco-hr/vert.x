@@ -1,5 +1,2 @@
 {
-  Http2Headers get=GET("/");
-  get.remove("authority");
-  testPushPromise(get,DEFAULT_HTTPS_HOST_AND_PORT,false);
 }
