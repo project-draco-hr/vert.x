@@ -1,3 +1,0 @@
-{
-  ((HttpClientRequestImpl)request).handlePush(promised);
-}
