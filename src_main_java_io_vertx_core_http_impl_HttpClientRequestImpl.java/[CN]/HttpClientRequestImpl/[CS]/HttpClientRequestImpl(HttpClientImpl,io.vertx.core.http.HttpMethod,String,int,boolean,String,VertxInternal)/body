@@ -1,11 +1,7 @@
 {
-  super(client);
-  this.host=host;
-  this.port=port;
-  this.client=client;
+  super(client,method,host,relativeURI);
   this.chunked=false;
-  this.method=method;
   this.vertx=vertx;
-  this.uri=relativeURI;
   this.ssl=ssl;
+  this.port=port;
 }

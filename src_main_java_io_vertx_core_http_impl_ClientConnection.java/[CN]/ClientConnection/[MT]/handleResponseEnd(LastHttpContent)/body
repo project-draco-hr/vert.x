@@ -10,7 +10,7 @@
     }
   }
   currentResponse.handleEnd(pausedChunk,new HeadersAdaptor(trailer.trailingHeaders()));
-  if (currentResponse.statusCode() != 100 && requestForResponse.getMethod() != io.vertx.core.http.HttpMethod.CONNECT) {
+  if (currentResponse.statusCode() != 100 && requestForResponse.method() != io.vertx.core.http.HttpMethod.CONNECT) {
     boolean close=false;
     String responseConnectionHeader=currentResponse.getHeader(HttpHeaders.Names.CONNECTION);
     io.vertx.core.http.HttpVersion protocolVersion=client.getOptions().getProtocolVersion();
