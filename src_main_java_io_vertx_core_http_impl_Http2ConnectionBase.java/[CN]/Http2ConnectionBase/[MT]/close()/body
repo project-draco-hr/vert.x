@@ -1,3 +1,4 @@
 {
+  endReadAndFlush();
   shutdown((Long)0L);
 }
