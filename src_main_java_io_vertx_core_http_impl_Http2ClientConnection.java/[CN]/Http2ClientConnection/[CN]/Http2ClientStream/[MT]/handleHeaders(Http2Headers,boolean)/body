@@ -7,7 +7,6 @@
       statusMessage=HttpResponseStatus.valueOf(status).reasonPhrase();
     }
  catch (    Exception e) {
-      e.printStackTrace();
       handleException(e);
       writeReset(0x01);
       return;

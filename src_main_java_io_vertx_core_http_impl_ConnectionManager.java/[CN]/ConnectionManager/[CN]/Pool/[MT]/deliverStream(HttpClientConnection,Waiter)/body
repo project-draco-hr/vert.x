@@ -6,6 +6,14 @@
     recycle(conn);
   }
  else {
-    waiter.handleStream(createStream(conn));
+    HttpClientStream stream;
+    try {
+      stream=createStream(conn);
+    }
+ catch (    Exception e) {
+      queue.getConnection(waiter);
+      return;
+    }
+    waiter.handleStream(stream);
   }
 }

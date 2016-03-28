@@ -6,6 +6,6 @@
     }
   }
  catch (  Http2Exception e) {
-    e.printStackTrace();
+    onError(ctx,e);
   }
 }

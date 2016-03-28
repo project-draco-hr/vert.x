@@ -6,7 +6,7 @@
       encoder().flowController().writePendingBytes();
     }
  catch (    Http2Exception e) {
-      e.printStackTrace();
+      onError(ctx,e);
     }
   }
   ctx.channel().flush();

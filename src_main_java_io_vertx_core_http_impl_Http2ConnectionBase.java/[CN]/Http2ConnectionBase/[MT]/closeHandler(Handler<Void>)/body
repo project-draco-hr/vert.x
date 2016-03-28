@@ -1,4 +1,5 @@
 {
+  closed=true;
   closeHandler=handler;
   return this;
 }

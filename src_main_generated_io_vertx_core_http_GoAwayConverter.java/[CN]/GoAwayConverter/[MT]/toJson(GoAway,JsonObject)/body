@@ -1,0 +1,7 @@
+{
+  if (obj.getDebugData() != null) {
+    json.put("debugData",obj.getDebugData().getBytes());
+  }
+  json.put("errorCode",obj.getErrorCode());
+  json.put("lastStreamId",obj.getLastStreamId());
+}
