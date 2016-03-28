@@ -8,6 +8,6 @@
  catch (    Http2Exception e) {
       e.printStackTrace();
     }
-    ctx.channel().flush();
   }
+  ctx.channel().flush();
 }

@@ -2,10 +2,6 @@
   if (timeout < 0) {
     throw new IllegalArgumentException("Invalid timeout value " + timeout);
   }
-  if (shuttingdown) {
-    throw new IllegalStateException("Already shutting down");
-  }
-  shuttingdown=true;
   handler.gracefulShutdownTimeoutMillis(timeout);
   channel.close();
   return this;
