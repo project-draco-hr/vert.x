@@ -1,7 +1,4 @@
 {
-  if (content != null && content.readableBytes() == 0) {
-    content=null;
-  }
   Http2Headers h=new DefaultHttp2Headers();
   h.method(method.name());
   if (method == HttpMethod.CONNECT) {
