@@ -1,5 +1,5 @@
 {
-  Runnable handler=updateSettingsHandler.poll();
+  Runnable handler=updateSettingsHandlers.poll();
   if (handler != null) {
     handler.run();
   }

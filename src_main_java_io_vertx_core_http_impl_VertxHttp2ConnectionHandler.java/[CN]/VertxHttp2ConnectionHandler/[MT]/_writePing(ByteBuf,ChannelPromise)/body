@@ -1,0 +1,4 @@
+{
+  encoder().writePing(ctx,false,data,promise);
+  ctx.channel().flush();
+}
