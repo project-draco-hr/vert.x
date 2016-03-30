@@ -8,5 +8,8 @@
     }
   }
   responseEnded=true;
-  response.handleEnd(null,new CaseInsensitiveHeaders());
+  if (trailers == null) {
+    trailers=new CaseInsensitiveHeaders();
+  }
+  response.handleEnd(null,trailers);
 }

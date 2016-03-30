@@ -18,6 +18,6 @@
     }
   }
  else   if (end) {
-    response.handleEnd(null,new Http2HeadersAdaptor(headers));
+    onEnd(new Http2HeadersAdaptor(headers));
   }
 }
