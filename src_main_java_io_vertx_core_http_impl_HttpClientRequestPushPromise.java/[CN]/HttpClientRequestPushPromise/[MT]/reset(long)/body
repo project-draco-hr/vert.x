@@ -1,3 +1,5 @@
 {
-  clientStream.reset(code);
+synchronized (conn) {
+    stream.reset(code);
+  }
 }

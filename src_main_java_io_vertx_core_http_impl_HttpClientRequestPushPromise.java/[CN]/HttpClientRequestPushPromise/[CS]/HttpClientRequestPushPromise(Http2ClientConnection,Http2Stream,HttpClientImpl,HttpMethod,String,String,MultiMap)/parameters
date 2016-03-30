@@ -1,5 +1,5 @@
-Http2ClientConnection handler
-Http2Stream clientStream
+Http2ClientConnection conn
+Http2Stream stream
 HttpClientImpl client
 HttpMethod method
 String uri
