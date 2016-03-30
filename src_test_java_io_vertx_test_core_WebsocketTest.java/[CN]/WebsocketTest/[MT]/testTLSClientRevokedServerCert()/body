@@ -1,3 +1,3 @@
 {
-  testTLS(KeyCert.NONE,Trust.PEM_CA,KeyCert.PEM_CA,Trust.NONE,false,false,false,true,false);
+  testTLS(TLSCert.NONE,TLSCert.PEM_CA,TLSCert.PEM_CA,TLSCert.NONE,false,false,false,true,false);
 }

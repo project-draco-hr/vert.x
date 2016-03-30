@@ -1,0 +1,3 @@
+{
+  testInvalidKeyStore(((JksOptions)TLSCert.JKS.getServerKeyCertOptions()).setPassword(null),"Password must not be null",null);
+}

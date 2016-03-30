@@ -1,0 +1,5 @@
+{
+  HttpServerOptions serverOptions=new HttpServerOptions().setSslEngine(SSLEngine.OPENSSL);
+  setOptions(serverOptions,TLSCert.JKS.getServerKeyCertOptions());
+  testStore(serverOptions,Collections.singletonList("OpenSSL server key/certificate must be configured with .pem format"),null);
+}

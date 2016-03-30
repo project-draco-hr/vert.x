@@ -1,0 +1,3 @@
+{
+  testInvalidKeyStore(((PemKeyCertOptions)TLSCert.PEM.getServerKeyCertOptions()).setKeyPath("/invalid.pem"),"java.nio.file.NoSuchFileException: ","invalid.pem");
+}

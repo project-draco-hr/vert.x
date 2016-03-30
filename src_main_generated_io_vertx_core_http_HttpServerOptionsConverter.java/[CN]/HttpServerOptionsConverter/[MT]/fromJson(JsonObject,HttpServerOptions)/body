@@ -1,26 +1,2 @@
 {
-  if (json.getValue("compressionSupported") instanceof Boolean) {
-    obj.setCompressionSupported((Boolean)json.getValue("compressionSupported"));
-  }
-  if (json.getValue("handle100ContinueAutomatically") instanceof Boolean) {
-    obj.setHandle100ContinueAutomatically((Boolean)json.getValue("handle100ContinueAutomatically"));
-  }
-  if (json.getValue("initialSettings") instanceof JsonObject) {
-    obj.setInitialSettings(new io.vertx.core.http.Http2Settings((JsonObject)json.getValue("initialSettings")));
-  }
-  if (json.getValue("maxChunkSize") instanceof Number) {
-    obj.setMaxChunkSize(((Number)json.getValue("maxChunkSize")).intValue());
-  }
-  if (json.getValue("maxHeaderSize") instanceof Number) {
-    obj.setMaxHeaderSize(((Number)json.getValue("maxHeaderSize")).intValue());
-  }
-  if (json.getValue("maxInitialLineLength") instanceof Number) {
-    obj.setMaxInitialLineLength(((Number)json.getValue("maxInitialLineLength")).intValue());
-  }
-  if (json.getValue("maxWebsocketFrameSize") instanceof Number) {
-    obj.setMaxWebsocketFrameSize(((Number)json.getValue("maxWebsocketFrameSize")).intValue());
-  }
-  if (json.getValue("websocketSubProtocols") instanceof String) {
-    obj.setWebsocketSubProtocols((String)json.getValue("websocketSubProtocols"));
-  }
 }

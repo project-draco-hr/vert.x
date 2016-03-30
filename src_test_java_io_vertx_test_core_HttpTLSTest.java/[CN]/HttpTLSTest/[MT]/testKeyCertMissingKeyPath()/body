@@ -1,0 +1,3 @@
+{
+  testInvalidKeyStore(((PemKeyCertOptions)TLSCert.PEM.getServerKeyCertOptions()).setKeyPath(null),"Missing private key",null);
+}

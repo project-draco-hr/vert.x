@@ -1,0 +1,3 @@
+{
+  testInvalidKeyStore(((PfxOptions)TLSCert.PKCS12.getServerKeyCertOptions()).setPassword(null),"Get Key failed: null",null);
+}

@@ -1,6 +1,3 @@
 {
-  TrustManagerFactory fact=TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-  KeyStore ts=loadStore(vertx);
-  fact.init(ts);
-  return fact.getTrustManagers();
+  return getTrustMgrFactory(vertx).getTrustManagers();
 }

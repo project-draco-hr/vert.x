@@ -8,4 +8,5 @@
   crlPaths=new ArrayList<>();
   crlValues=new ArrayList<>();
   useAlpn=DEFAULT_USE_ALPN;
+  sslEngine=DEFAULT_SSL_ENGINE;
 }

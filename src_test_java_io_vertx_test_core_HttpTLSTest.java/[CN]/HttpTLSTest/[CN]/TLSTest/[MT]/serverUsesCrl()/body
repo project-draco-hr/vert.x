@@ -1,0 +1,4 @@
+{
+  serverUsesCrl=true;
+  return this;
+}

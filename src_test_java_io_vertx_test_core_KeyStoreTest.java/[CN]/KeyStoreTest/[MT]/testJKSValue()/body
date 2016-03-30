@@ -1,5 +1,5 @@
 {
-  JksOptions options=(JksOptions)getServerCertOptions(KeyCert.JKS);
+  JksOptions options=(JksOptions)TLSCert.JKS.getServerKeyCertOptions();
   Buffer store=vertx.fileSystem().readFileBlocking(options.getPath());
   options.setPath(null).setValue(store);
   testKeyStore(options);

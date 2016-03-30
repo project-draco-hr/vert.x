@@ -11,6 +11,6 @@
   this.protocolVersion=other.protocolVersion;
   this.maxChunkSize=other.maxChunkSize;
   this.maxWaitQueueSize=other.maxWaitQueueSize;
-  this.alpnFallbackProtocolVersion=other.alpnFallbackProtocolVersion;
   this.initialSettings=other.initialSettings != null ? new Http2Settings(other.initialSettings) : null;
+  this.alpnVersions=other.alpnVersions != null ? new ArrayList<>(other.alpnVersions) : null;
 }

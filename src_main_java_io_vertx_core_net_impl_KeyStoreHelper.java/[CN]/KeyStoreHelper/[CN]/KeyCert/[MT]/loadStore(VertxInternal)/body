@@ -1,8 +1,8 @@
 {
   KeyStore keyStore=KeyStore.getInstance("jks");
   keyStore.load(null,null);
-  PrivateKey key=loadPrivateKey(this.keyValue.get());
-  Certificate[] chain=loadCert(this.certValue.get());
+  PrivateKey key=loadPrivateKey();
+  Certificate[] chain=loadCerts();
   keyStore.setEntry("dummy-entry",new KeyStore.PrivateKeyEntry(key,chain),new KeyStore.PasswordProtection(DUMMY_PASSWORD.toCharArray()));
   return keyStore;
 }

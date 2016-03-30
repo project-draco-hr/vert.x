@@ -6,14 +6,14 @@
       X509TrustManager x509TrustManager=(X509TrustManager)trustMgr;
       trustMgrs[i]=new X509TrustManager(){
         @Override public void checkClientTrusted(        X509Certificate[] x509Certificates,        String s) throws CertificateException {
-          checkRevocaked(x509Certificates);
+          checkRevoked(x509Certificates);
           x509TrustManager.checkClientTrusted(x509Certificates,s);
         }
         @Override public void checkServerTrusted(        X509Certificate[] x509Certificates,        String s) throws CertificateException {
-          checkRevocaked(x509Certificates);
+          checkRevoked(x509Certificates);
           x509TrustManager.checkServerTrusted(x509Certificates,s);
         }
-        private void checkRevocaked(        X509Certificate[] x509Certificates) throws CertificateException {
+        private void checkRevoked(        X509Certificate[] x509Certificates) throws CertificateException {
           for (          X509Certificate cert : x509Certificates) {
             for (            CRL crl : crls) {
               if (crl.isRevoked(cert)) {

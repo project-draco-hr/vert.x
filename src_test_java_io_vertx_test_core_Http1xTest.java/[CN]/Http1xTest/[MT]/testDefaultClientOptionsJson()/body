@@ -17,6 +17,5 @@
   assertEquals(def.isSsl(),json.isSsl());
   assertEquals(def.getProtocolVersion(),json.getProtocolVersion());
   assertEquals(def.getMaxWaitQueueSize(),json.getMaxWaitQueueSize());
-  assertEquals(def.getAlpnFallbackProtocolVersion(),json.getAlpnFallbackProtocolVersion());
   assertEquals(def.getInitialSettings(),json.getInitialSettings());
 }

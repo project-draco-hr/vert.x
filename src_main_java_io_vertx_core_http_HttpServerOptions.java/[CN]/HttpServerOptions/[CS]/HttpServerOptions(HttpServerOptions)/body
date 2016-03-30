@@ -8,4 +8,5 @@
   this.maxInitialLineLength=other.getMaxInitialLineLength();
   this.maxHeaderSize=other.getMaxHeaderSize();
   this.initialSettings=other.initialSettings != null ? new Http2Settings(other.initialSettings) : null;
+  this.alpnVersions=other.alpnVersions != null ? new ArrayList<>(other.alpnVersions) : null;
 }

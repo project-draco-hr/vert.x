@@ -1,3 +1,0 @@
-{
-  return createSslHandler(vertx,client,host,port,false);
-}

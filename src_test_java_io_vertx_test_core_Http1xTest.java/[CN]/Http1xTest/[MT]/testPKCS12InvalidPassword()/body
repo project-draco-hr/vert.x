@@ -1,3 +1,0 @@
-{
-  testInvalidKeyStore(((PfxOptions)getServerCertOptions(KeyCert.PKCS12)).setPassword("wrongpassword"),Arrays.asList("failed to decrypt safe contents entry: javax.crypto.BadPaddingException: Given final block not properly padded","keystore password was incorrect"),null);
-}

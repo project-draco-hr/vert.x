@@ -6,4 +6,7 @@
   this.crlPaths=options.getCrlPaths() != null ? new ArrayList<>(options.getCrlPaths()) : null;
   this.crlValues=options.getCrlValues() != null ? new ArrayList<>(options.getCrlValues()) : null;
   this.enabledCipherSuites=options.getEnabledCipherSuites();
+  this.sslEngine=options.getSslEngine();
+  this.client=false;
+  this.useAlpn=options.isUseAlpn();
 }

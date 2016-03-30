@@ -12,4 +12,5 @@
   this.crlPaths=new ArrayList<>(other.getCrlPaths());
   this.crlValues=new ArrayList<>(other.getCrlValues());
   this.useAlpn=other.useAlpn;
+  this.sslEngine=other.sslEngine;
 }

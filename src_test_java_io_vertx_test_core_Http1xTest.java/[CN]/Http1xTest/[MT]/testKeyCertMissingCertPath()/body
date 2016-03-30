@@ -1,3 +1,0 @@
-{
-  testInvalidKeyStore(((PemKeyCertOptions)getServerCertOptions(KeyCert.PEM)).setCertPath(null),"Missing X.509 certificate",null);
-}

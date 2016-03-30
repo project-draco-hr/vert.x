@@ -1,0 +1,3 @@
+{
+  testInvalidKeyStore(null,"Key/certificate is mandatory for SSL",null);
+}

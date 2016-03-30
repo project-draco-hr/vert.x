@@ -1,0 +1,10 @@
+TLSCert clientCert
+TLSCert clientTrust
+TLSCert serverCert
+TLSCert serverTrust
+boolean requireClientAuth
+boolean serverUsesCrl
+boolean clientTrustAll
+boolean clientUsesCrl
+boolean shouldPass
+String enabledCipherSuites

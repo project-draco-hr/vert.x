@@ -1,9 +1,9 @@
 {
-  JksOptions jksOptions=(JksOptions)getServerCertOptions(KeyCert.JKS);
+  JksOptions jksOptions=(JksOptions)TLSCert.JKS.getServerKeyCertOptions();
   JksOptions jksOptionsCopy=new JksOptions(jksOptions);
-  PfxOptions pfxOptions=(PfxOptions)getServerCertOptions(KeyCert.PKCS12);
+  PfxOptions pfxOptions=(PfxOptions)TLSCert.PKCS12.getServerKeyCertOptions();
   PfxOptions pfxOptionsCopy=new PfxOptions(pfxOptions);
-  PemKeyCertOptions pemKeyCertOptions=(PemKeyCertOptions)getServerCertOptions(KeyCert.PEM);
+  PemKeyCertOptions pemKeyCertOptions=(PemKeyCertOptions)TLSCert.PEM.getServerKeyCertOptions();
   PemKeyCertOptions pemKeyCertOptionsCopy=new PemKeyCertOptions(pemKeyCertOptions);
   assertEquals(jksOptions,jksOptionsCopy);
   assertEquals(jksOptions.hashCode(),jksOptionsCopy.hashCode());
