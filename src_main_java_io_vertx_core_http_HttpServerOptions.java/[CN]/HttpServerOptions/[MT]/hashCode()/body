@@ -8,5 +8,6 @@
   result=31 * result + maxChunkSize;
   result=31 * result + maxInitialLineLength;
   result=31 * result + maxHeaderSize;
+  result=31 * result + (alpnVersions != null ? alpnVersions.hashCode() : 0);
   return result;
 }

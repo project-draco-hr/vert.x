@@ -18,4 +18,8 @@
   assertEquals(def.getProtocolVersion(),json.getProtocolVersion());
   assertEquals(def.getMaxWaitQueueSize(),json.getMaxWaitQueueSize());
   assertEquals(def.getInitialSettings(),json.getInitialSettings());
+  assertEquals(def.isUseAlpn(),json.isUseAlpn());
+  assertEquals(def.getSslEngine(),json.getSslEngine());
+  assertEquals(def.getAlpnVersions(),json.getAlpnVersions());
+  assertEquals(def.isH2cUpgrade(),json.isH2cUpgrade());
 }

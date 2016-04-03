@@ -1,0 +1,7 @@
+{
+  if (!handled) {
+    handled=true;
+    Request request=new Request(ctx,connection(),encoder(),decoder());
+    requestHandler.accept(request);
+  }
+}

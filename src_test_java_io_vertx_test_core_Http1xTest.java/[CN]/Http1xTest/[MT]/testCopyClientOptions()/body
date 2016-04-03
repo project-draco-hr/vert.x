@@ -29,8 +29,11 @@
   boolean tryUseCompression=rand.nextBoolean();
   HttpVersion protocolVersion=HttpVersion.HTTP_1_0;
   int maxWaitQueueSize=TestUtils.randomPositiveInt();
-  HttpVersion alpnFallbackProtocolVersion=TestUtils.randomBoolean() ? HttpVersion.HTTP_1_1 : HttpVersion.HTTP_1_0;
   Http2Settings initialSettings=randomHttp2Settings();
+  boolean useAlpn=TestUtils.randomBoolean();
+  SSLEngine sslEngine=TestUtils.randomBoolean() ? SSLEngine.JDK : SSLEngine.OPENSSL;
+  List<HttpVersion> alpnVersions=Collections.singletonList(HttpVersion.values()[TestUtils.randomPositiveInt() % 3]);
+  boolean h2cUpgrade=TestUtils.randomBoolean();
   options.setSendBufferSize(sendBufferSize);
   options.setReceiveBufferSize(receiverBufferSize);
   options.setReuseAddress(reuseAddress);
@@ -56,6 +59,10 @@
   options.setProtocolVersion(protocolVersion);
   options.setMaxWaitQueueSize(maxWaitQueueSize);
   options.setInitialSettings(initialSettings);
+  options.setUseAlpn(useAlpn);
+  options.setSslEngine(sslEngine);
+  options.setAlpnVersions(alpnVersions);
+  options.setH2cUpgrade(h2cUpgrade);
   HttpClientOptions copy=new HttpClientOptions(options);
   assertEquals(sendBufferSize,copy.getSendBufferSize());
   assertEquals(receiverBufferSize,copy.getReceiveBufferSize());
@@ -87,4 +94,8 @@
   assertEquals(protocolVersion,copy.getProtocolVersion());
   assertEquals(maxWaitQueueSize,copy.getMaxWaitQueueSize());
   assertEquals(initialSettings,copy.getInitialSettings());
+  assertEquals(useAlpn,copy.isUseAlpn());
+  assertEquals(sslEngine,copy.getSslEngine());
+  assertEquals(alpnVersions,copy.getAlpnVersions());
+  assertEquals(h2cUpgrade,copy.isH2cUpgrade());
 }

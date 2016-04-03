@@ -28,8 +28,10 @@
   String wsSubProtocol=TestUtils.randomAlphaString(10);
   boolean is100ContinueHandledAutomatically=rand.nextBoolean();
   int maxChunkSize=rand.nextInt(10000);
-  boolean useAlpn=rand.nextBoolean();
   Http2Settings initialSettings=randomHttp2Settings();
+  boolean useAlpn=TestUtils.randomBoolean();
+  SSLEngine sslEngine=TestUtils.randomBoolean() ? SSLEngine.JDK : SSLEngine.OPENSSL;
+  List<HttpVersion> alpnVersions=Collections.singletonList(HttpVersion.values()[TestUtils.randomPositiveInt() % 3]);
   options.setSendBufferSize(sendBufferSize);
   options.setReceiveBufferSize(receiverBufferSize);
   options.setReuseAddress(reuseAddress);
@@ -55,6 +57,7 @@
   options.setMaxChunkSize(maxChunkSize);
   options.setUseAlpn(useAlpn);
   options.setInitialSettings(initialSettings);
+  options.setAlpnVersions(alpnVersions);
   HttpServerOptions copy=new HttpServerOptions(options);
   assertEquals(sendBufferSize,copy.getSendBufferSize());
   assertEquals(receiverBufferSize,copy.getReceiveBufferSize());
@@ -84,6 +87,8 @@
   assertEquals(wsSubProtocol,copy.getWebsocketSubProtocols());
   assertEquals(is100ContinueHandledAutomatically,copy.isHandle100ContinueAutomatically());
   assertEquals(maxChunkSize,copy.getMaxChunkSize());
-  assertEquals(useAlpn,copy.isUseAlpn());
   assertEquals(initialSettings,copy.getInitialSettings());
+  assertEquals(useAlpn,copy.isUseAlpn());
+  assertEquals(sslEngine,copy.getSslEngine());
+  assertEquals(alpnVersions,copy.getAlpnVersions());
 }

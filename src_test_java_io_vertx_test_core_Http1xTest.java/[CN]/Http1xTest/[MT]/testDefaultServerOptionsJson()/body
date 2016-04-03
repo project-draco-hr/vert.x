@@ -19,6 +19,8 @@
   assertEquals(def.getMaxChunkSize(),json.getMaxChunkSize());
   assertEquals(def.getMaxInitialLineLength(),json.getMaxInitialLineLength());
   assertEquals(def.getMaxHeaderSize(),json.getMaxHeaderSize());
-  assertEquals(def.isUseAlpn(),json.isUseAlpn());
   assertEquals(def.getInitialSettings(),json.getInitialSettings());
+  assertEquals(def.isUseAlpn(),json.isUseAlpn());
+  assertEquals(def.getSslEngine(),json.getSslEngine());
+  assertEquals(def.getAlpnVersions(),json.getAlpnVersions());
 }

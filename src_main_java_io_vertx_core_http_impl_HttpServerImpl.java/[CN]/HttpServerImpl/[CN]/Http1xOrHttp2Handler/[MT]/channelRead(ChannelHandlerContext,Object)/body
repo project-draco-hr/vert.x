@@ -1,0 +1,16 @@
+{
+  ByteBuf buf=(ByteBuf)msg;
+  int len=buf.readableBytes();
+  for (int i=index; i < len; i++) {
+    if (i == HTTP_2_PREFACE.length) {
+      http2(ctx,buf);
+      break;
+    }
+ else {
+      if (buf.getByte(i) != HTTP_2_PREFACE[i]) {
+        http1(ctx,buf);
+        break;
+      }
+    }
+  }
+}

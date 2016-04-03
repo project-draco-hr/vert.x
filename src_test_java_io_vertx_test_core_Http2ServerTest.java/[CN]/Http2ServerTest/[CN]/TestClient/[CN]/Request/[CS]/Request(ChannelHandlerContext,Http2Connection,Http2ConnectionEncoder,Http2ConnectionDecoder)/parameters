@@ -1,4 +1,3 @@
-Channel channel
 ChannelHandlerContext context
 Http2Connection connection
 Http2ConnectionEncoder encoder
