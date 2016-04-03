@@ -1,3 +1,0 @@
-int port
-String host
-Consumer<Request> handler

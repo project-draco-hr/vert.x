@@ -1,7 +1,7 @@
 {
   if (!handled) {
     handled=true;
-    Request request=new Request(ctx,connection(),encoder(),decoder());
-    requestHandler.accept(request);
+    Connection conn=new Connection(ctx,connection(),encoder(),decoder());
+    requestHandler.accept(conn);
   }
 }
