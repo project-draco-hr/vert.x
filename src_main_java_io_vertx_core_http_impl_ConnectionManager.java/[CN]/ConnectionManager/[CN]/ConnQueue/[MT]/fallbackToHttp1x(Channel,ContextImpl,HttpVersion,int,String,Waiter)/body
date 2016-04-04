@@ -1,12 +1,5 @@
 {
-  ConnQueue<ClientConnection> http1Queue=connQueues.get(address);
-  if (http1Queue == null) {
-    http1Queue=new ConnQueue<>(HttpVersion.HTTP_1_1,address);
-    ConnQueue<ClientConnection> prev=connQueues.putIfAbsent(address,http1Queue);
-    if (prev != null) {
-      http1Queue=prev;
-    }
-  }
+  ConnQueue<ClientConnection> http1Queue=qm.getConnQueue(address);
   applyHttp1xConnectionOptions(ch.pipeline(),context);
   http1Queue.http1xConnected(fallbackVersion,context,port,host,ch,waiter);
 }

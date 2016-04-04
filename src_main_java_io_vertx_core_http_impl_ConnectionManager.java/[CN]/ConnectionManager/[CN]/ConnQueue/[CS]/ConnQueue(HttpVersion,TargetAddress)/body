@@ -1,9 +1,9 @@
 {
   this.address=address;
   if (version == HttpVersion.HTTP_2) {
-    pool=new Http2Pool(this,client,connectionMap2);
+    pool=(Pool<C>)new Http2Pool((ConnQueue<Http2ClientConnection>)this,client,qm2.connectionMap);
   }
  else {
-    pool=new Http1xPool(this);
+    pool=(Pool<C>)new Http1xPool((ConnQueue<ClientConnection>)this);
   }
 }

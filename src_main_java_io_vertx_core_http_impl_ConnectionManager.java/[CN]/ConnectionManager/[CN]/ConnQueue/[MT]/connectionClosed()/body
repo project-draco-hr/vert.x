@@ -6,10 +6,10 @@
   }
  else   if (connCount == 0) {
     if (options.getProtocolVersion() == HttpVersion.HTTP_2) {
-      connQueues2.remove(address);
+      qm2.connQueues.remove(address);
     }
  else {
-      connQueues.remove(address);
+      qm.connQueues.remove(address);
     }
   }
 }

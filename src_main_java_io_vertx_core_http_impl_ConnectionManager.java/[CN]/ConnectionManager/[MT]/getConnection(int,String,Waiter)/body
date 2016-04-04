@@ -4,27 +4,7 @@
   }
  else {
     TargetAddress address=new TargetAddress(host,port);
-    Map<TargetAddress,ConnQueue<HttpClientConnection>> abc;
-    ConnQueue connQueue;
-    if (options.getProtocolVersion() == HttpVersion.HTTP_2) {
-      connQueue=connQueues2.get(address);
-    }
- else {
-      connQueue=connQueues.get(address);
-    }
-    if (connQueue == null) {
-      connQueue=new ConnQueue(options.getProtocolVersion(),address);
-      ConnQueue prev;
-      if (options.getProtocolVersion() == HttpVersion.HTTP_2) {
-        prev=connQueues2.putIfAbsent(address,connQueue);
-      }
- else {
-        prev=connQueues.putIfAbsent(address,connQueue);
-      }
-      if (prev != null) {
-        connQueue=prev;
-      }
-    }
+    ConnQueue connQueue=options.getProtocolVersion() == HttpVersion.HTTP_2 ? qm2.getConnQueue(address) : qm.getConnQueue(address);
     connQueue.getConnection(waiter);
   }
 }

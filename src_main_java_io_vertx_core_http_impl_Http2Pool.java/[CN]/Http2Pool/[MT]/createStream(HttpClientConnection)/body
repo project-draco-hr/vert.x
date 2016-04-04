@@ -1,3 +1,0 @@
-{
-  return ((Http2ClientConnection)conn).createStream();
-}

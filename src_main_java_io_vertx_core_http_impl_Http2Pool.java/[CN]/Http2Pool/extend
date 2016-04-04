@@ -1,1 +1,1 @@
-ConnectionManager.Pool
+ConnectionManager.Pool<Http2ClientConnection>

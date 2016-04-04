@@ -1,0 +1,11 @@
+{
+  ConnQueue<C> connQueue=connQueues.get(address);
+  if (connQueue == null) {
+    connQueue=new ConnQueue<C>(version,address);
+    ConnQueue<C> prev=connQueues.putIfAbsent(address,connQueue);
+    if (prev != null) {
+      connQueue=prev;
+    }
+  }
+  return connQueue;
+}

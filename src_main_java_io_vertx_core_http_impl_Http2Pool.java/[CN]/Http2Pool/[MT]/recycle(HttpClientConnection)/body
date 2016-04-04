@@ -1,7 +1,0 @@
-{
-synchronized (queue) {
-    Http2ClientConnection handler=(Http2ClientConnection)conn;
-    handler.streamCount--;
-    checkPending(handler);
-  }
-}
