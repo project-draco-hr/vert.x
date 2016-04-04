@@ -1,3 +1,4 @@
+HttpVersion version
 int port
 String host
 Waiter waiter

@@ -1,5 +1,5 @@
 {
-  connectionManager.getConnection(port,host,new Waiter(null,context){
+  connectionManager.getConnection(HttpVersion.HTTP_1_1,port,host,new Waiter(null,context){
     @Override void handleConnection(    HttpClientConnection conn){
     }
     @Override void handleStream(    HttpClientStream stream){

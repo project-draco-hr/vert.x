@@ -1,2 +1,2 @@
-HttpVersion version
+QueueManager<C> mgr
 TargetAddress address

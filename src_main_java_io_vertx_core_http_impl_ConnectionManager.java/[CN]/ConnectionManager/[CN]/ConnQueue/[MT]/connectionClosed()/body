@@ -5,11 +5,6 @@
     createNewConnection(waiter);
   }
  else   if (connCount == 0) {
-    if (options.getProtocolVersion() == HttpVersion.HTTP_2) {
-      qm2.connQueues.remove(address);
-    }
- else {
-      qm.connQueues.remove(address);
-    }
+    mgr.connQueues.remove(address);
   }
 }
