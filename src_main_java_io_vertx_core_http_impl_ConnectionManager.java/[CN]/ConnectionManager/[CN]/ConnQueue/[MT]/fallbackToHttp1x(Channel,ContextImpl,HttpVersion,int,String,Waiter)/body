@@ -1,5 +1,5 @@
 {
-  ConnQueue<ClientConnection> http1Queue=qm.getConnQueue(address);
+  ConnQueue<ClientConnection> http1Queue=qm1x.getConnQueue(address);
   applyHttp1xConnectionOptions(ch.pipeline(),context);
   http1Queue.http1xConnected(fallbackVersion,context,port,host,ch,waiter);
 }

@@ -1,4 +1,4 @@
 {
-  super(ConnectionManager.this.qm.connectionMap);
+  super(ConnectionManager.this.qm1x.connectionMap);
   this.context=context;
 }

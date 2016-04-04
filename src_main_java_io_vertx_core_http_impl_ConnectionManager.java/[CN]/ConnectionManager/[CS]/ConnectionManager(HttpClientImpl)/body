@@ -6,7 +6,7 @@
  else {
     http1xVersion=client.getOptions().getProtocolVersion();
   }
-  this.qm=new QueueManager<>(http1xVersion);
+  this.qm1x=new QueueManager<>(http1xVersion);
   this.client=client;
   this.sslHelper=client.getSslHelper();
   this.options=client.getOptions();

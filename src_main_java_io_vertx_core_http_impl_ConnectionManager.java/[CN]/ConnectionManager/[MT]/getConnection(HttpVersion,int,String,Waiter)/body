@@ -4,7 +4,7 @@
   }
  else {
     TargetAddress address=new TargetAddress(host,port);
-    ConnQueue connQueue=version == HttpVersion.HTTP_2 ? qm2.getConnQueue(address) : qm.getConnQueue(address);
+    ConnQueue connQueue=version == HttpVersion.HTTP_2 ? qm2.getConnQueue(address) : qm1x.getConnQueue(address);
     connQueue.getConnection(waiter);
   }
 }
