@@ -3,6 +3,10 @@
     queue.closeAllConnections();
   }
   connQueues.clear();
+  for (  ConnQueue queue : connQueues2.values()) {
+    queue.closeAllConnections();
+  }
+  connQueues2.clear();
   for (  ClientConnection conn : connectionMap.values()) {
     conn.close();
   }

@@ -5,6 +5,11 @@
     createNewConnection(waiter);
   }
  else   if (connCount == 0) {
-    connQueues.remove(address);
+    if (options.getProtocolVersion() == HttpVersion.HTTP_2) {
+      connQueues2.remove(address);
+    }
+ else {
+      connQueues.remove(address);
+    }
   }
 }

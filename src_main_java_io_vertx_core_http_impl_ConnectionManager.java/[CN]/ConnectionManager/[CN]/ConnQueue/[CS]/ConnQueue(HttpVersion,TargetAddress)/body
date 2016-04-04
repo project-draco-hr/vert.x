@@ -1,6 +1,6 @@
 {
   this.address=address;
-  if (options.getProtocolVersion() == HttpVersion.HTTP_2) {
+  if (version == HttpVersion.HTTP_2) {
     pool=new Http2Pool(this,client,connectionMap2);
   }
  else {
