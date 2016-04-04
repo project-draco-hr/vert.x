@@ -1,3 +1,0 @@
-{
-  qm.connectionMap.remove(channel);
-}

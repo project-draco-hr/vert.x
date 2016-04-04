@@ -3,5 +3,5 @@
     throw new IllegalStateException("No write in progress");
   }
   currentRequest=null;
-  listener.recycle(this);
+  pool.recycle(this);
 }

@@ -1,4 +1,12 @@
 {
+  HttpVersion http1xVersion;
+  if (client.getOptions().getProtocolVersion() == HttpVersion.HTTP_2) {
+    http1xVersion=HttpVersion.HTTP_1_1;
+  }
+ else {
+    http1xVersion=client.getOptions().getProtocolVersion();
+  }
+  this.qm=new QueueManager<>(http1xVersion);
   this.client=client;
   this.sslHelper=client.getSslHelper();
   this.options=client.getOptions();

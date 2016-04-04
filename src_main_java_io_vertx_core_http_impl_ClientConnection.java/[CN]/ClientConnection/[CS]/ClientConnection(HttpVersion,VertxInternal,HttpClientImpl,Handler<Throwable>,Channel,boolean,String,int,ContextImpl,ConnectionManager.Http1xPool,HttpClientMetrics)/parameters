@@ -1,5 +1,4 @@
 HttpVersion version
-ConnectionManager manager
 VertxInternal vertx
 HttpClientImpl client
 Handler<Throwable> exceptionHandler
@@ -8,5 +7,5 @@ boolean ssl
 String host
 int port
 ContextImpl context
-ConnectionManager.Http1xPool listener
+ConnectionManager.Http1xPool pool
 HttpClientMetrics metrics

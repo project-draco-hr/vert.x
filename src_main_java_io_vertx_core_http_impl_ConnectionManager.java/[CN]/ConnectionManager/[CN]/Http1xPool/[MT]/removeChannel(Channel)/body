@@ -1,0 +1,3 @@
+{
+  queue.mgr.connectionMap.remove(channel);
+}

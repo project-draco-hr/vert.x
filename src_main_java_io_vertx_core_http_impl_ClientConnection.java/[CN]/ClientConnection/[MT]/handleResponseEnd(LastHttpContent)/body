@@ -21,7 +21,7 @@
  else     if (protocolVersion == io.vertx.core.http.HttpVersion.HTTP_1_0 && !HttpHeaders.Values.KEEP_ALIVE.equalsIgnoreCase(responseConnectionHeader)) {
       close=true;
     }
-    listener.responseEnded(this,close);
+    pool.responseEnded(this,close);
   }
   currentResponse=null;
 }
