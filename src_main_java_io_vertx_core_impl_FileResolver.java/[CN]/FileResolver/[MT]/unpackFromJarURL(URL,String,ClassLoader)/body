@@ -1,6 +1,6 @@
 {
+  ZipFile zip=null;
   try {
-    ZipFile zip;
     String path=url.getPath();
     int idx1=path.lastIndexOf(".jar!");
     if (idx1 == -1) {
@@ -46,6 +46,9 @@
   }
  catch (  IOException e) {
     throw new VertxException(e);
+  }
+ finally {
+    closeQuietly(zip);
   }
   return new File(cacheDir,fileName);
 }

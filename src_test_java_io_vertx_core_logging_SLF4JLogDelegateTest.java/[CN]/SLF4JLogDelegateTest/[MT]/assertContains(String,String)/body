@@ -1,0 +1,4 @@
+{
+  assertNotNull(object);
+  assertTrue(object.contains(expectedExcerpt));
+}
