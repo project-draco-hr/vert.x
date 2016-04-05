@@ -1,5 +1,10 @@
 {
-  writeData(buf,end);
+  if (buf == null && end) {
+    buf=Unpooled.EMPTY_BUFFER;
+  }
+  if (buf != null) {
+    writeData(buf,end);
+  }
   if (end) {
     handlerContext.flush();
   }

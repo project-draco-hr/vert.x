@@ -1,6 +1,5 @@
 {
-  int readableBytes=buff.readableBytes();
-  if (readableBytes == 0 && !end) {
+  if (buff == null && !end) {
     return;
   }
   if (end) {
@@ -9,22 +8,26 @@
   if (!end && !chunked && !contentLengthSet()) {
     throw new IllegalStateException("You must set the Content-Length header to be the total size of the message " + "body BEFORE sending any data if you are not using HTTP chunked encoding.");
   }
-  written+=buff.readableBytes();
+  if (buff != null) {
+    written+=buff.readableBytes();
+  }
   if (stream == null) {
-    if (pendingChunks == null) {
-      pendingChunks=buff;
-    }
- else {
-      CompositeByteBuf pending;
-      if (pendingChunks instanceof CompositeByteBuf) {
-        pending=(CompositeByteBuf)pendingChunks;
+    if (buff != null) {
+      if (pendingChunks == null) {
+        pendingChunks=buff;
       }
  else {
-        pending=Unpooled.compositeBuffer();
-        pending.addComponent(pendingChunks).writerIndex(pendingChunks.writerIndex());
-        pendingChunks=pending;
+        CompositeByteBuf pending;
+        if (pendingChunks instanceof CompositeByteBuf) {
+          pending=(CompositeByteBuf)pendingChunks;
+        }
+ else {
+          pending=Unpooled.compositeBuffer();
+          pending.addComponent(pendingChunks).writerIndex(pendingChunks.writerIndex());
+          pendingChunks=pending;
+        }
+        pending.addComponent(buff).writerIndex(pending.writerIndex() + buff.writerIndex());
       }
-      pending.addComponent(buff).writerIndex(pending.writerIndex() + buff.writerIndex());
     }
     connect(null);
   }

@@ -26,7 +26,7 @@ synchronized (this) {
     }
  else {
       if (completed) {
-        writeHeadWithContent(Unpooled.EMPTY_BUFFER,true);
+        writeHeadWithContent(null,true);
         conn.reportBytesWritten(written);
         if (respHandler != null) {
           this.stream.endRequest();

@@ -2,6 +2,6 @@
 synchronized (getLock()) {
     checkComplete();
     checkResponseHandler();
-    write(Unpooled.EMPTY_BUFFER,true);
+    write(null,true);
   }
 }
