@@ -1,4 +1,6 @@
 Http2ServerConnection conn
 VertxHttp2Stream stream
+HttpMethod method
+String path
 boolean push
 String contentEncoding

@@ -7,5 +7,5 @@
   if (contentEncoding != null) {
     putHeader(HttpHeaderNames.CONTENT_ENCODING,contentEncoding);
   }
-  this.metric=conn.metrics().responsePushed(conn.metric(),this);
+  this.metric=conn.metrics().responsePushed(conn.metric(),method,path,this);
 }

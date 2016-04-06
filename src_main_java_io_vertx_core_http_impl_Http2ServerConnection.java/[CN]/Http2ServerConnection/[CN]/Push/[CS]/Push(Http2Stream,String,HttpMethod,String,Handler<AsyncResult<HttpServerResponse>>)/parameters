@@ -1,3 +1,5 @@
 Http2Stream stream
 String contentEncoding
+HttpMethod method
+String uri
 Handler<AsyncResult<HttpServerResponse>> completionHandler

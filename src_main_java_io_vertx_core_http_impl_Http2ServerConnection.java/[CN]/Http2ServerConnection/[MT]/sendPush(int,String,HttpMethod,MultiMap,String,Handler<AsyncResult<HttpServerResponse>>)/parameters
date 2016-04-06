@@ -1,3 +1,6 @@
 int streamId
-Http2Headers headers
+String host
+HttpMethod method
+MultiMap headers
+String path
 Handler<AsyncResult<HttpServerResponse>> completionHandler

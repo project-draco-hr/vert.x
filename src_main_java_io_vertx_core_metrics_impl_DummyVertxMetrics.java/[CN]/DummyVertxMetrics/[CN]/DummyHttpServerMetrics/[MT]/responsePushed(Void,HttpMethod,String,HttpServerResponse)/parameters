@@ -1,2 +1,4 @@
 Void socketMetric
+HttpMethod method
+String uri
 HttpServerResponse response

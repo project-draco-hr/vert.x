@@ -1,2 +1,10 @@
 {
+synchronized (conn) {
+    if (push) {
+      throw new IllegalStateException("A push response cannot promise another push");
+    }
+    checkEnded();
+    conn.sendPush(stream.id(),host,method,headers,path,handler);
+    return this;
+  }
 }
