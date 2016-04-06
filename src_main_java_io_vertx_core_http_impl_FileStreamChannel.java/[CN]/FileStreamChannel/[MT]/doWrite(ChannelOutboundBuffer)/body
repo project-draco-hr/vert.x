@@ -1,7 +1,6 @@
 {
   ByteBuf chunk;
   while (!stream.isNotWritable() && (chunk=(ByteBuf)in.current()) != null) {
-    length-=chunk.readableBytes();
     bytesWritten+=chunk.readableBytes();
     stream.writeData(chunk.retain(),false);
     stream.handlerContext.flush();
