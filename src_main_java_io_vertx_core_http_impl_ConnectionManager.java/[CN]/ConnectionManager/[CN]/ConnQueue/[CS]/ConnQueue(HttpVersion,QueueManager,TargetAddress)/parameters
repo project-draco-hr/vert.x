@@ -1,0 +1,3 @@
+HttpVersion version
+QueueManager mgr
+TargetAddress address

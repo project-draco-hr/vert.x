@@ -1,0 +1,5 @@
+{
+  TargetAddress address=new TargetAddress(host,port);
+  ConnQueue connQueue=wsQM.getConnQueue(address,HttpVersion.HTTP_1_1);
+  connQueue.getConnection(waiter);
+}

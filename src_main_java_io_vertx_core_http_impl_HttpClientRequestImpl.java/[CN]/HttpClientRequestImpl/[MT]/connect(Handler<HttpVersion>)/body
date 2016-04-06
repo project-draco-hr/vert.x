@@ -19,7 +19,7 @@ synchronized (HttpClientRequestImpl.this) {
       }
     }
 ;
-    client.getConnection(port,host,waiter);
+    client.getConnectionForRequest(port,host,waiter);
     connecting=true;
   }
 }

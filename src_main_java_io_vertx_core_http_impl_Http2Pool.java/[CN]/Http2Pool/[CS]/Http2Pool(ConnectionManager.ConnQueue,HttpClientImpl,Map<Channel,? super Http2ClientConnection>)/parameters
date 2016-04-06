@@ -1,0 +1,3 @@
+ConnectionManager.ConnQueue queue
+HttpClientImpl client
+Map<Channel,? super Http2ClientConnection> connectionMap

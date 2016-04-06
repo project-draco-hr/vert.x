@@ -3,7 +3,7 @@
     queue.closeAllConnections();
   }
   queueMap.clear();
-  for (  C conn : connectionMap.values()) {
+  for (  HttpClientConnection conn : connectionMap.values()) {
     conn.close();
   }
 }

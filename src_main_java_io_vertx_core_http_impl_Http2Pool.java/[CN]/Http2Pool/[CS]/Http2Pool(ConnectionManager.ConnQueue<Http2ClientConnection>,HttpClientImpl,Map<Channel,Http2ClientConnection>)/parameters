@@ -1,3 +1,0 @@
-ConnectionManager.ConnQueue<Http2ClientConnection> queue
-HttpClientImpl client
-Map<Channel,Http2ClientConnection> connectionMap

@@ -1,5 +1,0 @@
-Map<Channel,C> connectionMap
-Http2ConnectionDecoder decoder
-Http2ConnectionEncoder encoder
-Http2Settings initialSettings
-Function<VertxHttp2ConnectionHandler<C>,C> connectionFactory
