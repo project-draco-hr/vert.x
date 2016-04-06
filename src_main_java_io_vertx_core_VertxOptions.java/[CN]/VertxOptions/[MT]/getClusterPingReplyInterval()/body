@@ -1,3 +1,3 @@
 {
-  return clusterPingReplyInterval;
+  return eventBusOptions.getClusterPingReplyInterval();
 }

@@ -1,6 +1,6 @@
 {
   super(vertx);
-  this.options=options;
+  this.options=options.getEventBusOptions();
   this.clusterManager=clusterManager;
   this.haManager=haManager;
   this.sendNoContext=vertx.getOrCreateContext();

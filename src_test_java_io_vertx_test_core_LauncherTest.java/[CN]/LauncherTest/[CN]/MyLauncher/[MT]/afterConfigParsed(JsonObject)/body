@@ -1,0 +1,4 @@
+{
+  afterConfigParsed=true;
+  this.config=config;
+}

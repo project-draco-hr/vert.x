@@ -1,0 +1,7 @@
+{
+  start();
+  runnable.run();
+  String result=get();
+  stop();
+  return result;
+}

@@ -1,7 +1,12 @@
 {
   start();
-  runnable.run();
-  String result=get();
-  stop();
+  String result;
+  try {
+    runnable.run();
+    result=get();
+  }
+  finally {
+    stop();
+  }
   return result;
 }

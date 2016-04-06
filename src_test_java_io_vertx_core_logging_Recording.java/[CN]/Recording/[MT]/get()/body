@@ -1,8 +1,4 @@
 {
-  try {
-    error.flush();
-  }
- catch (  IOException e) {
-  }
+  handler.flush();
   return error.toString();
 }

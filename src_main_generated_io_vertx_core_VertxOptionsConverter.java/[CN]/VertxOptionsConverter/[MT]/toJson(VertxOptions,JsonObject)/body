@@ -11,6 +11,9 @@
   }
   json.put("clusterPublicPort",obj.getClusterPublicPort());
   json.put("clustered",obj.isClustered());
+  if (obj.getEventBusOptions() != null) {
+    json.put("eventBusOptions",obj.getEventBusOptions().toJson());
+  }
   json.put("eventLoopPoolSize",obj.getEventLoopPoolSize());
   json.put("haEnabled",obj.isHAEnabled());
   if (obj.getHAGroup() != null) {

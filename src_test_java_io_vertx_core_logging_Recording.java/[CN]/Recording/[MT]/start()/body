@@ -1,4 +1,4 @@
 {
   error.reset();
-  System.setErr(new PrintStream(error));
+  logger.addHandler(handler);
 }

@@ -1,0 +1,24 @@
+{
+  super.setUp();
+  webRoot="webroot6";
+  prevCL=Thread.currentThread().getContextClassLoader();
+  URL webroot6URL=prevCL.getResource("webroot6.zip");
+  ClassLoader loader=new ClassLoader(prevCL=Thread.currentThread().getContextClassLoader()){
+    @Override public URL getResource(    String name){
+      try {
+        if (name.startsWith("lib/")) {
+          return new URL("jar:" + webroot6URL + "!/"+ name);
+        }
+ else         if (name.startsWith("webroot6")) {
+          return new URL("jar:" + webroot6URL + "!/lib/nested.zip!/"+ name.substring(7));
+        }
+      }
+ catch (      MalformedURLException e) {
+        throw new AssertionError(e);
+      }
+      return super.getResource(name);
+    }
+  }
+;
+  Thread.currentThread().setContextClassLoader(loader);
+}

@@ -1,4 +1,4 @@
 {
-  this.clusterHost=clusterHost;
+  this.eventBusOptions.setHost(clusterHost);
   return this;
 }
