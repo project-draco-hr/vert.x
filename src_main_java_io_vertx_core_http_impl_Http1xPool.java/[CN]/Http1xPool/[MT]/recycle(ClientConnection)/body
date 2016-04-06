@@ -1,2 +1,7 @@
 {
+synchronized (queue) {
+    if (pipelining) {
+      doRecycle(conn);
+    }
+  }
 }
