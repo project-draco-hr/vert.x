@@ -1,0 +1,3 @@
+{
+  connectionMap.remove(channel);
+}

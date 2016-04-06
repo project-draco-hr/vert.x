@@ -9,7 +9,7 @@ synchronized (this) {
       conn.close();
     }
  catch (    Throwable t) {
-      log.error("Failed to close connection",t);
+      ConnectionManager.log.error("Failed to close connection",t);
     }
   }
 }

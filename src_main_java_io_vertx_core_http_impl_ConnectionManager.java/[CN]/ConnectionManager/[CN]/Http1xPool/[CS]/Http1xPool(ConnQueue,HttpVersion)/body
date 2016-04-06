@@ -1,4 +1,0 @@
-{
-  super(queue,client.getOptions().getMaxPoolSize());
-  this.version=version;
-}

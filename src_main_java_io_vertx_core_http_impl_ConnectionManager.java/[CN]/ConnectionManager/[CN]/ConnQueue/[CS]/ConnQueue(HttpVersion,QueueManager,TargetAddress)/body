@@ -5,6 +5,6 @@
     pool=new Http2Pool(this,client,mgr.connectionMap);
   }
  else {
-    pool=new Http1xPool(this,version);
+    pool=new Http1xPool(client,options,this,mgr.connectionMap,version);
   }
 }
