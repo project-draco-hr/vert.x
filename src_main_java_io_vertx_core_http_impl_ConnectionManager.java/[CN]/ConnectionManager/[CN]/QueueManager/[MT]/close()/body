@@ -1,8 +1,8 @@
 {
-  for (  ConnQueue queue : connQueues.values()) {
+  for (  ConnQueue queue : queueMap.values()) {
     queue.closeAllConnections();
   }
-  connQueues.clear();
+  queueMap.clear();
   for (  C conn : connectionMap.values()) {
     conn.close();
   }

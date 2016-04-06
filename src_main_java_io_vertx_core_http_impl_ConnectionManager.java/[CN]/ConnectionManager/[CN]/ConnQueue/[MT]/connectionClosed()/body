@@ -5,6 +5,6 @@
     createNewConnection(waiter);
   }
  else   if (connCount == 0) {
-    mgr.connQueues.remove(address);
+    mgr.queueMap.remove(address);
   }
 }

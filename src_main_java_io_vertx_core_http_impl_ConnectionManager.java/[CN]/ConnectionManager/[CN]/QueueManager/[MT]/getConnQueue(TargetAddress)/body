@@ -1,8 +1,8 @@
 {
-  ConnQueue<C> connQueue=connQueues.get(address);
+  ConnQueue<C> connQueue=queueMap.get(address);
   if (connQueue == null) {
     connQueue=new ConnQueue<>(this,address);
-    ConnQueue<C> prev=connQueues.putIfAbsent(address,connQueue);
+    ConnQueue<C> prev=queueMap.putIfAbsent(address,connQueue);
     if (prev != null) {
       connQueue=prev;
     }
