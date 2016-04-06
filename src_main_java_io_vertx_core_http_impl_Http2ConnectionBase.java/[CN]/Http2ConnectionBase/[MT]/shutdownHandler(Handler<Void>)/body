@@ -1,0 +1,4 @@
+{
+  shutdownHandler=handler;
+  return this;
+}

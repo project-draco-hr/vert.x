@@ -1,0 +1,9 @@
+{
+synchronized (conn) {
+    checkEnded();
+    checkSendHeaders(false);
+    stream.writeFrame(type,flags,payload.getByteBuf());
+    ctx.flush();
+    return this;
+  }
+}

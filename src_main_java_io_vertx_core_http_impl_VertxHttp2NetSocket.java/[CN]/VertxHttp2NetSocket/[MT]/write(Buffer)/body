@@ -1,0 +1,6 @@
+{
+synchronized (conn) {
+    writeData(data.getByteBuf(),false);
+    return this;
+  }
+}

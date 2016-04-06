@@ -1,0 +1,6 @@
+{
+synchronized (queue) {
+    conn.streamCount--;
+    checkPending(conn);
+  }
+}

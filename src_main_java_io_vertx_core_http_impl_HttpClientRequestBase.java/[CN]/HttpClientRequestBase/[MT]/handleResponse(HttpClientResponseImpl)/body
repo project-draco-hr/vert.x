@@ -1,0 +1,13 @@
+{
+synchronized (getLock()) {
+    if (!exceptionOccurred) {
+      cancelOutstandingTimeoutTimer();
+      try {
+        doHandleResponse(resp);
+      }
+ catch (      Throwable t) {
+        handleException(t);
+      }
+    }
+  }
+}

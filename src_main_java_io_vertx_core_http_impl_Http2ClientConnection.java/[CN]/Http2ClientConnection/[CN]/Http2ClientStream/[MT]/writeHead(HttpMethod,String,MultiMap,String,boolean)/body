@@ -1,0 +1,3 @@
+{
+  writeHeadWithContent(method,uri,headers,hostHeader,chunked,null,false);
+}

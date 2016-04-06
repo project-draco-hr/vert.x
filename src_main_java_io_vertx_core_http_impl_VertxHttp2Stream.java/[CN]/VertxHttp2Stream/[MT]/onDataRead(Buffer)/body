@@ -1,0 +1,18 @@
+{
+synchronized (conn) {
+    if (!paused) {
+      if (pending.isEmpty()) {
+        handleData(data);
+        return true;
+      }
+ else {
+        pending.add(data);
+        checkNextTick(null);
+      }
+    }
+ else {
+      pending.add(data);
+    }
+    return false;
+  }
+}

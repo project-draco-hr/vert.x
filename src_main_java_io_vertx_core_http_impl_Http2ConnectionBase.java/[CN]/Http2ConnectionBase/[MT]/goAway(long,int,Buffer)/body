@@ -1,0 +1,10 @@
+{
+  if (errorCode < 0) {
+    throw new IllegalArgumentException();
+  }
+  if (lastStreamId < 0) {
+    throw new IllegalArgumentException();
+  }
+  handler.writeGoAway(errorCode,lastStreamId,debugData != null ? debugData.getByteBuf() : Unpooled.EMPTY_BUFFER);
+  return this;
+}

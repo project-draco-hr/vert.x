@@ -1,0 +1,5 @@
+{
+  HttpServerOptions serverOptions=new HttpServerOptions();
+  setOptions(serverOptions,options);
+  testStore(serverOptions,Collections.singletonList(expectedPrefix),expectedSuffix);
+}

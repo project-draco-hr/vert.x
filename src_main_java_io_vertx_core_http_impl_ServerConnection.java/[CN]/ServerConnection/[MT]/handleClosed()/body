@@ -1,6 +1,8 @@
 {
   if (ws != null) {
-    metrics.disconnected(ws.getMetric());
+    if (metrics.isEnabled()) {
+      metrics.disconnected(ws.getMetric());
+    }
     ws.setMetric(null);
   }
   super.handleClosed();
@@ -8,6 +10,9 @@
     ws.handleClosed();
   }
   if (pendingResponse != null) {
+    if (metrics.isEnabled()) {
+      metrics.requestReset(requestMetric);
+    }
     pendingResponse.handleClosed();
   }
 }

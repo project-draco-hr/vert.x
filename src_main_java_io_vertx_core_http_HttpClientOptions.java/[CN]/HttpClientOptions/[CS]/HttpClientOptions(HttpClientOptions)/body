@@ -11,4 +11,7 @@
   this.protocolVersion=other.protocolVersion;
   this.maxChunkSize=other.maxChunkSize;
   this.maxWaitQueueSize=other.maxWaitQueueSize;
+  this.initialSettings=other.initialSettings != null ? new Http2Settings(other.initialSettings) : null;
+  this.alpnVersions=other.alpnVersions != null ? new ArrayList<>(other.alpnVersions) : null;
+  this.h2cUpgrade=other.h2cUpgrade;
 }

@@ -1,0 +1,19 @@
+{
+synchronized (getLock()) {
+    checkComplete();
+    checkResponseHandler();
+    if (stream != null) {
+      if (!headWritten) {
+        writeHead();
+        if (completionHandler != null) {
+          completionHandler.handle(stream.version());
+        }
+      }
+    }
+ else {
+      connect(completionHandler);
+      writeHead=true;
+    }
+    return this;
+  }
+}

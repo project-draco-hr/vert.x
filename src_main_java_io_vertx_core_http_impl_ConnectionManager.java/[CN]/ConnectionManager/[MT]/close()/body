@@ -1,6 +1,4 @@
 {
-  for (  ConnQueue queue : connQueues.values()) {
-    queue.closeAllConnections();
-  }
-  connQueues.clear();
+  wsQM.close();
+  requestQM.close();
 }

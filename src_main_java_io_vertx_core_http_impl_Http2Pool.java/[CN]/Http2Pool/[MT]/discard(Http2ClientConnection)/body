@@ -1,0 +1,8 @@
+{
+synchronized (queue) {
+    if (connection == conn) {
+      connection=null;
+      queue.connectionClosed();
+    }
+  }
+}

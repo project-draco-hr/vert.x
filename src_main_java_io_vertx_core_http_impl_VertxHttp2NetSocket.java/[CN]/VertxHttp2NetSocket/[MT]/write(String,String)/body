@@ -1,0 +1,7 @@
+{
+synchronized (conn) {
+    Charset cs=enc != null ? Charset.forName(enc) : CharsetUtil.UTF_8;
+    writeData(Unpooled.copiedBuffer(str,cs),false);
+    return this;
+  }
+}

@@ -1,27 +1,13 @@
 {
 synchronized (conn) {
-    if (paused) {
-      if (pausedChunk == null) {
-        pausedChunk=data.copy();
+    request.dataReceived();
+    bytesRead+=data.length();
+    if (dataHandler != null) {
+      try {
+        dataHandler.handle(data);
       }
- else {
-        pausedChunk.appendBuffer(data);
-      }
-    }
- else {
-      request.dataReceived();
-      if (pausedChunk != null) {
-        data=pausedChunk.appendBuffer(data);
-        pausedChunk=null;
-      }
-      bytesRead+=data.length();
-      if (dataHandler != null) {
-        try {
-          dataHandler.handle(data);
-        }
- catch (        Throwable t) {
-          handleException(t);
-        }
+ catch (      Throwable t) {
+        handleException(t);
       }
     }
   }

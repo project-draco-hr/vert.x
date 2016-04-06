@@ -1,0 +1,3 @@
+{
+  return keyStoreHelper == null ? null : keyStoreHelper.getKeyMgrFactory(vertx);
+}

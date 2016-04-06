@@ -1,0 +1,45 @@
+{
+  HttpClientConnection conn=stream.connection();
+synchronized (this) {
+    this.conn=conn;
+    this.stream=stream;
+    stream.beginRequest(this);
+    if (pendingMaxSize != -1) {
+      this.stream.doSetWriteQueueMaxSize(pendingMaxSize);
+    }
+    if (pendingChunks != null) {
+      ByteBuf pending=pendingChunks;
+      pendingChunks=null;
+      if (completed) {
+        writeHeadWithContent(pending,true);
+        conn.reportBytesWritten(written);
+        if (respHandler != null) {
+          this.stream.endRequest();
+        }
+      }
+ else {
+        writeHeadWithContent(pending,false);
+        if (headersCompletionHandler != null) {
+          headersCompletionHandler.handle(stream.version());
+        }
+      }
+    }
+ else {
+      if (completed) {
+        writeHeadWithContent(null,true);
+        conn.reportBytesWritten(written);
+        if (respHandler != null) {
+          this.stream.endRequest();
+        }
+      }
+ else {
+        if (writeHead) {
+          writeHead();
+          if (headersCompletionHandler != null) {
+            headersCompletionHandler.handle(stream.version());
+          }
+        }
+      }
+    }
+  }
+}

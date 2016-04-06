@@ -3,9 +3,11 @@
   result=31 * result + (compressionSupported ? 1 : 0);
   result=31 * result + maxWebsocketFrameSize;
   result=31 * result + (websocketSubProtocols != null ? websocketSubProtocols.hashCode() : 0);
+  result=31 * result + (initialSettings != null ? initialSettings.hashCode() : 0);
   result=31 * result + (handle100ContinueAutomatically ? 1 : 0);
   result=31 * result + maxChunkSize;
   result=31 * result + maxInitialLineLength;
   result=31 * result + maxHeaderSize;
+  result=31 * result + (alpnVersions != null ? alpnVersions.hashCode() : 0);
   return result;
 }

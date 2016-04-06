@@ -4,6 +4,14 @@
     ws.handleClosed();
   }
   Exception e=new VertxException("Connection was closed");
+  if (metrics.isEnabled()) {
+    for (    HttpClientRequestImpl req : requests) {
+      metrics.requestReset(req.metric());
+    }
+    if (requestForResponse != null) {
+      metrics.requestReset(requestForResponse.metric());
+    }
+  }
   for (  HttpClientRequestImpl req : requests) {
     req.handleException(e);
   }

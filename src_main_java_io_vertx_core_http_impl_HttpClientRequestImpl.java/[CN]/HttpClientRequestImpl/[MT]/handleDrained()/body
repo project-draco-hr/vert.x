@@ -1,6 +1,6 @@
 {
 synchronized (getLock()) {
-    if (drainHandler != null) {
+    if (!completed && drainHandler != null) {
       try {
         drainHandler.handle(null);
       }

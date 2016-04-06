@@ -1,0 +1,8 @@
+{
+synchronized (conn) {
+    if (statusMessage == null) {
+      return HttpResponseStatus.valueOf(statusCode).reasonPhrase();
+    }
+    return statusMessage;
+  }
+}

@@ -1,0 +1,4 @@
+int streamId
+int promisedStreamId
+Http2Headers headers
+ChannelPromise promise

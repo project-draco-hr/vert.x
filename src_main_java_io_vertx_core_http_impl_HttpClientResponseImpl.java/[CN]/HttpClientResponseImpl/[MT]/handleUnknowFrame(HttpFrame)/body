@@ -1,0 +1,12 @@
+{
+synchronized (conn) {
+    if (unknownFrameHandler != null) {
+      try {
+        unknownFrameHandler.handle(frame);
+      }
+ catch (      Throwable t) {
+        handleException(t);
+      }
+    }
+  }
+}

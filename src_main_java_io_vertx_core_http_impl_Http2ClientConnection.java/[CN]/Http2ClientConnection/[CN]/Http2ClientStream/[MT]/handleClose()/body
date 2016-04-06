@@ -1,0 +1,9 @@
+{
+  if (!responseEnded) {
+    responseEnded=true;
+    if (conn.metrics.isEnabled()) {
+      conn.metrics.requestReset(request.metric());
+    }
+    handleException(new VertxException("Connection was closed"));
+  }
+}

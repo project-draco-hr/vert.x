@@ -1,0 +1,4 @@
+{
+  encoder().writeGoAway(ctx,lastStreamId,errorCode,debugData,ctx.newPromise());
+  ctx.flush();
+}

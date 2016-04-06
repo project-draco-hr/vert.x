@@ -6,9 +6,6 @@ synchronized (this) {
   if (creatingContext != null) {
     creatingContext.removeCloseHook(closeHook);
   }
-  pool.close();
-  for (  ClientConnection conn : connectionMap.values()) {
-    conn.close();
-  }
+  connectionManager.close();
   metrics.close();
 }

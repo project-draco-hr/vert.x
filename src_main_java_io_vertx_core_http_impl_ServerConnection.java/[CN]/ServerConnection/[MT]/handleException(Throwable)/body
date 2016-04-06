@@ -1,5 +1,8 @@
 {
   super.handleException(t);
+  if (metrics.isEnabled()) {
+    requestFailed=true;
+  }
   if (currentRequest != null) {
     currentRequest.handleException(t);
   }

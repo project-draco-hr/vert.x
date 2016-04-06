@@ -1,0 +1,12 @@
+{
+synchronized (getLock()) {
+    cancelOutstandingTimeoutTimer();
+    exceptionOccurred=true;
+    if (exceptionHandler != null) {
+      exceptionHandler.handle(t);
+    }
+ else {
+      log.error(t);
+    }
+  }
+}

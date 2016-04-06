@@ -1,0 +1,4 @@
+{
+  clientTrustAll=true;
+  return this;
+}

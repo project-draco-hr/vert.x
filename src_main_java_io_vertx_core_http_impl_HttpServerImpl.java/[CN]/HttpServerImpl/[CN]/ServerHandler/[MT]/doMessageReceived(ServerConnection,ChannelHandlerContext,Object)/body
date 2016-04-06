@@ -26,7 +26,7 @@
       }
  else {
         if (conn == null) {
-          createConnAndHandle(ch,msg,null);
+          createConnAndHandle(ctx,ch,msg,null);
         }
  else {
           conn.handleMessage(msg);
@@ -78,7 +78,7 @@ throw new IllegalStateException("Invalid message " + msg);
 }
  else {
 if (conn == null) {
-createConnAndHandle(ch,msg,null);
+createConnAndHandle(ctx,ch,msg,null);
 }
  else {
 conn.handleMessage(msg);

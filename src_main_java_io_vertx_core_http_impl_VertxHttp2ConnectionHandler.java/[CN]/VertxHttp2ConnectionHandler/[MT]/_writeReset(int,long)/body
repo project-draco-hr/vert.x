@@ -1,0 +1,4 @@
+{
+  encoder().writeRstStream(ctx,streamId,code,ctx.newPromise());
+  ctx.flush();
+}

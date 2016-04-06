@@ -1,0 +1,3 @@
+{
+  return PartialPooledByteBufAllocator.INSTANCE.calculateNewCapacity(minNewCapacity,maxCapacity);
+}

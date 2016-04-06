@@ -1,0 +1,3 @@
+{
+  handleException(new StreamResetException(errorCode));
+}

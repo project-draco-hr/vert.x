@@ -1,0 +1,4 @@
+{
+  this.lastStreamId=lastStreamId;
+  return this;
+}

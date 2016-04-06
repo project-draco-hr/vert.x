@@ -1,0 +1,4 @@
+HttpClientImpl client
+io.vertx.core.http.HttpMethod method
+String host
+String uri

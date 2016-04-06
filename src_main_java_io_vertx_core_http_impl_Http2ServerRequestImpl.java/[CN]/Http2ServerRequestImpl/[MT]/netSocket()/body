@@ -1,0 +1,10 @@
+{
+synchronized (conn) {
+    checkEnded();
+    if (netSocket == null) {
+      response.toNetSocket();
+      netSocket=conn.toNetSocket(this);
+    }
+    return netSocket;
+  }
+}

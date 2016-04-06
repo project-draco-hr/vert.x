@@ -3,7 +3,7 @@ synchronized (conn) {
     if (paused) {
       paused=false;
       doResume();
-      conn.doResume();
+      stream.doResume();
     }
     return this;
   }

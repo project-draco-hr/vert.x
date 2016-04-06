@@ -1,0 +1,8 @@
+{
+  try {
+    return io.vertx.core.http.HttpMethod.valueOf(method);
+  }
+ catch (  IllegalArgumentException e) {
+    return io.vertx.core.http.HttpMethod.UNKNOWN;
+  }
+}

@@ -1,0 +1,17 @@
+{
+  if (!headWritten) {
+    if (headersEndHandler != null) {
+      headersEndHandler.handle(null);
+    }
+    headWritten=true;
+    headers.status(Integer.toString(statusCode));
+    stream.writeHeaders(headers,end);
+    if (end) {
+      ctx.flush();
+    }
+    return true;
+  }
+ else {
+    return false;
+  }
+}

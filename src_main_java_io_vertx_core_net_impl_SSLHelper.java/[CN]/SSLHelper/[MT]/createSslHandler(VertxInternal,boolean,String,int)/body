@@ -1,4 +1,0 @@
-{
-  SSLEngine engine=getContext(vertx).createSSLEngine(host,port);
-  return createHandler(engine,client);
-}

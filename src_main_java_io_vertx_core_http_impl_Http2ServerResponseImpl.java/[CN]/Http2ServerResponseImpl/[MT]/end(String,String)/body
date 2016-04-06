@@ -1,0 +1,3 @@
+{
+  end(Buffer.buffer(chunk,enc));
+}

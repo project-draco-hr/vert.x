@@ -1,6 +1,4 @@
 {
   super.setUp();
   testDir=testFolder.newFolder();
-  server=vertx.createHttpServer(new HttpServerOptions().setPort(DEFAULT_HTTP_PORT).setHost(DEFAULT_HTTP_HOST).setHandle100ContinueAutomatically(true));
-  client=vertx.createHttpClient(new HttpClientOptions());
 }

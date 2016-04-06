@@ -1,6 +1,0 @@
-{
-  this.maxSockets=maxSockets;
-  this.keepAlive=keepAlive;
-  this.pipelining=pipelining;
-  this.maxWaitQueueSize=maxWaitQueueSize;
-}

@@ -1,0 +1,4 @@
+{
+  ByteBuf buf=chunk.getByteBuf();
+  return write(buf);
+}

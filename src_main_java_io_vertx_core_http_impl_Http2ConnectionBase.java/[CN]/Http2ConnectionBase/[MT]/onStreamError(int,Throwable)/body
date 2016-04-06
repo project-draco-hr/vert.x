@@ -1,0 +1,6 @@
+{
+  VertxHttp2Stream stream=streams.get(streamId);
+  if (stream != null) {
+    stream.handleException(cause);
+  }
+}

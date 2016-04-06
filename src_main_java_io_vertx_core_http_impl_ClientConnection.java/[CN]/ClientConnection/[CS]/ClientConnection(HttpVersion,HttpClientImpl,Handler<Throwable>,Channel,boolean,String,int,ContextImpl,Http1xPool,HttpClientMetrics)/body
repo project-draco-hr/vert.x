@@ -1,0 +1,12 @@
+{
+  super(client.getVertx(),channel,context,metrics);
+  this.client=client;
+  this.ssl=ssl;
+  this.host=host;
+  this.port=port;
+  this.pool=pool;
+  this.exceptionHandler=exceptionHandler;
+  this.metrics=metrics;
+  this.metric=metrics.connected(remoteAddress(),remoteName());
+  this.version=version;
+}

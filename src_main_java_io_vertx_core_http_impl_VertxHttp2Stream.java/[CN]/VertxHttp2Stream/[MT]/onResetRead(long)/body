@@ -1,0 +1,7 @@
+{
+synchronized (conn) {
+    paused=false;
+    pending.clear();
+    handleReset(code);
+  }
+}

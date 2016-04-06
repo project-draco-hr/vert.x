@@ -11,5 +11,8 @@
   result=31 * result + protocolVersion.hashCode();
   result=31 * result + maxChunkSize;
   result=31 * result + maxWaitQueueSize;
+  result=31 * result + (initialSettings != null ? initialSettings.hashCode() : 0);
+  result=31 * result + (alpnVersions != null ? alpnVersions.hashCode() : 0);
+  result=31 * result + (h2cUpgrade ? 1 : 0);
   return result;
 }

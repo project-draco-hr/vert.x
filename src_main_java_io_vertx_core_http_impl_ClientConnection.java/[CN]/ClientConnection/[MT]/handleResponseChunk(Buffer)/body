@@ -1,3 +1,17 @@
 {
-  currentResponse.handleChunk(buff);
+  if (paused) {
+    if (pausedChunk == null) {
+      pausedChunk=buff.copy();
+    }
+ else {
+      pausedChunk.appendBuffer(buff);
+    }
+  }
+ else {
+    if (pausedChunk != null) {
+      buff=pausedChunk.appendBuffer(buff);
+      pausedChunk=null;
+    }
+    currentResponse.handleChunk(buff);
+  }
 }

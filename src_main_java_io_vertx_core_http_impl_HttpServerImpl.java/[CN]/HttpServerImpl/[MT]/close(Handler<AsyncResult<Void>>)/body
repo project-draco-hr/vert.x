@@ -31,7 +31,7 @@
 synchronized (vertx.sharedHttpServers()) {
     if (actualServer != null) {
       if (requestStream.handler() != null) {
-        actualServer.reqHandlerManager.removeHandler(requestStream.handler(),listenContext);
+        actualServer.reqHandlerManager.removeHandler(new HttpHandler(requestStream.handler(),connectionHandler),listenContext);
       }
       if (wsStream.handler() != null) {
         actualServer.wsHandlerManager.removeHandler(wsStream.handler(),listenContext);

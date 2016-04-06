@@ -1,0 +1,9 @@
+{
+  this.version=version;
+  this.statusCode=statusCode;
+  this.statusMessage=statusMessage;
+  this.request=request;
+  this.stream=stream;
+  this.conn=stream.connection();
+  this.headers=headers;
+}

@@ -1,0 +1,14 @@
+{
+  bytesRead+=data.length();
+  if (postRequestDecoder != null) {
+    try {
+      postRequestDecoder.offer(new DefaultHttpContent(data.getByteBuf()));
+    }
+ catch (    Exception e) {
+      handleException(e);
+    }
+  }
+  if (dataHandler != null) {
+    dataHandler.handle(data);
+  }
+}

@@ -1,0 +1,5 @@
+{
+  super(Http2ServerConnection.this,stream);
+  this.contentEncoding=contentEncoding;
+  this.completionHandler=Future.<HttpServerResponse>future().setHandler(completionHandler);
+}

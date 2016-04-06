@@ -1,0 +1,2 @@
+ChannelPipeline pipeline
+VertxHttp2ConnectionHandler<Http2ServerConnection> handler

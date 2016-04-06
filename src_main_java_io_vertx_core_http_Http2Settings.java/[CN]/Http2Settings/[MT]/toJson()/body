@@ -1,0 +1,5 @@
+{
+  JsonObject json=new JsonObject();
+  Http2SettingsConverter.toJson(this,json);
+  return json;
+}

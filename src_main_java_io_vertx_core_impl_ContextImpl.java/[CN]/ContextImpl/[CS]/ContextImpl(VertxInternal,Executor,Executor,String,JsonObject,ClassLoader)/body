@@ -15,4 +15,5 @@
   }
   this.tccl=tccl;
   this.owner=vertx;
+  this.exceptionHandler=vertx.exceptionHandler();
 }

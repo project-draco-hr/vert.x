@@ -1,15 +1,3 @@
 {
-  Set<ClientConnection> copy;
-synchronized (this) {
-    copy=new HashSet<>(allConnections);
-    allConnections.clear();
-  }
-  for (  ClientConnection conn : copy) {
-    try {
-      conn.close();
-    }
- catch (    Throwable t) {
-      log.error("Failed to close connection",t);
-    }
-  }
+  pool.closeAllConnections();
 }

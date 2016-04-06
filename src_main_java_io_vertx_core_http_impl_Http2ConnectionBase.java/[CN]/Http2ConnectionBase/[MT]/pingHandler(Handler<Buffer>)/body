@@ -1,0 +1,4 @@
+{
+  pingHandler=handler;
+  return this;
+}

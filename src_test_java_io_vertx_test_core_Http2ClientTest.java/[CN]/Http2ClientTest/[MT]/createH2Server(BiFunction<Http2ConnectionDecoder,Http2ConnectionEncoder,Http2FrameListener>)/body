@@ -1,0 +1,27 @@
+{
+  ServerBootstrap bootstrap=new ServerBootstrap();
+  bootstrap.channel(NioServerSocketChannel.class);
+  bootstrap.group(new NioEventLoopGroup());
+  bootstrap.childHandler(new ChannelInitializer<Channel>(){
+    @Override protected void initChannel(    Channel ch) throws Exception {
+      SSLHelper sslHelper=new SSLHelper(serverOptions,KeyStoreHelper.create((VertxInternal)vertx,TLSCert.JKS.getServerKeyCertOptions()),null);
+      SslHandler sslHandler=sslHelper.setApplicationProtocols(Arrays.asList(HttpVersion.HTTP_2,HttpVersion.HTTP_1_1)).createSslHandler((VertxInternal)vertx,DEFAULT_HTTPS_HOST,DEFAULT_HTTPS_PORT);
+      ch.pipeline().addLast(sslHandler);
+      ch.pipeline().addLast(new ApplicationProtocolNegotiationHandler("whatever"){
+        @Override protected void configurePipeline(        ChannelHandlerContext ctx,        String protocol){
+          if (ApplicationProtocolNames.HTTP_2.equals(protocol)) {
+            ChannelPipeline p=ctx.pipeline();
+            Http2ConnectionHandler clientHandler=createHttpConnectionHandler(handler);
+            p.addLast("handler",clientHandler);
+            return;
+          }
+          ctx.close();
+          throw new IllegalStateException("unknown protocol: " + protocol);
+        }
+      }
+);
+    }
+  }
+);
+  return bootstrap;
+}

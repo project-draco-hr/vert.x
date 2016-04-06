@@ -1,0 +1,7 @@
+{
+  this.conn=conn;
+  this.vertx=conn.vertx();
+  this.handlerContext=conn.handlerContext;
+  this.stream=stream;
+  this.context=conn.getContext();
+}

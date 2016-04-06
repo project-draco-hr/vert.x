@@ -14,5 +14,7 @@
   if (enabledCipherSuites != null ? !enabledCipherSuites.equals(that.enabledCipherSuites) : that.enabledCipherSuites != null)   return false;
   if (keyCertOptions != null ? !keyCertOptions.equals(that.keyCertOptions) : that.keyCertOptions != null)   return false;
   if (trustOptions != null ? !trustOptions.equals(that.trustOptions) : that.trustOptions != null)   return false;
+  if (useAlpn != that.useAlpn)   return false;
+  if (sslEngine != that.sslEngine)   return false;
   return true;
 }

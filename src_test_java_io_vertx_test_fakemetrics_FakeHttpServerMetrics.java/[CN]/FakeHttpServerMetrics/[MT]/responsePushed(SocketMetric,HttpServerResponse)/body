@@ -1,0 +1,6 @@
+{
+  HttpServerMetric requestMetric=new HttpServerMetric(null,socketMetric);
+  requestMetric.response.set(response);
+  requests.add(requestMetric);
+  return requestMetric;
+}

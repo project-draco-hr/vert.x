@@ -1,7 +1,0 @@
-{
-  HttpServerOptions serverOptions=new HttpServerOptions();
-  setOptions(serverOptions,options);
-  serverOptions.setSsl(true);
-  serverOptions.setPort(4043);
-  testStore(serverOptions,Collections.singletonList(expectedPrefix),expectedSuffix);
-}

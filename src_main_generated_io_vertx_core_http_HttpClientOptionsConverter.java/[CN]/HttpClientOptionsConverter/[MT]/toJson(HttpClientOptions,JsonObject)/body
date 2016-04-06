@@ -1,17 +1,2 @@
 {
-  if (obj.getDefaultHost() != null) {
-    json.put("defaultHost",obj.getDefaultHost());
-  }
-  json.put("defaultPort",obj.getDefaultPort());
-  json.put("keepAlive",obj.isKeepAlive());
-  json.put("maxChunkSize",obj.getMaxChunkSize());
-  json.put("maxPoolSize",obj.getMaxPoolSize());
-  json.put("maxWaitQueueSize",obj.getMaxWaitQueueSize());
-  json.put("maxWebsocketFrameSize",obj.getMaxWebsocketFrameSize());
-  json.put("pipelining",obj.isPipelining());
-  if (obj.getProtocolVersion() != null) {
-    json.put("protocolVersion",obj.getProtocolVersion().name());
-  }
-  json.put("tryUseCompression",obj.isTryUseCompression());
-  json.put("verifyHost",obj.isVerifyHost());
 }

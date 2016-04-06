@@ -1,0 +1,13 @@
+{
+  encoder().writeData(ctx,stream.id(),chunk,0,end,ctx.newPromise());
+  Http2RemoteFlowController controller=encoder().flowController();
+  if (!controller.isWritable(stream) || end) {
+    try {
+      encoder().flowController().writePendingBytes();
+    }
+ catch (    Http2Exception e) {
+      onError(ctx,e);
+    }
+  }
+  ctx.channel().flush();
+}

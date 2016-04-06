@@ -1,0 +1,6 @@
+HttpClientRequestBase request
+HttpVersion version
+HttpClientStream stream
+int statusCode
+String statusMessage
+MultiMap headers

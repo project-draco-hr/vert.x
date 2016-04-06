@@ -1,0 +1,12 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  Http2Settings that=(Http2Settings)o;
+  if (headerTableSize != that.headerTableSize)   return false;
+  if (pushEnabled != that.pushEnabled)   return false;
+  if (maxConcurrentStreams != that.maxConcurrentStreams)   return false;
+  if (initialWindowSize != that.initialWindowSize)   return false;
+  if (maxFrameSize != that.maxFrameSize)   return false;
+  if (maxHeaderListSize != that.maxHeaderListSize)   return false;
+  return true;
+}

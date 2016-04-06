@@ -1,20 +1,7 @@
 {
   if (absoluteURI == null) {
     try {
-      URI uri=new URI(uri());
-      String scheme=uri.getScheme();
-      if (scheme != null && (scheme.equals("http") || scheme.equals("https"))) {
-        absoluteURI=uri.toString();
-      }
- else {
-        String host=headers().get(HttpHeaders.Names.HOST);
-        if (host != null) {
-          absoluteURI=(conn.isSSL() ? "https://" : "http://") + host + uri;
-        }
- else {
-          absoluteURI=conn.getServerOrigin() + uri;
-        }
-      }
+      absoluteURI=HttpUtils.absoluteURI(conn.getServerOrigin(),this);
     }
  catch (    URISyntaxException e) {
       log.error("Failed to create abs uri",e);

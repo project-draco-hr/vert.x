@@ -1,0 +1,7 @@
+{
+  Buffer expected=Buffer.buffer(TestUtils.randomAlphaString(1000 * 1000));
+  File tmp=createTempFile(expected);
+  int from=200 * 1000;
+  int to=700 * 1000;
+  testNetSocketSendFile(expected.slice(from,to),tmp.getAbsolutePath(),from,to - from);
+}

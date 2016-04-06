@@ -1,0 +1,3 @@
+{
+  return new HttpServerOptions().setPort(DEFAULT_HTTP_PORT).setHost(DEFAULT_HTTP_HOST);
+}

@@ -1,0 +1,4 @@
+{
+  this.queue=queue;
+  this.maxSockets=maxSockets;
+}

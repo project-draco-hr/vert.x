@@ -1,0 +1,4 @@
+{
+  requiresClientAuth=true;
+  return this;
+}

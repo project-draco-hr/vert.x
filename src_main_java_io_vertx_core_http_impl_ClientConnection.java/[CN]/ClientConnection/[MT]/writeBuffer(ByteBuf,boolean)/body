@@ -1,0 +1,13 @@
+{
+  if (end) {
+    if (buff != null && buff.isReadable()) {
+      writeToChannel(new DefaultLastHttpContent(buff,false));
+    }
+ else {
+      writeToChannel(LastHttpContent.EMPTY_LAST_CONTENT);
+    }
+  }
+ else   if (buff != null) {
+    writeToChannel(new DefaultHttpContent(buff));
+  }
+}

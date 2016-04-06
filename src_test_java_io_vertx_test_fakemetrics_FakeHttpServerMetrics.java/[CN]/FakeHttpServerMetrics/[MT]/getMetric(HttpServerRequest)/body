@@ -1,3 +1,2 @@
 {
-  return this.requests.get(requests);
 }

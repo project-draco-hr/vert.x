@@ -1,0 +1,3 @@
+{
+  conn.handler.writeFrame(stream,(byte)type,(short)flags,payload);
+}

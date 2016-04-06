@@ -11,11 +11,11 @@
   pipeline.remove("codec");
   pipeline.replace("handler","handler",new VertxNetHandler(connectionMap){
     @Override public void exceptionCaught(    ChannelHandlerContext chctx,    Throwable t) throws Exception {
-      client.removeChannel(channel);
+      pool.removeChannel(channel);
       super.exceptionCaught(chctx,t);
     }
     @Override public void channelInactive(    ChannelHandlerContext chctx) throws Exception {
-      client.removeChannel(channel);
+      pool.removeChannel(channel);
       super.channelInactive(chctx);
     }
     @Override public void channelRead(    ChannelHandlerContext chctx,    Object msg) throws Exception {

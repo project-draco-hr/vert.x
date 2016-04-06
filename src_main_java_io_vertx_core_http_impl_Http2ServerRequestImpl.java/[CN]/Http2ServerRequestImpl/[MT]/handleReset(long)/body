@@ -1,0 +1,10 @@
+{
+  ended=true;
+  if (exceptionHandler != null) {
+    exceptionHandler.handle(new StreamResetException(errorCode));
+  }
+  response.callReset(errorCode);
+  if (endHandler != null) {
+    endHandler.handle(null);
+  }
+}

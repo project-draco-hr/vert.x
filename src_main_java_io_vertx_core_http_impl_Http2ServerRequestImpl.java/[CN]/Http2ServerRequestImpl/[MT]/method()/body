@@ -1,0 +1,9 @@
+{
+synchronized (conn) {
+    if (method == null) {
+      String sMethod=headers.method().toString();
+      method=HttpUtils.toVertxMethod(sMethod);
+    }
+    return method;
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return KeyStoreHelper.loadCerts(certValue.get());
+}

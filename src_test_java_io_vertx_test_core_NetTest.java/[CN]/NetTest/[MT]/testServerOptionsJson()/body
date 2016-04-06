@@ -25,8 +25,10 @@
   int port=1234;
   String host=TestUtils.randomAlphaString(100);
   int acceptBacklog=TestUtils.randomPortInt();
+  boolean useAlpn=TestUtils.randomBoolean();
+  SSLEngine sslEngine=TestUtils.randomBoolean() ? SSLEngine.JDK : SSLEngine.OPENSSL;
   JsonObject json=new JsonObject();
-  json.put("sendBufferSize",sendBufferSize).put("receiveBufferSize",receiverBufferSize).put("reuseAddress",reuseAddress).put("trafficClass",trafficClass).put("tcpNoDelay",tcpNoDelay).put("tcpKeepAlive",tcpKeepAlive).put("soLinger",soLinger).put("usePooledBuffers",usePooledBuffers).put("idleTimeout",idleTimeout).put("ssl",ssl).put("enabledCipherSuites",new JsonArray().add(enabledCipher)).put("crlPaths",new JsonArray().add(crlPath)).put("keyStoreOptions",new JsonObject().put("password",ksPassword).put("path",ksPath)).put("trustStoreOptions",new JsonObject().put("password",tsPassword).put("path",tsPath)).put("port",port).put("host",host).put("acceptBacklog",acceptBacklog);
+  json.put("sendBufferSize",sendBufferSize).put("receiveBufferSize",receiverBufferSize).put("reuseAddress",reuseAddress).put("trafficClass",trafficClass).put("tcpNoDelay",tcpNoDelay).put("tcpKeepAlive",tcpKeepAlive).put("soLinger",soLinger).put("usePooledBuffers",usePooledBuffers).put("idleTimeout",idleTimeout).put("ssl",ssl).put("enabledCipherSuites",new JsonArray().add(enabledCipher)).put("crlPaths",new JsonArray().add(crlPath)).put("keyStoreOptions",new JsonObject().put("password",ksPassword).put("path",ksPath)).put("trustStoreOptions",new JsonObject().put("password",tsPassword).put("path",tsPath)).put("port",port).put("host",host).put("acceptBacklog",acceptBacklog).put("useAlpn",useAlpn).put("sslEngine",sslEngine.name());
   NetServerOptions options=new NetServerOptions(json);
   assertEquals(sendBufferSize,options.getSendBufferSize());
   assertEquals(receiverBufferSize,options.getReceiveBufferSize());
@@ -51,6 +53,8 @@
   assertEquals(port,options.getPort());
   assertEquals(host,options.getHost());
   assertEquals(acceptBacklog,options.getAcceptBacklog());
+  assertEquals(useAlpn,options.isUseAlpn());
+  assertEquals(sslEngine,options.getSslEngine());
   json.remove("keyStoreOptions");
   json.remove("trustStoreOptions");
   json.put("pfxKeyCertOptions",new JsonObject().put("password",ksPassword)).put("pfxTrustOptions",new JsonObject().put("password",tsPassword));

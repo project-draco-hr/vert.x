@@ -1,0 +1,7 @@
+Http2ClientConnection conn
+Http2Stream stream
+HttpClientImpl client
+HttpMethod method
+String uri
+String host
+MultiMap headers

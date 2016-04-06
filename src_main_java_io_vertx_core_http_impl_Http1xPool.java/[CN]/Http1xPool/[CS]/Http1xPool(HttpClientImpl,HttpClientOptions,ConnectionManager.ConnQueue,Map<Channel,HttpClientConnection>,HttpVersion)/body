@@ -1,0 +1,9 @@
+{
+  super(queue,client.getOptions().getMaxPoolSize());
+  this.version=version;
+  this.client=client;
+  this.pipelining=options.isPipelining();
+  this.keepAlive=options.isKeepAlive();
+  this.ssl=options.isSsl();
+  this.connectionMap=connectionMap;
+}

@@ -1,0 +1,4 @@
+{
+  encoder().writeFrame(ctx,type,stream.id(),new Http2Flags(flags),payload,ctx.newPromise());
+  ctx.flush();
+}

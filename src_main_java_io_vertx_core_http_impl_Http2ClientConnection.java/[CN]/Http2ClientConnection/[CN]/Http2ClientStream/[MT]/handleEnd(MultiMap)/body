@@ -1,0 +1,15 @@
+{
+  if (conn.metrics.isEnabled()) {
+    if (request.exceptionOccurred) {
+      conn.metrics.requestReset(request.metric());
+    }
+ else {
+      conn.metrics.responseEnd(request.metric(),response);
+    }
+  }
+  responseEnded=true;
+  if (trailers == null) {
+    trailers=new CaseInsensitiveHeaders();
+  }
+  response.handleEnd(null,trailers);
+}

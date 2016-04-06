@@ -1,0 +1,10 @@
+{
+  connCount--;
+  Waiter waiter=getNextWaiter();
+  if (waiter != null) {
+    createNewConnection(waiter);
+  }
+ else   if (connCount == 0) {
+    mgr.queueMap.remove(address);
+  }
+}

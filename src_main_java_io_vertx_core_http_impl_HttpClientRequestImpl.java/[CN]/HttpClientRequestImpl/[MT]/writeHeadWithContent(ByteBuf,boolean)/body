@@ -1,10 +1,4 @@
 {
-  prepareHeaders();
-  if (end) {
-    conn.writeToChannel(new AssembledFullHttpRequest(request,buf));
-  }
- else {
-    conn.writeToChannel(new AssembledHttpRequest(request,buf));
-  }
+  stream.writeHeadWithContent(method,uri,headers,hostHeader(),chunked,buf,end);
   headWritten=true;
 }

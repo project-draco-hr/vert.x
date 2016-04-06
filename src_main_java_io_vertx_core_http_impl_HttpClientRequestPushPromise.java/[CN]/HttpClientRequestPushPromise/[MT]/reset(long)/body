@@ -1,0 +1,5 @@
+{
+synchronized (conn) {
+    stream.reset(code);
+  }
+}

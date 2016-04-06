@@ -1,0 +1,7 @@
+{
+synchronized (conn) {
+    checkEnded();
+    trailers().set(name,value);
+    return this;
+  }
+}

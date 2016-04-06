@@ -1,0 +1,4 @@
+{
+  binaryData.touch(hint);
+  return this;
+}

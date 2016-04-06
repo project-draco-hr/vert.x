@@ -1,0 +1,29 @@
+{
+  if (headers.method() == null) {
+    return true;
+  }
+  String method=headers.method().toString();
+  if (method.equals("CONNECT")) {
+    if (headers.scheme() != null || headers.path() != null || headers.authority() == null) {
+      return true;
+    }
+  }
+ else {
+    if (headers.method() == null || headers.scheme() == null || headers.path() == null) {
+      return true;
+    }
+  }
+  if (headers.authority() != null) {
+    URI uri;
+    try {
+      uri=new URI(null,headers.authority().toString(),null,null,null);
+    }
+ catch (    URISyntaxException e) {
+      return true;
+    }
+    if (uri.getRawUserInfo() != null) {
+      return true;
+    }
+  }
+  return false;
+}

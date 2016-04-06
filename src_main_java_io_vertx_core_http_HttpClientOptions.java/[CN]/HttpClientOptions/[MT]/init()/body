@@ -10,4 +10,7 @@
   protocolVersion=DEFAULT_PROTOCOL_VERSION;
   maxChunkSize=DEFAULT_MAX_CHUNK_SIZE;
   maxWaitQueueSize=DEFAULT_MAX_WAIT_QUEUE_SIZE;
+  initialSettings=new Http2Settings();
+  alpnVersions=new ArrayList<>(DEFAULT_ALPN_VERSIONS);
+  h2cUpgrade=DEFAULT_H2C_UPGRADE;
 }

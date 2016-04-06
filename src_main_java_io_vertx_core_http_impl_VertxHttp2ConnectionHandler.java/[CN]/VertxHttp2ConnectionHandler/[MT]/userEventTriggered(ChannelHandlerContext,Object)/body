@@ -1,0 +1,10 @@
+{
+  try {
+    super.userEventTriggered(ctx,evt);
+  }
+  finally {
+    if (evt instanceof IdleStateEvent && ((IdleStateEvent)evt).state() == IdleState.ALL_IDLE) {
+      ctx.close();
+    }
+  }
+}

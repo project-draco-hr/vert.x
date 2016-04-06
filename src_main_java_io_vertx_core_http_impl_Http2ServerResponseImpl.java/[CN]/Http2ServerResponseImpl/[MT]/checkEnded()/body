@@ -1,0 +1,5 @@
+{
+  if (ended) {
+    throw new IllegalStateException("Response has already been written");
+  }
+}

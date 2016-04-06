@@ -1,6 +1,0 @@
-HttpClientImpl client
-io.vertx.core.http.HttpMethod method
-String host
-int port
-String relativeURI
-VertxInternal vertx

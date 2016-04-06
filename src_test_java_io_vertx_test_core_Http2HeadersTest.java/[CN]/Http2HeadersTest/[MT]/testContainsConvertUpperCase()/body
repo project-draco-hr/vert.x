@@ -1,0 +1,5 @@
+{
+  map.set("foo","foo_value");
+  assertTrue(map.contains("Foo"));
+  assertTrue(map.contains((CharSequence)"Foo"));
+}

@@ -1,0 +1,19 @@
+{
+  if (!conn.isValid()) {
+    queue.getConnection(waiter);
+  }
+ else   if (waiter.isCancelled()) {
+    recycle(conn);
+  }
+ else {
+    HttpClientStream stream;
+    try {
+      stream=createStream(conn);
+    }
+ catch (    Exception e) {
+      queue.getConnection(waiter);
+      return;
+    }
+    waiter.handleStream(stream);
+  }
+}

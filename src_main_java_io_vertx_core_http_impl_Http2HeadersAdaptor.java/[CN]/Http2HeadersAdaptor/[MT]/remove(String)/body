@@ -1,0 +1,4 @@
+{
+  headers.remove(toLowerCase(name));
+  return this;
+}

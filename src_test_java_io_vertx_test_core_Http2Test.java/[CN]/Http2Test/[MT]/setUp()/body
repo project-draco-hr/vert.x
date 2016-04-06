@@ -1,0 +1,5 @@
+{
+  super.setUp();
+  client=vertx.createHttpClient(createBaseClientOptions());
+  server=vertx.createHttpServer(createBaseServerOptions().setHandle100ContinueAutomatically(true));
+}

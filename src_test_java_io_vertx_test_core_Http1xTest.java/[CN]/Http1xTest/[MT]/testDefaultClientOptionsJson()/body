@@ -1,0 +1,25 @@
+{
+  HttpClientOptions def=new HttpClientOptions();
+  HttpClientOptions json=new HttpClientOptions(new JsonObject());
+  assertEquals(def.getMaxPoolSize(),json.getMaxPoolSize());
+  assertEquals(def.isKeepAlive(),json.isKeepAlive());
+  assertEquals(def.isPipelining(),json.isPipelining());
+  assertEquals(def.isVerifyHost(),json.isVerifyHost());
+  assertEquals(def.isTryUseCompression(),json.isTryUseCompression());
+  assertEquals(def.isTrustAll(),json.isTrustAll());
+  assertEquals(def.getCrlPaths(),json.getCrlPaths());
+  assertEquals(def.getCrlValues(),json.getCrlValues());
+  assertEquals(def.getConnectTimeout(),json.getConnectTimeout());
+  assertEquals(def.isTcpNoDelay(),json.isTcpNoDelay());
+  assertEquals(def.isTcpKeepAlive(),json.isTcpKeepAlive());
+  assertEquals(def.getSoLinger(),json.getSoLinger());
+  assertEquals(def.isUsePooledBuffers(),json.isUsePooledBuffers());
+  assertEquals(def.isSsl(),json.isSsl());
+  assertEquals(def.getProtocolVersion(),json.getProtocolVersion());
+  assertEquals(def.getMaxWaitQueueSize(),json.getMaxWaitQueueSize());
+  assertEquals(def.getInitialSettings(),json.getInitialSettings());
+  assertEquals(def.isUseAlpn(),json.isUseAlpn());
+  assertEquals(def.getSslEngine(),json.getSslEngine());
+  assertEquals(def.getAlpnVersions(),json.getAlpnVersions());
+  assertEquals(def.isH2cUpgrade(),json.isH2cUpgrade());
+}

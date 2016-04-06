@@ -1,6 +1,0 @@
-{
-  HttpClientMetrics metrics=client.httpClientMetrics();
-  if (metrics.isEnabled()) {
-    metrics.responseEnd(metric,resp);
-  }
-}

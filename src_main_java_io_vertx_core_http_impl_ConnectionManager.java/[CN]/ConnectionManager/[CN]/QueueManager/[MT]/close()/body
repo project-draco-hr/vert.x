@@ -1,0 +1,9 @@
+{
+  for (  ConnQueue queue : queueMap.values()) {
+    queue.closeAllConnections();
+  }
+  queueMap.clear();
+  for (  HttpClientConnection conn : connectionMap.values()) {
+    conn.close();
+  }
+}

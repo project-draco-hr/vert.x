@@ -1,0 +1,4 @@
+{
+  headers.add(toLowerCase(name),value);
+  return this;
+}

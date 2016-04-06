@@ -1,0 +1,4 @@
+{
+  goAwayHandler=handler;
+  return this;
+}

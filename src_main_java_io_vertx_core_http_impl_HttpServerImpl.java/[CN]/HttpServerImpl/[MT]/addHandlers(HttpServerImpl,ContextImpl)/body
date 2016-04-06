@@ -1,6 +1,6 @@
 {
   if (requestStream.handler() != null) {
-    server.reqHandlerManager.addHandler(requestStream.handler(),context);
+    server.reqHandlerManager.addHandler(new HttpHandler(requestStream.handler(),connectionHandler),context);
   }
   if (wsStream.handler() != null) {
     server.wsHandlerManager.addHandler(wsStream.handler(),context);

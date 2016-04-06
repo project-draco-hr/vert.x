@@ -1,7 +1,0 @@
-{
-synchronized (getLock()) {
-    cancelOutstandingTimeoutTimer();
-    exceptionOccurred=true;
-    getExceptionHandler().handle(t);
-  }
-}

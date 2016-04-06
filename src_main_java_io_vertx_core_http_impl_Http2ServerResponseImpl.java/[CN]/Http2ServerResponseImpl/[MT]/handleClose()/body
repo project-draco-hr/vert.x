@@ -1,0 +1,8 @@
+{
+  if (handleEnded(true)) {
+    handleError(new ClosedChannelException());
+  }
+  if (closeHandler != null) {
+    closeHandler.handle(null);
+  }
+}

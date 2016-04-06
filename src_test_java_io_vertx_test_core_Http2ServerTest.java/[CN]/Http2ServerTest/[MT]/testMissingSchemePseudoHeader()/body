@@ -1,0 +1,3 @@
+{
+  testMalformedRequestHeaders(new DefaultHttp2Headers().method("GET").path("/"));
+}

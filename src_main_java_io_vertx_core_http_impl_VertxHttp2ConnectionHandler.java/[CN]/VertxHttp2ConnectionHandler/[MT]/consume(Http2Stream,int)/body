@@ -1,0 +1,11 @@
+{
+  try {
+    boolean windowUpdateSent=decoder().flowController().consumeBytes(stream,numBytes);
+    if (windowUpdateSent) {
+      ctx.channel().flush();
+    }
+  }
+ catch (  Http2Exception e) {
+    onError(ctx,e);
+  }
+}

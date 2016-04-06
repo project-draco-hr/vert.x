@@ -9,5 +9,7 @@
   if (maxChunkSize != that.maxChunkSize)   return false;
   if (maxInitialLineLength != that.maxInitialLineLength)   return false;
   if (maxHeaderSize != that.maxHeaderSize)   return false;
+  if (initialSettings == null ? that.initialSettings != null : !initialSettings.equals(that.initialSettings))   return false;
+  if (alpnVersions == null ? that.alpnVersions != null : !alpnVersions.equals(that.alpnVersions))   return false;
   return !(websocketSubProtocols != null ? !websocketSubProtocols.equals(that.websocketSubProtocols) : that.websocketSubProtocols != null);
 }

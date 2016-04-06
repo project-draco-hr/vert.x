@@ -1,6 +1,6 @@
 {
   if (query == null) {
-    query=UriParser.query(uri());
+    query=HttpUtils.parseQuery(uri());
   }
   return query;
 }

@@ -1,0 +1,32 @@
+{
+  ended=true;
+  conn.reportBytesRead(bytesRead);
+  if (postRequestDecoder != null) {
+    try {
+      postRequestDecoder.offer(LastHttpContent.EMPTY_LAST_CONTENT);
+      while (postRequestDecoder.hasNext()) {
+        InterfaceHttpData data=postRequestDecoder.next();
+        if (data instanceof Attribute) {
+          Attribute attr=(Attribute)data;
+          try {
+            formAttributes().add(attr.getName(),attr.getValue());
+          }
+ catch (          Exception e) {
+            handleException(e);
+          }
+        }
+      }
+    }
+ catch (    HttpPostRequestDecoder.EndOfDataDecoderException e) {
+    }
+catch (    Exception e) {
+      handleException(e);
+    }
+ finally {
+      postRequestDecoder.destroy();
+    }
+  }
+  if (endHandler != null) {
+    endHandler.handle(null);
+  }
+}

@@ -1,0 +1,6 @@
+{
+  if (o instanceof Id) {
+    return 0;
+  }
+  return asLongText().compareTo(o.asLongText());
+}

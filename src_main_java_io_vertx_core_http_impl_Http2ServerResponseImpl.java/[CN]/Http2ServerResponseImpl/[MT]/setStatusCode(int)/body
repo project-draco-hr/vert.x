@@ -1,0 +1,10 @@
+{
+  if (statusCode < 0) {
+    throw new IllegalArgumentException("code: " + statusCode + " (expected: 0+)");
+  }
+synchronized (conn) {
+    checkHeadWritten();
+    this.statusCode=statusCode;
+    return this;
+  }
+}

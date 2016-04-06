@@ -1,0 +1,4 @@
+{
+  write(chunk,false);
+  return this;
+}

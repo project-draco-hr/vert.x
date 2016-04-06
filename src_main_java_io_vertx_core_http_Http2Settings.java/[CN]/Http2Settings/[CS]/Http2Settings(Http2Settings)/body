@@ -1,0 +1,9 @@
+{
+  headerTableSize=other.headerTableSize;
+  pushEnabled=other.pushEnabled;
+  maxConcurrentStreams=other.maxConcurrentStreams;
+  initialWindowSize=other.initialWindowSize;
+  maxFrameSize=other.maxFrameSize;
+  maxHeaderListSize=other.maxHeaderListSize;
+  extraSettings=other.extraSettings != null ? new HashMap<>(other.extraSettings) : null;
+}

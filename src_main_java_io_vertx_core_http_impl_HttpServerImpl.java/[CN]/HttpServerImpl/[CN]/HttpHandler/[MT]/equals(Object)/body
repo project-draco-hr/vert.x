@@ -1,0 +1,8 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  HttpHandler that=(HttpHandler)o;
+  if (!requesthHandler.equals(that.requesthHandler))   return false;
+  if (connectionHandler != null ? !connectionHandler.equals(that.connectionHandler) : that.connectionHandler != null)   return false;
+  return true;
+}

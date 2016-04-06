@@ -1,0 +1,5 @@
+{
+  Http2Settings settingsUpdate=HttpUtils.fromVertxSettings(settings);
+  updateSettings(settingsUpdate,completionHandler);
+  return this;
+}

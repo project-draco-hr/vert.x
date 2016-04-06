@@ -1,0 +1,23 @@
+{
+  if (response == null || response.statusCode() == 100) {
+    int status;
+    String statusMessage;
+    try {
+      status=Integer.parseInt(headers.status().toString());
+      statusMessage=HttpResponseStatus.valueOf(status).reasonPhrase();
+    }
+ catch (    Exception e) {
+      handleException(e);
+      writeReset(0x01);
+      return;
+    }
+    response=new HttpClientResponseImpl(request,HttpVersion.HTTP_2,this,status,statusMessage,new Http2HeadersAdaptor(headers));
+    request.handleResponse(response);
+    if (end) {
+      onEnd();
+    }
+  }
+ else   if (end) {
+    onEnd(new Http2HeadersAdaptor(headers));
+  }
+}

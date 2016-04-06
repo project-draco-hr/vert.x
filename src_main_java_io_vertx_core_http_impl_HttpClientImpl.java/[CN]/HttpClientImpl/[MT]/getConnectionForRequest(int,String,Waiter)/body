@@ -1,0 +1,3 @@
+{
+  connectionManager.getConnectionForRequest(options.getProtocolVersion(),port,host,waiter);
+}

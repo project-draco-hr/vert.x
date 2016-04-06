@@ -1,0 +1,5 @@
+{
+  super.setUp();
+  client=vertx.createHttpClient(new HttpClientOptions());
+  server=vertx.createHttpServer(new HttpServerOptions().setPort(DEFAULT_HTTP_PORT).setHost(DEFAULT_HTTP_HOST).setHandle100ContinueAutomatically(true));
+}

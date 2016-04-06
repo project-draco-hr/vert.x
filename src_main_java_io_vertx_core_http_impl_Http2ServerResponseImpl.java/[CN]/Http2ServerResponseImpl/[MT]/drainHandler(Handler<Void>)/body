@@ -1,0 +1,7 @@
+{
+synchronized (conn) {
+    checkEnded();
+    drainHandler=handler;
+    return this;
+  }
+}

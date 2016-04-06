@@ -1,17 +1,27 @@
 {
-  currentResponse.handleEnd(trailer);
-  if (currentResponse.statusCode() != 100 && requestForResponse.getRequest().getMethod() != HttpMethod.CONNECT) {
+  if (metrics.isEnabled()) {
+    HttpClientRequestBase req=currentResponse.request();
+    Object reqMetric=req.metric();
+    if (req.exceptionOccurred) {
+      metrics.requestReset(reqMetric);
+    }
+ else {
+      metrics.responseEnd(reqMetric,currentResponse);
+    }
+  }
+  currentResponse.handleEnd(pausedChunk,new HeadersAdaptor(trailer.trailingHeaders()));
+  if (currentResponse.statusCode() != 100 && requestForResponse.method() != io.vertx.core.http.HttpMethod.CONNECT) {
     boolean close=false;
     String responseConnectionHeader=currentResponse.getHeader(HttpHeaders.Names.CONNECTION);
-    HttpVersion protocolVersion=requestForResponse.getRequest().getProtocolVersion();
-    String requestConnectionHeader=requestForResponse.getRequest().headers().get(HttpHeaders.Names.CONNECTION);
+    io.vertx.core.http.HttpVersion protocolVersion=client.getOptions().getProtocolVersion();
+    String requestConnectionHeader=requestForResponse.headers().get(HttpHeaders.Names.CONNECTION);
     if (HttpHeaders.Values.CLOSE.equalsIgnoreCase(responseConnectionHeader) || HttpHeaders.Values.CLOSE.equalsIgnoreCase(requestConnectionHeader)) {
       close=true;
     }
- else     if (protocolVersion == HttpVersion.HTTP_1_0 && !HttpHeaders.Values.KEEP_ALIVE.equalsIgnoreCase(responseConnectionHeader)) {
+ else     if (protocolVersion == io.vertx.core.http.HttpVersion.HTTP_1_0 && !HttpHeaders.Values.KEEP_ALIVE.equalsIgnoreCase(responseConnectionHeader)) {
       close=true;
     }
-    listener.responseEnded(this,close);
+    pool.responseEnded(this,close);
   }
   currentResponse=null;
 }

@@ -1,0 +1,4 @@
+{
+  HttpClientOptions options=new HttpClientOptions().setProtocolVersion(HttpVersion.HTTP_2).setSsl(true).setUseAlpn(true).setTrustAll(true);
+  HttpClient client=vertx.createHttpClient(options);
+}

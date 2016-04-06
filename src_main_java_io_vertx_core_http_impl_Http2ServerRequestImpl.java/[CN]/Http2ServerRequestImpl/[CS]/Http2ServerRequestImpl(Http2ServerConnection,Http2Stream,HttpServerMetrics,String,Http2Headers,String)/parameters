@@ -1,0 +1,6 @@
+Http2ServerConnection conn
+Http2Stream stream
+HttpServerMetrics metrics
+String serverOrigin
+Http2Headers headers
+String contentEncoding

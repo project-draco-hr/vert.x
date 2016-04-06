@@ -1,0 +1,15 @@
+{
+synchronized (conn) {
+    if (paused || pending.size() > 0) {
+      if (trailers != null) {
+        pending.add(trailers);
+      }
+ else {
+        pending.add(END);
+      }
+    }
+ else {
+      handleEnd(trailers);
+    }
+  }
+}

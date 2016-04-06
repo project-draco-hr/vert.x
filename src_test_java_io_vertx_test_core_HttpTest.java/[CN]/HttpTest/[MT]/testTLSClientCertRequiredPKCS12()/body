@@ -1,3 +1,0 @@
-{
-  testTLS(KeyCert.JKS,Trust.JKS,KeyCert.JKS,Trust.PKCS12,true,false,false,false,true);
-}

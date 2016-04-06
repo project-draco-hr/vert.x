@@ -1,0 +1,6 @@
+{
+  super.setUp();
+  serverOptions=createHttp2ServerOptions(DEFAULT_HTTPS_PORT,DEFAULT_HTTPS_HOST);
+  clientOptions=createHttp2ClientOptions();
+  server=vertx.createHttpServer(serverOptions);
+}

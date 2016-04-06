@@ -1,0 +1,23 @@
+{
+  if (names == null) {
+    names=new AbstractSet<String>(){
+      @Override public Iterator<String> iterator(){
+        Iterator<CharSequence> it=headers.names().iterator();
+        return new Iterator<String>(){
+          @Override public boolean hasNext(){
+            return it.hasNext();
+          }
+          @Override public String next(){
+            return it.next().toString();
+          }
+        }
+;
+      }
+      @Override public int size(){
+        return headers.size();
+      }
+    }
+;
+  }
+  return names;
+}

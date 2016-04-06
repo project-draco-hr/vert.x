@@ -2,7 +2,7 @@
 synchronized (conn) {
     if (!paused) {
       paused=true;
-      conn.doPause();
+      stream.doPause();
     }
     return this;
   }

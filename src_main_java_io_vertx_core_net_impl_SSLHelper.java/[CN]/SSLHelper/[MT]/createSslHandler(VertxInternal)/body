@@ -1,0 +1,4 @@
+{
+  SSLEngine engine=getContext(vertx).newEngine(ByteBufAllocator.DEFAULT);
+  return createHandler(engine,client);
+}

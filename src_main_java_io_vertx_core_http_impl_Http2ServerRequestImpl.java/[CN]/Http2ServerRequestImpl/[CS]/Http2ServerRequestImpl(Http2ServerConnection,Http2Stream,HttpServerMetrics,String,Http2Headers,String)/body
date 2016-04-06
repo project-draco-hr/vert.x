@@ -1,0 +1,12 @@
+{
+  super(conn,stream);
+  this.serverOrigin=serverOrigin;
+  this.headers=headers;
+  String host=host();
+  if (host == null) {
+    int idx=serverOrigin.indexOf("://");
+    host=serverOrigin.substring(idx + 3);
+  }
+  Object metric=metrics.isEnabled() ? metrics.requestBegin(conn.metric(),this) : null;
+  this.response=new Http2ServerResponseImpl(conn,this,metric,false,contentEncoding,host);
+}

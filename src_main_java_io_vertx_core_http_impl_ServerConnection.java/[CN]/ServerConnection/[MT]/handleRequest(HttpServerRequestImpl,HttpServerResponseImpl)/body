@@ -1,7 +1,9 @@
 {
   this.currentRequest=req;
   pendingResponse=resp;
-  requestMetric=metrics.requestBegin(metric,req);
+  if (metrics.isEnabled()) {
+    requestMetric=metrics.requestBegin(metric,req);
+  }
   if (requestHandler != null) {
     requestHandler.handle(req);
   }

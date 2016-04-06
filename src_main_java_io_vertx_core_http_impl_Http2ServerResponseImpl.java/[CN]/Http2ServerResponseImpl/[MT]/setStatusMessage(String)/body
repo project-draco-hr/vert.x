@@ -1,0 +1,7 @@
+{
+synchronized (conn) {
+    checkHeadWritten();
+    this.statusMessage=statusMessage;
+    return this;
+  }
+}

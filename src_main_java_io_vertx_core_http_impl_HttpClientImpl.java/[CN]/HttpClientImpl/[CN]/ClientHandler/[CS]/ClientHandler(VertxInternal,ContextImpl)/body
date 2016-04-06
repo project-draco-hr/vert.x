@@ -1,4 +1,0 @@
-{
-  super(HttpClientImpl.this.connectionMap);
-  this.context=context;
-}

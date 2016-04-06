@@ -1,0 +1,3 @@
+{
+  testInvalidKeyStore(((PfxOptions)TLSCert.PKCS12.getServerKeyCertOptions()).setPath("/invalid.p12"),"java.nio.file.NoSuchFileException: ","invalid.p12");
+}

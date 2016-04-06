@@ -1,6 +1,0 @@
-KeyCert cert
-Trust trust
-boolean requireClientAuth
-boolean clientTrustAll
-boolean useCrl
-List<String> enabledCipherSuites

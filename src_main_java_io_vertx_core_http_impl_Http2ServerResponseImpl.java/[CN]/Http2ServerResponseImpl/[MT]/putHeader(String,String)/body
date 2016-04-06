@@ -1,0 +1,7 @@
+{
+synchronized (conn) {
+    checkHeadWritten();
+    headers().add(name,value);
+    return this;
+  }
+}

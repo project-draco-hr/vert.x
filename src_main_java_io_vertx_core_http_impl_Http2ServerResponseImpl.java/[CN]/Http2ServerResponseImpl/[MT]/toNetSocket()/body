@@ -1,0 +1,5 @@
+{
+  checkEnded();
+  checkSendHeaders(false);
+  handleEnded(false);
+}

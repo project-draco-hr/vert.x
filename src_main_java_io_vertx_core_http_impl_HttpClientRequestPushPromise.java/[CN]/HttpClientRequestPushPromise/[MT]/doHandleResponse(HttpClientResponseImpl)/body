@@ -1,0 +1,7 @@
+{
+synchronized (getLock()) {
+    if (respHandler != null) {
+      respHandler.handle(resp);
+    }
+  }
+}

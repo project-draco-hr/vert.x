@@ -24,6 +24,8 @@
   Buffer crlValue=TestUtils.randomBuffer(100);
   int reconnectAttempts=TestUtils.randomPositiveInt();
   long reconnectInterval=TestUtils.randomPositiveInt();
+  boolean useAlpn=TestUtils.randomBoolean();
+  SSLEngine sslEngine=TestUtils.randomBoolean() ? SSLEngine.JDK : SSLEngine.OPENSSL;
   options.setSendBufferSize(sendBufferSize);
   options.setReceiveBufferSize(receiverBufferSize);
   options.setReuseAddress(reuseAddress);
@@ -43,6 +45,8 @@
   options.addCrlValue(crlValue);
   options.setReconnectAttempts(reconnectAttempts);
   options.setReconnectInterval(reconnectInterval);
+  options.setUseAlpn(useAlpn);
+  options.setSslEngine(sslEngine);
   NetClientOptions copy=new NetClientOptions(options);
   assertEquals(sendBufferSize,copy.getSendBufferSize());
   assertEquals(receiverBufferSize,copy.getReceiveBufferSize());
@@ -68,4 +72,6 @@
   assertEquals(crlValue,copy.getCrlValues().get(0));
   assertEquals(reconnectAttempts,copy.getReconnectAttempts());
   assertEquals(reconnectInterval,copy.getReconnectInterval());
+  assertEquals(useAlpn,copy.isUseAlpn());
+  assertEquals(sslEngine,copy.getSslEngine());
 }

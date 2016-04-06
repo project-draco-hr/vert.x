@@ -1,0 +1,12 @@
+{
+  ByteBuf msg;
+  if (index > 0) {
+    msg=Unpooled.buffer(index + buf.readableBytes());
+    msg.setBytes(0,HTTP_2_PREFACE,0,index);
+    msg.setBytes(index,buf);
+    buf=msg;
+  }
+  configureHttp1(ctx.pipeline());
+  ctx.fireChannelRead(buf);
+  ctx.pipeline().remove(this);
+}

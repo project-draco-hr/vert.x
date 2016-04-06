@@ -1,0 +1,3 @@
+{
+  testTLS(TLSCert.NONE,TLSCert.PEM,TLSCert.JKS,TLSCert.NONE).pass();
+}

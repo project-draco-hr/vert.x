@@ -1,0 +1,4 @@
+{
+  HttpClientOptions options=new HttpClientOptions().setProtocolVersion(HttpVersion.HTTP_2);
+  HttpClient client=vertx.createHttpClient(options);
+}

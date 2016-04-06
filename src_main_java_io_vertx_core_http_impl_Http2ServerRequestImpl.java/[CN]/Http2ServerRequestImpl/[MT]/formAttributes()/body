@@ -1,0 +1,8 @@
+{
+synchronized (conn) {
+    if (attributes == null) {
+      attributes=new CaseInsensitiveHeaders();
+    }
+    return attributes;
+  }
+}

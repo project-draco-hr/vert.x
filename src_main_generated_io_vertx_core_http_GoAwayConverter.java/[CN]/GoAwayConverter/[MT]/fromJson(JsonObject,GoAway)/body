@@ -1,0 +1,11 @@
+{
+  if (json.getValue("debugData") instanceof String) {
+    obj.setDebugData(io.vertx.core.buffer.Buffer.buffer(java.util.Base64.getDecoder().decode((String)json.getValue("debugData"))));
+  }
+  if (json.getValue("errorCode") instanceof Number) {
+    obj.setErrorCode(((Number)json.getValue("errorCode")).longValue());
+  }
+  if (json.getValue("lastStreamId") instanceof Number) {
+    obj.setLastStreamId(((Number)json.getValue("lastStreamId")).intValue());
+  }
+}

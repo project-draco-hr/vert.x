@@ -1,0 +1,4 @@
+{
+  Http2Connection conn=handler.connection();
+  return !conn.goAwaySent() && !conn.goAwayReceived();
+}

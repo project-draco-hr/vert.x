@@ -1,0 +1,3 @@
+{
+  return new HttpClientOptions().setUseAlpn(true).setTrustStoreOptions((JksOptions)TLSCert.JKS.getClientTrustOptions()).setProtocolVersion(HttpVersion.HTTP_2);
+}

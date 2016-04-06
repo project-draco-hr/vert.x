@@ -23,6 +23,8 @@
   int port=1234;
   String host=TestUtils.randomAlphaString(100);
   int acceptBacklog=TestUtils.randomPortInt();
+  boolean useAlpn=TestUtils.randomBoolean();
+  SSLEngine sslEngine=TestUtils.randomBoolean() ? SSLEngine.JDK : SSLEngine.OPENSSL;
   options.setSendBufferSize(sendBufferSize);
   options.setReceiveBufferSize(receiverBufferSize);
   options.setReuseAddress(reuseAddress);
@@ -41,6 +43,8 @@
   options.setPort(port);
   options.setHost(host);
   options.setAcceptBacklog(acceptBacklog);
+  options.setUseAlpn(useAlpn);
+  options.setSslEngine(sslEngine);
   NetServerOptions copy=new NetServerOptions(options);
   assertEquals(sendBufferSize,copy.getSendBufferSize());
   assertEquals(receiverBufferSize,copy.getReceiveBufferSize());
@@ -65,4 +69,6 @@
   assertEquals(port,copy.getPort());
   assertEquals(host,copy.getHost());
   assertEquals(acceptBacklog,copy.getAcceptBacklog());
+  assertEquals(useAlpn,copy.isUseAlpn());
+  assertEquals(sslEngine,copy.getSslEngine());
 }

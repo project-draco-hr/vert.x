@@ -1,0 +1,25 @@
+{
+  return new ChannelInitializer<Channel>(){
+    @Override protected void initChannel(    Channel ch) throws Exception {
+      SSLHelper sslHelper=new SSLHelper(new HttpClientOptions().setUseAlpn(true),null,KeyStoreHelper.create((VertxInternal)vertx,TLSCert.JKS.getClientTrustOptions()));
+      SslHandler sslHandler=sslHelper.setApplicationProtocols(Arrays.asList(HttpVersion.HTTP_2,HttpVersion.HTTP_1_1)).createSslHandler((VertxInternal)vertx,host,port);
+      ch.pipeline().addLast(sslHandler);
+      ch.pipeline().addLast(new ApplicationProtocolNegotiationHandler("whatever"){
+        @Override protected void configurePipeline(        ChannelHandlerContext ctx,        String protocol){
+          if (ApplicationProtocolNames.HTTP_2.equals(protocol)) {
+            ChannelPipeline p=ctx.pipeline();
+            Http2Connection connection=new DefaultHttp2Connection(false);
+            TestClientHandlerBuilder clientHandlerBuilder=new TestClientHandlerBuilder(handler);
+            TestClientHandler clientHandler=clientHandlerBuilder.build(connection);
+            p.addLast(clientHandler);
+            return;
+          }
+          ctx.close();
+          throw new IllegalStateException("unknown protocol: " + protocol);
+        }
+      }
+);
+    }
+  }
+;
+}

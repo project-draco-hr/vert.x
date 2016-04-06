@@ -1,0 +1,6 @@
+{
+  super.handlerAdded(ctx);
+  if (ctx.channel().isActive()) {
+    checkHandle(ctx);
+  }
+}

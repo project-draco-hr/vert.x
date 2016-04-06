@@ -1,0 +1,9 @@
+{
+synchronized (getLock()) {
+    if (stream == null) {
+      throw new IllegalStateException("Not yet connected");
+    }
+    stream.writeFrame(type,flags,payload.getByteBuf());
+  }
+  return this;
+}

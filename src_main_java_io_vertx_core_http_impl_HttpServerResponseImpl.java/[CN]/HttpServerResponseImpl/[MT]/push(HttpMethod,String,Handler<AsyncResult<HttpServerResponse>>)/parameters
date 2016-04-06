@@ -1,0 +1,3 @@
+HttpMethod method
+String path
+Handler<AsyncResult<HttpServerResponse>> handler

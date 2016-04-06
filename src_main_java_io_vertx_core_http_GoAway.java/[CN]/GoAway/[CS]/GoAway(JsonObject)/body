@@ -1,0 +1,3 @@
+{
+  GoAwayConverter.fromJson(json,this);
+}
