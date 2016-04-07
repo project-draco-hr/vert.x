@@ -1,11 +1,11 @@
 {
-  if (conn != null) {
-    return conn;
+  if (lock != null) {
+    return lock;
   }
  else {
 synchronized (this) {
-      if (conn != null) {
-        return conn;
+      if (lock != null) {
+        return lock;
       }
  else {
         return this;

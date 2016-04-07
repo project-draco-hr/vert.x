@@ -1,5 +1,5 @@
 {
   client.close();
-  client=vertx.createHttpClient(new HttpClientOptions().setKeepAlive(true).setPipelining(true).setMaxPoolSize(1));
+  client=vertx.createHttpClient(new HttpClientOptions().setKeepAlive(true).setPipelining(false).setMaxPoolSize(1));
   testClientContext();
 }

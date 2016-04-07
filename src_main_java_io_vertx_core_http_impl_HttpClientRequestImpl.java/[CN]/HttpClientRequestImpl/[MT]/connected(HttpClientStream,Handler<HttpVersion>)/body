@@ -1,7 +1,6 @@
 {
   HttpClientConnection conn=stream.connection();
 synchronized (this) {
-    this.conn=conn;
     this.stream=stream;
     stream.beginRequest(this);
     if (pendingMaxSize != -1) {
@@ -41,5 +40,6 @@ synchronized (this) {
         }
       }
     }
+    this.lock=conn;
   }
 }
