@@ -16,7 +16,7 @@
         conf=new JsonObject(config);
       }
  catch (      DecodeException e2) {
-        log.error("-conf option does not point to a file and is not valid JSON: " + config);
+        log.error("The -conf option does not point to an existing file or is not a valid JSON object");
         return null;
       }
     }
