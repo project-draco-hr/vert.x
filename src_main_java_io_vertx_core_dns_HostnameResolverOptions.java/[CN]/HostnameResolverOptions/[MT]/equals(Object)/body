@@ -1,0 +1,7 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  HostnameResolverOptions that=(HostnameResolverOptions)o;
+  if (optResourceEnabled != that.optResourceEnabled)   return false;
+  return servers != null ? servers.equals(that.servers) : that.servers == null;
+}

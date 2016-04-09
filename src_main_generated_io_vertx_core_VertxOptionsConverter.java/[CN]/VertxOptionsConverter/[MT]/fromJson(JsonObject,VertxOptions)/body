@@ -35,6 +35,9 @@
   if (json.getValue("haGroup") instanceof String) {
     obj.setHAGroup((String)json.getValue("haGroup"));
   }
+  if (json.getValue("hostnameResolverOptions") instanceof JsonObject) {
+    obj.setHostnameResolverOptions(new io.vertx.core.dns.HostnameResolverOptions((JsonObject)json.getValue("hostnameResolverOptions")));
+  }
   if (json.getValue("internalBlockingPoolSize") instanceof Number) {
     obj.setInternalBlockingPoolSize(((Number)json.getValue("internalBlockingPoolSize")).intValue());
   }

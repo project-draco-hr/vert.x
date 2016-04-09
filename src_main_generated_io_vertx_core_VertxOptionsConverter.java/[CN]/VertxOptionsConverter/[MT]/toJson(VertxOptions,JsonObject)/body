@@ -19,6 +19,9 @@
   if (obj.getHAGroup() != null) {
     json.put("haGroup",obj.getHAGroup());
   }
+  if (obj.getHostnameResolverOptions() != null) {
+    json.put("hostnameResolverOptions",obj.getHostnameResolverOptions().toJson());
+  }
   json.put("internalBlockingPoolSize",obj.getInternalBlockingPoolSize());
   json.put("maxEventLoopExecuteTime",obj.getMaxEventLoopExecuteTime());
   json.put("maxWorkerExecuteTime",obj.getMaxWorkerExecuteTime());

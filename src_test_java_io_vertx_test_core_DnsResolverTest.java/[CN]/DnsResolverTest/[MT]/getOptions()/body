@@ -1,0 +1,6 @@
+{
+  VertxOptions options=super.getOptions();
+  options.getHostnameResolverOptions().addServer(dnsServerAddress.getAddress().getHostAddress() + ":" + dnsServerAddress.getPort());
+  options.getHostnameResolverOptions().setOptResourceEnabled(false);
+  return options;
+}

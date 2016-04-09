@@ -1,0 +1,4 @@
+{
+  this.servers=other.servers != null ? new ArrayList<>(other.servers) : null;
+  this.optResourceEnabled=other.optResourceEnabled;
+}

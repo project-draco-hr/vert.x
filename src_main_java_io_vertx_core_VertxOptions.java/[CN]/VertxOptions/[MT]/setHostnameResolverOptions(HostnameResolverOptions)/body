@@ -1,0 +1,4 @@
+{
+  this.hostnameResolverOptions=hostnameResolverOptions;
+  return this;
+}
