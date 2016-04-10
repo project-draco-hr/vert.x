@@ -1,0 +1,4 @@
+{
+  this.cacheMaxTimeToLive=cacheMaxTimeToLive;
+  return this;
+}

@@ -1,0 +1,4 @@
+{
+  this.rdFlag=rdFlag;
+  return this;
+}

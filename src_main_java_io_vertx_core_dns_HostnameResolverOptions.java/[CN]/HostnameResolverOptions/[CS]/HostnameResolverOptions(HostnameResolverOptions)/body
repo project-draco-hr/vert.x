@@ -1,4 +1,10 @@
 {
   this.servers=other.servers != null ? new ArrayList<>(other.servers) : null;
   this.optResourceEnabled=other.optResourceEnabled;
+  this.cacheMinTimeToLive=other.cacheMinTimeToLive;
+  this.cacheMaxTimeToLive=other.cacheMaxTimeToLive;
+  this.cacheNegativeTimeToLive=other.cacheNegativeTimeToLive;
+  this.queryTimeout=other.queryTimeout;
+  this.maxQueries=other.maxQueries;
+  this.rdFlag=other.rdFlag;
 }

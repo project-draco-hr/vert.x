@@ -1,0 +1,4 @@
+{
+  this.maxQueries=maxQueries;
+  return this;
+}

@@ -1,0 +1,4 @@
+{
+  this.cacheNegativeTimeToLive=cacheNegativeTimeToLive;
+  return this;
+}

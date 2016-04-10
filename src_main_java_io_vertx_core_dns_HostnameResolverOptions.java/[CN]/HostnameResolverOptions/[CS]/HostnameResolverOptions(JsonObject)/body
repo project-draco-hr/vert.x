@@ -1,3 +1,4 @@
 {
+  this();
   HostnameResolverOptionsConverter.fromJson(json,this);
 }
