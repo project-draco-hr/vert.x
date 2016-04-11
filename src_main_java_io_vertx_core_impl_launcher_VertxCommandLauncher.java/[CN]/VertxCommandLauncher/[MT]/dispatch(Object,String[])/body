@@ -18,11 +18,16 @@
     return;
   }
   String verticle=getMainVerticle();
+  String command=getCommandFromManifest();
   if (verticle != null) {
     String[] newArgs=new String[args.length + 1];
     newArgs[0]=verticle;
     System.arraycopy(args,0,newArgs,1,args.length);
     execute(getDefaultCommand(),newArgs);
+    return;
+  }
+ else   if (command != null) {
+    execute(command,args);
     return;
   }
   if (args.length == 0) {

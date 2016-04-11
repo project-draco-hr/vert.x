@@ -1,23 +1,7 @@
 {
-  try {
-    Enumeration<URL> resources=RunCommand.class.getClassLoader().getResources("META-INF/MANIFEST.MF");
-    while (resources.hasMoreElements()) {
-      InputStream stream=resources.nextElement().openStream();
-      Manifest manifest=new Manifest(stream);
-      Attributes attributes=manifest.getMainAttributes();
-      String mainClass=attributes.getValue("Main-Class");
-      if (main.getClass().getName().equals(mainClass)) {
-        String command=attributes.getValue("Main-Command");
-        if (command != null) {
-          stream.close();
-          return command;
-        }
-      }
-      stream.close();
-    }
+  String fromManifest=getCommandFromManifest();
+  if (fromManifest == null) {
+    return "run";
   }
- catch (  IOException e) {
-    throw new IllegalStateException(e.getMessage());
-  }
-  return "run";
+  return fromManifest;
 }
