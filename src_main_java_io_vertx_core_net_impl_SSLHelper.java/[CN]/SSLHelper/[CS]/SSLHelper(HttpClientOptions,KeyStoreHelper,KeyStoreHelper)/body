@@ -10,4 +10,5 @@
   this.sslEngine=options.getSslEngine();
   this.client=true;
   this.useAlpn=options.isUseAlpn();
+  this.enabledProtocols=options.getEnabledSecureTransportProtocols();
 }

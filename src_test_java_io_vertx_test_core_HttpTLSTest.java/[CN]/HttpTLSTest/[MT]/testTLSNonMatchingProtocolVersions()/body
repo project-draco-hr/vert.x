@@ -1,0 +1,3 @@
+{
+  testTLS(TLSCert.NONE,TLSCert.NONE,TLSCert.JKS,TLSCert.NONE).clientTrustAll().serverEnabledSecureTransportProtocol(new String[]{"TLSv1.2"}).clientEnabledSecureTransportProtocol(new String[]{"SSLv2Hello"}).fail();
+}

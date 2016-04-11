@@ -1,0 +1,4 @@
+{
+  super.addEnabledSecureTransportProtocol(protocol);
+  return this;
+}

@@ -1,0 +1,3 @@
+{
+  testTLS(TLSCert.NONE,TLSCert.NONE,TLSCert.JKS,TLSCert.NONE).clientTrustAll().serverEnabledCipherSuites(new String[]{"TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"}).clientEnabledCipherSuites(new String[]{"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"}).fail();
+}
