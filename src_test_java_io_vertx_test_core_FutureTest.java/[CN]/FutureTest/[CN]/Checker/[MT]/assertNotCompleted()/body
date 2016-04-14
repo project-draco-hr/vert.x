@@ -4,4 +4,6 @@
   assertFalse(future.failed());
   assertNull(future.cause());
   assertNull(future.result());
+  assertEquals(0,count.get());
+  assertNull(result.get());
 }
