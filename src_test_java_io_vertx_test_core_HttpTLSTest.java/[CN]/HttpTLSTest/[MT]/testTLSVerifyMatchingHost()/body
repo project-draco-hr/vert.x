@@ -1,0 +1,3 @@
+{
+  testTLS(TLSCert.NONE,TLSCert.NONE,TLSCert.JKS,TLSCert.NONE).clientTrustAll().clientVerifyHost().pass();
+}

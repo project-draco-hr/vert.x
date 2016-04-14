@@ -5,5 +5,6 @@
   NetClientOptions that=(NetClientOptions)o;
   if (reconnectAttempts != that.reconnectAttempts)   return false;
   if (reconnectInterval != that.reconnectInterval)   return false;
+  if (verifyHost != that.verifyHost)   return false;
   return true;
 }

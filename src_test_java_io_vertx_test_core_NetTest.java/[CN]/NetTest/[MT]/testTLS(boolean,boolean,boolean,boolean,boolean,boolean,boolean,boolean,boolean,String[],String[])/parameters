@@ -4,6 +4,7 @@ boolean serverCert
 boolean serverTrust
 boolean requireClientAuth
 boolean clientTrustAll
+boolean verifyHost
 boolean shouldPass
 boolean startTLS
 String[] enabledCipherSuites

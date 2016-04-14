@@ -1,0 +1,4 @@
+{
+  this.verifyHost=verifyHost;
+  return this;
+}
