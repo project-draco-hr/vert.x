@@ -2,8 +2,9 @@
   Future<String> f1=Future.future();
   Future<Integer> f2=Future.future();
   CompositeFuture composite=any.apply(f1,f2);
+  Checker<CompositeFuture> checker=new Checker<>(composite);
   f1.fail("failure");
-  assertNotCompleted(composite);
+  checker.assertNotCompleted();
   f2.complete(3);
-  assertSucceeded(composite,composite);
+  checker.assertSucceeded(composite);
 }

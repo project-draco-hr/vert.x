@@ -1,0 +1,14 @@
+{
+  assertTrue(future.isComplete());
+  assertTrue(future.succeeded());
+  assertFalse(future.failed());
+  assertNull(future.cause());
+  assertEquals(expected,future.result());
+  assertEquals(1,count.get());
+  AsyncResult<T> ar=result.get();
+  assertNotNull(ar);
+  assertTrue(ar.succeeded());
+  assertFalse(ar.failed());
+  assertNull(ar.cause());
+  assertEquals(expected,future.result());
+}
