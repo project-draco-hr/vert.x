@@ -1,3 +1,0 @@
-{
-  testTLS(clientCert,clientTrust,serverCert,serverTrust,requireClientAuth,clientTrustAll,verifyHost,shouldPass,startTLS,enabledCipherSuites,new String[0]);
-}

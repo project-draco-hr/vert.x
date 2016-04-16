@@ -1,4 +1,4 @@
 {
-  NetClientOptions options=new NetClientOptions().setSsl(true).setVerifyHost(true);
+  NetClientOptions options=new NetClientOptions().setSsl(true).setHostnameVerificationAlgorithm("HTTPS");
   NetClient client=vertx.createNetClient(options);
 }

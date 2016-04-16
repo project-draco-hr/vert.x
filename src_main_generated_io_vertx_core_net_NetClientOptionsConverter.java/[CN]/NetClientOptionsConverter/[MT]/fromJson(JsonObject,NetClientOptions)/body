@@ -1,11 +1,11 @@
 {
+  if (json.getValue("hostnameVerificationAlgorithm") instanceof String) {
+    obj.setHostnameVerificationAlgorithm((String)json.getValue("hostnameVerificationAlgorithm"));
+  }
   if (json.getValue("reconnectAttempts") instanceof Number) {
     obj.setReconnectAttempts(((Number)json.getValue("reconnectAttempts")).intValue());
   }
   if (json.getValue("reconnectInterval") instanceof Number) {
     obj.setReconnectInterval(((Number)json.getValue("reconnectInterval")).longValue());
-  }
-  if (json.getValue("verifyHost") instanceof Boolean) {
-    obj.setVerifyHost((Boolean)json.getValue("verifyHost"));
   }
 }

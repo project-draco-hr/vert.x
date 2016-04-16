@@ -2,5 +2,5 @@
   super(other);
   this.reconnectAttempts=other.getReconnectAttempts();
   this.reconnectInterval=other.getReconnectInterval();
-  this.verifyHost=other.isVerifyHost();
+  this.hostnameVerificationAlgorithm=other.getHostnameVerificationAlgorithm();
 }

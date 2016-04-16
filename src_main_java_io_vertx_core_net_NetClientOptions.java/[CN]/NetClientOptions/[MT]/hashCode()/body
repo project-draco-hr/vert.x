@@ -2,6 +2,6 @@
   int result=super.hashCode();
   result=31 * result + reconnectAttempts;
   result=31 * result + (int)(reconnectInterval ^ (reconnectInterval >>> 32));
-  result=31 * result + (verifyHost ? 1 : 0);
+  result=31 * result + hostnameVerificationAlgorithm.hashCode();
   return result;
 }

@@ -1,3 +1,1 @@
-String host
-int port
 Handler<Void> handler
