@@ -1,0 +1,6 @@
+HttpMethod method
+String rawMethod
+String host
+String path
+MultiMap headers
+Handler<AsyncResult<HttpServerResponse>> handler

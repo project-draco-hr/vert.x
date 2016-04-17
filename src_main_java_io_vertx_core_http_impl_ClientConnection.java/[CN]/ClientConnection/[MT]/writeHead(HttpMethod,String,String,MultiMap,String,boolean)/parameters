@@ -1,0 +1,6 @@
+HttpMethod method
+String rawMethod
+String uri
+MultiMap headers
+String hostHeader
+boolean chunked

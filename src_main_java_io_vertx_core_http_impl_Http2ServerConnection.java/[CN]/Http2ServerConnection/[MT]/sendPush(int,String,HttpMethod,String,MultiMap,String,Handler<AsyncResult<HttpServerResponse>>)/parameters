@@ -1,0 +1,7 @@
+int streamId
+String host
+HttpMethod method
+String rawMethod
+MultiMap headers
+String path
+Handler<AsyncResult<HttpServerResponse>> completionHandler

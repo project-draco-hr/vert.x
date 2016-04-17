@@ -1,0 +1,35 @@
+{
+  Http2Headers h=new DefaultHttp2Headers();
+  h.method(method != HttpMethod.OTHER ? method.name() : rawMethod);
+  if (method == HttpMethod.CONNECT) {
+    if (hostHeader == null) {
+      throw new IllegalArgumentException("Missing :authority / host header");
+    }
+    h.authority(hostHeader);
+  }
+ else {
+    h.path(uri);
+    h.scheme("https");
+    if (hostHeader != null) {
+      h.authority(hostHeader);
+    }
+  }
+  if (headers != null && headers.size() > 0) {
+    for (    Map.Entry<String,String> header : headers) {
+      h.add(Http2HeadersAdaptor.toLowerCase(header.getKey()),header.getValue());
+    }
+  }
+  if (conn.http2Pool.client.getOptions().isTryUseCompression() && h.get(HttpHeaderNames.ACCEPT_ENCODING) == null) {
+    h.set(HttpHeaderNames.ACCEPT_ENCODING,DEFLATE_GZIP);
+  }
+  if (conn.metrics.isEnabled()) {
+    request.metric(conn.metrics.requestBegin(conn.metric,conn.localAddress(),conn.remoteAddress(),request));
+  }
+  writeHeaders(h,end && content == null);
+  if (content != null) {
+    writeBuffer(content,end);
+  }
+ else {
+    handlerContext.flush();
+  }
+}

@@ -1,0 +1,5 @@
+HttpVersion version
+HttpMethod method
+String rawMethod
+String uri
+MultiMap headers
