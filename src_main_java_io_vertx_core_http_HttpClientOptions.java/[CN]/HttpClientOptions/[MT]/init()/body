@@ -13,4 +13,8 @@
   initialSettings=new Http2Settings();
   alpnVersions=new ArrayList<>(DEFAULT_ALPN_VERSIONS);
   h2cUpgrade=DEFAULT_H2C_UPGRADE;
+  proxyHost=null;
+  proxyPort=0;
+  proxyUsername=null;
+  proxyPassword=null;
 }
