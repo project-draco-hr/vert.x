@@ -1,0 +1,4 @@
+{
+  this.cacheMinTimeToLive=cacheMinTimeToLive;
+  return this;
+}

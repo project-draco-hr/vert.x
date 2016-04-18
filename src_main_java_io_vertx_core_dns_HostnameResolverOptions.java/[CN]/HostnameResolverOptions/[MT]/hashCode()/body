@@ -1,0 +1,11 @@
+{
+  int result=optResourceEnabled ? 1 : 0;
+  result=31 * result + (servers != null ? servers.hashCode() : 0);
+  result=31 * result + cacheMinTimeToLive;
+  result=31 * result + cacheMaxTimeToLive;
+  result=31 * result + cacheNegativeTimeToLive;
+  result=31 * result + Long.hashCode(queryTimeout);
+  result=31 * result + maxQueries;
+  result=31 * result + Boolean.hashCode(rdFlag);
+  return result;
+}

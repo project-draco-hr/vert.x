@@ -14,5 +14,6 @@
   if (clusterManager != null ? !clusterManager.equals(that.clusterManager) : that.clusterManager != null)   return false;
   if (haGroup != null ? !haGroup.equals(that.haGroup) : that.haGroup != null)   return false;
   if (eventBusOptions != null ? !eventBusOptions.equals(that.eventBusOptions) : that.eventBusOptions != null)   return false;
+  if (hostnameResolverOptions != null ? !hostnameResolverOptions.equals(that.hostnameResolverOptions) : that.hostnameResolverOptions != null)   return false;
   return !(metrics != null ? !metrics.equals(that.metrics) : that.metrics != null);
 }

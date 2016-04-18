@@ -1,0 +1,5 @@
+{
+  if (dnsServer.isStarted()) {
+    dnsServer.stop();
+  }
+}

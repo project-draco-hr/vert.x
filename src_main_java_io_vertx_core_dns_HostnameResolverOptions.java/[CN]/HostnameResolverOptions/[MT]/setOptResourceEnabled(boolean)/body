@@ -1,0 +1,4 @@
+{
+  this.optResourceEnabled=optResourceEnabled;
+  return this;
+}

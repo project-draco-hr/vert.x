@@ -1,0 +1,7 @@
+{
+  if (servers == null) {
+    servers=new ArrayList<>();
+  }
+  servers.add(server);
+  return this;
+}

@@ -11,6 +11,7 @@
   result=31 * result + (haGroup != null ? haGroup.hashCode() : 0);
   result=31 * result + (metrics != null ? metrics.hashCode() : 0);
   result=31 * result + (eventBusOptions != null ? eventBusOptions.hashCode() : 0);
+  result=31 * result + (hostnameResolverOptions != null ? hostnameResolverOptions.hashCode() : 0);
   result=31 * result + (int)(warningExceptionTime ^ (warningExceptionTime >>> 32));
   return result;
 }

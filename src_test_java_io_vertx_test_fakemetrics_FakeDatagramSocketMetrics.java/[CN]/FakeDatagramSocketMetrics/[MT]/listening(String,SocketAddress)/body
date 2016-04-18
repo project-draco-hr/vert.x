@@ -1,0 +1,4 @@
+{
+  this.localName=localName;
+  this.localAddress=localAddress;
+}

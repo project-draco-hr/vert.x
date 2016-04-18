@@ -1,0 +1,4 @@
+{
+  ChannelFuture future=channel().writeAndFlush(new DatagramPacket(packet.getByteBuf(),addr));
+  addListener(future,handler);
+}

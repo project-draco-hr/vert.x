@@ -1,0 +1,13 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  HostnameResolverOptions that=(HostnameResolverOptions)o;
+  if (optResourceEnabled != that.optResourceEnabled)   return false;
+  if (cacheMinTimeToLive != that.cacheMinTimeToLive)   return false;
+  if (cacheMaxTimeToLive != that.cacheMaxTimeToLive)   return false;
+  if (cacheNegativeTimeToLive != that.cacheNegativeTimeToLive)   return false;
+  if (queryTimeout != that.queryTimeout)   return false;
+  if (maxQueries != that.maxQueries)   return false;
+  if (rdFlag != that.rdFlag)   return false;
+  return servers != null ? servers.equals(that.servers) : that.servers == null;
+}
