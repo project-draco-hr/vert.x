@@ -1,0 +1,7 @@
+{
+  if (server != null) {
+    log.debug("stopping proxy server");
+    server.close();
+    server=null;
+  }
+}
