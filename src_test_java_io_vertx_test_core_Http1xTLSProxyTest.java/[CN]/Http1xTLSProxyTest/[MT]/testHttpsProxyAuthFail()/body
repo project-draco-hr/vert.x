@@ -1,0 +1,4 @@
+{
+  proxy.setUsername("username");
+  testTLS(TLSCert.NONE,TLSCert.JKS,TLSCert.JKS,TLSCert.NONE).useProxy().useProxyAuth().fail();
+}

@@ -1,4 +1,5 @@
 {
+  proxy.setUsername(null);
   testTLS(TLSCert.NONE,TLSCert.JKS,TLSCert.JKS,TLSCert.NONE).useProxy().pass();
   assertNotNull(proxy.getLastUri());
 }
