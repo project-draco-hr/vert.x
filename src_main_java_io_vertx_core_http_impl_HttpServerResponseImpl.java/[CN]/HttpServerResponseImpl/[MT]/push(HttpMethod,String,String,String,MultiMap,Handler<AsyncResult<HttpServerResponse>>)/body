@@ -1,4 +1,0 @@
-{
-  handler.handle(Future.failedFuture("Push promise is only supported with HTTP2"));
-  return this;
-}
