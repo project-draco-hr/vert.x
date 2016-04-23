@@ -1,0 +1,5 @@
+{
+  Objects.requireNonNull(hostnameVerificationAlgorithm,"hostnameVerificationAlgorithm can not be null!");
+  this.hostnameVerificationAlgorithm=hostnameVerificationAlgorithm;
+  return this;
+}

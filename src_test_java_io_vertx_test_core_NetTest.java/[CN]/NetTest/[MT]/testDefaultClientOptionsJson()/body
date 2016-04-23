@@ -14,4 +14,5 @@
   assertEquals(def.isSsl(),json.isSsl());
   assertEquals(def.isUseAlpn(),json.isUseAlpn());
   assertEquals(def.getSslEngine(),json.getSslEngine());
+  assertEquals(def.getHostnameVerificationAlgorithm(),json.getHostnameVerificationAlgorithm());
 }

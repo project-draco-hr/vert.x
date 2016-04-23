@@ -1,4 +1,5 @@
 {
   this.reconnectAttempts=DEFAULT_RECONNECT_ATTEMPTS;
   this.reconnectInterval=DEFAULT_RECONNECT_INTERVAL;
+  this.hostnameVerificationAlgorithm=DEFAULT_HOSTNAME_VERIFICATION_ALGORITHM;
 }

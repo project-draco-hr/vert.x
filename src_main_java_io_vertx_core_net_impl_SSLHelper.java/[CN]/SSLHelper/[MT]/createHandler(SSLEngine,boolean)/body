@@ -32,9 +32,9 @@ case NONE:
   }
 }
 }
- else if (verifyHost) {
+ else if (!endpointIdentificationAlgorithm.isEmpty()) {
 SSLParameters sslParameters=engine.getSSLParameters();
-sslParameters.setEndpointIdentificationAlgorithm("HTTPS");
+sslParameters.setEndpointIdentificationAlgorithm(endpointIdentificationAlgorithm);
 engine.setSSLParameters(sslParameters);
 }
 return new SslHandler(engine);

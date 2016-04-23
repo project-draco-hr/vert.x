@@ -1,0 +1,4 @@
+{
+  clientVerifyHost=true;
+  return this;
+}

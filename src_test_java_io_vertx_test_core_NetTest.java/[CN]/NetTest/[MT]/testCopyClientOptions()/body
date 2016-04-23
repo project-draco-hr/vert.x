@@ -11,6 +11,7 @@
   boolean usePooledBuffers=rand.nextBoolean();
   int idleTimeout=TestUtils.randomPositiveInt();
   boolean ssl=rand.nextBoolean();
+  String hostnameVerificationAlgorithm=TestUtils.randomAlphaString(10);
   JksOptions keyStoreOptions=new JksOptions();
   String ksPassword=TestUtils.randomAlphaString(100);
   keyStoreOptions.setPassword(ksPassword);
@@ -47,6 +48,7 @@
   options.setReconnectInterval(reconnectInterval);
   options.setUseAlpn(useAlpn);
   options.setSslEngine(sslEngine);
+  options.setHostnameVerificationAlgorithm(hostnameVerificationAlgorithm);
   NetClientOptions copy=new NetClientOptions(options);
   assertEquals(sendBufferSize,copy.getSendBufferSize());
   assertEquals(receiverBufferSize,copy.getReceiveBufferSize());
@@ -74,4 +76,5 @@
   assertEquals(reconnectInterval,copy.getReconnectInterval());
   assertEquals(useAlpn,copy.isUseAlpn());
   assertEquals(sslEngine,copy.getSslEngine());
+  assertEquals(hostnameVerificationAlgorithm,copy.getHostnameVerificationAlgorithm());
 }

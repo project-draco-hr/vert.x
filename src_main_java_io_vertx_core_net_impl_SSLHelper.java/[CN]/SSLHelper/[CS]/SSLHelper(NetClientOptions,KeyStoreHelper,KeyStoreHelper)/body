@@ -10,4 +10,5 @@
   this.client=true;
   this.useAlpn=false;
   this.enabledProtocols=options.getEnabledSecureTransportProtocols();
+  this.endpointIdentificationAlgorithm=options.getHostnameVerificationAlgorithm();
 }
