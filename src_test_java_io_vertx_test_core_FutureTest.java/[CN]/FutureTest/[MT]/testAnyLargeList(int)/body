@@ -1,0 +1,26 @@
+{
+  List<Future> list=new ArrayList<>();
+  for (int i=0; i < size; i++) {
+    list.add(Future.failedFuture(new Exception()));
+  }
+  CompositeFuture composite=CompositeFuture.any(list);
+  Checker<CompositeFuture> checker=new Checker<>(composite);
+  checker.assertFailed();
+  for (int i=0; i < size; i++) {
+    list.clear();
+    for (int j=0; j < size; j++) {
+      list.add(i == j ? Future.succeededFuture() : Future.failedFuture(new RuntimeException()));
+    }
+    composite=CompositeFuture.any(list);
+    checker=new Checker<>(composite);
+    checker.assertSucceeded(composite);
+    for (int j=0; j < size; j++) {
+      if (i == j) {
+        assertTrue(composite.succeeded(j));
+      }
+ else {
+        assertTrue(composite.failed(j));
+      }
+    }
+  }
+}
