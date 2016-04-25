@@ -3,6 +3,7 @@
   this.conn=conn;
   this.stream=new Http2ClientConnection.Http2ClientStream(conn,this,stream);
   this.method=method;
+  this.rawMethod=rawMethod;
   this.uri=uri;
   this.host=host;
   this.headers=headers;
