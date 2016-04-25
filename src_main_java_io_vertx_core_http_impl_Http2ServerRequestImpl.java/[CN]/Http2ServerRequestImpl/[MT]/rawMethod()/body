@@ -1,0 +1,8 @@
+{
+synchronized (conn) {
+    if (rawMethod == null) {
+      rawMethod=headers.method().toString();
+    }
+    return rawMethod;
+  }
+}

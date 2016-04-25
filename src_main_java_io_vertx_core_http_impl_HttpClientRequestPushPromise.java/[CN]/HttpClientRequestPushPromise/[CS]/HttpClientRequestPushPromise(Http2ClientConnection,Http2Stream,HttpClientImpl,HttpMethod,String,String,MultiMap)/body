@@ -1,9 +1,0 @@
-{
-  super(client,method,host,uri);
-  this.conn=conn;
-  this.stream=new Http2ClientConnection.Http2ClientStream(conn,this,stream);
-  this.method=method;
-  this.uri=uri;
-  this.host=host;
-  this.headers=headers;
-}

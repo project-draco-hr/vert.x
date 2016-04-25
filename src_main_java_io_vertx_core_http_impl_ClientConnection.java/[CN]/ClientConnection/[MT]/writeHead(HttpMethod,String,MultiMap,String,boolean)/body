@@ -1,5 +1,0 @@
-{
-  HttpRequest request=createRequest(version,method,uri,headers);
-  prepareHeaders(request,hostHeader,chunked);
-  writeToChannel(request);
-}

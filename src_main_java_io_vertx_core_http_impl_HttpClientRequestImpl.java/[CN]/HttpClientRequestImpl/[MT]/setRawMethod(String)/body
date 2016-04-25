@@ -1,0 +1,6 @@
+{
+synchronized (getLock()) {
+    this.rawMethod=method;
+    return this;
+  }
+}

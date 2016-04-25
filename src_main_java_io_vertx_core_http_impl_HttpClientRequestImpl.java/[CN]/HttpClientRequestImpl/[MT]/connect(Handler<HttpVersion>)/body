@@ -1,5 +1,8 @@
 {
   if (!connecting) {
+    if (method == HttpMethod.OTHER && rawMethod == null) {
+      throw new IllegalStateException("You must provide a rawMethod when using an HttpMethod.OTHER method");
+    }
     Waiter waiter=new Waiter(this,vertx.getContext()){
       @Override void handleFailure(      Throwable failure){
         handleException(failure);

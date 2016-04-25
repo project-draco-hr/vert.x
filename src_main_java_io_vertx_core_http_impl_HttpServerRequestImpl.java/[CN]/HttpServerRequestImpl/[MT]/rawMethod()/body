@@ -1,0 +1,6 @@
+{
+  if (rawMethod == null) {
+    rawMethod=request.method().toString();
+  }
+  return rawMethod;
+}
