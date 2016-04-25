@@ -3,4 +3,7 @@
   super.tearDown();
   out.close();
   stream.close();
+  if (vertx != null) {
+    vertx.close();
+  }
 }

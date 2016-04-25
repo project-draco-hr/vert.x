@@ -1,0 +1,5 @@
+{
+  if (starter != null && starter.getVertx() != null) {
+    starter.getVertx().close();
+  }
+}

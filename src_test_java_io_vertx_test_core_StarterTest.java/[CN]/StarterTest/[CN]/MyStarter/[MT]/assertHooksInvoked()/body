@@ -1,4 +1,5 @@
 {
+  StarterTest.this.vertx=vertx;
   assertTrue(beforeStartingVertxInvoked);
   assertTrue(afterStartingVertxInvoked);
   assertTrue(beforeDeployingVerticle);
