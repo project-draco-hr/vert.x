@@ -1,0 +1,4 @@
+{
+  eventLoopGroups.clear();
+  super.setUp();
+}

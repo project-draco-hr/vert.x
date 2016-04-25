@@ -1,0 +1,8 @@
+{
+  if (created == null) {
+    created=new ArrayList<>();
+  }
+  Vertx vertx=Vertx.vertx(options);
+  created.add(vertx);
+  return vertx;
+}

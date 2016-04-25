@@ -1,5 +1,6 @@
 {
   super.setUp();
+  vertx.close();
   vertx=Vertx.vertx();
   eb=vertx.eventBus();
   running=true;
