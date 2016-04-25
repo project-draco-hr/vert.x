@@ -3,4 +3,5 @@
   MyStarter starter=new MyStarter();
   starter.run(args);
   assertEquals(System.getProperty("vertxVersion"),starter.getVersion());
+  cleanup(starter);
 }

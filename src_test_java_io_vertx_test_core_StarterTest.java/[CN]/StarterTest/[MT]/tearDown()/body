@@ -1,4 +1,7 @@
 {
   clearProperties();
   super.tearDown();
+  if (vertx != null) {
+    vertx.close();
+  }
 }

@@ -1,0 +1,9 @@
+{
+  RunCommand run=(RunCommand)launcher.getExistingCommandInstance("run");
+  if (run != null) {
+    Vertx v=run.vertx();
+    if (v != null) {
+      v.close();
+    }
+  }
+}
