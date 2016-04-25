@@ -1,0 +1,6 @@
+{
+  connectionMap.remove(ch);
+  C conn=this.conn;
+  this.conn=null;
+  return conn;
+}

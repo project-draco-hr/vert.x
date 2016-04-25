@@ -1,0 +1,4 @@
+{
+  this.ch=ch;
+  this.connectionMap=connectionMap;
+}

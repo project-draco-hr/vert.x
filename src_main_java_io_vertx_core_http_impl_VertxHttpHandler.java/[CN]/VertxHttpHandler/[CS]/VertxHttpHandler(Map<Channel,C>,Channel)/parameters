@@ -1,0 +1,2 @@
+Map<Channel,C> connectionMap
+Channel ch
