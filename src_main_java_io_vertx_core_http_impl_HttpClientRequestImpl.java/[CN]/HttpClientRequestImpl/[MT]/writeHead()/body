@@ -1,4 +1,4 @@
 {
-  stream.writeHead(method,uri,headers,hostHeader(),chunked);
+  stream.writeHead(method,rawMethod,uri,headers,hostHeader(),chunked);
   headWritten=true;
 }

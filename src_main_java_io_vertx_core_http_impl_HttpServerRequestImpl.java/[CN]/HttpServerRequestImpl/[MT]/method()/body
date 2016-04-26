@@ -1,12 +1,11 @@
 {
   if (method == null) {
-    String sMethod=request.getMethod().toString();
+    String sMethod=request.method().toString();
     try {
       method=io.vertx.core.http.HttpMethod.valueOf(sMethod);
     }
  catch (    IllegalArgumentException e) {
-      sendNotImplementedAndClose();
-      throw new IllegalStateException("Unsupported HTTP method: " + sMethod);
+      method=io.vertx.core.http.HttpMethod.OTHER;
     }
   }
   return method;

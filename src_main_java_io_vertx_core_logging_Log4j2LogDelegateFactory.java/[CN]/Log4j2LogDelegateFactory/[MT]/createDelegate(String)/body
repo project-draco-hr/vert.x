@@ -1,0 +1,3 @@
+{
+  return new Log4j2LogDelegate(name);
+}

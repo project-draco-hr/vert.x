@@ -1,7 +1,9 @@
 {
   ServerBootstrap bootstrap=new ServerBootstrap();
   bootstrap.channel(NioServerSocketChannel.class);
-  bootstrap.group(new NioEventLoopGroup());
+  NioEventLoopGroup eventLoopGroup=new NioEventLoopGroup();
+  eventLoopGroups.add(eventLoopGroup);
+  bootstrap.group(eventLoopGroup);
   bootstrap.childHandler(new ChannelInitializer<Channel>(){
     @Override protected void initChannel(    Channel ch) throws Exception {
       SSLHelper sslHelper=new SSLHelper(serverOptions,KeyStoreHelper.create((VertxInternal)vertx,TLSCert.JKS.getServerKeyCertOptions()),null);

@@ -1,0 +1,5 @@
+{
+  if (System.err != ORIGINAL_ERR) {
+    System.setErr(ORIGINAL_ERR);
+  }
+}

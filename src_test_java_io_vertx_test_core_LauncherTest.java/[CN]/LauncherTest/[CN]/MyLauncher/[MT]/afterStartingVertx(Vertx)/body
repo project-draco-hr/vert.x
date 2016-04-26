@@ -1,4 +1,4 @@
 {
   afterStartingVertxInvoked=true;
-  this.vertx=vertx;
+  LauncherTest.this.vertx=vertx;
 }

@@ -1,4 +1,4 @@
 {
-  Vertx vertx=Vertx.vertx();
+  Vertx vertx=vertx();
   assertNotNull(vertx);
 }

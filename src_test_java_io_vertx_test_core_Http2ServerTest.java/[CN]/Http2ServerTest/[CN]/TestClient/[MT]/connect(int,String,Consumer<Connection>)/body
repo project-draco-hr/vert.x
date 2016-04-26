@@ -1,7 +1,9 @@
 {
   Bootstrap bootstrap=new Bootstrap();
+  NioEventLoopGroup eventLoopGroup=new NioEventLoopGroup();
+  eventLoopGroups.add(eventLoopGroup);
   bootstrap.channel(NioSocketChannel.class);
-  bootstrap.group(new NioEventLoopGroup());
+  bootstrap.group(eventLoopGroup);
   bootstrap.handler(channelInitializer(port,host,handler));
   return bootstrap.connect(new InetSocketAddress(host,port));
 }

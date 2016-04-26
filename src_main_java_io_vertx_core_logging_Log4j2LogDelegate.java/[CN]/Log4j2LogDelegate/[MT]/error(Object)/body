@@ -1,0 +1,3 @@
+{
+  log(Level.ERROR,message);
+}

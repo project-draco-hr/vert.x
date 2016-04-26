@@ -1,0 +1,6 @@
+{
+  super.tearDown();
+  for (  EventLoopGroup eventLoopGroup : eventLoopGroups) {
+    eventLoopGroup.shutdownGracefully(0,10,TimeUnit.SECONDS);
+  }
+}
