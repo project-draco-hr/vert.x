@@ -1,0 +1,8 @@
+{
+synchronized (VertxImpl.this) {
+    if (--refCount == 0) {
+      releaseWorkerPool(name);
+      workerExec.shutdownNow();
+    }
+  }
+}

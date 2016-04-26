@@ -1,0 +1,5 @@
+boolean multiThreaded
+String deploymentID
+WorkerPool workerPool
+JsonObject config
+ClassLoader tccl

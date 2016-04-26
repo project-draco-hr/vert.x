@@ -1,0 +1,3 @@
+{
+  namedWorkerPools.remove(name);
+}

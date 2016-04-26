@@ -5,4 +5,7 @@
   this.isolationGroup=DEFAULT_ISOLATION_GROUP;
   this.ha=DEFAULT_HA;
   this.instances=DEFAULT_INSTANCES;
+  this.workerPoolName=null;
+  this.workerPoolSize=VertxOptions.DEFAULT_WORKER_POOL_SIZE;
+  this.maxWorkerExecuteTime=VertxOptions.DEFAULT_MAX_WORKER_EXECUTE_TIME;
 }

@@ -1,4 +1,0 @@
-boolean multiThreaded
-String deploymentID
-JsonObject config
-ClassLoader tccl

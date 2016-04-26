@@ -1,0 +1,6 @@
+{
+  this.prefix=prefix;
+  this.checker=checker;
+  this.worker=worker;
+  this.maxExecTime=maxExecTime;
+}

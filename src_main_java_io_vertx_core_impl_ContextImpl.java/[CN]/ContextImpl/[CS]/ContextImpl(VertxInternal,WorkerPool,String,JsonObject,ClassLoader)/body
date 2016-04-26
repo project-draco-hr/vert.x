@@ -1,0 +1,18 @@
+{
+  if (DISABLE_TCCL && !tccl.getClass().getName().equals("sun.misc.Launcher$AppClassLoader")) {
+    log.warn("You have disabled TCCL checks but you have a custom TCCL to set.");
+  }
+  this.deploymentID=deploymentID;
+  this.config=config;
+  EventLoopGroup group=vertx.getEventLoopGroup();
+  if (group != null) {
+    this.eventLoop=group.next();
+  }
+ else {
+    this.eventLoop=null;
+  }
+  this.tccl=tccl;
+  this.owner=vertx;
+  this.exceptionHandler=vertx.exceptionHandler();
+  this.workerPool=workerPool;
+}

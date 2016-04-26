@@ -1,0 +1,11 @@
+{
+  if (workerPool == null) {
+    workerPool=vertxWorkerPool;
+  }
+  if (multiThreaded) {
+    return new MultiThreadedWorkerContext(this,workerPool,deploymentID,config,tccl);
+  }
+ else {
+    return new WorkerContext(this,workerPool,deploymentID,config,tccl);
+  }
+}

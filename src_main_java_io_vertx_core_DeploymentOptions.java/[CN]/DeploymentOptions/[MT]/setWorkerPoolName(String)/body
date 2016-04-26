@@ -1,0 +1,4 @@
+{
+  this.workerPoolName=workerPoolName;
+  return this;
+}
