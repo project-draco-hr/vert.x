@@ -1,5 +1,4 @@
 {
-  Channel ch=ctx.channel();
   if (!DISABLE_WEBSOCKETS) {
     if (msg instanceof HttpRequest) {
       final HttpRequest request=(HttpRequest)msg;

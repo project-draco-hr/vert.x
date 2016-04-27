@@ -1,0 +1,3 @@
+Channel ch
+NetSocketImpl conn
+Map<Channel,NetSocketImpl> connectionMap

@@ -1,4 +1,0 @@
-{
-  super(connectionMap);
-  this.context=context;
-}
