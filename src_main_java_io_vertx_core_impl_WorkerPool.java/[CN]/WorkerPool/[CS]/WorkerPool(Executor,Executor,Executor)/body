@@ -1,5 +1,0 @@
-{
-  this.orderedInternalPoolExec=orderedInternalPoolExec;
-  this.workerExec=workerExec;
-  this.workerPool=workerPool;
-}

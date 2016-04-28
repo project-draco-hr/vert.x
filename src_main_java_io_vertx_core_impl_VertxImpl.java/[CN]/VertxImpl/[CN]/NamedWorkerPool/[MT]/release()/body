@@ -2,6 +2,9 @@
 synchronized (VertxImpl.this) {
     if (--refCount == 0) {
       releaseWorkerPool(name);
+      if (workerPoolMetrics != null) {
+        workerPoolMetrics.close();
+      }
       workerExec.shutdownNow();
     }
   }

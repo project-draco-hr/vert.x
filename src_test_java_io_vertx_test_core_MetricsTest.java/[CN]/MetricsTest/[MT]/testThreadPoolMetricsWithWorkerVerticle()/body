@@ -1,0 +1,3 @@
+{
+  testWithWorkerVerticle(new DeploymentOptions().setWorker(true));
+}

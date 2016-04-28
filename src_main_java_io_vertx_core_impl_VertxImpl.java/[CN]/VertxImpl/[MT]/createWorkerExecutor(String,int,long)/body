@@ -7,8 +7,9 @@
   }
   NamedWorkerPool namedWorkerPool=namedWorkerPools.get(name);
   if (namedWorkerPool == null) {
-    ExecutorService workerExec=Executors.newFixedThreadPool(poolSize,new VertxThreadFactory("vert.x-" + name + "-",checker,true,maxExecuteTime));
-    namedWorkerPools.put(name,namedWorkerPool=new NamedWorkerPool(name,workerExec));
+    ThreadPoolMetrics workerMetrics=isMetricsEnabled() ? metrics.createMetrics(name,poolSize) : null;
+    ExecutorService workerExec=Executors.newFixedThreadPool(poolSize,new VertxThreadFactory(name + "-",checker,true,maxExecuteTime));
+    namedWorkerPools.put(name,namedWorkerPool=new NamedWorkerPool(name,workerExec,workerMetrics));
   }
  else {
     namedWorkerPool.refCount++;
