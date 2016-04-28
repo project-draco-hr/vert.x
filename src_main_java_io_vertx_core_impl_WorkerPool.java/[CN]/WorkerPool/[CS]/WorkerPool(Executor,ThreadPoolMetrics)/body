@@ -1,0 +1,5 @@
+{
+  this.workerOrderedFact=new OrderedExecutorFactory(workerPool);
+  this.workerPool=workerPool;
+  this.workerMetrics=workerMetrics;
+}

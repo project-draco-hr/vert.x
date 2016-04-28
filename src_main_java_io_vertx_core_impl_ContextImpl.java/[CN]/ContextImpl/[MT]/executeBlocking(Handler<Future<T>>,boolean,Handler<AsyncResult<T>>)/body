@@ -1,3 +1,3 @@
 {
-  workerPool.executeBlocking(this,null,blockingCodeHandler,false,ordered,resultHandler);
+  executeBlocking(null,blockingCodeHandler,resultHandler,ordered ? workerExec : workerPool.workerPool,workerPool.workerMetrics);
 }

@@ -1,7 +1,0 @@
-{
-  this.workerMetrics=workerMetrics;
-  this.internalBlockingPoolMetrics=internalBlockingPoolMetrics;
-  this.orderedInternalPoolExec=orderedInternalPoolExec;
-  this.workerExec=workerExec;
-  this.workerPool=workerPool;
-}

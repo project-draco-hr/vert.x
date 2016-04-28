@@ -1,5 +1,5 @@
 {
-  super(internalOrderedFact.getExecutor(),new OrderedExecutorFactory(workerExec).getExecutor(),workerExec,VertxImpl.this.internalBlockingPoolMetrics,workerMetrics);
+  super(workerExec,workerMetrics);
   this.workerExec=workerExec;
   this.name=name;
 }
