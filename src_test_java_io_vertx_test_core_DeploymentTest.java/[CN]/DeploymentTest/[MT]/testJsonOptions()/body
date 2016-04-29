@@ -7,6 +7,9 @@
   boolean ha=rand.nextBoolean();
   List<String> cp=Arrays.asList("foo","bar");
   List<String> isol=Arrays.asList("com.foo.MyClass","org.foo.*");
+  String poolName=TestUtils.randomAlphaString(10);
+  int poolSize=TestUtils.randomPositiveInt();
+  long maxWorkerExecuteTime=TestUtils.randomPositiveLong();
   JsonObject json=new JsonObject();
   json.put("config",config);
   json.put("worker",worker);
@@ -15,6 +18,9 @@
   json.put("ha",ha);
   json.put("extraClasspath",new JsonArray(cp));
   json.put("isolatedClasses",new JsonArray(isol));
+  json.put("workerPoolName",poolName);
+  json.put("workerPoolSize",poolSize);
+  json.put("maxWorkerExecuteTime",maxWorkerExecuteTime);
   DeploymentOptions options=new DeploymentOptions(json);
   assertEquals(worker,options.isWorker());
   assertEquals(multiThreaded,options.isMultiThreaded());
@@ -23,4 +29,7 @@
   assertEquals(ha,options.isHa());
   assertEquals(cp,options.getExtraClasspath());
   assertEquals(isol,options.getIsolatedClasses());
+  assertEquals(poolName,options.getWorkerPoolName());
+  assertEquals(poolSize,options.getWorkerPoolSize());
+  assertEquals(maxWorkerExecuteTime,options.getMaxWorkerExecuteTime());
 }

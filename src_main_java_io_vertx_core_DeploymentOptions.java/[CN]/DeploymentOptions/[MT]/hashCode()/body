@@ -7,5 +7,8 @@
   result=31 * result + (extraClasspath != null ? extraClasspath.hashCode() : 0);
   result=31 * result + instances;
   result=31 * result + (isolatedClasses != null ? isolatedClasses.hashCode() : 0);
+  result=31 * result + (workerPoolName != null ? workerPoolName.hashCode() : 0);
+  result=31 * result + workerPoolSize;
+  result=31 * result + Long.hashCode(maxWorkerExecuteTime);
   return result;
 }

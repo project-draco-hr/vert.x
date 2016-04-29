@@ -7,4 +7,7 @@
   this.extraClasspath=other.getExtraClasspath() == null ? null : new ArrayList<>(other.getExtraClasspath());
   this.instances=other.instances;
   this.isolatedClasses=other.getIsolatedClasses() == null ? null : new ArrayList<>(other.getIsolatedClasses());
+  this.workerPoolName=other.workerPoolName;
+  setWorkerPoolSize(other.workerPoolSize);
+  setMaxWorkerExecuteTime(other.maxWorkerExecuteTime);
 }
