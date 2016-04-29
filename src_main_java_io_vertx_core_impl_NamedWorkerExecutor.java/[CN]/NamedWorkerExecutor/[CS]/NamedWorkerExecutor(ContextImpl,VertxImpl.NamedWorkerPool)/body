@@ -1,5 +1,5 @@
 {
   this.pool=pool;
   this.context=context;
-  this.workerExec=pool.workerOrderedFact.getExecutor();
+  this.workerExec=pool.createOrderedExecutor();
 }

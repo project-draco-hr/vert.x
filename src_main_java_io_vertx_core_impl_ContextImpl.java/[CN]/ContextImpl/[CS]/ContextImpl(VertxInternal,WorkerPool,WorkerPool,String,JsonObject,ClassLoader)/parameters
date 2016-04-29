@@ -1,4 +1,5 @@
 VertxInternal vertx
+WorkerPool internalBlockingPool
 WorkerPool workerPool
 String deploymentID
 JsonObject config

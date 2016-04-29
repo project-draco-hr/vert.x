@@ -1,3 +1,3 @@
 {
-  executeBlocking(action,null,resultHandler,orderedInternalPoolExec,owner.internalBlockingPoolMetrics);
+  executeBlocking(action,null,resultHandler,orderedInternalPoolExec,internalBlockingPool.metrics());
 }

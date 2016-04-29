@@ -1,0 +1,6 @@
+{
+  if (metrics != null) {
+    metrics.close();
+  }
+  pool.shutdownNow();
+}

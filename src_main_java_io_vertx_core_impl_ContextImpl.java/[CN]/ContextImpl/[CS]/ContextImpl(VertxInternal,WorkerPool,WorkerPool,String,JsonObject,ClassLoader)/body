@@ -12,9 +12,10 @@
     this.eventLoop=null;
   }
   this.tccl=tccl;
-  this.owner=(VertxImpl)vertx;
+  this.owner=vertx;
   this.exceptionHandler=vertx.exceptionHandler();
   this.workerPool=workerPool;
-  this.orderedInternalPoolExec=owner.internalOrderedFact.getExecutor();
-  this.workerExec=workerPool.workerOrderedFact.getExecutor();
+  this.internalBlockingPool=internalBlockingPool;
+  this.orderedInternalPoolExec=internalBlockingPool.createOrderedExecutor();
+  this.workerExec=workerPool.createOrderedExecutor();
 }
