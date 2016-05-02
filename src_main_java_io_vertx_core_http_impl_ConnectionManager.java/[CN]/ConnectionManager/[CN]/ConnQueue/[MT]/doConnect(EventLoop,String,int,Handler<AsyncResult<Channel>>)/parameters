@@ -1,0 +1,4 @@
+EventLoop eventLoop
+String host
+int port
+Handler<AsyncResult<Channel>> channelHandler
