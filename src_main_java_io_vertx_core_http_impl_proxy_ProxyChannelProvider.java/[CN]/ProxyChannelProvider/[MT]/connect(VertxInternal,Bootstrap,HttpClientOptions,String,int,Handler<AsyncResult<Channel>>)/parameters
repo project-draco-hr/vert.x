@@ -1,4 +1,6 @@
-EventLoop eventLoop
+VertxInternal vertx
+Bootstrap bootstrap
+HttpClientOptions options
 String host
 int port
 Handler<AsyncResult<Channel>> channelHandler
