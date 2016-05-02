@@ -1,0 +1,4 @@
+Runnable target
+String name
+boolean worker
+long maxExecTime

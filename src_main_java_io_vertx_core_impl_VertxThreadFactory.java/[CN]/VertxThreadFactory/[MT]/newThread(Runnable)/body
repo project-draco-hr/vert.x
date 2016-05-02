@@ -1,5 +1,5 @@
 {
-  VertxThread t=new VertxThread(runnable,prefix + threadCount.getAndIncrement(),worker);
+  VertxThread t=new VertxThread(runnable,prefix + threadCount.getAndIncrement(),worker,maxExecTime);
   if (checker != null) {
     checker.registerThread(t);
   }

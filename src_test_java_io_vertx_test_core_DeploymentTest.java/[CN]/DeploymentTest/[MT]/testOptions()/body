@@ -24,4 +24,13 @@
   List<String> isol=Arrays.asList("com.foo.MyClass","org.foo.*");
   assertEquals(options,options.setIsolatedClasses(isol));
   assertSame(isol,options.getIsolatedClasses());
+  String workerPoolName=TestUtils.randomAlphaString(10);
+  assertEquals(options,options.setWorkerPoolName(workerPoolName));
+  assertEquals(workerPoolName,options.getWorkerPoolName());
+  int workerPoolSize=TestUtils.randomPositiveInt();
+  assertEquals(options,options.setWorkerPoolSize(workerPoolSize));
+  assertEquals(workerPoolSize,options.getWorkerPoolSize());
+  long maxWorkerExecuteTime=TestUtils.randomPositiveLong();
+  assertEquals(options,options.setMaxWorkerExecuteTime(maxWorkerExecuteTime));
+  assertEquals(maxWorkerExecuteTime,options.getMaxWorkerExecuteTime());
 }

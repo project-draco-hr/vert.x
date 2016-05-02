@@ -1,5 +1,0 @@
-{
-  this.prefix=prefix;
-  this.checker=checker;
-  this.worker=worker;
-}

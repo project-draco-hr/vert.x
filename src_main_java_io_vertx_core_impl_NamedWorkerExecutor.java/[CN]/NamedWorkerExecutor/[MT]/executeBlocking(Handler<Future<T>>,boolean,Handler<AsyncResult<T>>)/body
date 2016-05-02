@@ -1,0 +1,6 @@
+{
+  if (closed) {
+    throw new IllegalStateException("Worker executor closed");
+  }
+  context.executeBlocking(null,blockingCodeHandler,asyncResultHandler,ordered ? workerExec : pool.executor(),pool.metrics());
+}

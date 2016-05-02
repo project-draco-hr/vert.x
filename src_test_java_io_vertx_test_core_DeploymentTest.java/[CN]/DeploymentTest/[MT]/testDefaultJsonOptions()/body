@@ -8,4 +8,7 @@
   assertEquals(def.isHa(),json.isHa());
   assertEquals(def.getExtraClasspath(),json.getExtraClasspath());
   assertEquals(def.getIsolatedClasses(),json.getIsolatedClasses());
+  assertEquals(def.getWorkerPoolName(),json.getWorkerPoolName());
+  assertEquals(def.getWorkerPoolSize(),json.getWorkerPoolSize());
+  assertEquals(def.getMaxWorkerExecuteTime(),json.getMaxWorkerExecuteTime());
 }

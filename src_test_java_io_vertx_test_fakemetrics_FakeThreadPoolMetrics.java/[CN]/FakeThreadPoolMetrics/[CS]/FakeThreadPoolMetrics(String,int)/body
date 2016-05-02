@@ -1,0 +1,6 @@
+{
+  this.poolSize=poolSize;
+  this.name=name;
+  this.idle.set(this.poolSize);
+  METRICS.put(name,this);
+}

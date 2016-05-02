@@ -1,0 +1,7 @@
+{
+  if (workerPoolSize < 1) {
+    throw new IllegalArgumentException("workerPoolSize must be > 0");
+  }
+  this.workerPoolSize=workerPoolSize;
+  return this;
+}

@@ -1,0 +1,5 @@
+{
+  int poolSize=10;
+  long maxExecuteTime=120000;
+  WorkerExecutor executor=vertx.createWorkerExecutor("my-worker-pool",poolSize,maxExecuteTime);
+}

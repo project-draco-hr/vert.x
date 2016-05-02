@@ -1,0 +1,4 @@
+{
+  close();
+  completionHandler.handle(Future.succeededFuture());
+}

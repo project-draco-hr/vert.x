@@ -1,0 +1,11 @@
+{
+  if (workerPool == null) {
+    workerPool=this.workerPool;
+  }
+  if (multiThreaded) {
+    return new MultiThreadedWorkerContext(this,internalBlockingPool,workerPool,deploymentID,config,tccl);
+  }
+ else {
+    return new WorkerContext(this,internalBlockingPool,workerPool,deploymentID,config,tccl);
+  }
+}

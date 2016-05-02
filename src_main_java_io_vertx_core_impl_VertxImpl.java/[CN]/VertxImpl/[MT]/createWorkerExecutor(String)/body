@@ -1,0 +1,3 @@
+{
+  return createWorkerExecutor(name,defaultWorkerPoolSize);
+}

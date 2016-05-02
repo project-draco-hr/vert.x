@@ -1,0 +1,27 @@
+{
+  timer=new Timer("vertx-blocked-thread-checker",true);
+  timer.schedule(new TimerTask(){
+    @Override public void run(){
+synchronized (BlockedThreadChecker.this) {
+        long now=System.nanoTime();
+        for (        VertxThread thread : threads.keySet()) {
+          long execStart=thread.startTime();
+          long dur=now - execStart;
+          final long timeLimit=thread.getMaxExecTime();
+          if (execStart != 0 && dur > timeLimit) {
+            final String message="Thread " + thread + " has been blocked for "+ (dur / 1000000)+ " ms, time limit is "+ (timeLimit / 1000000);
+            if (dur <= warningExceptionTime) {
+              log.warn(message);
+            }
+ else {
+              VertxException stackTrace=new VertxException("Thread blocked");
+              stackTrace.setStackTrace(thread.getStackTrace());
+              log.warn(message,stackTrace);
+            }
+          }
+        }
+      }
+    }
+  }
+,interval,interval);
+}

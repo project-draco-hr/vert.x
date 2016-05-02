@@ -1,0 +1,2 @@
+ContextImpl context
+VertxImpl.SharedWorkerPool pool

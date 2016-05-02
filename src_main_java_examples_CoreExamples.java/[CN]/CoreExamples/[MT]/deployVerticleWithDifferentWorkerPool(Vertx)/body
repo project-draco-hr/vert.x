@@ -1,0 +1,3 @@
+{
+  vertx.deployVerticle("the-verticle",new DeploymentOptions().setWorkerPoolName("the-specific-pool"));
+}
