@@ -1,0 +1,3 @@
+{
+  super(ReplyFailure.RECIPIENT_FAILURE,failureCode,message);
+}

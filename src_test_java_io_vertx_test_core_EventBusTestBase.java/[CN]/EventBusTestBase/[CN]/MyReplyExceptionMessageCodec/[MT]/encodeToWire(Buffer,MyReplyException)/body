@@ -1,0 +1,12 @@
+{
+  buffer.appendInt(body.failureCode());
+  if (body.getMessage() == null) {
+    buffer.appendByte((byte)0);
+  }
+ else {
+    buffer.appendByte((byte)1);
+    byte[] encoded=body.getMessage().getBytes(CharsetUtil.UTF_8);
+    buffer.appendInt(encoded.length);
+    buffer.appendBytes(encoded);
+  }
+}
