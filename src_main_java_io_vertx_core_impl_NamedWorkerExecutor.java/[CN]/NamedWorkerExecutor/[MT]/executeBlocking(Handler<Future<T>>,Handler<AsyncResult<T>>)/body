@@ -1,3 +1,0 @@
-{
-  executeBlocking(blockingCodeHandler,true,asyncResultHandler);
-}

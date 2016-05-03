@@ -1,2 +1,0 @@
-Handler<Future<T>> blockingCodeHandler
-Handler<AsyncResult<T>> asyncResultHandler
