@@ -13,7 +13,6 @@
   }
   this.tccl=tccl;
   this.owner=vertx;
-  this.exceptionHandler=vertx.exceptionHandler();
   this.workerPool=workerPool;
   this.internalBlockingPool=internalBlockingPool;
   this.orderedInternalPoolExec=internalBlockingPool.createOrderedExecutor();
