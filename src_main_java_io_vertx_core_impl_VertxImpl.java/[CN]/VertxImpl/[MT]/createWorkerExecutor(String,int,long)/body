@@ -7,8 +7,8 @@
   }
   SharedWorkerPool sharedWorkerPool=namedWorkerPools.get(name);
   if (sharedWorkerPool == null) {
-    ThreadPoolMetrics workerMetrics=isMetricsEnabled() ? metrics.createMetrics(name,poolSize) : null;
     ExecutorService workerExec=Executors.newFixedThreadPool(poolSize,new VertxThreadFactory(name + "-",checker,true,maxExecuteTime));
+    PoolMetrics workerMetrics=isMetricsEnabled() ? metrics.createMetrics(workerExec,name,poolSize) : null;
     namedWorkerPools.put(name,sharedWorkerPool=new SharedWorkerPool(name,workerExec,workerMetrics));
   }
  else {

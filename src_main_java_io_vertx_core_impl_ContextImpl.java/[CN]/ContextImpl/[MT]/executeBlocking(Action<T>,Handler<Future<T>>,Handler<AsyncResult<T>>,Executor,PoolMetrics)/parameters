@@ -2,4 +2,4 @@ Action<T> action
 Handler<Future<T>> blockingCodeHandler
 Handler<AsyncResult<T>> resultHandler
 Executor exec
-ThreadPoolMetrics metrics
+PoolMetrics metrics
