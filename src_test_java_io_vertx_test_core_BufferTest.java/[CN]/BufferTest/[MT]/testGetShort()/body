@@ -1,10 +1,3 @@
 {
-  int numShorts=100;
-  Buffer b=Buffer.buffer(numShorts * 2);
-  for (short i=0; i < numShorts; i++) {
-    b.setShort(i * 2,i);
-  }
-  for (short i=0; i < numShorts; i++) {
-    assertEquals(i,b.getShort(i * 2));
-  }
+  testGetSetShort(false);
 }

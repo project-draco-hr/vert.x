@@ -2,4 +2,6 @@
   Buffer b=Buffer.buffer(TestUtils.randomByteArray(100));
   b.appendUnsignedShort(Short.MAX_VALUE + Short.MAX_VALUE / 2);
   assertEquals(102,b.length());
+  b.appendUnsignedShortLE(Short.MAX_VALUE + Short.MAX_VALUE / 2);
+  assertEquals(104,b.length());
 }

@@ -1,0 +1,7 @@
+{
+  Buffer b=Buffer.buffer(TestUtils.randomByteArray(100));
+  b.appendShort(Short.MAX_VALUE);
+  assertEquals(102,b.length());
+  b.appendShortLE(Short.MAX_VALUE);
+  assertEquals(104,b.length());
+}

@@ -1,0 +1,20 @@
+{
+  int numLongs=100;
+  Buffer b=Buffer.buffer(numLongs * 8);
+  for (int i=0; i < numLongs; i++) {
+    if (isLE) {
+      b.setLongLE(i * 8,i);
+    }
+ else {
+      b.setLong(i * 8,i);
+    }
+  }
+  for (int i=0; i < numLongs; i++) {
+    if (isLE) {
+      assertEquals(i,b.getLongLE(i * 8));
+    }
+ else {
+      assertEquals(i,b.getLong(i * 8));
+    }
+  }
+}

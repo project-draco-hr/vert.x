@@ -1,0 +1,5 @@
+{
+  ensureWritable(pos,3);
+  buffer.setMedium(pos,i);
+  return this;
+}

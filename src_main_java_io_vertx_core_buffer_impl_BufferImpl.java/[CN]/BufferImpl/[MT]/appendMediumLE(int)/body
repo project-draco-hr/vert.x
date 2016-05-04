@@ -1,0 +1,4 @@
+{
+  buffer.writeMediumLE(i);
+  return this;
+}
