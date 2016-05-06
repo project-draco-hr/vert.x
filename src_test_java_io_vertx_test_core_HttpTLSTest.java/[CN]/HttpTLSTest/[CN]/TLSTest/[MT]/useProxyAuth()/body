@@ -1,0 +1,4 @@
+{
+  useProxyAuth=true;
+  return this;
+}

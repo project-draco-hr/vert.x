@@ -1,0 +1,6 @@
+{
+  if (proxy != null) {
+    proxy.stop();
+  }
+  super.tearDown();
+}

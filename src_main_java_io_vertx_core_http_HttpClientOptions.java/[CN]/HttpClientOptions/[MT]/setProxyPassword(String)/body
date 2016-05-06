@@ -1,0 +1,4 @@
+{
+  this.proxyPassword=proxyPassword;
+  return this;
+}

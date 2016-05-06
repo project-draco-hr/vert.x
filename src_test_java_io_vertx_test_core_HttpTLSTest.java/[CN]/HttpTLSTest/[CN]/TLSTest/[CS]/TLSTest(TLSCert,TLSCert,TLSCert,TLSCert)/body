@@ -1,4 +1,5 @@
 {
+  this.version=HttpVersion.HTTP_1_1;
   this.clientCert=clientCert;
   this.clientTrust=clientTrust;
   this.serverCert=serverCert;

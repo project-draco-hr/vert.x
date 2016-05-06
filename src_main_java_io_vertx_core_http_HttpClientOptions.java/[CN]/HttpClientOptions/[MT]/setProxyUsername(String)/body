@@ -1,0 +1,4 @@
+{
+  this.proxyUsername=proxyUsername;
+  return this;
+}
