@@ -1,0 +1,7 @@
+{
+  startProxy(null);
+  proxy.setForceUri("localhost:4043");
+  testTLS(TLSCert.NONE,TLSCert.JKS,TLSCert.JKS,TLSCert.NONE).useProxy().useProxyAuth().connectHostname("doesnt-resolve.host-name").clientTrustAll().clientVerifyHost(false).pass();
+  assertNotNull(proxy.getLastUri());
+  assertEquals("hostname resolved but it shouldn't be","doesnt-resolve.host-name:4043",proxy.getLastUri());
+}
