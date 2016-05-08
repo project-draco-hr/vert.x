@@ -1,9 +1,9 @@
 {
-  if (!complete) {
-    for (    Handler<AsyncResult<T>> handler : handlers) {
+  if (result == null) {
+    for (    Handler<AsyncResult<Channel>> handler : handlers) {
       handler.handle(res);
     }
-    complete=true;
+    future=cf;
     result=res;
   }
  else {
