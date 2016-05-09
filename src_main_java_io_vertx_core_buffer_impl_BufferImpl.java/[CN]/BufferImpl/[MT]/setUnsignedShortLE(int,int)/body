@@ -1,0 +1,5 @@
+{
+  ensureWritable(pos,2);
+  buffer.setShortLE(pos,s);
+  return this;
+}

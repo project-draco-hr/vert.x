@@ -1,0 +1,8 @@
+{
+  checkBEAndLE(2,Buffer.buffer().appendShort(Short.MAX_VALUE),Buffer.buffer().appendShortLE(Short.MAX_VALUE));
+  checkBEAndLE(2,Buffer.buffer().appendUnsignedShort(Short.MAX_VALUE),Buffer.buffer().appendUnsignedShortLE(Short.MAX_VALUE));
+  checkBEAndLE(3,Buffer.buffer().appendMedium(Integer.MAX_VALUE / 2),Buffer.buffer().appendMediumLE(Integer.MAX_VALUE / 2));
+  checkBEAndLE(4,Buffer.buffer().appendInt(Integer.MAX_VALUE),Buffer.buffer().appendIntLE(Integer.MAX_VALUE));
+  checkBEAndLE(4,Buffer.buffer().appendUnsignedInt(Integer.MAX_VALUE),Buffer.buffer().appendUnsignedIntLE(Integer.MAX_VALUE));
+  checkBEAndLE(8,Buffer.buffer().appendLong(Long.MAX_VALUE),Buffer.buffer().appendLongLE(Long.MAX_VALUE));
+}

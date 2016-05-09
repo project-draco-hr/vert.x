@@ -1,0 +1,7 @@
+{
+  Buffer b=Buffer.buffer(TestUtils.randomByteArray(100));
+  b.appendMedium(MEDIUM_MAX_VALUE);
+  assertEquals(103,b.length());
+  b.appendMediumLE(MEDIUM_MAX_VALUE);
+  assertEquals(106,b.length());
+}

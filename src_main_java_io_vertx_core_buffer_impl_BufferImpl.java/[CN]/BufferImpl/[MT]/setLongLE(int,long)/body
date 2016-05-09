@@ -1,0 +1,5 @@
+{
+  ensureWritable(pos,8);
+  buffer.setLongLE(pos,l);
+  return this;
+}

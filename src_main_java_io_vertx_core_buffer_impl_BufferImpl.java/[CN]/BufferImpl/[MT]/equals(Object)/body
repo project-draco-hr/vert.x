@@ -2,6 +2,5 @@
   if (this == o)   return true;
   if (o == null || getClass() != o.getClass())   return false;
   BufferImpl buffer1=(BufferImpl)o;
-  if (buffer != null ? !buffer.equals(buffer1.buffer) : buffer1.buffer != null)   return false;
-  return true;
+  return buffer != null ? buffer.equals(buffer1.buffer) : buffer1.buffer == null;
 }

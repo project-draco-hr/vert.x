@@ -1,0 +1,20 @@
+{
+  int numShorts=100;
+  Buffer b=Buffer.buffer(numShorts * 2);
+  for (short i=0; i < numShorts; i++) {
+    if (isLE) {
+      b.setShortLE(i * 2,i);
+    }
+ else {
+      b.setShort(i * 2,i);
+    }
+  }
+  for (short i=0; i < numShorts; i++) {
+    if (isLE) {
+      assertEquals(i,b.getShortLE(i * 2));
+    }
+ else {
+      assertEquals(i,b.getShort(i * 2));
+    }
+  }
+}

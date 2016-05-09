@@ -1,0 +1,21 @@
+{
+  int numInts=100;
+  int MEDIUM_MAX_VALUE=BufferTest.MEDIUM_MAX_VALUE - numInts;
+  Buffer b=Buffer.buffer(numInts * 3);
+  for (int i=0; i < numInts; i++) {
+    if (isLE) {
+      b.setMediumLE(i * 3,(MEDIUM_MAX_VALUE + i));
+    }
+ else {
+      b.setMedium(i * 3,(MEDIUM_MAX_VALUE + i));
+    }
+  }
+  for (int i=0; i < numInts; i++) {
+    if (isLE) {
+      assertEquals(Integer.toUnsignedLong(MEDIUM_MAX_VALUE + i),b.getUnsignedMediumLE(i * 3));
+    }
+ else {
+      assertEquals(Integer.toUnsignedLong(MEDIUM_MAX_VALUE + i),b.getUnsignedMedium(i * 3));
+    }
+  }
+}

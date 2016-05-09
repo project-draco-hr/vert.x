@@ -1,0 +1,7 @@
+{
+  for (int i=0; i < size; i++) {
+    byte bigByte=big.getByte(i);
+    byte littleByte=little.getByte(size - 1 - i);
+    assertEquals(bigByte,littleByte);
+  }
+}
