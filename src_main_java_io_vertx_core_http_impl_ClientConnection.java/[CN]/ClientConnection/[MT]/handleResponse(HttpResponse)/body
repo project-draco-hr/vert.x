@@ -1,5 +1,5 @@
 {
-  if (resp.getStatus().code() == 100) {
+  if (resp.status().code() == 100) {
     requestForResponse=requests.peek();
   }
  else {
@@ -22,4 +22,9 @@
   HttpClientResponseImpl nResp=new HttpClientResponseImpl(requestForResponse,vertxVersion,this,resp.status().code(),resp.status().reasonPhrase(),new HeadersAdaptor(resp.headers()));
   currentResponse=nResp;
   requestForResponse.handleResponse(nResp);
+  DecoderResult decoderResult=resp.decoderResult();
+  if (decoderResult.isFailure()) {
+    handleException(decoderResult.cause());
+    close();
+  }
 }
