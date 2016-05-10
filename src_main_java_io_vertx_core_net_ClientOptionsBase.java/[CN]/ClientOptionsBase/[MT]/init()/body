@@ -1,4 +1,5 @@
 {
   this.connectTimeout=DEFAULT_CONNECT_TIMEOUT;
   this.trustAll=DEFAULT_TRUST_ALL;
+  this.metricsName=DEFAULT_METRICS_NAME;
 }

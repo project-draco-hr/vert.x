@@ -2,5 +2,6 @@
   int result=super.hashCode();
   result=31 * result + connectTimeout;
   result=31 * result + (trustAll ? 1 : 0);
+  result=31 * result + (metricsName != null ? metricsName.hashCode() : 0);
   return result;
 }

@@ -1,4 +1,7 @@
 {
   json.put("connectTimeout",obj.getConnectTimeout());
+  if (obj.getMetricsName() != null) {
+    json.put("metricsName",obj.getMetricsName());
+  }
   json.put("trustAll",obj.isTrustAll());
 }

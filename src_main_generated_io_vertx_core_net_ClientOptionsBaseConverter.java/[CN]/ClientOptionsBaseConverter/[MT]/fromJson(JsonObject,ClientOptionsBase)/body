@@ -2,6 +2,9 @@
   if (json.getValue("connectTimeout") instanceof Number) {
     obj.setConnectTimeout(((Number)json.getValue("connectTimeout")).intValue());
   }
+  if (json.getValue("metricsName") instanceof String) {
+    obj.setMetricsName((String)json.getValue("metricsName"));
+  }
   if (json.getValue("trustAll") instanceof Boolean) {
     obj.setTrustAll((Boolean)json.getValue("trustAll"));
   }

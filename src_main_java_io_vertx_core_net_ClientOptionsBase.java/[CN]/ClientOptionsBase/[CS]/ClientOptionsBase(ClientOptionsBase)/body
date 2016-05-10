@@ -2,4 +2,5 @@
   super(other);
   this.connectTimeout=other.getConnectTimeout();
   this.trustAll=other.isTrustAll();
+  this.metricsName=other.metricsName;
 }
