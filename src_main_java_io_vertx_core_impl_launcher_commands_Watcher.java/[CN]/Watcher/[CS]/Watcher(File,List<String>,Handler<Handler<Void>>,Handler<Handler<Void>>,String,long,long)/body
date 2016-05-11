@@ -1,7 +1,7 @@
 {
   this.gracePeriod=gracePeriod;
   this.root=root;
-  this.includes=includes;
+  this.includes=sanitizeIncludePatterns(includes);
   this.deploy=deploy;
   this.undeploy=undeploy;
   this.cmd=onRedeployCommand;
