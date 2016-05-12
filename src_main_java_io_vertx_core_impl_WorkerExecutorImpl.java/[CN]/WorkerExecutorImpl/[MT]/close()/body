@@ -1,0 +1,13 @@
+{
+synchronized (this) {
+    if (!closed) {
+      closed=true;
+    }
+ else {
+      return;
+    }
+  }
+  if (releaseOnClose && pool instanceof VertxImpl.SharedWorkerPool) {
+    ((VertxImpl.SharedWorkerPool)pool).release();
+  }
+}

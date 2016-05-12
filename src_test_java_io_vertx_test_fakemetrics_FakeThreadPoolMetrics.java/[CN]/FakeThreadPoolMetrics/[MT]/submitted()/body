@@ -1,3 +1,5 @@
 {
-  return submitted.get();
+  submitted.incrementAndGet();
+  waiting.incrementAndGet();
+  return null;
 }

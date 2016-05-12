@@ -8,14 +8,14 @@
   SharedWorkerPool sharedWorkerPool=namedWorkerPools.get(name);
   if (sharedWorkerPool == null) {
     ExecutorService workerExec=Executors.newFixedThreadPool(poolSize,new VertxThreadFactory(name + "-",checker,true,maxExecuteTime));
-    PoolMetrics workerMetrics=isMetricsEnabled() ? metrics.createMetrics(workerExec,name,poolSize) : null;
+    PoolMetrics workerMetrics=isMetricsEnabled() ? metrics.createMetrics(workerExec,"worker",name,poolSize) : null;
     namedWorkerPools.put(name,sharedWorkerPool=new SharedWorkerPool(name,workerExec,workerMetrics));
   }
  else {
     sharedWorkerPool.refCount++;
   }
   ContextImpl context=getOrCreateContext();
-  NamedWorkerExecutor namedExec=new NamedWorkerExecutor(context,sharedWorkerPool);
+  WorkerExecutorImpl namedExec=new WorkerExecutorImpl(context,sharedWorkerPool,true);
   context.addCloseHook(namedExec);
   return namedExec;
 }

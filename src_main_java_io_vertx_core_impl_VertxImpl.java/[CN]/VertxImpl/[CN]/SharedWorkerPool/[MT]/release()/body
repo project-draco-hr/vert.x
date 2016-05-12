@@ -2,9 +2,7 @@
 synchronized (VertxImpl.this) {
     if (--refCount == 0) {
       releaseWorkerExecutor(name);
-      if (metrics != null) {
-        metrics.close();
-      }
+      close();
       workerExec.shutdownNow();
     }
   }

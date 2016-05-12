@@ -1,0 +1,22 @@
+{
+  WorkerExecutor ex1=vertx.createWorkerExecutor("ex1");
+  WorkerExecutor ex1_=vertx.createWorkerExecutor("ex1");
+  WorkerExecutor ex2=vertx.createWorkerExecutor("ex2");
+  Map<String,PoolMetrics> all=FakeThreadPoolMetrics.getThreadPoolMetrics();
+  FakeThreadPoolMetrics metrics1=(FakeThreadPoolMetrics)all.get("ex1");
+  FakeThreadPoolMetrics metrics2=(FakeThreadPoolMetrics)all.get("ex2");
+  assertNotNull(metrics1);
+  assertNotNull(metrics2);
+  assertNotSame(metrics1,metrics2);
+  assertFalse(metrics1.isClosed());
+  assertFalse(metrics2.isClosed());
+  ex1_.close();
+  assertFalse(metrics1.isClosed());
+  assertFalse(metrics2.isClosed());
+  ex1.close();
+  assertTrue(metrics1.isClosed());
+  assertFalse(metrics2.isClosed());
+  ex2.close();
+  assertTrue(metrics1.isClosed());
+  assertTrue(metrics2.isClosed());
+}
