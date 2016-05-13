@@ -1,7 +1,7 @@
 {
-  WorkerExecutor ex1=vertx.createWorkerExecutor("ex1");
-  WorkerExecutor ex1_=vertx.createWorkerExecutor("ex1");
-  WorkerExecutor ex2=vertx.createWorkerExecutor("ex2");
+  WorkerExecutor ex1=vertx.createSharedWorkerExecutor("ex1");
+  WorkerExecutor ex1_=vertx.createSharedWorkerExecutor("ex1");
+  WorkerExecutor ex2=vertx.createSharedWorkerExecutor("ex2");
   Map<String,PoolMetrics> all=FakeThreadPoolMetrics.getThreadPoolMetrics();
   FakeThreadPoolMetrics metrics1=(FakeThreadPoolMetrics)all.get("ex1");
   FakeThreadPoolMetrics metrics2=(FakeThreadPoolMetrics)all.get("ex2");
