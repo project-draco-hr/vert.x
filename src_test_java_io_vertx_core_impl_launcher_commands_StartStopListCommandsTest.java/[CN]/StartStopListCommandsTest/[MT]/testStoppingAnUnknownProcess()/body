@@ -1,4 +1,7 @@
 {
+  if (ExecUtils.isWindows()) {
+    return;
+  }
   record();
   String id="this-process-does-not-exist";
   output.reset();
