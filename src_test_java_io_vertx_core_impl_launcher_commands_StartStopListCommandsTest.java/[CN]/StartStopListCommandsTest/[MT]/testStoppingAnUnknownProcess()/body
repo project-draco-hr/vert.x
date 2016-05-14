@@ -1,0 +1,7 @@
+{
+  record();
+  String id="this-process-does-not-exist";
+  output.reset();
+  cli.dispatch(new String[]{"stop",id,"--redeploy"});
+  assertThat(output.toString()).contains("Stopping vert.x application '" + id + "'").contains("Cannot find process for application using the id");
+}
