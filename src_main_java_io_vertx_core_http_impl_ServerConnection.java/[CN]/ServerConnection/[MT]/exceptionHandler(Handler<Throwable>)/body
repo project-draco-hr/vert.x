@@ -1,0 +1,3 @@
+{
+  return (ServerConnection)super.exceptionHandler(handler);
+}

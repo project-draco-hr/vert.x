@@ -1,5 +1,3 @@
 {
-  closed=true;
-  closeHandler=handler;
-  return this;
+  return (Http2ConnectionBase)super.closeHandler(handler);
 }

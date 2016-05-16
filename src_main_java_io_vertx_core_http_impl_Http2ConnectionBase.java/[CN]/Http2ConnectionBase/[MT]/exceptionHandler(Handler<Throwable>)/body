@@ -1,4 +1,3 @@
 {
-  exceptionHandler=handler;
-  return this;
+  return (Http2ConnectionBase)super.exceptionHandler(handler);
 }

@@ -1,6 +1,5 @@
 HttpVersion version
 HttpClientImpl client
-Handler<Throwable> exceptionHandler
 Channel channel
 boolean ssl
 String host

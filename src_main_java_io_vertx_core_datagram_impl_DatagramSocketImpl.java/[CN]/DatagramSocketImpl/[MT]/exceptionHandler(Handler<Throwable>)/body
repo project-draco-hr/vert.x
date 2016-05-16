@@ -1,4 +1,3 @@
 {
-  this.exceptionHandler=handler;
-  return this;
+  return (DatagramSocketImpl)super.exceptionHandler(handler);
 }

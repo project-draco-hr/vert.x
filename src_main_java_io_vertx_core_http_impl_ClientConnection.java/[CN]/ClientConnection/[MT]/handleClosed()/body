@@ -21,4 +21,5 @@
  else   if (currentResponse != null) {
     currentResponse.handleException(e);
   }
+  pool.connectionClosed(this);
 }
