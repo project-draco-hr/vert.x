@@ -1,0 +1,3 @@
+{
+  Vertx vertx=Vertx.vertx(new VertxOptions().setHostnameResolverOptions(new HostnameResolverOptions().setHostsPath("/path/to/hosts")));
+}

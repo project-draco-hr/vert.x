@@ -1,4 +1,6 @@
 {
+  this.hostsPath=other.hostsPath;
+  this.hostsValue=other.hostsValue != null ? other.hostsValue.copy() : null;
   this.servers=other.servers != null ? new ArrayList<>(other.servers) : null;
   this.optResourceEnabled=other.optResourceEnabled;
   this.cacheMinTimeToLive=other.cacheMinTimeToLive;
