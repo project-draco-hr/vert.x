@@ -1,0 +1,4 @@
+{
+  PoolMetrics metrics=pool.metrics();
+  return metrics != null && metrics.isEnabled();
+}

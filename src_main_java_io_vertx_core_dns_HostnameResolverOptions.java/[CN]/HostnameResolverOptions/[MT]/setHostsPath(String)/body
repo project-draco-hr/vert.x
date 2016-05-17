@@ -1,0 +1,4 @@
+{
+  this.hostsPath=hostsPath;
+  return this;
+}

@@ -1,0 +1,6 @@
+{
+  waiting.decrementAndGet();
+  idle.decrementAndGet();
+  running.incrementAndGet();
+  return null;
+}

@@ -1,0 +1,4 @@
+P pool
+String poolType
+String poolName
+int maxPoolSize

@@ -1,0 +1,21 @@
+{
+  if (maxExecuteTime < 1) {
+    throw new IllegalArgumentException("poolSize must be > 0");
+  }
+  if (maxExecuteTime < 1) {
+    throw new IllegalArgumentException("maxExecuteTime must be > 0");
+  }
+  SharedWorkerPool sharedWorkerPool=namedWorkerPools.get(name);
+  if (sharedWorkerPool == null) {
+    ExecutorService workerExec=Executors.newFixedThreadPool(poolSize,new VertxThreadFactory(name + "-",checker,true,maxExecuteTime));
+    PoolMetrics workerMetrics=isMetricsEnabled() ? metrics.createMetrics(workerExec,"worker",name,poolSize) : null;
+    namedWorkerPools.put(name,sharedWorkerPool=new SharedWorkerPool(name,workerExec,workerMetrics));
+  }
+ else {
+    sharedWorkerPool.refCount++;
+  }
+  ContextImpl context=getOrCreateContext();
+  WorkerExecutorImpl namedExec=new WorkerExecutorImpl(context,sharedWorkerPool,true);
+  context.addCloseHook(namedExec);
+  return namedExec;
+}
