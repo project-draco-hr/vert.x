@@ -1,0 +1,7 @@
+{
+  Future<String> future=Future.future();
+  future.fail((Throwable)null);
+  Checker<String> checker=new Checker<>(future);
+  NoStackTraceThrowable failure=(NoStackTraceThrowable)checker.assertFailed();
+  assertNull(failure.getMessage());
+}
