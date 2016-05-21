@@ -4,7 +4,7 @@
     afterConfigParsed(conf);
     super.run();
     if (vertx == null) {
-      return;
+      ExecUtils.exitBecauseOfVertxInitializationIssue();
     }
     deploymentOptions=new DeploymentOptions();
     configureFromSystemProperties(deploymentOptions,DEPLOYMENT_OPTIONS_PROP_PREFIX);

@@ -8,7 +8,8 @@
     java=new File(home,"bin/java");
   }
   if (!java.isFile()) {
-    throw new IllegalStateException("Cannot find java executable - " + java.getAbsolutePath() + " does not exist");
+    out.println("Cannot find java executable - " + java.getAbsolutePath() + " does not exist");
+    ExecUtils.exitBecauseOfSystemConfigurationIssue();
   }
   return java;
 }
