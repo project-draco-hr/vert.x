@@ -2,7 +2,7 @@
   this.address=address;
   this.mgr=mgr;
   if (version == HttpVersion.HTTP_2) {
-    pool=new Http2Pool(this,client,mgr.connectionMap);
+    pool=new Http2Pool(this,client,mgr.connectionMap,http2MaxSockets,http2MaxConcurrency);
   }
  else {
     pool=new Http1xPool(client,options,this,mgr.connectionMap,version);
