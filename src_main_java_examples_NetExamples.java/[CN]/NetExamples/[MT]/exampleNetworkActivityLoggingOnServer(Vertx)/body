@@ -1,0 +1,4 @@
+{
+  NetServerOptions options=new NetServerOptions().setLogActivity(true);
+  NetServer server=vertx.createNetServer(options);
+}

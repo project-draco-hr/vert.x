@@ -1,0 +1,4 @@
+{
+  TestLoggerFactory factory=testLogging(new DatagramSocketOptions().setLogActivity(true),new DatagramSocketOptions());
+  assertTrue(factory.hasName("io.netty.handler.logging.LoggingHandler"));
+}

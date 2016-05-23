@@ -3,4 +3,5 @@
   this.receiveBufferSize=other.getReceiveBufferSize();
   this.reuseAddress=other.isReuseAddress();
   this.trafficClass=other.getTrafficClass();
+  this.logActivity=other.logActivity;
 }

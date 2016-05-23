@@ -1,0 +1,4 @@
+{
+  HttpClientOptions options=new HttpClientOptions().setLogActivity(true);
+  HttpClient client=vertx.createHttpClient(options);
+}

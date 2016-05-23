@@ -1,0 +1,4 @@
+{
+  TestLoggerFactory factory=testLogging();
+  assertFalse(factory.hasName("io.netty.handler.codec.http2.Http2FrameLogger"));
+}

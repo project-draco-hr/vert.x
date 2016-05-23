@@ -1,0 +1,3 @@
+{
+  return (DatagramSocketOptions)super.setLogActivity(logEnabled);
+}

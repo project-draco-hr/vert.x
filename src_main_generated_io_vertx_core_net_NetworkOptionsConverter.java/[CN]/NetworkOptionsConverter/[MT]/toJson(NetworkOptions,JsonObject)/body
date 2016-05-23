@@ -1,4 +1,5 @@
 {
+  json.put("logActivity",obj.getLogActivity());
   json.put("receiveBufferSize",obj.getReceiveBufferSize());
   json.put("reuseAddress",obj.isReuseAddress());
   json.put("sendBufferSize",obj.getSendBufferSize());

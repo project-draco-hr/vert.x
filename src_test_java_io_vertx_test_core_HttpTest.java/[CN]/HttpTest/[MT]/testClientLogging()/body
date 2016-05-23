@@ -1,0 +1,11 @@
+{
+  client.close();
+  client=vertx.createHttpClient(createBaseClientOptions().setLogActivity(true));
+  TestLoggerFactory factory=testLogging();
+  if (this instanceof Http1xTest) {
+    assertTrue(factory.hasName("io.netty.handler.logging.LoggingHandler"));
+  }
+ else {
+    assertTrue(factory.hasName("io.netty.handler.codec.http2.Http2FrameLogger"));
+  }
+}

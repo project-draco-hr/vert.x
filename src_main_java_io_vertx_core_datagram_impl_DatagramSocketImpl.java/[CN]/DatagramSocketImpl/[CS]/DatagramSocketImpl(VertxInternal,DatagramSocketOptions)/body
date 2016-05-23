@@ -6,6 +6,9 @@
   }
   channel().config().setOption(ChannelOption.DATAGRAM_CHANNEL_ACTIVE_ON_REGISTRATION,true);
   context.nettyEventLoop().register(channel);
+  if (options.getLogActivity()) {
+    channel().pipeline().addLast("logging",new LoggingHandler());
+  }
   channel.pipeline().addLast("handler",new DatagramServerHandler(this));
   channel().config().setMaxMessagesPerRead(1);
 }

@@ -2,5 +2,8 @@
   if (initialSettings != null) {
     HttpUtils.fromVertxInitialSettings(isServer(),initialSettings,initialSettings());
   }
+  if (logEnabled) {
+    frameLogger(new Http2FrameLogger(LogLevel.DEBUG));
+  }
   return super.build();
 }
