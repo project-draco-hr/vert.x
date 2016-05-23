@@ -1,5 +1,0 @@
-{
-  super(queue,1);
-  this.client=client;
-  this.connectionMap=connectionMap;
-}

@@ -1,7 +1,6 @@
 {
 synchronized (queue) {
-    if (connection == conn) {
-      connection=null;
+    if (allConnections.remove(conn)) {
       queue.connectionClosed();
     }
   }

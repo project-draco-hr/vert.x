@@ -1,0 +1,3 @@
+{
+  exit(PROCESS_ERROR_EXIT_CODE);
+}

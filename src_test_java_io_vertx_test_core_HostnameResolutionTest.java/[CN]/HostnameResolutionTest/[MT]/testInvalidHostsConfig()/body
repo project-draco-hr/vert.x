@@ -1,0 +1,9 @@
+{
+  try {
+    HostnameResolverOptions options=new HostnameResolverOptions().setHostsPath("whatever.txt");
+    Vertx.vertx(new VertxOptions().setHostnameResolverOptions(options));
+    fail();
+  }
+ catch (  VertxException ignore) {
+  }
+}

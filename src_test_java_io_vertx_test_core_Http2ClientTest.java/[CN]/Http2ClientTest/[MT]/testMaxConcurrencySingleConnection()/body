@@ -1,0 +1,3 @@
+{
+  testMaxConcurrency(1,5);
+}
