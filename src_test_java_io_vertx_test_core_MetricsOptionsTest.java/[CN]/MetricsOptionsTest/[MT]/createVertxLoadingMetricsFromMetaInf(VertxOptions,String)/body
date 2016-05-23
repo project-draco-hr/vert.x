@@ -1,0 +1,11 @@
+{
+  ClassLoader oldCL=Thread.currentThread().getContextClassLoader();
+  ClassLoader cl=createMetricsFromMetaInfLoader(factoryFqn);
+  Thread.currentThread().setContextClassLoader(cl);
+  try {
+    return Vertx.vertx(options);
+  }
+  finally {
+    Thread.currentThread().setContextClassLoader(oldCL);
+  }
+}

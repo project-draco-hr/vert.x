@@ -15,5 +15,5 @@
   if (haGroup != null ? !haGroup.equals(that.haGroup) : that.haGroup != null)   return false;
   if (eventBusOptions != null ? !eventBusOptions.equals(that.eventBusOptions) : that.eventBusOptions != null)   return false;
   if (hostnameResolverOptions != null ? !hostnameResolverOptions.equals(that.hostnameResolverOptions) : that.hostnameResolverOptions != null)   return false;
-  return !(metrics != null ? !metrics.equals(that.metrics) : that.metrics != null);
+  return !(metricsOptions != null ? !metricsOptions.equals(that.metricsOptions) : that.metricsOptions != null);
 }

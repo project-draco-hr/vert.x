@@ -1,0 +1,8 @@
+{
+  vertx.close();
+  VertxOptions options=new VertxOptions().setMetricsOptions(new MetricsOptions().setEnabled(true));
+  vertx=createVertxLoadingMetricsFromMetaInf(options,"io.vertx.test.fakemetrics.FakeMetricsFactory");
+  VertxMetrics metrics=((VertxInternal)vertx).metricsSPI();
+  assertNotNull(metrics);
+  assertTrue(metrics instanceof FakeVertxMetrics);
+}

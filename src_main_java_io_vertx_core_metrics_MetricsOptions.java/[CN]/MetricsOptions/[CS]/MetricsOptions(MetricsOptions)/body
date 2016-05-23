@@ -1,3 +1,4 @@
 {
   enabled=other.isEnabled();
+  factory=other.factory;
 }

@@ -1,0 +1,14 @@
+{
+  return new URLClassLoader(new URL[0],Thread.currentThread().getContextClassLoader()){
+    @Override public Enumeration<URL> findResources(    String name) throws IOException {
+      if (name.equals("META-INF/services/io.vertx.core.spi.VertxMetricsFactory")) {
+        File f=File.createTempFile("vertx",".txt");
+        f.deleteOnExit();
+        Files.write(f.toPath(),factoryFqn.getBytes());
+        return Collections.enumeration(Collections.singleton(f.toURI().toURL()));
+      }
+      return super.findResources(name);
+    }
+  }
+;
+}

@@ -1,5 +1,5 @@
 {
   VertxOptions options=super.getOptions();
-  options.setMetricsOptions(new MetricsOptions().setEnabled(true));
+  options.setMetricsOptions(new MetricsOptions().setEnabled(true).setFactory(new FakeMetricsFactory()));
   return options;
 }
