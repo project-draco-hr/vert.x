@@ -2,4 +2,5 @@
   Object instant=Instant.now();
   JsonObject jsonObject=new JsonObject();
   jsonObject.put("instant",instant);
+  assertTrue(jsonObject.getValue("instant") instanceof String);
 }
