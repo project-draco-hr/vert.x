@@ -1,0 +1,5 @@
+{
+  Objects.requireNonNull(proxyType,"ProxyType may not be null");
+  this.proxyType=proxyType;
+  return this;
+}

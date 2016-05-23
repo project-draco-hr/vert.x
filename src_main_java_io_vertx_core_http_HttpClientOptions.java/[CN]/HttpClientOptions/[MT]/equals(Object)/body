@@ -18,9 +18,5 @@
   if (initialSettings == null ? that.initialSettings != null : !initialSettings.equals(that.initialSettings))   return false;
   if (alpnVersions == null ? that.alpnVersions != null : !alpnVersions.equals(that.alpnVersions))   return false;
   if (h2cUpgrade != that.h2cUpgrade)   return false;
-  if (proxyHost == null ? that.proxyHost != null : !proxyHost.equals(that.proxyHost))   return false;
-  if (proxyPort != that.proxyPort)   return false;
-  if (proxyUsername == null ? that.proxyUsername != null : !proxyUsername.equals(that.proxyUsername))   return false;
-  if (proxyPassword == null ? that.proxyPassword != null : !proxyPassword.equals(that.proxyPassword))   return false;
   return true;
 }

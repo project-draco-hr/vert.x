@@ -1,0 +1,6 @@
+VertxInternal vertx
+Bootstrap bootstrap
+ProxyOptions options
+String host
+int port
+Handler<AsyncResult<Channel>> channelHandler

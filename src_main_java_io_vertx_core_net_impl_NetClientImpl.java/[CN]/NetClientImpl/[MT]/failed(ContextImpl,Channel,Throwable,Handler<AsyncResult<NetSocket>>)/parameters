@@ -1,4 +1,4 @@
 ContextImpl context
 Channel ch
-Throwable t
+Throwable th
 Handler<AsyncResult<NetSocket>> connectHandler

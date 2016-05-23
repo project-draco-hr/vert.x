@@ -1,0 +1,7 @@
+{
+  proxyHost=other.getProxyHost();
+  proxyPort=other.getProxyPort();
+  proxyUsername=other.getProxyUsername();
+  proxyPassword=other.getProxyPassword();
+  proxyType=other.getProxyType();
+}

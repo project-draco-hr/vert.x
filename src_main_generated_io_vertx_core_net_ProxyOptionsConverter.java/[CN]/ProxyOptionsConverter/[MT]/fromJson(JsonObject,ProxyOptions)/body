@@ -1,0 +1,17 @@
+{
+  if (json.getValue("proxyHost") instanceof String) {
+    obj.setProxyHost((String)json.getValue("proxyHost"));
+  }
+  if (json.getValue("proxyPassword") instanceof String) {
+    obj.setProxyPassword((String)json.getValue("proxyPassword"));
+  }
+  if (json.getValue("proxyPort") instanceof Number) {
+    obj.setProxyPort(((Number)json.getValue("proxyPort")).intValue());
+  }
+  if (json.getValue("proxyType") instanceof String) {
+    obj.setProxyType(io.vertx.core.net.ProxyType.valueOf((String)json.getValue("proxyType")));
+  }
+  if (json.getValue("proxyUsername") instanceof String) {
+    obj.setProxyUsername((String)json.getValue("proxyUsername"));
+  }
+}

@@ -15,8 +15,4 @@
   this.initialSettings=other.initialSettings != null ? new Http2Settings(other.initialSettings) : null;
   this.alpnVersions=other.alpnVersions != null ? new ArrayList<>(other.alpnVersions) : null;
   this.h2cUpgrade=other.h2cUpgrade;
-  this.proxyHost=other.proxyHost;
-  this.proxyPort=other.proxyPort;
-  this.proxyUsername=other.proxyUsername;
-  this.proxyPassword=other.proxyPassword;
 }

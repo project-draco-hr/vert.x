@@ -1,0 +1,4 @@
+{
+  NetClientOptions options=new NetClientOptions().setProxyOptions(new ProxyOptions().setProxyType(ProxyType.SOCKS5).setProxyHost("localhost").setProxyPort(1080).setProxyUsername("username").setProxyPassword("secret"));
+  NetClient client=vertx.createNetClient(options);
+}

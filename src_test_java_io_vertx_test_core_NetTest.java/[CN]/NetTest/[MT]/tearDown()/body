@@ -5,5 +5,8 @@
   if (server != null) {
     awaitClose(server);
   }
+  if (proxy != null) {
+    proxy.stop();
+  }
   super.tearDown();
 }

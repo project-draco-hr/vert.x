@@ -1,0 +1,4 @@
+{
+  HttpClientOptions options=new HttpClientOptions().setProxyOptions(new ProxyOptions().setProxyType(ProxyType.SOCKS5).setProxyHost("localhost").setProxyPort(1080).setProxyUsername("username").setProxyPassword("secret"));
+  HttpClient client=vertx.createHttpClient(options);
+}

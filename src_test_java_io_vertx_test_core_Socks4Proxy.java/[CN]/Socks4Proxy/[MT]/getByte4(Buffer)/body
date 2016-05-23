@@ -1,0 +1,3 @@
+{
+  return String.format("%d.%d.%d.%d",buffer.getByte(0),buffer.getByte(1),buffer.getByte(2),buffer.getByte(3));
+}

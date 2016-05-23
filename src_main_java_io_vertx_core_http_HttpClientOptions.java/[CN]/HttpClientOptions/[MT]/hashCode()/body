@@ -15,9 +15,5 @@
   result=31 * result + (initialSettings != null ? initialSettings.hashCode() : 0);
   result=31 * result + (alpnVersions != null ? alpnVersions.hashCode() : 0);
   result=31 * result + (h2cUpgrade ? 1 : 0);
-  result=31 * result + (proxyHost != null ? proxyHost.hashCode() : 0);
-  result=31 * result + proxyPort;
-  result=31 * result + (proxyUsername != null ? proxyUsername.hashCode() : 0);
-  result=31 * result + (proxyPassword != null ? proxyPassword.hashCode() : 0);
   return result;
 }

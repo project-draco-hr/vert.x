@@ -1,0 +1,4 @@
+{
+  useSocksProxy=true;
+  return this;
+}

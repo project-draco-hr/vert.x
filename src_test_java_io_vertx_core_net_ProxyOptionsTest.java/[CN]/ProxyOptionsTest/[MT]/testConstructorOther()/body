@@ -1,0 +1,4 @@
+{
+  ProxyOptions options=new ProxyOptions(new ProxyOptions().setProxyHost("somehost"));
+  assertEquals("somehost",options.getProxyHost());
+}

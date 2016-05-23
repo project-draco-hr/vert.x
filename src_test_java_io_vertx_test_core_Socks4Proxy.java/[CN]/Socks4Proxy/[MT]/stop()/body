@@ -1,0 +1,6 @@
+{
+  if (server != null) {
+    server.close();
+    server=null;
+  }
+}
