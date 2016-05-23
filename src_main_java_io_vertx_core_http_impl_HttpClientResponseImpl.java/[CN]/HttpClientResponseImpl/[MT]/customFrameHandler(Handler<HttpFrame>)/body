@@ -1,6 +1,6 @@
 {
 synchronized (conn) {
-    unknownFrameHandler=handler;
+    customFrameHandler=handler;
     return this;
   }
 }
