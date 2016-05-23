@@ -1,4 +1,3 @@
 {
-  this.closeHandler=handler;
-  return this;
+  return (NetSocketImpl)super.closeHandler(handler);
 }

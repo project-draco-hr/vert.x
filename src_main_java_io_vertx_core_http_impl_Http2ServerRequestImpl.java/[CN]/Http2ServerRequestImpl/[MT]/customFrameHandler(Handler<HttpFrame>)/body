@@ -1,0 +1,6 @@
+{
+synchronized (conn) {
+    customFrameHandler=handler;
+    return this;
+  }
+}

@@ -2,5 +2,5 @@
   int frameType=40;
   int frameStatus=10;
   Buffer payload=Buffer.buffer("some data");
-  response.writeFrame(frameType,frameStatus,payload);
+  response.writeCustomFrame(frameType,frameStatus,payload);
 }

@@ -1,0 +1,3 @@
+{
+  exit(VERTX_DEPLOYMENT_EXIT_CODE);
+}

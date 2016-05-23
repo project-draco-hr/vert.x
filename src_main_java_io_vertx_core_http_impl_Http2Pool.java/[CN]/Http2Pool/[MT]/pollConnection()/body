@@ -1,0 +1,10 @@
+{
+  Http2ClientConnection conn=availableConnections.peek();
+  if (conn != null) {
+    conn.streamCount++;
+    if (!canReserveStream(conn)) {
+      availableConnections.remove();
+    }
+  }
+  return conn;
+}

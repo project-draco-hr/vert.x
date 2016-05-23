@@ -1,6 +1,6 @@
 {
   checkComplete();
-  this.throwable=throwable;
+  this.throwable=throwable != null ? throwable : new NoStackTraceThrowable(null);
   failed=true;
   checkCallHandler();
 }

@@ -1,0 +1,3 @@
+{
+  exit(SYSTEM_CONFIGURATION_EXIT_CODE);
+}

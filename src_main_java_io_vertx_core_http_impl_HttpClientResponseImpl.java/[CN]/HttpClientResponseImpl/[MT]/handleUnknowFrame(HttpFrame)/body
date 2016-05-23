@@ -1,8 +1,8 @@
 {
 synchronized (conn) {
-    if (unknownFrameHandler != null) {
+    if (customFrameHandler != null) {
       try {
-        unknownFrameHandler.handle(frame);
+        customFrameHandler.handle(frame);
       }
  catch (      Throwable t) {
         handleException(t);

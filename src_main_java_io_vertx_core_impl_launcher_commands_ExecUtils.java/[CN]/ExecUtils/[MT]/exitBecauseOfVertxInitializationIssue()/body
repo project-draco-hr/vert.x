@@ -1,0 +1,3 @@
+{
+  exit(VERTX_INITIALIZATION_EXIT_CODE);
+}

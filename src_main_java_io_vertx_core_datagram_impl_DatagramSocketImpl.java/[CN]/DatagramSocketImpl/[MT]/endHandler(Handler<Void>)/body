@@ -1,4 +1,3 @@
 {
-  this.closeHandler=endHandler;
-  return this;
+  return (DatagramSocketImpl)super.closeHandler(endHandler);
 }
