@@ -1,4 +1,4 @@
 {
-  rawPacket.retain(increment);
+  rawPacket.retain();
   return this;
 }

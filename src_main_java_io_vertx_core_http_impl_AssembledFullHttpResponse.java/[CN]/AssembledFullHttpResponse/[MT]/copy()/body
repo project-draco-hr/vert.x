@@ -1,3 +1,4 @@
 {
-  throw new UnsupportedOperationException();
+  super.copy();
+  return this;
 }
