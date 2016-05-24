@@ -1,0 +1,4 @@
+{
+  super(conn,stream,writable);
+  this.request=request;
+}

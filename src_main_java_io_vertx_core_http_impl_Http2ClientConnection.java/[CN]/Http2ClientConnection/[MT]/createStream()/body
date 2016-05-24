@@ -1,7 +1,8 @@
 {
   Http2Connection conn=handler.connection();
   Http2Stream stream=conn.local().createStream(conn.local().incrementAndGetNextStreamId(),false);
-  Http2ClientStream clientStream=new Http2ClientStream(this,stream);
+  boolean writable=handler.encoder().flowController().isWritable(stream);
+  Http2ClientStream clientStream=new Http2ClientStream(this,stream,writable);
   streams.put(clientStream.stream.id(),clientStream);
   return clientStream;
 }

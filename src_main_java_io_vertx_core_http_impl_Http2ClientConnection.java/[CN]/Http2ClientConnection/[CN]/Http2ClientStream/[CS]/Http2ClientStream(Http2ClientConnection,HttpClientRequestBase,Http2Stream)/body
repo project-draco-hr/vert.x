@@ -1,4 +1,0 @@
-{
-  super(conn,stream);
-  this.request=request;
-}

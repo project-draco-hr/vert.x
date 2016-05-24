@@ -4,3 +4,4 @@ HttpServerMetrics metrics
 String serverOrigin
 Http2Headers headers
 String contentEncoding
+boolean writable

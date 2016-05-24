@@ -1,3 +1,4 @@
 Http2ClientConnection conn
 HttpClientRequestBase request
 Http2Stream stream
+boolean writable

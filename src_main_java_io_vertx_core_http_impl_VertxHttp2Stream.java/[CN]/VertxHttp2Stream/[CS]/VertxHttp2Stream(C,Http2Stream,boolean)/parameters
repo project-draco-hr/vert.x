@@ -1,2 +1,3 @@
 C conn
 Http2Stream stream
+boolean writable
