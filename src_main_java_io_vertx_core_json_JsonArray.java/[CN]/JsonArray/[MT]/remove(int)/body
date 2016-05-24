@@ -1,3 +1,10 @@
 {
-  return list.remove(pos);
+  Object removed=list.remove(pos);
+  if (removed instanceof Map) {
+    return new JsonObject((Map)removed);
+  }
+ else   if (removed instanceof ArrayList) {
+    return new JsonArray((List)removed);
+  }
+  return removed;
 }
