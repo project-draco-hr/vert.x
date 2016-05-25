@@ -1,3 +1,4 @@
+ConnQueue queue
 HttpVersion version
 String host
 int port

@@ -1,4 +1,4 @@
 {
   connCount++;
-  internalConnect(pool.version(),address.host,address.port,waiter);
+  internalConnect(this,pool.version(),address.host,address.port,waiter);
 }
