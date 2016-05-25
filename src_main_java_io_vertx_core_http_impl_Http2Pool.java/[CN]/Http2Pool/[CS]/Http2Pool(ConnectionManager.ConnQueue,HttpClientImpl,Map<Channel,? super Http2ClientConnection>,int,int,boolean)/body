@@ -1,5 +1,5 @@
 {
-  super(queue,maxSockets);
+  this.queue=queue;
   this.client=client;
   this.connectionMap=connectionMap;
   this.maxConcurrency=maxConcurrency;

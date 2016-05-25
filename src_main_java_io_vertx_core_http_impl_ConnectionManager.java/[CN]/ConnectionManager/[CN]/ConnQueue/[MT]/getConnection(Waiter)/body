@@ -1,16 +1,2 @@
 {
-  boolean served=pool.getConnection(waiter);
-  if (!served) {
-    if (connCount == pool.maxSockets) {
-      if (maxWaitQueueSize < 0 || waiters.size() < maxWaitQueueSize) {
-        waiters.add(waiter);
-      }
- else {
-        waiter.handleFailure(new ConnectionPoolTooBusyException("Connection pool reached max wait queue size of " + maxWaitQueueSize));
-      }
-    }
- else {
-      createNewConnection(waiter);
-    }
-  }
 }

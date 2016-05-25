@@ -1,5 +1,5 @@
 {
-  super(queue,client.getOptions().getMaxPoolSize());
+  this.queue=queue;
   this.version=version;
   this.client=client;
   this.pipelining=options.isPipelining();

@@ -1,17 +1,17 @@
 {
   if (!conn.isValid()) {
-    queue.getConnection(waiter);
+    getConnection(waiter);
   }
  else   if (waiter.isCancelled()) {
-    recycle(conn);
+    pool.recycle(conn);
   }
  else {
     HttpClientStream stream;
     try {
-      stream=createStream(conn);
+      stream=pool.createStream(conn);
     }
  catch (    Exception e) {
-      queue.getConnection(waiter);
+      getConnection(waiter);
       return;
     }
     waiter.handleStream(stream);

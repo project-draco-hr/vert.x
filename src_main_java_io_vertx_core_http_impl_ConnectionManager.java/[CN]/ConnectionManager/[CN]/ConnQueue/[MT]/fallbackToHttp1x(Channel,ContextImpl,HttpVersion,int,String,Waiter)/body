@@ -1,6 +1,6 @@
 {
 synchronized (this) {
-    pool=new Http1xPool(client,options,this,mgr.connectionMap,fallbackVersion);
+    pool=(Pool)new Http1xPool(client,options,this,mgr.connectionMap,fallbackVersion);
   }
   applyHttp1xConnectionOptions(ch.pipeline(),context);
   http1xConnected(fallbackVersion,context,port,host,ch,waiter);
