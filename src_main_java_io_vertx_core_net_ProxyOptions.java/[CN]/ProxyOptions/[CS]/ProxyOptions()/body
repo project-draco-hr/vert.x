@@ -1,7 +1,5 @@
 {
-  proxyHost="localhost";
-  proxyPort=3128;
-  proxyUsername=null;
-  proxyPassword=null;
-  proxyType=ProxyType.HTTP;
+  proxyHost=DEFAULT_PROXY_HOST;
+  proxyPort=DEFAULT_PROXY_PORT;
+  proxyType=DEFAULT_PROXY_TYPE;
 }
