@@ -1,4 +1,7 @@
 {
+  if (logEnabled) {
+    pipeline.addLast("logging",new LoggingHandler());
+  }
   if (USE_FLASH_POLICY_HANDLER) {
     pipeline.addLast("flashpolicy",new FlashPolicyHandler());
   }

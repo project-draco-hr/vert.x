@@ -1,0 +1,4 @@
+{
+  this.logEnabled=logEnabled;
+  return this;
+}

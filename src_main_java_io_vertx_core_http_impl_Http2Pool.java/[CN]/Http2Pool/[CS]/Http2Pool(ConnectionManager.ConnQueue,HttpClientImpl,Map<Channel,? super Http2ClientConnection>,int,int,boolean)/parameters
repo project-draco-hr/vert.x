@@ -3,3 +3,4 @@ HttpClientImpl client
 Map<Channel,? super Http2ClientConnection> connectionMap
 int maxSockets
 int maxConcurrency
+boolean logEnabled

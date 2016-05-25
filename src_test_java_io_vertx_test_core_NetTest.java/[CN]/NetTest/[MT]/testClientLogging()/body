@@ -1,0 +1,6 @@
+{
+  client.close();
+  client=vertx.createNetClient(new NetClientOptions().setLogActivity(true));
+  TestLoggerFactory factory=testLogging();
+  assertTrue(factory.hasName("io.netty.handler.logging.LoggingHandler"));
+}

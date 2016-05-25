@@ -3,6 +3,7 @@
   this.options=new NetServerOptions(options);
   this.sslHelper=new SSLHelper(options,KeyStoreHelper.create(vertx,options.getKeyCertOptions()),KeyStoreHelper.create(vertx,options.getTrustOptions()));
   this.creatingContext=vertx.getContext();
+  this.logEnabled=options.getLogActivity();
   if (creatingContext != null) {
     if (creatingContext.isMultiThreadedWorkerContext()) {
       throw new IllegalStateException("Cannot use NetServer in a multi-threaded worker verticle");

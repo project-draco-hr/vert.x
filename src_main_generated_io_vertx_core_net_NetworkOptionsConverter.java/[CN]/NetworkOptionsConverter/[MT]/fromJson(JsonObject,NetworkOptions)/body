@@ -1,4 +1,7 @@
 {
+  if (json.getValue("logActivity") instanceof Boolean) {
+    obj.setLogActivity((Boolean)json.getValue("logActivity"));
+  }
   if (json.getValue("receiveBufferSize") instanceof Number) {
     obj.setReceiveBufferSize(((Number)json.getValue("receiveBufferSize")).intValue());
   }

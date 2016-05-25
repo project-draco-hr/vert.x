@@ -1,0 +1,3 @@
+{
+  return (ClientOptionsBase)super.setLogActivity(logEnabled);
+}
