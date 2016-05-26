@@ -1,6 +1,6 @@
 {
   try {
-    doConnect(vertx,bootstrap,options,host,port,channelHandler);
+    doConnect(vertx,bootstrap,options,host,port,channelInitializer,channelHandler);
   }
  catch (  NoClassDefFoundError e) {
     if (e.getMessage().contains("io/netty/handler/proxy")) {

@@ -3,4 +3,5 @@ Bootstrap bootstrap
 ProxyOptions options
 String host
 int port
+Handler<Channel> channelInitializer
 Handler<AsyncResult<Channel>> channelHandler
