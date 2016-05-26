@@ -8,8 +8,8 @@
     for (    HttpClientRequestImpl req : requests) {
       metrics.requestReset(req.metric());
     }
-    if (requestForResponse != null) {
-      metrics.requestReset(requestForResponse.metric());
+    if (currentResponse != null) {
+      metrics.requestReset(currentResponse.request().metric());
     }
   }
   for (  HttpClientRequestImpl req : requests) {

@@ -1,0 +1,3 @@
+{
+  endpoints.remove(host + ":" + port);
+}

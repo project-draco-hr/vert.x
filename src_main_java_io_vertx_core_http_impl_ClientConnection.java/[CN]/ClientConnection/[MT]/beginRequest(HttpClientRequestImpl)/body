@@ -3,7 +3,7 @@
     throw new IllegalStateException("Connection is already writing a request");
   }
   if (metrics.isEnabled()) {
-    Object reqMetric=client.httpClientMetrics().requestBegin(metric,localAddress(),remoteAddress(),req);
+    Object reqMetric=client.httpClientMetrics().requestBegin(endpointMetric,metric,localAddress(),remoteAddress(),req);
     req.metric(reqMetric);
   }
   this.currentRequest=req;

@@ -1,0 +1,4 @@
+{
+  EndpointMetric server=endpoints.get(name);
+  return server != null ? server.connectionCount.get() : null;
+}

@@ -1,0 +1,4 @@
+{
+  endpointMetric.queueSize.incrementAndGet();
+  return null;
+}

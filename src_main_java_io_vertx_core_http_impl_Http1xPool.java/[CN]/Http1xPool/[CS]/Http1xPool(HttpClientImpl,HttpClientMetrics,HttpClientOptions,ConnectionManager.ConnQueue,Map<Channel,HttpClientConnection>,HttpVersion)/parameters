@@ -1,0 +1,6 @@
+HttpClientImpl client
+HttpClientMetrics metrics
+HttpClientOptions options
+ConnectionManager.ConnQueue queue
+Map<Channel,HttpClientConnection> connectionMap
+HttpVersion version

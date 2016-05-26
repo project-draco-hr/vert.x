@@ -16,5 +16,5 @@
       return metrics;
     }
   }
-  return new DummyVertxMetrics();
+  return DummyVertxMetrics.INSTANCE;
 }

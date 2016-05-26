@@ -1,0 +1,6 @@
+Http2Pool http2Pool
+Object queueMetric
+ContextImpl context
+Channel channel
+VertxHttp2ConnectionHandler connHandler
+HttpClientMetrics metrics

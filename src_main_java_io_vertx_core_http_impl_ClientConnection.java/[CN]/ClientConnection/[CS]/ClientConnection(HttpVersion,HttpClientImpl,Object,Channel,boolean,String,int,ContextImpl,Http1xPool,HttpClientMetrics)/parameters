@@ -1,0 +1,10 @@
+HttpVersion version
+HttpClientImpl client
+Object endpointMetric
+Channel channel
+boolean ssl
+String host
+int port
+ContextImpl context
+Http1xPool pool
+HttpClientMetrics metrics

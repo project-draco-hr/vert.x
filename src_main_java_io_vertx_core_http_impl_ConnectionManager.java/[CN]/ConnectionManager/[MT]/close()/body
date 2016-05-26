@@ -1,4 +1,5 @@
 {
   wsQM.close();
   requestQM.close();
+  metrics.close();
 }

@@ -1,0 +1,6 @@
+{
+  endpointMetric.requests.incrementAndGet();
+  HttpClientMetric metric=new HttpClientMetric(endpointMetric,request,socketMetric);
+  requests.put(request,metric);
+  return metric;
+}

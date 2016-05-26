@@ -1,0 +1,3 @@
+{
+  return endpoints.get(name);
+}

@@ -1,3 +1,4 @@
 {
+  requestMetric.endpoint.requests.decrementAndGet();
   requests.remove(requestMetric.request);
 }

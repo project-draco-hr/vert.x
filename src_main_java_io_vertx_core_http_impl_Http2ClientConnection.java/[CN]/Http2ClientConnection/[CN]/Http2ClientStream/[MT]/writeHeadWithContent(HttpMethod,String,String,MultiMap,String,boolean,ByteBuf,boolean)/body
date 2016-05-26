@@ -23,7 +23,7 @@
     h.set(HttpHeaderNames.ACCEPT_ENCODING,DEFLATE_GZIP);
   }
   if (conn.metrics.isEnabled()) {
-    request.metric(conn.metrics.requestBegin(conn.metric,conn.localAddress(),conn.remoteAddress(),request));
+    request.metric(conn.metrics.requestBegin(conn.queueMetric,conn.metric,conn.localAddress(),conn.remoteAddress(),request));
   }
   writeHeaders(h,end && content == null);
   if (content != null) {

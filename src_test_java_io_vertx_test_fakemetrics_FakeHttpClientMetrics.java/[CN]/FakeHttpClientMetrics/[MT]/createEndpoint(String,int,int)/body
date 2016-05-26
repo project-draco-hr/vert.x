@@ -1,0 +1,5 @@
+{
+  EndpointMetric metric=new EndpointMetric();
+  endpoints.put(host + ":" + port,metric);
+  return metric;
+}
