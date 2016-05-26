@@ -1,3 +1,0 @@
-{
-  hostnameResolver.resolveHostname(hostname,resultHandler);
-}

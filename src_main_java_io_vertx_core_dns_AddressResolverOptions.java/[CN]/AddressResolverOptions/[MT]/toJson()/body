@@ -1,0 +1,5 @@
+{
+  JsonObject json=new JsonObject();
+  AddressResolverOptionsConverter.toJson(this,json);
+  return json;
+}

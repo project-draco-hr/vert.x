@@ -1,11 +1,11 @@
 {
-  HostnameResolverOptions options=new HostnameResolverOptions(new JsonObject());
-  assertEquals(HostnameResolverOptions.DEFAULT_OPT_RESOURCE_ENABLED,options.isOptResourceEnabled());
-  assertEquals(HostnameResolverOptions.DEFAULT_SERVERS,options.getServers());
-  assertEquals(HostnameResolverOptions.DEFAULT_CACHE_MIN_TIME_TO_LIVE,options.getCacheMinTimeToLive());
-  assertEquals(HostnameResolverOptions.DEFAULT_CACHE_MAX_TIME_TO_LIVE,options.getCacheMaxTimeToLive());
-  assertEquals(HostnameResolverOptions.DEFAULT_CACHE_NEGATIVE_TIME_TO_LIVE,options.getCacheNegativeTimeToLive());
-  assertEquals(HostnameResolverOptions.DEFAULT_QUERY_TIMEOUT,options.getQueryTimeout());
-  assertEquals(HostnameResolverOptions.DEFAULT_MAX_QUERIES,options.getMaxQueries());
-  assertEquals(HostnameResolverOptions.DEFAULT_RD_FLAG,options.getRdFlag());
+  AddressResolverOptions options=new AddressResolverOptions(new JsonObject());
+  assertEquals(AddressResolverOptions.DEFAULT_OPT_RESOURCE_ENABLED,options.isOptResourceEnabled());
+  assertEquals(AddressResolverOptions.DEFAULT_SERVERS,options.getServers());
+  assertEquals(AddressResolverOptions.DEFAULT_CACHE_MIN_TIME_TO_LIVE,options.getCacheMinTimeToLive());
+  assertEquals(AddressResolverOptions.DEFAULT_CACHE_MAX_TIME_TO_LIVE,options.getCacheMaxTimeToLive());
+  assertEquals(AddressResolverOptions.DEFAULT_CACHE_NEGATIVE_TIME_TO_LIVE,options.getCacheNegativeTimeToLive());
+  assertEquals(AddressResolverOptions.DEFAULT_QUERY_TIMEOUT,options.getQueryTimeout());
+  assertEquals(AddressResolverOptions.DEFAULT_MAX_QUERIES,options.getMaxQueries());
+  assertEquals(AddressResolverOptions.DEFAULT_RD_FLAG,options.getRdFlag());
 }

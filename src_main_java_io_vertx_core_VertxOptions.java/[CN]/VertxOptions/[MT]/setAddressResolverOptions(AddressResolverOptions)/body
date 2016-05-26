@@ -1,0 +1,4 @@
+{
+  this.addressResolverOptions=addressResolverOptions;
+  return this;
+}
