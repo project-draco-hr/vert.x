@@ -2,6 +2,7 @@
   this.queue=queue;
   this.version=version;
   this.client=client;
+  this.metrics=metrics;
   this.pipelining=options.isPipelining();
   this.keepAlive=options.isKeepAlive();
   this.ssl=options.isSsl();

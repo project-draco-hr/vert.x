@@ -7,5 +7,4 @@ synchronized (this) {
     creatingContext.removeCloseHook(closeHook);
   }
   connectionManager.close();
-  metrics.close();
 }
