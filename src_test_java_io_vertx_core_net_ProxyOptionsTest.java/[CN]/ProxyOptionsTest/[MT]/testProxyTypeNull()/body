@@ -1,3 +1,0 @@
-{
-  new ProxyOptions().setProxyType(null);
-}

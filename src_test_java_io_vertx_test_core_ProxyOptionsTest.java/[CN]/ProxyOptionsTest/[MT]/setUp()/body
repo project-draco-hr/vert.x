@@ -1,0 +1,8 @@
+{
+  super.setUp();
+  randType=TestUtils.randomElement(ProxyType.values());
+  randHost=TestUtils.randomAlphaString(10);
+  randPort=TestUtils.randomPortInt();
+  randUsername=TestUtils.randomAlphaString(10);
+  randPassword=TestUtils.randomAlphaString(10);
+}

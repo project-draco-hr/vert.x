@@ -1,9 +1,0 @@
-{
-  ProxyOptions options=new ProxyOptions();
-  options.setProxyHost("somehost").setProxyPort(12345).setProxyUsername("user").setProxyPassword("secret").setProxyType(ProxyType.HTTP);
-  assertEquals("somehost",options.getProxyHost());
-  assertEquals(12345,options.getProxyPort());
-  assertEquals("user",options.getProxyUsername());
-  assertEquals("secret",options.getProxyPassword());
-  assertEquals("HTTP",options.getProxyType().toString());
-}

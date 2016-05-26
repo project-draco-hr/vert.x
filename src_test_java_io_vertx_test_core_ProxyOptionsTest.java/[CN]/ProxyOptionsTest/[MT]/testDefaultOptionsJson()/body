@@ -1,0 +1,9 @@
+{
+  ProxyOptions def=new ProxyOptions();
+  ProxyOptions options=new ProxyOptions(new JsonObject());
+  assertEquals(def.getType(),options.getType());
+  assertEquals(def.getPort(),options.getPort());
+  assertEquals(def.getHost(),options.getHost());
+  assertEquals(def.getUsername(),options.getUsername());
+  assertEquals(def.getPassword(),options.getPassword());
+}

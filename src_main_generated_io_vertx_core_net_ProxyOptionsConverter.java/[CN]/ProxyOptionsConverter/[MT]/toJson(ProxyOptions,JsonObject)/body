@@ -1,15 +1,15 @@
 {
-  if (obj.getProxyHost() != null) {
-    json.put("proxyHost",obj.getProxyHost());
+  if (obj.getHost() != null) {
+    json.put("host",obj.getHost());
   }
-  if (obj.getProxyPassword() != null) {
-    json.put("proxyPassword",obj.getProxyPassword());
+  if (obj.getPassword() != null) {
+    json.put("password",obj.getPassword());
   }
-  json.put("proxyPort",obj.getProxyPort());
-  if (obj.getProxyType() != null) {
-    json.put("proxyType",obj.getProxyType().name());
+  json.put("port",obj.getPort());
+  if (obj.getType() != null) {
+    json.put("type",obj.getType().name());
   }
-  if (obj.getProxyUsername() != null) {
-    json.put("proxyUsername",obj.getProxyUsername());
+  if (obj.getUsername() != null) {
+    json.put("username",obj.getUsername());
   }
 }
