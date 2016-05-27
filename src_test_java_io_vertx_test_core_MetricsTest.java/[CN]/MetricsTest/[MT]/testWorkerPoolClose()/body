@@ -2,9 +2,9 @@
   WorkerExecutor ex1=vertx.createSharedWorkerExecutor("ex1");
   WorkerExecutor ex1_=vertx.createSharedWorkerExecutor("ex1");
   WorkerExecutor ex2=vertx.createSharedWorkerExecutor("ex2");
-  Map<String,PoolMetrics> all=FakePoolMetrics.getPoolMetrics();
-  FakePoolMetrics metrics1=(FakePoolMetrics)all.get("ex1");
-  FakePoolMetrics metrics2=(FakePoolMetrics)all.get("ex2");
+  Map<String,PoolMetrics> all=FakeThreadPoolMetrics.getThreadPoolMetrics();
+  FakeThreadPoolMetrics metrics1=(FakeThreadPoolMetrics)all.get("ex1");
+  FakeThreadPoolMetrics metrics2=(FakeThreadPoolMetrics)all.get("ex2");
   assertNotNull(metrics1);
   assertNotNull(metrics2);
   assertNotSame(metrics1,metrics2);

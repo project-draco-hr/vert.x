@@ -1,5 +1,5 @@
 {
-  DummyVertxMetrics metrics=DummyVertxMetrics.INSTANCE;
+  DummyVertxMetrics metrics=new DummyVertxMetrics();
   vertx.close();
   vertx=Vertx.vertx(new VertxOptions().setMetricsOptions(new MetricsOptions().setEnabled(true).setFactory(new SimpleVertxMetricsFactory<>(metrics))));
   assertSame(metrics,((VertxInternal)vertx).metricsSPI());

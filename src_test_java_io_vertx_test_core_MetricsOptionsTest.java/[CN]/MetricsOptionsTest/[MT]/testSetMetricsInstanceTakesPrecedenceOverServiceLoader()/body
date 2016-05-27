@@ -1,5 +1,5 @@
 {
-  DummyVertxMetrics metrics=DummyVertxMetrics.INSTANCE;
+  DummyVertxMetrics metrics=new DummyVertxMetrics();
   vertx.close();
   VertxOptions options=new VertxOptions().setMetricsOptions(new MetricsOptions().setEnabled(true).setFactory(new SimpleVertxMetricsFactory<>(metrics)));
   vertx=createVertxLoadingMetricsFromMetaInf(options,"io.vertx.test.fakemetrics.FakeMetricsFactory");
