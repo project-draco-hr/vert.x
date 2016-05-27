@@ -2,4 +2,5 @@
   if (evt instanceof IdleStateEvent && ((IdleStateEvent)evt).state() == IdleState.ALL_IDLE) {
     ctx.close();
   }
+  ctx.fireUserEventTriggered(evt);
 }

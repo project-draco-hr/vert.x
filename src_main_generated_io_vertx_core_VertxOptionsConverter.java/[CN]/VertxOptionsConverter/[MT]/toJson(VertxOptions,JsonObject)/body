@@ -1,4 +1,7 @@
 {
+  if (obj.getAddressResolverOptions() != null) {
+    json.put("addressResolverOptions",obj.getAddressResolverOptions().toJson());
+  }
   json.put("blockedThreadCheckInterval",obj.getBlockedThreadCheckInterval());
   if (obj.getClusterHost() != null) {
     json.put("clusterHost",obj.getClusterHost());
@@ -18,9 +21,6 @@
   json.put("haEnabled",obj.isHAEnabled());
   if (obj.getHAGroup() != null) {
     json.put("haGroup",obj.getHAGroup());
-  }
-  if (obj.getHostnameResolverOptions() != null) {
-    json.put("hostnameResolverOptions",obj.getHostnameResolverOptions().toJson());
   }
   json.put("internalBlockingPoolSize",obj.getInternalBlockingPoolSize());
   json.put("maxEventLoopExecuteTime",obj.getMaxEventLoopExecuteTime());

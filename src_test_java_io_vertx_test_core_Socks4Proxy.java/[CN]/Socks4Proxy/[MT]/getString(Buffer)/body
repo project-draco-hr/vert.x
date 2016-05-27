@@ -1,0 +1,4 @@
+{
+  String string=buffer.toString();
+  return string.substring(0,string.indexOf('\0'));
+}

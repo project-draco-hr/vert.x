@@ -1,0 +1,14 @@
+{
+  ProxyOptions options=new ProxyOptions();
+  options.setType(randType);
+  options.setHost(randHost);
+  options.setPort(randPort);
+  options.setUsername(randUsername);
+  options.setPassword(randPassword);
+  ProxyOptions copy=new ProxyOptions(options);
+  assertEquals(randType,copy.getType());
+  assertEquals(randPort,copy.getPort());
+  assertEquals(randHost,copy.getHost());
+  assertEquals(randUsername,copy.getUsername());
+  assertEquals(randPassword,copy.getPassword());
+}

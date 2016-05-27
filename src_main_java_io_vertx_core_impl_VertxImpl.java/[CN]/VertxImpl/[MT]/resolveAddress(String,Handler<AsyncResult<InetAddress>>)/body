@@ -1,0 +1,3 @@
+{
+  addressResolver.resolveHostname(hostname,resultHandler);
+}

@@ -1,0 +1,13 @@
+{
+  if (logEnabled) {
+    pipeline.addLast("logging",new LoggingHandler());
+  }
+  pipeline.addLast("codec",new HttpClientCodec(4096,8192,options.getMaxChunkSize(),false,false));
+  if (options.isTryUseCompression()) {
+    pipeline.addLast("inflater",new HttpContentDecompressor(true));
+  }
+  if (options.getIdleTimeout() > 0) {
+    pipeline.addLast("idle",new IdleStateHandler(0,0,options.getIdleTimeout()));
+  }
+  pipeline.addLast("handler",new ClientHandler(pipeline.channel(),context,(Map)queue.mgr.connectionMap));
+}

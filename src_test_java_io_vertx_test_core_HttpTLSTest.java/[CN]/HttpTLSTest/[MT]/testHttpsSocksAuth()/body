@@ -1,0 +1,6 @@
+{
+  startProxy("username",ProxyType.SOCKS5);
+  testTLS(TLSCert.NONE,TLSCert.JKS,TLSCert.JKS,TLSCert.NONE).useProxy().useSocksProxy().useProxyAuth().pass();
+  assertNotNull("connection didn't access the proxy",proxy.getLastUri());
+  assertEquals("hostname resolved but it shouldn't be","localhost:4043",proxy.getLastUri());
+}

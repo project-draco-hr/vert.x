@@ -3,7 +3,7 @@ synchronized (queue) {
     Waiter waiter;
     while (canReserveStream(conn) && (waiter=queue.getNextWaiter()) != null) {
       conn.streamCount++;
-      deliverStream(conn,waiter);
+      queue.deliverStream(conn,waiter);
     }
   }
 }

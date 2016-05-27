@@ -1,0 +1,19 @@
+{
+  if (!conn.isValid()) {
+    getConnection(waiter);
+  }
+ else   if (waiter.isCancelled()) {
+    pool.recycle(conn);
+  }
+ else {
+    HttpClientStream stream;
+    try {
+      stream=pool.createStream(conn);
+    }
+ catch (    Exception e) {
+      getConnection(waiter);
+      return;
+    }
+    waiter.handleStream(stream);
+  }
+}

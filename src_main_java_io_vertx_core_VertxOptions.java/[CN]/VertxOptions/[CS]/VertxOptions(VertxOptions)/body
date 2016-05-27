@@ -12,5 +12,5 @@
   this.metricsOptions=other.getMetricsOptions() != null ? new MetricsOptions(other.getMetricsOptions()) : null;
   this.warningExceptionTime=other.warningExceptionTime;
   this.eventBusOptions=new EventBusOptions(other.eventBusOptions);
-  this.hostnameResolverOptions=other.hostnameResolverOptions != null ? new HostnameResolverOptions() : null;
+  this.addressResolverOptions=other.addressResolverOptions != null ? new AddressResolverOptions() : null;
 }

@@ -3,4 +3,5 @@
   this.connectTimeout=other.getConnectTimeout();
   this.trustAll=other.isTrustAll();
   this.metricsName=other.metricsName;
+  this.proxyOptions=other.proxyOptions != null ? new ProxyOptions(other.proxyOptions) : null;
 }

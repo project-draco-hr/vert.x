@@ -1,0 +1,7 @@
+ConnQueue queue
+Bootstrap bootstrap
+ContextImpl context
+HttpVersion version
+String host
+int port
+Waiter waiter

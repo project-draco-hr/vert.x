@@ -1,0 +1,15 @@
+{
+  if (obj.getHost() != null) {
+    json.put("host",obj.getHost());
+  }
+  if (obj.getPassword() != null) {
+    json.put("password",obj.getPassword());
+  }
+  json.put("port",obj.getPort());
+  if (obj.getType() != null) {
+    json.put("type",obj.getType().name());
+  }
+  if (obj.getUsername() != null) {
+    json.put("username",obj.getUsername());
+  }
+}

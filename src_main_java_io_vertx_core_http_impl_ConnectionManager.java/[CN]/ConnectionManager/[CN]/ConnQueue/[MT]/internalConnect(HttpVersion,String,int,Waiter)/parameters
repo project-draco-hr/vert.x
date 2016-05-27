@@ -1,4 +1,0 @@
-HttpVersion version
-String host
-int port
-Waiter waiter

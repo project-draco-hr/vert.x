@@ -1,4 +1,4 @@
 {
-  startProxy("username");
+  startProxy("username",ProxyType.HTTP);
   testTLS(TLSCert.NONE,TLSCert.JKS,TLSCert.JKS,TLSCert.NONE).useProxy().useProxyAuth().fail();
 }

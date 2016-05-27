@@ -1,0 +1,15 @@
+{
+  this.client=client;
+  this.sslHelper=client.getSslHelper();
+  this.options=client.getOptions();
+  this.vertx=client.getVertx();
+  this.keepAlive=client.getOptions().isKeepAlive();
+  this.pipelining=client.getOptions().isPipelining();
+  this.maxWaitQueueSize=client.getOptions().getMaxWaitQueueSize();
+  int maxStreams=options.getMaxStreams();
+  this.http2MaxSockets=maxStreams < 1 ? 1 : options.getMaxPoolSize();
+  this.http2MaxConcurrency=maxStreams < 1 ? Integer.MAX_VALUE : maxStreams;
+  this.logEnabled=client.getOptions().getLogActivity();
+  this.connector=new ChannelConnector();
+  this.metrics=metrics;
+}

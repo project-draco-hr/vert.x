@@ -14,6 +14,6 @@
   if (clusterManager != null ? !clusterManager.equals(that.clusterManager) : that.clusterManager != null)   return false;
   if (haGroup != null ? !haGroup.equals(that.haGroup) : that.haGroup != null)   return false;
   if (eventBusOptions != null ? !eventBusOptions.equals(that.eventBusOptions) : that.eventBusOptions != null)   return false;
-  if (hostnameResolverOptions != null ? !hostnameResolverOptions.equals(that.hostnameResolverOptions) : that.hostnameResolverOptions != null)   return false;
+  if (addressResolverOptions != null ? !addressResolverOptions.equals(that.addressResolverOptions) : that.addressResolverOptions != null)   return false;
   return !(metricsOptions != null ? !metricsOptions.equals(that.metricsOptions) : that.metricsOptions != null);
 }

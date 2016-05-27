@@ -1,4 +1,0 @@
-{
-  this.proxyHost=proxyHost;
-  return this;
-}

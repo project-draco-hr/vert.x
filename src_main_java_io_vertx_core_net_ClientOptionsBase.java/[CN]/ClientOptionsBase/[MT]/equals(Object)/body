@@ -6,5 +6,6 @@
   if (connectTimeout != that.connectTimeout)   return false;
   if (trustAll != that.trustAll)   return false;
   if (!Objects.equals(metricsName,that.metricsName))   return false;
+  if (!Objects.equals(proxyOptions,that.proxyOptions))   return false;
   return true;
 }

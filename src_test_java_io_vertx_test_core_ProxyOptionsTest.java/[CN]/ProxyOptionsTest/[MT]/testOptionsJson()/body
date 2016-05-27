@@ -1,0 +1,10 @@
+{
+  JsonObject json=new JsonObject();
+  json.put("type",randType.toString()).put("host",randHost).put("port",randPort).put("username",randUsername).put("password",randPassword);
+  ProxyOptions options=new ProxyOptions(json);
+  assertEquals(randType,options.getType());
+  assertEquals(randPort,options.getPort());
+  assertEquals(randHost,options.getHost());
+  assertEquals(randUsername,options.getUsername());
+  assertEquals(randPassword,options.getPassword());
+}
