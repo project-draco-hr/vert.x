@@ -6,8 +6,5 @@
   }
  else   if (connCount == 0) {
     mgr.queueMap.remove(address);
-    if (ConnectionManager.this.metrics.isEnabled()) {
-      ConnectionManager.this.metrics.closeQueue(address.host,address.port,metrics);
-    }
   }
 }

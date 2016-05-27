@@ -1,7 +1,6 @@
 {
   this.queue=queue;
   this.client=client;
-  this.metrics=metrics;
   this.connectionMap=connectionMap;
   this.maxConcurrency=maxConcurrency;
   this.logEnabled=logEnabled;

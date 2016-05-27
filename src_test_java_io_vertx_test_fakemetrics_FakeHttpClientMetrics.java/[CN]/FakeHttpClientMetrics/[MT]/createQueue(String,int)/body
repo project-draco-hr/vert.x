@@ -1,5 +1,0 @@
-{
-  AtomicInteger metric=new AtomicInteger();
-  queues.put(host + ":" + port,metric);
-  return metric;
-}

@@ -1,13 +1,7 @@
 {
   Waiter waiter=waiters.poll();
-  if (waiter != null && ConnectionManager.this.metrics.isEnabled()) {
-    ConnectionManager.this.metrics.dequeue(metrics);
-  }
   while (waiter != null && waiter.isCancelled()) {
     waiter=waiters.poll();
-    if (waiter != null && ConnectionManager.this.metrics.isEnabled()) {
-      ConnectionManager.this.metrics.dequeue(metrics);
-    }
   }
   return waiter;
 }

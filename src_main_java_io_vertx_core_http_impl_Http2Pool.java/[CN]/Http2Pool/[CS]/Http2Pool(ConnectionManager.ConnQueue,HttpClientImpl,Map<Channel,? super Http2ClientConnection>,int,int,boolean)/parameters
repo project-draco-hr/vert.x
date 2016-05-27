@@ -1,6 +1,5 @@
 ConnectionManager.ConnQueue queue
 HttpClientImpl client
-HttpClientMetrics metrics
 Map<Channel,? super Http2ClientConnection> connectionMap
 int maxSockets
 int maxConcurrency

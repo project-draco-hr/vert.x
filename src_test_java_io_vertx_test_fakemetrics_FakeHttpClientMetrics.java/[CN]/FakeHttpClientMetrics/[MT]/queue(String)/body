@@ -1,4 +1,0 @@
-{
-  AtomicInteger queue=queues.get(name);
-  return queue != null ? queue.get() : null;
-}
