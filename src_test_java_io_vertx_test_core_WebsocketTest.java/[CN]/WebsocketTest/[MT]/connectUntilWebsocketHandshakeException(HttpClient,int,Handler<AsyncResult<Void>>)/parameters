@@ -1,0 +1,3 @@
+HttpClient client
+int count
+Handler<AsyncResult<Void>> doneHandler
