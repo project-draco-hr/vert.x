@@ -4,3 +4,4 @@ HttpClientOptions options
 ConnectionManager.ConnQueue queue
 Map<Channel,HttpClientConnection> connectionMap
 HttpVersion version
+int maxSockets

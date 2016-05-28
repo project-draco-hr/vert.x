@@ -1,0 +1,7 @@
+{
+  if (maxPoolSize < 1) {
+    throw new IllegalArgumentException("http2MaxPoolSize must be > 0");
+  }
+  this.http2MaxPoolSize=max;
+  return this;
+}

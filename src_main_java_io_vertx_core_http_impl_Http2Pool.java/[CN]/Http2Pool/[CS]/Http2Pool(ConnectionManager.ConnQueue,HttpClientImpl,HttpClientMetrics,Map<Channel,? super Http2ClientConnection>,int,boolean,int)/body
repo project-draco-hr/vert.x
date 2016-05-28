@@ -5,4 +5,5 @@
   this.connectionMap=connectionMap;
   this.maxConcurrency=maxConcurrency;
   this.logEnabled=logEnabled;
+  this.maxSockets=maxSize;
 }

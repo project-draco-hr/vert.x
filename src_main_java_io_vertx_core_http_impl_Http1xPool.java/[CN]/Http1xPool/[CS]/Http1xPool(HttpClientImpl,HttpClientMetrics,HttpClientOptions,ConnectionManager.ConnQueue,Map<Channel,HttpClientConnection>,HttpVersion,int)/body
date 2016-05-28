@@ -7,4 +7,5 @@
   this.keepAlive=options.isKeepAlive();
   this.ssl=options.isSsl();
   this.connectionMap=connectionMap;
+  this.maxSockets=maxSockets;
 }

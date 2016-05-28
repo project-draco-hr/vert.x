@@ -2,8 +2,5 @@
 synchronized (queue) {
     conn.streamCount--;
     checkPending(conn);
-    if (canReserveStream(conn)) {
-      availableConnections.add(conn);
-    }
   }
 }

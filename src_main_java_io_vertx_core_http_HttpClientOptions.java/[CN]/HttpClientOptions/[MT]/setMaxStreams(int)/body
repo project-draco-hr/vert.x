@@ -1,4 +1,0 @@
-{
-  this.maxStreams=maxStreams;
-  return this;
-}

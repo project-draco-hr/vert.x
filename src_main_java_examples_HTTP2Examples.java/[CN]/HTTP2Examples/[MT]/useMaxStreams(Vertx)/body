@@ -1,4 +1,4 @@
 {
-  HttpClientOptions clientOptions=new HttpClientOptions().setMaxStreams(10).setMaxPoolSize(3);
+  HttpClientOptions clientOptions=new HttpClientOptions().setHttp2MaxStreams(10).setHttp2MaxPoolSize(3);
   HttpClient client=vertx.createHttpClient(clientOptions);
 }

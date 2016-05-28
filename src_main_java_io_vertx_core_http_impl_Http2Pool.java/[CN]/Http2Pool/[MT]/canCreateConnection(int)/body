@@ -1,0 +1,3 @@
+{
+  return connCount == allConnections.size() && connCount < maxSockets;
+}

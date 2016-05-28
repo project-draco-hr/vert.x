@@ -1,0 +1,3 @@
+{
+  return connCount < maxSockets;
+}

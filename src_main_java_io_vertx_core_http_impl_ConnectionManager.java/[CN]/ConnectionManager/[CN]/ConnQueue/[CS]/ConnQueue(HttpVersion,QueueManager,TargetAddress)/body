@@ -2,12 +2,12 @@
   this.address=address;
   this.mgr=mgr;
   if (version == HttpVersion.HTTP_2) {
-    maxSize=http2MaxSockets;
-    pool=(Pool)new Http2Pool(this,client,ConnectionManager.this.metrics,mgr.connectionMap,http2MaxSockets,http2MaxConcurrency,logEnabled);
+    maxSize=options.getHttp2MaxPoolSize();
+    pool=(Pool)new Http2Pool(this,client,ConnectionManager.this.metrics,mgr.connectionMap,http2MaxConcurrency,logEnabled,options.getHttp2MaxPoolSize());
   }
  else {
-    maxSize=client.getOptions().getMaxPoolSize();
-    pool=(Pool)new Http1xPool(client,ConnectionManager.this.metrics,options,this,mgr.connectionMap,version);
+    maxSize=options.getMaxPoolSize();
+    pool=(Pool)new Http1xPool(client,ConnectionManager.this.metrics,options,this,mgr.connectionMap,version,options.getMaxPoolSize());
   }
   this.metric=ConnectionManager.this.metrics.createEndpoint(address.host,address.port,maxSize);
 }
