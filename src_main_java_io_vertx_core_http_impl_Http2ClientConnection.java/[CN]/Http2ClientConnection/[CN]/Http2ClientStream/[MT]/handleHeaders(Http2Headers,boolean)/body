@@ -12,6 +12,9 @@
       return;
     }
     response=new HttpClientResponseImpl(request,HttpVersion.HTTP_2,this,status,statusMessage,new Http2HeadersAdaptor(headers));
+    if (conn.metrics.isEnabled()) {
+      conn.metrics.responseBegin(request.metric(),response);
+    }
     request.handleResponse(response);
     if (end) {
       onEnd();

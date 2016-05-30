@@ -1,3 +1,6 @@
 {
+  if (conn.metrics.isEnabled()) {
+    conn.metrics.requestEnd(request.metric());
+  }
   requestEnded=true;
 }

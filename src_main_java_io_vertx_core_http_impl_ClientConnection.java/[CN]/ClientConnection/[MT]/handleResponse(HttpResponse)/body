@@ -21,6 +21,9 @@
   }
   HttpClientResponseImpl nResp=new HttpClientResponseImpl(requestForResponse,vertxVersion,this,resp.status().code(),resp.status().reasonPhrase(),new HeadersAdaptor(resp.headers()));
   currentResponse=nResp;
+  if (metrics.isEnabled()) {
+    metrics.responseBegin(requestForResponse.metric(),nResp);
+  }
   requestForResponse.handleResponse(nResp);
   DecoderResult decoderResult=resp.decoderResult();
   if (decoderResult.isFailure()) {

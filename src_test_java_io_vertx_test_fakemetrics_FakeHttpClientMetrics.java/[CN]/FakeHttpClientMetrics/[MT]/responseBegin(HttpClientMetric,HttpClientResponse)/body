@@ -1,0 +1,3 @@
+{
+  requestMetric.responseBegin.incrementAndGet();
+}

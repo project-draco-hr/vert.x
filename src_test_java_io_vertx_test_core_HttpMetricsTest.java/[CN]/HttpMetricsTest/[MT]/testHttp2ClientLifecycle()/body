@@ -1,0 +1,3 @@
+{
+  testHttpClientLifecycle(HttpVersion.HTTP_2);
+}

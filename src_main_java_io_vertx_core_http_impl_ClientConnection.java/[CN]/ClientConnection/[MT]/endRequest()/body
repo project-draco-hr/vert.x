@@ -2,6 +2,9 @@
   if (currentRequest == null) {
     throw new IllegalStateException("No write in progress");
   }
+  if (metrics.isEnabled()) {
+    metrics.requestEnd(currentRequest.metric());
+  }
   currentRequest=null;
   pool.recycle(this);
 }
