@@ -5,6 +5,7 @@
   result=31 * result + http2MultiplexingLimit;
   result=31 * result + (keepAlive ? 1 : 0);
   result=31 * result + (pipelining ? 1 : 0);
+  result=31 * result + pipeliningLimit;
   result=31 * result + (tryUseCompression ? 1 : 0);
   result=31 * result + maxWebsocketFrameSize;
   result=31 * result + defaultHost.hashCode();

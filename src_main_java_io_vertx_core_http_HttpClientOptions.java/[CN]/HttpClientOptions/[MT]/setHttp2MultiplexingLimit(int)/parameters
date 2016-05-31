@@ -1,1 +1,1 @@
-int http2MultiplexingLimit
+int limit
