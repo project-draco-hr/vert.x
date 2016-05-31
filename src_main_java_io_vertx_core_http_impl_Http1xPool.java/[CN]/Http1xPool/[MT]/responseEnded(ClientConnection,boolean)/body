@@ -1,12 +1,8 @@
 {
-synchronized (queue) {
-    if ((pipelining || keepAlive) && !close) {
-      if (conn.getCurrentRequest() == null) {
-        doRecycle(conn);
-      }
-    }
+  if ((pipelining || keepAlive) && !close && conn.getCurrentRequest() == null) {
+    doRecycle(conn);
+  }
  else {
-      conn.close();
-    }
+    conn.close();
   }
 }

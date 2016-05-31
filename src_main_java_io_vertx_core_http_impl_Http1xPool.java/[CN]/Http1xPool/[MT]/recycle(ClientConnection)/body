@@ -1,7 +1,5 @@
 {
-synchronized (queue) {
-    if (pipelining) {
-      doRecycle(conn);
-    }
+  if (pipelining) {
+    doRecycle(conn);
   }
 }
