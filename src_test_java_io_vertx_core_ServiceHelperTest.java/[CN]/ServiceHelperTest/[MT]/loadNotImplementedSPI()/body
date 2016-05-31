@@ -1,0 +1,3 @@
+{
+  ServiceHelper.loadFactory(NotImplementedSPI.class);
+}

@@ -1,0 +1,8 @@
+{
+  ClassLoader custom=new URLClassLoader(new URL[]{new File("target/externals").toURI().toURL()});
+  Collection<SomeFactory> factories=ServiceHelper.loadFactories(SomeFactory.class);
+  assertThat(factories).isNotNull().hasSize(0);
+  factories=ServiceHelper.loadFactories(SomeFactory.class,custom);
+  assertThat(factories).isNotNull().hasSize(1);
+  assertThat(factories.iterator().next().classloader()).isEqualTo(custom);
+}

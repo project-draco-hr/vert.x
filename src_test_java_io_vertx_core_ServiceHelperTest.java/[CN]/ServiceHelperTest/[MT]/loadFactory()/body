@@ -1,0 +1,4 @@
+{
+  FakeFactory factory=ServiceHelper.loadFactory(FakeFactory.class);
+  assertThat(factory.classloader()).isEqualTo(ServiceHelperTest.class.getClassLoader());
+}

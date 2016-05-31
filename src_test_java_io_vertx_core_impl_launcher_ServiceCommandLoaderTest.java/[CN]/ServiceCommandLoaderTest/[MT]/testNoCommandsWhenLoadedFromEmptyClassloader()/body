@@ -1,5 +1,5 @@
 {
   ClassLoader classLoader=new URLClassLoader(new URL[0],null);
   loader=new ServiceCommandFactoryLoader(classLoader);
-  assertThat(loader.lookup()).isEmpty();
+  assertThat(loader.lookup()).isNotEmpty();
 }

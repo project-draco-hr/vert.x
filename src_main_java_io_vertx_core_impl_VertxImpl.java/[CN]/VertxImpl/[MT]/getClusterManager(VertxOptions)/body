@@ -16,11 +16,10 @@
         }
       }
  else {
-        ServiceLoader<ClusterManager> mgrs=ServiceLoader.load(ClusterManager.class);
-        if (!mgrs.iterator().hasNext()) {
+        mgr=ServiceHelper.loadFactoryOrNull(ClusterManager.class);
+        if (mgr == null) {
           throw new IllegalStateException("No ClusterManagerFactory instances found on classpath");
         }
-        mgr=mgrs.iterator().next();
       }
       return mgr;
     }
