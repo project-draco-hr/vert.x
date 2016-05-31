@@ -1,0 +1,9 @@
+{
+  Collection<T> collection=loadFactories(clazz);
+  if (!collection.isEmpty()) {
+    return collection.iterator().next();
+  }
+ else {
+    return null;
+  }
+}

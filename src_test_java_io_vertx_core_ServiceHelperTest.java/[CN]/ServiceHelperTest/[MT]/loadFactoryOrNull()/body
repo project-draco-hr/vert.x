@@ -1,0 +1,7 @@
+{
+  NotImplementedSPI factory=ServiceHelper.loadFactoryOrNull(NotImplementedSPI.class);
+  assertThat(factory).isNull();
+  FakeFactory fake=ServiceHelper.loadFactoryOrNull(FakeFactory.class);
+  assertThat(fake).isNotNull();
+  assertThat(fake.classloader()).isEqualTo(ServiceHelperTest.class.getClassLoader());
+}

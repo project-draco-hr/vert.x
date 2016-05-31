@@ -1,0 +1,15 @@
+{
+  ClassLoader custom=new URLClassLoader(new URL[]{new File("target/externals").toURI().toURL()});
+  Collection<SomeFactory> factories=ServiceHelper.loadFactories(SomeFactory.class);
+  assertThat(factories).isNotNull().hasSize(0);
+  final ClassLoader originalTCCL=Thread.currentThread().getContextClassLoader();
+  try {
+    Thread.currentThread().setContextClassLoader(custom);
+    factories=ServiceHelper.loadFactories(SomeFactory.class);
+    assertThat(factories).isNotNull().hasSize(1);
+    assertThat(factories.iterator().next().classloader()).isEqualTo(custom);
+  }
+  finally {
+    Thread.currentThread().setContextClassLoader(originalTCCL);
+  }
+}

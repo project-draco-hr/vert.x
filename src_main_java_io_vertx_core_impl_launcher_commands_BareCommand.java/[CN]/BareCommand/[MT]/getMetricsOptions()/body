@@ -1,8 +1,7 @@
 {
   MetricsOptions metricsOptions;
-  ServiceLoader<VertxMetricsFactory> factories=ServiceLoader.load(VertxMetricsFactory.class);
-  if (factories.iterator().hasNext()) {
-    VertxMetricsFactory factory=factories.iterator().next();
+  VertxMetricsFactory factory=ServiceHelper.loadFactoryOrNull(VertxMetricsFactory.class);
+  if (factory != null) {
     metricsOptions=factory.newOptions();
   }
  else {

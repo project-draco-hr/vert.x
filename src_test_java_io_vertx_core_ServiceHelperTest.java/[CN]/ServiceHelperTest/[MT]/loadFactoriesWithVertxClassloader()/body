@@ -1,0 +1,10 @@
+{
+  ClassLoader custom=new URLClassLoader(new URL[]{new File("target/classes").toURI().toURL(),new File("target/test-classes").toURI().toURL(),new File("target/externals").toURI().toURL()},null);
+  Class serviceHelperClass=custom.loadClass(ServiceHelper.class.getName());
+  Class someFactoryClass=custom.loadClass(SomeFactory.class.getName());
+  assertThat(serviceHelperClass.getClassLoader()).isEqualTo(custom);
+  assertThat(someFactoryClass.getClassLoader()).isEqualTo(custom);
+  Method method=serviceHelperClass.getMethod("loadFactories",Class.class);
+  Collection collection=(Collection)method.invoke(null,someFactoryClass);
+  assertThat(collection).hasSize(1);
+}

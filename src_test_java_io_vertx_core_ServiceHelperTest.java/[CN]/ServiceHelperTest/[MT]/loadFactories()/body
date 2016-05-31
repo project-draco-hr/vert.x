@@ -1,0 +1,6 @@
+{
+  Collection<FakeFactory> factories=ServiceHelper.loadFactories(FakeFactory.class);
+  assertThat(factories).isNotNull().hasSize(2);
+  Collection<NotImplementedSPI> impl=ServiceHelper.loadFactories(NotImplementedSPI.class);
+  assertThat(impl).isNotNull().hasSize(0);
+}
