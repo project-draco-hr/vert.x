@@ -1,5 +1,11 @@
 {
-  if (pipelining) {
-    doRecycle(conn);
+synchronized (queue) {
+    Waiter waiter=queue.getNextWaiter();
+    if (waiter != null) {
+      queue.deliverStream(conn,waiter);
+    }
+ else     if (conn.getOutstandingRequestCount() == 0) {
+      availableConnections.add(conn);
+    }
   }
 }
