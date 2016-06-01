@@ -25,9 +25,4 @@
     metrics.responseBegin(requestForResponse.metric(),nResp);
   }
   requestForResponse.handleResponse(nResp);
-  DecoderResult decoderResult=resp.decoderResult();
-  if (decoderResult.isFailure()) {
-    handleException(decoderResult.cause());
-    close();
-  }
 }

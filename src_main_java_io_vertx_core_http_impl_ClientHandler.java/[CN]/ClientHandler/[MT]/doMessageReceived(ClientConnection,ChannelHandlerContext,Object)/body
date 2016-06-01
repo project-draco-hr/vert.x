@@ -5,6 +5,12 @@
   boolean valid=false;
   if (msg instanceof HttpResponse) {
     HttpResponse response=(HttpResponse)msg;
+    DecoderResult result=response.decoderResult();
+    if (result.isFailure()) {
+      conn.handleException(result.cause());
+      conn.close();
+      return;
+    }
     conn.handleResponse(response);
     valid=true;
   }
