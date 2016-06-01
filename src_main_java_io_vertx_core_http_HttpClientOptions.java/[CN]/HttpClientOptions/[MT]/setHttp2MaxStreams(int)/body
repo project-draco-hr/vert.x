@@ -1,4 +1,0 @@
-{
-  this.http2MaxStreams=http2MaxStreams;
-  return this;
-}

@@ -6,9 +6,10 @@
   if (defaultPort != that.defaultPort)   return false;
   if (keepAlive != that.keepAlive)   return false;
   if (maxPoolSize != that.maxPoolSize)   return false;
-  if (http2MaxStreams != that.http2MaxStreams)   return false;
+  if (http2MultiplexingLimit != that.http2MultiplexingLimit)   return false;
   if (maxWebsocketFrameSize != that.maxWebsocketFrameSize)   return false;
   if (pipelining != that.pipelining)   return false;
+  if (pipeliningLimit != that.pipeliningLimit)   return false;
   if (tryUseCompression != that.tryUseCompression)   return false;
   if (verifyHost != that.verifyHost)   return false;
   if (!defaultHost.equals(that.defaultHost))   return false;

@@ -4,6 +4,9 @@
   assertEquals(def.getMaxPoolSize(),json.getMaxPoolSize());
   assertEquals(def.isKeepAlive(),json.isKeepAlive());
   assertEquals(def.isPipelining(),json.isPipelining());
+  assertEquals(def.getPipeliningLimit(),json.getPipeliningLimit());
+  assertEquals(def.getHttp2MaxPoolSize(),json.getHttp2MaxPoolSize());
+  assertEquals(def.getHttp2MultiplexingLimit(),json.getHttp2MultiplexingLimit());
   assertEquals(def.isVerifyHost(),json.isVerifyHost());
   assertEquals(def.isTryUseCompression(),json.isTryUseCompression());
   assertEquals(def.isTrustAll(),json.isTrustAll());

@@ -5,6 +5,7 @@
   this.metrics=metrics;
   this.pipelining=options.isPipelining();
   this.keepAlive=options.isKeepAlive();
+  this.pipeliningLimit=options.getPipeliningLimit();
   this.ssl=options.isSsl();
   this.connectionMap=connectionMap;
   this.maxSockets=maxSockets;

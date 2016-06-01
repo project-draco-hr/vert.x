@@ -1,0 +1,7 @@
+{
+  if (limit < 1) {
+    throw new IllegalArgumentException("pipeliningLimit must be > 0");
+  }
+  this.pipeliningLimit=limit;
+  return this;
+}
