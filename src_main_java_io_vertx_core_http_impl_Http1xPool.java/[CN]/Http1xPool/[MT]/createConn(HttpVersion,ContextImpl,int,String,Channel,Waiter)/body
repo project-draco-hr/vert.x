@@ -1,2 +1,12 @@
 {
+  ClientConnection conn=new ClientConnection(version,client,queue.metric,ch,ssl,host,port,context,this,metrics);
+  metrics.endpointConnected(queue.metric,conn.metric());
+  ClientHandler handler=ch.pipeline().get(ClientHandler.class);
+  handler.conn=conn;
+synchronized (queue) {
+    allConnections.add(conn);
+  }
+  connectionMap.put(ch,conn);
+  waiter.handleConnection(conn);
+  queue.deliverStream(conn,waiter);
 }

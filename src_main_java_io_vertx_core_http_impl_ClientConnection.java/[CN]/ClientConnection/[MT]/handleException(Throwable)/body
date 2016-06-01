@@ -3,7 +3,13 @@
   if (currentRequest != null) {
     currentRequest.handleException(e);
   }
- else   if (currentResponse != null) {
-    currentResponse.handleException(e);
+ else {
+    HttpClientRequestImpl req=requests.poll();
+    if (req != null) {
+      req.handleException(e);
+    }
+ else     if (currentResponse != null) {
+      currentResponse.handleException(e);
+    }
   }
 }
