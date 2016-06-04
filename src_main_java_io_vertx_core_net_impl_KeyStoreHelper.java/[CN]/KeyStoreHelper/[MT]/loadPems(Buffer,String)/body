@@ -1,0 +1,29 @@
+{
+  String pem=data.toString();
+  String beginDelimiter="-----BEGIN " + delimiter + "-----";
+  String endDelimiter="-----END " + delimiter + "-----";
+  List<byte[]> pems=new ArrayList<>();
+  int index=0;
+  while (true) {
+    index=pem.indexOf(beginDelimiter,index);
+    if (index == -1) {
+      break;
+    }
+    index+=beginDelimiter.length();
+    int end=pem.indexOf(endDelimiter,index);
+    if (end == -1) {
+      throw new RuntimeException("Missing " + endDelimiter + " delimiter");
+    }
+    String content=pem.substring(index,end);
+    content=content.replaceAll("\\s","");
+    if (content.length() == 0) {
+      throw new RuntimeException("Empty pem file");
+    }
+    index=end + 1;
+    pems.add(Base64.getDecoder().decode(content));
+  }
+  if (pems.isEmpty()) {
+    throw new RuntimeException("Missing " + beginDelimiter + " delimiter");
+  }
+  return pems;
+}
