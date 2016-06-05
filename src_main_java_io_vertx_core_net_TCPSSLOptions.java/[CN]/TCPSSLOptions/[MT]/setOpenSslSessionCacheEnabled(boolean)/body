@@ -1,0 +1,4 @@
+{
+  this.openSslSessionCacheEnabled=sessionCacheEnabled;
+  return this;
+}

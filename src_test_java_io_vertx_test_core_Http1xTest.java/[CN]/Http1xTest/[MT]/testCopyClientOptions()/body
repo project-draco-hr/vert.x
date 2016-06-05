@@ -38,6 +38,7 @@
   SSLEngine sslEngine=TestUtils.randomBoolean() ? SSLEngine.JDK : SSLEngine.OPENSSL;
   List<HttpVersion> alpnVersions=Collections.singletonList(HttpVersion.values()[TestUtils.randomPositiveInt() % 3]);
   boolean h2cUpgrade=TestUtils.randomBoolean();
+  boolean openSslSessionCacheEnabled=rand.nextBoolean();
   options.setSendBufferSize(sendBufferSize);
   options.setReceiveBufferSize(receiverBufferSize);
   options.setReuseAddress(reuseAddress);
@@ -71,6 +72,7 @@
   options.setSslEngine(sslEngine);
   options.setAlpnVersions(alpnVersions);
   options.setHttp2ClearTextUpgrade(h2cUpgrade);
+  options.setOpenSslSessionCacheEnabled(openSslSessionCacheEnabled);
   HttpClientOptions copy=new HttpClientOptions(options);
   assertEquals(sendBufferSize,copy.getSendBufferSize());
   assertEquals(receiverBufferSize,copy.getReceiveBufferSize());
@@ -110,4 +112,5 @@
   assertEquals(sslEngine,copy.getSslEngine());
   assertEquals(alpnVersions,copy.getAlpnVersions());
   assertEquals(h2cUpgrade,copy.isHttp2ClearTextUpgrade());
+  assertEquals(openSslSessionCacheEnabled,copy.isOpenSslSessionCacheEnabled());
 }

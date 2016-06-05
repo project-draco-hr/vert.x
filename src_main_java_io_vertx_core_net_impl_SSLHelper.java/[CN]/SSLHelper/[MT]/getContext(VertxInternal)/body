@@ -1,6 +1,12 @@
 {
   if (sslContext == null) {
     sslContext=createContext(vertx);
+    if (sslContext instanceof OpenSslServerContext) {
+      SSLSessionContext sslSessionContext=sslContext.sessionContext();
+      if (sslSessionContext instanceof OpenSslServerSessionContext) {
+        ((OpenSslServerSessionContext)sslSessionContext).setSessionCacheEnabled(openSslSessionCacheEnabled);
+      }
+    }
   }
   return sslContext;
 }

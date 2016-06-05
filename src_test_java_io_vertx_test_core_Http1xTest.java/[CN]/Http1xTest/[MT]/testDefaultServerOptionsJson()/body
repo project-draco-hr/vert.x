@@ -24,4 +24,5 @@
   assertEquals(def.getSslEngine(),json.getSslEngine());
   assertEquals(def.getAlpnVersions(),json.getAlpnVersions());
   assertEquals(def.getHttp2ConnectionWindowSize(),json.getHttp2ConnectionWindowSize());
+  assertEquals(def.isOpenSslSessionCacheEnabled(),json.isOpenSslSessionCacheEnabled());
 }

@@ -14,5 +14,6 @@
   result=31 * result + (useAlpn ? 1 : 0);
   result=31 * result + (sslEngine != null ? sslEngine.hashCode() : 0);
   result=31 * result + (enabledSecureTransportProtocols != null ? enabledSecureTransportProtocols.hashCode() : 0);
+  result=31 * result + (openSslSessionCacheEnabled ? 1 : 0);
   return result;
 }

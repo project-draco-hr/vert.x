@@ -14,4 +14,5 @@
   this.useAlpn=other.useAlpn;
   this.sslEngine=other.sslEngine;
   this.enabledSecureTransportProtocols=other.getEnabledSecureTransportProtocols() == null ? new HashSet<>() : new HashSet<>(other.getEnabledSecureTransportProtocols());
+  this.openSslSessionCacheEnabled=other.isOpenSslSessionCacheEnabled();
 }

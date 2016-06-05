@@ -26,4 +26,5 @@
   assertEquals(def.getSslEngine(),json.getSslEngine());
   assertEquals(def.getAlpnVersions(),json.getAlpnVersions());
   assertEquals(def.isHttp2ClearTextUpgrade(),json.isHttp2ClearTextUpgrade());
+  assertEquals(def.isOpenSslSessionCacheEnabled(),json.isOpenSslSessionCacheEnabled());
 }

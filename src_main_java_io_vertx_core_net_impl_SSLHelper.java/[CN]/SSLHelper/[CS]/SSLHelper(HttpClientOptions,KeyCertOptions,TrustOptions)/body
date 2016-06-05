@@ -13,4 +13,5 @@
   if (options.isVerifyHost()) {
     this.endpointIdentificationAlgorithm="HTTPS";
   }
+  this.openSslSessionCacheEnabled=options.isOpenSslSessionCacheEnabled();
 }

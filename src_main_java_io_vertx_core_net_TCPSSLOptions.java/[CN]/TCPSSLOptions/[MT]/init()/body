@@ -9,4 +9,5 @@
   crlValues=new ArrayList<>();
   useAlpn=DEFAULT_USE_ALPN;
   sslEngine=DEFAULT_SSL_ENGINE;
+  openSslSessionCacheEnabled=DEFAULT_OPEN_SSL_SESSION_CACHE_ENABLED;
 }

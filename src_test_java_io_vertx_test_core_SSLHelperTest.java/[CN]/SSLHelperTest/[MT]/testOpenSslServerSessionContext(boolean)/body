@@ -1,0 +1,14 @@
+{
+  HttpServerOptions httpServerOptions=new HttpServerOptions().setSslEngine(io.vertx.core.net.SSLEngine.OPENSSL);
+  if (!testDefault) {
+    httpServerOptions.setOpenSslSessionCacheEnabled(false);
+  }
+  SSLHelper defaultHelper=new SSLHelper(httpServerOptions,TLSCert.PEM.getServerKeyCertOptions(),TLSCert.PEM.getServerTrustOptions());
+  SslContext ctx=defaultHelper.getContext((VertxInternal)vertx);
+  assertTrue(ctx instanceof OpenSslServerContext);
+  SSLSessionContext sslSessionContext=ctx.sessionContext();
+  assertTrue(sslSessionContext instanceof OpenSslServerSessionContext);
+  if (sslSessionContext instanceof OpenSslServerSessionContext) {
+    assertEquals(testDefault,((OpenSslServerSessionContext)sslSessionContext).isSessionCacheEnabled());
+  }
+}

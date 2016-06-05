@@ -11,4 +11,5 @@
   this.useAlpn=false;
   this.enabledProtocols=options.getEnabledSecureTransportProtocols();
   this.endpointIdentificationAlgorithm=options.getHostnameVerificationAlgorithm();
+  this.openSslSessionCacheEnabled=options.isOpenSslSessionCacheEnabled();
 }
