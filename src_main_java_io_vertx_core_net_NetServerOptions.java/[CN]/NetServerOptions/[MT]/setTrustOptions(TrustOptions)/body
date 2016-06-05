@@ -1,0 +1,4 @@
+{
+  super.setTrustOptions(options);
+  return this;
+}
