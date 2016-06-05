@@ -1,3 +1,8 @@
 {
-  this.config=configuration;
+  if (configuration != null) {
+    this.config=configuration.trim().replaceAll("^\"|\"$","").replaceAll("^'|'$","");
+  }
+ else {
+    this.config=null;
+  }
 }
