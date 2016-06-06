@@ -1,11 +1,2 @@
 {
-  try {
-    doConnect(vertx,bootstrap,options,host,port,channelInitializer,channelHandler);
-  }
- catch (  NoClassDefFoundError e) {
-    if (e.getMessage().contains("io/netty/handler/proxy")) {
-      log.warn("Dependency io.netty:netty-handler-proxy missing - check your classpath");
-      channelHandler.handle(Future.failedFuture(e));
-    }
-  }
 }
