@@ -1,0 +1,4 @@
+{
+  this.http2ClearTextUpgrade=value;
+  return this;
+}

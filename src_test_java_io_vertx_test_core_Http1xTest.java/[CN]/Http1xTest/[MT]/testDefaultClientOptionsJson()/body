@@ -25,5 +25,5 @@
   assertEquals(def.isUseAlpn(),json.isUseAlpn());
   assertEquals(def.getSslEngine(),json.getSslEngine());
   assertEquals(def.getAlpnVersions(),json.getAlpnVersions());
-  assertEquals(def.isH2cUpgrade(),json.isH2cUpgrade());
+  assertEquals(def.isHttp2ClearTextUpgrade(),json.isHttp2ClearTextUpgrade());
 }

@@ -70,7 +70,7 @@
   options.setUseAlpn(useAlpn);
   options.setSslEngine(sslEngine);
   options.setAlpnVersions(alpnVersions);
-  options.setH2cUpgrade(h2cUpgrade);
+  options.setHttp2ClearTextUpgrade(h2cUpgrade);
   HttpClientOptions copy=new HttpClientOptions(options);
   assertEquals(sendBufferSize,copy.getSendBufferSize());
   assertEquals(receiverBufferSize,copy.getReceiveBufferSize());
@@ -109,5 +109,5 @@
   assertEquals(useAlpn,copy.isUseAlpn());
   assertEquals(sslEngine,copy.getSslEngine());
   assertEquals(alpnVersions,copy.getAlpnVersions());
-  assertEquals(h2cUpgrade,copy.isH2cUpgrade());
+  assertEquals(h2cUpgrade,copy.isHttp2ClearTextUpgrade());
 }
