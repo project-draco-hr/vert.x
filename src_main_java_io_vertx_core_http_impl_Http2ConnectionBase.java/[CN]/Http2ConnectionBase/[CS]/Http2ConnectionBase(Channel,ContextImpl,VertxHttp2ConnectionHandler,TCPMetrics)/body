@@ -3,4 +3,5 @@
   this.channel=channel;
   this.handlerContext=channel.pipeline().context(handler);
   this.handler=handler;
+  this.windowSize=handler.connection().local().flowController().windowSize(handler.connection().connectionStream());
 }

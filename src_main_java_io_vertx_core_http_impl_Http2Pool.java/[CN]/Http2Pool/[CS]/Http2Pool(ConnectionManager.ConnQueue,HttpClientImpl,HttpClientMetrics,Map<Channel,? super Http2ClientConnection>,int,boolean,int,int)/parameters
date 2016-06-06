@@ -5,3 +5,4 @@ Map<Channel,? super Http2ClientConnection> connectionMap
 int maxConcurrency
 boolean logEnabled
 int maxSize
+int windowSize

@@ -1,0 +1,12 @@
+{
+  try {
+    Http2Stream stream=handler.encoder().connection().connectionStream();
+    int delta=windowSize - this.windowSize;
+    handler.decoder().flowController().incrementWindowSize(stream,delta);
+    this.windowSize=windowSize;
+    return this;
+  }
+ catch (  Http2Exception e) {
+    throw new VertxException(e);
+  }
+}

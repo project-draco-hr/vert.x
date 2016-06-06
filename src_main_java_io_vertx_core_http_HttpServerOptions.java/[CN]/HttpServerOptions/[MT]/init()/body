@@ -7,4 +7,5 @@
   maxHeaderSize=DEFAULT_MAX_HEADER_SIZE;
   initialSettings=new Http2Settings().setMaxConcurrentStreams(DEFAULT_INITIAL_SETTINGS_MAX_CONCURRENT_STREAMS);
   alpnVersions=new ArrayList<>(DEFAULT_ALPN_VERSIONS);
+  http2ConnectionWindowSize=DEFAULT_HTTP2_CONNECTION_WINDOW_SIZE;
 }

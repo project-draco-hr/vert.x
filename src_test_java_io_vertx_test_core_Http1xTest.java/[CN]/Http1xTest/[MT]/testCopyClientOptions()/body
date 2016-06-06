@@ -29,6 +29,7 @@
   int pipeliningLimit=TestUtils.randomPositiveInt();
   int http2MaxPoolSize=TestUtils.randomPositiveInt();
   int http2MultiplexingLimit=TestUtils.randomPositiveInt();
+  int http2ConnectionWindowSize=TestUtils.randomPositiveInt();
   boolean tryUseCompression=rand.nextBoolean();
   HttpVersion protocolVersion=HttpVersion.HTTP_1_0;
   int maxWaitQueueSize=TestUtils.randomPositiveInt();
@@ -61,6 +62,7 @@
   options.setPipeliningLimit(pipeliningLimit);
   options.setHttp2MaxPoolSize(http2MaxPoolSize);
   options.setHttp2MultiplexingLimit(http2MultiplexingLimit);
+  options.setHttp2ConnectionWindowSize(http2ConnectionWindowSize);
   options.setTryUseCompression(tryUseCompression);
   options.setProtocolVersion(protocolVersion);
   options.setMaxWaitQueueSize(maxWaitQueueSize);
@@ -99,6 +101,7 @@
   assertEquals(pipeliningLimit,copy.getPipeliningLimit());
   assertEquals(http2MaxPoolSize,copy.getHttp2MaxPoolSize());
   assertEquals(http2MultiplexingLimit,copy.getHttp2MultiplexingLimit());
+  assertEquals(http2ConnectionWindowSize,copy.getHttp2ConnectionWindowSize());
   assertEquals(tryUseCompression,copy.isTryUseCompression());
   assertEquals(protocolVersion,copy.getProtocolVersion());
   assertEquals(maxWaitQueueSize,copy.getMaxWaitQueueSize());

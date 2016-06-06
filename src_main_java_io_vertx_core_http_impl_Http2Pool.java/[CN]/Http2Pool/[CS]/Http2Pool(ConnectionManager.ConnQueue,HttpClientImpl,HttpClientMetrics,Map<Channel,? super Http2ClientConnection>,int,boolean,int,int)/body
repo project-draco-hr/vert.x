@@ -6,4 +6,5 @@
   this.maxConcurrency=maxConcurrency;
   this.logEnabled=logEnabled;
   this.maxSockets=maxSize;
+  this.windowSize=windowSize;
 }

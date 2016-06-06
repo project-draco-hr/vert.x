@@ -23,4 +23,5 @@
   assertEquals(def.isUseAlpn(),json.isUseAlpn());
   assertEquals(def.getSslEngine(),json.getSslEngine());
   assertEquals(def.getAlpnVersions(),json.getAlpnVersions());
+  assertEquals(def.getHttp2ConnectionWindowSize(),json.getHttp2ConnectionWindowSize());
 }

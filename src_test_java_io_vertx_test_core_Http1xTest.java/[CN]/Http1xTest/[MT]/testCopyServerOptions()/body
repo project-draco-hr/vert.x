@@ -30,6 +30,7 @@
   int maxChunkSize=rand.nextInt(10000);
   Http2Settings initialSettings=randomHttp2Settings();
   boolean useAlpn=TestUtils.randomBoolean();
+  int http2ConnectionWindowSize=TestUtils.randomInt();
   SSLEngine sslEngine=TestUtils.randomBoolean() ? SSLEngine.JDK : SSLEngine.OPENSSL;
   List<HttpVersion> alpnVersions=Collections.singletonList(HttpVersion.values()[TestUtils.randomPositiveInt() % 3]);
   options.setSendBufferSize(sendBufferSize);
@@ -56,6 +57,7 @@
   options.setHandle100ContinueAutomatically(is100ContinueHandledAutomatically);
   options.setMaxChunkSize(maxChunkSize);
   options.setUseAlpn(useAlpn);
+  options.setHttp2ConnectionWindowSize(http2ConnectionWindowSize);
   options.setSslEngine(sslEngine);
   options.setInitialSettings(initialSettings);
   options.setAlpnVersions(alpnVersions);
@@ -90,6 +92,7 @@
   assertEquals(maxChunkSize,copy.getMaxChunkSize());
   assertEquals(initialSettings,copy.getInitialSettings());
   assertEquals(useAlpn,copy.isUseAlpn());
+  assertEquals(http2ConnectionWindowSize,copy.getHttp2ConnectionWindowSize());
   assertEquals(sslEngine,copy.getSslEngine());
   assertEquals(alpnVersions,copy.getAlpnVersions());
 }

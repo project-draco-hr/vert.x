@@ -7,6 +7,7 @@
   this.pipeliningLimit=other.getPipeliningLimit();
   this.http2MaxPoolSize=other.getHttp2MaxPoolSize();
   this.http2MultiplexingLimit=other.http2MultiplexingLimit;
+  this.http2ConnectionWindowSize=other.http2ConnectionWindowSize;
   this.tryUseCompression=other.isTryUseCompression();
   this.maxWebsocketFrameSize=other.maxWebsocketFrameSize;
   this.defaultHost=other.defaultHost;

@@ -1,0 +1,4 @@
+{
+  this.http2ConnectionWindowSize=http2ConnectionWindowSize;
+  return this;
+}
