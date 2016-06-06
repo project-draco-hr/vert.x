@@ -32,7 +32,7 @@
   boolean useAlpn=TestUtils.randomBoolean();
   int http2ConnectionWindowSize=TestUtils.randomInt();
   boolean openSslSessionCacheEnabled=rand.nextBoolean();
-  SSLEngine sslEngine=TestUtils.randomBoolean() ? SSLEngine.JDK : SSLEngine.OPENSSL;
+  SSLEngineOptions sslEngine=TestUtils.randomBoolean() ? new JdkSSLEngineOptions() : new OpenSSLEngineOptions();
   List<HttpVersion> alpnVersions=Collections.singletonList(HttpVersion.values()[TestUtils.randomPositiveInt() % 3]);
   options.setSendBufferSize(sendBufferSize);
   options.setReceiveBufferSize(receiverBufferSize);
@@ -59,10 +59,9 @@
   options.setMaxChunkSize(maxChunkSize);
   options.setUseAlpn(useAlpn);
   options.setHttp2ConnectionWindowSize(http2ConnectionWindowSize);
-  options.setSslEngine(sslEngine);
+  options.setSslEngineOptions(sslEngine);
   options.setInitialSettings(initialSettings);
   options.setAlpnVersions(alpnVersions);
-  options.setOpenSslSessionCacheEnabled(openSslSessionCacheEnabled);
   HttpServerOptions copy=new HttpServerOptions(options);
   assertEquals(sendBufferSize,copy.getSendBufferSize());
   assertEquals(receiverBufferSize,copy.getReceiveBufferSize());
@@ -95,7 +94,6 @@
   assertEquals(initialSettings,copy.getInitialSettings());
   assertEquals(useAlpn,copy.isUseAlpn());
   assertEquals(http2ConnectionWindowSize,copy.getHttp2ConnectionWindowSize());
-  assertEquals(sslEngine,copy.getSslEngine());
+  assertEquals(sslEngine,copy.getSslEngineOptions());
   assertEquals(alpnVersions,copy.getAlpnVersions());
-  assertEquals(openSslSessionCacheEnabled,copy.isOpenSslSessionCacheEnabled());
 }

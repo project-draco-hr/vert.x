@@ -35,7 +35,7 @@
   int maxWaitQueueSize=TestUtils.randomPositiveInt();
   Http2Settings initialSettings=randomHttp2Settings();
   boolean useAlpn=TestUtils.randomBoolean();
-  SSLEngine sslEngine=TestUtils.randomBoolean() ? SSLEngine.JDK : SSLEngine.OPENSSL;
+  SSLEngineOptions sslEngine=TestUtils.randomBoolean() ? new JdkSSLEngineOptions() : new OpenSSLEngineOptions();
   List<HttpVersion> alpnVersions=Collections.singletonList(HttpVersion.values()[TestUtils.randomPositiveInt() % 3]);
   boolean h2cUpgrade=TestUtils.randomBoolean();
   boolean openSslSessionCacheEnabled=rand.nextBoolean();
@@ -69,10 +69,9 @@
   options.setMaxWaitQueueSize(maxWaitQueueSize);
   options.setInitialSettings(initialSettings);
   options.setUseAlpn(useAlpn);
-  options.setSslEngine(sslEngine);
+  options.setSslEngineOptions(sslEngine);
   options.setAlpnVersions(alpnVersions);
   options.setHttp2ClearTextUpgrade(h2cUpgrade);
-  options.setOpenSslSessionCacheEnabled(openSslSessionCacheEnabled);
   HttpClientOptions copy=new HttpClientOptions(options);
   assertEquals(sendBufferSize,copy.getSendBufferSize());
   assertEquals(receiverBufferSize,copy.getReceiveBufferSize());
@@ -109,8 +108,7 @@
   assertEquals(maxWaitQueueSize,copy.getMaxWaitQueueSize());
   assertEquals(initialSettings,copy.getInitialSettings());
   assertEquals(useAlpn,copy.isUseAlpn());
-  assertEquals(sslEngine,copy.getSslEngine());
+  assertEquals(sslEngine,copy.getSslEngineOptions());
   assertEquals(alpnVersions,copy.getAlpnVersions());
   assertEquals(h2cUpgrade,copy.isHttp2ClearTextUpgrade());
-  assertEquals(openSslSessionCacheEnabled,copy.isOpenSslSessionCacheEnabled());
 }

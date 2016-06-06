@@ -27,9 +27,9 @@
   int acceptBacklog=TestUtils.randomPortInt();
   boolean useAlpn=TestUtils.randomBoolean();
   boolean openSslSessionCacheEnabled=rand.nextBoolean();
-  SSLEngine sslEngine=TestUtils.randomBoolean() ? SSLEngine.JDK : SSLEngine.OPENSSL;
+  String sslEngine=TestUtils.randomBoolean() ? "jdkSslEngineOptions" : "openSslEngineOptions";
   JsonObject json=new JsonObject();
-  json.put("sendBufferSize",sendBufferSize).put("receiveBufferSize",receiverBufferSize).put("reuseAddress",reuseAddress).put("trafficClass",trafficClass).put("tcpNoDelay",tcpNoDelay).put("tcpKeepAlive",tcpKeepAlive).put("soLinger",soLinger).put("usePooledBuffers",usePooledBuffers).put("idleTimeout",idleTimeout).put("ssl",ssl).put("enabledCipherSuites",new JsonArray().add(enabledCipher)).put("crlPaths",new JsonArray().add(crlPath)).put("keyStoreOptions",new JsonObject().put("password",ksPassword).put("path",ksPath)).put("trustStoreOptions",new JsonObject().put("password",tsPassword).put("path",tsPath)).put("port",port).put("host",host).put("acceptBacklog",acceptBacklog).put("useAlpn",useAlpn).put("sslEngine",sslEngine.name()).put("openSslSessionCacheEnabled",openSslSessionCacheEnabled);
+  json.put("sendBufferSize",sendBufferSize).put("receiveBufferSize",receiverBufferSize).put("reuseAddress",reuseAddress).put("trafficClass",trafficClass).put("tcpNoDelay",tcpNoDelay).put("tcpKeepAlive",tcpKeepAlive).put("soLinger",soLinger).put("usePooledBuffers",usePooledBuffers).put("idleTimeout",idleTimeout).put("ssl",ssl).put("enabledCipherSuites",new JsonArray().add(enabledCipher)).put("crlPaths",new JsonArray().add(crlPath)).put("keyStoreOptions",new JsonObject().put("password",ksPassword).put("path",ksPath)).put("trustStoreOptions",new JsonObject().put("password",tsPassword).put("path",tsPath)).put("port",port).put("host",host).put("acceptBacklog",acceptBacklog).put("useAlpn",useAlpn).put(sslEngine,new JsonObject()).put("openSslSessionCacheEnabled",openSslSessionCacheEnabled);
   NetServerOptions options=new NetServerOptions(json);
   assertEquals(sendBufferSize,options.getSendBufferSize());
   assertEquals(receiverBufferSize,options.getReceiveBufferSize());
@@ -55,18 +55,27 @@
   assertEquals(host,options.getHost());
   assertEquals(acceptBacklog,options.getAcceptBacklog());
   assertEquals(useAlpn,options.isUseAlpn());
-  assertEquals(sslEngine,options.getSslEngine());
-  assertEquals(openSslSessionCacheEnabled,options.isOpenSslSessionCacheEnabled());
-  json.remove("keyStoreOptions");
-  json.remove("trustStoreOptions");
-  json.put("pfxKeyCertOptions",new JsonObject().put("password",ksPassword)).put("pfxTrustOptions",new JsonObject().put("password",tsPassword));
-  options=new NetServerOptions(json);
-  assertTrue(options.getTrustOptions() instanceof PfxOptions);
-  assertTrue(options.getKeyCertOptions() instanceof PfxOptions);
-  json.remove("pfxKeyCertOptions");
-  json.remove("pfxTrustOptions");
-  json.put("pemKeyCertOptions",new JsonObject()).put("pemTrustOptions",new JsonObject());
-  options=new NetServerOptions(json);
-  assertTrue(options.getTrustOptions() instanceof PemTrustOptions);
-  assertTrue(options.getKeyCertOptions() instanceof PemKeyCertOptions);
+switch (sslEngine) {
+case "jdkSslEngineOptions":
+    assertTrue(options.getSslEngineOptions() instanceof JdkSSLEngineOptions);
+  break;
+case "openSslEngineOptions":
+assertTrue(options.getSslEngineOptions() instanceof OpenSSLEngineOptions);
+break;
+default :
+fail();
+break;
+}
+json.remove("keyStoreOptions");
+json.remove("trustStoreOptions");
+json.put("pfxKeyCertOptions",new JsonObject().put("password",ksPassword)).put("pfxTrustOptions",new JsonObject().put("password",tsPassword));
+options=new NetServerOptions(json);
+assertTrue(options.getTrustOptions() instanceof PfxOptions);
+assertTrue(options.getKeyCertOptions() instanceof PfxOptions);
+json.remove("pfxKeyCertOptions");
+json.remove("pfxTrustOptions");
+json.put("pemKeyCertOptions",new JsonObject()).put("pemTrustOptions",new JsonObject());
+options=new NetServerOptions(json);
+assertTrue(options.getTrustOptions() instanceof PemTrustOptions);
+assertTrue(options.getKeyCertOptions() instanceof PemKeyCertOptions);
 }

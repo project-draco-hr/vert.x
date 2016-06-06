@@ -1,0 +1,7 @@
+{
+  OpenSSLEngineOptions options=new OpenSSLEngineOptions();
+  boolean sessionCacheEnabled=TestUtils.randomBoolean();
+  options.setSessionCacheEnabled(sessionCacheEnabled);
+  OpenSSLEngineOptions copy=new OpenSSLEngineOptions(options);
+  assertEquals(sessionCacheEnabled,copy.isSessionCacheEnabled());
+}

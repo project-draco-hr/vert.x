@@ -1,0 +1,7 @@
+{
+  if (this == o)   return true;
+  if (!(o instanceof OpenSSLEngineOptions))   return false;
+  OpenSSLEngineOptions that=(OpenSSLEngineOptions)o;
+  if (sessionCacheEnabled != that.sessionCacheEnabled)   return false;
+  return true;
+}

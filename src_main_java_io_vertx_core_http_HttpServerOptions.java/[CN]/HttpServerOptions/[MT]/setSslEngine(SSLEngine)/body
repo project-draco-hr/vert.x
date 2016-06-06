@@ -1,4 +1,0 @@
-{
-  super.setSslEngine(sslEngine);
-  return this;
-}

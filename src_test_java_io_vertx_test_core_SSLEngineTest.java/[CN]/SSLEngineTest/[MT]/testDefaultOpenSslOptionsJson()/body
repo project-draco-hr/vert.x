@@ -1,0 +1,5 @@
+{
+  OpenSSLEngineOptions def=new OpenSSLEngineOptions();
+  OpenSSLEngineOptions json=new OpenSSLEngineOptions(def.toJson());
+  assertEquals(def.isSessionCacheEnabled(),json.isSessionCacheEnabled());
+}

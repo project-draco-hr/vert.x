@@ -25,7 +25,7 @@
   int acceptBacklog=TestUtils.randomPortInt();
   boolean useAlpn=TestUtils.randomBoolean();
   boolean openSslSessionCacheEnabled=rand.nextBoolean();
-  SSLEngine sslEngine=TestUtils.randomBoolean() ? SSLEngine.JDK : SSLEngine.OPENSSL;
+  SSLEngineOptions sslEngine=TestUtils.randomBoolean() ? new JdkSSLEngineOptions() : new OpenSSLEngineOptions();
   options.setSendBufferSize(sendBufferSize);
   options.setReceiveBufferSize(receiverBufferSize);
   options.setReuseAddress(reuseAddress);
@@ -45,8 +45,7 @@
   options.setHost(host);
   options.setAcceptBacklog(acceptBacklog);
   options.setUseAlpn(useAlpn);
-  options.setSslEngine(sslEngine);
-  options.setOpenSslSessionCacheEnabled(openSslSessionCacheEnabled);
+  options.setSslEngineOptions(sslEngine);
   NetServerOptions copy=new NetServerOptions(options);
   assertEquals(sendBufferSize,copy.getSendBufferSize());
   assertEquals(receiverBufferSize,copy.getReceiveBufferSize());
@@ -72,6 +71,5 @@
   assertEquals(host,copy.getHost());
   assertEquals(acceptBacklog,copy.getAcceptBacklog());
   assertEquals(useAlpn,copy.isUseAlpn());
-  assertEquals(sslEngine,copy.getSslEngine());
-  assertEquals(openSslSessionCacheEnabled,copy.isOpenSslSessionCacheEnabled());
+  assertEquals(sslEngine,copy.getSslEngineOptions());
 }

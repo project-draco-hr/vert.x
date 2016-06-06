@@ -23,8 +23,7 @@
   assertEquals(def.getMaxWaitQueueSize(),json.getMaxWaitQueueSize());
   assertEquals(def.getInitialSettings(),json.getInitialSettings());
   assertEquals(def.isUseAlpn(),json.isUseAlpn());
-  assertEquals(def.getSslEngine(),json.getSslEngine());
+  assertEquals(def.getSslEngineOptions(),json.getSslEngineOptions());
   assertEquals(def.getAlpnVersions(),json.getAlpnVersions());
   assertEquals(def.isHttp2ClearTextUpgrade(),json.isHttp2ClearTextUpgrade());
-  assertEquals(def.isOpenSslSessionCacheEnabled(),json.isOpenSslSessionCacheEnabled());
 }

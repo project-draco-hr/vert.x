@@ -1,0 +1,7 @@
+{
+  boolean sessionCacheEnabled=TestUtils.randomBoolean();
+  JsonObject json=new JsonObject();
+  json.put("sessionCacheEnabled",sessionCacheEnabled);
+  OpenSSLEngineOptions optins=new OpenSSLEngineOptions(json);
+  assertEquals(sessionCacheEnabled,optins.isSessionCacheEnabled());
+}

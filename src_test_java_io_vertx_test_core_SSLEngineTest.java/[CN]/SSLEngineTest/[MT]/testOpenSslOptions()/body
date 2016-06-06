@@ -1,0 +1,6 @@
+{
+  OpenSSLEngineOptions options=new OpenSSLEngineOptions();
+  assertEquals(true,options.isSessionCacheEnabled());
+  assertEquals(options,options.setSessionCacheEnabled(false));
+  assertEquals(false,options.isSessionCacheEnabled());
+}

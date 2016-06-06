@@ -27,7 +27,7 @@
   long reconnectInterval=TestUtils.randomPositiveInt();
   boolean useAlpn=TestUtils.randomBoolean();
   boolean openSslSessionCacheEnabled=rand.nextBoolean();
-  SSLEngine sslEngine=TestUtils.randomBoolean() ? SSLEngine.JDK : SSLEngine.OPENSSL;
+  SSLEngineOptions sslEngine=TestUtils.randomBoolean() ? new JdkSSLEngineOptions() : new OpenSSLEngineOptions();
   options.setSendBufferSize(sendBufferSize);
   options.setReceiveBufferSize(receiverBufferSize);
   options.setReuseAddress(reuseAddress);
@@ -48,9 +48,8 @@
   options.setReconnectAttempts(reconnectAttempts);
   options.setReconnectInterval(reconnectInterval);
   options.setUseAlpn(useAlpn);
-  options.setSslEngine(sslEngine);
+  options.setSslEngineOptions(sslEngine);
   options.setHostnameVerificationAlgorithm(hostnameVerificationAlgorithm);
-  options.setOpenSslSessionCacheEnabled(openSslSessionCacheEnabled);
   NetClientOptions copy=new NetClientOptions(options);
   assertEquals(sendBufferSize,copy.getSendBufferSize());
   assertEquals(receiverBufferSize,copy.getReceiveBufferSize());
@@ -77,7 +76,6 @@
   assertEquals(reconnectAttempts,copy.getReconnectAttempts());
   assertEquals(reconnectInterval,copy.getReconnectInterval());
   assertEquals(useAlpn,copy.isUseAlpn());
-  assertEquals(sslEngine,copy.getSslEngine());
+  assertEquals(sslEngine,copy.getSslEngineOptions());
   assertEquals(hostnameVerificationAlgorithm,copy.getHostnameVerificationAlgorithm());
-  assertEquals(openSslSessionCacheEnabled,copy.isOpenSslSessionCacheEnabled());
 }

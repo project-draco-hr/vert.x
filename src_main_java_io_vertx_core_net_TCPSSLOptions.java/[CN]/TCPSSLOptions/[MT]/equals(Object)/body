@@ -15,8 +15,7 @@
   if (keyCertOptions != null ? !keyCertOptions.equals(that.keyCertOptions) : that.keyCertOptions != null)   return false;
   if (trustOptions != null ? !trustOptions.equals(that.trustOptions) : that.trustOptions != null)   return false;
   if (useAlpn != that.useAlpn)   return false;
-  if (sslEngine != that.sslEngine)   return false;
-  if (openSslSessionCacheEnabled != that.openSslSessionCacheEnabled)   return false;
+  if (sslEngineOptions != null ? !sslEngineOptions.equals(that.sslEngineOptions) : that.sslEngineOptions != null)   return false;
   if (!enabledSecureTransportProtocols.equals(that.enabledSecureTransportProtocols))   return false;
   return true;
 }

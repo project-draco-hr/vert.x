@@ -1,0 +1,5 @@
+{
+  if (json.getValue("sessionCacheEnabled") instanceof Boolean) {
+    obj.setSessionCacheEnabled((Boolean)json.getValue("sessionCacheEnabled"));
+  }
+}

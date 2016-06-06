@@ -6,10 +6,10 @@
   this.crlPaths=new ArrayList<>(options.getCrlPaths());
   this.crlValues=new ArrayList<>(options.getCrlValues());
   this.enabledCipherSuites=options.getEnabledCipherSuites();
-  this.sslEngine=options.getSslEngine();
+  this.openSsl=options.getSslEngineOptions() instanceof OpenSSLEngineOptions;
   this.client=true;
   this.useAlpn=false;
   this.enabledProtocols=options.getEnabledSecureTransportProtocols();
   this.endpointIdentificationAlgorithm=options.getHostnameVerificationAlgorithm();
-  this.openSslSessionCacheEnabled=options.isOpenSslSessionCacheEnabled();
+  this.openSslSessionCacheEnabled=(options.getSslEngineOptions() instanceof OpenSSLEngineOptions) && ((OpenSSLEngineOptions)options.getSslEngineOptions()).isSessionCacheEnabled();
 }

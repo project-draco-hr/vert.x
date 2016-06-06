@@ -1,0 +1,3 @@
+{
+  json.put("sessionCacheEnabled",obj.isSessionCacheEnabled());
+}

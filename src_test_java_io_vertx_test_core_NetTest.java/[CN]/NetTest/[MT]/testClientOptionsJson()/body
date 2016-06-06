@@ -28,10 +28,10 @@
   long reconnectInterval=TestUtils.randomPositiveInt();
   boolean useAlpn=TestUtils.randomBoolean();
   String hostnameVerificationAlgorithm=TestUtils.randomAlphaString(10);
-  SSLEngine sslEngine=TestUtils.randomBoolean() ? SSLEngine.JDK : SSLEngine.OPENSSL;
+  String sslEngine=TestUtils.randomBoolean() ? "jdkSslEngineOptions" : "openSslEngineOptions";
   boolean openSslSessionCacheEnabled=rand.nextBoolean();
   JsonObject json=new JsonObject();
-  json.put("sendBufferSize",sendBufferSize).put("receiveBufferSize",receiverBufferSize).put("reuseAddress",reuseAddress).put("trafficClass",trafficClass).put("tcpNoDelay",tcpNoDelay).put("tcpKeepAlive",tcpKeepAlive).put("soLinger",soLinger).put("usePooledBuffers",usePooledBuffers).put("idleTimeout",idleTimeout).put("ssl",ssl).put("enabledCipherSuites",new JsonArray().add(enabledCipher)).put("connectTimeout",connectTimeout).put("trustAll",trustAll).put("crlPaths",new JsonArray().add(crlPath)).put("keyStoreOptions",new JsonObject().put("password",ksPassword).put("path",ksPath)).put("trustStoreOptions",new JsonObject().put("password",tsPassword).put("path",tsPath)).put("reconnectAttempts",reconnectAttempts).put("reconnectInterval",reconnectInterval).put("useAlpn",useAlpn).put("sslEngine",sslEngine.name()).put("hostnameVerificationAlgorithm",hostnameVerificationAlgorithm).put("openSslSessionCacheEnabled",openSslSessionCacheEnabled);
+  json.put("sendBufferSize",sendBufferSize).put("receiveBufferSize",receiverBufferSize).put("reuseAddress",reuseAddress).put("trafficClass",trafficClass).put("tcpNoDelay",tcpNoDelay).put("tcpKeepAlive",tcpKeepAlive).put("soLinger",soLinger).put("usePooledBuffers",usePooledBuffers).put("idleTimeout",idleTimeout).put("ssl",ssl).put("enabledCipherSuites",new JsonArray().add(enabledCipher)).put("connectTimeout",connectTimeout).put("trustAll",trustAll).put("crlPaths",new JsonArray().add(crlPath)).put("keyStoreOptions",new JsonObject().put("password",ksPassword).put("path",ksPath)).put("trustStoreOptions",new JsonObject().put("password",tsPassword).put("path",tsPath)).put("reconnectAttempts",reconnectAttempts).put("reconnectInterval",reconnectInterval).put("useAlpn",useAlpn).put(sslEngine,new JsonObject()).put("hostnameVerificationAlgorithm",hostnameVerificationAlgorithm).put("openSslSessionCacheEnabled",openSslSessionCacheEnabled);
   NetClientOptions options=new NetClientOptions(json);
   assertEquals(sendBufferSize,options.getSendBufferSize());
   assertEquals(receiverBufferSize,options.getReceiveBufferSize());
@@ -58,19 +58,28 @@
   assertEquals(reconnectAttempts,options.getReconnectAttempts());
   assertEquals(reconnectInterval,options.getReconnectInterval());
   assertEquals(useAlpn,options.isUseAlpn());
-  assertEquals(sslEngine,options.getSslEngine());
-  assertEquals(hostnameVerificationAlgorithm,options.getHostnameVerificationAlgorithm());
-  assertEquals(openSslSessionCacheEnabled,options.isOpenSslSessionCacheEnabled());
-  json.remove("keyStoreOptions");
-  json.remove("trustStoreOptions");
-  json.put("pfxKeyCertOptions",new JsonObject().put("password",ksPassword)).put("pfxTrustOptions",new JsonObject().put("password",tsPassword));
-  options=new NetClientOptions(json);
-  assertTrue(options.getTrustOptions() instanceof PfxOptions);
-  assertTrue(options.getKeyCertOptions() instanceof PfxOptions);
-  json.remove("pfxKeyCertOptions");
-  json.remove("pfxTrustOptions");
-  json.put("pemKeyCertOptions",new JsonObject()).put("pemTrustOptions",new JsonObject());
-  options=new NetClientOptions(json);
-  assertTrue(options.getTrustOptions() instanceof PemTrustOptions);
-  assertTrue(options.getKeyCertOptions() instanceof PemKeyCertOptions);
+switch (sslEngine) {
+case "jdkSslEngineOptions":
+    assertTrue(options.getSslEngineOptions() instanceof JdkSSLEngineOptions);
+  break;
+case "openSslEngineOptions":
+assertTrue(options.getSslEngineOptions() instanceof OpenSSLEngineOptions);
+break;
+default :
+fail();
+break;
+}
+assertEquals(hostnameVerificationAlgorithm,options.getHostnameVerificationAlgorithm());
+json.remove("keyStoreOptions");
+json.remove("trustStoreOptions");
+json.put("pfxKeyCertOptions",new JsonObject().put("password",ksPassword)).put("pfxTrustOptions",new JsonObject().put("password",tsPassword));
+options=new NetClientOptions(json);
+assertTrue(options.getTrustOptions() instanceof PfxOptions);
+assertTrue(options.getKeyCertOptions() instanceof PfxOptions);
+json.remove("pfxKeyCertOptions");
+json.remove("pfxTrustOptions");
+json.put("pemKeyCertOptions",new JsonObject()).put("pemTrustOptions",new JsonObject());
+options=new NetClientOptions(json);
+assertTrue(options.getTrustOptions() instanceof PemTrustOptions);
+assertTrue(options.getKeyCertOptions() instanceof PemKeyCertOptions);
 }

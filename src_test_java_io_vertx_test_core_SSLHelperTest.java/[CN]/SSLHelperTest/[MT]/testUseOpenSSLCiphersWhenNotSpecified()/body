@@ -1,6 +1,6 @@
 {
   Set<String> expected=OpenSsl.availableCipherSuites();
-  SSLHelper helper=new SSLHelper(new HttpClientOptions().setSslEngine(io.vertx.core.net.SSLEngine.OPENSSL),TLSCert.PEM.getClientKeyCertOptions(),TLSCert.PEM.getClientTrustOptions());
+  SSLHelper helper=new SSLHelper(new HttpClientOptions().setOpenSslEngineOptions(new OpenSSLEngineOptions()),TLSCert.PEM.getClientKeyCertOptions(),TLSCert.PEM.getClientTrustOptions());
   SslContext ctx=helper.getContext((VertxInternal)vertx);
   assertEquals(expected,new HashSet<>(ctx.cipherSuites()));
 }

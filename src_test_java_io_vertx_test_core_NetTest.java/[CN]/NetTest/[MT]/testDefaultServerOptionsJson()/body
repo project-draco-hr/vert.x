@@ -19,6 +19,5 @@
   assertEquals(def.isUsePooledBuffers(),json.isUsePooledBuffers());
   assertEquals(def.isSsl(),json.isSsl());
   assertEquals(def.isUseAlpn(),json.isUseAlpn());
-  assertEquals(def.getSslEngine(),json.getSslEngine());
-  assertEquals(def.isOpenSslSessionCacheEnabled(),json.isOpenSslSessionCacheEnabled());
+  assertEquals(def.getSslEngineOptions(),json.getSslEngineOptions());
 }

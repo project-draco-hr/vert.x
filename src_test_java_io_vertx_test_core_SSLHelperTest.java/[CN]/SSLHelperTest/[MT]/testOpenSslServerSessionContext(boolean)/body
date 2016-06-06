@@ -1,7 +1,7 @@
 {
-  HttpServerOptions httpServerOptions=new HttpServerOptions().setSslEngine(io.vertx.core.net.SSLEngine.OPENSSL);
+  HttpServerOptions httpServerOptions=new HttpServerOptions().setOpenSslEngineOptions(new OpenSSLEngineOptions());
   if (!testDefault) {
-    httpServerOptions.setOpenSslSessionCacheEnabled(false);
+    httpServerOptions.setOpenSslEngineOptions(new OpenSSLEngineOptions().setSessionCacheEnabled(false));
   }
   SSLHelper defaultHelper=new SSLHelper(httpServerOptions,TLSCert.PEM.getServerKeyCertOptions(),TLSCert.PEM.getServerTrustOptions());
   SslContext ctx=defaultHelper.getContext((VertxInternal)vertx);
