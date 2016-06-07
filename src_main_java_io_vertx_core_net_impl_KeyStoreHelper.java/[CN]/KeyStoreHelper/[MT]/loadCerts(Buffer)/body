@@ -1,8 +1,14 @@
 {
-  if (cert == null) {
+  if (buffer == null) {
     throw new RuntimeException("Missing X.509 certificate path");
   }
-  byte[] value=loadPem(cert,"CERTIFICATE");
+  List<byte[]> pems=loadPems(buffer,"CERTIFICATE");
   CertificateFactory certFactory=CertificateFactory.getInstance("X.509");
-  return certFactory.generateCertificates(new ByteArrayInputStream(value)).toArray(new X509Certificate[0]);
+  List<X509Certificate> certs=new ArrayList<>(pems.size());
+  for (  byte[] pem : pems) {
+    for (    Certificate cert : certFactory.generateCertificates(new ByteArrayInputStream(pem))) {
+      certs.add((X509Certificate)cert);
+    }
+  }
+  return certs.toArray(new X509Certificate[certs.size()]);
 }

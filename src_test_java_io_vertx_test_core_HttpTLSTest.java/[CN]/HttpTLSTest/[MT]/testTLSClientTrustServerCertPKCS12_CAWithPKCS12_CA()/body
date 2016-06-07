@@ -1,3 +1,0 @@
-{
-  testTLS(TLSCert.NONE,TLSCert.PKCS12_CA,TLSCert.PKCS12_CA,TLSCert.NONE).pass();
-}
