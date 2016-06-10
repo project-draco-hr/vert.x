@@ -1,4 +1,5 @@
 {
+  SSLEngineOptions sslEngineOptions=resolveEngineOptions(options);
   this.ssl=options.isSsl();
   this.keyCertOptions=keyCertOptions;
   this.trustOptions=trustOptions;
@@ -6,9 +7,9 @@
   this.crlPaths=options.getCrlPaths() != null ? new ArrayList<>(options.getCrlPaths()) : null;
   this.crlValues=options.getCrlValues() != null ? new ArrayList<>(options.getCrlValues()) : null;
   this.enabledCipherSuites=options.getEnabledCipherSuites();
-  this.openSsl=options.getSslEngineOptions() instanceof OpenSSLEngineOptions;
+  this.openSsl=sslEngineOptions instanceof OpenSSLEngineOptions;
   this.client=false;
   this.useAlpn=options.isUseAlpn();
   this.enabledProtocols=options.getEnabledSecureTransportProtocols();
-  this.openSslSessionCacheEnabled=(options.getSslEngineOptions() instanceof OpenSSLEngineOptions) && ((OpenSSLEngineOptions)options.getSslEngineOptions()).isSessionCacheEnabled();
+  this.openSslSessionCacheEnabled=(sslEngineOptions instanceof OpenSSLEngineOptions) && ((OpenSSLEngineOptions)sslEngineOptions).isSessionCacheEnabled();
 }

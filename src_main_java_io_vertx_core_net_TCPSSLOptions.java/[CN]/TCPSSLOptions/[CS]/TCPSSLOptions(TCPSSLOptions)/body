@@ -12,6 +12,6 @@
   this.crlPaths=new ArrayList<>(other.getCrlPaths());
   this.crlValues=new ArrayList<>(other.getCrlValues());
   this.useAlpn=other.useAlpn;
-  this.sslEngineOptions=other.sslEngineOptions;
+  this.sslEngineOptions=other.sslEngineOptions != null ? other.sslEngineOptions.clone() : null;
   this.enabledSecureTransportProtocols=other.getEnabledSecureTransportProtocols() == null ? new HashSet<>() : new HashSet<>(other.getEnabledSecureTransportProtocols());
 }

@@ -1,0 +1,29 @@
+{
+  SSLEngineOptions engineOptions=options.getSslEngineOptions();
+  if (engineOptions == null) {
+    if (options.isUseAlpn()) {
+      if (JdkSSLEngineOptions.isAlpnAvailable()) {
+        engineOptions=new JdkSSLEngineOptions();
+      }
+ else       if (OpenSSLEngineOptions.isAlpnAvailable()) {
+        engineOptions=new OpenSSLEngineOptions();
+      }
+    }
+  }
+  if (engineOptions == null) {
+    engineOptions=new JdkSSLEngineOptions();
+  }
+  if (options.isUseAlpn()) {
+    if (engineOptions instanceof JdkSSLEngineOptions) {
+      if (!JdkSSLEngineOptions.isAlpnAvailable()) {
+        throw new VertxException("ALPN is not available");
+      }
+    }
+    if (engineOptions instanceof OpenSSLEngineOptions) {
+      if (!OpenSSLEngineOptions.isAlpnAvailable()) {
+        throw new VertxException("ALPN is not available");
+      }
+    }
+  }
+  return engineOptions;
+}

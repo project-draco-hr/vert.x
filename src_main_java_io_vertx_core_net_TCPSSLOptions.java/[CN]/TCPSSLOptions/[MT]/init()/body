@@ -8,5 +8,5 @@
   crlPaths=new ArrayList<>();
   crlValues=new ArrayList<>();
   useAlpn=DEFAULT_USE_ALPN;
-  sslEngineOptions=new JdkSSLEngineOptions();
+  sslEngineOptions=null;
 }

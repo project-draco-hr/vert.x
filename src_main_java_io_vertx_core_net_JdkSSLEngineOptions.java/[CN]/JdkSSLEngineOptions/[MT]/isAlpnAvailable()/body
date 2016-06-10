@@ -1,0 +1,15 @@
+{
+  if (jdkAlpnAvailable == null) {
+    boolean available=false;
+    try {
+      JdkSSLEngineOptions.class.getClassLoader().loadClass("sun.security.ssl.ALPNExtension");
+      available=true;
+    }
+ catch (    Exception ignore) {
+    }
+ finally {
+      jdkAlpnAvailable=available;
+    }
+  }
+  return jdkAlpnAvailable;
+}

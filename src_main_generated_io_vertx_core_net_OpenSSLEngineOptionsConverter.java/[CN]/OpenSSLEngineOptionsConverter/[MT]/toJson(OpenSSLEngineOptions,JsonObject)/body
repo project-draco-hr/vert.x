@@ -1,3 +1,5 @@
 {
+  json.put("alpnAvailable",obj.isAlpnAvailable());
+  json.put("available",obj.isAvailable());
   json.put("sessionCacheEnabled",obj.isSessionCacheEnabled());
 }
