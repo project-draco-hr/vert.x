@@ -1,0 +1,5 @@
+{
+  NetServerOptions options=new NetServerOptions().setSsl(true).setKeyStoreOptions(keyStoreOptions);
+  options=new NetServerOptions().setSsl(true).setKeyStoreOptions(keyStoreOptions).setJdkSslEngineOptions(new JdkSSLEngineOptions());
+  options=new NetServerOptions().setSsl(true).setKeyStoreOptions(keyStoreOptions).setOpenSslEngineOptions(new OpenSSLEngineOptions());
+}
