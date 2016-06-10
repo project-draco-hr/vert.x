@@ -1,3 +1,0 @@
-{
-  doTest(null,JDK | OPEN_SSL,EXPECTED_SSL_CONTEXT);
-}

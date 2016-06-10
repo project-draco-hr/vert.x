@@ -1,3 +1,5 @@
 SSLEngineOptions engine
-boolean pass
+boolean useAlpn
+HttpVersion version
+String error
 String expectedSslContext
