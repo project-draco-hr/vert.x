@@ -1,0 +1,18 @@
+{
+  super(eventLoop);
+  checkNotNull(channelFactory,"channelFactory");
+  checkNotNull(localAddress,"localAddress");
+  this.nameServerAddresses=checkNotNull(nameServerAddresses,"nameServerAddresses");
+  this.queryTimeoutMillis=checkPositive(queryTimeoutMillis,"queryTimeoutMillis");
+  this.resolvedAddressTypes=checkNonEmpty(resolvedAddressTypes,"resolvedAddressTypes");
+  this.recursionDesired=recursionDesired;
+  this.maxQueriesPerResolve=checkPositive(maxQueriesPerResolve,"maxQueriesPerResolve");
+  this.traceEnabled=traceEnabled;
+  this.maxPayloadSize=checkPositive(maxPayloadSize,"maxPayloadSize");
+  this.optResourceEnabled=optResourceEnabled;
+  this.hostsFileEntriesResolver=checkNotNull(hostsFileEntriesResolver,"hostsFileEntriesResolver");
+  this.resolveCache=resolveCache;
+  bindFuture=newChannel(channelFactory,localAddress);
+  ch=(DatagramChannel)bindFuture.channel();
+  ch.config().setRecvByteBufAllocator(new FixedRecvByteBufAllocator(maxPayloadSize));
+}

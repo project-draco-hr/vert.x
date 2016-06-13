@@ -1,0 +1,12 @@
+{
+  final DnsResponse res=envelope.content();
+  if (res.count(DnsSection.QUESTION) != 1) {
+    logger.warn("Received a DNS response with invalid number of questions: {}",envelope);
+    return;
+  }
+  if (!question().equals(res.recordAt(DnsSection.QUESTION))) {
+    logger.warn("Received a mismatching DNS response: {}",envelope);
+    return;
+  }
+  setSuccess(envelope);
+}

@@ -1,0 +1,4 @@
+{
+  this.resolveCache=resolveCache;
+  return this;
+}

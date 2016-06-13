@@ -1,0 +1,2 @@
+DnsQuestion question
+AddressedEnvelope<DnsResponse,InetSocketAddress> envelope

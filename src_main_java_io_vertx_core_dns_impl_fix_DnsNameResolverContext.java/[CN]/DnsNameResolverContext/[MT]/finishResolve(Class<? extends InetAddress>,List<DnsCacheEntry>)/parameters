@@ -1,0 +1,2 @@
+Class<? extends InetAddress> addressType
+List<DnsCacheEntry> resolvedEntries

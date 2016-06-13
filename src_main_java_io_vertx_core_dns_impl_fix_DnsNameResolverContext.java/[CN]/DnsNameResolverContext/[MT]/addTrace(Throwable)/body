@@ -1,0 +1,9 @@
+{
+  assert traceEnabled;
+  if (trace == null) {
+    trace=new StringBuilder(128);
+  }
+  trace.append(StringUtil.NEWLINE);
+  trace.append("Caused by: ");
+  trace.append(cause);
+}

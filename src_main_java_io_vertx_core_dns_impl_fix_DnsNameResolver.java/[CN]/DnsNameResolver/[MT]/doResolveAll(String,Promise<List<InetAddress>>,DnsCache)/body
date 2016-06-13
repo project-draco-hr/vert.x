@@ -1,0 +1,16 @@
+{
+  final byte[] bytes=NetUtil.createByteArrayFromIpAddressString(inetHost);
+  if (bytes != null) {
+    promise.setSuccess(Collections.singletonList(InetAddress.getByAddress(bytes)));
+    return;
+  }
+  final String hostname=hostname(inetHost);
+  InetAddress hostsFileEntry=resolveHostsFileEntry(hostname);
+  if (hostsFileEntry != null) {
+    promise.setSuccess(Collections.singletonList(hostsFileEntry));
+    return;
+  }
+  if (!doResolveAllCached(hostname,promise,resolveCache)) {
+    doResolveAllUncached(hostname,promise,resolveCache);
+  }
+}

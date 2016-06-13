@@ -1,0 +1,13 @@
+{
+  final IntObjectMap<DnsQueryContext> contexts=getContextMap(nameServerAddr);
+  final DnsQueryContext qCtx;
+  if (contexts != null) {
+synchronized (contexts) {
+      qCtx=contexts.get(id);
+    }
+  }
+ else {
+    qCtx=null;
+  }
+  return qCtx;
+}

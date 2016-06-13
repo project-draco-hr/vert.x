@@ -1,0 +1,2 @@
+InetSocketAddress nameServerAddr
+String msg

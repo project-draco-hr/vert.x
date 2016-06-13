@@ -1,0 +1,3 @@
+{
+  return query0(nameServerAddr,question,Collections.<DnsRecord>emptyList(),ch.eventLoop().<AddressedEnvelope<? extends DnsResponse,InetSocketAddress>>newPromise());
+}

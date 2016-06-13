@@ -1,0 +1,61 @@
+{
+  final DnsResponse response=envelope.content();
+  final Map<String,String> cnames=buildAliasMap(response);
+  final int answerCount=response.count(DnsSection.ANSWER);
+  boolean found=false;
+  for (int i=0; i < answerCount; i++) {
+    final DnsRecord r=response.recordAt(DnsSection.ANSWER,i);
+    final DnsRecordType type=r.type();
+    if (type != DnsRecordType.A && type != DnsRecordType.AAAA) {
+      continue;
+    }
+    final String qName=question.name().toLowerCase(Locale.US);
+    final String rName=r.name().toLowerCase(Locale.US);
+    if (!rName.equals(qName)) {
+      String resolved=qName;
+      do {
+        resolved=cnames.get(resolved);
+        if (rName.equals(resolved)) {
+          break;
+        }
+      }
+ while (resolved != null);
+      if (resolved == null) {
+        continue;
+      }
+    }
+    if (!(r instanceof DnsRawRecord)) {
+      continue;
+    }
+    final ByteBuf content=((ByteBufHolder)r).content();
+    final int contentLen=content.readableBytes();
+    if (contentLen != INADDRSZ4 && contentLen != INADDRSZ6) {
+      continue;
+    }
+    final byte[] addrBytes=new byte[contentLen];
+    content.getBytes(content.readerIndex(),addrBytes);
+    final InetAddress resolved;
+    try {
+      resolved=InetAddress.getByAddress(hostname,addrBytes);
+    }
+ catch (    UnknownHostException e) {
+      throw new Error(e);
+    }
+    if (resolvedEntries == null) {
+      resolvedEntries=new ArrayList<DnsCacheEntry>(8);
+    }
+    final DnsCacheEntry e=new DnsCacheEntry(hostname,resolved);
+    resolveCache.cache(hostname,resolved,r.timeToLive(),parent.ch.eventLoop());
+    resolvedEntries.add(e);
+    found=true;
+  }
+  if (found) {
+    return;
+  }
+  if (traceEnabled) {
+    addTrace(envelope.sender(),"no matching " + qType + " record found");
+  }
+  if (!cnames.isEmpty()) {
+    onResponseCNAME(question,envelope,cnames,false);
+  }
+}

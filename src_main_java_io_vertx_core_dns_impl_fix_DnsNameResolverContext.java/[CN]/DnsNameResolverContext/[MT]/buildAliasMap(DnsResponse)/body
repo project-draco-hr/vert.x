@@ -1,0 +1,24 @@
+{
+  final int answerCount=response.count(DnsSection.ANSWER);
+  Map<String,String> cnames=null;
+  for (int i=0; i < answerCount; i++) {
+    final DnsRecord r=response.recordAt(DnsSection.ANSWER,i);
+    final DnsRecordType type=r.type();
+    if (type != DnsRecordType.CNAME) {
+      continue;
+    }
+    if (!(r instanceof DnsRawRecord)) {
+      continue;
+    }
+    final ByteBuf recordContent=((ByteBufHolder)r).content();
+    final String domainName=decodeDomainName(recordContent);
+    if (domainName == null) {
+      continue;
+    }
+    if (cnames == null) {
+      cnames=new HashMap<String,String>();
+    }
+    cnames.put(r.name().toLowerCase(Locale.US),domainName.toLowerCase(Locale.US));
+  }
+  return cnames != null ? cnames : Collections.<String,String>emptyMap();
+}

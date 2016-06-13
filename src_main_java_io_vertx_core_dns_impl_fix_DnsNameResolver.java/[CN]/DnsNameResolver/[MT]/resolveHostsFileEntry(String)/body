@@ -1,0 +1,3 @@
+{
+  return hostsFileEntriesResolver != null ? hostsFileEntriesResolver.address(hostname) : null;
+}

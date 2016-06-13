@@ -1,0 +1,18 @@
+{
+  final IntObjectMap<DnsQueryContext> contexts=getOrCreateContextMap(qCtx.nameServerAddr());
+  int id=ThreadLocalRandom.current().nextInt(1,65536);
+  final int maxTries=65535 << 1;
+  int tries=0;
+synchronized (contexts) {
+    for (; ; ) {
+      if (!contexts.containsKey(id)) {
+        contexts.put(id,qCtx);
+        return id;
+      }
+      id=id + 1 & 0xFFFF;
+      if (++tries >= maxTries) {
+        throw new IllegalStateException("query ID space exhausted: " + qCtx.question());
+      }
+    }
+  }
+}

@@ -1,0 +1,3 @@
+{
+  onResponseCNAME(question,envelope,buildAliasMap(envelope.content()),true);
+}

@@ -1,0 +1,2 @@
+Promise<InetAddress> promise
+InetAddress result

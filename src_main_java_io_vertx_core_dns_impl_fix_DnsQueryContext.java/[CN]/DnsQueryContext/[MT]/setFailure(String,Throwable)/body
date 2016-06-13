@@ -1,0 +1,14 @@
+{
+  final InetSocketAddress nameServerAddr=nameServerAddr();
+  parent.queryContextManager.remove(nameServerAddr,id);
+  final StringBuilder buf=new StringBuilder(message.length() + 64);
+  buf.append('[').append(nameServerAddr).append("] ").append(message).append(" (no stack trace available)");
+  final DnsNameResolverException e;
+  if (cause != null) {
+    e=new DnsNameResolverException(nameServerAddr,question(),buf.toString(),cause);
+  }
+ else {
+    e=new DnsNameResolverException(nameServerAddr,question(),buf.toString());
+  }
+  promise.tryFailure(e);
+}

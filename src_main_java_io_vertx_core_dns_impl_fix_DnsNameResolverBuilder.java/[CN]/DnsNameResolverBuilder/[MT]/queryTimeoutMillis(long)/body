@@ -1,0 +1,4 @@
+{
+  this.queryTimeoutMillis=queryTimeoutMillis;
+  return this;
+}

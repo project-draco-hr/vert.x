@@ -1,0 +1,10 @@
+{
+  byte[] b6=a6.getAddress();
+  byte[] b4={b6[12],b6[13],b6[14],b6[15]};
+  try {
+    return (Inet4Address)InetAddress.getByAddress(b4);
+  }
+ catch (  UnknownHostException e) {
+    throw new Error(e);
+  }
+}
