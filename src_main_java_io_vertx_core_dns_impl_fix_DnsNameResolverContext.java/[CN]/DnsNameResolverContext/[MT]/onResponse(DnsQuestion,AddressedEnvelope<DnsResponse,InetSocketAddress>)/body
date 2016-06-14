@@ -1,0 +1,25 @@
+{
+  try {
+    final DnsResponse res=envelope.content();
+    final DnsResponseCode code=res.code();
+    if (code == DnsResponseCode.NOERROR) {
+      final DnsRecordType type=question.type();
+      if (type == DnsRecordType.A || type == DnsRecordType.AAAA) {
+        onResponseAorAAAA(type,question,envelope);
+      }
+ else       if (type == DnsRecordType.CNAME) {
+        onResponseCNAME(question,envelope);
+      }
+      return;
+    }
+    if (traceEnabled) {
+      addTrace(envelope.sender(),"response code: " + code + " with "+ res.count(DnsSection.ANSWER)+ " answer(s) and "+ res.count(DnsSection.AUTHORITY)+ " authority resource(s)");
+    }
+    if (code != DnsResponseCode.NXDOMAIN) {
+      query(nameServerAddrs.next(),question);
+    }
+  }
+  finally {
+    ReferenceCountUtil.safeRelease(envelope);
+  }
+}

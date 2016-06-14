@@ -1,0 +1,18 @@
+{
+  if (parent.bindFuture.isDone()) {
+    writeQuery(query);
+  }
+ else {
+    parent.bindFuture.addListener(new ChannelFutureListener(){
+      @Override public void operationComplete(      ChannelFuture future) throws Exception {
+        if (future.isSuccess()) {
+          writeQuery(query);
+        }
+ else {
+          promise.tryFailure(future.cause());
+        }
+      }
+    }
+);
+  }
+}

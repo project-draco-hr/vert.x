@@ -1,0 +1,40 @@
+{
+  buf.markReaderIndex();
+  try {
+    int position=-1;
+    int checked=0;
+    final int end=buf.writerIndex();
+    final StringBuilder name=new StringBuilder(buf.readableBytes() << 1);
+    for (int len=buf.readUnsignedByte(); buf.isReadable() && len != 0; len=buf.readUnsignedByte()) {
+      boolean pointer=(len & 0xc0) == 0xc0;
+      if (pointer) {
+        if (position == -1) {
+          position=buf.readerIndex() + 1;
+        }
+        final int next=(len & 0x3f) << 8 | buf.readUnsignedByte();
+        if (next >= end) {
+          return null;
+        }
+        buf.readerIndex(next);
+        checked+=2;
+        if (checked >= end) {
+          return null;
+        }
+      }
+ else {
+        name.append(buf.toString(buf.readerIndex(),len,CharsetUtil.UTF_8)).append('.');
+        buf.skipBytes(len);
+      }
+    }
+    if (position != -1) {
+      buf.readerIndex(position);
+    }
+    if (name.length() == 0) {
+      return null;
+    }
+    return name.toString();
+  }
+  finally {
+    buf.resetReaderIndex();
+  }
+}

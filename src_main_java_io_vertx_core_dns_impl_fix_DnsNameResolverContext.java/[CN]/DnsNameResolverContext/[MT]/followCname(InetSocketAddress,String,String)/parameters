@@ -1,0 +1,3 @@
+InetSocketAddress nameServerAddr
+String name
+String cname

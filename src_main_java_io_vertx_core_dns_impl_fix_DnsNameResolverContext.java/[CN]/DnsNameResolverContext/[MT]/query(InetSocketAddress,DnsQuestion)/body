@@ -1,0 +1,32 @@
+{
+  if (allowedQueries == 0 || promise.isCancelled()) {
+    tryToFinishResolve();
+    return;
+  }
+  allowedQueries--;
+  final Future<AddressedEnvelope<DnsResponse,InetSocketAddress>> f=parent.query(nameServerAddr,question);
+  queriesInProgress.add(f);
+  f.addListener(new FutureListener<AddressedEnvelope<DnsResponse,InetSocketAddress>>(){
+    @Override public void operationComplete(    Future<AddressedEnvelope<DnsResponse,InetSocketAddress>> future){
+      queriesInProgress.remove(future);
+      if (promise.isDone() || future.isCancelled()) {
+        return;
+      }
+      try {
+        if (future.isSuccess()) {
+          onResponse(question,future.getNow());
+        }
+ else {
+          if (traceEnabled) {
+            addTrace(future.cause());
+          }
+          query(nameServerAddrs.next(),question);
+        }
+      }
+  finally {
+        tryToFinishResolve();
+      }
+    }
+  }
+);
+}

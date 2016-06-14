@@ -1,0 +1,9 @@
+{
+  final IntObjectMap<DnsQueryContext> contexts=getContextMap(nameServerAddr);
+  if (contexts == null) {
+    return null;
+  }
+synchronized (contexts) {
+    return contexts.remove(id);
+  }
+}

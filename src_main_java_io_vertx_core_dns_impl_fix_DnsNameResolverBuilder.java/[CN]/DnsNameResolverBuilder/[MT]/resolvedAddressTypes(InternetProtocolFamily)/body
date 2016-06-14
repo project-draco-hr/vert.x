@@ -1,0 +1,18 @@
+{
+  checkNotNull(resolvedAddressTypes,"resolvedAddressTypes");
+  final List<InternetProtocolFamily> list=InternalThreadLocalMap.get().arrayList(InternetProtocolFamily.values().length);
+  for (  InternetProtocolFamily f : resolvedAddressTypes) {
+    if (f == null) {
+      break;
+    }
+    if (list.contains(f)) {
+      continue;
+    }
+    list.add(f);
+  }
+  if (list.isEmpty()) {
+    throw new IllegalArgumentException("no protocol family specified");
+  }
+  this.resolvedAddressTypes=list.toArray(new InternetProtocolFamily[list.size()]);
+  return this;
+}

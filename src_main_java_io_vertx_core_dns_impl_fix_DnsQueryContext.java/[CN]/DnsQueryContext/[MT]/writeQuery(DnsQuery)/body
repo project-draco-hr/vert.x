@@ -1,0 +1,14 @@
+{
+  final ChannelFuture writeFuture=parent.ch.writeAndFlush(query);
+  if (writeFuture.isDone()) {
+    onQueryWriteCompletion(writeFuture);
+  }
+ else {
+    writeFuture.addListener(new ChannelFutureListener(){
+      @Override public void operationComplete(      ChannelFuture future) throws Exception {
+        onQueryWriteCompletion(writeFuture);
+      }
+    }
+);
+  }
+}

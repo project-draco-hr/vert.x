@@ -1,0 +1,4 @@
+{
+  this.traceEnabled=traceEnabled;
+  return this;
+}

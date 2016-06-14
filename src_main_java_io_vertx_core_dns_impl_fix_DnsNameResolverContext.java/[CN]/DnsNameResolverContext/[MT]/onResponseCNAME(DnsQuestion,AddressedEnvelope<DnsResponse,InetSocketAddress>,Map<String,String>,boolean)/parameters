@@ -1,0 +1,4 @@
+DnsQuestion question
+AddressedEnvelope<DnsResponse,InetSocketAddress> response
+Map<String,String> cnames
+boolean trace

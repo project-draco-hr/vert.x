@@ -1,0 +1,16 @@
+{
+  if (!queriesInProgress.isEmpty()) {
+    if (gotPreferredAddress()) {
+      finishResolve();
+    }
+    return;
+  }
+  if (resolvedEntries == null) {
+    if (!triedCNAME) {
+      triedCNAME=true;
+      query(nameServerAddrs.next(),new DefaultDnsQuestion(hostname,DnsRecordType.CNAME));
+      return;
+    }
+  }
+  finishResolve();
+}

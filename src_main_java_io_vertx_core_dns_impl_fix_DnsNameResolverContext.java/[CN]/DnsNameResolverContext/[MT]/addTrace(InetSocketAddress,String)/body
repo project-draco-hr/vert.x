@@ -1,0 +1,11 @@
+{
+  assert traceEnabled;
+  if (trace == null) {
+    trace=new StringBuilder(128);
+  }
+  trace.append(StringUtil.NEWLINE);
+  trace.append("\tfrom ");
+  trace.append(nameServerAddr);
+  trace.append(": ");
+  trace.append(msg);
+}

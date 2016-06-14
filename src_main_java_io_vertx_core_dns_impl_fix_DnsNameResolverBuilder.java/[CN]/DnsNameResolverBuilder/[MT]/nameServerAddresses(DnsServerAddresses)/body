@@ -1,0 +1,4 @@
+{
+  this.nameServerAddresses=nameServerAddresses;
+  return this;
+}

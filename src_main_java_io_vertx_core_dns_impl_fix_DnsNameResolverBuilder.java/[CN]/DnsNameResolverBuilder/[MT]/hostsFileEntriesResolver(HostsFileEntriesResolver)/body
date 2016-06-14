@@ -1,0 +1,4 @@
+{
+  this.hostsFileEntriesResolver=hostsFileEntriesResolver;
+  return this;
+}

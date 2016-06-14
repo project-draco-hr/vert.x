@@ -1,0 +1,17 @@
+{
+  final DnsQuestion question=question();
+  final InetSocketAddress nameServerAddr=nameServerAddr();
+  final DatagramDnsQuery query=new DatagramDnsQuery(null,nameServerAddr,id);
+  query.setRecursionDesired(recursionDesired);
+  query.addRecord(DnsSection.QUESTION,question);
+  for (  DnsRecord record : additional) {
+    query.addRecord(DnsSection.ADDITIONAL,record);
+  }
+  if (optResource != null) {
+    query.addRecord(DnsSection.ADDITIONAL,optResource);
+  }
+  if (logger.isDebugEnabled()) {
+    logger.debug("{} WRITE: [{}: {}], {}",parent.ch,id,nameServerAddr,question);
+  }
+  sendQuery(query);
+}
