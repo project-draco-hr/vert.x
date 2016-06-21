@@ -1,0 +1,4 @@
+String hostname
+Promise<InetAddress> promise
+DnsCache resolveCache
+boolean trySearchDomain

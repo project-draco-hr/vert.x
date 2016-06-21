@@ -9,4 +9,6 @@
   this.queryTimeout=other.queryTimeout;
   this.maxQueries=other.maxQueries;
   this.rdFlag=other.rdFlag;
+  this.searchDomains=other.searchDomains != null ? new ArrayList<>(other.searchDomains) : null;
+  this.ndots=other.ndots;
 }

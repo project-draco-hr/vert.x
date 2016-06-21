@@ -1,0 +1,4 @@
+{
+  this.searchDomains=searchDomains;
+  return this;
+}

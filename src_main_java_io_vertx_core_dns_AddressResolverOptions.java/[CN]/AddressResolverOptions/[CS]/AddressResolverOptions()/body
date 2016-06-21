@@ -7,4 +7,6 @@
   queryTimeout=DEFAULT_QUERY_TIMEOUT;
   maxQueries=DEFAULT_MAX_QUERIES;
   rdFlag=DEFAULT_RD_FLAG;
+  searchDomains=null;
+  ndots=DEFAULT_NDOTS;
 }

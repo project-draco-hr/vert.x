@@ -12,6 +12,8 @@
   this.optResourceEnabled=optResourceEnabled;
   this.hostsFileEntriesResolver=checkNotNull(hostsFileEntriesResolver,"hostsFileEntriesResolver");
   this.resolveCache=resolveCache;
+  this.searchDomains=checkNotNull(searchDomains,"searchDomains");
+  this.ndots=checkPositive(ndots,"ndots");
   bindFuture=newChannel(channelFactory,localAddress);
   ch=(DatagramChannel)bindFuture.channel();
   ch.config().setRecvByteBufAllocator(new FixedRecvByteBufAllocator(maxPayloadSize));

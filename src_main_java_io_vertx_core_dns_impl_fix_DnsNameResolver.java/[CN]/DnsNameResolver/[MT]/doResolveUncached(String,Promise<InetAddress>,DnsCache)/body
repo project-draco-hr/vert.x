@@ -1,17 +1,3 @@
 {
-  final DnsNameResolverContext<InetAddress> ctx=new DnsNameResolverContext<InetAddress>(this,hostname,promise,resolveCache){
-    @Override protected boolean finishResolve(    Class<? extends InetAddress> addressType,    List<DnsCacheEntry> resolvedEntries){
-      final int numEntries=resolvedEntries.size();
-      for (int i=0; i < numEntries; i++) {
-        final InetAddress a=resolvedEntries.get(i).address();
-        if (addressType.isInstance(a)) {
-          setSuccess(promise(),a);
-          return true;
-        }
-      }
-      return false;
-    }
-  }
-;
-  ctx.resolve();
+  doResolveUncached(hostname,promise,resolveCache,searchDomains.size() > 0 && !hostname.endsWith("."));
 }

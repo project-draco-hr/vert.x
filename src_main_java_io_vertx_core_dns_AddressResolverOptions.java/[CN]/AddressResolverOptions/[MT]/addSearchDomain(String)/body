@@ -1,0 +1,7 @@
+{
+  if (searchDomains == null) {
+    searchDomains=new ArrayList<>();
+  }
+  searchDomains.add(searchDomain);
+  return this;
+}

@@ -11,3 +11,5 @@ boolean traceEnabled
 int maxPayloadSize
 boolean optResourceEnabled
 HostsFileEntriesResolver hostsFileEntriesResolver
+List<String> searchDomains
+int ndots

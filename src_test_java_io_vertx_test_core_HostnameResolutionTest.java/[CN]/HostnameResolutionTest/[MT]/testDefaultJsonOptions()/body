@@ -8,4 +8,6 @@
   assertEquals(AddressResolverOptions.DEFAULT_QUERY_TIMEOUT,options.getQueryTimeout());
   assertEquals(AddressResolverOptions.DEFAULT_MAX_QUERIES,options.getMaxQueries());
   assertEquals(AddressResolverOptions.DEFAULT_RD_FLAG,options.getRdFlag());
+  assertEquals(AddressResolverOptions.DEFAULT_SEACH_DOMAINS,options.getSearchDomains());
+  assertEquals(AddressResolverOptions.DEFAULT_NDOTS,options.getNdots());
 }

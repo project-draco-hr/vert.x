@@ -1,0 +1,9 @@
+{
+  Map<String,String> records=new HashMap<>();
+  records.put("host1.foo.com","127.0.0.1");
+  dnsServer.stop();
+  dnsServer=FakeDNSServer.testResolveA(records);
+  dnsServer.start();
+  vertx=vertx(new VertxOptions().setAddressResolverOptions(new AddressResolverOptions().addServer(dnsServerAddress.getAddress().getHostAddress() + ":" + dnsServerAddress.getPort()).setOptResourceEnabled(false).addSearchDomain("foo.com")));
+  testNet("host1");
+}

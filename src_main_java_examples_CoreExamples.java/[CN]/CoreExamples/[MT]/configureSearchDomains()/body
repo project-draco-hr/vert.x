@@ -1,0 +1,3 @@
+{
+  Vertx vertx=Vertx.vertx(new VertxOptions().setAddressResolverOptions(new AddressResolverOptions().addSearchDomain("foo.com").addSearchDomain("bar.com")));
+}

@@ -9,5 +9,7 @@
   if (queryTimeout != that.queryTimeout)   return false;
   if (maxQueries != that.maxQueries)   return false;
   if (rdFlag != that.rdFlag)   return false;
+  if (!Objects.equals(searchDomains,that.searchDomains))   return false;
+  if (ndots != that.ndots)   return false;
   return servers != null ? servers.equals(that.servers) : that.servers == null;
 }
