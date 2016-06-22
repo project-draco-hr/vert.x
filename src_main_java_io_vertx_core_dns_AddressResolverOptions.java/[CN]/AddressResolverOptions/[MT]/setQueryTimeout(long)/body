@@ -1,4 +1,7 @@
 {
+  if (queryTimeout < 1) {
+    throw new IllegalArgumentException("queryTimeout must be > 0");
+  }
   this.queryTimeout=queryTimeout;
   return this;
 }

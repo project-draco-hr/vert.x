@@ -1,4 +1,7 @@
 {
+  if (cacheMinTimeToLive < 0) {
+    throw new IllegalArgumentException("cacheMinTimeToLive must be >= 0");
+  }
   this.cacheMinTimeToLive=cacheMinTimeToLive;
   return this;
 }

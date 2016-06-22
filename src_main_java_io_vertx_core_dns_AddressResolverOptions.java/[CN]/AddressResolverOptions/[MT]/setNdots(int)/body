@@ -1,4 +1,7 @@
 {
+  if (ndots < 1) {
+    throw new IllegalArgumentException("ndots must be > 0");
+  }
   this.ndots=ndots;
   return this;
 }

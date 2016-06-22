@@ -1,4 +1,7 @@
 {
+  if (cacheMaxTimeToLive < 0) {
+    throw new IllegalArgumentException("cacheMaxTimeToLive must be >= 0");
+  }
   this.cacheMaxTimeToLive=cacheMaxTimeToLive;
   return this;
 }

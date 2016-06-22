@@ -1,4 +1,7 @@
 {
+  if (maxQueries < 1) {
+    throw new IllegalArgumentException("maxQueries must be > 0");
+  }
   this.maxQueries=maxQueries;
   return this;
 }

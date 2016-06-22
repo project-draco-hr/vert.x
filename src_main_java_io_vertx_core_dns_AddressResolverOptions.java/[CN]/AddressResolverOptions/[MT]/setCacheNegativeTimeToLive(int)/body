@@ -1,4 +1,7 @@
 {
+  if (cacheNegativeTimeToLive < 0) {
+    throw new IllegalArgumentException("cacheNegativeTimeToLive must be >= 0");
+  }
   this.cacheNegativeTimeToLive=cacheNegativeTimeToLive;
   return this;
 }
