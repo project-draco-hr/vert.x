@@ -1,2 +1,0 @@
-ChannelFactory<? extends DatagramChannel> channelFactory
-InetSocketAddress localAddress

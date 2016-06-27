@@ -1,10 +1,10 @@
 {
-  if (parent.bindFuture.isDone()) {
+  if (parent.channelFuture.isDone()) {
     writeQuery(query);
   }
  else {
-    parent.bindFuture.addListener(new ChannelFutureListener(){
-      @Override public void operationComplete(      ChannelFuture future) throws Exception {
+    parent.channelFuture.addListener(new GenericFutureListener<Future<? super Channel>>(){
+      @Override public void operationComplete(      Future<? super Channel> future) throws Exception {
         if (future.isSuccess()) {
           writeQuery(query);
         }

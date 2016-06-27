@@ -1,6 +1,5 @@
 EventLoop eventLoop
 ChannelFactory<? extends DatagramChannel> channelFactory
-InetSocketAddress localAddress
 DnsServerAddresses nameServerAddresses
 DnsCache resolveCache
 long queryTimeoutMillis
