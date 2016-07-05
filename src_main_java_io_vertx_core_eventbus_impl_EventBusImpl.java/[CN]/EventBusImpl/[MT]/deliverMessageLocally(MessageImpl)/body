@@ -4,8 +4,8 @@
   if (handlers != null) {
     if (msg.send()) {
       HandlerHolder holder=handlers.choose();
+      metrics.messageReceived(msg.address(),!msg.send(),isMessageLocal(msg),holder != null ? 1 : 0);
       if (holder != null) {
-        metrics.messageReceived(msg.address(),!msg.send(),isMessageLocal(msg),1);
         deliverToHandler(msg,holder);
       }
     }

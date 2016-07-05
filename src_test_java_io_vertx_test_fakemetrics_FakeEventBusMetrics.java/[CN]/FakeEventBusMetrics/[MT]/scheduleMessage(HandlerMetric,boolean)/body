@@ -1,0 +1,6 @@
+{
+  handler.scheduleCount.incrementAndGet();
+  if (local) {
+    handler.localScheduleCount.incrementAndGet();
+  }
+}

@@ -1,6 +1,6 @@
 {
   handler.beginCount.incrementAndGet();
   if (local) {
-    handler.localCount.incrementAndGet();
+    handler.localBeginCount.incrementAndGet();
   }
 }
