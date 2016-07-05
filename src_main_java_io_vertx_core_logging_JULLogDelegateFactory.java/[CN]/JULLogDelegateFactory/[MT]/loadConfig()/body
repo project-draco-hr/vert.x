@@ -1,0 +1,9 @@
+{
+  try (InputStream is=JULLogDelegateFactory.class.getClassLoader().getResourceAsStream("vertx-default-jul-logging.properties")){
+    if (is != null) {
+      LogManager.getLogManager().readConfiguration(is);
+    }
+  }
+ catch (  IOException ignore) {
+  }
+}

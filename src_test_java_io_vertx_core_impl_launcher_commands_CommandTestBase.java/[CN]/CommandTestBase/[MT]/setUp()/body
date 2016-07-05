@@ -3,5 +3,5 @@
   output=new ByteArrayOutputStream();
   error=new ByteArrayOutputStream();
   LogManager.getLogManager().reset();
-  LogManager.getLogManager().readConfiguration();
+  JULLogDelegateFactory.loadConfig();
 }
