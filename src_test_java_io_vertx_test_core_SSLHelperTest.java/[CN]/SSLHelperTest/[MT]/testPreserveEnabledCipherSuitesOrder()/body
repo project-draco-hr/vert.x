@@ -1,0 +1,19 @@
+{
+  SSLContext context=SSLContext.getInstance("TLS");
+  context.init(null,null,null);
+  SSLEngine engine=context.createSSLEngine();
+  HttpServerOptions options=new HttpServerOptions();
+  for (  String suite : engine.getEnabledCipherSuites()) {
+    options.addEnabledCipherSuite(suite);
+  }
+  assertEquals(new ArrayList<>(options.getEnabledCipherSuites()),Arrays.asList(engine.getEnabledCipherSuites()));
+  assertEquals(new ArrayList<>(new HttpServerOptions(options).getEnabledCipherSuites()),Arrays.asList(engine.getEnabledCipherSuites()));
+  JsonObject json=new JsonObject();
+  NetworkOptionsConverter.toJson(options,json);
+  TCPSSLOptionsConverter.toJson(options,json);
+  NetServerOptionsConverter.toJson(options,json);
+  HttpServerOptionsConverter.toJson(options,json);
+  assertEquals(new ArrayList<>(new HttpServerOptions(json).getEnabledCipherSuites()),Arrays.asList(engine.getEnabledCipherSuites()));
+  SSLHelper helper=new SSLHelper(options,TLSCert.JKS.getServerKeyCertOptions(),null);
+  assertEquals(Arrays.asList(helper.createSslHandler((VertxInternal)vertx).engine().getEnabledCipherSuites()),Arrays.asList(engine.getEnabledCipherSuites()));
+}

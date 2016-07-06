@@ -1,0 +1,20 @@
+{
+  String[] protocols={"SSLv2Hello","TLSv1","TLSv1.1","TLSv1.2"};
+  HttpServerOptions options=new HttpServerOptions();
+  for (  String protocol : protocols) {
+    options.addEnabledSecureTransportProtocol(protocol);
+  }
+  assertEquals(new ArrayList<>(options.getEnabledSecureTransportProtocols()),Arrays.asList(protocols));
+  assertEquals(new ArrayList<>(new HttpServerOptions(options).getEnabledSecureTransportProtocols()),Arrays.asList(protocols));
+  JsonObject json=new JsonObject();
+  NetworkOptionsConverter.toJson(options,json);
+  TCPSSLOptionsConverter.toJson(options,json);
+  NetServerOptionsConverter.toJson(options,json);
+  HttpServerOptionsConverter.toJson(options,json);
+  assertEquals(new ArrayList<>(new HttpServerOptions(json).getEnabledSecureTransportProtocols()),Arrays.asList(protocols));
+  SSLHelper helper=new SSLHelper(options,TLSCert.JKS.getServerKeyCertOptions(),null);
+  List<String> engineProtocols=Arrays.asList(helper.createSslHandler((VertxInternal)vertx).engine().getEnabledProtocols());
+  List<String> expectedProtocols=new ArrayList<>(Arrays.asList(protocols));
+  expectedProtocols.retainAll(engineProtocols);
+  assertEquals(engineProtocols,expectedProtocols);
+}
