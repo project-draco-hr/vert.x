@@ -9,7 +9,9 @@
       metrics.responseEnd(reqMetric,currentResponse);
     }
   }
-  currentResponse.handleEnd(pausedChunk,new HeadersAdaptor(trailer.trailingHeaders()));
+  Buffer last=pausedChunk;
+  pausedChunk=null;
+  currentResponse.handleEnd(last,new HeadersAdaptor(trailer.trailingHeaders()));
   if (currentResponse.statusCode() != 100 && requestForResponse.method() != io.vertx.core.http.HttpMethod.CONNECT) {
     boolean close=false;
     String responseConnectionHeader=currentResponse.getHeader(HttpHeaders.Names.CONNECTION);
