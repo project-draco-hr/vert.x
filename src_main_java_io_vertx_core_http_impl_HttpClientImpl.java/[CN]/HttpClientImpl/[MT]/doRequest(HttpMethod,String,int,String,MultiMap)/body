@@ -3,6 +3,22 @@
   Objects.requireNonNull(host,"no null host accepted");
   Objects.requireNonNull(relativeURI,"no null relativeURI accepted");
   checkClosed();
+  ProxyOptions proxyOptions=options.getProxyOptions();
+  if (!options.isSsl() && proxyOptions != null && proxyOptions.getType() == ProxyType.HTTP) {
+    if (headers == null) {
+      headers=MultiMap.caseInsensitiveMultiMap();
+    }
+    relativeURI="http://" + host + (port != 80 ? ":" + port : "")+ relativeURI;
+    host=proxyOptions.getHost();
+    port=proxyOptions.getPort();
+    log.debug("changing request to proxy request " + relativeURI);
+    log.debug("username " + proxyOptions.getUsername() + " password "+ proxyOptions.getPassword());
+    if (proxyOptions.getUsername() != null && proxyOptions.getPassword() != null) {
+      log.debug("adding authorization header");
+      headers.add("Proxy-Authorization","Basic " + Base64.getEncoder().encodeToString((proxyOptions.getUsername() + ":" + proxyOptions.getPassword()).getBytes()));
+    }
+    headers.add("Host",host + (port != 80 ? ":" + port : ""));
+  }
   HttpClientRequest req=new HttpClientRequestImpl(this,method,host,port,options.isSsl(),relativeURI,vertx);
   if (headers != null) {
     req.headers().setAll(headers);

@@ -1,2 +1,3 @@
 {
+  expectStatusError(0,407,"user","http://localhost/");
 }

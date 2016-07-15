@@ -1,0 +1,4 @@
+int error
+int responseStatus
+String username
+String url
