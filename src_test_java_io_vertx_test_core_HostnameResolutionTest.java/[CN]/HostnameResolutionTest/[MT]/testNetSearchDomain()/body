@@ -4,6 +4,7 @@
   dnsServer.stop();
   dnsServer=FakeDNSServer.testResolveA(records);
   dnsServer.start();
+  vertx.close();
   vertx=vertx(new VertxOptions().setAddressResolverOptions(new AddressResolverOptions().addServer(dnsServerAddress.getAddress().getHostAddress() + ":" + dnsServerAddress.getPort()).setOptResourceEnabled(false).addSearchDomain("foo.com")));
   testNet("host1");
 }
