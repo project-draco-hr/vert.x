@@ -1,3 +1,0 @@
-InetSocketAddress nameServerAddr
-DnsQuestion question
-Iterable<DnsRecord> additional

@@ -1,5 +1,0 @@
-DnsNameResolver parent
-InetSocketAddress nameServerAddr
-DnsQuestion question
-Iterable<DnsRecord> additional
-Promise<AddressedEnvelope<DnsResponse,InetSocketAddress>> promise

@@ -1,3 +1,0 @@
-{
-  return IDN.toASCII(inetHost);
-}

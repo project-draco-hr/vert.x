@@ -1,3 +1,0 @@
-{
-  doResolveUncached(hostname,promise,resolveCache,searchDomains.size() > 0 && !hostname.endsWith("."));
-}

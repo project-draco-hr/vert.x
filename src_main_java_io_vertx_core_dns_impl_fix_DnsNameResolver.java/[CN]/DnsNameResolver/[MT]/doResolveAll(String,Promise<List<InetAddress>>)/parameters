@@ -1,2 +1,0 @@
-String inetHost
-Promise<List<InetAddress>> promise

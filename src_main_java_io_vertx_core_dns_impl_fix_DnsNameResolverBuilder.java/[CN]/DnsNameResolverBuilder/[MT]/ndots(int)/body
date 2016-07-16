@@ -1,4 +1,0 @@
-{
-  this.ndots=ndots;
-  return this;
-}

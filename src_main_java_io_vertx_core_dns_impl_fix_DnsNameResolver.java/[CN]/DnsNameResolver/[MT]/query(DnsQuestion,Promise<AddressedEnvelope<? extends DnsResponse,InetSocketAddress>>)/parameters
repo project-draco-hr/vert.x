@@ -1,2 +1,0 @@
-DnsQuestion question
-Promise<AddressedEnvelope<? extends DnsResponse,InetSocketAddress>> promise

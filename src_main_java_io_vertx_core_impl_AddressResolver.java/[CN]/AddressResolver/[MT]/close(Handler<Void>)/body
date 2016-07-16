@@ -1,0 +1,9 @@
+{
+  if (resolverGroup instanceof AsyncCloseableResolverGroup) {
+    ((AsyncCloseableResolverGroup)resolverGroup).close(doneHandler);
+  }
+ else {
+    resolverGroup.close();
+    doneHandler.handle(null);
+  }
+}

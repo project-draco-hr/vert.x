@@ -1,2 +1,0 @@
-DnsQuestion question
-Iterable<DnsRecord> additional

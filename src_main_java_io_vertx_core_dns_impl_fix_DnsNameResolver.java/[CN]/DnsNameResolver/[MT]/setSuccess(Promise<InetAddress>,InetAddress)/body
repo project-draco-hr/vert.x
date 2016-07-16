@@ -1,5 +1,0 @@
-{
-  if (!promise.trySuccess(result)) {
-    logger.warn("Failed to notify success ({}) to a promise: {}",result,promise);
-  }
-}

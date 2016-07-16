@@ -1,4 +1,0 @@
-DnsNameResolver parent
-String hostname
-Promise<T> promise
-DnsCache resolveCache

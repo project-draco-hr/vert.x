@@ -1,3 +1,0 @@
-{
-  doResolve(inetHost,promise,resolveCache);
-}

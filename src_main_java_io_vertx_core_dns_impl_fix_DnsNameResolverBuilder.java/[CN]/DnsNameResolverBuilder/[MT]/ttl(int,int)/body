@@ -1,5 +1,0 @@
-{
-  this.maxTtl=maxTtl;
-  this.minTtl=minTtl;
-  return this;
-}

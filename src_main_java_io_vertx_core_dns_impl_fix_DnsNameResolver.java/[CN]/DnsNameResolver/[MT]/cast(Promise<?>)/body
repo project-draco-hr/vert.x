@@ -1,3 +1,0 @@
-{
-  return (Promise<AddressedEnvelope<DnsResponse,InetSocketAddress>>)promise;
-}

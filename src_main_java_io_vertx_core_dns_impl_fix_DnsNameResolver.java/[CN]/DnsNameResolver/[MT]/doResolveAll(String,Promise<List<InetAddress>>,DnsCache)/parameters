@@ -1,3 +1,0 @@
-String inetHost
-Promise<List<InetAddress>> promise
-DnsCache resolveCache

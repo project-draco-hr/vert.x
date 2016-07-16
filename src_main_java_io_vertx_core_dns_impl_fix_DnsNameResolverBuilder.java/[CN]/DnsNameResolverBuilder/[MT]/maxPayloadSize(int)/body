@@ -1,4 +1,0 @@
-{
-  this.maxPayloadSize=maxPayloadSize;
-  return this;
-}

@@ -1,3 +1,0 @@
-DnsRecordType qType
-DnsQuestion question
-AddressedEnvelope<DnsResponse,InetSocketAddress> envelope

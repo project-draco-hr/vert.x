@@ -1,4 +1,0 @@
-{
-  this.maxQueriesPerResolve=maxQueriesPerResolve;
-  return this;
-}

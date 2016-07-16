@@ -1,4 +1,0 @@
-{
-  this.negativeTtl=negativeTtl;
-  return this;
-}

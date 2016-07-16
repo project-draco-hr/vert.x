@@ -1,4 +1,0 @@
-{
-  super.channelActive(ctx);
-  channelActivePromise.setSuccess(ctx.channel());
-}

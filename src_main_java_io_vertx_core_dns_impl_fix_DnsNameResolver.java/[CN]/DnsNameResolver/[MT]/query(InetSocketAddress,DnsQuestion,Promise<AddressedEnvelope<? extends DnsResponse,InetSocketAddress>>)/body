@@ -1,3 +1,0 @@
-{
-  return query0(nameServerAddr,question,Collections.<DnsRecord>emptyList(),promise);
-}

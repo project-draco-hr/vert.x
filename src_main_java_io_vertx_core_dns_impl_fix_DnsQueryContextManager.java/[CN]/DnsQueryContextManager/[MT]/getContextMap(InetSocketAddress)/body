@@ -1,5 +1,0 @@
-{
-synchronized (map) {
-    return map.get(nameServerAddr);
-  }
-}
