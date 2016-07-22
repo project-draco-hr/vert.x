@@ -1,6 +1,6 @@
 {
-  if (ndots < 1) {
-    throw new IllegalArgumentException("ndots must be > 0");
+  if (ndots < -1) {
+    throw new IllegalArgumentException("ndots must be >= -1");
   }
   this.ndots=ndots;
   return this;

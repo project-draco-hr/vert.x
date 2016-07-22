@@ -1,0 +1,8 @@
+{
+  int ndots=-1;
+  Matcher matcher=NDOTS_OPTIONS_PATTERN.matcher(s);
+  while (matcher.find()) {
+    ndots=Integer.parseInt(matcher.group(1));
+  }
+  return ndots;
+}

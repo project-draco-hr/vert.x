@@ -18,7 +18,7 @@
   int queryTimeout=1 + TestUtils.randomPositiveInt();
   int maxQueries=1 + TestUtils.randomPositiveInt();
   boolean rdFlag=TestUtils.randomBoolean();
-  int ndots=TestUtils.randomPositiveInt();
+  int ndots=TestUtils.randomPositiveInt() - 2;
   List<String> searchDomains=new ArrayList<>();
   for (int i=0; i < 2; i++) {
     searchDomains.add(TestUtils.randomAlphaString(15));
@@ -67,7 +67,7 @@
   assertSame(options,options.setSearchDomains(searchDomains));
   assertSame(options,options.setNdots(ndots));
   try {
-    options.setNdots(0);
+    options.setNdots(-2);
     fail("Should throw exception");
   }
  catch (  IllegalArgumentException e) {
