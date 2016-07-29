@@ -1,7 +1,7 @@
 {
   boolean changed=false;
   for (  File toWatch : new HashSet<>(filesToWatch)) {
-    Map<File,File> newFiles=new HashMap<>();
+    Map<File,File> newFiles=new LinkedHashMap<>();
     if (toWatch.isDirectory()) {
       File[] files=toWatch.exists() ? toWatch.listFiles() : new File[]{};
       if (files == null) {
