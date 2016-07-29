@@ -1,0 +1,4 @@
+{
+  inHandler=false;
+  return numPush > 0;
+}

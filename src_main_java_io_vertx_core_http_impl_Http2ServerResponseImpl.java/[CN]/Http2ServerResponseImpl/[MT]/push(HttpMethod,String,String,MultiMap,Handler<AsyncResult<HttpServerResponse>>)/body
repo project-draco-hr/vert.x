@@ -5,6 +5,10 @@ synchronized (conn) {
     }
     checkEnded();
     conn.sendPush(stream.id(),host,method,headers,path,handler);
+    if (!inHandler) {
+      ctx.flush();
+    }
+    numPush++;
     return this;
   }
 }
