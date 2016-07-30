@@ -1,0 +1,6 @@
+{
+  if (closeHooks == null) {
+    closeHooks=new ConcurrentHashSet<>();
+  }
+  closeHooks.add(hook);
+}

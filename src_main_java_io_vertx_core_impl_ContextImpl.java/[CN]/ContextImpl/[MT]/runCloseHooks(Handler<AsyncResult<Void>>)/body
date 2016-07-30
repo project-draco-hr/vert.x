@@ -1,2 +1,4 @@
 {
+  closeHooks.run(completionHandler);
+  VertxThreadFactory.unsetContext(this);
 }

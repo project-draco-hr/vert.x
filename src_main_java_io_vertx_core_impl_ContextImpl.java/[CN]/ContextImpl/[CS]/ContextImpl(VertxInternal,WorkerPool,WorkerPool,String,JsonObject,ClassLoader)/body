@@ -17,4 +17,5 @@
   this.internalBlockingPool=internalBlockingPool;
   this.orderedInternalPoolExec=internalBlockingPool.createOrderedExecutor();
   this.workerExec=workerPool.createOrderedExecutor();
+  this.closeHooks=new CloseHooks(log);
 }
