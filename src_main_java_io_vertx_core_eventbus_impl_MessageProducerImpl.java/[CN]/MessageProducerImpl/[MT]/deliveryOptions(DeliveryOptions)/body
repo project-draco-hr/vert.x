@@ -1,4 +1,8 @@
 {
+  if (creditConsumer != null) {
+    options=new DeliveryOptions(options);
+    options.addHeader(CREDIT_ADDRESS_HEADER_NAME,this.options.getHeaders().get(CREDIT_ADDRESS_HEADER_NAME));
+  }
   this.options=options;
   return this;
 }
