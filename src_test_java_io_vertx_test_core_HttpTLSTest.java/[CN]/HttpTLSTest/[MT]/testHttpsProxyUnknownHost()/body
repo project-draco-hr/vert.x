@@ -1,7 +1,8 @@
 {
   startProxy(null,ProxyType.HTTP);
   proxy.setForceUri("localhost:4043");
-  testTLS(TLSCert.NONE,TLSCert.JKS,TLSCert.JKS,TLSCert.NONE).useProxy().useProxyAuth().connectHostname("doesnt-resolve.host-name").clientTrustAll().clientVerifyHost(false).pass();
+  testTLS(TLSCert.NONE,TLSCert.JKS,TLSCert.JKS,TLSCert.NONE).useProxy().connectHostname("doesnt-resolve.host-name").clientTrustAll().clientVerifyHost(false).pass();
   assertNotNull("connection didn't access the proxy",proxy.getLastUri());
   assertEquals("hostname resolved but it shouldn't be","doesnt-resolve.host-name:4043",proxy.getLastUri());
+  assertEquals("Host header doesn't contain target host","doesnt-resolve.host-name:4043",proxy.getLastRequestHeaders().get("Host"));
 }
