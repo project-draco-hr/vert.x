@@ -42,7 +42,7 @@
       if (!currentFileMap.containsKey(newFile)) {
         currentFileMap.put(newFile,new FileInfo(newFile.lastModified(),newFile.length()));
         if (newFile.isDirectory()) {
-          addFileToWatch(newFile);
+          addFileToWatchedList(newFile);
         }
         LOGGER.trace("File was added: " + newFile);
         if (match(newFile)) {

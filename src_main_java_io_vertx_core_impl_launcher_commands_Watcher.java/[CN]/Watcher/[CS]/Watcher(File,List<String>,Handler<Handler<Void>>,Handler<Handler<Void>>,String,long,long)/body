@@ -8,5 +8,5 @@
   this.undeploy=undeploy;
   this.cmd=onRedeployCommand;
   this.scanPeriod=scanPeriod;
-  addFileToWatch(roots);
+  addFilesToWatchedList(roots);
 }
