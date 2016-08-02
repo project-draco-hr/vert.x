@@ -1,0 +1,11 @@
+{
+  Future<String> f1=Future.future();
+  Future<Integer> f2=Future.future();
+  CompositeFuture composite=join.apply(f1,f2);
+  Checker<CompositeFuture> checker=new Checker<>(composite);
+  checker.assertNotCompleted();
+  f1.complete("foo");
+  checker.assertNotCompleted();
+  f2.complete();
+  checker.assertSucceeded(composite);
+}
