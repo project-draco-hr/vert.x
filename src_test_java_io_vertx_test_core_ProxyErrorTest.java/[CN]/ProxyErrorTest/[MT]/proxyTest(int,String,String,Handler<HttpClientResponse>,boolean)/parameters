@@ -1,0 +1,5 @@
+int error
+String username
+String url
+Handler<HttpClientResponse> assertResponse
+boolean completeOnException

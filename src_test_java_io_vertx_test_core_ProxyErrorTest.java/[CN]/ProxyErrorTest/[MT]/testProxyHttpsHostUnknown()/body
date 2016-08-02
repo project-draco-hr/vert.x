@@ -1,0 +1,3 @@
+{
+  expectProxyException(0,null,"https://unknown.hostname/");
+}
