@@ -1,10 +1,25 @@
 {
-  if (!file.getAbsolutePath().startsWith(root.getAbsolutePath())) {
+  String rel=null;
+  String relFromCwd=null;
+  for (  File root : roots) {
+    if (file.getAbsolutePath().startsWith(root.getAbsolutePath())) {
+      if (file.getAbsolutePath().equals(root.getAbsolutePath())) {
+        rel=file.getAbsolutePath();
+      }
+ else {
+        rel=file.getAbsolutePath().substring(root.getAbsolutePath().length() + 1);
+      }
+    }
+  }
+  if (rel == null) {
+    LOGGER.warn("A change in " + file.getAbsolutePath() + " has been detected, but the file does not belong to a "+ "watched roots: "+ roots);
     return false;
   }
-  String rel=file.getAbsolutePath().substring(root.getAbsolutePath().length() + 1);
+  if (file.getAbsolutePath().startsWith(cwd.getAbsolutePath())) {
+    relFromCwd=file.getAbsolutePath().substring(cwd.getAbsolutePath().length() + 1);
+  }
   for (  String include : includes) {
-    if (FileSelector.matchPath(include,rel,!ExecUtils.isWindows()) || FileSelector.matchPath(include,file.getAbsolutePath(),!ExecUtils.isWindows())) {
+    if ((relFromCwd != null && FileSelector.matchPath(include,relFromCwd,!ExecUtils.isWindows())) || FileSelector.matchPath(include,file.getAbsolutePath(),!ExecUtils.isWindows())) {
       return true;
     }
   }

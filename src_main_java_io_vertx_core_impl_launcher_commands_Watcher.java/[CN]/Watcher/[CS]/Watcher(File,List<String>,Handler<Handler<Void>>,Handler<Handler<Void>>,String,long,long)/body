@@ -1,10 +1,12 @@
 {
   this.gracePeriod=gracePeriod;
-  this.root=root;
   this.includes=sanitizeIncludePatterns(includes);
+  this.roots=extractRoots(root,this.includes);
+  this.cwd=root;
+  LOGGER.info("Watched paths: " + this.roots);
   this.deploy=deploy;
   this.undeploy=undeploy;
   this.cmd=onRedeployCommand;
   this.scanPeriod=scanPeriod;
-  addFileToWatch(root);
+  addFilesToWatchedList(roots);
 }

@@ -7,7 +7,7 @@
       for (      File child : children) {
         map.put(child,new FileInfo(child.lastModified(),child.length()));
         if (child.isDirectory()) {
-          addFileToWatch(child);
+          addFileToWatchedList(child);
         }
       }
     }

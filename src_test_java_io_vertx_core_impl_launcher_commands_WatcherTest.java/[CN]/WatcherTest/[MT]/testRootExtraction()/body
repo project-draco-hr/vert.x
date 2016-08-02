@@ -1,0 +1,32 @@
+{
+  List<String> patterns=new ArrayList<>();
+  patterns.add("src/main/java/**/*.java");
+  List<File> results=Watcher.extractRoots(root,patterns);
+  assertThat(results).hasSize(1);
+  assertThat(results.get(0).getAbsolutePath()).contains(root.getAbsolutePath());
+  patterns.clear();
+  patterns.add(root.getParentFile().getAbsolutePath());
+  results=Watcher.extractRoots(root,patterns);
+  assertThat(results).hasSize(1);
+  assertThat(results.get(0).getAbsolutePath()).contains(root.getParentFile().getAbsolutePath());
+  patterns.clear();
+  patterns.add("**/*.java");
+  results=Watcher.extractRoots(root,patterns);
+  assertThat(results).hasSize(1);
+  assertThat(results.get(0).getAbsolutePath()).contains(root.getAbsolutePath());
+  patterns.clear();
+  patterns.add(root.getParentFile().getAbsolutePath() + "/**/*.java");
+  results=Watcher.extractRoots(root,patterns);
+  assertThat(results).hasSize(1);
+  assertThat(results.get(0).getAbsolutePath()).contains(root.getParentFile().getAbsolutePath());
+  patterns.clear();
+  patterns.add(root.getParentFile().getAbsolutePath() + "/foo.txt");
+  results=Watcher.extractRoots(root,patterns);
+  assertThat(results).hasSize(1);
+  assertThat(results.get(0).getAbsolutePath()).contains(root.getParentFile().getAbsolutePath());
+  patterns.clear();
+  patterns.add("foo.txt");
+  results=Watcher.extractRoots(root,patterns);
+  assertThat(results).hasSize(1);
+  assertThat(results.get(0).getAbsolutePath()).contains(root.getParentFile().getAbsolutePath());
+}
