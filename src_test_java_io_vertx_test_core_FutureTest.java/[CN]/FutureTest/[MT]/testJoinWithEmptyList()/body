@@ -1,0 +1,4 @@
+{
+  CompositeFuture composite=CompositeFuture.join(Collections.emptyList());
+  assertTrue(composite.isComplete());
+}

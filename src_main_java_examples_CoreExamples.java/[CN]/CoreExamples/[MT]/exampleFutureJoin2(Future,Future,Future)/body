@@ -1,0 +1,3 @@
+{
+  CompositeFuture.join(Arrays.asList(future1,future2,future3));
+}

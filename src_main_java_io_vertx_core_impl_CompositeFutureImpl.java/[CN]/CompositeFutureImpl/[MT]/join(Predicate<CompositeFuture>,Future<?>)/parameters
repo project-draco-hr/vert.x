@@ -1,0 +1,2 @@
+Predicate<CompositeFuture> pred
+Future<?> results
