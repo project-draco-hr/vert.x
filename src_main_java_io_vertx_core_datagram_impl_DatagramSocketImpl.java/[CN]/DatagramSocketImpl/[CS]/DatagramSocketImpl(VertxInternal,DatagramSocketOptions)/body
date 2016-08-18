@@ -11,4 +11,5 @@
   }
   channel.pipeline().addLast("handler",new DatagramServerHandler(this));
   channel().config().setMaxMessagesPerRead(1);
+  channel().config().setAllocator(PartialPooledByteBufAllocator.INSTANCE);
 }
