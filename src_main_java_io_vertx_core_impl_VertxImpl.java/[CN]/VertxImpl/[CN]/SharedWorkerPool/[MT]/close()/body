@@ -1,7 +1,7 @@
 {
 synchronized (VertxImpl.this) {
-    if (--refCount == 0) {
-      releaseWorkerExecutor(name);
+    if (refCount > 0) {
+      refCount=0;
       super.close();
     }
   }
