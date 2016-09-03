@@ -1,3 +1,5 @@
 ContextImpl context
 Channel ch
 Handler<AsyncResult<NetSocket>> connectHandler
+String host
+int port
