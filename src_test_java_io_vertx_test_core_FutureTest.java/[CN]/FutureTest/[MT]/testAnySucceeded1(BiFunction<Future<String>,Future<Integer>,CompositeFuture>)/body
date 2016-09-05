@@ -4,8 +4,8 @@
   CompositeFuture composite=any.apply(f1,f2);
   Checker<CompositeFuture> checker=new Checker<>(composite);
   checker.assertNotCompleted();
-  assertEquals(null,composite.<String>result(0));
-  assertEquals(null,composite.<Integer>result(1));
+  assertEquals(null,composite.<String>resultAt(0));
+  assertEquals(null,composite.<Integer>resultAt(1));
   f1.complete("something");
   checker.assertSucceeded(composite);
   f2.complete(3);
