@@ -1,7 +1,5 @@
 {
-  Vertx vertx=vertices[pos];
-  if (++pos == numNodes) {
-    pos=0;
-  }
-  return vertx;
+  int i=pos.incrementAndGet();
+  i=mod(i,numNodes);
+  return vertices[i];
 }
