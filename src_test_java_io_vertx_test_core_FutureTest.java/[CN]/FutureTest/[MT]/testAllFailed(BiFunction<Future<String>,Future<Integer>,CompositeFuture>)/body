@@ -7,6 +7,6 @@
   Exception cause=new Exception();
   f2.fail(cause);
   checker.assertFailed(cause);
-  assertEquals("s",composite.result(0));
-  assertEquals(null,composite.<Integer>result(1));
+  assertEquals("s",composite.resultAt(0));
+  assertEquals(null,composite.<Integer>resultAt(1));
 }
