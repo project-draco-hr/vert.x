@@ -1,7 +1,8 @@
 VertxInternal vertx
 Channel channel
+String host
+int port
 ContextImpl context
 SSLHelper helper
-boolean client
 TCPMetrics metrics
 Object metric
