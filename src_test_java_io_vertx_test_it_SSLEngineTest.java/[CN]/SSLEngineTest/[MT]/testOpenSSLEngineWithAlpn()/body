@@ -1,3 +1,3 @@
 {
-  doTest(new OpenSSLEngineOptions(),true,HttpVersion.HTTP_2,OPEN_SSL ? "OpenSSL is not available" : null,"openssl");
+  doTest(new OpenSSLEngineOptions(),true,HttpVersion.HTTP_2,OPEN_SSL ? "OpenSSL is not available" : null,"openssl",true);
 }

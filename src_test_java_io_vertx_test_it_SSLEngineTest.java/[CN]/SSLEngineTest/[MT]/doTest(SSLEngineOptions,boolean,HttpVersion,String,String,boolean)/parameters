@@ -3,3 +3,4 @@ boolean useAlpn
 HttpVersion version
 String error
 String expectedSslContext
+boolean expectCause
