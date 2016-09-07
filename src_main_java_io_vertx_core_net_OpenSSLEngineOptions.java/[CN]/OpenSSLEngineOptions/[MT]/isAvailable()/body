@@ -1,4 +1,3 @@
 {
-  OpenSsl.unavailabilityCause();
   return OpenSsl.isAvailable();
 }
