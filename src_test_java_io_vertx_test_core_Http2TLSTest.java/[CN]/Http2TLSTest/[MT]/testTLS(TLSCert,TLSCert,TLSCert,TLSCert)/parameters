@@ -1,4 +1,0 @@
-TLSCert clientCert
-TLSCert clientTrust
-TLSCert serverCert
-TLSCert serverTrust

@@ -3,7 +3,7 @@
   if (!testDefault) {
     httpServerOptions.setOpenSslEngineOptions(new OpenSSLEngineOptions().setSessionCacheEnabled(false));
   }
-  SSLHelper defaultHelper=new SSLHelper(httpServerOptions,TLSCert.PEM.getServerKeyCertOptions(),TLSCert.PEM.getServerTrustOptions());
+  SSLHelper defaultHelper=new SSLHelper(httpServerOptions,Cert.SERVER_PEM.get(),Trust.SERVER_PEM.get());
   SslContext ctx=defaultHelper.getContext((VertxInternal)vertx);
   assertTrue(ctx instanceof OpenSslServerContext);
   SSLSessionContext sslSessionContext=ctx.sessionContext();

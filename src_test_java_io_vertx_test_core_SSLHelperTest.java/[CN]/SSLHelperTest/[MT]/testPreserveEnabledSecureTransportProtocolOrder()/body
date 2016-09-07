@@ -12,7 +12,7 @@
   NetServerOptionsConverter.toJson(options,json);
   HttpServerOptionsConverter.toJson(options,json);
   assertEquals(new ArrayList<>(new HttpServerOptions(json).getEnabledSecureTransportProtocols()),Arrays.asList(protocols));
-  SSLHelper helper=new SSLHelper(options,TLSCert.JKS.getServerKeyCertOptions(),null);
+  SSLHelper helper=new SSLHelper(options,Cert.SERVER_JKS.get(),null);
   List<String> engineProtocols=Arrays.asList(helper.createSslHandler((VertxInternal)vertx).engine().getEnabledProtocols());
   List<String> expectedProtocols=new ArrayList<>(Arrays.asList(protocols));
   expectedProtocols.retainAll(engineProtocols);

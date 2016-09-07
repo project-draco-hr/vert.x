@@ -1,7 +1,7 @@
-TLSCert clientCert
-TLSCert clientTrust
-TLSCert serverCert
-TLSCert serverTrust
+Cert<?> clientCert
+Trust<?> clientTrust
+Cert<?> serverCert
+Trust<?> serverTrust
 boolean requireClientAuth
 boolean serverUsesCrl
 boolean clientTrustAll

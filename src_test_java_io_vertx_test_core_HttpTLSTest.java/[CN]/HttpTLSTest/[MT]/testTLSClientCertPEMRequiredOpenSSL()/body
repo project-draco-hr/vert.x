@@ -1,3 +1,3 @@
 {
-  testTLS(TLSCert.PEM,TLSCert.JKS,TLSCert.JKS,TLSCert.JKS).clientOpenSSL().requiresClientAuth().pass();
+  testTLS(Cert.CLIENT_PEM,Trust.SERVER_JKS,Cert.SERVER_JKS,Trust.CLIENT_JKS).clientOpenSSL().requiresClientAuth().pass();
 }

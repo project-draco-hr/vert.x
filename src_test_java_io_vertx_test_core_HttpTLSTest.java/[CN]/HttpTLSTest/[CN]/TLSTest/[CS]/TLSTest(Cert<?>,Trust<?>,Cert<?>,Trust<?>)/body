@@ -1,0 +1,7 @@
+{
+  this.version=HttpVersion.HTTP_1_1;
+  this.clientCert=clientCert.get();
+  this.clientTrust=clientTrust.get();
+  this.serverCert=serverCert.get();
+  this.serverTrust=serverTrust.get();
+}

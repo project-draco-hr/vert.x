@@ -1,5 +1,5 @@
-TLSCert cert
-TLSCert trust
+Cert<?> cert
+Trust<?> trust
 boolean requireClientAuth
 boolean clientTrustAll
 boolean useCrl

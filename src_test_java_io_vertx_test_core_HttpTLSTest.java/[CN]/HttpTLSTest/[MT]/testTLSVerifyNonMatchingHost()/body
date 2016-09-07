@@ -1,3 +1,3 @@
 {
-  testTLS(TLSCert.NONE,TLSCert.NONE,TLSCert.MIM,TLSCert.NONE).clientTrustAll().clientVerifyHost().fail();
+  testTLS(Cert.NONE,Trust.NONE,Cert.SERVER_MIM,Trust.NONE).clientTrustAll().clientVerifyHost().fail();
 }

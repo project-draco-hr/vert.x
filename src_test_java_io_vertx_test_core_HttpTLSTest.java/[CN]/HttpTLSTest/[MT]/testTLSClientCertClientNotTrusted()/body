@@ -1,3 +1,3 @@
 {
-  testTLS(TLSCert.JKS,TLSCert.JKS,TLSCert.JKS,TLSCert.NONE).requiresClientAuth().fail();
+  testTLS(Cert.CLIENT_JKS,Trust.SERVER_JKS,Cert.SERVER_JKS,Trust.NONE).requiresClientAuth().fail();
 }

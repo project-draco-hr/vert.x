@@ -1,3 +1,3 @@
 {
-  testKeyStore(TLSCert.JKS.getServerKeyCertOptions());
+  testKeyStore(Cert.SERVER_JKS.get());
 }

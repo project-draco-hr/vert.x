@@ -1,6 +1,6 @@
 {
   eventLoopGroups.clear();
   super.setUp();
-  clientOptions=new HttpClientOptions().setUseAlpn(true).setTrustStoreOptions((JksOptions)TLSCert.JKS.getClientTrustOptions()).setProtocolVersion(HttpVersion.HTTP_2);
+  clientOptions=new HttpClientOptions().setUseAlpn(true).setTrustStoreOptions(Trust.SERVER_JKS.get()).setProtocolVersion(HttpVersion.HTTP_2);
   client=vertx.createHttpClient(clientOptions);
 }
