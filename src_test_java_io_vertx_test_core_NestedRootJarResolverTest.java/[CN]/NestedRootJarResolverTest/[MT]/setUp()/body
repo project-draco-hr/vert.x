@@ -1,0 +1,9 @@
+{
+  super.setUp();
+  webRoot="webroot2";
+  prevCL=Thread.currentThread().getContextClassLoader();
+  URL jarUrl=prevCL.getResource("nestedroot.jar");
+  URL rootUrl=new URL("jar:" + jarUrl + "!/nested-inf/classes!/");
+  URLClassLoader urlClassLoader=new URLClassLoader(new URL[]{rootUrl},prevCL);
+  Thread.currentThread().setContextClassLoader(urlClassLoader);
+}
