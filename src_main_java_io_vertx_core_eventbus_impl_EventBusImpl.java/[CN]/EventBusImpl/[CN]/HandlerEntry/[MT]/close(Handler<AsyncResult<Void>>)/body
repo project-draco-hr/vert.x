@@ -1,4 +1,3 @@
 {
   handler.unregister(completionHandler);
-  completionHandler.handle(Future.succeededFuture());
 }
