@@ -19,12 +19,19 @@
       File file=resolveFile(s);
       zip=new ZipFile(file);
     }
+    String inJarPath=path.substring(idx1 + 6);
+    String[] parts=JAR_URL_SEP_PATTERN.split(inJarPath);
+    StringBuilder prefixBuilder=new StringBuilder();
+    for (int i=0; i < parts.length - 1; i++) {
+      prefixBuilder.append(parts[i]).append("/");
+    }
+    String prefix=prefixBuilder.toString();
     Enumeration<? extends ZipEntry> entries=zip.entries();
     while (entries.hasMoreElements()) {
       ZipEntry entry=entries.nextElement();
       String name=entry.getName();
-      if (name.startsWith(fileName)) {
-        File file=new File(cacheDir,name);
+      if (name.startsWith(prefix.isEmpty() ? fileName : prefix + fileName)) {
+        File file=new File(cacheDir,prefix.isEmpty() ? name : name.substring(prefix.length()));
         if (name.endsWith("/")) {
           file.mkdirs();
         }
