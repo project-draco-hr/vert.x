@@ -1,3 +1,3 @@
 {
-  logger.log(level,new FormattedMessage(message,params),t);
+  logger.logIfEnabled(FQCN,level,null,new FormattedMessage(message,params),t);
 }

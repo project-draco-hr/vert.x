@@ -1,0 +1,10 @@
+{
+  Logger logger=LoggerFactory.getLogger("my-log4j2-logger");
+  String result=recording.execute(new Runnable(){
+    @Override public void run(){
+      logger.warn("hello");
+    }
+  }
+);
+  assertTrue(result.contains(".run:"));
+}
