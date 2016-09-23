@@ -1,7 +1,7 @@
 {
   final ClassLoader originalClassLoader=Thread.currentThread().getContextClassLoader();
   try {
-    Thread.currentThread().setContextClassLoader(classloader);
+    Thread.currentThread().setContextClassLoader(classloader != null ? classloader : getClass().getClassLoader());
     Vertx.clusteredVertx(options,resultHandler);
   }
  catch (  Exception e) {
