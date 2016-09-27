@@ -1,0 +1,4 @@
+{
+  int i=idx % size;
+  return i < 0 ? i + size : i;
+}
